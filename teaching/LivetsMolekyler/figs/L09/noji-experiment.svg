@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" width="820" height="500">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="120" y="420" width="580" height="26" rx="2" fill="#dde7ee" stroke="#666666" stroke-width="1.5"/>
+<text x="410" y="475.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">Glasyta där huvudet är fastsatt med sina undersidor</text>
+<ellipse cx="345" cy="345" rx="40" ry="72" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<ellipse cx="410" cy="345" rx="40" ry="72" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<ellipse cx="475" cy="345" rx="40" ry="72" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="398" y="215" width="24" height="70" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<circle cx="410" cy="205" r="13" fill="#f2df7a" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="418" cy="200.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="429" cy="197.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="440" cy="194.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="451" cy="191.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="462" cy="188.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="473" cy="185.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="484" cy="182.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="495" cy="179.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="506" cy="176.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="517" cy="173.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="528" cy="170.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="539" cy="167.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="550" cy="164.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="561" cy="161.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="572" cy="158.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="583" cy="155.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="594" cy="152.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="605" cy="149.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="616" cy="146.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="627" cy="143.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="638" cy="140.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="649" cy="137.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="660" cy="134.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="671" cy="131.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="682" cy="128.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="693" cy="125.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="704" cy="122.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="715" cy="119.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="726" cy="116.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<circle cx="737" cy="113.0" r="6" fill="#9fd49b" stroke="#4a8c4a" stroke-width="1"/>
+<ellipse cx="410" cy="190" rx="230" ry="46" fill="none" stroke="#b5443b" stroke-width="2.5"/>
+<path d="M190,196 L230,222" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<text x="560" y="81.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#4a8c4a">Fluorescerande aktintråd</text>
+<text x="560" y="99.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#4a8c4a">(ungefär en mikrometer lång)</text>
+<text x="135" y="295.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#4a8c4a">Axeln (γ)</text>
+<path d="M175,290 L393,255" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#ah666666)"/>
+<text x="140" y="356.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#7a4f9a">Huvudet</text>
+<text x="140" y="374.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#7a4f9a">(α och β)</text>
+<path d="M190,360 L300,350" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#ah666666)"/>
+<text x="410" y="36.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">När ATP tillsätts snurrar tråden – det syns i mikroskopet</text>
+</svg>

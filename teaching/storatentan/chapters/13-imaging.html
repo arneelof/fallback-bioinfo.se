@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>13&nbsp; Image analysis and models of cells – Stora Tentan in Bioinformatics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../references.html" rel="next">
+<link href="../chapters/12-machine-learning.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-sequence-searching.html">Topics</a></li><li class="breadcrumb-item"><a href="../chapters/13-imaging.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Image analysis and models of cells</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Stora Tentan in Bioinformatics</a> 
+        <div class="sidebar-tools-main">
+    <a href="../Stora-Tentan-in-Bioinformatics.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-sequence-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sequence searching</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Databases</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-evolution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-phylogeny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Phylogeny</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-genomics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Genomics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-genomes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Genomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-expression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Expression analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-proteomics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Proteomics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-protein-structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Protein structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-protein-function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Protein function</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-protein-interactions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Protein–protein interactions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-machine-learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Machine learning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-imaging.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Image analysis and models of cells</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-a-recommended.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Recommended reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-b-further.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further papers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/textbooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Textbooks and general resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-d-explanations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Further explanations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-e-wikipedia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Wikipedia index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-f-problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Cross-topic problems and case studies</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">13.1</span> Overview</a></li>
+  <li><a href="#sec-ch13-images" id="toc-sec-ch13-images" class="nav-link" data-scroll-target="#sec-ch13-images"><span class="header-section-number">13.2</span> Images as data</a>
+  <ul class="collapse">
+  <li><a href="#what-an-image-is" id="toc-what-an-image-is" class="nav-link" data-scroll-target="#what-an-image-is"><span class="header-section-number">13.2.1</span> What an image is</a></li>
+  <li><a href="#classical-image-analysis" id="toc-classical-image-analysis" class="nav-link" data-scroll-target="#classical-image-analysis"><span class="header-section-number">13.2.2</span> Classical image analysis</a></li>
+  <li><a href="#tools-formats-and-repositories" id="toc-tools-formats-and-repositories" class="nav-link" data-scroll-target="#tools-formats-and-repositories"><span class="header-section-number">13.2.3</span> Tools, formats and repositories</a></li>
+  </ul></li>
+  <li><a href="#sec-ch13-deep" id="toc-sec-ch13-deep" class="nav-link" data-scroll-target="#sec-ch13-deep"><span class="header-section-number">13.3</span> Deep learning for images</a>
+  <ul class="collapse">
+  <li><a href="#tasks" id="toc-tasks" class="nav-link" data-scroll-target="#tasks"><span class="header-section-number">13.3.1</span> Tasks</a></li>
+  <li><a href="#convolutional-networks-and-u-net" id="toc-convolutional-networks-and-u-net" class="nav-link" data-scroll-target="#convolutional-networks-and-u-net"><span class="header-section-number">13.3.2</span> Convolutional networks and U-Net</a></li>
+  <li><a href="#instance-segmentation-of-cells" id="toc-instance-segmentation-of-cells" class="nav-link" data-scroll-target="#instance-segmentation-of-cells"><span class="header-section-number">13.3.3</span> Instance segmentation of cells</a></li>
+  <li><a href="#label-free-prediction" id="toc-label-free-prediction" class="nav-link" data-scroll-target="#label-free-prediction"><span class="header-section-number">13.3.4</span> Label-free prediction</a></li>
+  <li><a href="#transformers-self-supervision-and-foundation-models" id="toc-transformers-self-supervision-and-foundation-models" class="nav-link" data-scroll-target="#transformers-self-supervision-and-foundation-models"><span class="header-section-number">13.3.5</span> Transformers, self-supervision and foundation models</a></li>
+  <li><a href="#pitfalls" id="toc-pitfalls" class="nav-link" data-scroll-target="#pitfalls"><span class="header-section-number">13.3.6</span> Pitfalls</a></li>
+  </ul></li>
+  <li><a href="#sec-ch13-profiling" id="toc-sec-ch13-profiling" class="nav-link" data-scroll-target="#sec-ch13-profiling"><span class="header-section-number">13.4</span> Image-based profiling</a>
+  <ul class="collapse">
+  <li><a href="#cell-painting" id="toc-cell-painting" class="nav-link" data-scroll-target="#cell-painting"><span class="header-section-number">13.4.1</span> Cell Painting</a></li>
+  <li><a href="#from-images-to-profiles" id="toc-from-images-to-profiles" class="nav-link" data-scroll-target="#from-images-to-profiles"><span class="header-section-number">13.4.2</span> From images to profiles</a></li>
+  <li><a href="#large-public-data-sets" id="toc-large-public-data-sets" class="nav-link" data-scroll-target="#large-public-data-sets"><span class="header-section-number">13.4.3</span> Large public data sets</a></li>
+  </ul></li>
+  <li><a href="#sec-ch13-localisation" id="toc-sec-ch13-localisation" class="nav-link" data-scroll-target="#sec-ch13-localisation"><span class="header-section-number">13.5</span> Protein localisation from images</a>
+  <ul class="collapse">
+  <li><a href="#the-subcellular-atlas-of-the-human-protein-atlas" id="toc-the-subcellular-atlas-of-the-human-protein-atlas" class="nav-link" data-scroll-target="#the-subcellular-atlas-of-the-human-protein-atlas"><span class="header-section-number">13.5.1</span> The subcellular atlas of the Human Protein Atlas</a></li>
+  <li><a href="#image-classification-as-a-community-challenge" id="toc-image-classification-as-a-community-challenge" class="nav-link" data-scroll-target="#image-classification-as-a-community-challenge"><span class="header-section-number">13.5.2</span> Image classification as a community challenge</a></li>
+  <li><a href="#endogenous-tagging-and-self-supervised-models" id="toc-endogenous-tagging-and-self-supervised-models" class="nav-link" data-scroll-target="#endogenous-tagging-and-self-supervised-models"><span class="header-section-number">13.5.3</span> Endogenous tagging and self-supervised models</a></li>
+  <li><a href="#organisation-of-the-whole-cell" id="toc-organisation-of-the-whole-cell" class="nav-link" data-scroll-target="#organisation-of-the-whole-cell"><span class="header-section-number">13.5.4</span> Organisation of the whole cell</a></li>
+  </ul></li>
+  <li><a href="#sec-ch13-tissues" id="toc-sec-ch13-tissues" class="nav-link" data-scroll-target="#sec-ch13-tissues"><span class="header-section-number">13.6</span> Tissues: multiplexed imaging and computational pathology</a>
+  <ul class="collapse">
+  <li><a href="#multiplexed-imaging-and-spatial-omics" id="toc-multiplexed-imaging-and-spatial-omics" class="nav-link" data-scroll-target="#multiplexed-imaging-and-spatial-omics"><span class="header-section-number">13.6.1</span> Multiplexed imaging and spatial omics</a></li>
+  <li><a href="#computational-pathology" id="toc-computational-pathology" class="nav-link" data-scroll-target="#computational-pathology"><span class="header-section-number">13.6.2</span> Computational pathology</a></li>
+  </ul></li>
+  <li><a href="#sec-ch13-virtual" id="toc-sec-ch13-virtual" class="nav-link" data-scroll-target="#sec-ch13-virtual"><span class="header-section-number">13.7</span> Cell atlases and virtual cells</a>
+  <ul class="collapse">
+  <li><a href="#cell-atlases" id="toc-cell-atlases" class="nav-link" data-scroll-target="#cell-atlases"><span class="header-section-number">13.7.1</span> Cell atlases</a></li>
+  <li><a href="#the-idea-of-an-ai-virtual-cell" id="toc-the-idea-of-an-ai-virtual-cell" class="nav-link" data-scroll-target="#the-idea-of-an-ai-virtual-cell"><span class="header-section-number">13.7.2</span> The idea of an AI virtual cell</a></li>
+  <li><a href="#how-good-are-the-models" id="toc-how-good-are-the-models" class="nav-link" data-scroll-target="#how-good-are-the-models"><span class="header-section-number">13.7.3</span> How good are the models?</a></li>
+  </ul></li>
+  <li><a href="#sec-ch13-wholecell" id="toc-sec-ch13-wholecell" class="nav-link" data-scroll-target="#sec-ch13-wholecell"><span class="header-section-number">13.8</span> Whole-cell models and cryo-electron tomography</a>
+  <ul class="collapse">
+  <li><a href="#mechanistic-whole-cell-models" id="toc-mechanistic-whole-cell-models" class="nav-link" data-scroll-target="#mechanistic-whole-cell-models"><span class="header-section-number">13.8.1</span> Mechanistic whole-cell models</a></li>
+  <li><a href="#structural-models-of-a-cell" id="toc-structural-models-of-a-cell" class="nav-link" data-scroll-target="#structural-models-of-a-cell"><span class="header-section-number">13.8.2</span> Structural models of a cell</a></li>
+  <li><a href="#cryo-electron-tomography-and-visual-proteomics" id="toc-cryo-electron-tomography-and-visual-proteomics" class="nav-link" data-scroll-target="#cryo-electron-tomography-and-visual-proteomics"><span class="header-section-number">13.8.3</span> Cryo-electron tomography and visual proteomics</a></li>
+  </ul></li>
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts"><span class="header-section-number">13.9</span> Key concepts</a></li>
+  <li><a href="#sec-ch13-recommended" id="toc-sec-ch13-recommended" class="nav-link" data-scroll-target="#sec-ch13-recommended"><span class="header-section-number">13.10</span> Recommended reading</a></li>
+  <li><a href="#background-reading-open-access" id="toc-background-reading-open-access" class="nav-link" data-scroll-target="#background-reading-open-access"><span class="header-section-number">13.11</span> Background reading (open access)</a></li>
+  <li><a href="#student-recommendations" id="toc-student-recommendations" class="nav-link" data-scroll-target="#student-recommendations"><span class="header-section-number">13.12</span> Student recommendations</a></li>
+  <li><a href="#sec-ch13-problems" id="toc-sec-ch13-problems" class="nav-link" data-scroll-target="#sec-ch13-problems"><span class="header-section-number">13.13</span> Review problems</a>
+  <ul class="collapse">
+  <li><a href="#intensity-is-not-abundance" id="toc-intensity-is-not-abundance" class="nav-link" data-scroll-target="#intensity-is-not-abundance"><span class="header-section-number">13.13.1</span> Intensity is not abundance</a></li>
+  <li><a href="#choosing-a-segmentation-method" id="toc-choosing-a-segmentation-method" class="nav-link" data-scroll-target="#choosing-a-segmentation-method"><span class="header-section-number">13.13.2</span> Choosing a segmentation method</a></li>
+  <li><a href="#self-supervised-models-and-foundation-models-for-images" id="toc-self-supervised-models-and-foundation-models-for-images" class="nav-link" data-scroll-target="#self-supervised-models-and-foundation-models-for-images"><span class="header-section-number">13.13.3</span> Self-supervised models and foundation models for images</a></li>
+  <li><a href="#image-based-profiling" id="toc-image-based-profiling" class="nav-link" data-scroll-target="#image-based-profiling"><span class="header-section-number">13.13.4</span> Image-based profiling</a></li>
+  <li><a href="#site-signatures-in-computational-pathology" id="toc-site-signatures-in-computational-pathology" class="nav-link" data-scroll-target="#site-signatures-in-computational-pathology"><span class="header-section-number">13.13.5</span> Site signatures in computational pathology</a></li>
+  <li><a href="#spatial-analysis-of-multiplexed-images" id="toc-spatial-analysis-of-multiplexed-images" class="nav-link" data-scroll-target="#spatial-analysis-of-multiplexed-images"><span class="header-section-number">13.13.6</span> Spatial analysis of multiplexed images</a></li>
+  <li><a href="#how-good-is-a-virtual-cell" id="toc-how-good-is-a-virtual-cell" class="nav-link" data-scroll-target="#how-good-is-a-virtual-cell"><span class="header-section-number">13.13.7</span> How good is a virtual cell?</a></li>
+  <li><a href="#mechanistic-and-learned-models-of-cells" id="toc-mechanistic-and-learned-models-of-cells" class="nav-link" data-scroll-target="#mechanistic-and-learned-models-of-cells"><span class="header-section-number">13.13.8</span> Mechanistic and learned models of cells</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-sequence-searching.html">Topics</a></li><li class="breadcrumb-item"><a href="../chapters/13-imaging.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Image analysis and models of cells</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-imaging" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Image analysis and models of cells</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled" title="Not in the exam description">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Not in the exam description
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This topic is not part of the 2025 exam description. It was added in version 0.4 of this book because image-based methods, and the large projects that aim to classify cell types and build models of whole cells, have become a central part of bioinformatics. Ask your examiner whether it is included in your exam.</p>
+</div>
+</div>
+<section id="overview" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">13.1</span> Overview</h2>
+<p>Images are one of the largest sources of biological data. Automated microscopes image millions of cells in a single screen, histology slides are scanned at high resolution in hospitals, and electron tomography shows the molecules inside cells. Deep learning has made it possible to analyse such images at scale, and the results are increasingly combined with sequence, expression and structure data. This chapter builds on the machine-learning methods of <a href="12-machine-learning.html" class="quarto-xref"><span>Chapter 12</span></a> and covers:</p>
+<ul>
+<li>images as data: kinds of images, classical analysis, software, file formats and repositories (<a href="#sec-ch13-images" class="quarto-xref"><span>Section 13.2</span></a>);</li>
+<li>deep learning for images: the main tasks, CNNs and U-Net, StarDist and Cellpose, label-free prediction, vision transformers, self-supervised learning and foundation models, and the pitfalls (<a href="#sec-ch13-deep" class="quarto-xref"><span>Section 13.3</span></a>);</li>
+<li>image-based profiling: Cell Painting, morphological profiles and the JUMP and RxRx data sets (<a href="#sec-ch13-profiling" class="quarto-xref"><span>Section 13.4</span></a>);</li>
+<li>protein localisation from images: the subcellular atlas of the Human Protein Atlas, image-classification challenges, OpenCell and self-supervised models (<a href="#sec-ch13-localisation" class="quarto-xref"><span>Section 13.5</span></a>);</li>
+<li>tissues: multiplexed imaging, spatial omics, spatial neighbourhood analysis and computational pathology (<a href="#sec-ch13-tissues" class="quarto-xref"><span>Section 13.6</span></a>);</li>
+<li>cell atlases and AI virtual cells: the Human Cell Atlas, HuBMAP, what a cell type is, the virtual-cell efforts of CZI, the Arc Institute and SciLifeLab’s Alpha Cell, and how well current models work (<a href="#sec-ch13-virtual" class="quarto-xref"><span>Section 13.7</span></a>);</li>
+<li>mechanistic and structural models of whole cells, and cryo-electron tomography (<a href="#sec-ch13-wholecell" class="quarto-xref"><span>Section 13.8</span></a>).</li>
+</ul>
+<p>The chapter connects to many others: spatial proteomics and the Human Protein Atlas in <a href="08-proteomics.html" class="quarto-xref"><span>Chapter 8</span></a>, sequence-based localisation prediction in <a href="10-protein-function.html" class="quarto-xref"><span>Chapter 10</span></a>, single-cell and spatial transcriptomics in <a href="07-expression.html" class="quarto-xref"><span>Chapter 7</span></a>, and cryo-EM and molecular dynamics in <a href="09-protein-structure.html" class="quarto-xref"><span>Chapter 9</span></a>.</p>
+</section>
+<section id="sec-ch13-images" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="sec-ch13-images"><span class="header-section-number">13.2</span> Images as data</h2>
+<p>Microscopy is the oldest way of studying cells, and for most of its history the results were judged by eye. Modern microscopes produce far more images than anyone can inspect: an automated screen can image millions of cells, and a single light-sheet experiment can produce terabytes. <strong>Bioimage analysis</strong> turns these images into measurements that can be analysed with the same statistical and machine-learning methods as other omics data.</p>
+<section id="what-an-image-is" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="what-an-image-is"><span class="header-section-number">13.2.1</span> What an image is</h3>
+<p>A digital image is an array of numbers. A fluorescence image has one <em>channel</em> for each fluorescent label, and may in addition have several focal planes (<em>z</em>) and time points (<em>t</em>), so that a single experiment is a five-dimensional array (<em>x</em>, <em>y</em>, <em>z</em>, channel, <em>t</em>). Each value is an intensity, not a count of molecules. It depends on the label, the microscope, the exposure and the detector, so images are comparable only when they were acquired in the same way. The main kinds of images in biology are:</p>
+<ul>
+<li><strong>transmitted-light</strong> (brightfield, phase contrast) images, which need no labels but show little molecular detail;</li>
+<li><strong>fluorescence</strong> images (widefield, confocal, light-sheet and super-resolution microscopy), where proteins or structures are made visible with antibodies, dyes or fluorescent proteins;</li>
+<li><strong>electron microscopy</strong>, which reaches molecular resolution but only for fixed or frozen samples (<a href="#sec-ch13-wholecell" class="quarto-xref"><span>Section 13.8</span></a>);</li>
+<li><strong>histology</strong>, thin tissue sections stained, for example with haematoxylin and eosin (H&amp;E), and scanned as <em>whole-slide images</em> of up to 100&nbsp;000 × 100&nbsp;000 pixels (<a href="#sec-ch13-tissues" class="quarto-xref"><span>Section 13.6</span></a>).</li>
+</ul>
+</section>
+<section id="classical-image-analysis" class="level3" data-number="13.2.2">
+<h3 data-number="13.2.2" class="anchored" data-anchor-id="classical-image-analysis"><span class="header-section-number">13.2.2</span> Classical image analysis</h3>
+<p>Before deep learning, and still in many pipelines, analysis followed four steps: <em>preprocessing</em> (background and illumination correction, denoising), <em>segmentation</em> (finding the objects, usually nuclei and cells, for example by thresholding followed by a watershed transform to split touching objects), <em>feature extraction</em> (measuring size, shape, intensity and texture for each object) and <em>analysis</em> of the resulting table. Each step involves choices (a threshold, a filter size, which features to keep), and the results depend on them. This is why image analysis is often less reproducible than it appears, and why the choices must be reported.</p>
+</section>
+<section id="tools-formats-and-repositories" class="level3" data-number="13.2.3">
+<h3 data-number="13.2.3" class="anchored" data-anchor-id="tools-formats-and-repositories"><span class="header-section-number">13.2.3</span> Tools, formats and repositories</h3>
+<p>Most bioimage analysis uses open-source software. <strong>ImageJ</strong> and its distribution <strong>Fiji</strong> are the general-purpose tools of light microscopy, extended by thousands of plugins <span class="citation" data-cites="schindelin2012 rueden2017">(<a href="01-sequence-searching.html#ref-schindelin2012" role="doc-biblioref">Schindelin et al. 2012</a>; <a href="01-sequence-searching.html#ref-rueden2017" role="doc-biblioref">Rueden et al. 2017</a>)</span>. <strong>CellProfiler</strong> builds analysis pipelines from modules without programming and is the standard tool for high-throughput screens <span class="citation" data-cites="carpenter2006 stirling2021">(<a href="01-sequence-searching.html#ref-carpenter2006" role="doc-biblioref">Carpenter et al. 2006</a>; <a href="01-sequence-searching.html#ref-stirling2021" role="doc-biblioref">Stirling et al. 2021</a>)</span>. <strong>ilastik</strong> trains pixel and object classifiers interactively from a few user annotations <span class="citation" data-cites="berg2019">(<a href="01-sequence-searching.html#ref-berg2019" role="doc-biblioref">Berg et al. 2019</a>)</span>. <strong>QuPath</strong> is designed for whole-slide pathology images <span class="citation" data-cites="bankhead2017">(<a href="01-sequence-searching.html#ref-bankhead2017" role="doc-biblioref">Bankhead et al. 2017</a>)</span>, and <strong>napari</strong> is a multidimensional image viewer for Python <span class="citation" data-cites="napari">(<a href="01-sequence-searching.html#ref-napari" role="doc-biblioref"><span class="nocase">napari contributors</span> 2019</a>)</span>, to which many deep-learning tools are added as plugins.</p>
+<p>Images are large and are reused only if they can be found and understood. Unlike sequences, they cannot be compressed to a few bytes per measurement, and moving them is often harder than analysing them. They also need metadata (organism, sample preparation, microscope and acquisition settings) to be interpreted. The REMBI recommendations define the minimum metadata for publishing biological images <span class="citation" data-cites="sarkans2021">(<a href="01-sequence-searching.html#ref-sarkans2021" role="doc-biblioref">Sarkans et al. 2021</a>)</span>, and the OME-Zarr format (OME-NGFF) stores large multidimensional images in chunks that can be read directly from the cloud <span class="citation" data-cites="moore2021 moore2023">(<a href="01-sequence-searching.html#ref-moore2021" role="doc-biblioref">Moore et al. 2021</a>, <a href="01-sequence-searching.html#ref-moore2023" role="doc-biblioref">2023</a>)</span>. Published images are deposited in the <strong>BioImage Archive</strong> at EMBL-EBI <span class="citation" data-cites="hartley2022">(<a href="01-sequence-searching.html#ref-hartley2022" role="doc-biblioref">Hartley et al. 2022</a>)</span>, and curated reference data sets, linked to genes, compounds and phenotypes, in the <strong>Image Data Resource</strong> (IDR) <span class="citation" data-cites="williams2017">(<a href="01-sequence-searching.html#ref-williams2017" role="doc-biblioref">Williams et al. 2017</a>)</span>. The <strong>Broad Bioimage Benchmark Collection</strong> (BBBC) provides annotated image sets for testing methods <span class="citation" data-cites="ljosa2012">(<a href="01-sequence-searching.html#ref-ljosa2012" role="doc-biblioref">Ljosa et al. 2012</a>)</span>, and the <strong>Cell Tracking Challenge</strong> has benchmarked segmentation and tracking methods for more than 10 years <span class="citation" data-cites="maska2023">(<a href="01-sequence-searching.html#ref-maska2023" role="doc-biblioref">Maška et al. 2023</a>)</span>.</p>
+<p>Most of the hand-tuned steps of the classical workflow, above all segmentation, are now done with deep learning (<a href="#sec-ch13-deep" class="quarto-xref"><span>Section 13.3</span></a>).</p>
+<!-- appendix-pointer -->
+<p><em>See also:</em> further explanation in <a href="appendix-d-explanations.html#sec-appD-ch13-images" class="quarto-xref"><span>Section D.13.1</span></a>; related Wikipedia articles in <a href="appendix-e-wikipedia.html#sec-appE-ch13-images" class="quarto-xref"><span>Section E.13.1</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Sources">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Background from the Wikipedia articles <a href="https://en.wikipedia.org/wiki/Microscopy">Microscopy</a>, <a href="https://en.wikipedia.org/wiki/Fluorescence_microscope">Fluorescence microscope</a>, <a href="https://en.wikipedia.org/wiki/Image_segmentation">Image segmentation</a> and <a href="https://en.wikipedia.org/wiki/Fiji_(software)">Fiji (software)</a> (CC BY-SA 4.0, retrieved 5 October 2026).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-ch13-deep" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="sec-ch13-deep"><span class="header-section-number">13.3</span> Deep learning for images</h2>
+<p>Deep learning had its first large success on images, and microscopy was one of the first scientific fields to adopt it <span class="citation" data-cites="moen2019">(<a href="01-sequence-searching.html#ref-moen2019" role="doc-biblioref">Moen et al. 2019</a>)</span>. Learned models now replace most of the hand-tuned steps of <a href="#sec-ch13-images" class="quarto-xref"><span>Section 13.2</span></a>. The general methods are described in <a href="12-machine-learning.html#sec-ch12-deep" class="quarto-xref"><span>Section 12.4</span></a>; this section describes how they are used for biological images.</p>
+<section id="tasks" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="tasks"><span class="header-section-number">13.3.1</span> Tasks</h3>
+<p>Four tasks cover most applications, and it is worth keeping them apart:</p>
+<ul>
+<li><strong>classification</strong> assigns a label to a whole image or to a cell (for example a cell type, a cell-cycle phase or the location of a protein);</li>
+<li><strong>segmentation</strong> assigns each pixel to a class (<em>semantic segmentation</em>, for example nucleus or background) or to an individual object (<em>instance segmentation</em>, which separates touching cells);</li>
+<li><strong>detection and tracking</strong> find objects, such as cells or particles, and follow them over time;</li>
+<li><strong>image-to-image</strong> methods restore noisy images or predict one kind of image from another, for example fluorescence from brightfield.</li>
+</ul>
+</section>
+<section id="convolutional-networks-and-u-net" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="convolutional-networks-and-u-net"><span class="header-section-number">13.3.2</span> Convolutional networks and U-Net</h3>
+<p>Convolutional neural networks (CNNs) learn filters that detect local patterns and combine them, layer by layer, into increasingly abstract features. The same filters are applied across the whole image, so a pattern is recognised wherever it occurs. The breakthrough came in 2012, when AlexNet won the ImageNet challenge by a large margin <span class="citation" data-cites="krizhevsky2017">(<a href="01-sequence-searching.html#ref-krizhevsky2017" role="doc-biblioref">Krizhevsky et al. 2017</a>)</span>. Residual connections later made networks with more than 100 layers trainable <span class="citation" data-cites="he2016">(<a href="01-sequence-searching.html#ref-he2016" role="doc-biblioref">He et al. 2016</a>)</span>.</p>
+<p>For biomedical images, the most influential architecture is <strong>U-Net</strong> <span class="citation" data-cites="ronneberger2015">(<a href="01-sequence-searching.html#ref-ronneberger2015" role="doc-biblioref">Ronneberger et al. 2015</a>)</span>. An encoder reduces the image to coarse features, and a decoder expands them back to full resolution. <em>Skip connections</em> pass fine detail from each encoder level to the matching decoder level, so the network produces precise pixel-wise output from relatively few training images. A U-Net plugin for ImageJ made the method usable without programming <span class="citation" data-cites="falk2019">(<a href="01-sequence-searching.html#ref-falk2019" role="doc-biblioref">Falk et al. 2018</a>)</span>.</p>
+</section>
+<section id="instance-segmentation-of-cells" class="level3" data-number="13.3.3">
+<h3 data-number="13.3.3" class="anchored" data-anchor-id="instance-segmentation-of-cells"><span class="header-section-number">13.3.3</span> Instance segmentation of cells</h3>
+<p>Separating touching cells is the central problem of cell segmentation, because a pixel-wise classifier labels the boundary between two cells as foreground. <strong>StarDist</strong> describes each nucleus as a <em>star-convex polygon</em>. For every pixel, a CNN predicts the probability that it lies inside an object and the distances to the object boundary along a fixed set of rays; overlapping candidate polygons are then removed by non-maximum suppression <span class="citation" data-cites="schmidt2018">(<a href="01-sequence-searching.html#ref-schmidt2018" role="doc-biblioref">Schmidt et al. 2018</a>)</span>. The shape assumption suits nuclei but not irregular cells.</p>
+<p><strong>Cellpose</strong> instead predicts, for every pixel, the direction towards the centre of its cell (a <em>flow field</em>, learned from the gradients of a simulated diffusion from the cell centre), and groups the pixels whose flows end at the same point. Trained on a diverse collection of images, it segments many kinds of cells without retraining <span class="citation" data-cites="stringer2021">(<a href="01-sequence-searching.html#ref-stringer2021" role="doc-biblioref">Stringer et al. 2020</a>)</span>. Cellpose 2.0 adds human-in-the-loop training, so that a model can be adapted to new data from a few corrected images <span class="citation" data-cites="pachitariu2022">(<a href="01-sequence-searching.html#ref-pachitariu2022" role="doc-biblioref">Pachitariu and Stringer 2022</a>)</span>. For tissue images, Mesmer was trained on TissueNet, more than one million manually annotated cells, and reached the accuracy of human annotators <span class="citation" data-cites="greenwald2022">(<a href="01-sequence-searching.html#ref-greenwald2022" role="doc-biblioref">Greenwald et al. 2021</a>)</span>.</p>
+</section>
+<section id="label-free-prediction" class="level3" data-number="13.3.4">
+<h3 data-number="13.3.4" class="anchored" data-anchor-id="label-free-prediction"><span class="header-section-number">13.3.4</span> Label-free prediction</h3>
+<p>Networks can also learn to predict one kind of image from another. <em>In silico labelling</em> predicted fluorescent labels of nuclei, cell types and dead cells from transmitted-light images of unlabelled cells <span class="citation" data-cites="christiansen2018">(<a href="01-sequence-searching.html#ref-christiansen2018" role="doc-biblioref">Christiansen et al. 2018</a>)</span>. Similar models from the Allen Institute predicted the three-dimensional fluorescence of several cellular structures from brightfield images <span class="citation" data-cites="ounkomol2018">(<a href="01-sequence-searching.html#ref-ounkomol2018" role="doc-biblioref">Ounkomol et al. 2018</a>)</span>. Such predictions are useful, for example to avoid phototoxic labels in live cells, but they can only reproduce what is predictable from the input image. They should not be mistaken for measurements.</p>
+</section>
+<section id="transformers-self-supervision-and-foundation-models" class="level3" data-number="13.3.5">
+<h3 data-number="13.3.5" class="anchored" data-anchor-id="transformers-self-supervision-and-foundation-models"><span class="header-section-number">13.3.5</span> Transformers, self-supervision and foundation models</h3>
+<p><strong>Vision transformers</strong> (ViTs) split an image into patches and treat them as a sequence of tokens, as language models do with words <span class="citation" data-cites="dosovitskiy2021">(<a href="01-sequence-searching.html#ref-dosovitskiy2021" role="doc-biblioref">Dosovitskiy et al. 2021</a>)</span>. Attention lets every patch interact with every other, but a ViT lacks the built-in assumption of a CNN that nearby pixels belong together. It therefore needs more training data, which has made <strong>self-supervised learning</strong> important: the model is trained on a task constructed from unlabelled images. In <em>DINO</em>, a student network learns to match the output of a teacher network on different views of the same image <span class="citation" data-cites="caron2021">(<a href="01-sequence-searching.html#ref-caron2021" role="doc-biblioref">Caron et al. 2021</a>)</span>, and DINOv2 scaled this to general-purpose visual features <span class="citation" data-cites="oquab2023">(<a href="01-sequence-searching.html#ref-oquab2023" role="doc-biblioref"><span class="nocase">Oquab et al.</span> 2023</a>)</span>. <em>Masked autoencoders</em> (MAE) hide most of the patches of an image and learn to reconstruct them <span class="citation" data-cites="he2022mae">(<a href="01-sequence-searching.html#ref-he2022mae" role="doc-biblioref">He et al. 2022</a>)</span>, the image counterpart of masked language modelling (<a href="12-machine-learning.html#sec-ch12-deep" class="quarto-xref"><span>Section 12.4</span></a>). For microscopy, Cell-DINO showed that self-supervised features of fluorescence images classify protein localisation well with few labels <span class="citation" data-cites="moutakanni2025">(<a href="01-sequence-searching.html#ref-moutakanni2025" role="doc-biblioref">Moutakanni et al. 2025</a>)</span>.</p>
+<p>The <strong>Segment Anything</strong> model (SAM), trained on more than a billion masks, segments objects from a prompt such as a point or a box <span class="citation" data-cites="kirillov2023">(<a href="01-sequence-searching.html#ref-kirillov2023" role="doc-biblioref">Kirillov et al. 2023</a>)</span>. It was not trained on microscopy, but versions fine-tuned for light and electron microscopy, such as μSAM <span class="citation" data-cites="archit2025">(<a href="01-sequence-searching.html#ref-archit2025" role="doc-biblioref">Archit et al. 2025</a>)</span> and CellSAM <span class="citation" data-cites="marks2025">(<a href="01-sequence-searching.html#ref-marks2025" role="doc-biblioref">Marks et al. 2025</a>)</span>, are now general segmentation tools. These are examples of foundation models (<a href="12-machine-learning.html#sec-ch12-foundation" class="quarto-xref"><span>Section 12.6</span></a>) for images.</p>
+</section>
+<section id="pitfalls" class="level3" data-number="13.3.6">
+<h3 data-number="13.3.6" class="anchored" data-anchor-id="pitfalls"><span class="header-section-number">13.3.6</span> Pitfalls</h3>
+<p>The general pitfalls of machine learning (<a href="12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Section 12.2</span></a>) all apply, and some are specific to images. Images from different plates, microscopes, days or hospitals differ systematically (<em>batch effects</em>), and a network may learn these differences rather than biology. Training and test sets should therefore be split by experiment, not by image or cell. Ground-truth annotations are produced by people, who disagree with each other, so the agreement between annotators sets a ceiling on measurable accuracy. Restored or predicted images can contain plausible structures that are not in the sample (<em>hallucinations</em>). Guidelines for validating and reporting deep-learning image analysis address these problems <span class="citation" data-cites="laine2021">(<a href="01-sequence-searching.html#ref-laine2021" role="doc-biblioref">Laine et al. 2021</a>)</span>, and good introductions for biologists are available <span class="citation" data-cites="vonchamier2019 hallou2021">(<a href="01-sequence-searching.html#ref-vonchamier2019" role="doc-biblioref">Chamier et al. 2019</a>; <a href="01-sequence-searching.html#ref-hallou2021" role="doc-biblioref">Hallou et al. 2021</a>)</span>. Notebooks such as ZeroCostDL4Mic let users train common models without installing software <span class="citation" data-cites="vonchamier2021">(<a href="01-sequence-searching.html#ref-vonchamier2021" role="doc-biblioref">Chamier et al. 2021</a>)</span>.</p>
+<p>The next sections apply these methods to three kinds of question: how perturbations change cells (<a href="#sec-ch13-profiling" class="quarto-xref"><span>Section 13.4</span></a>), where proteins are (<a href="#sec-ch13-localisation" class="quarto-xref"><span>Section 13.5</span></a>) and how cells are arranged in tissues (<a href="#sec-ch13-tissues" class="quarto-xref"><span>Section 13.6</span></a>).</p>
+<!-- appendix-pointer -->
+<p><em>See also:</em> further explanation in <a href="appendix-d-explanations.html#sec-appD-ch13-deep" class="quarto-xref"><span>Section D.13.2</span></a>; related Wikipedia articles in <a href="appendix-e-wikipedia.html#sec-appE-ch13-deep" class="quarto-xref"><span>Section E.13.2</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Sources">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Background from the Wikipedia articles <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Convolutional neural network</a>, <a href="https://en.wikipedia.org/wiki/U-Net">U-Net</a> and <a href="https://en.wikipedia.org/wiki/Vision_transformer">Vision transformer</a> (CC BY-SA 4.0, retrieved 5 October 2026).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-ch13-profiling" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="sec-ch13-profiling"><span class="header-section-number">13.4</span> Image-based profiling</h2>
+<p>A cell’s appearance reflects its state. <strong>Image-based profiling</strong> (also called morphological profiling or <em>phenomics</em>) uses this systematically. Cells are treated with chemical or genetic perturbations, imaged and described by thousands of measurements, so that perturbations can be compared in the same way as expression profiles (<a href="07-expression.html" class="quarto-xref"><span>Chapter 7</span></a>).</p>
+<section id="cell-painting" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="cell-painting"><span class="header-section-number">13.4.1</span> Cell Painting</h3>
+<p>The most widely used assay is <strong>Cell Painting</strong> <span class="citation" data-cites="gustafsdottir2013 bray2016painting">(<a href="01-sequence-searching.html#ref-gustafsdottir2013" role="doc-biblioref">Gustafsdottir et al. 2013</a>; <a href="01-sequence-searching.html#ref-bray2016painting" role="doc-biblioref">Bray et al. 2016</a>)</span>. Six fluorescent dyes, imaged in five channels, label eight cellular components: the nucleus (DNA), nucleoli and cytoplasmic RNA, the endoplasmic reticulum, actin, the Golgi apparatus, the plasma membrane and mitochondria. The assay is cheap, needs no antibodies, and works in many cell types. Software such as CellProfiler segments each cell and measures its size, shape, intensity and texture in every channel, giving more than a thousand features per cell (<a href="#sec-ch13-images" class="quarto-xref"><span>Section 13.2</span></a>). The JUMP consortium optimised the protocol quantitatively in a third version <span class="citation" data-cites="cimini2023">(<a href="01-sequence-searching.html#ref-cimini2023" role="doc-biblioref">Cimini et al. 2023</a>)</span>. Most features are uninterpretable on their own; their value lies in the profile as a whole.</p>
+</section>
+<section id="from-images-to-profiles" class="level3" data-number="13.4.2">
+<h3 data-number="13.4.2" class="anchored" data-anchor-id="from-images-to-profiles"><span class="header-section-number">13.4.2</span> From images to profiles</h3>
+<p>The analysis follows a standard workflow <span class="citation" data-cites="caicedo2017">(<a href="01-sequence-searching.html#ref-caicedo2017" role="doc-biblioref">Caicedo et al. 2017</a>)</span>:</p>
+<ol type="1">
+<li><strong>Single-cell features</strong> are extracted, either hand-designed features from CellProfiler or embeddings from deep networks (<a href="#sec-ch13-deep" class="quarto-xref"><span>Section 13.3</span></a>).</li>
+<li>Features are <strong>aggregated</strong> per well, usually as the median over cells, <strong>normalised</strong> against negative controls on the same plate (which removes plate-to-plate differences in staining and imaging), and reduced to a smaller set of informative, uncorrelated features.</li>
+<li><strong>Batch effects</strong> between plates and laboratories are corrected, the same problem as in expression data (<a href="07-expression.html#sec-ch07-statistics" class="quarto-xref"><span>Section 7.4</span></a>).</li>
+<li>The profiles are compared: perturbations are tested for whether they change the cells at all, and similar profiles are matched, for example by cosine similarity, to group compounds by mechanism or to connect a gene to a compound that mimics its loss.</li>
+</ol>
+<p>Profiles are used to find the mechanism of action of compounds, to identify toxicity, to group genes into pathways, and to find disease phenotypes that a drug reverses. A similar profile is a hypothesis about a shared mechanism, not proof of a shared target.</p>
+</section>
+<section id="large-public-data-sets" class="level3" data-number="13.4.3">
+<h3 data-number="13.4.3" class="anchored" data-anchor-id="large-public-data-sets"><span class="header-section-number">13.4.3</span> Large public data sets</h3>
+<p>The <strong>JUMP Cell Painting Consortium</strong>, a collaboration of the Broad Institute and pharmaceutical companies, has released Cell Painting images of more than 100&nbsp;000 chemical and genetic perturbations <span class="citation" data-cites="chandrasekaran2023">(<a href="01-sequence-searching.html#ref-chandrasekaran2023" role="doc-biblioref">Chandrasekaran et al. 2023</a>)</span>. A pilot data set, CPJUMP1, contains about three million images of cells treated with matched chemical and genetic perturbations of the same genes, designed as a benchmark for methods <span class="citation" data-cites="chandrasekaran2024">(<a href="01-sequence-searching.html#ref-chandrasekaran2024" role="doc-biblioref">Chandrasekaran et al. 2024</a>)</span>. A morphological map of the over- and underexpression of more than 15&nbsp;000 genes in human cells followed <span class="citation" data-cites="chandrasekaran2025">(<a href="01-sequence-searching.html#ref-chandrasekaran2025" role="doc-biblioref">Chandrasekaran et al. 2025</a>)</span>. The company Recursion has released RxRx3, images and embeddings of more than 17&nbsp;000 CRISPR gene knockouts and 1674 compounds, with some identities hidden <span class="citation" data-cites="fay2023">(<a href="01-sequence-searching.html#ref-fay2023" role="doc-biblioref">Fay et al. 2023</a>)</span>. These data sets are large enough to train foundation models of cell morphology, and to test whether such models can predict the effects of perturbations that were not measured (<a href="#sec-ch13-virtual" class="quarto-xref"><span>Section 13.7</span></a>).</p>
+<p>Cell Painting uses general stains and so shows the overall state of the cell. To see where a particular protein is, it must be labelled specifically, which is the subject of <a href="#sec-ch13-localisation" class="quarto-xref"><span>Section 13.5</span></a>.</p>
+<!-- appendix-pointer -->
+<p><em>See also:</em> further explanation in <a href="appendix-d-explanations.html#sec-appD-ch13-profiling" class="quarto-xref"><span>Section D.13.3</span></a>; related Wikipedia articles in <a href="appendix-e-wikipedia.html#sec-appE-ch13-profiling" class="quarto-xref"><span>Section E.13.3</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Sources">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Background from the Wikipedia article <a href="https://en.wikipedia.org/wiki/High-content_screening">High-content screening</a> (CC BY-SA 4.0, retrieved 5 October 2026).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-ch13-localisation" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="sec-ch13-localisation"><span class="header-section-number">13.5</span> Protein localisation from images</h2>
+<p>Where a protein is in the cell is part of its function. <a href="10-protein-function.html#sec-ch10-localisation" class="quarto-xref"><span>Section 10.5</span></a> describes how localisation is predicted from sequence; this section describes how it is measured and classified from images. Image-based annotations are also a main source of training data for the sequence-based predictors.</p>
+<section id="the-subcellular-atlas-of-the-human-protein-atlas" class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="the-subcellular-atlas-of-the-human-protein-atlas"><span class="header-section-number">13.5.1</span> The subcellular atlas of the Human Protein Atlas</h3>
+<p>The subcellular section of the Human Protein Atlas (<a href="08-proteomics.html#sec-ch08-nonms" class="quarto-xref"><span>Section 8.6</span></a>) is based on immunofluorescence: each protein is stained with antibodies in cell lines, together with markers for the nucleus, microtubules and the endoplasmic reticulum, and imaged by confocal microscopy. The first version mapped 12&nbsp;003 proteins to 30 subcellular structures and showed that about half of all proteins are found in more than one location <span class="citation" data-cites="thul2017">(<a href="01-sequence-searching.html#ref-thul2017" role="doc-biblioref">Thul et al. 2017</a>)</span>. Many proteins also vary between individual cells of the same cell line. About a fifth of the proteome shows such cell-to-cell variability, and the cell cycle explains less than half of it <span class="citation" data-cites="mahdessian2021">(<a href="01-sequence-searching.html#ref-mahdessian2021" role="doc-biblioref">Mahdessian et al. 2021</a>)</span>. A single location label per protein is therefore a simplification.</p>
+</section>
+<section id="image-classification-as-a-community-challenge" class="level3" data-number="13.5.2">
+<h3 data-number="13.5.2" class="anchored" data-anchor-id="image-classification-as-a-community-challenge"><span class="header-section-number">13.5.2</span> Image classification as a community challenge</h3>
+<p>Annotating localisation by eye does not scale, so the HPA organised two open Kaggle competitions. In the first, more than 2000 teams classified images into 28 location classes, with up to six labels per image. The winning models improved on the HPA’s earlier automated multi-label classifier by about 20% <span class="citation" data-cites="ouyang2019">(<a href="01-sequence-searching.html#ref-ouyang2019" role="doc-biblioref">Ouyang et al. 2019</a>)</span>. The second competition was <em>weakly supervised</em>: labels were given for whole images, and the models had to predict the localisation of each individual cell <span class="citation" data-cites="le2022">(<a href="01-sequence-searching.html#ref-le2022" role="doc-biblioref">Le et al. 2022</a>)</span>. The two competitions illustrate several general issues of image classification: multi-label output, rare classes, the choice of evaluation metric and labels that are themselves uncertain. <em>Macro-F1</em>, the F1 score averaged over classes, gives each class equal weight, so rare locations count as much as common ones.</p>
+</section>
+<section id="endogenous-tagging-and-self-supervised-models" class="level3" data-number="13.5.3">
+<h3 data-number="13.5.3" class="anchored" data-anchor-id="endogenous-tagging-and-self-supervised-models"><span class="header-section-number">13.5.3</span> Endogenous tagging and self-supervised models</h3>
+<p>Antibodies can bind proteins other than their target, and require fixed cells. An alternative is to tag the endogenous gene with a fluorescent label, which can be imaged in living cells. <strong>OpenCell</strong>, at the Chan Zuckerberg Biohub, tagged more than 1000 human proteins with CRISPR, imaged them in living cells and identified their interaction partners by mass spectrometry; proteins with similar localisation patterns often interact <span class="citation" data-cites="cho2022">(<a href="01-sequence-searching.html#ref-cho2022" role="doc-biblioref">Cho et al. 2022</a>)</span>. Using these images, <strong>cytoself</strong> learned a representation of localisation without any labels, by self-supervised learning, and grouped proteins down to the level of individual complexes <span class="citation" data-cites="kobayashi2022">(<a href="01-sequence-searching.html#ref-kobayashi2022" role="doc-biblioref">Kobayashi et al. 2022</a>)</span>. <strong>SubCell</strong> applies self-supervised vision transformers to the whole HPA image collection and produces a hierarchical map of the proteome learned from images alone <span class="citation" data-cites="gupta2024subcell">(<a href="01-sequence-searching.html#ref-gupta2024subcell" role="doc-biblioref">Gupta et al. 2024</a>)</span>. Combining these image embeddings with sequence embeddings from a protein language model (<a href="01-sequence-searching.html#sec-ch01-plm" class="quarto-xref"><span>Section 1.10</span></a>) captured gene function better than either alone <span class="citation" data-cites="gupta2024subcell">(<a href="01-sequence-searching.html#ref-gupta2024subcell" role="doc-biblioref">Gupta et al. 2024</a>)</span>.</p>
+</section>
+<section id="organisation-of-the-whole-cell" class="level3" data-number="13.5.4">
+<h3 data-number="13.5.4" class="anchored" data-anchor-id="organisation-of-the-whole-cell"><span class="header-section-number">13.5.4</span> Organisation of the whole cell</h3>
+<p>The <strong>Allen Institute for Cell Science</strong> has taken a complementary approach: instead of many proteins in one cell line, it tagged 25 key structures in human induced pluripotent stem cells and imaged more than 200&nbsp;000 living cells in three dimensions. The data show that the organisation of the cell’s interior is robust to large variation in cell shape, and provide a quantitative description of what a “normal” cell looks like <span class="citation" data-cites="viana2023">(<a href="01-sequence-searching.html#ref-viana2023" role="doc-biblioref">Viana et al. 2023</a>)</span>. The images are available through the Allen Cell Explorer.</p>
+<p>These studies use cultured cells. In tissues, the position of a cell and its neighbours matter as well (<a href="#sec-ch13-tissues" class="quarto-xref"><span>Section 13.6</span></a>).</p>
+<!-- appendix-pointer -->
+<p><em>See also:</em> further explanation in <a href="appendix-d-explanations.html#sec-appD-ch13-localisation" class="quarto-xref"><span>Section D.13.4</span></a>; related Wikipedia articles in <a href="appendix-e-wikipedia.html#sec-appE-ch13-localisation" class="quarto-xref"><span>Section E.13.4</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Sources">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Background from the Wikipedia articles <a href="https://en.wikipedia.org/wiki/Human_Protein_Atlas">Human Protein Atlas</a> and <a href="https://en.wikipedia.org/wiki/Immunofluorescence">Immunofluorescence</a> (CC BY-SA 4.0, retrieved 5 October 2026).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-ch13-tissues" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="sec-ch13-tissues"><span class="header-section-number">13.6</span> Tissues: multiplexed imaging and computational pathology</h2>
+<p>Cells in a tissue are defined not only by what they express but also by where they are and which cells they touch. Tissue images are therefore analysed both to classify cell types and to describe how they are arranged, in research by multiplexed imaging and in the clinic by pathology.</p>
+<section id="multiplexed-imaging-and-spatial-omics" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="multiplexed-imaging-and-spatial-omics"><span class="header-section-number">13.6.1</span> Multiplexed imaging and spatial omics</h3>
+<p><strong>Highly multiplexed imaging</strong> measures tens of proteins in the same tissue section, compared with a few for conventional immunofluorescence (<a href="08-proteomics.html#sec-ch08-nonms" class="quarto-xref"><span>Section 8.6</span></a>). In CODEX, antibodies carry DNA barcodes that are read in repeated cycles of fluorescent labelling <span class="citation" data-cites="goltsev2018">(<a href="01-sequence-searching.html#ref-goltsev2018" role="doc-biblioref">Goltsev et al. 2018</a>)</span>. In imaging mass cytometry <span class="citation" data-cites="giesen2014">(<a href="01-sequence-searching.html#ref-giesen2014" role="doc-biblioref">Giesen et al. 2014</a>)</span> and multiplexed ion beam imaging (MIBI) <span class="citation" data-cites="angelo2014">(<a href="01-sequence-searching.html#ref-angelo2014" role="doc-biblioref">Angelo et al. 2014</a>)</span>, antibodies are labelled with metal isotopes that are read by mass spectrometry. Imaging-based spatial transcriptomics, such as MERFISH <span class="citation" data-cites="chen2015merfish">(<a href="01-sequence-searching.html#ref-chen2015merfish" role="doc-biblioref">Chen et al. 2015</a>)</span> and Xenium <span class="citation" data-cites="janesick2023">(<a href="01-sequence-searching.html#ref-janesick2023" role="doc-biblioref">Janesick et al. 2023</a>)</span>, measures hundreds to thousands of RNAs in the same way (<a href="07-expression.html#sec-ch07-singlecell" class="quarto-xref"><span>Section 7.6</span></a>); an overview of the technologies is given by <span class="citation" data-cites="park2022spatial">Park et al. (<a href="01-sequence-searching.html#ref-park2022spatial" role="doc-biblioref">2022</a>)</span>.</p>
+<p>The analysis is the same for all of these methods: <em>segment</em> the cells (<a href="#sec-ch13-deep" class="quarto-xref"><span>Section 13.3</span></a>), <em>quantify</em> each marker in each cell, <em>assign cell types</em>, and analyse <em>spatial neighbourhoods</em>, for example which cell types are found next to each other more often than expected by chance. The expectation is usually estimated by permuting cell-type labels within an image, which keeps the positions and density of cells. Cell types are usually assigned by clustering, as for scRNA-seq, but they can also be classified directly from the images. CellSighter, a CNN trained on a few thousand labelled cells, approaches the agreement between human annotators <span class="citation" data-cites="amitay2023">(<a href="01-sequence-searching.html#ref-amitay2023" role="doc-biblioref">Amitay et al. 2023</a>)</span>. Segmentation errors matter here: when the boundary between two cells is wrong, markers spill over from one cell to its neighbour and create apparent mixed cell types.</p>
+</section>
+<section id="computational-pathology" class="level3" data-number="13.6.2">
+<h3 data-number="13.6.2" class="anchored" data-anchor-id="computational-pathology"><span class="header-section-number">13.6.2</span> Computational pathology</h3>
+<p>Pathologists diagnose cancer and other diseases from H&amp;E-stained tissue sections, and digital scanners have made these slides available for machine learning. A whole-slide image is too large to process at once, so it is split into thousands of small <em>tiles</em>, and each tile is embedded with a network. Labels, such as a diagnosis, are usually available only for the whole slide, not for each tile. In <em>multiple-instance learning</em> the slide is treated as a bag of tiles with one label, and the tile embeddings are aggregated, often with attention weights, into a prediction for the slide. Networks trained in this way grade tumours and predict mutations <span class="citation" data-cites="coudray2018 campanella2019">(<a href="01-sequence-searching.html#ref-coudray2018" role="doc-biblioref">Coudray et al. 2018</a>; <a href="01-sequence-searching.html#ref-campanella2019" role="doc-biblioref">Campanella et al. 2019</a>)</span>. They can also predict gene expression from morphology, which links histology to spatial transcriptomics <span class="citation" data-cites="he2020stnet">(<a href="01-sequence-searching.html#ref-he2020stnet" role="doc-biblioref">He et al. 2020</a>)</span>.</p>
+<p>Since 2024, several <strong>pathology foundation models</strong> have been trained by self-supervised learning (<a href="#sec-ch13-deep" class="quarto-xref"><span>Section 13.3</span></a>) on very large collections of slides: UNI on more than 100&nbsp;000 slides <span class="citation" data-cites="chen2024uni">(<a href="01-sequence-searching.html#ref-chen2024uni" role="doc-biblioref">Chen et al. 2024</a>)</span>, Virchow on about 1.5 million <span class="citation" data-cites="vorontsov2024">(<a href="01-sequence-searching.html#ref-vorontsov2024" role="doc-biblioref">Vorontsov et al. 2024</a>)</span> and Prov-GigaPath on more than 170&nbsp;000 slides, with a model of the whole slide rather than single tiles <span class="citation" data-cites="xu2024gigapath">(<a href="01-sequence-searching.html#ref-xu2024gigapath" role="doc-biblioref">Xu et al. 2024</a>)</span>. CONCH was trained on pairs of images and captions, so that slides can be searched and classified with text <span class="citation" data-cites="lu2024conch">(<a href="01-sequence-searching.html#ref-lu2024conch" role="doc-biblioref">Lu et al. 2024</a>)</span>. Their embeddings are used as general features for many clinical tasks.</p>
+<p>A warning example shows why careful evaluation is needed. In The Cancer Genome Atlas, the hospital that submitted a slide can be recognised from the image itself, from differences in staining and scanning, even after colour normalisation. Models can use these site signatures to predict outcomes, which inflates accuracy when training and test sets contain slides from the same sites <span class="citation" data-cites="howard2021">(<a href="01-sequence-searching.html#ref-howard2021" role="doc-biblioref">Howard et al. 2021</a>)</span>. This is the image version of the data leakage described in <a href="12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Section 12.2</span></a>, and the remedy is the same: split by site and test on external cohorts.</p>
+<p>Tissue images, together with single-cell data, are the raw material of the large atlas projects of <a href="#sec-ch13-virtual" class="quarto-xref"><span>Section 13.7</span></a>.</p>
+<!-- appendix-pointer -->
+<p><em>See also:</em> further explanation in <a href="appendix-d-explanations.html#sec-appD-ch13-tissues" class="quarto-xref"><span>Section D.13.5</span></a>; related Wikipedia articles in <a href="appendix-e-wikipedia.html#sec-appE-ch13-tissues" class="quarto-xref"><span>Section E.13.5</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Sources">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Background from the Wikipedia articles <a href="https://en.wikipedia.org/wiki/Digital_pathology">Digital pathology</a> and <a href="https://en.wikipedia.org/wiki/Spatial_transcriptomics">Spatial transcriptomics</a> (CC BY-SA 4.0, retrieved 5 October 2026).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-ch13-virtual" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="sec-ch13-virtual"><span class="header-section-number">13.7</span> Cell atlases and virtual cells</h2>
+<p>The methods of this chapter and of <a href="07-expression.html#sec-ch07-singlecell" class="quarto-xref"><span>Section 7.6</span></a> are now being combined in very large projects. Their first aim is to catalogue all human cell types. Their more ambitious aim is a model that can predict how a cell behaves.</p>
+<section id="cell-atlases" class="level3" data-number="13.7.1">
+<h3 data-number="13.7.1" class="anchored" data-anchor-id="cell-atlases"><span class="header-section-number">13.7.1</span> Cell atlases</h3>
+<p>The <strong>Human Cell Atlas</strong> (HCA), launched in 2016, aims to describe every cell type in the human body by its molecular profile, location and morphology, and to make all data openly available <span class="citation" data-cites="regev2017">(<a href="01-sequence-searching.html#ref-regev2017" role="doc-biblioref">Regev et al. 2017</a>)</span>. A collection of papers published in 2024 described progress from a census of cells towards three-dimensional maps of organs and foundation models trained on the atlas <span class="citation" data-cites="rood2024">(<a href="01-sequence-searching.html#ref-rood2024" role="doc-biblioref">Rood et al. 2024</a>)</span>. The NIH <strong>Human BioMolecular Atlas Program</strong> (HuBMAP) builds three-dimensional maps of human tissues at single-cell resolution, combining imaging with omics <span class="citation" data-cites="hubmap2019 jain2023">(<a href="01-sequence-searching.html#ref-hubmap2019" role="doc-biblioref">HuBMAP Consortium 2019</a>; <a href="01-sequence-searching.html#ref-jain2023" role="doc-biblioref">Jain et al. 2023</a>)</span>. The Human Protein Atlas (<a href="08-proteomics.html#sec-ch08-nonms" class="quarto-xref"><span>Section 8.6</span></a>) and the Allen Institute for Cell Science (<a href="#sec-ch13-localisation" class="quarto-xref"><span>Section 13.5</span></a>) contribute the protein and imaging dimensions.</p>
+<p>All atlases rest on a definition of a <strong>cell type</strong>, and in practice it is operational: a cluster of cells with similar molecular profiles, later linked to location, morphology and function. Whether two clusters are different types or different states of one type (for example activated and resting T cells) is often a matter of judgement, and the answer can change with the resolution of the data.</p>
+</section>
+<section id="the-idea-of-an-ai-virtual-cell" class="level3" data-number="13.7.2">
+<h3 data-number="13.7.2" class="anchored" data-anchor-id="the-idea-of-an-ai-virtual-cell"><span class="header-section-number">13.7.2</span> The idea of an AI virtual cell</h3>
+<p>A widely cited perspective from 2024 proposed the <strong>AI virtual cell</strong>: a model, learned from data, that represents molecules, cells and tissues in different states, and can <em>simulate</em> the effect of perturbations that have never been measured <span class="citation" data-cites="bunne2024">(<a href="01-sequence-searching.html#ref-bunne2024" role="doc-biblioref">Bunne et al. 2024</a>)</span>. Unlike the mechanistic models of <a href="#sec-ch13-wholecell" class="quarto-xref"><span>Section 13.8</span></a>, such a model would not be built from known reactions but learned from atlases, perturbation screens (such as Perturb-seq <span class="citation" data-cites="dixit2016 replogle2022">(<a href="01-sequence-searching.html#ref-dixit2016" role="doc-biblioref">Dixit et al. 2016</a>; <a href="01-sequence-searching.html#ref-replogle2022" role="doc-biblioref">Replogle et al. 2022</a>)</span> and the profiling data of <a href="#sec-ch13-profiling" class="quarto-xref"><span>Section 13.4</span></a>) and images. Its proposed uses include predicting the effects of drugs and mutations and designing experiments in silico.</p>
+<p>Several large initiatives are working towards this goal:</p>
+<ul>
+<li>The <strong>Chan Zuckerberg Initiative</strong> (CZI) and its Biohubs have made virtual cells a central aim. They run an open <em>Virtual Cells Platform</em> with models, data sets and benchmarks, and in 2025 started the <em>Billion Cells Project</em> to generate single-cell data for training models. Models include TranscriptFormer, trained on single-cell data from 12 species <span class="citation" data-cites="pearce2025">(<a href="01-sequence-searching.html#ref-pearce2025" role="doc-biblioref">Pearce et al. 2025</a>)</span>, and rBio, a language model trained with virtual-cell models as a source of feedback <span class="citation" data-cites="istrate2025">(<a href="01-sequence-searching.html#ref-istrate2025" role="doc-biblioref">Istrate et al. 2025</a>)</span>.</li>
+<li>The <strong>Arc Institute</strong> developed State, a model that predicts how cells respond to genetic, signalling and chemical perturbations; its cell embeddings are trained on observational data from 167 million cells <span class="citation" data-cites="adduri2026">(<a href="01-sequence-searching.html#ref-adduri2026" role="doc-biblioref">Adduri et al. 2026</a>)</span>. The Arc Institute also runs the annual <strong>Virtual Cell Challenge</strong>, a blind test of perturbation prediction in the spirit of CASP (<a href="09-protein-structure.html#sec-ch09-casp" class="quarto-xref"><span>Section 9.7</span></a>) <span class="citation" data-cites="roohani2025">(<a href="01-sequence-searching.html#ref-roohani2025" role="doc-biblioref">Roohani et al. 2025</a>)</span>.</li>
+<li><strong>Alpha Cell</strong>, a strategic programme of SciLifeLab funded by the Knut and Alice Wallenberg Foundation and led by Jan Ellenberg and Mathias Uhlén, aims to build predictive AI models of human cells <span class="citation-needed">(citation needed)</span>. It starts from the data of the Human Protein Atlas, and adds spatial models from light and electron microscopy and temporal models of how cells change. In 2026 it was funded until 2033, with KTH, Stockholm University, Karolinska Institutet and Uppsala University as partners <span class="citation-needed">(citation needed)</span> (<a href="https://www.scilifelab.se/alpha-cell/">scilifelab.se/alpha-cell</a>).</li>
+<li>Google DeepMind has said publicly that a virtual cell is a long-term goal after AlphaFold, but has not described a specific project <span class="citation-needed">(citation needed)</span>.</li>
+</ul>
+<p>These projects differ in what they start from: CZI and Arc mainly from single-cell transcriptomics and perturbation screens, Alpha Cell from protein localisation and imaging. Whether any of them works is an empirical question.</p>
+</section>
+<section id="how-good-are-the-models" class="level3" data-number="13.7.3">
+<h3 data-number="13.7.3" class="anchored" data-anchor-id="how-good-are-the-models"><span class="header-section-number">13.7.3</span> How good are the models?</h3>
+<p>Predicting the effect of a perturbation on gene expression is the most common test of a virtual cell. GEARS used a knowledge graph of gene–gene relations to predict the effect of combinations of perturbations <span class="citation" data-cites="roohani2023">(<a href="01-sequence-searching.html#ref-roohani2023" role="doc-biblioref">Roohani et al. 2023</a>)</span>, and single-cell foundation models such as Geneformer and scGPT (<a href="07-expression.html#sec-ch07-singlecell" class="quarto-xref"><span>Section 7.6</span></a>) have been fine-tuned for the same task <span class="citation" data-cites="theodoris2023 cui2024">(<a href="01-sequence-searching.html#ref-theodoris2023" role="doc-biblioref">Theodoris et al. 2023</a>; <a href="01-sequence-searching.html#ref-cui2024" role="doc-biblioref">Cui et al. 2024</a>)</span>. Independent evaluations, however, found that deep-learning models did not outperform deliberately simple linear baselines <span class="citation" data-cites="ahlmanneltze2025">(<a href="01-sequence-searching.html#ref-ahlmanneltze2025" role="doc-biblioref">Ahlmann-Eltze et al. 2025</a>)</span>, and that the embeddings of foundation models used without fine-tuning were often no better than simpler methods <span class="citation" data-cites="kedzierska2025">(<a href="01-sequence-searching.html#ref-kedzierska2025" role="doc-biblioref">Kedzierska et al. 2025</a>)</span>. The organisers of the first Virtual Cell Challenge in 2025 reached a similar conclusion: most models did not consistently beat simple baselines across all metrics, and no single metric captured what makes a model good <span class="citation-needed">(citation needed)</span>. These results do not show that the goal is wrong. They show that the claims should be tested, as for protein structure prediction, by blind benchmarks against simple baselines (<a href="12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Section 12.2</span></a>).</p>
+<p>A learned virtual cell predicts without necessarily explaining. The alternative, a model built from the known parts of a cell, is the subject of <a href="#sec-ch13-wholecell" class="quarto-xref"><span>Section 13.8</span></a>.</p>
+<!-- appendix-pointer -->
+<p><em>See also:</em> further explanation in <a href="appendix-d-explanations.html#sec-appD-ch13-virtual" class="quarto-xref"><span>Section D.13.6</span></a>; related Wikipedia articles in <a href="appendix-e-wikipedia.html#sec-appE-ch13-virtual" class="quarto-xref"><span>Section E.13.6</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Sources">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Background from the Wikipedia article <a href="https://en.wikipedia.org/wiki/Human_Cell_Atlas">Human Cell Atlas</a> (CC BY-SA 4.0, retrieved 5 October 2026), and from the web pages of the <a href="https://virtualcellmodels.cziscience.com/">CZI Virtual Cells Platform</a>, the <a href="https://arcinstitute.org/news/virtual-cell-challenge-2025-wrap-up">Arc Institute Virtual Cell Challenge</a> and <a href="https://www.scilifelab.se/alpha-cell/">SciLifeLab Alpha Cell</a> (retrieved 5 October 2026).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-ch13-wholecell" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="sec-ch13-wholecell"><span class="header-section-number">13.8</span> Whole-cell models and cryo-electron tomography</h2>
+<p>The AI virtual cell (<a href="#sec-ch13-virtual" class="quarto-xref"><span>Section 13.7</span></a>) is learned from data. An older and complementary approach builds a model of a cell from its known parts: genes, reactions, molecules and their structures. Such models are explicit about mechanism, but need a nearly complete parts list and many parameters, which exist only for the simplest cells.</p>
+<section id="mechanistic-whole-cell-models" class="level3" data-number="13.8.1">
+<h3 data-number="13.8.1" class="anchored" data-anchor-id="mechanistic-whole-cell-models"><span class="header-section-number">13.8.1</span> Mechanistic whole-cell models</h3>
+<p>The first <strong>whole-cell model</strong> simulated the complete life cycle of <em>Mycoplasma genitalium</em>, a bacterium with 525 genes. It combined 28 sub-models of different cellular processes, such as metabolism, transcription, translation and DNA replication, each described with the mathematics best suited to it, and predicted phenotypes, such as the growth of single-gene deletion strains, from the genotype <span class="citation" data-cites="karr2012">(<a href="01-sequence-searching.html#ref-karr2012" role="doc-biblioref">Karr et al. 2012</a>)</span>.</p>
+<p>The synthetic minimal cell JCVI-syn3A, with 493 genes, has been modelled in more detail. A kinetic model in which the geometry of the cell and the positions of its ribosomes were taken from cryo-electron tomograms reproduced the doubling time and the distribution of mRNA half-lives <span class="citation" data-cites="thornburg2022">(<a href="01-sequence-searching.html#ref-thornburg2022" role="doc-biblioref">Thornburg et al. 2022</a>)</span>, and a later model simulated the complete cell cycle, including chromosome segregation and division, in space and time <span class="citation" data-cites="thornburg2026">(<a href="01-sequence-searching.html#ref-thornburg2026" role="doc-biblioref">Thornburg et al. 2026</a>)</span>. Such models show which behaviours follow from the known parts, and where knowledge is missing.</p>
+</section>
+<section id="structural-models-of-a-cell" class="level3" data-number="13.8.2">
+<h3 data-number="13.8.2" class="anchored" data-anchor-id="structural-models-of-a-cell"><span class="header-section-number">13.8.2</span> Structural models of a cell</h3>
+<p>Kinetic models mainly describe concentrations and reactions. A structural model goes further and places every molecule in space. Structural models of a whole <em>M. genitalium</em> cell have been built by packing experimental and predicted protein structures, the genome and membranes into a cell volume <span class="citation" data-cites="maritan2022">(<a href="01-sequence-searching.html#ref-maritan2022" role="doc-biblioref">Maritan et al. 2022</a>)</span>. Work towards simulating an entire minimal cell with coarse-grained molecular dynamics (<a href="09-protein-structure.html#sec-ch09-dynamics" class="quarto-xref"><span>Section 9.11</span></a>) is under way <span class="citation" data-cites="stevens2023">(<a href="01-sequence-searching.html#ref-stevens2023" role="doc-biblioref">Stevens et al. 2023</a>)</span>. All-atom simulations of a small part of a bacterial cytoplasm showed that crowding and weak interactions between proteins affect their stability and diffusion <span class="citation" data-cites="yu2016">(<a href="01-sequence-searching.html#ref-yu2016" role="doc-biblioref">Yu et al. 2016</a>)</span>. Predicted structures and complexes (<a href="09-protein-structure.html" class="quarto-xref"><span>Chapter 9</span></a> and <a href="11-protein-interactions.html" class="quarto-xref"><span>Chapter 11</span></a>) provide many of the parts for such models.</p>
+</section>
+<section id="cryo-electron-tomography-and-visual-proteomics" class="level3" data-number="13.8.3">
+<h3 data-number="13.8.3" class="anchored" data-anchor-id="cryo-electron-tomography-and-visual-proteomics"><span class="header-section-number">13.8.3</span> Cryo-electron tomography and visual proteomics</h3>
+<p>Structural models need to be checked against the real cell, and <strong>cryo-electron tomography</strong> (cryo-ET) provides the images. It images frozen cells, or thin slices (<em>lamellae</em>) of them cut with a focused ion beam, from many tilt angles, and reconstructs a three-dimensional image of the cell interior at close to molecular resolution <span class="citation" data-cites="beck2016 young2023">(<a href="01-sequence-searching.html#ref-beck2016" role="doc-biblioref">Beck and Baumeister 2016</a>; <a href="01-sequence-searching.html#ref-young2023" role="doc-biblioref">Young and Villa 2023</a>)</span>. Unlike single-particle cryo-EM (<a href="09-protein-structure.html#sec-ch09-experimental" class="quarto-xref"><span>Section 9.3</span></a>), which averages purified complexes, it shows complexes in their native context. Higher resolution is reached by <em>subtomogram averaging</em>: many copies of the same complex are cut out of the tomograms, aligned and averaged.</p>
+<p>The idea of <strong>visual proteomics</strong> is to identify and locate every large complex in such tomograms, so that the composition and organisation of a cell can be read from an image <span class="citation" data-cites="nickell2006">(<a href="01-sequence-searching.html#ref-nickell2006" role="doc-biblioref">Nickell et al. 2006</a>)</span>. In the small bacterium <em>Mycoplasma pneumoniae</em>, cryo-ET combined with cross-linking mass spectrometry revealed how RNA polymerase and the ribosome are coupled <span class="citation" data-cites="oreilly2020">(<a href="01-sequence-searching.html#ref-oreilly2020" role="doc-biblioref">O’Reilly et al. 2020</a>)</span>, and subtomogram averaging of the ribosome inside the same cells reached 3.5 Å resolution <span class="citation" data-cites="tegunov2021">(<a href="01-sequence-searching.html#ref-tegunov2021" role="doc-biblioref">Tegunov et al. 2021</a>)</span>.</p>
+<p>Finding particles in tomograms is an image-analysis problem of the kind described in <a href="#sec-ch13-deep" class="quarto-xref"><span>Section 13.3</span></a>, and a hard one. The electron dose must be kept low to avoid damaging the sample, so the signal-to-noise ratio is low, and because the sample cannot be tilted through all angles, part of the information is missing (the <em>missing wedge</em>). Deep-learning methods segment membranes and locate complexes, either trained for specific targets <span class="citation" data-cites="deteresa2023">(<a href="01-sequence-searching.html#ref-deteresa2023" role="doc-biblioref">Teresa-Trueba et al. 2023</a>)</span> or with embeddings that generalise to new ones <span class="citation" data-cites="rice2023">(<a href="01-sequence-searching.html#ref-rice2023" role="doc-biblioref">Rice et al. 2023</a>)</span>. Dedicated tools analyse membranes and membrane proteins <span class="citation" data-cites="lamm2026">(<a href="01-sequence-searching.html#ref-lamm2026" role="doc-biblioref">Lamm et al. 2026</a>)</span>. The CZ Imaging Institute’s <strong>CryoET Data Portal</strong> provides standardised, annotated tomograms for training <span class="citation" data-cites="ermel2024">(<a href="01-sequence-searching.html#ref-ermel2024" role="doc-biblioref">Ermel et al. 2024</a>)</span>, and a Kaggle competition on particle picking showed how open challenges can improve the methods <span class="citation" data-cites="peck2026">(<a href="01-sequence-searching.html#ref-peck2026" role="doc-biblioref">Peck et al. 2026</a>)</span>. Cryo-ET thus connects the two directions of this chapter: it provides images of whole cells at molecular detail, and the geometry needed by mechanistic and structural models.</p>
+<!-- appendix-pointer -->
+<p><em>See also:</em> further explanation in <a href="appendix-d-explanations.html#sec-appD-ch13-wholecell" class="quarto-xref"><span>Section D.13.7</span></a>; related Wikipedia articles in <a href="appendix-e-wikipedia.html#sec-appE-ch13-wholecell" class="quarto-xref"><span>Section E.13.7</span></a>.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Sources">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Background from the Wikipedia articles <a href="https://en.wikipedia.org/wiki/Cryogenic_electron_tomography">Cryogenic electron tomography</a>, <a href="https://en.wikipedia.org/wiki/Virtual_cell">Cellular model</a> and <a href="https://en.wikipedia.org/wiki/Mycoplasma_genitalium">Mycoplasma genitalium</a> (CC BY-SA 4.0, retrieved 5 October 2026).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="key-concepts" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="key-concepts"><span class="header-section-number">13.9</span> Key concepts</h2>
+<p>A checklist for revision.</p>
+<ul>
+<li><strong>Images as data:</strong> pixels, channels, z-stacks and time series; intensity is not a molecule count; transmitted light, fluorescence, electron microscopy and histology; whole-slide images</li>
+<li><strong>Classical analysis:</strong> preprocessing, thresholding and watershed segmentation, feature extraction; Fiji, CellProfiler, ilastik, QuPath, napari</li>
+<li><strong>Data and standards:</strong> metadata (REMBI), OME-Zarr; BioImage Archive, Image Data Resource, BBBC; the Cell Tracking Challenge</li>
+<li><strong>Tasks:</strong> image and cell classification; semantic vs.&nbsp;instance segmentation; detection and tracking; restoration and label-free prediction</li>
+<li><strong>Architectures:</strong> CNNs (AlexNet, ResNet); U-Net and skip connections; StarDist (star-convex polygons) and Cellpose (flow fields); vision transformers</li>
+<li><strong>Self-supervision and foundation models:</strong> DINO and DINOv2, masked autoencoders; Segment Anything and its microscopy versions; why self-supervision matters when labels are scarce</li>
+<li><strong>Label-free prediction:</strong> in silico labelling of fluorescence from transmitted light; predictions are not measurements</li>
+<li><strong>Pitfalls:</strong> batch effects between plates, microscopes and hospitals; splitting by experiment; disagreement between annotators; hallucinated structures in predicted images; site signatures in pathology</li>
+<li><strong>Image-based profiling:</strong> Cell Painting (six dyes, five channels, eight components); single-cell features, aggregation and normalisation to controls; batch correction; profile similarity and mechanism of action; JUMP and RxRx3</li>
+<li><strong>Protein localisation:</strong> the HPA subcellular atlas; multi-localising proteins and cell-to-cell variation; the HPA Kaggle competitions, multi-label classification and macro-F1; weak supervision; OpenCell, endogenous tagging and cytoself; SubCell; combining image and sequence embeddings</li>
+<li><strong>Tissues:</strong> CODEX, imaging mass cytometry and MIBI; imaging-based spatial transcriptomics; segmentation, cell-type assignment, marker spill-over and neighbourhood analysis with permutation null models; multiple-instance learning on whole slides; pathology foundation models (UNI, CONCH, Virchow, Prov-GigaPath); predicting expression from histology</li>
+<li><strong>Atlases:</strong> the Human Cell Atlas, HuBMAP, the Allen Institute for Cell Science; what is a cell type?</li>
+<li><strong>AI virtual cells:</strong> definition; perturbation prediction (GEARS, fine-tuned single-cell foundation models, State); the Virtual Cell Challenge; CZI (Virtual Cells Platform, Billion Cells Project, TranscriptFormer) and SciLifeLab’s Alpha Cell; why simple baselines are often as good as deep models</li>
+<li><strong>Mechanistic models:</strong> the <em>M. genitalium</em> whole-cell model; the JCVI-syn3A minimal cell in 4D; structural and molecular-dynamics models of whole cells; learned vs.&nbsp;mechanistic models</li>
+<li><strong>Cryo-electron tomography:</strong> in situ structural biology; focused-ion-beam milling and lamellae; low dose and the missing wedge; subtomogram averaging; visual proteomics; deep learning for particle picking and membrane segmentation; the CryoET Data Portal</li>
+</ul>
+</section>
+<section id="sec-ch13-recommended" class="level2" data-number="13.10">
+<h2 data-number="13.10" class="anchored" data-anchor-id="sec-ch13-recommended"><span class="header-section-number">13.10</span> Recommended reading</h2>
+<!-- generated by scripts/make_papers.py from papers/papers.yml; do not edit -->
+<p>These papers are recommended for reading in full:</p>
+<ul>
+<li><span class="citation" data-cites="vonchamier2019">Chamier et al. (<a href="01-sequence-searching.html#ref-vonchamier2019" role="doc-biblioref">2019</a>)</span> — what a biologist should know about deep learning for microscopy, including its pitfalls.</li>
+<li><span class="citation" data-cites="stringer2021">Stringer et al. (<a href="01-sequence-searching.html#ref-stringer2021" role="doc-biblioref">2020</a>)</span> — Cellpose; a generalist deep-learning method for cell segmentation.</li>
+<li><span class="citation" data-cites="ouyang2019">Ouyang et al. (<a href="01-sequence-searching.html#ref-ouyang2019" role="doc-biblioref">2019</a>)</span> — image classification of protein localisation as a community challenge, with lessons for evaluation.</li>
+<li><span class="citation" data-cites="chandrasekaran2024">Chandrasekaran et al. (<a href="01-sequence-searching.html#ref-chandrasekaran2024" role="doc-biblioref">2024</a>)</span> — Cell Painting and image-based profiling of matched chemical and genetic perturbations (JUMP).</li>
+<li><span class="citation" data-cites="bunne2024">Bunne et al. (<a href="01-sequence-searching.html#ref-bunne2024" role="doc-biblioref">2024</a>)</span> — the AI virtual cell; what it is meant to be and how it could be built.</li>
+<li><span class="citation" data-cites="ahlmanneltze2025">Ahlmann-Eltze et al. (<a href="01-sequence-searching.html#ref-ahlmanneltze2025" role="doc-biblioref">2025</a>)</span> — a critical test; deep-learning models of perturbation effects against simple baselines.</li>
+<li><span class="citation" data-cites="thornburg2026">Thornburg et al. (<a href="01-sequence-searching.html#ref-thornburg2026" role="doc-biblioref">2026</a>)</span> — a mechanistic, spatial model of the complete cell cycle of a minimal cell.</li>
+</ul>
+<p>Titles, abstracts, links and the full texts are in <a href="appendix-a-recommended.html#sec-appA-13" class="quarto-xref"><span>Section A.13</span></a>; a longer list of further papers is in <a href="appendix-b-further.html#sec-appB-13" class="quarto-xref"><span>Section B.13</span></a>.</p>
+</section>
+<section id="background-reading-open-access" class="level2" data-number="13.11">
+<h2 data-number="13.11" class="anchored" data-anchor-id="background-reading-open-access"><span class="header-section-number">13.11</span> Background reading (open access)</h2>
+<ul>
+<li><strong><a href="https://en.wikipedia.org/wiki/Microscopy">Microscopy (Wikipedia)</a></strong> — Microscopy is the technical field of using microscopes to view subjects too small to be seen with the naked eye. There are three well-known branches of microscopy: optical, electron, and scanning probe microscopy, along with the emerging field of X-ray microscopy.<br>
+<a href="https://en.wikipedia.org/wiki/Microscopy" class="uri">https://en.wikipedia.org/wiki/Microscopy</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Image_segmentation">Image segmentation (Wikipedia)</a></strong> — In digital image processing and computer vision, image segmentation is the process of partitioning a digital image into multiple image segments, also known as image regions or image objects. The goal of segmentation is to simplify and/or change the representation of an image into something that is more meaningful and easier to analyze. Image segmentation is typically used to locate objects and boundaries in images.<br>
+<a href="https://en.wikipedia.org/wiki/Image_segmentation" class="uri">https://en.wikipedia.org/wiki/Image_segmentation</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Convolutional_neural_network">Convolutional neural network (Wikipedia)</a></strong> — A convolutional neural network (CNN) is a type of feedforward neural network that learns features via filter optimization. This type of deep learning network has been applied to process and make predictions from many different types of data including text, images and audio.<br>
+<a href="https://en.wikipedia.org/wiki/Convolutional_neural_network" class="uri">https://en.wikipedia.org/wiki/Convolutional_neural_network</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/U-Net">U-Net (Wikipedia)</a></strong> — U-Net is a convolutional neural network that was developed for image segmentation. The network is based on a fully convolutional neural network whose architecture was modified and extended to work with fewer training images and to yield more precise segmentation. Segmentation of a 512&nbsp;×&nbsp;512 image takes less than a second on a modern (2015) GPU using the U-Net architecture.<br>
+<a href="https://en.wikipedia.org/wiki/U-Net" class="uri">https://en.wikipedia.org/wiki/U-Net</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Vision_transformer">Vision transformer (Wikipedia)</a></strong> — A vision transformer (ViT) is a transformer designed for computer vision. A ViT decomposes an input image into a series of patches, serializes each patch into a vector, and maps it to a smaller dimension with a single matrix multiplication. These vector embeddings are then processed by a transformer encoder as if they were token embeddings.<br>
+<a href="https://en.wikipedia.org/wiki/Vision_transformer" class="uri">https://en.wikipedia.org/wiki/Vision_transformer</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/High-content_screening">High-content screening (Wikipedia)</a></strong> — High-content screening (HCS), also known as high-content analysis (HCA) or cellomics, is a method that is used in biological research and drug discovery to identify substances such as small molecules, peptides, or RNAi that alter the phenotype of a cell in a desired manner.<br>
+<a href="https://en.wikipedia.org/wiki/High-content_screening" class="uri">https://en.wikipedia.org/wiki/High-content_screening</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Human_Protein_Atlas">Human Protein Atlas (Wikipedia)</a></strong> — The Human Protein Atlas (HPA) is a Swedish-based program started in 2003 with the aim to map all the human proteins in cells, tissues and organs using integration of various omics technologies, including antibody-based imaging, mass spectrometry-based proteomics, transcriptomics and systems biology.<br>
+<a href="https://en.wikipedia.org/wiki/Human_Protein_Atlas" class="uri">https://en.wikipedia.org/wiki/Human_Protein_Atlas</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Digital_pathology">Digital pathology (Wikipedia)</a></strong> — Digital pathology is a sub-field of pathology that focuses on managing and analyzing information generated from digitized specimen slides. It utilizes computer-based technology and virtual microscopy to view, manage, share, and analyze digital slides on computer monitors.<br>
+<a href="https://en.wikipedia.org/wiki/Digital_pathology" class="uri">https://en.wikipedia.org/wiki/Digital_pathology</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Spatial_transcriptomics">Spatial transcriptomics (Wikipedia)</a></strong> — Spatial transcriptomics, or spatially resolved transcriptomics, is a method that captures positional context of transcriptional activity within intact tissue. The historical precursor to spatial transcriptomics is in situ hybridization, where the modernized omics terminology refers to the measurement of all the mRNA in a cell rather than select RNA targets. It comprises an important part of spatial biology.<br>
+<a href="https://en.wikipedia.org/wiki/Spatial_transcriptomics" class="uri">https://en.wikipedia.org/wiki/Spatial_transcriptomics</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Human_Cell_Atlas">Human Cell Atlas (Wikipedia)</a></strong> — The Human Cell Atlas is a global project to describe all cell types in the human body, to understand human health and for diagnosing, monitoring, and treating disease.<br>
+<a href="https://en.wikipedia.org/wiki/Human_Cell_Atlas" class="uri">https://en.wikipedia.org/wiki/Human_Cell_Atlas</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Virtual_cell">Cellular model (Wikipedia)</a></strong> — A cellular model or virtual cell is a computational model of aspects of a biological cell, for the purposes of in silico research.<br>
+<a href="https://en.wikipedia.org/wiki/Virtual_cell" class="uri">https://en.wikipedia.org/wiki/Virtual_cell</a></li>
+<li><strong><a href="https://en.wikipedia.org/wiki/Cryogenic_electron_tomography">Cryogenic electron tomography (Wikipedia)</a></strong> — Cryogenic electron tomography (cryoET) is an imaging technique used to reconstruct high-resolution (~1–4&nbsp;nm) three-dimensional volumes of samples, often biological macromolecules and cells.<br>
+<a href="https://en.wikipedia.org/wiki/Cryogenic_electron_tomography" class="uri">https://en.wikipedia.org/wiki/Cryogenic_electron_tomography</a></li>
+</ul>
+<p>Descriptions of Wikipedia articles are taken from the introductions of the articles (CC BY-SA 4.0).</p>
+</section>
+<section id="student-recommendations" class="level2" data-number="13.12">
+<h2 data-number="13.12" class="anchored" data-anchor-id="student-recommendations"><span class="header-section-number">13.12</span> Student recommendations</h2>
+<p>Recommended by students preparing for the exam: papers, reviews, online lectures, tutorials and short explanations. To suggest something, use the <a href="https://bioinfo.se/internal/storatentan-suggest/">suggestion form</a> (SU login).</p>
+<!--
+Student recommendations for this chapter.
+
+Add material below as list items, one per entry, and sign with your name
+and the date. Useful contributions are papers, reviews, online lectures,
+tutorials, exam questions you were asked and short explanations.
+Examples:
+
+- @key — why it is useful. (Name, 2026-10)
+- [Lecture title](https://...) — speaker, length, what it covers. (Name, 2026-10)
+
+To cite a paper with @key, add it to scripts/papers.tsv and run
+python3 scripts/fetch_bib.py (see Readme.MD). Otherwise give the full
+reference with a DOI link.
+
+Remove the placeholder line below when you add the first entry.
+-->
+<p><em>No recommendations yet.</em></p>
+</section>
+<section id="sec-ch13-problems" class="level2" data-number="13.13">
+<h2 data-number="13.13" class="anchored" data-anchor-id="sec-ch13-problems"><span class="header-section-number">13.13</span> Review problems</h2>
+<p>The format of these problems follows Matteo Tadiello, <em><a href="https://bioinfo.se/teaching/modern-bioinformatics/">Modern Bioinformatics: From Foundations to Frontiers</a></em> (CC BY 4.0); the problems were written for this book, since that book has no chapter on image analysis. In the HTML version, click a box to show the extensions, solution outline and common errors.</p>
+<section id="intensity-is-not-abundance" class="level3" data-number="13.13.1">
+<h3 data-number="13.13.1" class="anchored" data-anchor-id="intensity-is-not-abundance"><span class="header-section-number">13.13.1</span> Intensity is not abundance</h3>
+<p>A fluorescence screen reports that the mean nuclear intensity of a tagged protein is twice as high in treated as in untreated cells. What does this show about the amount of the protein in the nucleus, and what would you check before concluding that the treatment increases it?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Extensions, solution outline and common errors">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Extensions, solution outline and common errors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Extensions:</strong></p>
+<ul>
+<li>Which steps of acquisition and analysis affect the measured intensity?</li>
+<li>How do segmentation errors change a per-nucleus mean?</li>
+<li>What metadata are needed for the result to be reusable?</li>
+</ul>
+<p><strong>Solution outline:</strong></p>
+<ol type="1">
+<li>Each pixel value depends on the label, microscope, exposure, detector and background, not only on the number of molecules; images are comparable only if acquired in the same way.</li>
+<li>Check that treated and untreated wells were imaged with the same settings, on the same plates or with plate controls, and corrected for background and uneven illumination.</li>
+<li>Segmentation determines which pixels are counted: if the treatment changes nuclear size or shape, the segmentation may include cytoplasm or miss parts of the nucleus, and a mean can change while the total does not (or the reverse).</li>
+<li>A change in localisation (from cytoplasm to nucleus) is not the same as a change in total amount; measure both compartments.</li>
+<li>Use replicate wells and plates as the units, not individual cells, and confirm with an independent method such as western blotting or mass spectrometry.</li>
+<li>Report acquisition and analysis metadata following REMBI, and deposit the images, for example in the BioImage Archive.</li>
+</ol>
+<p><strong>Common errors:</strong></p>
+<ul>
+<li>Treating intensity as a molecule count.</li>
+<li>Counting thousands of cells as independent replicates.</li>
+<li>Ignoring that the treatment can change cell shape and so the segmentation.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Connections:</strong> <a href="#sec-ch13-images" class="quarto-xref"><span>Section 13.2</span></a> (images as data, classical analysis, metadata); <a href="12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Section 12.2</span></a> (non-independent examples).</p>
+</section>
+<section id="choosing-a-segmentation-method" class="level3" data-number="13.13.2">
+<h3 data-number="13.13.2" class="anchored" data-anchor-id="choosing-a-segmentation-method"><span class="header-section-number">13.13.2</span> Choosing a segmentation method</h3>
+<p>A laboratory needs to segment densely packed, touching nuclei and irregularly shaped cells in a new kind of tissue image. Compare thresholding with watershed, StarDist and Cellpose, and describe how you would evaluate the result.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Extensions, solution outline and common errors">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Extensions, solution outline and common errors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Extensions:</strong></p>
+<ul>
+<li>What is the difference between semantic and instance segmentation?</li>
+<li>Why do U-Net skip connections help?</li>
+<li>How can a general model be adapted to new data with few annotations?</li>
+</ul>
+<p><strong>Solution outline:</strong></p>
+<ol type="1">
+<li>Separating touching objects is an instance-segmentation problem; semantic segmentation (nucleus vs.&nbsp;background) is not enough.</li>
+<li>Thresholding with a watershed transform is fast and transparent but sensitive to uneven staining and tends to over- or under-split.</li>
+<li>StarDist predicts star-convex polygons, which suits roughly round nuclei but not irregular cell shapes.</li>
+<li>Cellpose predicts flow fields towards cell centres and works for many shapes without retraining; Cellpose 2.0 can be adapted with a few corrected images (human in the loop).</li>
+<li>Evaluate on images annotated independently, ideally by more than one person, from experiments not used for training, with object-level measures (for example matched objects at an overlap threshold) rather than pixel accuracy alone.</li>
+<li>Check that downstream measurements, such as cell counts or marker intensities, are robust to the choice of method.</li>
+</ol>
+<p><strong>Common errors:</strong></p>
+<ul>
+<li>Evaluating on tiles from the same images used for training.</li>
+<li>Reporting pixel accuracy, which is dominated by background.</li>
+<li>Assuming that a general model works on a new tissue without checking.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Connections:</strong> <a href="#sec-ch13-deep" class="quarto-xref"><span>Section 13.3</span></a> (U-Net, StarDist, Cellpose); <a href="12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Section 12.2</span></a> (evaluation and test sets).</p>
+</section>
+<section id="self-supervised-models-and-foundation-models-for-images" class="level3" data-number="13.13.3">
+<h3 data-number="13.13.3" class="anchored" data-anchor-id="self-supervised-models-and-foundation-models-for-images"><span class="header-section-number">13.13.3</span> Self-supervised models and foundation models for images</h3>
+<p>Explain how self-supervised learning can produce useful features for microscopy images without labels, and how you would test whether a pre-trained image model is better than CellProfiler features for classifying protein localisation.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Extensions, solution outline and common errors">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Extensions, solution outline and common errors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Extensions:</strong></p>
+<ul>
+<li>Compare DINO and masked autoencoders.</li>
+<li>Why have self-supervised methods become important for vision transformers?</li>
+<li>What is a fair comparison?</li>
+</ul>
+<p><strong>Solution outline:</strong></p>
+<ol type="1">
+<li>Vision transformers treat image patches as tokens and need large training sets; labels for microscopy are scarce, which makes self-supervision attractive.</li>
+<li>In DINO, a student network learns to match a teacher network on different views of the same image; masked autoencoders hide most patches and reconstruct them, like masked language modelling.</li>
+<li>Features are evaluated by probing: train a simple classifier, for example logistic regression, on frozen embeddings, and compare with the same classifier on CellProfiler features.</li>
+<li>Split by protein, cell line or experiment rather than by image or cell, so that the same protein does not occur in both training and test sets.</li>
+<li>Use measures suited to multi-label, imbalanced classes (for example macro-F1 or per-class precision–recall).</li>
+<li>Check that the embeddings do not mainly encode plate, batch or microscope.</li>
+</ol>
+<p><strong>Common errors:</strong></p>
+<ul>
+<li>Splitting by cell, so that images of the same protein are on both sides.</li>
+<li>Comparing a tuned deep model with an untuned baseline.</li>
+<li>Assuming that a model pre-trained on natural images, such as SAM, works on microscopy without fine-tuning or testing.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Connections:</strong> <a href="#sec-ch13-deep" class="quarto-xref"><span>Section 13.3</span></a> (vision transformers and self-supervision); <a href="#sec-ch13-localisation" class="quarto-xref"><span>Section 13.5</span></a> (HPA and image-based localisation); <a href="12-machine-learning.html#sec-ch12-foundation" class="quarto-xref"><span>Section 12.6</span></a> (evaluating foundation models).</p>
+</section>
+<section id="image-based-profiling" class="level3" data-number="13.13.4">
+<h3 data-number="13.13.4" class="anchored" data-anchor-id="image-based-profiling"><span class="header-section-number">13.13.4</span> Image-based profiling</h3>
+<p>Describe how a Cell Painting experiment is turned into profiles, and how such profiles can be used to suggest the mechanism of action of an uncharacterised compound.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Extensions, solution outline and common errors">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Extensions, solution outline and common errors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Extensions:</strong></p>
+<ul>
+<li>What do the six dyes label?</li>
+<li>Why normalise to negative controls on the same plate?</li>
+<li>How would you test whether a compound has any effect at all?</li>
+</ul>
+<p><strong>Solution outline:</strong></p>
+<ol type="1">
+<li>Six dyes, imaged in five channels, label DNA, RNA and nucleoli, the endoplasmic reticulum, actin, Golgi and plasma membrane, and mitochondria.</li>
+<li>Cells are segmented and hundreds to thousands of size, shape, intensity and texture features (or deep embeddings) are measured per cell.</li>
+<li>Features are aggregated per well, normalised against negative controls on the same plate, reduced to informative, uncorrelated features, and corrected for batch effects between plates and sites.</li>
+<li>Test whether a compound’s profile differs from controls more than replicate controls differ from each other.</li>
+<li>Compare its profile with profiles of compounds of known mechanism, or of genetic perturbations, for example by cosine similarity; similar profiles suggest a shared mechanism, a hypothesis to be tested.</li>
+<li>Evaluate such matching with held-out plates and replicate consistency, as in the CPJUMP1 benchmark.</li>
+</ol>
+<p><strong>Common errors:</strong></p>
+<ul>
+<li>Interpreting profile similarity as proof of a shared target.</li>
+<li>Ignoring plate and batch effects, so that compounds on the same plate look similar.</li>
+<li>Using cells rather than wells or plates as replicates.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Connections:</strong> <a href="#sec-ch13-profiling" class="quarto-xref"><span>Section 13.4</span></a> (Cell Painting, JUMP, RxRx3); <a href="07-expression.html#sec-ch07-statistics" class="quarto-xref"><span>Section 7.4</span></a> (normalisation, batch effects, clustering).</p>
+</section>
+<section id="site-signatures-in-computational-pathology" class="level3" data-number="13.13.5">
+<h3 data-number="13.13.5" class="anchored" data-anchor-id="site-signatures-in-computational-pathology"><span class="header-section-number">13.13.5</span> Site signatures in computational pathology</h3>
+<p>A model trained on whole-slide images from The Cancer Genome Atlas predicts patient survival with high accuracy. Explain how site signatures could inflate this result and how you would design a fair evaluation.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Extensions, solution outline and common errors">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Extensions, solution outline and common errors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Extensions:</strong></p>
+<ul>
+<li>How is a whole-slide image turned into a single prediction?</li>
+<li>Why does colour normalisation not solve the problem?</li>
+<li>What role can pathology foundation models play?</li>
+</ul>
+<p><strong>Solution outline:</strong></p>
+<ol type="1">
+<li>Slides are split into tiles, each tile is embedded, and the embeddings are aggregated, often with attention, in multiple-instance learning.</li>
+<li>Staining, scanning and preparation differ between hospitals, and the submitting site can be recognised from the image even after colour normalisation.</li>
+<li>If survival or patient mix differs between sites, a model can predict outcome by recognising the site; with slides from the same sites in training and test sets, accuracy is inflated.</li>
+<li>Split by site, keep all slides from a patient together, and test on an external cohort.</li>
+<li>Check whether the site can be predicted from the embeddings and whether performance holds within sites.</li>
+<li>Foundation models such as UNI or Virchow give general features, but their embeddings can also encode site, and their pre-training data may overlap with the test slides.</li>
+</ol>
+<p><strong>Common errors:</strong></p>
+<ul>
+<li>Splitting by tile or slide rather than by patient and site.</li>
+<li>Assuming colour normalisation removes all site effects.</li>
+<li>Interpreting attention maps as the cause of the prediction.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Connections:</strong> <a href="#sec-ch13-tissues" class="quarto-xref"><span>Section 13.6</span></a> (computational pathology); <a href="12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Section 12.2</span></a> (data leakage and external validation); <a href="12-machine-learning.html#sec-ch12-deep" class="quarto-xref"><span>Section 12.4</span></a> (interpretability).</p>
+</section>
+<section id="spatial-analysis-of-multiplexed-images" class="level3" data-number="13.13.6">
+<h3 data-number="13.13.6" class="anchored" data-anchor-id="spatial-analysis-of-multiplexed-images"><span class="header-section-number">13.13.6</span> Spatial analysis of multiplexed images</h3>
+<p>A study of multiplexed tissue images (for example imaging mass cytometry) reports that T cells are found next to tumour cells more often than expected in patients who respond to therapy. Describe the analysis, and what is needed before the result is trusted.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Extensions, solution outline and common errors">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Extensions, solution outline and common errors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Extensions:</strong></p>
+<ul>
+<li>What are the steps from image to cell types?</li>
+<li>What is a suitable null model for neighbourhood enrichment?</li>
+<li>What is the independent unit?</li>
+</ul>
+<p><strong>Solution outline:</strong></p>
+<ol type="1">
+<li>Segment the cells, quantify each marker per cell, and assign cell types by clustering or by a classifier such as CellSighter.</li>
+<li>Segmentation errors cause spill-over of markers between neighbouring cells, which can create apparent mixed cell types and spurious neighbours.</li>
+<li>Neighbourhood enrichment is tested against permutations of cell-type labels within each image, which keep the positions and density of cells.</li>
+<li>Tissue architecture (for example tumour borders) and the area sampled can cause enrichment by themselves.</li>
+<li>The patient is the unit: many cells or regions from one patient are not independent replicates, and the comparison between responders and non-responders must be made between patients, with an independent cohort.</li>
+<li>Spatial association is not causation; a role of T-cell contact would need perturbation or longitudinal data.</li>
+</ol>
+<p><strong>Common errors:</strong></p>
+<ul>
+<li>Treating each cell or image region as an independent sample.</li>
+<li>Using a null model that ignores tissue structure.</li>
+<li>Ignoring marker spill-over from segmentation errors.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Connections:</strong> <a href="#sec-ch13-tissues" class="quarto-xref"><span>Section 13.6</span></a> (multiplexed imaging and spatial omics); <a href="07-expression.html#sec-ch07-singlecell" class="quarto-xref"><span>Section 7.6</span></a> (spatial transcriptomics and cell types); <a href="12-machine-learning.html#sec-ch12-integration" class="quarto-xref"><span>Section 12.7</span></a> (prediction and causation).</p>
+</section>
+<section id="how-good-is-a-virtual-cell" class="level3" data-number="13.13.7">
+<h3 data-number="13.13.7" class="anchored" data-anchor-id="how-good-is-a-virtual-cell"><span class="header-section-number">13.13.7</span> How good is a virtual cell?</h3>
+<p>A company claims that its AI virtual cell model predicts the transcriptional response of human cells to genetic perturbations that were never measured. What evidence would you require?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Extensions, solution outline and common errors">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Extensions, solution outline and common errors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Extensions:</strong></p>
+<ul>
+<li>What baselines should be used?</li>
+<li>How should the test perturbations be chosen?</li>
+<li>Why did the first Virtual Cell Challenge find no single good measure?</li>
+</ul>
+<p><strong>Solution outline:</strong></p>
+<ol type="1">
+<li>Define what is predicted (expression changes, cell-type shifts, combinations) and in which cell types.</li>
+<li>Hold out perturbations, and ideally cell types or experiments, that were not in training; combinations should not have their single perturbations in the test set if that is the claim.</li>
+<li>Compare with simple baselines, such as predicting the mean response or a linear model, which in independent evaluations have matched deep models.</li>
+<li>Use several measures (correlation of changes, error on differentially expressed genes, ranking of perturbations), since a model can look good on one and poor on another.</li>
+<li>Prefer blind benchmarks, such as the Virtual Cell Challenge, in which predictions are made before the data are released.</li>
+<li>Confirm selected predictions experimentally.</li>
+</ol>
+<p><strong>Common errors:</strong></p>
+<ul>
+<li>Accepting performance on perturbations similar to the training data as generalisation.</li>
+<li>Omitting simple baselines.</li>
+<li>Reporting only the most favourable measure.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Connections:</strong> <a href="#sec-ch13-virtual" class="quarto-xref"><span>Section 13.7</span></a> (virtual cells and their evaluation); <a href="12-machine-learning.html#sec-ch12-foundation" class="quarto-xref"><span>Section 12.6</span></a> (foundation models and baselines); <a href="09-protein-structure.html#sec-ch09-casp" class="quarto-xref"><span>Section 9.7</span></a> (blind benchmarks).</p>
+</section>
+<section id="mechanistic-and-learned-models-of-cells" class="level3" data-number="13.13.8">
+<h3 data-number="13.13.8" class="anchored" data-anchor-id="mechanistic-and-learned-models-of-cells"><span class="header-section-number">13.13.8</span> Mechanistic and learned models of cells</h3>
+<p>Compare a mechanistic whole-cell model, such as that of <em>Mycoplasma genitalium</em> or JCVI-syn3A, with a learned AI virtual cell. What can each do, and how can cryo-electron tomography contribute to both?</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Extensions, solution outline and common errors">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Extensions, solution outline and common errors
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Extensions:</strong></p>
+<ul>
+<li>Why have mechanistic models been built only for minimal cells?</li>
+<li>What is visual proteomics?</li>
+<li>What are the image-analysis problems of cryo-ET?</li>
+</ul>
+<p><strong>Solution outline:</strong></p>
+<ol type="1">
+<li>Mechanistic models are built from known genes, reactions and structures, combine sub-models of processes such as metabolism and replication, and predict phenotypes, such as the growth of deletion strains, from genotype; they need a nearly complete parts list and many parameters.</li>
+<li>Learned models are trained on atlases, perturbation screens and images; they can cover human cells but are only as good as their training data and must be tested against simple baselines.</li>
+<li>Mechanistic models show which behaviours follow from known parts and where knowledge is missing; learned models may predict without explaining.</li>
+<li>Cryo-ET gives three-dimensional images of the cell interior near molecular resolution, and subtomogram averaging of many copies of a complex improves the resolution; visual proteomics aims to identify and locate every large complex.</li>
+<li>Finding particles in tomograms is hard because the low electron dose gives a low signal-to-noise ratio and the missing wedge distorts the reconstruction; deep-learning methods are used for particle picking and membrane segmentation, and annotated data such as the CryoET Data Portal and open challenges help.</li>
+<li>The geometry from cryo-ET (cell shape, ribosome positions) was used in the JCVI-syn3A model, and structural maps can provide training data and parts for both kinds of model.</li>
+</ol>
+<p><strong>Common errors:</strong></p>
+<ul>
+<li>Assuming either kind of model is complete or correct because it reproduces some observations.</li>
+<li>Confusing cryo-ET with single-particle cryo-EM.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Connections:</strong> <a href="#sec-ch13-wholecell" class="quarto-xref"><span>Section 13.8</span></a> (whole-cell models and cryo-ET); <a href="#sec-ch13-virtual" class="quarto-xref"><span>Section 13.7</span></a> (AI virtual cells); <a href="09-protein-structure.html#sec-ch09-experimental" class="quarto-xref"><span>Section 9.3</span></a> (cryo-EM); <a href="11-protein-interactions.html#sec-ch11-networks" class="quarto-xref"><span>Section 11.3</span></a> (systems biology and metabolic models).</p>
+</section>
+</section>
+<section id="references" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-adduri2026" class="csl-entry" role="listitem">
+Adduri, Abhinav K., Dhruv Gautam, Beatrice Bevilacqua, et al. 2026. <span>“Predicting Cellular Responses to Perturbation Across Diverse Contexts with State.”</span> <em>Cell</em> 189 (19): 5914–5931.e20. <a href="https://doi.org/10.1016/j.cell.2026.07.052">https://doi.org/10.1016/j.cell.2026.07.052</a>.
+</div>
+<div id="ref-ahlmanneltze2025" class="csl-entry" role="listitem">
+Ahlmann-Eltze, Constantin, Wolfgang Huber, and Simon Anders. 2025. <span>“Deep-Learning-Based Gene Perturbation Effect Prediction Does Not yet Outperform Simple Linear Baselines.”</span> <em>Nature Methods</em> 22 (8): 1657–61. <a href="https://doi.org/10.1038/s41592-025-02772-6">https://doi.org/10.1038/s41592-025-02772-6</a>.
+</div>
+<div id="ref-amitay2023" class="csl-entry" role="listitem">
+Amitay, Yael, Yuval Bussi, Ben Feinstein, Shai Bagon, Idan Milo, and Leeat Keren. 2023. <span>“CellSighter: A Neural Network to Classify Cells in Highly Multiplexed Images.”</span> <em>Nature Communications</em> 14 (1). <a href="https://doi.org/10.1038/s41467-023-40066-7">https://doi.org/10.1038/s41467-023-40066-7</a>.
+</div>
+<div id="ref-angelo2014" class="csl-entry" role="listitem">
+Angelo, Michael, Sean C Bendall, Rachel Finck, et al. 2014. <span>“Multiplexed Ion Beam Imaging of Human Breast Tumors.”</span> <em>Nature Medicine</em> 20 (4): 436–42. <a href="https://doi.org/10.1038/nm.3488">https://doi.org/10.1038/nm.3488</a>.
+</div>
+<div id="ref-archit2025" class="csl-entry" role="listitem">
+Archit, Anwai, Luca Freckmann, Sushmita Nair, et al. 2025. <span>“Segment Anything for Microscopy.”</span> <em>Nature Methods</em> 22 (3): 579–91. <a href="https://doi.org/10.1038/s41592-024-02580-4">https://doi.org/10.1038/s41592-024-02580-4</a>.
+</div>
+<div id="ref-bankhead2017" class="csl-entry" role="listitem">
+Bankhead, Peter, Maurice B. Loughrey, José A. Fernández, et al. 2017. <span>“QuPath: Open Source Software for Digital Pathology Image Analysis.”</span> <em>Scientific Reports</em> 7 (1). <a href="https://doi.org/10.1038/s41598-017-17204-5">https://doi.org/10.1038/s41598-017-17204-5</a>.
+</div>
+<div id="ref-beck2016" class="csl-entry" role="listitem">
+Beck, Martin, and Wolfgang Baumeister. 2016. <span>“Cryo-Electron Tomography: Can It Reveal the Molecular Sociology of Cells in Atomic Detail?”</span> <em>Trends in Cell Biology</em> 26 (11): 825–37. <a href="https://doi.org/10.1016/j.tcb.2016.08.006">https://doi.org/10.1016/j.tcb.2016.08.006</a>.
+</div>
+<div id="ref-berg2019" class="csl-entry" role="listitem">
+Berg, Stuart, Dominik Kutra, Thorben Kroeger, et al. 2019. <span>“Ilastik: Interactive Machine Learning for (Bio)image Analysis.”</span> <em>Nature Methods</em> 16 (12): 1226–32. <a href="https://doi.org/10.1038/s41592-019-0582-9">https://doi.org/10.1038/s41592-019-0582-9</a>.
+</div>
+<div id="ref-bray2016painting" class="csl-entry" role="listitem">
+Bray, Mark-Anthony, Shantanu Singh, Han Han, et al. 2016. <span>“Cell Painting, a High-Content Image-Based Assay for Morphological Profiling Using Multiplexed Fluorescent Dyes.”</span> <em>Nature Protocols</em> 11 (9): 1757–74. <a href="https://doi.org/10.1038/nprot.2016.105">https://doi.org/10.1038/nprot.2016.105</a>.
+</div>
+<div id="ref-bunne2024" class="csl-entry" role="listitem">
+Bunne, Charlotte, Yusuf Roohani, Yanay Rosen, et al. 2024. <span>“How to Build the Virtual Cell with Artificial Intelligence: Priorities and Opportunities.”</span> <em>Cell</em> 187 (25): 7045–63. <a href="https://doi.org/10.1016/j.cell.2024.11.015">https://doi.org/10.1016/j.cell.2024.11.015</a>.
+</div>
+<div id="ref-caicedo2017" class="csl-entry" role="listitem">
+Caicedo, Juan C, Sam Cooper, Florian Heigwer, et al. 2017. <span>“Data-Analysis Strategies for Image-Based Cell Profiling.”</span> <em>Nature Methods</em> 14 (9): 849–63. <a href="https://doi.org/10.1038/nmeth.4397">https://doi.org/10.1038/nmeth.4397</a>.
+</div>
+<div id="ref-campanella2019" class="csl-entry" role="listitem">
+Campanella, Gabriele, Matthew G. Hanna, Luke Geneslaw, et al. 2019. <span>“Clinical-Grade Computational Pathology Using Weakly Supervised Deep Learning on Whole Slide Images.”</span> <em>Nature Medicine</em> 25 (8): 1301–9. <a href="https://doi.org/10.1038/s41591-019-0508-1">https://doi.org/10.1038/s41591-019-0508-1</a>.
+</div>
+<div id="ref-caron2021" class="csl-entry" role="listitem">
+Caron, Mathilde, Hugo Touvron, Ishan Misra, et al. 2021. <span>“Emerging Properties in Self-Supervised Vision Transformers.”</span> <em>2021 IEEE/CVF International Conference on Computer Vision (ICCV)</em>, 9630–40. <a href="https://doi.org/10.1109/iccv48922.2021.00951">https://doi.org/10.1109/iccv48922.2021.00951</a>.
+</div>
+<div id="ref-carpenter2006" class="csl-entry" role="listitem">
+Carpenter, Anne E, Thouis R Jones, Michael R Lamprecht, et al. 2006. <span>“CellProfiler: Image Analysis Software for Identifying and Quantifying Cell Phenotypes.”</span> <em>Genome Biology</em> 7 (10). <a href="https://doi.org/10.1186/gb-2006-7-10-r100">https://doi.org/10.1186/gb-2006-7-10-r100</a>.
+</div>
+<div id="ref-vonchamier2019" class="csl-entry" role="listitem">
+Chamier, Lucas von, Romain F. Laine, and Ricardo Henriques. 2019. <span>“Artificial Intelligence for Microscopy: What You Should Know.”</span> <em>Biochemical Society Transactions</em> 47 (4): 1029–40. <a href="https://doi.org/10.1042/bst20180391">https://doi.org/10.1042/bst20180391</a>.
+</div>
+<div id="ref-vonchamier2021" class="csl-entry" role="listitem">
+Chamier, Lucas von, Romain F. Laine, Johanna Jukkala, et al. 2021. <span>“Democratising Deep Learning for Microscopy with ZeroCostDL4Mic.”</span> <em>Nature Communications</em> 12 (1). <a href="https://doi.org/10.1038/s41467-021-22518-0">https://doi.org/10.1038/s41467-021-22518-0</a>.
+</div>
+<div id="ref-chandrasekaran2023" class="csl-entry" role="listitem">
+Chandrasekaran, Srinivas Niranj, Jeanelle Ackerman, Eric Alix, et al. 2023. <span>“JUMP Cell Painting Dataset: Morphological Impact of 136,000 Chemical and Genetic Perturbations.”</span> <em>bioRxiv (Preprint)</em>, ahead of print. <a href="https://doi.org/10.1101/2023.03.23.534023">https://doi.org/10.1101/2023.03.23.534023</a>.
+</div>
+<div id="ref-chandrasekaran2025" class="csl-entry" role="listitem">
+Chandrasekaran, Srinivas Niranj, Eric Alix, John Arevalo, et al. 2025. <span>“Morphological Map of Under- and Overexpression of Genes in Human Cells.”</span> <em>Nature Methods</em> 22 (8): 1742–52. <a href="https://doi.org/10.1038/s41592-025-02753-9">https://doi.org/10.1038/s41592-025-02753-9</a>.
+</div>
+<div id="ref-chandrasekaran2024" class="csl-entry" role="listitem">
+Chandrasekaran, Srinivas Niranj, Beth A. Cimini, Amy Goodale, et al. 2024. <span>“Three Million Images and Morphological Profiles of Cells Treated with Matched Chemical and Genetic Perturbations.”</span> <em>Nature Methods</em> 21 (6): 1114–21. <a href="https://doi.org/10.1038/s41592-024-02241-6">https://doi.org/10.1038/s41592-024-02241-6</a>.
+</div>
+<div id="ref-chen2015merfish" class="csl-entry" role="listitem">
+Chen, Kok Hao, Alistair N. Boettiger, Jeffrey R. Moffitt, Siyuan Wang, and Xiaowei Zhuang. 2015. <span>“Spatially Resolved, Highly Multiplexed RNA Profiling in Single Cells.”</span> <em>Science</em> 348 (6233). <a href="https://doi.org/10.1126/science.aaa6090">https://doi.org/10.1126/science.aaa6090</a>.
+</div>
+<div id="ref-chen2024uni" class="csl-entry" role="listitem">
+Chen, Richard J., Tong Ding, Ming Y. Lu, et al. 2024. <span>“Towards a General-Purpose Foundation Model for Computational Pathology.”</span> <em>Nature Medicine</em> 30 (3): 850–62. <a href="https://doi.org/10.1038/s41591-024-02857-3">https://doi.org/10.1038/s41591-024-02857-3</a>.
+</div>
+<div id="ref-cho2022" class="csl-entry" role="listitem">
+Cho, Nathan H., Keith C. Cheveralls, Andreas-David Brunner, et al. 2022. <span>“OpenCell: Endogenous Tagging for the Cartography of Human Cellular Organization.”</span> <em>Science</em> 375 (6585). <a href="https://doi.org/10.1126/science.abi6983">https://doi.org/10.1126/science.abi6983</a>.
+</div>
+<div id="ref-christiansen2018" class="csl-entry" role="listitem">
+Christiansen, Eric M., Samuel J. Yang, D. Michael Ando, et al. 2018. <span>“In Silico Labeling: Predicting Fluorescent Labels in Unlabeled Images.”</span> <em>Cell</em> 173 (3): 792–803.e19. <a href="https://doi.org/10.1016/j.cell.2018.03.040">https://doi.org/10.1016/j.cell.2018.03.040</a>.
+</div>
+<div id="ref-cimini2023" class="csl-entry" role="listitem">
+Cimini, Beth A., Srinivas Niranj Chandrasekaran, Maria Kost-Alimova, et al. 2023. <span>“Optimizing the Cell Painting Assay for Image-Based Profiling.”</span> <em>Nature Protocols</em> 18 (7): 1981–2013. <a href="https://doi.org/10.1038/s41596-023-00840-9">https://doi.org/10.1038/s41596-023-00840-9</a>.
+</div>
+<div id="ref-coudray2018" class="csl-entry" role="listitem">
+Coudray, Nicolas, Paolo Santiago Ocampo, Theodore Sakellaropoulos, et al. 2018. <span>“Classification and Mutation Prediction from Non–Small Cell Lung Cancer Histopathology Images Using Deep Learning.”</span> <em>Nature Medicine</em> 24 (10): 1559–67. <a href="https://doi.org/10.1038/s41591-018-0177-5">https://doi.org/10.1038/s41591-018-0177-5</a>.
+</div>
+<div id="ref-cui2024" class="csl-entry" role="listitem">
+Cui, Haotian, Chloe Wang, Hassaan Maan, et al. 2024. <span>“scGPT: Toward Building a Foundation Model for Single-Cell Multi-Omics Using Generative AI.”</span> <em>Nature Methods</em> 21 (8): 1470–80. <a href="https://doi.org/10.1038/s41592-024-02201-0">https://doi.org/10.1038/s41592-024-02201-0</a>.
+</div>
+<div id="ref-dixit2016" class="csl-entry" role="listitem">
+Dixit, Atray, Oren Parnas, Biyu Li, et al. 2016. <span>“Perturb-Seq: Dissecting Molecular Circuits with Scalable Single-Cell RNA Profiling of Pooled Genetic Screens.”</span> <em>Cell</em> 167 (7): 1853–1866.e17. <a href="https://doi.org/10.1016/j.cell.2016.11.038">https://doi.org/10.1016/j.cell.2016.11.038</a>.
+</div>
+<div id="ref-dosovitskiy2021" class="csl-entry" role="listitem">
+Dosovitskiy, Alexey, Lucas Beyer, Alexander Kolesnikov, et al. 2021. <em>An Image Is Worth 16x16 Words: Transformers for Image Recognition at Scale</em>. <a href="https://doi.org/10.48550/arXiv.2010.11929">https://doi.org/10.48550/arXiv.2010.11929</a>.
+</div>
+<div id="ref-ermel2024" class="csl-entry" role="listitem">
+Ermel, Utz, Anchi Cheng, Jun Xi Ni, et al. 2024. <span>“A Data Portal for Providing Standardized Annotations for Cryo-Electron Tomography.”</span> <em>Nature Methods</em> 21 (12): 2200–2202. <a href="https://doi.org/10.1038/s41592-024-02477-2">https://doi.org/10.1038/s41592-024-02477-2</a>.
+</div>
+<div id="ref-falk2019" class="csl-entry" role="listitem">
+Falk, Thorsten, Dominic Mai, Robert Bensch, et al. 2018. <span>“U-Net: Deep Learning for Cell Counting, Detection, and Morphometry.”</span> <em>Nature Methods</em> 16 (1): 67–70. <a href="https://doi.org/10.1038/s41592-018-0261-2">https://doi.org/10.1038/s41592-018-0261-2</a>.
+</div>
+<div id="ref-fay2023" class="csl-entry" role="listitem">
+Fay, Marta M., Oren Kraus, Mason Victors, et al. 2023. <span>“RxRx3: Phenomics Map of Biology.”</span> <em>bioRxiv (Preprint)</em>, ahead of print. <a href="https://doi.org/10.1101/2023.02.07.527350">https://doi.org/10.1101/2023.02.07.527350</a>.
+</div>
+<div id="ref-giesen2014" class="csl-entry" role="listitem">
+Giesen, Charlotte, Hao A O Wang, Denis Schapiro, et al. 2014. <span>“Highly Multiplexed Imaging of Tumor Tissues with Subcellular Resolution by Mass Cytometry.”</span> <em>Nature Methods</em> 11 (4): 417–22. <a href="https://doi.org/10.1038/nmeth.2869">https://doi.org/10.1038/nmeth.2869</a>.
+</div>
+<div id="ref-goltsev2018" class="csl-entry" role="listitem">
+Goltsev, Yury, Nikolay Samusik, Julia Kennedy-Darling, et al. 2018. <span>“Deep Profiling of Mouse Splenic Architecture with CODEX Multiplexed Imaging.”</span> <em>Cell</em> 174 (4): 968–981.e15. <a href="https://doi.org/10.1016/j.cell.2018.07.010">https://doi.org/10.1016/j.cell.2018.07.010</a>.
+</div>
+<div id="ref-greenwald2022" class="csl-entry" role="listitem">
+Greenwald, Noah F., Geneva Miller, Erick Moen, et al. 2021. <span>“Whole-Cell Segmentation of Tissue Images with Human-Level Performance Using Large-Scale Data Annotation and Deep Learning.”</span> <em>Nature Biotechnology</em> 40 (4): 555–65. <a href="https://doi.org/10.1038/s41587-021-01094-0">https://doi.org/10.1038/s41587-021-01094-0</a>.
+</div>
+<div id="ref-gupta2024subcell" class="csl-entry" role="listitem">
+Gupta, Ankit, Zoe Wefers, Konstantin Kahnert, et al. 2024. <span>“SubCell: Proteome-Aware Vision Foundation Models for Microscopy Capture Single-Cell Biology.”</span> <em>bioRxiv (Preprint)</em>, ahead of print. <a href="https://doi.org/10.1101/2024.12.06.627299">https://doi.org/10.1101/2024.12.06.627299</a>.
+</div>
+<div id="ref-gustafsdottir2013" class="csl-entry" role="listitem">
+Gustafsdottir, Sigrun M., Vebjorn Ljosa, Katherine L. Sokolnicki, et al. 2013. <span>“Multiplex Cytological Profiling Assay to Measure Diverse Cellular States.”</span> <em>PLoS ONE</em> 8 (12): e80999. <a href="https://doi.org/10.1371/journal.pone.0080999">https://doi.org/10.1371/journal.pone.0080999</a>.
+</div>
+<div id="ref-hallou2021" class="csl-entry" role="listitem">
+Hallou, Adrien, Hannah G. Yevick, Bianca Dumitrascu, and Virginie Uhlmann. 2021. <span>“Deep Learning for Bioimage Analysis in Developmental Biology.”</span> <em>Development</em> 148 (18). <a href="https://doi.org/10.1242/dev.199616">https://doi.org/10.1242/dev.199616</a>.
+</div>
+<div id="ref-hartley2022" class="csl-entry" role="listitem">
+Hartley, Matthew, Gerard J. Kleywegt, Ardan Patwardhan, Ugis Sarkans, Jason R. Swedlow, and Alvis Brazma. 2022. <span>“The BioImage Archive – Building a Home for Life-Sciences Microscopy Data.”</span> <em>Journal of Molecular Biology</em> 434 (11): 167505. <a href="https://doi.org/10.1016/j.jmb.2022.167505">https://doi.org/10.1016/j.jmb.2022.167505</a>.
+</div>
+<div id="ref-he2020stnet" class="csl-entry" role="listitem">
+He, Bryan, Ludvig Bergenstråhle, Linnea Stenbeck, et al. 2020. <span>“Integrating Spatial Gene Expression and Breast Tumour Morphology via Deep Learning.”</span> <em>Nature Biomedical Engineering</em> 4 (8): 827–34. <a href="https://doi.org/10.1038/s41551-020-0578-x">https://doi.org/10.1038/s41551-020-0578-x</a>.
+</div>
+<div id="ref-he2022mae" class="csl-entry" role="listitem">
+He, Kaiming, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollar, and Ross Girshick. 2022. <span>“Masked Autoencoders Are Scalable Vision Learners.”</span> <em>2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 15979–88. <a href="https://doi.org/10.1109/cvpr52688.2022.01553">https://doi.org/10.1109/cvpr52688.2022.01553</a>.
+</div>
+<div id="ref-he2016" class="csl-entry" role="listitem">
+He, Kaiming, Xiangyu Zhang, Shaoqing Ren, and Jian Sun. 2016. <span>“Deep Residual Learning for Image Recognition.”</span> <em>2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 770–78. <a href="https://doi.org/10.1109/cvpr.2016.90">https://doi.org/10.1109/cvpr.2016.90</a>.
+</div>
+<div id="ref-howard2021" class="csl-entry" role="listitem">
+Howard, Frederick M., James Dolezal, Sara Kochanny, et al. 2021. <span>“The Impact of Site-Specific Digital Histology Signatures on Deep Learning Model Accuracy and Bias.”</span> <em>Nature Communications</em> 12 (1). <a href="https://doi.org/10.1038/s41467-021-24698-1">https://doi.org/10.1038/s41467-021-24698-1</a>.
+</div>
+<div id="ref-hubmap2019" class="csl-entry" role="listitem">
+HuBMAP Consortium. 2019. <span>“The Human Body at Cellular Resolution: The NIH Human Biomolecular Atlas Program.”</span> <em>Nature</em> 574 (7777): 187–92. <a href="https://doi.org/10.1038/s41586-019-1629-x">https://doi.org/10.1038/s41586-019-1629-x</a>.
+</div>
+<div id="ref-istrate2025" class="csl-entry" role="listitem">
+Istrate, Ana-Maria, Fausto Milletari, Fabrizio Castrotorres, et al. 2025. <span>“Rbio1 - Training Scientific Reasoning LLMs with Biological World Models as Soft Verifiers.”</span> <em>bioRxiv (Preprint)</em>, ahead of print. <a href="https://doi.org/10.1101/2025.08.18.670981">https://doi.org/10.1101/2025.08.18.670981</a>.
+</div>
+<div id="ref-jain2023" class="csl-entry" role="listitem">
+Jain, Sanjay, Liming Pei, Jeffrey M. Spraggins, et al. 2023. <span>“Advances and Prospects for the Human BioMolecular Atlas Program (HuBMAP).”</span> <em>Nature Cell Biology</em> 25 (8): 1089–100. <a href="https://doi.org/10.1038/s41556-023-01194-w">https://doi.org/10.1038/s41556-023-01194-w</a>.
+</div>
+<div id="ref-janesick2023" class="csl-entry" role="listitem">
+Janesick, Amanda, Robert Shelansky, Andrew D. Gottscho, et al. 2023. <span>“High Resolution Mapping of the Tumor Microenvironment Using Integrated Single-Cell, Spatial and in Situ Analysis.”</span> <em>Nature Communications</em> 14 (1). <a href="https://doi.org/10.1038/s41467-023-43458-x">https://doi.org/10.1038/s41467-023-43458-x</a>.
+</div>
+<div id="ref-karr2012" class="csl-entry" role="listitem">
+Karr, Jonathan R., Jayodita C. Sanghvi, Derek N. Macklin, et al. 2012. <span>“A Whole-Cell Computational Model Predicts Phenotype from Genotype.”</span> <em>Cell</em> 150 (2): 389–401. <a href="https://doi.org/10.1016/j.cell.2012.05.044">https://doi.org/10.1016/j.cell.2012.05.044</a>.
+</div>
+<div id="ref-kedzierska2025" class="csl-entry" role="listitem">
+Kedzierska, Kasia Z., Lorin Crawford, Ava P. Amini, and Alex X. Lu. 2025. <span>“Zero-Shot Evaluation Reveals Limitations of Single-Cell Foundation Models.”</span> <em>Genome Biology</em> 26 (1). <a href="https://doi.org/10.1186/s13059-025-03574-x">https://doi.org/10.1186/s13059-025-03574-x</a>.
+</div>
+<div id="ref-kirillov2023" class="csl-entry" role="listitem">
+Kirillov, Alexander, Eric Mintun, Nikhila Ravi, et al. 2023. <span>“Segment Anything.”</span> <em>2023 IEEE/CVF International Conference on Computer Vision (ICCV)</em>, 3992–4003. <a href="https://doi.org/10.1109/iccv51070.2023.00371">https://doi.org/10.1109/iccv51070.2023.00371</a>.
+</div>
+<div id="ref-kobayashi2022" class="csl-entry" role="listitem">
+Kobayashi, Hirofumi, Keith C. Cheveralls, Manuel D. Leonetti, and Loic A. Royer. 2022. <span>“Self-Supervised Deep Learning Encodes High-Resolution Features of Protein Subcellular Localization.”</span> <em>Nature Methods</em> 19 (8): 995–1003. <a href="https://doi.org/10.1038/s41592-022-01541-z">https://doi.org/10.1038/s41592-022-01541-z</a>.
+</div>
+<div id="ref-krizhevsky2017" class="csl-entry" role="listitem">
+Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. 2017. <span>“ImageNet Classification with Deep Convolutional Neural Networks.”</span> <em>Communications of the ACM</em> 60 (6): 84–90. <a href="https://doi.org/10.1145/3065386">https://doi.org/10.1145/3065386</a>.
+</div>
+<div id="ref-laine2021" class="csl-entry" role="listitem">
+Laine, Romain F., Ignacio Arganda-Carreras, Ricardo Henriques, and Guillaume Jacquemet. 2021. <span>“Avoiding a Replication Crisis in Deep-Learning-Based Bioimage Analysis.”</span> <em>Nature Methods</em> 18 (10): 1136–44. <a href="https://doi.org/10.1038/s41592-021-01284-3">https://doi.org/10.1038/s41592-021-01284-3</a>.
+</div>
+<div id="ref-lamm2026" class="csl-entry" role="listitem">
+Lamm, Lorenz, Simon Zufferey, Hanyi Zhang, et al. 2026. <span>“MemBrain V2: An End-to-End Tool for the Analysis of Membranes in Cryo-Electron Tomography.”</span> <em>Nature Methods</em>, ahead of print. <a href="https://doi.org/10.1038/s41592-026-03178-8">https://doi.org/10.1038/s41592-026-03178-8</a>.
+</div>
+<div id="ref-le2022" class="csl-entry" role="listitem">
+Le, Trang, Casper F. Winsnes, Ulrika Axelsson, et al. 2022. <span>“Analysis of the Human Protein Atlas Weakly Supervised Single-Cell Classification Competition.”</span> <em>Nature Methods</em> 19 (10): 1221–29. <a href="https://doi.org/10.1038/s41592-022-01606-z">https://doi.org/10.1038/s41592-022-01606-z</a>.
+</div>
+<div id="ref-ljosa2012" class="csl-entry" role="listitem">
+Ljosa, Vebjorn, Katherine L Sokolnicki, and Anne E Carpenter. 2012. <span>“Annotated High-Throughput Microscopy Image Sets for Validation.”</span> <em>Nature Methods</em> 9 (7): 637–37. <a href="https://doi.org/10.1038/nmeth.2083">https://doi.org/10.1038/nmeth.2083</a>.
+</div>
+<div id="ref-lu2024conch" class="csl-entry" role="listitem">
+Lu, Ming Y., Bowen Chen, Drew F. K. Williamson, et al. 2024. <span>“A Visual-Language Foundation Model for Computational Pathology.”</span> <em>Nature Medicine</em> 30 (3): 863–74. <a href="https://doi.org/10.1038/s41591-024-02856-4">https://doi.org/10.1038/s41591-024-02856-4</a>.
+</div>
+<div id="ref-mahdessian2021" class="csl-entry" role="listitem">
+Mahdessian, Diana, Anthony J. Cesnik, Christian Gnann, et al. 2021. <span>“Spatiotemporal Dissection of the Cell Cycle with Single-Cell Proteogenomics.”</span> <em>Nature</em> 590 (7847): 649–54. <a href="https://doi.org/10.1038/s41586-021-03232-9">https://doi.org/10.1038/s41586-021-03232-9</a>.
+</div>
+<div id="ref-maritan2022" class="csl-entry" role="listitem">
+Maritan, Martina, Ludovic Autin, Jonathan Karr, Markus W. Covert, Arthur J. Olson, and David S. Goodsell. 2022. <span>“Building Structural Models of a Whole Mycoplasma Cell.”</span> <em>Journal of Molecular Biology</em> 434 (2): 167351. <a href="https://doi.org/10.1016/j.jmb.2021.167351">https://doi.org/10.1016/j.jmb.2021.167351</a>.
+</div>
+<div id="ref-marks2025" class="csl-entry" role="listitem">
+Marks, Markus, Uriah Israel, Rohit Dilip, et al. 2025. <span>“CellSAM: A Foundation Model for Cell Segmentation.”</span> <em>Nature Methods</em> 22 (12): 2585–93. <a href="https://doi.org/10.1038/s41592-025-02879-w">https://doi.org/10.1038/s41592-025-02879-w</a>.
+</div>
+<div id="ref-maska2023" class="csl-entry" role="listitem">
+Maška, Martin, Vladimír Ulman, Pablo Delgado-Rodriguez, et al. 2023. <span>“The Cell Tracking Challenge: 10 Years of Objective Benchmarking.”</span> <em>Nature Methods</em> 20 (7): 1010–20. <a href="https://doi.org/10.1038/s41592-023-01879-y">https://doi.org/10.1038/s41592-023-01879-y</a>.
+</div>
+<div id="ref-moen2019" class="csl-entry" role="listitem">
+Moen, Erick, Dylan Bannon, Takamasa Kudo, William Graf, Markus Covert, and David Van Valen. 2019. <span>“Deep Learning for Cellular Image Analysis.”</span> <em>Nature Methods</em> 16 (12): 1233–46. <a href="https://doi.org/10.1038/s41592-019-0403-1">https://doi.org/10.1038/s41592-019-0403-1</a>.
+</div>
+<div id="ref-moore2021" class="csl-entry" role="listitem">
+Moore, Josh, Chris Allan, Sébastien Besson, et al. 2021. <span>“OME-NGFF: A Next-Generation File Format for Expanding Bioimaging Data-Access Strategies.”</span> <em>Nature Methods</em> 18 (12): 1496–98. <a href="https://doi.org/10.1038/s41592-021-01326-w">https://doi.org/10.1038/s41592-021-01326-w</a>.
+</div>
+<div id="ref-moore2023" class="csl-entry" role="listitem">
+Moore, Josh, Daniela Basurto-Lozada, Sébastien Besson, et al. 2023. <span>“OME-Zarr: A Cloud-Optimized Bioimaging File Format with International Community Support.”</span> <em>Histochemistry and Cell Biology</em> 160 (3): 223–51. <a href="https://doi.org/10.1007/s00418-023-02209-1">https://doi.org/10.1007/s00418-023-02209-1</a>.
+</div>
+<div id="ref-moutakanni2025" class="csl-entry" role="listitem">
+Moutakanni, Théo, Camille Couprie, Seungeun Yi, et al. 2025. <span>“Cell-DINO: Self-Supervised Image-Based Embeddings for Cell Fluorescent Microscopy.”</span> <em>PLOS Computational Biology</em> 21 (12): e1013828. <a href="https://doi.org/10.1371/journal.pcbi.1013828">https://doi.org/10.1371/journal.pcbi.1013828</a>.
+</div>
+<div id="ref-napari" class="csl-entry" role="listitem">
+<span class="nocase">napari contributors</span>. 2019. <em>Napari: A Multi-Dimensional Image Viewer for <span>Python</span></em>. Zenodo, doi:10.5281/zenodo.3555620; Zenodo. <a href="https://doi.org/10.5281/zenodo.3555620">https://doi.org/10.5281/zenodo.3555620</a>.
+</div>
+<div id="ref-nickell2006" class="csl-entry" role="listitem">
+Nickell, Stephan, Christine Kofler, Andrew P. Leis, and Wolfgang Baumeister. 2006. <span>“A Visual Approach to Proteomics.”</span> <em>Nature Reviews Molecular Cell Biology</em> 7 (3): 225–30. <a href="https://doi.org/10.1038/nrm1861">https://doi.org/10.1038/nrm1861</a>.
+</div>
+<div id="ref-oreilly2020" class="csl-entry" role="listitem">
+O’Reilly, Francis J., Liang Xue, Andrea Graziadei, et al. 2020. <span>“In-Cell Architecture of an Actively Transcribing-Translating Expressome.”</span> <em>Science</em> 369 (6503): 554–57. <a href="https://doi.org/10.1126/science.abb3758">https://doi.org/10.1126/science.abb3758</a>.
+</div>
+<div id="ref-oquab2023" class="csl-entry" role="listitem">
+<span class="nocase">Oquab, Maxime, Timothée Darcet, Théo Moutakanni, et al.</span> 2023. <em><span>DINOv2</span>: Learning Robust Visual Features Without Supervision</em>. <a href="https://doi.org/10.48550/arXiv.2304.07193">https://doi.org/10.48550/arXiv.2304.07193</a>.
+</div>
+<div id="ref-ounkomol2018" class="csl-entry" role="listitem">
+Ounkomol, Chawin, Sharmishtaa Seshamani, Mary M. Maleckar, Forrest Collman, and Gregory R. Johnson. 2018. <span>“Label-Free Prediction of Three-Dimensional Fluorescence Images from Transmitted-Light Microscopy.”</span> <em>Nature Methods</em> 15 (11): 917–20. <a href="https://doi.org/10.1038/s41592-018-0111-2">https://doi.org/10.1038/s41592-018-0111-2</a>.
+</div>
+<div id="ref-ouyang2019" class="csl-entry" role="listitem">
+Ouyang, Wei, Casper F. Winsnes, Martin Hjelmare, et al. 2019. <span>“Analysis of the Human Protein Atlas Image Classification Competition.”</span> <em>Nature Methods</em> 16 (12): 1254–61. <a href="https://doi.org/10.1038/s41592-019-0658-6">https://doi.org/10.1038/s41592-019-0658-6</a>.
+</div>
+<div id="ref-pachitariu2022" class="csl-entry" role="listitem">
+Pachitariu, Marius, and Carsen Stringer. 2022. <span>“Cellpose 2.0: How to Train Your Own Model.”</span> <em>Nature Methods</em> 19 (12): 1634–41. <a href="https://doi.org/10.1038/s41592-022-01663-4">https://doi.org/10.1038/s41592-022-01663-4</a>.
+</div>
+<div id="ref-park2022spatial" class="csl-entry" role="listitem">
+Park, Jiwoon, Junbum Kim, Tyler Lewy, et al. 2022. <span>“Spatial Omics Technologies at Multimodal and Single Cell/Subcellular Level.”</span> <em>Genome Biology</em> 23 (1). <a href="https://doi.org/10.1186/s13059-022-02824-6">https://doi.org/10.1186/s13059-022-02824-6</a>.
+</div>
+<div id="ref-pearce2025" class="csl-entry" role="listitem">
+Pearce, James D, Sara E Simmonds, Gita Mahmoudabadi, et al. 2025. <span>“A Cross-Species Generative Cell Atlas Across 1.5 Billion Years of Evolution: The TranscriptFormer Single-Cell Model.”</span> <em>bioRxiv (Preprint)</em>, ahead of print. <a href="https://doi.org/10.1101/2025.04.25.650731">https://doi.org/10.1101/2025.04.25.650731</a>.
+</div>
+<div id="ref-peck2026" class="csl-entry" role="listitem">
+Peck, Ariana, Joshua Hutchings, Jonathan Schwartz, et al. 2026. <span>“Lessons Learned from a Kaggle Challenge for Particle Picking in Cryo-Electron Tomography.”</span> <em>Nature Methods</em> 23 (9): 1908–16. <a href="https://doi.org/10.1038/s41592-026-03198-4">https://doi.org/10.1038/s41592-026-03198-4</a>.
+</div>
+<div id="ref-regev2017" class="csl-entry" role="listitem">
+Regev, Aviv, Sarah A Teichmann, Eric S Lander, et al. 2017. <span>“The Human Cell Atlas.”</span> <em>eLife</em> 6. <a href="https://doi.org/10.7554/elife.27041">https://doi.org/10.7554/elife.27041</a>.
+</div>
+<div id="ref-replogle2022" class="csl-entry" role="listitem">
+Replogle, Joseph M., Reuben A. Saunders, Angela N. Pogson, et al. 2022. <span>“Mapping Information-Rich Genotype-Phenotype Landscapes with Genome-Scale Perturb-Seq.”</span> <em>Cell</em> 185 (14): 2559–2575.e28. <a href="https://doi.org/10.1016/j.cell.2022.05.013">https://doi.org/10.1016/j.cell.2022.05.013</a>.
+</div>
+<div id="ref-rice2023" class="csl-entry" role="listitem">
+Rice, Gavin, Thorsten Wagner, Markus Stabrin, Oleg Sitsel, Daniel Prumbaum, and Stefan Raunser. 2023. <span>“TomoTwin: Generalized 3D Localization of Macromolecules in Cryo-Electron Tomograms with Structural Data Mining.”</span> <em>Nature Methods</em> 20 (6): 871–80. <a href="https://doi.org/10.1038/s41592-023-01878-z">https://doi.org/10.1038/s41592-023-01878-z</a>.
+</div>
+<div id="ref-ronneberger2015" class="csl-entry" role="listitem">
+Ronneberger, Olaf, Philipp Fischer, and Thomas Brox. 2015. <span>“U-Net: Convolutional Networks for Biomedical Image Segmentation.”</span> In <em>Medical Image Computing and Computer-Assisted Intervention – MICCAI 2015</em>. Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-24574-4_28">https://doi.org/10.1007/978-3-319-24574-4_28</a>.
+</div>
+<div id="ref-rood2024" class="csl-entry" role="listitem">
+Rood, Jennifer E., Samantha Wynne, Lucia Robson, et al. 2024. <span>“The Human Cell Atlas from a Cell Census to a Unified Foundation Model.”</span> <em>Nature</em> 637 (8048): 1065–71. <a href="https://doi.org/10.1038/s41586-024-08338-4">https://doi.org/10.1038/s41586-024-08338-4</a>.
+</div>
+<div id="ref-roohani2025" class="csl-entry" role="listitem">
+Roohani, Yusuf H., Tony J. Hua, Po-Yuan Tung, et al. 2025. <span>“Virtual Cell Challenge: Toward a Turing Test for the Virtual Cell.”</span> <em>Cell</em> 188 (13): 3370–74. <a href="https://doi.org/10.1016/j.cell.2025.06.008">https://doi.org/10.1016/j.cell.2025.06.008</a>.
+</div>
+<div id="ref-roohani2023" class="csl-entry" role="listitem">
+Roohani, Yusuf, Kexin Huang, and Jure Leskovec. 2023. <span>“Predicting Transcriptional Outcomes of Novel Multigene Perturbations with GEARS.”</span> <em>Nature Biotechnology</em> 42 (6): 927–35. <a href="https://doi.org/10.1038/s41587-023-01905-6">https://doi.org/10.1038/s41587-023-01905-6</a>.
+</div>
+<div id="ref-rueden2017" class="csl-entry" role="listitem">
+Rueden, Curtis T., Johannes Schindelin, Mark C. Hiner, et al. 2017. <span>“ImageJ2: ImageJ for the Next Generation of Scientific Image Data.”</span> <em>BMC Bioinformatics</em> 18 (1). <a href="https://doi.org/10.1186/s12859-017-1934-z">https://doi.org/10.1186/s12859-017-1934-z</a>.
+</div>
+<div id="ref-sarkans2021" class="csl-entry" role="listitem">
+Sarkans, Ugis, Wah Chiu, Lucy Collinson, et al. 2021. <span>“REMBI: Recommended Metadata for Biological Images—Enabling Reuse of Microscopy Data in Biology.”</span> <em>Nature Methods</em> 18 (12): 1418–22. <a href="https://doi.org/10.1038/s41592-021-01166-8">https://doi.org/10.1038/s41592-021-01166-8</a>.
+</div>
+<div id="ref-schindelin2012" class="csl-entry" role="listitem">
+Schindelin, Johannes, Ignacio Arganda-Carreras, Erwin Frise, et al. 2012. <span>“Fiji: An Open-Source Platform for Biological-Image Analysis.”</span> <em>Nature Methods</em> 9 (7): 676–82. <a href="https://doi.org/10.1038/nmeth.2019">https://doi.org/10.1038/nmeth.2019</a>.
+</div>
+<div id="ref-schmidt2018" class="csl-entry" role="listitem">
+Schmidt, Uwe, Martin Weigert, Coleman Broaddus, and Gene Myers. 2018. <span>“Cell Detection with Star-Convex Polygons.”</span> In <em>Medical Image Computing and Computer Assisted Intervention – MICCAI 2018</em>. Springer International Publishing. <a href="https://doi.org/10.1007/978-3-030-00934-2_30">https://doi.org/10.1007/978-3-030-00934-2_30</a>.
+</div>
+<div id="ref-stevens2023" class="csl-entry" role="listitem">
+Stevens, Jan A., Fabian Grünewald, P. A. Marco van Tilburg, et al. 2023. <span>“Molecular Dynamics Simulation of an Entire Cell.”</span> <em>Frontiers in Chemistry</em> 11. <a href="https://doi.org/10.3389/fchem.2023.1106495">https://doi.org/10.3389/fchem.2023.1106495</a>.
+</div>
+<div id="ref-stirling2021" class="csl-entry" role="listitem">
+Stirling, David R., Madison J. Swain-Bowden, Alice M. Lucas, Anne E. Carpenter, Beth A. Cimini, and Allen Goodman. 2021. <span>“CellProfiler 4: Improvements in Speed, Utility and Usability.”</span> <em>BMC Bioinformatics</em> 22 (1). <a href="https://doi.org/10.1186/s12859-021-04344-9">https://doi.org/10.1186/s12859-021-04344-9</a>.
+</div>
+<div id="ref-stringer2021" class="csl-entry" role="listitem">
+Stringer, Carsen, Tim Wang, Michalis Michaelos, and Marius Pachitariu. 2020. <span>“Cellpose: A Generalist Algorithm for Cellular Segmentation.”</span> <em>Nature Methods</em> 18 (1): 100–106. <a href="https://doi.org/10.1038/s41592-020-01018-x">https://doi.org/10.1038/s41592-020-01018-x</a>.
+</div>
+<div id="ref-tegunov2021" class="csl-entry" role="listitem">
+Tegunov, Dimitry, Liang Xue, Christian Dienemann, Patrick Cramer, and Julia Mahamid. 2021. <span>“Multi-Particle Cryo-EM Refinement with m Visualizes Ribosome-Antibiotic Complex at 3.5 å in Cells.”</span> <em>Nature Methods</em> 18 (2): 186–93. <a href="https://doi.org/10.1038/s41592-020-01054-7">https://doi.org/10.1038/s41592-020-01054-7</a>.
+</div>
+<div id="ref-deteresa2023" class="csl-entry" role="listitem">
+Teresa-Trueba, Irene de, Sara K. Goetz, Alexander Mattausch, et al. 2023. <span>“Convolutional Networks for Supervised Mining of Molecular Patterns Within Cellular Context.”</span> <em>Nature Methods</em> 20 (2): 284–94. <a href="https://doi.org/10.1038/s41592-022-01746-2">https://doi.org/10.1038/s41592-022-01746-2</a>.
+</div>
+<div id="ref-theodoris2023" class="csl-entry" role="listitem">
+Theodoris, Christina V., Ling Xiao, Anant Chopra, et al. 2023. <span>“Transfer Learning Enables Predictions in Network Biology.”</span> <em>Nature</em> 618 (7965): 616–24. <a href="https://doi.org/10.1038/s41586-023-06139-9">https://doi.org/10.1038/s41586-023-06139-9</a>.
+</div>
+<div id="ref-thornburg2022" class="csl-entry" role="listitem">
+Thornburg, Zane R., David M. Bianchi, Troy A. Brier, et al. 2022. <span>“Fundamental Behaviors Emerge from Simulations of a Living Minimal Cell.”</span> <em>Cell</em> 185 (2): 345–360.e28. <a href="https://doi.org/10.1016/j.cell.2021.12.025">https://doi.org/10.1016/j.cell.2021.12.025</a>.
+</div>
+<div id="ref-thornburg2026" class="csl-entry" role="listitem">
+Thornburg, Zane R., Andrew Maytin, Jiwoong Kwon, et al. 2026. <span>“Bringing the Genetically Minimal Cell to Life on a Computer in 4D.”</span> <em>Cell</em> 189 (9): 2582–2597.e27. <a href="https://doi.org/10.1016/j.cell.2026.02.009">https://doi.org/10.1016/j.cell.2026.02.009</a>.
+</div>
+<div id="ref-thul2017" class="csl-entry" role="listitem">
+Thul, Peter J., Lovisa Åkesson, Mikaela Wiking, et al. 2017. <span>“A Subcellular Map of the Human Proteome.”</span> <em>Science</em> 356 (6340). <a href="https://doi.org/10.1126/science.aal3321">https://doi.org/10.1126/science.aal3321</a>.
+</div>
+<div id="ref-viana2023" class="csl-entry" role="listitem">
+Viana, Matheus P., Jianxu Chen, Theo A. Knijnenburg, et al. 2023. <span>“Integrated Intracellular Organization and Its Variations in Human iPS Cells.”</span> <em>Nature</em> 613 (7943): 345–54. <a href="https://doi.org/10.1038/s41586-022-05563-7">https://doi.org/10.1038/s41586-022-05563-7</a>.
+</div>
+<div id="ref-vorontsov2024" class="csl-entry" role="listitem">
+Vorontsov, Eugene, Alican Bozkurt, Adam Casson, et al. 2024. <span>“A Foundation Model for Clinical-Grade Computational Pathology and Rare Cancers Detection.”</span> <em>Nature Medicine</em> 30 (10): 2924–35. <a href="https://doi.org/10.1038/s41591-024-03141-0">https://doi.org/10.1038/s41591-024-03141-0</a>.
+</div>
+<div id="ref-williams2017" class="csl-entry" role="listitem">
+Williams, Eleanor, Josh Moore, Simon W Li, et al. 2017. <span>“Image Data Resource: A Bioimage Data Integration and Publication Platform.”</span> <em>Nature Methods</em> 14 (8): 775–81. <a href="https://doi.org/10.1038/nmeth.4326">https://doi.org/10.1038/nmeth.4326</a>.
+</div>
+<div id="ref-xu2024gigapath" class="csl-entry" role="listitem">
+Xu, Hanwen, Naoto Usuyama, Jaspreet Bagga, et al. 2024. <span>“A Whole-Slide Foundation Model for Digital Pathology from Real-World Data.”</span> <em>Nature</em> 630 (8015): 181–88. <a href="https://doi.org/10.1038/s41586-024-07441-w">https://doi.org/10.1038/s41586-024-07441-w</a>.
+</div>
+<div id="ref-young2023" class="csl-entry" role="listitem">
+Young, Lindsey N., and Elizabeth Villa. 2023. <span>“Bringing Structure to Cell Biology with Cryo-Electron Tomography.”</span> <em>Annual Review of Biophysics</em> 52 (1): 573–95. <a href="https://doi.org/10.1146/annurev-biophys-111622-091327">https://doi.org/10.1146/annurev-biophys-111622-091327</a>.
+</div>
+<div id="ref-yu2016" class="csl-entry" role="listitem">
+Yu, Isseki, Takaharu Mori, Tadashi Ando, et al. 2016. <span>“Biomolecular Interactions Modulate Macromolecular Structure and Dynamics in Atomistic Model of a Bacterial Cytoplasm.”</span> <em>eLife</em> 5. <a href="https://doi.org/10.7554/elife.19274">https://doi.org/10.7554/elife.19274</a>.
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/12-machine-learning.html" class="pagination-link" aria-label="Machine learning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Machine learning</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

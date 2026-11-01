@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 520" width="760" height="520">
+<defs><marker id="ah3b6ea8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6ea8"/></marker><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="140" y="70" width="360" height="400" rx="4" fill="#e4e8ee" stroke="#666666" stroke-width="1.5"/>
+<text x="120" y="87.1" font-family="Helvetica, Arial, sans-serif" font-size="26" text-anchor="middle" font-weight="bold" fill="#222222">−</text>
+<text x="120" y="471.1" font-family="Helvetica, Arial, sans-serif" font-size="26" text-anchor="middle" font-weight="bold" fill="#222222">+</text>
+<rect x="162" y="78" width="56" height="12" rx="2" fill="#9aa3ad" stroke="none" stroke-width="1.5"/>
+<text x="190" y="54.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">ddA</text>
+<rect x="249" y="78" width="56" height="12" rx="2" fill="#9aa3ad" stroke="none" stroke-width="1.5"/>
+<text x="277" y="54.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">ddC</text>
+<rect x="336" y="78" width="56" height="12" rx="2" fill="#9aa3ad" stroke="none" stroke-width="1.5"/>
+<text x="364" y="54.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">ddG</text>
+<rect x="423" y="78" width="56" height="12" rx="2" fill="#9aa3ad" stroke="none" stroke-width="1.5"/>
+<text x="451" y="54.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">ddT</text>
+<text x="320.0" y="23.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Provrör med stoppbyggsten (dideoxinukleotid):</text>
+<rect x="164" y="425" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="437.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">A</text>
+<line x1="220" y1="430" x2="545" y2="430" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<rect x="338" y="394" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="406.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">G</text>
+<line x1="394" y1="399" x2="545" y2="399" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<rect x="425" y="363" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="375.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">T</text>
+<line x1="481" y1="368" x2="545" y2="368" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<rect x="251" y="332" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="344.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">C</text>
+<line x1="307" y1="337" x2="545" y2="337" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<rect x="338" y="301" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="313.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">G</text>
+<line x1="394" y1="306" x2="545" y2="306" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<rect x="164" y="270" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="282.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">A</text>
+<line x1="220" y1="275" x2="545" y2="275" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<rect x="251" y="239" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="251.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">C</text>
+<line x1="307" y1="244" x2="545" y2="244" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<rect x="425" y="208" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="220.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">T</text>
+<line x1="481" y1="213" x2="545" y2="213" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<rect x="425" y="177" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="189.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">T</text>
+<line x1="481" y1="182" x2="545" y2="182" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<rect x="164" y="146" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="158.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">A</text>
+<line x1="220" y1="151" x2="545" y2="151" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<rect x="338" y="115" width="52" height="10" rx="2" fill="#222222" stroke="none" stroke-width="1.5"/>
+<text x="560" y="127.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#3b6ea8">G</text>
+<line x1="394" y1="120" x2="545" y2="120" stroke="#eeeeee" stroke-width="1" stroke-dasharray="6,4"/>
+<path d="M610,440 L610,110" fill="none" stroke="#3b6ea8" stroke-width="2.5" marker-end="url(#ah3b6ea8)"/>
+<text x="625" y="268.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#3b6ea8">läs</text>
+<text x="625" y="288.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#3b6ea8">nedifrån</text>
+<text x="625" y="308.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#3b6ea8">och upp</text>
+<text x="320.0" y="496.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">korta bitar vandrar längst</text>
+<text x="70" y="114.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">långa</text>
+<text x="70" y="434.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">korta</text>
+<path d="M70,130 L70,410" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+<text x="560" y="92.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#3b6ea8">ny sträng</text>
+</svg>

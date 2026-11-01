@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>17&nbsp; Livets molekyler – idag och i morgon – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ordlista.html" rel="next">
+<link href="../chapters/16-ai-och-proteiner.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/14-proteinveckning.html">Veckning, sjukdom och framtid</a></li><li class="breadcrumb-item"><a href="../chapters/17-idag-och-i-morgon.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l17-helheten" id="toc-sec-l17-helheten" class="nav-link active" data-scroll-target="#sec-l17-helheten"><span class="header-section-number">17.1</span> Den stora bilden</a>
+  <ul class="collapse">
+  <li><a href="#sec-l17-kedjor" id="toc-sec-l17-kedjor" class="nav-link" data-scroll-target="#sec-l17-kedjor">Allt bygger på kedjor</a></li>
+  <li><a href="#sec-l17-form" id="toc-sec-l17-form" class="nav-link" data-scroll-target="#sec-l17-form">Från kedja till form</a></li>
+  <li><a href="#sec-l17-arbete" id="toc-sec-l17-arbete" class="nav-link" data-scroll-target="#sec-l17-arbete">Proteinerna i arbete</a></li>
+  <li><a href="#sec-l17-verktyg" id="toc-sec-l17-verktyg" class="nav-link" data-scroll-target="#sec-l17-verktyg">Verktygen</a></li>
+  <li><a href="#sec-l17-ideer" id="toc-sec-l17-ideer" class="nav-link" data-scroll-target="#sec-l17-ideer">Fem idéer som går igen</a></li>
+  </ul></li>
+  <li><a href="#sec-l17-kotranslationell" id="toc-sec-l17-kotranslationell" class="nav-link" data-scroll-target="#sec-l17-kotranslationell"><span class="header-section-number">17.2</span> Forskning i dag: proteiner som veckar sig medan de tillverkas</a>
+  <ul class="collapse">
+  <li><a href="#sec-l17-provror" id="toc-sec-l17-provror" class="nav-link" data-scroll-target="#sec-l17-provror">Veckning i provröret</a></li>
+  <li><a href="#sec-l17-ribosomen" id="toc-sec-l17-ribosomen" class="nav-link" data-scroll-target="#sec-l17-ribosomen">Veckning i cellen</a></li>
+  <li><a href="#sec-l17-fodelse" id="toc-sec-l17-fodelse" class="nav-link" data-scroll-target="#sec-l17-fodelse">Att fotografera ett proteins födelse</a></li>
+  <li><a href="#sec-l17-sjukdom" id="toc-sec-l17-sjukdom" class="nav-link" data-scroll-target="#sec-l17-sjukdom">Från grundforskning till sjukdom</a></li>
+  </ul></li>
+  <li><a href="#sec-l17-fronten" id="toc-sec-l17-fronten" class="nav-link" data-scroll-target="#sec-l17-fronten"><span class="header-section-number">17.3</span> Från forskningsfronten</a>
+  <ul class="collapse">
+  <li><a href="#sec-l17-tomografi" id="toc-sec-l17-tomografi" class="nav-link" data-scroll-target="#sec-l17-tomografi">Att se molekylerna på plats: kryoelektrontomografi</a></li>
+  <li><a href="#sec-l17-ozempic" id="toc-sec-l17-ozempic" class="nav-link" data-scroll-target="#sec-l17-ozempic">Från diabetesmedicin till bantningsmedicin: Ozempic</a></li>
+  </ul></li>
+  <li><a href="#sec-l17-i-morgon" id="toc-sec-l17-i-morgon" class="nav-link" data-scroll-target="#sec-l17-i-morgon"><span class="header-section-number">17.4</span> Livets molekyler i morgon</a></li>
+  <li><a href="#sec-l17-sammanfattning" id="toc-sec-l17-sammanfattning" class="nav-link" data-scroll-target="#sec-l17-sammanfattning"><span class="header-section-number">17.5</span> Sammanfattning</a></li>
+  <li><a href="#sec-l17-nyckelbegrepp" id="toc-sec-l17-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l17-nyckelbegrepp"><span class="header-section-number">17.6</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l17-testa" id="toc-sec-l17-testa" class="nav-link" data-scroll-target="#sec-l17-testa"><span class="header-section-number">17.7</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l17-las-mer" id="toc-sec-l17-las-mer" class="nav-link" data-scroll-target="#sec-l17-las-mer"><span class="header-section-number">17.8</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/14-proteinveckning.html">Veckning, sjukdom och framtid</a></li><li class="breadcrumb-item"><a href="../chapters/17-idag-och-i-morgon.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l17" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 17, <em>Livets molekyler – idag och i morgon</em>, av Gunnar von Heijne (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>beskriva bokens stora linjer: hur information i DNA blir till proteiner som veckar sig och utför arbete, och vilka verktyg som har gjort det möjligt att se det,</li>
+<li>förklara vad kotranslationell veckning är, och varför det spelar roll att proteiner tillverkas från ena änden,</li>
+<li>beskriva hur kryoelektrontomografi går till och vad den kan visa som andra metoder inte kan,</li>
+<li>förklara hur läkemedlet semaglutid (Ozempic) är uppbyggt och varför det fungerar,</li>
+<li>ge exempel på frågor om livets molekyler som ännu är olösta.</li>
+</ul>
+</div>
+</div>
+<p>Den 25 april 1953 publicerade James Watson och Francis Crick en artikel på drygt en sida i tidskriften <em>Nature</em>. Där föreslog de att DNA är en dubbelspiral av två strängar som hålls ihop av baspar. Det var startskottet för den molekylära biologin. Det tog sedan nästan femtio år, och tusentals forskare, att läsa av en enda människas arvsmassa. I dag läser en sekvenseringsanläggning i Solna, räknat på hela anläggningen, omkring 20 miljoner baspar i sekunden, och en människas hela arvsmassa kan läsas på någon timme.</p>
+<p>Den här boken har följt molekylerna från DNA till fungerande proteiner, och från membran till molekylära motorer. I det här sista kapitlet tar vi ett steg tillbaka. Först knyter vi ihop bokens trådar till en helhet. Sedan ser vi på två exempel på forskning som pågår just nu: hur proteiner veckar sig medan de tillverkas, och hur man kan se molekylerna på plats inne i en cell. Till sist följer vi ett läkemedel, Ozempic, från en idé om diabetesbehandling till en av de mest omtalade medicinerna i världen.</p>
+<section id="sec-l17-helheten" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="sec-l17-helheten"><span class="header-section-number">17.1</span> Den stora bilden</h2>
+<p>Kapitlen i den här boken har handlat om olika saker: gener, enzymer, membran, motorer, mikroskop och datorprogram. Men de hänger ihop. <a href="#fig-l17-karta" class="quarto-xref">Figur&nbsp;<span>17.1</span></a> visar hur. Överst går informationens väg, från DNA via RNA till en proteinkedja som veckar sig. I mitten finns det arbete som de färdiga proteinerna utför. Längst ned finns verktygen som har gjort det möjligt att se allt detta.</p>
+<div id="fig-l17-karta" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l17-karta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L17/bokens-karta.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l17-karta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;17.1: Bokens stora bild. Informationen i DNA skrivs av till RNA och översätts till en proteinkedja, som veckar sig till ett fungerande protein med hjälp av chaperoner och adresslappar. Ibland går veckningen fel. De färdiga proteinerna arbetar som enzymer, membranproteiner, motorer och signalmottagare. Längst ned står verktygen som gör molekylerna synliga. Siffrorna anger var i boken varje del beskrivs. Egen figur.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l17-kedjor" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-kedjor">Allt bygger på kedjor</h3>
+<p>Den kanske viktigaste principen i hela boken är att livet bygger på <strong>kedjemolekyler</strong>. DNA, RNA och proteiner är alla långa kedjor av enkla byggstenar (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>, <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>). DNA och RNA har fyra sorters byggstenar vardera, proteinerna tjugo. Eftersom byggstenarna kan sättas ihop i vilken ordning som helst finns det ett i praktiken obegränsat antal möjliga sekvenser. Det är det utrymmet som evolutionen har haft att arbeta i under nästan fyra miljarder år.</p>
+<p>Den <strong>centrala dogmen</strong> beskriver hur informationen flödar: DNA kopieras när cellen delar sig, avsnitt av DNA skrivs av till RNA, och RNA översätts till protein på ribosomen (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>).</p>
+<p>DNA och RNA har olika uppgifter i flödet, trots att de kemiskt är mycket lika. Skillnaden är en extra syreatom i RNA:s socker och en något annorlunda bas. Men den extra syreatomen gör RNA mindre hållbart, och DNA, som finns som två kompletterande strängar i en dubbelspiral, passar därför bättre för att lagra information. RNA är oftast en enkel sträng som kan vecka sig till varierade former och ibland till och med fungera som enzym.</p>
+<p>Eftersom informationen ligger i sekvensen kan den också ändras med avsikt. I dag kan forskare själva skriva sekvenser. Med genteknik kan man få en bakterie att tillverka mänskligt insulin, och med CRISPR-Cas9 kan man ändra arvsmassan på ett bestämt ställe i nästan vilken organism som helst (<a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a>). Med datorns hjälp kan man också konstruera helt nya proteiner (<a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>, <a href="16-ai-och-proteiner.html" class="quarto-xref"><span>Kapitel 16</span></a>).</p>
+</section>
+<section id="sec-l17-form" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-form">Från kedja till form</h3>
+<p>En proteinkedja är inte färdig när den lämnar ribosomen. Den måste vecka sig till rätt form, och formen bestäms av ordningen mellan aminosyrorna (<a href="14-proteinveckning.html#sec-l14-anfinsen" class="quarto-xref"><span>Avsnitt 14.1.1</span></a>). Den viktigaste drivkraften är att de vattenskygga aminosyrorna samlas i proteinets inre.</p>
+<p>Kedjan blir dessutom inte till på en gång, och det får betydelse för veckningen, som vi ska se i <a href="#sec-l17-ribosomen" class="quarto-xref"><span>Avsnitt 17.2.2</span></a>. Proteintillverkningen är, med molekylära mått, en långsam process. En ribosom i en bakterie kopplar på 10–20 aminosyror per sekund, och i våra celler går det något långsammare (<a href="01-levande-celler.html#sec-l01-start-stopp" class="quarto-xref"><span>Avsnitt 1.9.2</span></a>). Det beror delvis på att ribosomen inte kan veta i förväg vilket tRNA som passar. Olika tRNA kommer slumpvis in och prövas, och fel tRNA släpper igen. Ofta måste många prövas innan rätt tRNA hittar rätt kodon.</p>
+<p>Inne i cellen är det mycket trångt, och en nytillverkad kedja kan lätt fastna i fel sällskap. Därför får den hjälp av <strong>chaperoner</strong> (<a href="13-chaperoner.html" class="quarto-xref"><span>Kapitel 13</span></a>), och många proteiner har en adresslapp i kedjan som visar vart de ska i cellen (<a href="12-proteintrafik.html" class="quarto-xref"><span>Kapitel 12</span></a>).</p>
+<p>Ändå går veckningen ibland fel, och då kan proteinerna klumpa ihop sig till fibrer, som vid Alzheimers sjukdom och ALS (<a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>). Veckning och felveckning är två sidor av samma fenomen: samma krafter ligger bakom båda. Oftast fångar chaperonerna upp felveckade proteiner och ger dem en ny chans. Men om några få molekyler ändå hinner klumpa ihop sig kan klumpen fungera som ett frö: nästa protein fastnar lättare på klumpen än det veckar sig rätt, och fibern växer.</p>
+<p>Fröet förklarar också vem som drabbas. De flesta fall av sådana sjukdomar är inte ärftliga i första hand. Risken ökar i stället med åldern, eftersom det då har funnits mer tid för ett sällsynt, slumpmässigt frö att bildas.</p>
+</section>
+<section id="sec-l17-arbete" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-arbete">Proteinerna i arbete</h3>
+<p>Ett färdigt protein kan vara ett <strong>enzym</strong>, en katalysator som gör en kemisk reaktion miljontals gånger snabbare (<a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a>). Enzymet binder de molekyler som ska reagera, håller dem nära varandra i rätt läge och sänker på så sätt energibarriären, ungefär som platinan i en bils katalysator. En cell kan därför styra sin kemi genom att bestämma vilka enzymer som finns: utan enzymet händer i praktiken ingenting.</p>
+<p>Andra proteiner sitter i <strong>membranen</strong> (<a href="07-biomembran.html" class="quarto-xref"><span>Kapitel 7</span></a>, <a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>). Membranet är ett dubbelt lager av lipider som bara är omkring 5 nanometer tjockt men tätt för joner. Om en cell förstorades till Globens storlek skulle membranet fortfarande bara vara ett par centimeter tjockt (<a href="07-biomembran.html#sec-l07-tunn" class="quarto-xref"><span>Avsnitt 7.2.2</span></a>).</p>
+<p>Eftersom membranet släpper igenom så lite är det proteinerna i det som bestämmer vad som får passera. Kaliumkanalen har ett filter som väljer jon och en grind som öppnas och stängs. Andningskedjan pumpar protoner över mitokondriens membran, och ATP-syntas, en roterande motor, använder protonflödet till att tillverka ATP (<a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>, <a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a>). I fotosyntesen fångar andra membranproteiner ljus och klyver vatten (<a href="10-signalering.html" class="quarto-xref"><span>Kapitel 10</span></a>). Samma grundprincip, en laddning över ett membran, driver alltså både andningen och fotosyntesen.</p>
+</section>
+<section id="sec-l17-verktyg" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-verktyg">Verktygen</h3>
+<p>Nästan varje steg framåt i boken har berott på ett nytt verktyg. <strong>Röntgenkristallografi</strong> gav de första bilderna av proteiner atom för atom, och i dag görs mätningarna ofta vid synkrotroner som MAX IV i Lund. <strong>Kryoelektronmikroskopi</strong> (kryo-EM) har det senaste decenniet gjort det möjligt att se även stora komplex och membranproteiner utan att först få dem att bilda kristaller (<a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>, <a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>, <a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>).</p>
+<p>Andra verktyg visar proteinerna i levande celler. Det <strong>gröna fluorescerande proteinet</strong> GFP och superupplöst mikroskopi låter oss följa proteiner där de arbetar (<a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>). Vanlig ljusmikroskopi kan inte skilja detaljer som är mindre än omkring 200 nanometer, men med superupplösta metoder kommer man ned till några tiotal nanometer.</p>
+<p>GFP är också ett bra exempel på nyfikenhetsdriven forskning: Osamu Shimomura ville bara förstå varför vissa maneter lyser. Långt senare insåg andra forskare att proteinet kan fästas vid nästan vilket protein som helst och användas som en lampa (Nobelpriset i kemi 2008).</p>
+<p>Samma snabba utveckling har skett inom DNA-sekvenseringen. Frederick Sanger läste DNA några få baser i taget på 1970-talet. I dag läser maskinerna vid SciLifeLab tillsammans omkring 20 miljoner baspar i sekunden, eller omkring 70 miljarder i timmen. För ett pålitligt genom läser man varje bit ett trettiotal gånger, men ändå räcker någon timme för människans genom, som när det publicerades 2001 hade krävt många års arbete (<a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a>, <a href="11-omik.html" class="quarto-xref"><span>Kapitel 11</span></a>).</p>
+<p>Det senaste stora genombrottet är <strong>AlphaFold</strong>, som sedan 2020 kan förutsäga ett proteins form ur sekvensen på några minuter, nästan lika noggrant som ett experiment (<a href="16-ai-och-proteiner.html" class="quarto-xref"><span>Kapitel 16</span></a>). Problemet hade då angripits i omkring 60 år, och även för forskare som ägnat livet åt proteinveckning känns det nästan obegripligt att det fungerar. De senaste versionerna kan dessutom förutsäga hur proteinet binder till RNA, DNA och små molekyler som ATP.</p>
+</section>
+<section id="sec-l17-ideer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-ideer">Fem idéer som går igen</h3>
+<p>Om man ska sammanfatta boken i några få meningar kan det bli så här:</p>
+<ol type="1">
+<li><strong>Sekvens.</strong> Livets viktigaste molekyler är kedjor, och ordningen mellan byggstenarna bär informationen.</li>
+<li><strong>Form avgör funktion.</strong> En proteinkedja veckar sig till en bestämd form, och formen bestämmer vad proteinet kan göra: binda, katalysera, transportera eller signalera.</li>
+<li><strong>Svaga krafter och slump.</strong> Molekylerna hittar varandra genom att röra sig slumpvis och hålls ihop av många svaga bindningar. Det gör livet flexibelt men också sårbart, som vid felveckning.</li>
+<li><strong>Membran och gradienter.</strong> Membranen avgränsar cellen, och skillnader i laddning och koncentration över dem lagrar den energi som driver mycket av cellens arbete.</li>
+<li><strong>Nya verktyg ger ny kunskap.</strong> Från röntgenbilder till AI har varje ny metod visat något som ingen tidigare hade kunnat se.</li>
+</ol>
+<p>Resten av kapitlet handlar om forskningsfronten: vad forskare arbetar med just nu, och vart fältet är på väg.</p>
+</section>
+</section>
+<section id="sec-l17-kotranslationell" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="sec-l17-kotranslationell"><span class="header-section-number">17.2</span> Forskning i dag: proteiner som veckar sig medan de tillverkas</h2>
+<p>Det första exemplet på pågående forskning gäller en gammal fråga: hur en proteinkedja hittar sin form. För att se vad som är nytt börjar vi med hur veckning traditionellt har studerats.</p>
+<section id="sec-l17-provror" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-provror">Veckning i provröret</h3>
+<p>Det mesta vi vet om hur proteiner veckar sig kommer från försök med renade proteiner. Ända sedan Christian Anfinsens försök på 1950- och 60-talen (<a href="14-proteinveckning.html#sec-l14-anfinsen" class="quarto-xref"><span>Avsnitt 14.1.1</span></a>) har man arbetat på ungefär samma sätt. Man tillverkar ett protein, till exempel i bakterier, och renar fram det. Sedan tillsätter man ett ämne som gör att proteinet vecklas upp till en lös kedja. När ämnet tas bort veckar kedjan ihop sig igen, och då kan man följa hur det går till.</p>
+<p>Med sådana försök kan man ställa frågor om själva vägen till den färdiga formen. Frågorna är fysikalisk-kemiska. Veckar sig vissa delar av kedjan före andra? Följer alla molekyler samma väg, eller går hälften en väg och hälften en annan? Om man byter ut en enda aminosyra kanske slutresultatet blir detsamma, men vägen dit en annan.</p>
+<p>Målet på lång sikt är att kunna förutsäga inte bara proteinets färdiga form, som AlphaFold gör, utan också den väg som kedjan tar för att nå dit. Det är i grunden <strong>nyfikenhetsdriven forskning</strong>: man vill förstå hur naturen fungerar, utan att i första hand sikta på en tillämpning.</p>
+</section>
+<section id="sec-l17-ribosomen" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-ribosomen">Veckning i cellen</h3>
+<p>Inne i en cell ser det helt annorlunda ut. Där finns aldrig en färdig, oveckad kedja som veckar sig i lugn och ro. Proteinet tillverkas i stället på ribosomen, en aminosyra i taget, och kedjan växer ut genom en tunnel i ribosomens stora subenhet (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>). Tunneln är omkring 10 nanometer lång och rymmer 30–40 aminosyror. De första 30–40 aminosyrorna i ett nytt protein syns alltså inte alls utanför ribosomen.</p>
+<p>Eftersom tillverkningen går långsamt kan proteinet mycket väl ha börjat vecka sig långt innan det är färdigt. Tänk på ett protein som är 500 aminosyror långt. När den sista aminosyran kopplas på har de första 450 redan kommit ut ur ribosomen, och med tio aminosyror per sekund har de första av dem haft närmare en minut på sig.</p>
+<p>Veckningen måste dessutom börja i ena änden, den så kallade <strong>N-änden</strong>, eftersom det är den som kommer ut först. I provröret finns ingen sådan ordning: där kan kedjan börja vecka sig var som helst.</p>
+<p>Veckning som sker medan proteinet tillverkas kallas <strong>kotranslationell veckning</strong> (av <em>ko-</em>, tillsammans med, och <em>translation</em>). Det är inte självklart att den följer samma väg som veckningen i provröret, och det är just den skillnaden som von Heijnes forskargrupp och flera andra grupper försöker förstå. Frågan har bara studerats på allvar under de senaste omkring femton åren. I dag tror man att många proteiner, kanske de flesta, börjar vecka sig medan de fortfarande sitter fast i ribosomen.</p>
+<div id="fig-l17-tunnel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l17-tunnel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L17/ribosomtunnel.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l17-tunnel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;17.2: Kotranslationell veckning. Proteinkedjan (röd) växer ut genom en tunnel i ribosomens stora subenhet (blå). Till vänster: ett litet protein kan vecka sig redan i tunnelns mynning, där inga chaperoner kommer åt. Till höger: i ett större protein kommer början av kedjan ut först och kan vecka sig medan resten fortfarande tillverkas. Egen figur.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l17-fodelse" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-fodelse">Att fotografera ett proteins födelse</h3>
+<p>Hur kan man se något som händer så snabbt och i så liten skala? En väg är <strong>kryoelektronmikroskopi</strong> (<a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>). Metoden bygger på att stoppa proteintillverkningen vid en bestämd längd. Forskaren kan till exempel bestämma att ribosomen ska stanna när kedjan är 185 aminosyror lång. Sedan renar man fram ribosomerna med de halvfärdiga kedjorna fastsittande, fryser dem och tar bilder i elektronmikroskopet. Man får då en tredimensionell bild av ribosomen med den växande kedjan i tunneln.</p>
+<p>I ett sådant försök undersökte gruppen ett litet protein på 49 aminosyror, som i renad form veckar sig till ett betaflak i tre delar och en alfahelix. Frågan var om det kunde vecka sig redan inne i ribosomen. Proteinsyntesen stoppades precis när proteinet var färdigtillverkat, med en kort svans efter. I bilden syntes kedjan löpa från tRNA:t ned genom tunneln, och längst ned, i tunnelns mynning, låg det lilla proteinet färdigveckat. När den kända strukturen lades in i bilden passade den väl. Bilden visar alltså proteinets födelseögonblick.</p>
+<p>Att ett protein kan vecka sig inne i ribosomen var ganska oväntat innan det kunde visas. Var veckningen sker beror på proteinets storlek. Bara små proteiner, eller små delar av proteiner, hinner vecka sig i tunneln: en del ännu mindre strukturer veckar sig längre in, medan större proteiner måste komma ut helt innan de kan vecka sig. Inne i tunneln kommer inga chaperoner åt, så där klarar sig proteinet på egen hand. För stora, komplicerade proteiner sker det mesta av veckningen strax utanför tunneln, och där kan chaperonerna vara avgörande (<a href="13-chaperoner.html" class="quarto-xref"><span>Kapitel 13</span></a>).</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: kan man köra kedjan baklänges?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>En naturlig fråga är om man skulle få samma protein om man vände på sekvensen, så att ribosomen började i andra änden. Svaret är nej. En proteinkedja har en riktning: ryggraden ser olika ut i början (N-änden) och i slutet (C-änden), och sidogrupperna sticker ut från den åt ett bestämt håll. Dessutom är aminosyrorna “handade”, som vänster- och högerhänder. En baklängeskedja blir därför inte en spegelbild av originalet, och inte heller samma form, utan i praktiken en helt ny kedja. Ribosomen kan inte heller välja riktning: mRNA:t har en startsignal, och därifrån läses det alltid åt samma håll.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l17-sjukdom" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-sjukdom">Från grundforskning till sjukdom</h3>
+<p>Kunskapen om hur proteiner veckar sig har också betydelse för de sjukdomar där veckningen går fel. Felveckning av det slag som ger sjukdomar har ännu inte kunnat ses vid ribosomen. Men andra forskare, bland dem de vars arbete beskrevs i <a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>, studerar hur felveckningen går till. De fibrer som bildas vid till exempel Alzheimers sjukdom kan man i dag strukturbestämma i detalj (<a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>).</p>
+<p>De tidiga stadierna, när bara några få molekyler har börjat klumpa ihop sig, är svårare att se och kräver mer indirekta metoder. Ändå är det kanske just där man har bäst chans att ingripa. När stabila fibrer väl har bildats kan det vara för sent, men om man kan hindra de första fröna från att växa, till exempel med antikroppar, kanske sjukdomen kan bromsas.</p>
+</section>
+</section>
+<section id="sec-l17-fronten" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="sec-l17-fronten"><span class="header-section-number">17.3</span> Från forskningsfronten</h2>
+<p>Två andra exempel visar vart fältet är på väg. Det första är en metod som låter forskarna se molekylerna där de sitter i cellen. Det andra är ett läkemedel som bygger på kunskap om ett hormon och den receptor det binder till.</p>
+<section id="sec-l17-tomografi" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-tomografi">Att se molekylerna på plats: kryoelektrontomografi</h3>
+<p>Med kryoelektronmikroskopi brukar man studera renade molekyler: tiotusentals likadana ribosomer eller membranproteiner som fryses i en tunn hinna av is (<a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>, <a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>). Men i cellen sitter molekylerna inte ensamma. De ligger packade bland tusentals andra, i membran och i komplex. Hur ser det ut där?</p>
+<p>Det är vad <strong>kryoelektrontomografi</strong> (kryo-ET) kan visa. Principen är densamma som vid skiktröntgen (datortomografi) på sjukhus. Där tar man röntgenbilder av huvudet från många olika håll, och en dator räknar fram en tredimensionell bild av allt som finns inuti.</p>
+<p>Vid kryo-ET fryser man en cell, eller en tunn skiva av en cell, så snabbt att allt stannar där det var. Provet måste vara tunt, eftersom elektronerna bara tränger igenom ett mycket tunt lager. Mycket små bakterier, under en mikrometer, kan avbildas hela, men från större celler måste man först skära ut en skiva som är tunnare än en mikrometer.</p>
+<p>Provet läggs i elektronmikroskopet och fotograferas. Sedan vickas det en liten bit, och en ny bild tas. Så fortsätter man, ungefär från −60 till +60 grader. Längre går inte, eftersom ett lutande prov blir tjockare i elektronernas väg, och vid större vinklar skulle elektronerna behöva gå genom för mycket material. För varje vinkel har molekylerna förskjutits lite olika mycket i förhållande till varandra, och ur alla bilderna räknar datorn fram en tredimensionell bild, ett <strong>tomogram</strong> (<a href="#fig-l17-tomografi" class="quarto-xref">Figur&nbsp;<span>17.3</span></a>).</p>
+<div id="fig-l17-tomografi" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l17-tomografi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L17/tomografi.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l17-tomografi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;17.3: Kryoelektrontomografi. En fryst, tunn skiva av en cell vickas i elektronmikroskopet, och en bild tas för varje vinkel. Ur bilderna räknar datorn fram en tredimensionell bild, ett tomogram, där membran och stora proteinkomplex syns på sina platser. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Tomogrammen är inte lika skarpa som de bilder man får av renade molekyler. Men stora komplex som ribosomer och ATP-syntas har så karaktäristiska former att datorprogram kan leta upp och märka ut vart och ett av dem i bilden. Om man vill kan man lägga ihop bilderna av många likadana komplex för att få en skarpare bild av deras form. Men det fascinerande med tomogrammen är att varje märkt objekt är en enda molekyl, avbildad där den satt i cellen.</p>
+<p>Därmed förenar kryo-ET det som två andra metoder ger var för sig. Med ljusmikroskop och GFP kan man se var ett visst protein finns i en levande cell, men inte hur det ser ut (<a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>). Med kryo-EM av renade molekyler ser man hur proteinet ser ut, men inte var det satt. Med kryo-ET ser man båda på en gång, om än bara i ett fruset ögonblick. Två exempel visar vad det kan ge.</p>
+<p><strong>Kloroplasten.</strong> Ett av de senaste exemplen kommer från kloroplaster från spenat, de organeller där fotosyntesen sker (<a href="10-signalering.html" class="quarto-xref"><span>Kapitel 10</span></a>). I tomogrammen syns kloroplastens dubbla hölje och, inuti, staplar av platta membransäckar, <strong>tylakoidmembranen</strong>, där fotosystemen sitter. Mellan membranen ses tusentals små korn. Varje korn är ett enda exemplar av <strong>rubisco</strong>, enzymet som binder in koldioxid från luften i fotosyntesen (<a href="#fig-l17-tomogram" class="quarto-xref">Figur&nbsp;<span>17.4</span></a>). Man kan räkna dem och se var i kloroplasten de finns. <a href="#fig-l17-kloroplast" class="quarto-xref">Figur&nbsp;<span>17.5</span></a> visar en målning som bygger på den sortens kunskap.</p>
+<div id="fig-l17-tomogram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l17-tomogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L17/kloroplast-tomogram.jpg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l17-tomogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;17.4: Kryoelektrontomografi av en kloroplast från spenat. Till vänster ett tunt snitt genom tomogrammet, så som det ser ut i mikroskopet: de långa, mörka linjerna är membran, och de små prickarna mellan dem är enskilda proteinkomplex. Till höger samma område i tre dimensioner, där datorn har färgat in det som syns: kloroplastens hölje (blått, <em>envelope</em>), tylakoidmembranen (grönt) som ligger staplade i högar (<em>granum</em>) och förbinds av enkla membran (<em>stromal lamellae</em>), fettdroppar (gult, <em>plastoglobules</em>) och tusentals rubiscomolekyler (grått). Strecket nere till vänster är 200 nanometer. Engelska beteckningar. Bild: Wietrzynski m.fl., <em>eLife</em> (2025), CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<div id="fig-l17-kloroplast" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l17-kloroplast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L17/kloroplast-goodsell.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l17-kloroplast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;17.5: Tvärsnitt genom en kloroplast, målat i rätt skala. Överst till höger syns det dubbla höljet. De gröna, staplade membranen är tylakoidmembranen, med fotosystemen och andra proteiner i fotosyntesens elektrontransportkedja. I vätskan mellan membranen (blått) finns bland annat rubisco. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p><strong>Mitokondrien.</strong> Ett annat exempel är studien av mitokondrier i en grön alg som vi mötte i <a href="12-proteintrafik.html#sec-l12-mitokondrier" class="quarto-xref"><span>Avsnitt 12.5</span></a>. Tomogrammen visar att ATP-syntaserna och andningskedjans komplex, ofta sammanfogade till <strong>superkomplex</strong> (<a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>), sitter på olika ställen i det veckade inre membranet, och att ATP-syntaserna själva hjälper till att böja membranet (<a href="#fig-l17-kristor" class="quarto-xref">Figur&nbsp;<span>17.6</span></a>). Så brukar mitokondrier inte ritas i läroböckerna.</p>
+<p>I samma bilder hittade forskarna också strukturer som ingen tidigare visste vad de var. Det visar hur mycket som återstår att upptäcka när man kan se cellen inifrån. Många elektronmikroskopister arbetar i dag med att utveckla tekniken, med målet att kartlägga hur molekylerna är organiserade i hela celler.</p>
+<div id="fig-l17-kristor" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l17-kristor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L17/kristor.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l17-kristor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;17.6: Hur andningskedjan och ATP-syntaset fördelar sig i mitokondriens inre membran. Till vänster: det inre membranet är veckat till platta säckar, kristor. Till höger en förstorad krista. Andningskedjans komplex (grönt) sitter på kristans platta sidor och pumpar protoner in i kristan. ATP-syntaserna (gult) sitter två och två längs den skarpt böjda kanten, där protonerna strömmar tillbaka genom dem och ATP bildas. Paren bildar långa rader som hjälper till att hålla membranet böjt. Förenklad, inte i skala. Egen figur.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l17-ozempic" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l17-ozempic">Från diabetesmedicin till bantningsmedicin: Ozempic</h3>
+<p>Få läkemedel har fått så mycket uppmärksamhet de senaste åren som <strong>Ozempic</strong>. Historien bakom det visar hur biokemi, läkemedelskemi och slumpens upptäckter kan samverka, och vilka följder ett framgångsrikt läkemedel kan få.</p>
+<p><strong>Ett företag byggt på insulin.</strong> Ozempic tillverkas av det danska företaget Novo Nordisk, som har arbetat med diabetes i omkring hundra år. Hormonet insulin upptäcktes i Toronto 1921. Redan året därpå reste den danske nobelpristagaren August Krogh dit och fick tillstånd att tillverka insulin i Norden. På den tiden fick man insulinet ur bukspottkörtlar från slaktade grisar och kor, och senare lärde man sig ändra grisinsulinet så att det blev likt människans. I dag tillverkas det med genteknik, av bakterier eller jästceller (<a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a>).</p>
+<p><strong>Ett hormon från tarmen.</strong> I arbetet med diabetes blev företaget intresserat av ett annat hormon, <strong>GLP-1</strong> (eng. <em>glucagon-like peptide 1</em>). Det är en <strong>peptid</strong>, en kort proteinkedja, på 31 aminosyror. GLP-1 bildas i tarmen när vi äter. Det får bukspottkörteln att frisätta mer insulin när blodsockret är högt, och det påverkar också hjärnans signaler om hunger och mättnad.</p>
+<p>GLP-1 verkar genom att binda till en receptor på cellernas yta, <strong>GLP-1-receptorn</strong>. Den hör till de <strong>G-proteinkopplade receptorerna</strong>, den stora grupp membranproteiner som är mål för många läkemedel (<a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>). När hormonet binder ändrar receptorn form, och ett protein på cellens insida sätter i gång en signalkedja (<a href="#fig-l17-receptor" class="quarto-xref">Figur&nbsp;<span>17.7</span></a>).</p>
+<div id="fig-l17-receptor" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l17-receptor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L17/glp1-agonister-pdb101.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l17-receptor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;17.7: GLP-1-receptorn sitter i cellmembranet (grått band). Längst upp till vänster syns receptorn utan hormon. De övriga bilderna visar receptorn med kroppens eget GLP-1 och med fem läkemedel som efterliknar det, bland dem semaglutid (blått). Alla binder i samma ficka, delvis nedsänkt i membranet. Bild: Janet Iwasa, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p><strong>Problemet: hormonet bryts ned på några minuter.</strong> Det var redan känt att GLP-1 kunde sänka blodsockret hos personer med typ 2-diabetes. GLP-1 är så litet att det kan tillverkas kemiskt. Men i blodet bryts det ned av enzymer inom några minuter, så som läkemedel duger det inte. Novo Nordisks kemister gjorde därför små ändringar i kedjan (<a href="#fig-l17-semaglutid" class="quarto-xref">Figur&nbsp;<span>17.8</span></a>):</p>
+<ul>
+<li>Aminosyran på andra plats byttes mot en aminosyra som inte finns i naturliga proteiner. Det skyddar mot det enzym som annars klipper av hormonets början.</li>
+<li>En lysin byttes mot en arginin, så att fettsyran (se nästa punkt) bara kan fästas på ett enda ställe.</li>
+<li>På en annan lysin fästes, via en kort länk, en <strong>fettsyra</strong>, ett slags lipidsvans. Fettsyran binder till <strong>albumin</strong>, det vanligaste proteinet i blodet. Bundet till albumin bryts läkemedlet ned mycket långsammare och försvinner inte med urinen. Ändringen gjorde också läkemedlet mer lösligt i blodet, så att högre doser kunde ges.</li>
+</ul>
+<p>Resultatet blev <strong>semaglutid</strong>, som räcker så länge att det bara behöver sprutas in en gång i veckan. Det godkändes som diabetesläkemedel under namnet Ozempic 2017.</p>
+<div id="fig-l17-semaglutid" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l17-semaglutid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L17/semaglutid.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l17-semaglutid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;17.8: GLP-1 och semaglutid. Överst kroppens eget hormon, en kedja av 31 aminosyror. Nederst semaglutid, med tre ändringar: en aminosyra som inte finns i naturliga proteiner (X), som skyddar mot nedbrytning, en lysin (K) som bytts mot en arginin (R) och en fettsyra som binder till albumin i blodet. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p><strong>Den oväntat stora effekten.</strong> Att GLP-1 dämpar aptiten var känt sedan 1990-talet, och Novo Nordisks första GLP-1-läkemedel, liraglutid, som måste sprutas varje dag, gav viss viktnedgång. Det godkändes också mot fetma, på 2010-talet. Men i de stora studierna av semaglutid gick patienterna ned betydligt mer i vikt än väntat, omkring 15 procent av kroppsvikten i studierna mot fetma. Viktnedgången beror framför allt på att läkemedlet minskar aptiten: maten lockar inte lika mycket.</p>
+<p>Den stora viktnedgången var bra för många med typ 2-diabetes, som ofta är överviktiga. Men det betydde också att läkemedlet kunde användas mot fetma i allmänhet, oavsett diabetes. Under namnet Wegovy godkändes semaglutid mot fetma 2021, och det blev snabbt världskänt. Numera finns det också som tablett.</p>
+<p>Läkemedlet påverkar också mer än aptiten och blodsockret. Receptorn för GLP-1 finns inte bara i bukspottkörteln och hjärnan, utan också i bland annat hjärta, njurar och mage. Under en tid rapporterades förbättringar av så många olika slag att läkemedlet nästan framställdes som en mirakelmedicin. En del av dem har bekräftats i stora studier, till exempel färre hjärtinfarkter och stroke hos personer med hjärt-kärlsjukdom och fetma, medan andra är osäkrare.</p>
+<p>Som med alla läkemedel som används av väldigt många människor har biverkningarna blivit tydligare med tiden. Illamående och andra besvär från magen är vanliga, och många slutar med medicinen efter ett tag. Även den minskade lusten att äta kan för en del kännas som en förlust.</p>
+<p><strong>Följderna.</strong> Framgången har fått följder långt utanför sjukvården. Under en period var Novo Nordisk Europas mest värdefulla börsföretag. Företaget kontrolleras av en stiftelse, som enligt sina stadgar ska stödja medicinsk forskning och andra vetenskapliga, humanitära och sociala ändamål. Det mesta av pengarna har gått till Danmark. Vinsterna har gjort stiftelsen till en av världens största: den delar varje år ut flera gånger mer pengar till forskning än Knut och Alice Wallenbergs stiftelse, Sveriges största privata forskningsfinansiär. De stora summorna har förändrat det danska forskningslandskapet. Det är bra på många sätt, men det skapar också obalans, eftersom pengarna går till vissa områden och inte till andra.</p>
+<p>Ett genombrott varar dock inte för evigt. Andra företag har tagit fram egna läkemedel som verkar på samma sätt, och konkurrensen har hårdnat. När patentet på ett läkemedel går ut kan andra dessutom tillverka det billigare. Så gick det för Astras magsårsmedicin Losec, som en tid var världens mest sålda läkemedel.</p>
+<p>Historien har en lärdom som gäller mycket av forskningen i den här boken. Bakom genombrottet låg många års envist arbete. Den danska forskaren Lotte Bjerre Knudsen ledde Novo Nordisks arbete med GLP-1 från 1990-talet, under långa perioder då framgången inte alls var självklar. År 2024 fick hon det amerikanska Laskerpriset, tillsammans med Joel Habener och Svetlana Mojsov, som hade hittat hormonets aktiva form. Och den största framgången, mot fetma, var inte det man från början siktade på.</p>
+</section>
+</section>
+<section id="sec-l17-i-morgon" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="sec-l17-i-morgon"><span class="header-section-number">17.4</span> Livets molekyler i morgon</h2>
+<p>Vad kommer härnäst? Ingen vet, och det är en del av tjusningen. Men den här boken har stött på många frågor som ännu är öppna, och några av dem kommer säkert att få svar under de kommande åren.</p>
+<ul>
+<li><strong>Hur började livet?</strong> Vi vet att livets enkla byggstenar kan bildas utan hjälp av levande organismer (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>). Men hur de första kedjor som kunde kopiera sig själva uppstod är fortfarande okänt, och kanske förblir det så. Forskare efterliknar allt mer realistiska förhållanden på den tidiga jorden för att pröva tänkbara vägar.</li>
+<li><strong>Hur rör sig proteinerna?</strong> AlphaFold förutsäger formen men inte vägen dit eller rörelserna i arbetet (<a href="16-ai-och-proteiner.html" class="quarto-xref"><span>Kapitel 16</span></a>). Hur komplex I pumpar protoner över membranet är fortfarande inte klarlagt (<a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>).</li>
+<li><strong>Hur ser cellen ut inifrån?</strong> Med kryoelektrontomografi, superupplöst mikroskopi och AI börjar man kunna kartlägga var varje stort komplex sitter i en cell, och hur det samverkar med sina grannar.</li>
+<li><strong>Hur kan man stoppa felveckningen?</strong> Sjukdomar som Alzheimer och ALS saknar fortfarande botemedel (<a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>). Bättre kunskap om de tidigaste stegen i felveckningen kan ge nya sätt att ingripa.</li>
+<li><strong>Vad är det minsta som behövs för liv?</strong> Forskare försöker bygga <strong>minimala celler</strong>, med så få gener som möjligt. En sådan cell, JCVI-syn3A, har bara 493 gener, ungefär en fyrtiondel av människans proteinkodande gener (<a href="#fig-l17-minimalcell" class="quarto-xref">Figur&nbsp;<span>17.9</span></a>). Man har också frågat sig om en cell skulle klara sig med färre än tjugo sorters aminosyror.</li>
+</ul>
+<div id="fig-l17-minimalcell" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l17-minimalcell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L17/minimalcell-goodsell.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l17-minimalcell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;17.9: En minimal cell, JCVI-syn3A, som forskare har skapat genom att ta bort alla gener som inte behövs från en bakterie. Cellen har just börjat dela sig. DNA:t är gult, ribosomerna och annat RNA är rosa och lila, enzymerna blå och membranet med sina proteiner grönt. Målningen bygger på experimentella data, bland annat kryo-EM-bilder av hela celler. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Det som gör fältet så levande är kombinationen av nya verktyg och gamla frågor. Frågan om hur proteiner veckar sig ställdes på 1950-talet och är fortfarande inte helt besvarad. Att det skulle gå att se ett enskilt ATP-syntas sitta i en mitokondrie hade få kunnat drömma om för tjugo år sedan. Ingen vet vilken nästa stora upptäckt blir, eller om den, som GFP, kommer från ett oväntat håll.</p>
+<p>Den som vill fortsätta läsa hittar tips i slutet av varje kapitel och i avsnittet <em>Vidare läsning</em> (<a href="../vidare-lasning.html" class="quarto-xref"><span>Bilaga C</span></a>) längst bak i boken. Där finns bland annat David Goodsells bilder av cellens inre, PDB-101:s <em>Molecule of the Month</em> och nobelprisets populärvetenskapliga beskrivningar. Varje månad kommer det nya upptäckter om livets molekyler, och med den här boken som grund går de att förstå.</p>
+</section>
+<section id="sec-l17-sammanfattning" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="sec-l17-sammanfattning"><span class="header-section-number">17.5</span> Sammanfattning</h2>
+<ul>
+<li>Livet bygger på kedjemolekyler: DNA, RNA och proteiner. Informationen flödar från DNA via RNA till protein, och proteinkedjan veckar sig till den form som avgör vad proteinet kan göra.</li>
+<li>Proteinerna arbetar som enzymer, kanaler, pumpar, motorer och receptorer. Chaperoner och adresslappar hjälper dem på vägen, och när veckningen går fel kan sjukdomar uppstå.</li>
+<li>Nya verktyg, från röntgenkristallografi och DNA-sekvensering till kryoelektronmikroskopi och AlphaFold, har drivit fältet framåt.</li>
+<li>Många proteiner börjar vecka sig medan de tillverkas, så kallad kotranslationell veckning. Veckningen börjar då i den ände som kommer ut ur ribosomen först.</li>
+<li>Med kryoelektronmikroskopi av ribosomer som stoppats vid en viss längd har man sett ett litet protein vecka sig redan i ribosomens utgångstunnel, där inga chaperoner kommer åt.</li>
+<li>Kryoelektrontomografi ger tredimensionella bilder av frysta celler, där enskilda stora komplex som rubisco, ribosomer och ATP-syntas kan ses på sina platser.</li>
+<li>Semaglutid (Ozempic, Wegovy) är en ändrad form av tarmhormonet GLP-1, som verkar via en G-proteinkopplad receptor. Ändringarna, bland annat en fettsyra som binder till albumin, gör att det räcker en vecka i stället för några minuter.</li>
+<li>Att GLP-1 dämpar aptiten var känt, men viktnedgången med semaglutid blev oväntat stor. Läkemedlet, som först togs fram mot diabetes, har fått stora följder för både sjukvård, ekonomi och forskning.</li>
+</ul>
+</section>
+<section id="sec-l17-nyckelbegrepp" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="sec-l17-nyckelbegrepp"><span class="header-section-number">17.6</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>kedjemolekyl</strong> – En molekyl byggd som en lång kedja av enkla byggstenar, som DNA, RNA och proteiner. Ordningen mellan byggstenarna (sekvensen) bär informationen.</li>
+<li><strong>kotranslationell veckning</strong> – Veckning som sker medan proteinet fortfarande tillverkas på ribosomen. Veckningen börjar då i den ände av kedjan som kommer ut först.</li>
+<li><strong>ribosomens utgångstunnel</strong> – Den omkring 10 nanometer långa tunnel genom ribosomens stora subenhet som den växande proteinkedjan passerar. Den rymmer 30–40 aminosyror.</li>
+<li><strong>N-ände</strong> – Början av en proteinkedja, den ände som tillverkas och kommer ut ur ribosomen först. Slutet kallas C-änden.</li>
+<li><strong>nyfikenhetsdriven forskning</strong> – Forskning som görs för att förstå hur naturen fungerar, utan att i första hand sikta på en tillämpning. Kallas också grundforskning.</li>
+<li><strong>kryoelektrontomografi</strong> – Metod där ett fryst, tunt prov av en cell fotograferas i elektronmikroskop från många vinklar, så att en dator kan räkna fram en tredimensionell bild med molekylerna på sina platser (kryo-ET).</li>
+<li><strong>tomogram</strong> – En tredimensionell bild som räknats fram ur många tvådimensionella bilder tagna från olika vinklar, som vid skiktröntgen.</li>
+<li><strong>tylakoidmembran</strong> – De staplade, platta membransäckarna inuti en kloroplast, där fotosystemen och de andra proteinerna i fotosyntesens ljusreaktioner sitter.</li>
+<li><strong>rubisco</strong> – Enzymet i kloroplasten som binder in koldioxid från luften i fotosyntesen. Det finns i mycket stora mängder och syns som enskilda korn i kryo-ET-bilder.</li>
+<li><strong>superkomplex</strong> – Flera av andningskedjans proteinkomplex som sitter ihop till en större enhet i mitokondriens membran.</li>
+<li><strong>peptid</strong> – En kort kedja av aminosyror, till exempel ett hormon som GLP-1. Gränsen mot protein är inte skarp.</li>
+<li><strong>GLP-1</strong> – Ett peptidhormon på 31 aminosyror som bildas i tarmen när vi äter. Det får bukspottkörteln att frisätta insulin och minskar aptiten (eng. glucagon-like peptide 1).</li>
+<li><strong>GLP-1-receptorn</strong> – En G-proteinkopplad receptor i cellmembranet som GLP-1 och läkemedel som semaglutid binder till.</li>
+<li><strong>semaglutid</strong> – Läkemedel (Ozempic, Wegovy) som är en ändrad form av GLP-1. En fettsyra som binder till albumin gör att det räcker en vecka. Används mot typ 2-diabetes och fetma.</li>
+<li><strong>albumin</strong> – Det vanligaste proteinet i blodet. Det binder bland annat fettsyror och kan bära med sig läkemedel så att de stannar längre i kroppen.</li>
+<li><strong>minimal cell</strong> – En cell som forskare har skapat genom att ta bort alla gener som inte behövs för att den ska leva och dela sig, till exempel JCVI-syn3A med 493 gener.</li>
+</ul>
+</section>
+<section id="sec-l17-testa" class="level2" data-number="17.7">
+<h2 data-number="17.7" class="anchored" data-anchor-id="sec-l17-testa"><span class="header-section-number">17.7</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L17"></div>
+<script>
+renderQuiz("quiz-L17", [
+ {
+  "question": "Varför kan livet bygga så många olika proteiner av bara tjugo sorters aminosyror?",
+  "choices": [
+   "Aminosyrorna kan sättas ihop i vilken ordning som helst, och antalet möjliga sekvenser är i praktiken obegränsat",
+   "Varje aminosyra kan ändra form efter behov",
+   "Proteinerna får sin form från DNA-spiralen de tillverkas på",
+   "Cellen tillverkar nya sorters aminosyror för varje protein"
+  ],
+  "correctIndex": 0,
+  "explanation": "Proteiner är kedjemolekyler. Med tjugo byggstenar i valfri ordning blir antalet möjliga sekvenser ofantligt, och sekvensen bestämmer formen."
+ },
+ {
+  "question": "Varför går proteintillverkningen på ribosomen ganska långsamt, med molekylära mått?",
+  "choices": [
+   "Olika tRNA kommer slumpvis in och prövas, och ofta måste många prövas innan rätt tRNA passar till kodonet",
+   "Ribosomen måste vänta på att DNA-spiralen ska öppnas",
+   "Varje aminosyra måste först veckas innan den kan kopplas på",
+   "Chaperonerna bromsar ribosomen för att hinna med"
+  ],
+  "correctIndex": 0,
+  "explanation": "Ribosomen kan inte veta i förväg vilket tRNA som passar. tRNA kommer in genom slumpvis rörelse, och de som inte passar släpper igen."
+ },
+ {
+  "question": "Vad har andningskedjan i mitokondrien och fotosyntesen i kloroplasten gemensamt?",
+  "choices": [
+   "Båda använder energi till att bygga upp en laddning över ett membran, som driver ATP-tillverkning",
+   "Båda använder ljus som energikälla",
+   "Båda bildar syre",
+   "Båda sker i cellkärnan"
+  ],
+  "correctIndex": 0,
+  "explanation": "I båda fallen förs elektroner genom proteiner i ett membran och protoner pumpas över membranet. Gradienten driver sedan ATP-syntas."
+ },
+ {
+  "question": "Vad menas med kotranslationell veckning?",
+  "choices": [
+   "Att proteinkedjan börjar vecka sig medan den fortfarande tillverkas på ribosomen",
+   "Att två proteiner veckar sig tillsammans",
+   "Att ett protein veckas om efter att ha skadats",
+   "Att DNA veckar sig medan det kopieras"
+  ],
+  "correctIndex": 0,
+  "explanation": "Translation är tillverkningen av proteinet på ribosomen. Kotranslationell veckning sker under tiden, och börjar i den ände som kommer ut först."
+ },
+ {
+  "question": "Varför kan veckningen i cellen följa en annan väg än veckningen av ett renat protein i ett provrör?",
+  "choices": [
+   "I cellen kommer kedjans början ut ur ribosomen först och kan vecka sig innan resten finns, medan hela kedjan finns på en gång i provröret",
+   "I provröret saknas aminosyror",
+   "I cellen veckar sig proteinerna alltid baklänges",
+   "I provröret kan proteiner inte vecka sig alls"
+  ],
+  "correctIndex": 0,
+  "explanation": "Ett renat, oveckat protein kan börja vecka sig var som helst. I cellen tillverkas kedjan från N-änden, så veckningen måste börja där."
+ },
+ {
+  "question": "Hur kunde forskarna se ett litet protein som hade veckat sig inne i ribosomens tunnel?",
+  "choices": [
+   "De stoppade proteintillverkningen vid en bestämd längd, renade fram ribosomerna och avbildade dem med kryoelektronmikroskopi",
+   "De märkte proteinet med GFP och tittade i ett vanligt ljusmikroskop",
+   "De förutsade det med AlphaFold utan några experiment",
+   "De läste ribosomens DNA-sekvens"
+  ],
+  "correctIndex": 0,
+  "explanation": "Genom att låta ribosomerna stanna vid samma punkt fick man många likadana ribosomer med halvfärdiga kedjor, som kunde avbildas med kryo-EM."
+ },
+ {
+  "question": "Varför hjälper inga chaperoner ett protein som veckar sig inne i ribosomens tunnel?",
+  "choices": [
+   "Tunneln är så smal att chaperonerna inte kommer åt kedjan där",
+   "Chaperoner finns bara i mitokondrierna",
+   "Proteiner som veckar sig i tunneln är alltid felveckade",
+   "Chaperonerna arbetar bara på DNA"
+  ],
+  "correctIndex": 0,
+  "explanation": "Chaperoner är stora proteiner som verkar på kedjan när den kommer ut ur ribosomen. Inne i tunneln får proteinet klara sig på egen hand."
+ },
+ {
+  "question": "Vad kan kryoelektrontomografi visa som vanlig kryo-EM av renade molekyler inte kan?",
+  "choices": [
+   "Var de enskilda komplexen sitter i cellen och hur de är organiserade i förhållande till varandra",
+   "Hur molekylerna rör sig i en levande cell",
+   "Proteinernas aminosyrasekvens",
+   "Strukturer med bättre upplösning än någon annan metod"
+  ],
+  "correctIndex": 0,
+  "explanation": "Vid kryo-ET avbildas en fryst bit av en hel cell. Man ser molekylerna på deras platser, men bara i ett fruset ögonblick och med något sämre skärpa."
+ },
+ {
+  "question": "Varför räcker semaglutid i en vecka, när kroppens eget GLP-1 bryts ned på några minuter?",
+  "choices": [
+   "Det har en fettsyra som binder till albumin i blodet, och en ändrad aminosyra skyddar mot ett nedbrytande enzym",
+   "Det är ett DNA-läkemedel som cellerna läser av i flera veckor",
+   "Det lagras i fettvävnaden som kristaller",
+   "Det är mycket större än GLP-1 och kan därför inte brytas ned"
+  ],
+  "correctIndex": 0,
+  "explanation": "Albuminbindningen gör att läkemedlet stannar i blodet, och den icke-naturliga aminosyran på andra plats hindrar enzymet som annars klipper av hormonets början."
+ },
+ {
+  "question": "Varför är GLP-1-receptorn, liksom många andra läkemedelsmål, ett membranprotein på cellytan?",
+  "choices": [
+   "Ett läkemedel i blodet når lätt receptorer på cellytan utan att behöva ta sig igenom membranet",
+   "Membranproteiner kan inte påverkas av hormoner",
+   "Proteiner inne i cellen saknar form",
+   "Alla läkemedel måste binda till DNA"
+  ],
+  "correctIndex": 0,
+  "explanation": "Receptorer som GPCR sitter i membranet med bindningsfickan mot utsidan. Ett hormon eller läkemedel binder där, och receptorn för signalen in i cellen."
+ },
+ {
+  "question": "Vad visar historien om Ozempic om hur forskning ofta går till?",
+  "choices": [
+   "En effekt som var känd men sågs som en bisak, viktnedgången, visade sig vara större och viktigare än man trott",
+   "Läkemedlet konstruerades från början som bantningsmedel",
+   "Upptäckten gjordes på en dag med hjälp av AI",
+   "Hormonet GLP-1 upptäcktes först efter att läkemedlet var färdigt"
+  ],
+  "correctIndex": 0,
+  "explanation": "Att GLP-1 dämpar aptiten var känt sedan 1990-talet, men semaglutid togs fram mot diabetes. I de kliniska studierna blev viktnedgången oväntat stor, och behandling mot fetma blev den stora tillämpningen."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>17.1</strong> Följ ett protein från gen till arbete. Beskriv stegen från DNA till ett färdigt enzym som arbetar i cellen, och nämn vad som kan gå fel på vägen. Använd gärna figuren över bokens stora bild.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Genen är ett avsnitt av DNA i cellkärnan. Den skrivs av till ett mRNA (transkription), som förs ut till ribosomerna. Ribosomen läser mRNA:t tre baser i taget och kopplar ihop aminosyror, som tRNA bär dit, till en kedja (translation). Kedjan växer ut genom ribosomens tunnel och börjar ofta vecka sig redan medan den tillverkas. Chaperoner skyddar kedjan i den trånga cellen, och en adresslapp kan styra proteinet till rätt ställe. Det färdiga enzymet binder sina substrat och sänker energibarriären för reaktionen. Fel kan uppstå genom mutationer i genen, genom att kedjan veckar sig fel och klumpar ihop sig, eller genom att proteinet hamnar på fel ställe.</p>
+</div>
+</div>
+</div>
+<p><strong>17.2</strong> Ge två exempel från boken på hur ett nytt verktyg har gett ny kunskap om livets molekyler, och förklara vad verktyget gjorde möjligt.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Kryoelektronmikroskopi gjorde det möjligt att bestämma strukturer av stora komplex och membranproteiner utan kristaller. Därmed kunde man till exempel se hur andningskedjans komplex är byggda och se ett litet protein vecka sig i ribosomens tunnel. DNA-sekvensering har gått från några baser i taget på Sangers tid till miljontals i sekunden, och gjorde det möjligt att läsa människans hela genom och jämföra genom mellan arter och individer. Andra exempel är GFP, som låter oss följa proteiner i levande celler, AlphaFold, som förutsäger proteiners former ur sekvensen, och kryoelektrontomografi, som visar molekylerna på plats i cellen.</p>
+</div>
+</div>
+</div>
+<p><strong>17.3</strong> Jämför ljusmikroskopi med GFP, kryo-EM av renade molekyler och kryoelektrontomografi. Vad kan var och en visa, och vad kan den inte visa?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Med GFP och ljusmikroskop kan man följa var ett visst protein finns i en levande cell och hur det rör sig, men man ser inte proteinets form, och även superupplöst mikroskopi når bara ned till tiotals nanometer. Kryo-EM av renade molekyler visar proteinets form i atomär detalj, men molekylerna är tagna ur cellen och frysta, så man ser varken var de satt eller hur de rör sig. Kryoelektrontomografi visar både form och plats: stora komplex syns där de satt i cellen. Men även här är provet fryst, provet måste vara mycket tunt och skärpan är något sämre än för renade molekyler.</p>
+</div>
+</div>
+</div>
+<p><strong>17.4</strong> Semaglutid är byggt på kroppens eget hormon GLP-1. Förklara med hjälp av begrepp från boken (peptid, receptor, membranprotein, nedbrytning) hur läkemedlet fungerar och varför det behövde ändras.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>GLP-1 är en peptid, en kort kedja av 31 aminosyror, som bildas i tarmen när vi äter. Det binder till GLP-1-receptorn, ett membranprotein av typen G-proteinkopplad receptor. När hormonet binder ändrar receptorn form och sätter i gång en signal i cellen, som bland annat ökar insulinfrisättningen och minskar aptiten. Kroppens eget GLP-1 bryts dock ned av enzymer inom några minuter. I semaglutid har man bytt ut en aminosyra mot en icke-naturlig, så att enzymet inte kan klippa, och fäst en fettsyra som binder till albumin i blodet. Då stannar läkemedlet i kroppen i ungefär en vecka.</p>
+</div>
+</div>
+</div>
+<p><strong>17.5</strong> Välj en av de öppna frågorna i kapitlets sista avsnitt. Förklara varför den är svår att besvara och vilka verktyg från boken som skulle kunna bidra.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ett exempel är hur proteiner rör sig när de arbetar. AlphaFold ger en enda färdig form men inget om rörelserna, och kryo-EM visar frysta ögonblicksbilder. Rörelserna är snabba och sker i molekyler som är några nanometer stora, så de är svåra att följa direkt. Bidrag kan komma från datorsimuleringar som räknar ut hur atomerna rör sig, från kryo-EM där man sorterar fram flera olika former ur samma prov, från röntgenfrielektronlasrar som ger “filmer” av proteiner i arbete och från enmolekylmätningar med ljusmikroskop. Bäst förståelse får man när flera metoder kombineras.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l17-las-mer" class="level2" data-number="17.8">
+<h2 data-number="17.8" class="anchored" data-anchor-id="sec-l17-las-mer"><span class="header-section-number">17.8</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Glukagonliknande_peptid-1">Glukagonliknande peptid-1</a> och <a href="https://sv.wikipedia.org/wiki/Semaglutid">Semaglutid</a> på svenska Wikipedia.</li>
+<li><a href="https://pdb101.rcsb.org/motm/311">GLP-1 Receptor Agonists</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), om hur GLP-1 och läkemedlen som efterliknar det binder till receptorn.</li>
+<li><a href="https://en.wikipedia.org/wiki/Cryogenic_electron_tomography">Cryogenic electron tomography</a> på engelska Wikipedia, om hur kryoelektrontomografi går till.</li>
+<li><a href="https://pdb101.rcsb.org/sci-art/goodsell-gallery/jcvi-syn3a-minimal-cell">JCVI-syn3A Minimal Cell</a>, David Goodsells målning av en hel minimal cell, med förklaring (på engelska), och <a href="https://en.wikipedia.org/wiki/Minimal_cell">Minimal cell</a> på engelska Wikipedia.</li>
+<li><a href="https://sv.wikipedia.org/wiki/Novo_Nordisk">Novo Nordisk</a> på svenska Wikipedia, om företagets historia.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/16-ai-och-proteiner.html" class="pagination-link" aria-label="Vad kan AI lära oss om proteiner?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../ordlista.html" class="pagination-link" aria-label="Ordlista">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

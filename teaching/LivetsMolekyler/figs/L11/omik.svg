@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" width="900" height="330">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="450" y="30.6" font-family="Helvetica, Arial, sans-serif" font-size="19" text-anchor="middle" font-weight="bold" fill="#222222">Omik: att mäta allt av ett slag på en gång</text>
+<rect x="25.0" y="70.0" width="180" height="80" rx="6" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="115" y="106.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Genom</text>
+<text x="115" y="125.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">(allt DNA)</text>
+<text x="115" y="187.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#7a4f9a">genomik</text>
+<text x="115" y="237.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">DNA-sekvensering</text>
+<path d="M207,110 L246,110" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<rect x="248.0" y="70.0" width="180" height="80" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="338" y="106.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Transkriptom</text>
+<text x="338" y="125.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">(allt RNA)</text>
+<text x="338" y="187.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#3b6ea8">transkriptomik</text>
+<text x="338" y="237.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">RNA-sekvensering</text>
+<path d="M430,110 L469,110" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<rect x="471.0" y="70.0" width="180" height="80" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="561" y="106.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Proteom</text>
+<text x="561" y="125.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">(alla proteiner)</text>
+<text x="561" y="187.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#d9822b">proteomik</text>
+<text x="561" y="228.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">antikroppar,</text>
+<text x="561" y="246.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">masspektrometri</text>
+<path d="M653,110 L692,110" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<rect x="694.0" y="70.0" width="180" height="80" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="784" y="106.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Metabolom</text>
+<text x="784" y="125.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">(alla små molekyler)</text>
+<text x="784" y="187.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" font-style="italic" fill="#4a8c4a">metabolomik</text>
+<text x="784" y="228.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">masspektrometri</text>
+<text x="784" y="246.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">m.fl.</text>
+<text x="450" y="295.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">Genomet är i stort sett detsamma i alla celler och hela livet.</text>
+<text x="450" y="317.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">Längre åt höger skiljer det sig mer mellan celltyper och från stund till stund.</text>
+</svg>

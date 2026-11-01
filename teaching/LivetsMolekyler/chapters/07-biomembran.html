@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>7&nbsp; Biomembran – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/08-membranproteiner.html" rel="next">
+<link href="../chapters/06-enskilda-molekyler.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-biomembran.html">Membran och energi</a></li><li class="breadcrumb-item"><a href="../chapters/07-biomembran.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l07-trangsel" id="toc-sec-l07-trangsel" class="nav-link active" data-scroll-target="#sec-l07-trangsel"><span class="header-section-number">7.1</span> En cell är full av molekyler</a></li>
+  <li><a href="#sec-l07-lipider" id="toc-sec-l07-lipider" class="nav-link" data-scroll-target="#sec-l07-lipider"><span class="header-section-number">7.2</span> Lipider: små molekyler som bygger stora strukturer</a>
+  <ul class="collapse">
+  <li><a href="#sec-l07-dubbelskikt" id="toc-sec-l07-dubbelskikt" class="nav-link" data-scroll-target="#sec-l07-dubbelskikt">Dubbelskiktet</a></li>
+  <li><a href="#sec-l07-tunn" id="toc-sec-l07-tunn" class="nav-link" data-scroll-target="#sec-l07-tunn">En supertunn hinna</a></li>
+  <li><a href="#sec-l07-kolesterol" id="toc-sec-l07-kolesterol" class="nav-link" data-scroll-target="#sec-l07-kolesterol">Kolesterol gör membranet stelare</a></li>
+  <li><a href="#sec-l07-liposomer" id="toc-sec-l07-liposomer" class="nav-link" data-scroll-target="#sec-l07-liposomer">Liposomer: membran som sluter sig</a></li>
+  </ul></li>
+  <li><a href="#sec-l07-cellmembran" id="toc-sec-l07-cellmembran" class="nav-link" data-scroll-target="#sec-l07-cellmembran"><span class="header-section-number">7.3</span> Cellmembranet</a>
+  <ul class="collapse">
+  <li><a href="#sec-l07-celldelning" id="toc-sec-l07-celldelning" class="nav-link" data-scroll-target="#sec-l07-celldelning">Hur stor blir en cell?</a></li>
+  </ul></li>
+  <li><a href="#sec-l07-organeller" id="toc-sec-l07-organeller" class="nav-link" data-scroll-target="#sec-l07-organeller"><span class="header-section-number">7.4</span> Membran inne i cellen</a></li>
+  <li><a href="#sec-l07-cytoskelett" id="toc-sec-l07-cytoskelett" class="nav-link" data-scroll-target="#sec-l07-cytoskelett"><span class="header-section-number">7.5</span> Cytoskelettet: cellens rörliga skelett</a>
+  <ul class="collapse">
+  <li><a href="#sec-l07-immunfarg" id="toc-sec-l07-immunfarg" class="nav-link" data-scroll-target="#sec-l07-immunfarg">Att färga in trådarna</a></li>
+  <li><a href="#sec-l07-adhesion" id="toc-sec-l07-adhesion" class="nav-link" data-scroll-target="#sec-l07-adhesion">Celler som håller ihop</a></li>
+  </ul></li>
+  <li><a href="#sec-l07-karnan" id="toc-sec-l07-karnan" class="nav-link" data-scroll-target="#sec-l07-karnan"><span class="header-section-number">7.6</span> Cellkärnan</a></li>
+  <li><a href="#sec-l07-mitokondrier" id="toc-sec-l07-mitokondrier" class="nav-link" data-scroll-target="#sec-l07-mitokondrier"><span class="header-section-number">7.7</span> Mitokondrier och kloroplaster</a></li>
+  <li><a href="#sec-l07-vesikler" id="toc-sec-l07-vesikler" class="nav-link" data-scroll-target="#sec-l07-vesikler"><span class="header-section-number">7.8</span> Små blåsor som transporterar last</a></li>
+  <li><a href="#sec-l07-filmen" id="toc-sec-l07-filmen" class="nav-link" data-scroll-target="#sec-l07-filmen"><span class="header-section-number">7.9</span> Filmen en gång till</a></li>
+  <li><a href="#sec-l07-sammanfattning" id="toc-sec-l07-sammanfattning" class="nav-link" data-scroll-target="#sec-l07-sammanfattning"><span class="header-section-number">7.10</span> Sammanfattning</a></li>
+  <li><a href="#sec-l07-nyckelbegrepp" id="toc-sec-l07-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l07-nyckelbegrepp"><span class="header-section-number">7.11</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l07-testa" id="toc-sec-l07-testa" class="nav-link" data-scroll-target="#sec-l07-testa"><span class="header-section-number">7.12</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l07-las-mer" id="toc-sec-l07-las-mer" class="nav-link" data-scroll-target="#sec-l07-las-mer"><span class="header-section-number">7.13</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-biomembran.html">Membran och energi</a></li><li class="breadcrumb-item"><a href="../chapters/07-biomembran.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l07" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 7, <em>Biomembran</em>, av Gunnar von Heijne (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>förklara varför lipider i vatten av sig själva bildar dubbelskikt och små blåsor, liposomer,</li>
+<li>beskriva hur ett cellmembran är uppbyggt av lipider, kolesterol och proteiner, och vad kolesterolet gör i membranet,</li>
+<li>ge exempel på cellens inre membran: cellkärnan, det endoplasmatiska nätverket, mitokondrierna och kloroplasterna,</li>
+<li>beskriva cytoskelettet och vad det används till,</li>
+<li>förklara hur kärnporerna släpper igenom RNA och proteiner, och hur cellen skickar runt last i små membranblåsor.</li>
+</ul>
+</div>
+</div>
+<p>En vit blodkropp rullar fram längs insidan av ett blodkärl. Den håller sig kvar mot kärlväggen med hjälp av proteiner på sin yta, som haker fast i proteiner på kärlväggens celler, släpper och haker fast igen. Plötsligt stannar den. Den ändrar form, pressar sig in mellan två av kärlväggens celler och tar sig ut ur blodkärlet, på väg mot en infektion någonstans i vävnaden.</p>
+<p>Det här är början på en känd animerad film, <em>The Inner Life of the Cell</em>, som gjordes vid Harvarduniversitetet för att visa vad som händer i och omkring en cell. Nästan allt i filmen handlar på ett eller annat sätt om <strong>membran</strong>: de tunna hinnor som omger varje cell, som delar in cellens inre i olika rum, och som proteinerna sitter i och arbetar vid.</p>
+<p>I tidigare kapitel har vi mest talat om DNA och proteiner. Nu är det dags för en tredje sorts molekyler, <strong>lipiderna</strong>, och för de membran som de bygger. I det här kapitlet ser vi hur membranen är uppbyggda och hur cellen använder dem. Vi ser också på två saker som hänger nära ihop med membranen: cytoskelettet, som ger cellen dess form, och cellkärnan. I nästa kapitel (1) handlar det om proteinerna som sitter i membranen.</p>
+<section id="sec-l07-trangsel" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="sec-l07-trangsel"><span class="header-section-number">7.1</span> En cell är full av molekyler</h2>
+<p>Filmen om den vita blodkroppen är vacker, men den är också missvisande på en viktig punkt. Där ser det ut som om proteinerna flyter omkring med långt avstånd mellan sig, i en klar vätska. Så är det inte alls. Inne i en cell ligger proteinerna så tätt att de hela tiden stöter i varandra, i membranen och i cellens trådar (<a href="#fig-l07-goodsell" class="quarto-xref">Figur&nbsp;<span>7.1</span></a>). Filmer och bilder måste förenkla: skulle man rita allt som finns där, skulle man inte se någonting.</p>
+<p>Proteinhalten i cellen är så hög att den inte går att återskapa i ett provrör: där skulle proteinerna klumpa ihop sig. Inne i cellen fungerar det ändå.</p>
+<div id="fig-l07-goodsell" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l07-goodsell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L07/cytoskelett-goodsell.jpg" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l07-goodsell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7.1: Ett utsnitt av en mänsklig cells inre, målat i rätt skala av David S. Goodsell. De ljusblå trådarna och rören är cytoskelettet: tunna aktintrådar, ett tjockare rör (en mikrotubul) som löper lodrätt genom bilden, och en mellanstor tråd. Runt omkring är det tätt packat med proteiner, ribosomer och andra molekyler. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Trängseln får följder. Ett protein kan inte färdas rakt från en plats till en annan, utan knuffas hela tiden hit och dit av sina grannar, i en oregelbunden sicksackrörelse (<a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>). Ett nytt protein som just håller på att tillverkas av en ribosom måste dessutom klara sig i trängseln utan att klibba ihop med allt omkring sig, medan det veckar sig till sin rätta form. Ofta får det hjälp av andra proteiner, så kallade chaperoner (<a href="13-chaperoner.html" class="quarto-xref"><span>Kapitel 13</span></a>).</p>
+</section>
+<section id="sec-l07-lipider" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="sec-l07-lipider"><span class="header-section-number">7.2</span> Lipider: små molekyler som bygger stora strukturer</h2>
+<p>DNA och proteiner är makromolekyler, långa kedjor av byggstenar. Lipiderna är annorlunda. Varje lipidmolekyl är ganska liten, men tillsammans kan miljontals lipider bilda strukturer som är stora nog att se i mikroskop. Det viktigaste de bygger är membran.</p>
+<p>För att förstå hur det går till behöver vi skilja mellan två sorters molekyldelar. Vattenmolekylen är <strong>polär</strong>: den ena änden, syreatomen, är lite negativt laddad, och den andra, med de två väteatomerna, är lite positivt laddad. Andra polära eller laddade molekyldelar, till exempel grupper med syre-, kväve- eller fosforatomer, dras till vattenmolekylernas laddade ändar och trivs därför bra bland dem. De kallas <strong>vattenälskande</strong> (<strong>hydrofila</strong>).</p>
+<p>Kedjor av bara kol och väte är däremot <strong>opolära</strong>. De har inga laddningar som vattnet kan dra i, och vattnet tränger undan dem. De kallas <strong>vattenskygga</strong> (<strong>hydrofoba</strong>). Det är samma sak som gör att olja lägger sig som en hinna på vatten i stället för att blandas ut.</p>
+<p>En typisk membranlipid, en <strong>fosfolipid</strong>, har båda sorterna i samma molekyl (<a href="#fig-l07-fosfolipid" class="quarto-xref">Figur&nbsp;<span>7.2</span></a>). Den har ett polärt <strong>huvud</strong>, med fosfor- och syreatomer och ofta en kväveatom, och två långa <strong>svansar</strong> av kol och väte. Svansarna är fettsyror, som vi mötte i <a href="02-molekyler-och-reaktioner.html#sec-l02-lipider" class="quarto-xref"><span>Avsnitt 2.6</span></a>. En svans kan ha en böj, där fettsyran är omättad.</p>
+<div id="fig-l07-fosfolipid" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l07-fosfolipid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L07/fosfolipid.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l07-fosfolipid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7.2: Till vänster en fosfolipid, med ett polärt huvud och två svansar av kol och väte. I mitten kolesterol, som har en stel ringstruktur och bara en liten polär grupp. Till höger ett lipiddubbelskikt: två lager av lipider med svansarna mot varandra och huvudena mot vattnet på båda sidor. Kolesterol sticker in sig mellan fosfolipiderna. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l07-dubbelskikt" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l07-dubbelskikt">Dubbelskiktet</h3>
+<p>Vad händer om man häller fosfolipider i vatten? Huvudena vill ha vatten omkring sig, men svansarna vill slippa. Lösningen som lipiderna hittar av sig själva är att lägga sig i två lager. I varje lager står lipiderna sida vid sida, med svansarna åt samma håll. De två lagren vänder svansarna mot varandra, så att svansarna möts i mitten. Där inne finns inget vatten, bara kol och väte. Huvudena bildar de två ytorna och har vatten på var sin sida. En sådan struktur kallas ett <strong>lipiddubbelskikt</strong> (eng. <em>lipid bilayer</em>). Alla biologiska membran är uppbyggda på det sättet.</p>
+<p>Dubbelskiktet hålls inte ihop av starka kemiska bindningar mellan lipiderna. Det hålls ihop av att vattnet håller det samlat: varje försök att göra ett hål i det skulle släppa in vatten bland svansarna, och det kostar mycket energi. Därför är membranet stabilt, trots att det är tunt och böjligt. Lipiderna i varje lager kan glida omkring fritt bredvid varandra, ungefär som i en vätska, och ett litet hål fylls genast igen.</p>
+<p>Det tätt packade fettlagret i mitten gör också att membranet är en effektiv spärr. Joner och andra laddade eller polära ämnen har mycket svårt att ta sig igenom. Det är just därför ett membran kan hålla isär cellens insida och omgivningen. För att släppa igenom det cellen behöver krävs särskilda proteiner, som vi ser i 1.</p>
+<p>Spärren gäller i viss mån till och med vatten. Det ser man i en <strong>molekyldynamiksimulering</strong> (<a href="05-syntetisk-biokemi.html#sec-l05-simulering" class="quarto-xref"><span>Avsnitt 5.6</span></a>), där datorn räknar ut hur varje atom i lipiderna och vattnet rör sig. Lipiderna vickar upp och ned, svansarna slingrar sig, och vattnet håller sig för det mesta utanför fettskiktet. Bara enstaka vattenmolekyler tar sig igenom, långsamt. Celler som behöver släppa igenom mycket vatten, till exempel i njurarna, sätter därför in särskilda vattenkanaler av protein i sina membran (<a href="08-membranproteiner.html#sec-l08-vattenkanaler" class="quarto-xref"><span>Avsnitt 8.5</span></a>).</p>
+</section>
+<section id="sec-l07-tunn" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l07-tunn">En supertunn hinna</h3>
+<p>Hur tunt är då ett sådant membran? Ett lipiddubbelskikt är ungefär 5 nanometer tjockt, det vill säga fem miljondels millimeter. En jämförelse ger en känsla för vad det betyder. Om en cell med en diameter på 20 mikrometer förstorades till Globens storlek, omkring 100 meter, skulle membranet runt den bli ungefär två och en halv centimeter tjockt. Ändå håller membranet. Det beror dels på att vattnet på båda sidor håller ihop det, dels på att det i allmänhet inte är någon stor tryckskillnad mellan cellens insida och utsida. Till skillnad från ett hus behöver cellen inte heller bry sig om tyngdkraften.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: hur kom man på dubbelskiktet?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Redan 1925 gjorde två holländska forskare, Evert Gorter och François Grendel, ett enkelt men slående experiment. De tog ut lipiderna ur röda blodkroppar och lät dem breda ut sig till ett tunt lager på en vattenyta. Lagret visade sig täcka ungefär dubbelt så stor yta som blodkropparnas egen yta. Slutsatsen var att lipiderna runt cellen måste ligga i två lager.</p>
+<p>Ännu på 1950- och 60-talen var det dock omstritt hur membran är uppbyggda. Den vanligaste bilden, från Hugh Davson och James Danielli 1935, var att dubbelskiktet var täckt av ett jämnt lager protein på båda sidor, som en smörgås. Andra forskare trodde att membranen framför allt bestod av proteiner, och att lipiderna bara spelade en biroll. I elektronmikroskop syntes membranen som två mörka linjer med en ljusare zon emellan, vilket stämmer med ett dubbelskikt. År 1972 föreslog Jonathan Singer och Garth Nicolson den bild som gäller än i dag, <em>den flytande mosaikmodellen</em>: ett flytande dubbelskikt av lipider, där proteiner sitter insprängda som bitar i en mosaik och kan röra sig i sidled.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l07-kolesterol" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l07-kolesterol">Kolesterol gör membranet stelare</h3>
+<p>Alla membranlipider ser inte ut som fosfolipiderna. <strong>Kolesterol</strong> har bara en svans, och den är kort och knubbig: en stel ringstruktur av kolatomer i stället för en lång, böjlig kedja. Huvudet är minimalt, bara en enda syreatom med en väteatom, som är molekylens enda polära del. Men grundmönstret är detsamma, en opolär del och en liten polär ände. Om det finns ett membran i närheten sticker kolesterolet därför in sig bland fosfolipiderna, med den opolära delen bland svansarna och syreatomen ute vid vattnet (<a href="#fig-l07-fosfolipid" class="quarto-xref">Figur&nbsp;<span>7.2</span></a>).</p>
+<p>Vad gör kolesterolet där? Utan kolesterol skulle membranen bli för lösa och slappa. Ju mer kolesterol ett membran innehåller, desto stelare blir det, åtminstone vid kroppstemperatur. Samtidigt hindrar kolesterolet membranet från att stelna helt när det blir kallt. Det håller membranet lagom flytande. Cellmembranet som omger cellen behöver vara stadigare än många av cellens inre membran, och där finns mer kolesterol. Halten i membranen styrs noga av cellen.</p>
+<p>Kolesterol har ett dåligt rykte, men det är alltså en helt nödvändig del av våra membran. Problemen med kolesterol gäller i stället blodet. Om det finns för mycket kolesterol i blodet, eller om kroppens hantering av kolesterol inte fungerar som den ska, kan kolesterol lagras in i blodkärlens väggar. Kärlen blir då trängre och stelare, så kallad åderförkalkning.</p>
+<p>Kolesterol är inte den enda varianten. Det finns minst tusen olika sorters lipider i våra membran. De flesta liknar varandra, men de har olika långa svansar, olika många böjar och olika huvuden. Tillsammans påverkar de hur stelt eller lättflytande membranet är och vilka proteiner som trivs i det. Lipiderna är inte heller jämnt fördelade. På vissa ställen i cellmembranet samlas extra mycket kolesterol i små öar, som ibland kallas <strong>lipidflottar</strong> (eng. <em>lipid rafts</em>). De är lite stelare än omgivningen, och vissa proteiner föredrar att sitta i dem.</p>
+</section>
+<section id="sec-l07-liposomer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l07-liposomer">Liposomer: membran som sluter sig</h3>
+<p>Ett dubbelskikt kan inte vara oändligt stort. Någonstans måste det ta slut, och vid kanten kommer svansarna i kontakt med vatten. Det är ofördelaktigt. Lösningen är att skiktet böjer sig och sluter sig till en ihålig kula. Då finns det ingen kant längre, bara en utsida och en insida. Sådana små blåsor av lipider kallas <strong>liposomer</strong> (<a href="#fig-l07-liposom" class="quarto-xref">Figur&nbsp;<span>7.3</span></a>).</p>
+<div id="fig-l07-liposom" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l07-liposom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L07/lipidstrukturer.svg" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l07-liposom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7.3: Fosfolipider i vatten ordnar sig av sig själva. De kan bilda platta dubbelskikt (nederst) eller ihåliga kulor, liposomer, där dubbelskiktet har slutit sig (överst till vänster). Små kulor med svansarna inåt och bara ett lager lipider kallas miceller (till höger). De bildas framför allt av lipider med en enda svans, till exempel tvål. Bild: Mariana Ruiz Villarreal (LadyofHats), Wikimedia Commons, allmän egendom, översatt till svenska.
+</figcaption>
+</figure>
+</div>
+<p>Man behöver inte göra något märkvärdigt för att få liposomer. Det räcker att skaka lipider i vatten en stund, så bildas mängder av små runda blåsor, som man kan fotografera i elektronmikroskop. De påminner påfallande om celler. Lipiderna bildar alltså cellika strukturer helt av sig själva, bara på grund av hur de är byggda.</p>
+<p>Det har gett upphov till en tanke om livets ursprung. Molekyler som kan kopiera sig själva, till exempel RNA (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>), räcker inte för att bilda liv. De måste också hållas samman, annars späds de ut i omgivningen. Kanske stängdes de tidigaste självkopierande molekylerna in i enkla blåsor av lipider, en sorts tidiga celler. Det är en spekulation, men eftersom lipiderna ordnar sig så lätt är den rimlig.</p>
+<p>Liposomer har också praktisk användning. Läkemedel kan packas in i liposomer, och mRNA-vaccinerna mot covid-19 bestod av mRNA inslaget i små partiklar av lipider. Cellen tar in partiklarna i små membranblåsor, och därifrån tar sig en del av mRNA:t ut i cellvätskan (<a href="08-membranproteiner.html#sec-l08-corona" class="quarto-xref"><span>Avsnitt 8.8</span></a>).</p>
+</section>
+</section>
+<section id="sec-l07-cellmembran" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="sec-l07-cellmembran"><span class="header-section-number">7.3</span> Cellmembranet</h2>
+<p>Hittills har vi mest talat om membran av rena lipider. Ett verkligt cellmembran är mer än så. Det membran som omger cellen kallas <strong>cellmembranet</strong> eller <strong>plasmamembranet</strong>. Det är ett lipiddubbelskikt, men det innehåller också mycket annat (<a href="#fig-l07-cellmembran" class="quarto-xref">Figur&nbsp;<span>7.4</span></a>):</p>
+<ul>
+<li><strong>Proteiner</strong> sitter insprängda i dubbelskiktet. Många går tvärs igenom membranet, med en del på utsidan och en del på insidan. De kan bilda kanaler och pumpar som släpper in eller pumpar ut joner, socker och andra ämnen, och de kan vara receptorer som känner av signaler utifrån. Vissa sitter bara fästa vid ena sidan. Membranproteinerna är ämnet för
+<ol class="example" type="1">
+<li></li>
+</ol></li>
+<li><strong>Kolesterol</strong> finns mellan fosfolipiderna och ger lagom stadga.</li>
+<li><strong>Sockerkedjor</strong> sitter på utsidan, fästa vid proteiner och lipider, som små träd. De skyddar cellytan och fungerar som igenkänningsmärken. Våra blodgrupper är ett exempel (<a href="02-molekyler-och-reaktioner.html#sec-l02-kolhydrater" class="quarto-xref"><span>Avsnitt 2.5</span></a>).</li>
+<li><strong>Proteintrådar</strong> bildar ett stödjande nät på insidan. De hör till cytoskelettet, som vi kommer till strax, och hjälper till att hålla proteinerna på plats och ge membranet stadga.</li>
+</ul>
+<div id="fig-l07-cellmembran" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l07-cellmembran-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L07/cellmembran.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l07-cellmembran-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7.4: Cellmembranets uppbyggnad. Ett dubbelt lager av fosfolipider, med kolesterol (gult) insprängt, bär proteiner som går tvärs igenom membranet eller sitter fästa på ena sidan. På utsidan sitter sockerkedjor; på insidan finns trådar från cellskelettet. Bild: Mariana Ruiz Villarreal (LadyofHats), Wikimedia Commons, CC0.
+</figcaption>
+</figure>
+</div>
+<p>Att membranet verkligen är ett dubbelskikt kan man se direkt i elektronmikroskop. Där två nervceller ligger intill varandra syns de två cellernas membran som tunna mörka band, med en smal vattenfylld spalt emellan. Bandets mörka kanter är lipidernas huvuden, och den ljusare mitten är svansarna. Atomerna syns inte, men dubbelskiktet syns tydligt. Man ser också hur tunt det är jämfört med hela cellen.</p>
+<section id="sec-l07-celldelning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l07-celldelning">Hur stor blir en cell?</h3>
+<p>Celler kan vara mycket olika stora. En bakterie är bara någon mikrometer lång, medan en nervcell kan ha utskott som är en meter långa, trots att själva cellkroppen är liten. Hur vet en cell hur stor den ska bli? Det styrs till sist av proteiner, och det finns mycket som fortfarande inte är förstått. Men en sak är tydlig: när en cell växer måste dess membran växa med.</p>
+<p>Hos bakterier är principen enkel. En stavformad bakterie växer genom att tillverka nya lipider, som byggs in i membranet, så att cellen blir längre och längre. Samtidigt tillverkas nya proteiner och DNA:t kopieras. När cellen har nått en viss längd bildas en ring av protein runt dess mitt. Ringen drar långsamt ihop sig och snör av cellen i två, och de två nya cellerna börjar växa igen.</p>
+<p>Hos eukaryota celler är delningen mer komplicerad och mer noggrant styrd, men även där snörs cellen till sist av på mitten. Den som har sett en film av ett befruktat ägg som delar sig vet att själva delningen går fort. Länge händer till synes ingenting, cellen blir bara lite större, och sedan är den plötsligt två celler, sedan fyra, och så vidare.</p>
+</section>
+</section>
+<section id="sec-l07-organeller" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="sec-l07-organeller"><span class="header-section-number">7.4</span> Membran inne i cellen</h2>
+<p>Hos eukaryota celler finns det membran inte bara runt cellen utan också inuti den. Cellen är uppdelad i många rum, <strong>organeller</strong>, som vart och ett omges av membran och har sina egna uppgifter (<a href="02-molekyler-och-reaktioner.html#sec-l02-celler" class="quarto-xref"><span>Avsnitt 2.2</span></a>):</p>
+<ul>
+<li><strong>Cellkärnan</strong> innehåller DNA:t.</li>
+<li><strong>Det endoplasmatiska nätverket</strong> (förkortat ER, efter engelskans <em>endoplasmic reticulum</em>) är ett stort system av membranpåsar och rör. Ribosomer sätter sig på dess membran och tillverkar proteiner som skickas in genom membranet. Många av dem fortsätter sedan vidare, till cellytan eller ut ur cellen.</li>
+<li><strong>Golgiapparaten</strong> består av platta membranpåsar staplade på varandra. Här sorteras och förädlas proteiner på väg ut.</li>
+<li><strong>Lysosomerna</strong> är cellens återvinningsstationer. De bryter ned utslitna proteiner och främmande saker som kommit in i cellen, till exempel virus.</li>
+<li><strong>Mitokondrierna</strong> är cellens kraftverk, där syret vi andas in används för att tillverka ATP.</li>
+</ul>
+<p>Uppdelningen gör att cellens kemiska reaktioner ofta sker i en bestämd organell: vissa i mitokondrierna, andra i lysosomerna, och så vidare. Hur denna ordning byggs upp och upprätthålls, och vad som händer med den när cellen växer och delar sig, är något som forskare fortfarande arbetar med att förstå.</p>
+<p>Ett tunt snitt genom en levercell i elektronmikroskop visar hur mycket inre arkitektur det finns (<a href="#fig-l07-levercell" class="quarto-xref">Figur&nbsp;<span>7.5</span></a>). Man ser cellkärnan, mitokondrier, membranen i det endoplasmatiska nätverket och mängder av små prickar som är ribosomer.</p>
+<div id="fig-l07-levercell" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l07-levercell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L07/levercell-tem.jpg" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l07-levercell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7.5: Ett tunt snitt genom en levercell från gris, i elektronmikroskop. Till vänster syns en del av cellkärnan (färgad blå), och de gröna kropparna är mitokondrier. Mellan dem ligger det endoplasmatiska nätverkets platta påsar, som syns som ljusa slingor, och längs dem mängder av små mörka prickar: ribosomer. Bild: Bochimoto m.fl., <em>PLoS ONE</em> (2017), CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Hur får man fram sådana bilder? För att se cellens inre i elektronmikroskop måste cellen först fixeras, det vill säga behandlas kemiskt så att allt fastnar där det är, eller ännu hellre frysas mycket snabbt. Det stör strukturen minst. Sedan skär man mycket tunna snitt. Med dagens teknik kan man ta en bild, skala bort ett tunt lager, ta en ny bild och upprepa det många gånger, som med en osthyvel. Bilderna läggs sedan ihop till en tredimensionell bild av hela cellen. Målet är att få en bild av en hel cell där man kan se var varje större proteinkomplex sitter, och räkna dem.</p>
+</section>
+<section id="sec-l07-cytoskelett" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="sec-l07-cytoskelett"><span class="header-section-number">7.5</span> Cytoskelettet: cellens rörliga skelett</h2>
+<p>Det som ger cellen dess form är inte lipiderna utan proteiner. Genom hela cellen löper ett nätverk av långa trådar och rör av protein, som tillsammans kallas <strong>cytoskelettet</strong>, cellskelettet. Det finns tre huvudsorter:</p>
+<ul>
+<li><strong>Aktintrådar</strong> är tunna trådar som ofta ligger strax under cellmembranet. Tillsammans med motorproteinet myosin kan de dra ihop sig, som små muskler inne i cellen (<a href="02-molekyler-och-reaktioner.html#sec-l02-atp-anvandning" class="quarto-xref"><span>Avsnitt 2.10</span></a>).</li>
+<li><strong>Intermediära filament</strong> är repliknande trådar som ger cellen draghållfasthet.</li>
+<li><strong>Mikrotubuli</strong> är tjockare, ihåliga rör. De utgår från ett organiserande centrum mitt i cellen och fungerar som cellens järnvägsnät.</li>
+</ul>
+<p>Till skillnad från vårt eget skelett är cytoskelettet mycket rörligt. Varje tråd byggs upp av små proteinenheter som sätts ihop i långa rader. Cellen kan snabbt bygga nya trådar åt ett håll och bryta ned dem som pekar åt ett annat. Så kan cellen ändra form och till och med förflytta sig. Det är cytoskelettet som gör att den vita blodkroppen i filmen kan pressa sig ut mellan kärlväggens celler.</p>
+<p>Längs mikrotubuli går <strong>motorproteiner</strong>, molekyler som bokstavligen tar steg efter steg längs röret. Det är därför mikrotubuli kan liknas vid ett järnvägsnät. Varje steg drivs av energin från ett ATP. De kan bära med sig små membranblåsor fyllda med last, ungefär som bud som går längs en motorväg. Vissa motorproteiner går åt ena hållet och andra åt det andra, så att last kan skickas både ut mot cellens kant och in mot mitten.</p>
+<section id="sec-l07-immunfarg" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l07-immunfarg">Att färga in trådarna</h3>
+<p>Cytoskelettet är lätt att se i ett vanligt ljusmikroskop, om man färgar in det på rätt sätt. Man tar ett av trådarnas proteiner, till exempel det som mikrotubuli är byggda av, och sprutar in det i en kanin. Kaninens immunförsvar gör då <strong>antikroppar</strong> mot proteinet. Antikropparna renas fram, och en liten fluorescerande molekyl fästs vid dem (<a href="06-enskilda-molekyler.html#sec-l06-fluorescens" class="quarto-xref"><span>Avsnitt 6.2</span></a>). När antikropparna hälls över fixerade celler binder de bara till sitt protein. Det som inte fastnat sköljs bort. Belyser man sedan cellerna i ett fluorescensmikroskop lyser just de trådar som antikroppen fastnat på (<a href="#fig-l07-cytoskelett" class="quarto-xref">Figur&nbsp;<span>7.6</span></a>).</p>
+<div id="fig-l07-cytoskelett" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l07-cytoskelett-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L07/cytoskelett.jpg" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l07-cytoskelett-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7.6: Celler från ett blodkärl hos nötkreatur, infärgade med fluorescerande märken. Mikrotubuli lyser grönt och aktintrådar rött; de röda aktintrådarna ligger framför allt längs cellernas kanter. Cellkärnorna är blå. Bild: Molecular Probes / NIH, Wikimedia Commons, allmän egendom.
+</figcaption>
+</figure>
+</div>
+<p>Med samma teknik, men med en antikropp mot ett annat protein, kan man se hur de olika sorternas trådar är ordnade på olika sätt i cellen. Det går också att använda andra molekyler som binder till trådarna. Aktintrådarna i <a href="#fig-l07-cytoskelett" class="quarto-xref">Figur&nbsp;<span>7.6</span></a> har färgats med phalloidin, ett gift från lömsk flugsvamp som binder just till aktintrådar. Med superupplöst mikroskopi (<a href="06-enskilda-molekyler.html#sec-l06-superupplosning" class="quarto-xref"><span>Avsnitt 6.7</span></a>) blir bilderna ännu skarpare.</p>
+</section>
+<section id="sec-l07-adhesion" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l07-adhesion">Celler som håller ihop</h3>
+<p>Cytoskelettet ger den enskilda cellen form. Men i kroppen måste cellerna också hålla ihop med varandra, och det sköter proteiner på cellytan. Det är därför levercellerna bildar en lever i stället för att flyta runt i kroppen. Ytproteinerna känner igen proteiner på grannceller av rätt sort och binder till dem, så att rätt cell hamnar intill rätt cell. Andra fäster cellen vid de nät av protein, bland annat kollagen, som finns mellan cellerna.</p>
+<p>Bindningarna är ofta tillfälliga. Den vita blodkroppen rullar längs kärlväggen just för att proteinerna på dess yta hela tiden fäster och släpper. Proteiner av typen <strong>integriner</strong> kan dessutom slås av och på: i aktiverat läge reser de sig och binder till en granncell eller en yta, och i inaktiverat läge släpper de.</p>
+</section>
+</section>
+<section id="sec-l07-karnan" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="sec-l07-karnan"><span class="header-section-number">7.6</span> Cellkärnan</h2>
+<p>Cellkärnan är den mest iögonfallande organellen. Den omges av inte bara ett utan två membran, ett yttre och ett inre, med en smal vattenfylld spalt emellan. Tillsammans kallas de <strong>kärnhöljet</strong>. Det yttre kärnmembranet hänger ihop med det endoplasmatiska nätverket. Det är i själva verket samma dubbelskikt, så en lipidmolekyl skulle kunna glida från kärnhöljet ut i det endoplasmatiska nätverket.</p>
+<p>Kärnhöljet måste ändå gå att passera. Inne i kärnan tillverkas mRNA (<a href="01-levande-celler.html#sec-l01-transkription" class="quarto-xref"><span>Avsnitt 1.8</span></a>), men ribosomerna som läser av det finns utanför. Åt andra hållet måste många proteiner in i kärnan: de som kopierar DNA, tillverkar RNA och styr vilka gener som används. Alla dessa proteiner tillverkas ute i cellvätskan. Transporten sker genom <strong>kärnporer</strong>, hål genom båda membranen (<a href="#fig-l07-karnpor" class="quarto-xref">Figur&nbsp;<span>7.7</span></a>). Porerna är stora. De släpper igenom stora proteinkomplex, till och med halva ribosomer.</p>
+<div id="fig-l07-karnpor" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l07-karnpor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L07/karnpor.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l07-karnpor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7.7: Kärnhöljet består av två membran som går ihop runt varje kärnpor. Porens proteiner bildar ringar som håller hålet öppet. Mitt i poren finns en gel av oordnade proteinsvansar. Ett transportprotein som bär en last kan lösa sig i gelen och ta sig igenom, medan andra proteiner stängs ute. Egen figur, förenklad efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Länge kunde man bara se kärnporerna som suddiga fläckar i elektronmikroskopet. Man kunde rena fram dem och ta reda på vilka proteiner som ingick, och man anade ringar på både utsidan och insidan, en sorts korg på insidan och något tätare i mitten. Men hur poren egentligen såg ut visste man inte.</p>
+<p>Med <strong>kryoelektronmikroskopi</strong> (kryo-EM, <a href="06-enskilda-molekyler.html#sec-l06-kryoem" class="quarto-xref"><span>Avsnitt 6.10.2</span></a>) har man nu fått fram detaljerade bilder (<a href="#fig-l07-karnpor-struktur" class="quarto-xref">Figur&nbsp;<span>7.8</span></a>). Kärnporen är en av cellens största strukturer. Den består av omkring 30 olika proteiner, de flesta i många kopior, och innehåller i storleksordningen tio miljoner atomer. Proteinerna bildar en ring som spänner upp hålet i kärnhöljet, med en ring till på var sida. Runt hålet har det yttre och det inre membranet smält ihop.</p>
+<div id="fig-l07-karnpor-struktur" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l07-karnpor-struktur-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L07/karnpor-goodsell.jpg" class="img-fluid figure-img" style="width:45.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l07-karnpor-struktur-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7.8: Kärnporens stomme, framtagen med kryoelektronmikroskopi, sedd uppifrån (överst) och från sidan (nederst). Proteinerna bildar en inre ring som spänner upp hålet och en ring till på var sida. Kärnhöljets två membran (grått) går ihop runt poren. Det som inte syns i strukturen är ritat schematiskt i ljusblått: de oordnade proteinsvansarna som fyller hålet i mitten, trådar som sticker ut åt ena hållet och korgen på kärnans sida. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Det mest överraskande var vad som finns i mitten, där transporten sker. Man hade väntat sig en komplicerad maskin som plockar upp last och skickar den vidare. I stället finns där en sorts <strong>gel</strong>. Från proteinerna runt hålet sticker långa, oordnade proteinsvansar in i mitten, som tentakler. De trasslar in sig i varandra och bildar ett geléartat nät med mycket vatten. Eftersom svansarna är oordnade syns de inte på strukturbilderna, men de finns där.</p>
+<p>Hur kommer då lasten igenom? De flesta proteiner kan inte ta sig in i gelen. Men det finns särskilda <strong>transportproteiner</strong> med en yta som gör att de kan lösa sig i den. De plockar upp en passagerare, ett protein eller en RNA-molekyl, glider genom gelen och släpper passageraren på andra sidan. Sedan åker de tillbaka för att hämta nästa. Särskilda mekanismer ser till att de inte bara tar med sig samma last tillbaka igen.</p>
+</section>
+<section id="sec-l07-mitokondrier" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="sec-l07-mitokondrier"><span class="header-section-number">7.7</span> Mitokondrier och kloroplaster</h2>
+<p>Också <strong>mitokondrierna</strong> omges av två membran. Det inre membranet är kraftigt veckat. Vecken ger membranet en mycket stor yta, ungefär som lungornas många små blåsor ger en stor yta för syreupptag. I det inre membranet sitter de proteinkomplex som använder syret och tillverkar ATP, och tack vare vecken får mycket många av dem plats i en liten volym (<a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a>). Nackdelen är att proteiner som tillverkas ute i cellen måste ta sig genom två membran för att komma in, och det kräver egna transportsystem (<a href="12-proteintrafik.html" class="quarto-xref"><span>Kapitel 12</span></a>).</p>
+<p>Gamla elektronmikroskopbilder visade mitokondrien som ett snitt med tvärslåar (<a href="#fig-l07-mitokondrie" class="quarto-xref">Figur&nbsp;<span>7.9</span></a>). Nu kan man med elektronmikroskopi göra tredimensionella bilder och se hur det inre membranet veckar sig i rummet.</p>
+<div id="fig-l07-mitokondrie" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l07-mitokondrie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L07/mitokondrie-tem.jpg" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l07-mitokondrie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7.9: En mitokondrie i elektronmikroskop, i ett tunt snitt genom lungvävnad. Runt mitokondrien löper det yttre och det inre membranet tätt intill varandra. De tvärgående strecken är veck av det inre membranet, som sträcker sig in i mitokondrien. Bild: Louisa Howard, Wikimedia Commons, allmän egendom.
+</figcaption>
+</figure>
+</div>
+<p>Växternas <strong>kloroplaster</strong> har ännu fler membran. Precis som mitokondrierna har de ett yttre och ett inre membran, men innanför dem finns ett tredje membransystem, <strong>tylakoiderna</strong>. De är platta, tätt packade påsar som ofta ligger i staplar. I tylakoidmembranen sitter de proteiner som fångar solljuset (<a href="10-signalering.html#sec-l10-kloroplast" class="quarto-xref"><span>Avsnitt 10.2.1</span></a>).</p>
+<p>Mitokondrierna och kloroplasterna gör på sätt och vis motsatta saker. I kloroplasten används ljusets energi för att klyva vatten till syre och bygga socker av koldioxid. I mitokondrien bryts socker ned med hjälp av syre till koldioxid och vatten, och energin lagras i ATP. Tillsammans bildar de ett kretslopp som ytterst drivs av solljuset.</p>
+</section>
+<section id="sec-l07-vesikler" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="sec-l07-vesikler"><span class="header-section-number">7.8</span> Små blåsor som transporterar last</h2>
+<p>Vi såg att lipider i vatten av sig själva bildar små blåsor. Cellen använder samma princip för att skicka last mellan olika delar av cellen (<a href="#fig-l07-vesikler" class="quarto-xref">Figur&nbsp;<span>7.10</span></a>).</p>
+<div id="fig-l07-vesikler" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l07-vesikler-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L07/vesikeltransport.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l07-vesikler-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;7.10: Överst: avknoppning. Proteiner som samlats vid ett membran gör att membranet buktar in och bildar en ficka, som till sist knipsas av till en fri blåsa. Nederst: sammansmältning. En blåsa förs fram till ett annat membran, membranen smälter ihop och innehållet släpps ut på andra sidan. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>En blåsa, en <strong>vesikel</strong>, bildas genom att ett större membran buktar in. Det sker med hjälp av proteiner som binder till membranets yta och som själva har en böjd form, så att de tvingar membranet att böja sig. Det är som en tuggummibubbla, fast inåt i stället för utåt. Fickan kan samla särskilda proteiner, till exempel genom att det sitter receptorer i den som binder dem. Till sist snörs fickan av helt och blir en fri blåsa, och det ursprungliga membranet sluts igen.</p>
+<p>Blåsan kan sedan dras av motorproteiner längs cytoskelettets mikrotubuli dit den ska, till exempel till cellmembranet. Där tar andra proteiner emot den och ser till att den lägger sig på rätt ställe. Sedan händer det omvända mot avknoppningen. Blåsans membran och cellmembranet smälter ihop, en por öppnas, och blåsans innehåll släpps ut utanför cellen.</p>
+<p>Så går det till när celler utsöndrar proteiner, till exempel hormoner. Proteinerna tillverkas först av ribosomer på det endoplasmatiska nätverket, förs vidare i blåsor genom golgiapparaten och släpps till sist ut ur cellen. Hur cellen ser till att varje protein hamnar på rätt ställe är ämnet för <a href="12-proteintrafik.html" class="quarto-xref"><span>Kapitel 12</span></a>.</p>
+<p>Avknoppning kan till och med ske helt utan proteiner. En liposom av rena lipider i vatten kan av sig själv snöra av mindre blåsor, till exempel om den har fått mer membranyta än den behöver för sin volym. I cellen är processen däremot noga styrd, så att blåsorna snörs av och smälter ihop precis där och när de ska. Man kan se kontaktytan mellan två blåsor som just ska smälta samman i elektronmikroskop, men exakt hur det går till är ännu inte helt förstått.</p>
+<p>Blåsornas rörelser kan också följas i levande celler. Man kopplar ihop ett protein som brukar transporteras i blåsor med det gröna fluorescerande proteinet GFP (<a href="06-enskilda-molekyler.html#sec-l06-gfp" class="quarto-xref"><span>Avsnitt 6.3</span></a>). Då lyser blåsorna som innehåller det, och man kan se dem bildas och färdas genom cellen. Man ser inte enskilda molekyler, som med de metoder som beskrevs i <a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>, men man ser enskilda blåsor, och man kan mäta hur fort de rör sig och vilka vägar de tar.</p>
+</section>
+<section id="sec-l07-filmen" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="sec-l07-filmen"><span class="header-section-number">7.9</span> Filmen en gång till</h2>
+<p>Nu kan vi titta på filmen om den vita blodkroppen igen, med nya ögon. Den vita blodkroppen fäster tillfälligt vid kärlväggen med proteiner på sin yta. Vi dyker in genom cellmembranet, ett dubbelskikt av lipider, och ser proteiner som sitter i det och några kolesterolrika flottar som glider omkring. Under membranet löper trådarna i cytoskelettet, och längs en mikrotubul går ett motorprotein med en blåsa på ryggen. Vi passerar mitokondrier och kommer fram till cellkärnan, där mRNA kommer ut genom kärnporerna och genast börjar läsas av ribosomer. En ribosom dockar vid en por i det endoplasmatiska nätverkets membran och skjuter det nya proteinet genom membranet. En annan ribosom tillverkar ett protein som i stället fastnar i membranet (<a href="08-membranproteiner.html#sec-l08-insattning" class="quarto-xref"><span>Avsnitt 8.2.2</span></a>), och ett protein förs med hjälp av ett hjälparprotein in i en mitokondrie (<a href="12-proteintrafik.html" class="quarto-xref"><span>Kapitel 12</span></a>). Blåsor snörs av, förs vidare och smälter samman med cellmembranet. Och till sist ändrar den vita blodkroppen form, med hjälp av sitt cytoskelett, och pressar sig ut mellan kärlväggens celler. Tidsskalan i filmen är förvrängd. Blodkroppens väg ut ur kärlet tar minuter i verkligheten, men molekylernas rörelser är i själva verket tusentals gånger snabbare, och mycket mer kaotiska, än i filmen.</p>
+</section>
+<section id="sec-l07-sammanfattning" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="sec-l07-sammanfattning"><span class="header-section-number">7.10</span> Sammanfattning</h2>
+<ul>
+<li>Lipiderna är små molekyler, men tillsammans bygger de membran. En fosfolipid har ett polärt huvud som trivs i vatten och två opolära svansar av kol och väte som skyr vatten.</li>
+<li>I vatten ordnar sig lipiderna av sig själva i ett dubbelskikt, med svansarna inåt och huvudena mot vattnet. Dubbelskiktet är bara omkring 5 nanometer tjockt men stabilt, och det släpper inte igenom joner och andra laddade ämnen.</li>
+<li>Ett dubbelskikt sluter sig gärna till en ihålig kula, en liposom. Därför bildar lipider cellika blåsor alldeles av sig själva.</li>
+<li>Kolesterol sticker in sig mellan fosfolipiderna och håller membranet lagom stadigt. Cellen styr noga hur mycket kolesterol membranen innehåller.</li>
+<li>Cellmembranet innehåller också proteiner, sockerkedjor på utsidan och ett nät av proteintrådar på insidan.</li>
+<li>Eukaryota celler har många inre membran: kärnhöljet, det endoplasmatiska nätverket, golgiapparaten, lysosomerna och mitokondrierna, och i växter kloroplasterna.</li>
+<li>Cytoskelettet är ett rörligt nät av proteintrådar (aktin, intermediära filament och mikrotubuli) som ger cellen form, låter den röra sig och fungerar som spår för motorproteiner.</li>
+<li>Cellkärnan omges av ett dubbelt membran med kärnporer. Mitt i poren finns en gel som bara särskilda transportproteiner kan ta sig igenom. Inne i cellen skickas last i små membranblåsor som snörs av från ett membran och smälter samman med ett annat.</li>
+</ul>
+</section>
+<section id="sec-l07-nyckelbegrepp" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="sec-l07-nyckelbegrepp"><span class="header-section-number">7.11</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>fosfolipid</strong> – Den vanligaste sortens membranlipid: ett polärt huvud med en fosfatgrupp och två opolära svansar av kol och väte.</li>
+<li><strong>lipiddubbelskikt</strong> – Två lager av lipider med svansarna mot varandra och huvudena mot vattnet på båda sidor. Grunden i alla biologiska membran, ungefär 5 nanometer tjockt.</li>
+<li><strong>kolesterol</strong> – En lipid med en stel ringstruktur och en liten polär grupp. Sticker in sig mellan fosfolipiderna i membranet och håller det lagom stadigt.</li>
+<li><strong>liposom</strong> – En liten ihålig blåsa av ett lipiddubbelskikt som slutit sig. Bildas av sig själv när lipider skakas i vatten.</li>
+<li><strong>vesikel</strong> – En liten blåsa omgiven av membran. I cellen används vesikler för att transportera last mellan organeller och ut ur cellen.</li>
+<li><strong>cellmembran</strong> – Membranet som omger cellen, även kallat plasmamembran. Ett lipiddubbelskikt med kolesterol, proteiner och sockerkedjor.</li>
+<li><strong>lipidflotte</strong> – Ett litet område i cellmembranet med extra mycket kolesterol, som är lite stelare än omgivningen och där vissa proteiner gärna sitter.</li>
+<li><strong>endoplasmatiska nätverket</strong> – Ett stort system av membranpåsar och rör i eukaryota celler (ER). Ribosomer på dess yta tillverkar proteiner som ska till membranen eller ut ur cellen.</li>
+<li><strong>golgiapparaten</strong> – En organell av staplade, platta membranpåsar där proteiner på väg ut ur cellen sorteras och förädlas.</li>
+<li><strong>lysosom</strong> – En liten organell som bryter ned utslitna proteiner och främmande ämnen, cellens återvinningsstation.</li>
+<li><strong>cytoskelett</strong> – Ett rörligt nätverk av proteintrådar i cellen: aktintrådar, intermediära filament och mikrotubuli. Ger cellen form och fungerar som spår för transporter.</li>
+<li><strong>mikrotubuli</strong> – Ihåliga rör av protein i cytoskelettet. Motorproteiner går längs dem och drar med sig last.</li>
+<li><strong>motorprotein</strong> – Ett protein som med energi från ATP tar steg längs en tråd i cytoskelettet och kan bära med sig last, till exempel en vesikel.</li>
+<li><strong>kärnhölje</strong> – De två membran som omger cellkärnan. Det yttre hänger ihop med det endoplasmatiska nätverket.</li>
+<li><strong>kärnpor</strong> – Ett stort proteinkomplex som bildar ett hål genom kärnhöljet. Mitt i poren finns en gel som bara särskilda transportproteiner kan passera.</li>
+<li><strong>integrin</strong> – Ett protein på cellytan som kan aktiveras och då fästa cellen vid en granncell eller en yta, och sedan släppa igen.</li>
+<li><strong>tylakoid</strong> – Platt membranpåse inne i kloroplasten. I tylakoidmembranet sitter de proteiner som fångar solljuset.</li>
+</ul>
+</section>
+<section id="sec-l07-testa" class="level2" data-number="7.12">
+<h2 data-number="7.12" class="anchored" data-anchor-id="sec-l07-testa"><span class="header-section-number">7.12</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L07"></div>
+<script>
+renderQuiz("quiz-L07", [
+ {
+  "question": "Varför bildar fosfolipider ett dubbelskikt när de hamnar i vatten?",
+  "choices": [
+   "Huvudena trivs i vatten men svansarna gör det inte, och i ett dubbelskikt kan svansarna gömma sig från vattnet",
+   "Lipiderna binds ihop av starka kemiska bindningar",
+   "Vattnet löser upp svansarna men inte huvudena",
+   "Proteiner i vattnet sorterar lipiderna i två lager"
+  ],
+  "correctIndex": 0,
+  "explanation": "Svansarna av kol och väte skyr vatten. I dubbelskiktet möts de i mitten, där inget vatten finns, medan de polära huvudena vänder sig mot vattnet."
+ },
+ {
+  "question": "Ett membran är bara omkring 5 nanometer tjockt. Varför går det ändå inte lätt sönder?",
+  "choices": [
+   "Ett hål skulle släppa in vatten bland svansarna, vilket kostar mycket energi, och lipiderna fyller genast igen små hål",
+   "Lipiderna är hopsvetsade med varandra",
+   "Membranet är förstärkt med DNA",
+   "Det finns ett stort övertryck inne i cellen som håller membranet spänt"
+  ],
+  "correctIndex": 0,
+  "explanation": "Det är vattnet på båda sidor som håller ihop dubbelskiktet. Lipiderna kan flyta i sidled och täppa till hål."
+ },
+ {
+  "question": "Varför sluter sig ett litet dubbelskikt av lipider i vatten gärna till en ihålig kula?",
+  "choices": [
+   "Då finns det ingen kant där svansarna kommer i kontakt med vatten",
+   "Kulan har mindre yta än skiktet och kräver därför färre lipider",
+   "Proteiner i vattnet drar ihop skiktet till en kula",
+   "Huvudena dras till varandra och böjer skiktet"
+  ],
+  "correctIndex": 0,
+  "explanation": "Vid kanten av ett skikt skulle svansarna möta vatten, och det är ofördelaktigt. Genom att sluta sig till en kula, en liposom, slipper skiktet kanterna."
+ },
+ {
+  "question": "Vilken uppgift har kolesterol i cellmembranet?",
+  "choices": [
+   "Det håller membranet lagom stadigt, varken för löst eller för stelt",
+   "Det bildar kanaler som släpper igenom vatten",
+   "Det lagrar energi åt cellen",
+   "Det håller ihop DNA:t i cellkärnan"
+  ],
+  "correctIndex": 0,
+  "explanation": "Kolesterolets stela ringstruktur sticker in sig bland fosfolipidernas svansar och gör membranet stadigare. Samtidigt hindrar det membranet från att stelna helt när det blir kallt."
+ },
+ {
+  "question": "Varför släpper ett rent lipidmembran nästan inte igenom joner?",
+  "choices": [
+   "Laddade joner har mycket svårt att ta sig genom det opolära fettlagret i mitten",
+   "Jonerna är för stora för att passa mellan lipiderna",
+   "Membranet är negativt laddat i mitten",
+   "Joner finns bara inne i celler"
+  ],
+  "correctIndex": 0,
+  "explanation": "Mitten av membranet består av kol och väte. Joner trivs bland vattenmolekyler och tränger inte in där. Därför behövs proteiner som släpper igenom dem."
+ },
+ {
+  "question": "Vilken av följande är en uppgift för cytoskelettet?",
+  "choices": [
+   "Att ge cellen form och fungera som spår för motorproteiner som bär last",
+   "Att lagra cellens arvsmassa",
+   "Att tillverka ATP",
+   "Att bryta ned främmande ämnen"
+  ],
+  "correctIndex": 0,
+  "explanation": "Cytoskelettets trådar och rör ger form och stadga, låter cellen ändra form och röra sig, och fungerar som spår för transporter."
+ },
+ {
+  "question": "Hur kan man se mikrotubuli i ett vanligt ljusmikroskop?",
+  "choices": [
+   "Man låter antikroppar med en fluorescerande molekyl binda till mikrotubulis protein, så att trådarna lyser",
+   "Mikrotubuli lyser av sig själva i ultraviolett ljus",
+   "Man färgar hela cellen grön med bläck",
+   "Det går inte; de syns bara i elektronmikroskop"
+  ],
+  "correctIndex": 0,
+  "explanation": "Antikroppar binder bara till sitt protein. Med en fluorescerande molekyl fäst vid antikroppen lyser just de trådar den fastnat på."
+ },
+ {
+  "question": "Varför behöver kärnhöljet porer?",
+  "choices": [
+   "mRNA som tillverkas i kärnan måste ut till ribosomerna, och proteiner som tillverkas utanför måste in i kärnan",
+   "DNA:t måste ut i cellvätskan för att kopieras",
+   "Syre måste in i kärnan för att göra ATP",
+   "Porerna släpper ut överskottsvatten ur kärnan"
+  ],
+  "correctIndex": 0,
+  "explanation": "Transporten går åt båda hållen: RNA och ribosomdelar ut, proteiner som styr generna och kopierar DNA in."
+ },
+ {
+  "question": "Vad visade de nya bilderna av kärnporen om hur transporten genom den går till?",
+  "choices": [
+   "Mitt i poren finns en gel av oordnade proteinsvansar, som bara särskilda transportproteiner kan lösa sig i och passera",
+   "En pump i mitten skjuter igenom varje protein med hjälp av ATP",
+   "Poren är ett tomt hål som släpper igenom allt",
+   "Poren öppnas och stängs av elektriska signaler"
+  ],
+  "correctIndex": 0,
+  "explanation": "Det var en överraskning: ingen komplicerad maskin utan en gel. Transportproteinerna bär sina passagerare genom gelen."
+ },
+ {
+  "question": "Varför är mitokondriens inre membran kraftigt veckat?",
+  "choices": [
+   "Vecken ger en stor yta, så att många av de proteiner som tillverkar ATP får plats",
+   "Vecken gör att mitokondrien kan simma",
+   "Membranet har blivit skadat med åldern",
+   "Vecken lagrar fett"
+  ],
+  "correctIndex": 0,
+  "explanation": "Som lungornas många små blåsor ger vecken en mycket stor yta i en liten volym."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>7.1</strong> Förklara med egna ord varför lipider kan bilda cellika blåsor av sig själva, och varför det har betydelse för idéer om livets ursprung.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>En fosfolipid har ett huvud som trivs i vatten och svansar som skyr vatten. I vatten lägger sig lipiderna därför i ett dubbelskikt, där svansarna möts i mitten och huvudena vänder sig mot vattnet. Vid kanten av ett sådant skikt skulle svansarna ändå komma i kontakt med vatten. Skiktet sluter sig därför till en ihålig kula, en liposom, med en utsida och en insida, ungefär som en cell. För att liv skulle kunna uppstå räckte det inte med molekyler som kopierar sig själva; de måste också hållas samman så att de inte späddes ut. Eftersom lipider så lätt bildar sådana blåsor tror man att de första självkopierande molekylerna kan ha stängts in i enkla lipidblåsor.</p>
+</div>
+</div>
+</div>
+<p><strong>7.2</strong> Kolesterol har ett dåligt rykte. Varför är det ändå nödvändigt, och vad kan hända om det blir för mycket?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Kolesterol är en del av våra cellmembran. Det sticker in sig mellan fosfolipiderna och gör membranet stelare, så att det inte blir för löst. Särskilt cellmembranet runt cellen behöver den stadgan, och cellen styr noga hur mycket kolesterol som finns i membranen. Problemen med kolesterol gäller i stället blodet. Om det finns för mycket kolesterol i blodet, eller om kroppens hantering av kolesterol inte fungerar, kan kolesterol lagras in i blodkärlens väggar, så att kärlen blir trängre och stelare (åderförkalkning). Problemet är alltså inte kolesterolet i sig utan för mycket av det på fel ställe.</p>
+</div>
+</div>
+</div>
+<p><strong>7.3</strong> Beskriv hur ett protein som ska utsöndras från cellen, till exempel ett hormon, tar sig ut. Vilka membran och strukturer passerar det?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Proteinet tillverkas av en ribosom som sitter på det endoplasmatiska nätverkets membran, och skickas in genom membranet allteftersom det tillverkas. Därifrån förs det vidare i små membranblåsor, som snörs av från ett membran och smälter samman med nästa, bland annat via golgiapparaten. Blåsorna dras av motorproteiner längs mikrotubuli i cytoskelettet. Till sist smälter en blåsa samman med cellmembranet, en por öppnas och innehållet släpps ut utanför cellen.</p>
+</div>
+</div>
+</div>
+<p><strong>7.4</strong> En vit blodkropp kan lämna blodet och ta sig ut i vävnaden. Vilka av kapitlets strukturer behövs för det?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Den vita blodkroppen fäster tillfälligt vid kärlväggen med proteiner på sin yta som binder till proteiner på kärlväggens celler och släpper igen, så att den kan rulla längs väggen. Proteiner som integriner kan aktiveras och fästa cellen ordentligt. För att sedan pressa sig ut mellan kärlväggens celler måste den ändra form kraftigt, och det sker med hjälp av cytoskelettet, som snabbt kan byggas upp åt ett håll och brytas ned åt ett annat. Hela tiden är det cellmembranet, med sina proteiner, som är gränsen mot omgivningen.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l07-las-mer" class="level2" data-number="7.13">
+<h2 data-number="7.13" class="anchored" data-anchor-id="sec-l07-las-mer"><span class="header-section-number">7.13</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Cellmembran">Cellmembran</a>, <a href="https://sv.wikipedia.org/wiki/Cytoskelett">Cytoskelett</a> och <a href="https://sv.wikipedia.org/wiki/Cellk%C3%A4rna">Cellkärna</a> på svenska Wikipedia.</li>
+<li><a href="https://en.wikipedia.org/wiki/Lipid_bilayer">Lipid bilayer</a> och <a href="https://en.wikipedia.org/wiki/Fluid_mosaic_model">Fluid mosaic model</a> på engelska Wikipedia, om dubbelskiktet och hur bilden av membranen växte fram.</li>
+<li><a href="https://en.wikipedia.org/wiki/Nuclear_pore">Nuclear pore</a> på engelska Wikipedia, om kärnporerna och hur transporten genom dem går till.</li>
+<li><a href="https://en.wikipedia.org/wiki/The_Inner_Life_of_the_Cell">The Inner Life of the Cell</a> på engelska Wikipedia, om den animerade film som kapitlet börjar och slutar med.</li>
+<li><a href="https://pdb101.rcsb.org/sci-art/goodsell-gallery/cytoskeleton">Cytoskeleton</a> i David S. Goodsells galleri på PDB-101 (på engelska), med förklaring av vad målningen i <a href="#fig-l07-goodsell" class="quarto-xref">Figur&nbsp;<span>7.1</span></a> visar.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/06-enskilda-molekyler.html" class="pagination-link" aria-label="Att se enskilda molekyler">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/08-membranproteiner.html" class="pagination-link" aria-label="Membranproteiner">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

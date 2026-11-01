@@ -1,0 +1,8 @@
+/* Slightly larger, calmer text: many readers are not used to reading
+   science on a screen. */
+body { font-size: 1.08rem; line-height: 1.65; }
+.quiz-widget-q { font-size: 1rem; }
+/* Box naming the lecture a chapter is based on */
+.kalla { font-size: 0.95rem; }
+/* Slides in the private edition */
+.forelasningsbild img { border: 1px solid rgba(0,0,0,0.15); }

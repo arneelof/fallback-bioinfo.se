@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="108" viewBox="0 0 360 108" role="img" aria-labelledby="title desc">
+  <title id="title">SciLifeLab</title>
+  <desc id="desc">SciLifeLab wordmark badge</desc>
+  <rect x="1.5" y="1.5" width="357" height="105" rx="18" fill="#ffffff" stroke="#d8dee8" stroke-width="3"/>
+  <circle cx="46" cy="54" r="20" fill="#008c95"/>
+  <circle cx="70" cy="38" r="11" fill="#00b3ba"/>
+  <circle cx="73" cy="70" r="10" fill="#006f7a"/>
+  <text x="102" y="52" font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="29" font-weight="700" fill="#103347">SciLifeLab</text>
+  <text x="102" y="77" font-family="'Inter','Segoe UI',Arial,sans-serif" font-size="13" fill="#4b6370">scilifelab.se</text>
+</svg>

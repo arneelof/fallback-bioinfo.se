@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" width="860" height="430">
+<defs><marker id="ah3b6ea8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6ea8"/></marker><marker id="ah4a8c4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a8c4a"/></marker><marker id="ahd9822b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="215" y="34.6" font-family="Helvetica, Arial, sans-serif" font-size="19" text-anchor="middle" font-weight="bold" fill="#d9822b">Katabolism (nedbrytning)</text>
+<text x="645" y="34.6" font-family="Helvetica, Arial, sans-serif" font-size="19" text-anchor="middle" font-weight="bold" fill="#3b6ea8">Anabolism (uppbyggnad)</text>
+<rect x="65.0" y="60.0" width="300" height="70" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="215" y="91.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">Näring: kolhydrater,</text>
+<text x="215" y="110.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">fett, proteiner</text>
+<rect x="65.0" y="295.0" width="300" height="70" rx="6" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="215" y="326.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">Avfall: koldioxid,</text>
+<text x="215" y="345.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">vatten, urea</text>
+<rect x="495.0" y="60.0" width="300" height="70" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="645" y="91.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">Cellens egna molekyler:</text>
+<text x="645" y="110.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">proteiner, DNA, membran …</text>
+<rect x="495.0" y="295.0" width="300" height="70" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="645" y="326.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">Byggstenar: aminosyror,</text>
+<text x="645" y="345.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">socker, fettsyror …</text>
+<path d="M215,132 L215,292" fill="none" stroke="#d9822b" stroke-width="4" marker-end="url(#ahd9822b)"/>
+<path d="M645,292 L645,132" fill="none" stroke="#3b6ea8" stroke-width="4" marker-end="url(#ah3b6ea8)"/>
+<circle cx="430" cy="212" r="62" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="3"/>
+<text x="430" y="210.4" font-family="Helvetica, Arial, sans-serif" font-size="24" text-anchor="middle" font-weight="bold" fill="#4a8c4a">ATP</text>
+<text x="430" y="235.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">(energi)</text>
+<path d="M222,212 L364,212" fill="none" stroke="#4a8c4a" stroke-width="3" marker-end="url(#ah4a8c4a)"/>
+<path d="M496,212 L638,212" fill="none" stroke="#4a8c4a" stroke-width="3" marker-end="url(#ah4a8c4a)"/>
+<text x="290" y="200.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#d9822b">frigör energi</text>
+<text x="568" y="200.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#3b6ea8">kräver energi</text>
+<text x="430" y="409.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">Byggstenar från nedbrytningen kan också användas direkt i uppbyggnaden.</text>
+</svg>

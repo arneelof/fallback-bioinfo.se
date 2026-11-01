@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>3&nbsp; Gener och genteknik – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/04-enzymer.html" rel="next">
+<link href="../chapters/02-molekyler-och-reaktioner.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-levande-celler.html">Grunderna</a></li><li class="breadcrumb-item"><a href="../chapters/03-gener-och-genteknik.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l03-proteiner" id="toc-sec-l03-proteiner" class="nav-link active" data-scroll-target="#sec-l03-proteiner"><span class="header-section-number">3.1</span> Mer om proteiner</a>
+  <ul class="collapse">
+  <li><a href="#sec-l03-aminosyror" id="toc-sec-l03-aminosyror" class="nav-link" data-scroll-target="#sec-l03-aminosyror">Aminosyror vi måste äta</a></li>
+  <li><a href="#sec-l03-peptidbindning" id="toc-sec-l03-peptidbindning" class="nav-link" data-scroll-target="#sec-l03-peptidbindning">Peptidbindningen</a></li>
+  <li><a href="#sec-l03-veckning" id="toc-sec-l03-veckning" class="nav-link" data-scroll-target="#sec-l03-veckning">Ett tredimensionellt pussel</a></li>
+  <li><a href="#sec-l03-sekundarstruktur" id="toc-sec-l03-sekundarstruktur" class="nav-link" data-scroll-target="#sec-l03-sekundarstruktur">Spiraler och pilar</a></li>
+  </ul></li>
+  <li><a href="#sec-l03-gen" id="toc-sec-l03-gen" class="nav-link" data-scroll-target="#sec-l03-gen"><span class="header-section-number">3.2</span> Vad är en gen?</a>
+  <ul class="collapse">
+  <li><a href="#sec-l03-prokaryota" id="toc-sec-l03-prokaryota" class="nav-link" data-scroll-target="#sec-l03-prokaryota">Bakteriernas gener: tätt packade</a></li>
+  <li><a href="#sec-l03-eukaryota" id="toc-sec-l03-eukaryota" class="nav-link" data-scroll-target="#sec-l03-eukaryota">Våra gener: exoner och introner</a></li>
+  <li><a href="#sec-l03-genomstorlek" id="toc-sec-l03-genomstorlek" class="nav-link" data-scroll-target="#sec-l03-genomstorlek">Genomens storlek</a></li>
+  </ul></li>
+  <li><a href="#sec-l03-genteknik" id="toc-sec-l03-genteknik" class="nav-link" data-scroll-target="#sec-l03-genteknik"><span class="header-section-number">3.3</span> Genteknik: att skriva om ritningen</a></li>
+  <li><a href="#sec-l03-klipp" id="toc-sec-l03-klipp" class="nav-link" data-scroll-target="#sec-l03-klipp"><span class="header-section-number">3.4</span> Att klippa och klistra i DNA</a>
+  <ul class="collapse">
+  <li><a href="#sec-l03-restriktionsenzym" id="toc-sec-l03-restriktionsenzym" class="nav-link" data-scroll-target="#sec-l03-restriktionsenzym">Restriktionsenzymer: molekylära saxar</a></li>
+  <li><a href="#sec-l03-kloning" id="toc-sec-l03-kloning" class="nav-link" data-scroll-target="#sec-l03-kloning">Genkloning: en mänsklig gen i en bakterie</a></li>
+  <li><a href="#sec-l03-elektrofores" id="toc-sec-l03-elektrofores" class="nav-link" data-scroll-target="#sec-l03-elektrofores">Gelelektrofores: att sortera DNA efter storlek</a></li>
+  </ul></li>
+  <li><a href="#sec-l03-replikation" id="toc-sec-l03-replikation" class="nav-link" data-scroll-target="#sec-l03-replikation"><span class="header-section-number">3.5</span> Att kopiera DNA i ett provrör</a></li>
+  <li><a href="#sec-l03-sekvensering" id="toc-sec-l03-sekvensering" class="nav-link" data-scroll-target="#sec-l03-sekvensering"><span class="header-section-number">3.6</span> Att läsa DNA: Sangers metod</a></li>
+  <li><a href="#sec-l03-pcr" id="toc-sec-l03-pcr" class="nav-link" data-scroll-target="#sec-l03-pcr"><span class="header-section-number">3.7</span> PCR: att kopiera en bit DNA miljarder gånger</a>
+  <ul class="collapse">
+  <li><a href="#sec-l03-covidtest" id="toc-sec-l03-covidtest" class="nav-link" data-scroll-target="#sec-l03-covidtest">PCR-testet för covid-19</a></li>
+  </ul></li>
+  <li><a href="#sec-l03-mutagenes" id="toc-sec-l03-mutagenes" class="nav-link" data-scroll-target="#sec-l03-mutagenes"><span class="header-section-number">3.8</span> Riktad mutagenes: att ändra en enda bokstav</a></li>
+  <li><a href="#sec-l03-crispr" id="toc-sec-l03-crispr" class="nav-link" data-scroll-target="#sec-l03-crispr"><span class="header-section-number">3.9</span> CRISPR-Cas9: gensaxen</a></li>
+  <li><a href="#sec-l03-sammanfattning" id="toc-sec-l03-sammanfattning" class="nav-link" data-scroll-target="#sec-l03-sammanfattning"><span class="header-section-number">3.10</span> Sammanfattning</a></li>
+  <li><a href="#sec-l03-nyckelbegrepp" id="toc-sec-l03-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l03-nyckelbegrepp"><span class="header-section-number">3.11</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l03-testa" id="toc-sec-l03-testa" class="nav-link" data-scroll-target="#sec-l03-testa"><span class="header-section-number">3.12</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l03-las-mer" id="toc-sec-l03-las-mer" class="nav-link" data-scroll-target="#sec-l03-las-mer"><span class="header-section-number">3.13</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-levande-celler.html">Grunderna</a></li><li class="breadcrumb-item"><a href="../chapters/03-gener-och-genteknik.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l03" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 3, <em>Gener och genteknik</em>, av Gunnar von Heijne (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>beskriva hur ett protein är uppbyggt av aminosyror och varför ordningsföljden mellan dem avgör proteinets form,</li>
+<li>förklara vad en gen är, och hur gener hos bakterier skiljer sig från gener hos människan,</li>
+<li>beskriva hur man med restriktionsenzymer och plasmider kan få en bakterie att tillverka ett mänskligt protein,</li>
+<li>förklara principen bakom DNA-sekvensering och PCR,</li>
+<li>beskriva hur gensaxen CRISPR-Cas9 kan programmeras att ändra en gen på ett bestämt ställe.</li>
+</ul>
+</div>
+</div>
+<p>Den som hade diabetes för hundra år sedan fick sitt insulin från grisar eller kor. Insulin är ett protein som bukspottkörteln tillverkar och som styr blodsockret. Grisens insulin skiljer sig från människans i bara en enda av sina byggstenar, och kons i tre, och de fungerar därför nästan lika bra. Men för att få fram insulinet måste man rena det ur bukspottkörtlar från ett mycket stort antal slaktade djur.</p>
+<p>Tänk om man i stället kunde få en mikroorganism, en bakterie eller en jästsvamp, att tillverka mänskligt insulin. Sådana mikroorganismer kan odlas i stora tankar, de förökar sig snabbt och de kostar nästan ingenting att föda. Allt som behövs, i princip, är att ge dem rätt instruktion: en bit DNA som beskriver hur det mänskliga insulinet ska se ut. I dag är det precis så de flesta som har diabetes får sitt insulin.</p>
+<p>Det här kapitlet handlar om hur sådant går till. Först tittar vi närmare på proteinerna, eftersom det oftast är dem man vill tillverka eller förändra. Sedan går vi igenom vad en gen är, och till sist de verktyg som gör det möjligt att klippa, klistra, kopiera, läsa och skriva om DNA. Tillsammans kallas de <strong>genteknik</strong>.</p>
+<section id="sec-l03-proteiner" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-l03-proteiner"><span class="header-section-number">3.1</span> Mer om proteiner</h2>
+<p>Om DNA innehåller ritningarna till en cell, så är det proteinerna som gör nästan allt arbete. Grunderna gick vi igenom i <a href="01-levande-celler.html#sec-l01-proteiner" class="quarto-xref"><span>Avsnitt 1.10</span></a>: de fyra grupperna av proteiner, aminosyrornas ryggrad och sidogrupper, och alfahelixar och betaflak.</p>
+<p>En av de fyra grupperna förtjänar några ord till: de oordnade proteinerna, som saknar en fast form. Forskarna ville länge inte tro att de fanns. Man tänkte sig att ett protein utan bestämd form inte kunde göra något nyttigt. I dag vet vi att de är ganska vanliga, särskilt hos djur och växter. De är långa, böjliga kedjor med ett bindningsställe för ett protein på ett ställe och för ett annat protein på ett annat. På så sätt kan de föra samman två proteiner en stund, för att sedan släppa dem igen.</p>
+<p>De flesta proteiner har däremot en bestämd form. I resten av avsnittet ser vi närmare på hur en sådan proteinkedja byggs, från aminosyrorna och bindningarna mellan dem, och varför ordningen mellan aminosyrorna avgör formen.</p>
+<section id="sec-l03-aminosyror" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-aminosyror">Aminosyror vi måste äta</h3>
+<p>Proteinernas byggstenar är tjugo sorters aminosyror, men alla kan vi inte tillverka själva. Människan klarar ungefär hälften av dem. Resten, nio stycken, måste vi få i oss med maten. De kallas <strong>essentiella aminosyror</strong>. Med en varierad kost är det sällan något problem, men den som äter vegetariskt kan behöva tänka på att kombinera olika proteinkällor, till exempel baljväxter och spannmål, eftersom växtproteiner kan innehålla lite av någon av de essentiella aminosyrorna. Bakterier kan däremot oftast tillverka alla tjugo själva.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: varför just tjugo?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I ett laboratorium kan kemister tillverka hur många andra aminosyror som helst. Ändå använder livet i stort sett bara dessa tjugo. Det finns några få undantag: aminosyran selenocystein, som innehåller grundämnet selen, byggs in i ett fåtal av våra proteiner, och vissa arkéer och bakterier använder ytterligare en, pyrrolysin. Dessutom kan enzymer ändra lite på sidogrupperna efter att proteinet har byggts.</p>
+<p>Varför det blev just de här tjugo vet ingen säkert. En ledtråd är att flera av de enklaste aminosyrorna kan bildas utan hjälp av levande celler: man har hittat dem i meteoriter, och de bildas i försök som Millers (<a href="01-levande-celler.html#sec-l01-miller" class="quarto-xref"><span>Avsnitt 1.2.1</span></a>). De fanns alltså troligen redan på jorden när livet uppstod.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l03-peptidbindning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-peptidbindning">Peptidbindningen</h3>
+<p>Hur sitter då aminosyrorna ihop i kedjan? När två aminosyror kopplas ihop binder en kolatom i den ena aminosyrans sura grupp (den del av ryggraden som gör aminosyran till en syra) till kväveatomen i nästa aminosyra. Samtidigt lossnar en syreatom och två väteatomer, det vill säga en vattenmolekyl. Den <strong>peptidbindning</strong> som bildas är mycket stabil. Den nya, längre molekylen har fortfarande en fri sur grupp i ena änden, så nästa aminosyra kan kopplas på, och så vidare.</p>
+<p>Eftersom det är ryggraderna som kopplas ihop, och ryggraden är likadan i alla aminosyror, kan vilken aminosyra som helst kopplas till vilken annan som helst. Ordningsföljden bestäms därför inte av kemin utan av mRNA, som ribosomen läser av (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>).</p>
+<p>Ribosomen behövs också av ett annat skäl. I cellens vatten sker reaktionen inte av sig själv. Det är ribosomen som för fram två aminosyror, var och en buren av sitt tRNA, och håller dem så nära varandra att bindningen bildas. Ribosomen fungerar alltså som ett enzym: den får en reaktion att ske som annars inte skulle bli av.</p>
+<p>Korta kedjor av aminosyror kallas, som vi såg i <a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>, peptider. Gränsen mot proteiner är flytande; de minsta riktiga proteinerna har några tiotal aminosyror, medan de flesta har några hundra.</p>
+</section>
+<section id="sec-l03-veckning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-veckning">Ett tredimensionellt pussel</h3>
+<p>En färdig kedja är ännu inte ett fungerande protein. Den måste först vika ihop sig till rätt form. En proteinkedja är inte stel. Den kan vrida sig runt de flesta bindningarna i ryggraden, och sidogrupperna kan också vrida sig. När en ny kedja kommer ut från ribosomen börjar den därför vika ihop sig, och det är sidogrupperna som styr hur.</p>
+<p>De opolära, vattenskygga sidogrupperna (se <a href="01-levande-celler.html#fig-l01-aminosyror" class="quarto-xref">Figur&nbsp;<span>1.9</span></a>) undviker vatten och klumpar gärna ihop sig med varandra. En positivt laddad sidogrupp dras till en negativt laddad. Kedjan vrider och vänder sig tills de opolära sidogrupperna har samlats i mitten och de polära och laddade sitter på ytan, mot vattnet. Resultatet blir en tätt packad, bestämd tredimensionell form. Det är som ett tredimensionellt pussel, där bitarna sitter ihop i en kedja och där bara ett sätt att lägga pusslet ger en riktigt bra lösning.</p>
+<p>Alla sekvenser har inte någon bra lösning. Om aminosyrorna sitter i fel ordning kanske det inte går att samla alla de opolära i mitten. Men i naturliga proteiner har evolutionen under miljarder år finslipat ordningsföljden, så att varje sorts protein veckar sig till en bestämd form. Två kedjor med samma ordningsföljd veckar sig till samma form.</p>
+<p>Det är formen som avgör vad proteinet kan göra: var det har sina fickor där små molekyler binder, och var det har sitt aktiva centrum, där en reaktion sker (<a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a>). Hur veckningen går till, och vad som händer när den misslyckas, är ämnet för <a href="14-proteinveckning.html" class="quarto-xref"><span>Kapitel 14</span></a> och <a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>.</p>
+<p>Hur många ordningsföljder finns det då att välja mellan? Antalet är enormt. Ett typiskt protein har kanske 300 aminosyror, och i varje position kan någon av de tjugo sitta. Redan med två positioner finns 20 × 20 = 400 möjligheter, med tre 8 000. Med 300 positioner blir det ett tal med omkring 390 siffror, långt fler än det finns atomer i hela det kända universum. Livet har alltså bara prövat en försvinnande liten del av alla tänkbara proteiner.</p>
+</section>
+<section id="sec-l03-sekundarstruktur" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-sekundarstruktur">Spiraler och pilar</h3>
+<p>Alfahelixen och betaflaket, som vi mötte i <a href="01-levande-celler.html#sec-l01-veckning" class="quarto-xref"><span>Avsnitt 1.10.3</span></a>, är byggstenar i en större beskrivning. Ett proteins form brukar beskrivas i fyra nivåer, från ordningsföljden av aminosyror till hur flera kedjor sitter ihop (<a href="#fig-l03-proteinstruktur" class="quarto-xref">Figur&nbsp;<span>3.1</span></a>).</p>
+<div id="fig-l03-proteinstruktur" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l03-proteinstruktur-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L03/proteinstruktur.svg" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l03-proteinstruktur-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3.1: Ett proteins form beskrivs ofta i fyra nivåer. Primärstrukturen är aminosyrornas ordningsföljd (aminosyrorna betecknas här med förkortningar av sina namn, till exempel Ala för alanin). Sekundärstrukturen är de regelbundna mönstren alfahelix och betaflak. Tertiärstrukturen är hela kedjans tredimensionella form, och kvartärstrukturen är hur flera kedjor sitter ihop, som de fyra kedjorna i hemoglobin. Bild: LadyofHats (Mariana Ruiz), Wikimedia Commons, allmän egendom, översatt till svenska.
+</figcaption>
+</figure>
+</div>
+<p>Bilden visar också hur forskare brukar rita proteiner. Alfahelixar ritas som spiralband och delarna av ett betaflak som breda pilar. Ett protein ser då ut som en samling spiraler och pilar förbundna med slingor. Det är en bra karta över hur kedjan löper, men verkligheten är mer packad. Om man ritar ut alla atomer ser proteinet ut som en knölig klump, där sidogrupperna trängs med varandra och hela tiden rör lite på sig och där det är svårt att se helixarna och flaken. Det är så proteinet ser ut när det arbetar i cellen.</p>
+<p>Den stora variationen i form skiljer proteinerna från DNA. En DNA-molekyl ser i stort sett likadan ut oavsett vilken sekvens den har: en dubbelspiral. Den är perfekt för att lagra information men kan inte göra så mycket annat. Proteinerna är den motsatta ytterligheten. Deras former varierar nästan oändligt, och det är därför de kan utföra så många olika uppgifter.</p>
+</section>
+</section>
+<section id="sec-l03-gen" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-l03-gen"><span class="header-section-number">3.2</span> Vad är en gen?</h2>
+<p>Om proteinerna är det man vill tillverka, så är generna det man måste ändra i. Som vi såg i <a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a> är DNA, RNA och proteiner alla kedjemolekyler, och logiken mellan dem är enkel. Ordningsföljden av baserna i DNA bestämmer ordningsföljden av baserna i mRNA (transkription), som i sin tur bestämmer ordningsföljden av aminosyrorna i proteinet (translation).</p>
+<p>Men var i den långa DNA-molekylen finns instruktionen för ett visst protein? En <strong>gen</strong> är ett avsnitt av en DNA-molekyl som fungerar som mall för ett mRNA, som i sin tur fungerar som mall för ett protein. Det finns också gener som bara blir RNA och aldrig översätts till protein; de RNA-molekylerna har andra uppgifter i cellen. I det här kapitlet handlar det om de gener som kodar för proteiner.</p>
+<p>Gener är organiserade på olika sätt hos prokaryoter och eukaryoter, de två huvudtyper av celler vi mötte i <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>. Skillnaden får, som vi ska se, betydelse när man vill flytta en gen från människa till bakterie.</p>
+<section id="sec-l03-prokaryota" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-prokaryota">Bakteriernas gener: tätt packade</h3>
+<p>Hos bakterier sitter generna tätt efter varandra längs DNA-molekylen. Framför en gen, eller en grupp av gener, finns en särskild bassekvens som kallas <strong>promotor</strong>. Där binder <strong>RNA-polymeras</strong>, det enzym som kopierar DNA till RNA. Promotorn är en startsignal. Enzymet kopierar sedan DNA tills det når en stoppsignal, en <strong>terminator</strong>, och släpper då det färdiga RNA:t.</p>
+<p>Ofta sitter flera gener som hör ihop efter varandra och kopieras till ett enda långt mRNA. Det kan till exempel vara generna för de enzymer som behövs i varje steg när bakterien tillverkar en viss aminosyra. Ribosomer läser sedan av de olika delarna av mRNA:t samtidigt och tillverkar alla proteinerna på en gång. En sådan grupp gener som styrs av en gemensam promotor kallas ett <strong>operon</strong> (<a href="#fig-l03-operon" class="quarto-xref">Figur&nbsp;<span>3.2</span></a>). Det är ett effektivt sätt att se till att proteiner som arbetar tillsammans tillverkas samtidigt.</p>
+<div id="fig-l03-operon" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l03-operon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L03/operon.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l03-operon-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3.2: Ett operon hos en bakterie. RNA-polymeras binder till promotorn och kopierar alla tre generna i ett svep, tills det når terminatorn. Det blir ett enda långt mRNA, och ribosomer läser av var och en av dess delar, så att de tre proteinerna tillverkas samtidigt. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Eftersom generna ligger så tätt är bakteriernas DNA sparsamt utnyttjat: omkring 90 procent av det kodar för proteiner. Det finns mycket lite DNA mellan generna.</p>
+</section>
+<section id="sec-l03-eukaryota" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-eukaryota">Våra gener: exoner och introner</h3>
+<p>Hos eukaryoter, som människan, är det mer komplicerat. Även här finns promotorer och terminatorer, och styrningen av när en gen ska användas är betydligt mer invecklad än hos bakterier. Men den stora skillnaden upptäcktes helt oväntat i slutet av 1970-talet: generna är uppstyckade. Bitar som kodar för proteinet växlar med bitar som inte gör det.</p>
+<p>Hela genen kopieras först till en lång RNA-molekyl, ett <strong>pre-mRNA</strong>. Sedan klipps vissa bitar bort ur RNA-molekylen, och de bitar som blir kvar klistras ihop till det färdiga mRNA:t, som är kortare än det första. De bortklippta bitarna kallas <strong>introner</strong>, och de bitar som blir kvar och kodar för proteinet kallas <strong>exoner</strong>. Processen kallas <strong>splitsning</strong> (eng. <em>splicing</em>).</p>
+<p>Splitsningen ger cellen en extra möjlighet. Om en gen har flera exoner kan de klistras ihop på olika sätt. Ibland tas alla exoner med, ibland hoppas ett eller flera över (<a href="#fig-l03-splitsning" class="quarto-xref">Figur&nbsp;<span>3.3</span></a>). Från en och samma gen kan cellen då tillverka flera olika, men besläktade, varianter av ett protein. Det kallas <strong>alternativ splitsning</strong> och är vanligt hos människan. Våra celler har på så sätt fått en större klaviatur att spela på än bakterierna.</p>
+<div id="fig-l03-splitsning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l03-splitsning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L03/splitsning.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l03-splitsning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3.3: En eukaryot gen med fyra exoner och tre introner. Hela genen kopieras först till pre-mRNA. Sedan klipps intronerna bort och exonerna klistras ihop. Genom att ibland hoppa över ett exon (här exon 2) kan cellen göra två olika proteiner från samma gen. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Introner är en anledning till att vårt DNA är mycket mindre sparsamt utnyttjat än bakteriernas. Dessutom finns stora områden mellan generna som inte heller kodar för proteiner. Bara omkring 1–2 procent av människans DNA kodar för proteiner, jämfört med omkring 90 procent hos bakterier.</p>
+<p>I den andra ytterligheten finns virus, som är ännu mer sparsamma än bakterier. Hos en del virus överlappar generna, så att samma bit DNA eller RNA kan läsas på två sätt och koda för två olika proteiner. Man kan säga att de utnyttjar mer än hundra procent av sin arvsmassa.</p>
+<p>Uppdelningen i exoner och introner har också en praktisk följd för gentekniken: en bakterie kan inte klippa bort introner. Vill man få en bakterie att tillverka ett mänskligt protein kan man därför inte ta genen direkt från människans DNA. Hur man gör i stället ser vi i <a href="#sec-l03-kloning" class="quarto-xref"><span>Avsnitt 3.4.2</span></a>.</p>
+</section>
+<section id="sec-l03-genomstorlek" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-genomstorlek">Genomens storlek</h3>
+<p>En organisms hela uppsättning DNA kallas dess genom, och hur stort det är varierar enormt (<a href="#tbl-l03-genom" class="quarto-xref">Tabell&nbsp;<span>3.1</span></a>). De minsta bakterierna, som lever inuti andra celler, klarar sig med under en miljon <strong>baspar</strong> (ett baspar är två bundna baser, en på var sträng). Vanliga frilevande bakterier har några miljoner. Människan har ungefär tre miljarder baspar i varje uppsättning kromosomer, och eftersom vi har två uppsättningar, en från varje förälder, innehåller varje cell ungefär sex miljarder.</p>
+<div id="tbl-l03-genom" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-l03-genom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabell&nbsp;3.1: Genomets storlek hos några organismer, räknat på en uppsättning kromosomer.
+</figcaption>
+<div aria-describedby="tbl-l03-genom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Organism</th>
+<th>Antal baspar (ungefär)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bakterie som lever i bladlössens celler (<em>Buchnera</em>)</td>
+<td>0,6 miljoner</td>
+</tr>
+<tr class="even">
+<td>tarmbakterien <em>E. coli</em></td>
+<td>4,6 miljoner</td>
+</tr>
+<tr class="odd">
+<td>bakjäst</td>
+<td>12 miljoner</td>
+</tr>
+<tr class="even">
+<td>bananfluga</td>
+<td>140 miljoner</td>
+</tr>
+<tr class="odd">
+<td>människa</td>
+<td>3 miljarder</td>
+</tr>
+<tr class="even">
+<td>australisk lungfisk</td>
+<td>43 miljarder</td>
+</tr>
+<tr class="odd">
+<td>växten <em>Paris japonica</em></td>
+<td>150 miljarder</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Vi är alltså långt ifrån störst. Vissa växter har omkring femtio gånger så mycket DNA som vi, och vissa groddjur och lungfiskar har också mycket stora genom. Det betyder inte att de är mer avancerade. En stor del av deras DNA består av upprepade kopior, och mängden DNA säger inte särskilt mycket om hur komplicerad en organism är. Vi återkommer till genomen i <a href="11-omik.html" class="quarto-xref"><span>Kapitel 11</span></a>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Att fundera på: att kopiera en arvsmassa
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Innan en cell delar sig måste allt DNA kopieras. En bakterie som <em>E. coli</em> kan under goda förhållanden dela sig ungefär var tjugonde minut. En mänsklig cell har omkring tusen gånger mer DNA, och själva kopieringen tar ungefär åtta timmar av ett cellcykeldygn. Räknar man efter fogas några tusen nya byggstenar in i bakteriens DNA varje sekund, och flera hundra tusen i den mänskliga cellens. Det klarar den mänskliga cellen genom att börja kopiera på tiotusentals ställen samtidigt. Och nästan inga fel görs: kopian blir i stort sett exakt densamma som originalet. Det pågår i varje cell som delar sig i din kropp, just nu.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-l03-genteknik" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-l03-genteknik"><span class="header-section-number">3.3</span> Genteknik: att skriva om ritningen</h2>
+<p>När forskarna på 1960-talet hade förstått hur DNA, RNA och proteiner hänger ihop, väcktes en tanke. Det är svårt att direkt ändra i ett protein, men om man kunde ändra i DNA, i ritningen, så skulle cellen själv tillverka det nya proteinet. Man skulle kunna bestämma att en bakterie ska tillverka ett protein med exakt den ordningsföljd av aminosyror man vill, räkna ut vilken DNA-sekvens som behövs, och föra in den i bakterien.</p>
+<p>Men hur ändrar man i en molekyl som är alldeles för liten för att se? Nästan all genteknik bygger på en enda egenskap hos DNA och RNA: <strong>basparningen</strong>. A binder alltid till T (eller U i RNA), och G binder alltid till C. Det gör att en sträng kan hitta och fastna på en annan sträng med passande sekvens, och att varje sträng kan användas som mall för att tillverka en ny.</p>
+<p>Verktygen kan delas i två grupper. Den första bygger på att klippa och klistra i DNA. Den andra bygger på att kopiera DNA, på samma sätt som cellen gör när den delar sig.</p>
+</section>
+<section id="sec-l03-klipp" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-l03-klipp"><span class="header-section-number">3.4</span> Att klippa och klistra i DNA</h2>
+<p>För att klippa och klistra i DNA behövs tre saker: en sax som klipper på bestämda ställen, ett sätt att klistra in en bit i en bakterie, och ett sätt att hitta rätt bit bland alla som bildas. Vi tar dem i tur och ordning.</p>
+<section id="sec-l03-restriktionsenzym" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-restriktionsenzym">Restriktionsenzymer: molekylära saxar</h3>
+<p>Det första verktyget upptäcktes av forskare som studerade bakterier, utan någon tanke på genteknik. Bakterier har enzymer som klipper av DNA, och som de använder för att försvara sig mot virus. Varje sådant <strong>restriktionsenzym</strong> letar upp en bestämd kort bassekvens och klipper av båda DNA-strängarna just där.</p>
+<p>Enzymet EcoRI, från tarmbakterien <em>E. coli</em>, känner till exempel igen sekvensen GAATTC (<a href="#fig-l03-restriktionsenzym" class="quarto-xref">Figur&nbsp;<span>3.4</span></a>). Mitt emot står CTTAAG på den andra strängen, men eftersom de två strängarna löper åt motsatta håll (<a href="01-levande-celler.html#sec-l01-baspar" class="quarto-xref"><span>Avsnitt 1.5.1</span></a>) ska den läsas baklänges, och då står det också GAATTC. Sekvensen är ett palindrom, som ordet “kajak”. Sådana sekvenser är typiska för restriktionsenzymernas igenkänningsställen.</p>
+<p>EcoRI klipper mellan G och A på båda strängarna. Eftersom klippen sitter lite förskjutna, blir det kvar korta enkelsträngade bitar på ändarna: AATT på den ena, och den passande sekvensen på den andra. De kallas <strong>klibbiga ändar</strong>, eftersom de kan baspara med varandra och fastna ihop igen. Andra enzymer, som SmaI, klipper rakt av på samma ställe på båda strängarna och ger <strong>trubbiga ändar</strong>.</p>
+<div id="fig-l03-restriktionsenzym" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l03-restriktionsenzym-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L03/restriktionsenzym.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l03-restriktionsenzym-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3.4: Två restriktionsenzymer. EcoRI (till vänster) känner igen sekvensen GAATTC och klipper snett, så att ändarna får korta utstickande bitar som kan baspara med varandra: klibbiga ändar. SmaI (till höger) känner igen CCCGGG och klipper rakt av: trubbiga ändar. Punkterna visar att DNA-molekylen fortsätter åt båda hållen. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Snart insåg forskarna vad det innebar. Om man klipper två olika DNA-molekyler med samma enzym, så får alla bitarna likadana klibbiga ändar. Då kan en bit från den ena molekylen klistras in i den andra.</p>
+</section>
+<section id="sec-l03-kloning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-kloning">Genkloning: en mänsklig gen i en bakterie</h3>
+<p>Nästa fråga var vart den inklistrade biten skulle ta vägen. Många bakterier har, förutom sin stora kromosom, små ringformade DNA-molekyler som kallas <strong>plasmider</strong>. De är som små extra kromosomer, och de kopieras och förs vidare när bakterien delar sig. Plasmiderna blev genteknikens transportfordon (<a href="#fig-l03-kloning" class="quarto-xref">Figur&nbsp;<span>3.5</span></a>).</p>
+<p>Så här går det till i princip:</p>
+<ol type="1">
+<li>Man renar fram plasmider och klipper dem med ett restriktionsenzym som bara har ett igenkänningsställe på plasmiden. Ringen öppnas.</li>
+<li>Man tar fram en DNA-bit med den gen man vill ha och klipper den med samma enzym, så att den får samma klibbiga ändar. För en mänsklig gen kan man inte ta DNA direkt ur cellkärnan, eftersom bakterien inte kan klippa bort introner. I stället kopierar man genens mRNA, där intronerna redan är bortklippta, tillbaka till DNA med enzymet <strong>omvänt transkriptas</strong>, som kommer från virus.</li>
+<li>Man blandar plasmiderna med DNA-biten. De klibbiga ändarna basparar, och ett annat enzym, <strong>DNA-ligas</strong>, fogar ihop strängarna så att ringen blir hel igen. Nu har plasmiden fått en extra bit DNA.</li>
+<li>Man för in den nya plasmiden i bakterier. När bakterierna förökar sig kopieras plasmiden, och om genen sitter bakom rätt startsignaler tillverkar bakterierna proteinet.</li>
+</ol>
+<div id="fig-l03-kloning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l03-kloning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L03/kloning.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l03-kloning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3.5: Genkloning. En plasmid klipps upp med ett restriktionsenzym, och en DNA-bit med en mänsklig gen, kopierad från mRNA och alltså utan introner, klipps med samma enzym och klistras in med hjälp av DNA-ligas. När den nya plasmiden förs in i en bakterie kopieras den när bakterien delar sig, och bakterien tillverkar det protein som genen kodar för. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Att föra in en gen i en organism på det här sättet kallas <strong>kloning</strong>, och en sådan bakterie kallas <strong>genmodifierad</strong>. Ordet kloning syftar på att man får många identiska kopior av samma gen.</p>
+<p>Det var just så man till slut fick bakterier att tillverka insulinet från kapitlets början. Mänskligt insulin blev det första läkemedlet som tillverkades på detta sätt, och det godkändes i början av 1980-talet.</p>
+<p>I Sverige var en av de första tillämpningarna tillväxthormon, ett protein som barn med hormonbrist behöver för att växa normalt. Läkemedelsföretaget Kabi i Stockholm sålde tillväxthormon som renats fram ur hypofysen, en liten körtel under hjärnan, från avlidna människor. I slutet av 1970-talet började Kabi samarbeta med det amerikanska bioteknikföretaget Genentech, som 1979 fick en bakterie att tillverka hormonet, och Kabi bildade dotterbolaget KabiGen för att producera det i Sverige. Det kom lägligt. År 1985 visade det sig att hormon från avlidna i sällsynta fall kunde föra över en dödlig hjärnsjukdom, Creutzfeldt-Jakobs sjukdom, och det drogs in. Hormonet från bakterier var fritt från den risken, och det fanns obegränsat med det.</p>
+</section>
+<section id="sec-l03-elektrofores" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-elektrofores">Gelelektrofores: att sortera DNA efter storlek</h3>
+<p>När man klipper upp DNA med ett restriktionsenzym bildas många bitar av olika längd. Hur hittar man den rätta biten bland dem? Ett enkelt och fortfarande mycket använt sätt är <strong>gelelektrofores</strong> (<a href="#fig-l03-gel" class="quarto-xref">Figur&nbsp;<span>3.6</span></a>).</p>
+<p>Man gjuter en tunn, platt skiva av en geléartad massa och gör små brunnar i ena kanten. DNA-provet läggs i en brunn, och man kopplar på en elektrisk spänning över gelen. DNA är negativt laddat och vandrar därför mot den positiva polen. Gelen fungerar som ett tätt nät: korta DNA-bitar tar sig lätt igenom maskorna och vandrar snabbt, medan långa bitar trasslar in sig och kommer efter. Efter en stund har bitarna sorterats efter längd, och man kan skära ut den bit man vill ha med en kniv. Samma metod används för att sortera proteiner efter storlek.</p>
+<div id="fig-l03-gel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l03-gel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L03/gel-foto.jpg" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l03-gel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3.6: En DNA-gel fotograferad i ultraviolett ljus, där ett färgämne som binder till DNA lyser. Proven har lagts i brunnarna längst upp och vandrat nedåt. Längst till vänster finns en “stege” av DNA-bitar med kända längder att jämföra med; ju längre ned ett band ligger, desto kortare är bitarna. Bild: Sgroey, Wikimedia Commons, CC BY-SA 4.0.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-l03-replikation" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="sec-l03-replikation"><span class="header-section-number">3.5</span> Att kopiera DNA i ett provrör</h2>
+<p>Den andra gruppen av verktyg bygger på det sätt som cellen kopierar sitt DNA. Den kopieringen är grunden både för att läsa DNA och för PCR, som de följande avsnitten handlar om.</p>
+<p>När DNA kopieras dras de två strängarna isär, och ett enzym, <strong>DNA-polymeras</strong>, bygger en ny sträng mot var och en av de gamla. Den gamla strängen fungerar som mall: mitt emot varje A sätts ett T in, mitt emot varje G ett C, och så vidare.</p>
+<p>DNA-polymeras kan dock inte börja från ingenting. Det behöver en kort bit som redan sitter fast på mallsträngen, en <strong>primer</strong>, att bygga vidare från. En primer är en kort sträng, ofta 15–25 baser lång, som basparar med mallen på ett bestämt ställe. Primern får inte vara för kort, för då passar den på många ställen. Varje position kan vara en av fyra baser, så redan med 20 baser finns över en biljon (4<sup>20</sup>) möjliga sekvenser. Det är många gånger fler än de omkring tre miljarder baspar som finns i människans arvsmassa, så en viss primer passar oftast bara på ett enda ställe.</p>
+<p>Allt detta kan göras i ett provrör. Man värmer DNA så att strängarna går isär, tillsätter primrar som fastnar där de passar, kyler ned, och tillsätter DNA-polymeras och de fyra byggstenarna. Då kopierar enzymet mallsträngen från primern och framåt. Primrar med vilken sekvens som helst kan i dag beställas från företag som tillverkar dem kemiskt, billigt och snabbt.</p>
+</section>
+<section id="sec-l03-sekvensering" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="sec-l03-sekvensering"><span class="header-section-number">3.6</span> Att läsa DNA: Sangers metod</h2>
+<p>Att bestämma i vilken ordning baserna sitter i en DNA-molekyl kallas <strong>DNA-sekvensering</strong>. Med den kan man läsa en gen och därmed ta reda på hur proteinet ser ut. Den första praktiska metoden uppfanns av den brittiske biokemisten Frederick Sanger i Cambridge, och den byggde på ett genialt trick: att få kopieringen att stanna vid en bestämd bas.</p>
+<p>DNA:s byggstenar kallas <em>deoxinukleotider</em>: sockret i dem saknar en av de syreatomer som finns i RNA:s socker. När DNA-polymeras förlänger en sträng, binder nästa byggsten till en syreatom (i en så kallad OH-grupp) på sockret i den sista byggstenen. Sanger använde byggstenar som saknar också den syreatomen, <strong>dideoxinukleotider</strong>. En sådan byggsten kan fogas in i strängen, men sedan finns ingen OH-grupp att binda nästa byggsten till. Kedjan tar stopp.</p>
+<p>Metoden går till så här. Man kopierar det DNA man vill läsa, med hjälp av en primer och DNA-polymeras, i fyra provrör. Alla innehåller vanliga byggstenar i överskott. Men det första provröret innehåller också en liten mängd stopp-A, det vill säga dideoxi-versionen av A. Varje gång polymeraset ska sätta in ett A finns en liten chans att det tar ett stopp-A, och då tar den kedjan slut. I provröret bildas därför en blandning av kedjor av olika längd, och alla slutar med A. Varje längd motsvarar ett ställe där det ska sitta ett A i den nya strängen. På samma sätt innehåller de andra provrören stopp-C, stopp-G och stopp-T.</p>
+<p>Sedan körs de fyra proven bredvid varandra på en gel, där kedjorna sorteras efter längd. Sekvensen kan nu läsas direkt (<a href="#fig-l03-sanger" class="quarto-xref">Figur&nbsp;<span>3.7</span></a>): den kortaste kedjan visar vilken bas som kom först efter primern, den näst kortaste vilken som kom därefter, och så vidare. Den nya strängen är komplementär till den man ville läsa, men det är lätt att översätta: ett A i den nya strängen betyder ett T i originalet.</p>
+<div id="fig-l03-sanger" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l03-sanger-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L03/sanger.svg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l03-sanger-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3.7: Avläsning av en sekvens med Sangers metod. Varje kolumn i gelen kommer från ett provrör där kedjorna stoppas vid en viss bas. De kortaste bitarna har vandrat längst. Läser man banden nedifrån och upp, och noterar i vilken kolumn varje band ligger, får man den nya strängens sekvens: A, G, T, C, G, A … Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>I början läste forskarna gelerna för hand, med en penna, och en bra dag kunde man få fram omkring hundra baser. Det var mödosamt men revolutionerande: plötsligt kunde man läsa en gen, och med hjälp av den genetiska koden räkna ut ordningsföljden av aminosyror i proteinet.</p>
+<p>Senare gjordes de fyra sortens stoppbyggstenar självlysande i olika färger, så att allt kunde köras i ett enda provrör och avläsas automatiskt med en laser. I dag kan en modern sekvenseringsmaskin läsa miljarder baser om dagen med andra, nyare metoder, som vi återkommer till i <a href="11-omik.html" class="quarto-xref"><span>Kapitel 11</span></a>.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: Frederick Sanger och de två Nobelprisen
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Frederick Sanger (1918–2013) är en av mycket få personer som har fått två Nobelpris. Det första, i kemi 1958, fick han för att som förste någonsin ha bestämt ordningsföljden av aminosyrorna i ett protein. Proteinet var insulin. Det andra, i kemi 1980, fick han för metoden att läsa DNA, och det delade han med Walter Gilbert, som utvecklat en annan metod för att läsa DNA, och Paul Berg, som var en av pionjärerna inom genkloning.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l03-pcr" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="sec-l03-pcr"><span class="header-section-number">3.7</span> PCR: att kopiera en bit DNA miljarder gånger</h2>
+<p>Ofta har man för lite DNA av det man vill undersöka. <strong>PCR</strong>, av engelskans <em>polymerase chain reaction</em> (polymeraskedjereaktion), är ett sätt att ur en blandning av DNA göra ett nästan obegränsat antal kopior av en enda bestämd bit, till exempel en gen.</p>
+<p>Metoden uppfanns 1983 av amerikanen Kary Mullis, en färgstark forskare och surfare som arbetade på ett bioteknikföretag i Kalifornien. Enligt hans egen berättelse kom idén en fredagskväll när han körde upp i bergen mot sin stuga, med en ny flickvän i bilen. Idén tog så mycket av hans uppmärksamhet att helgen mest gick åt till att tänka på den. PCR är kanske inte lika genialt som Sangers metod, men det har blivit ännu mer användbart.</p>
+<p>Idén är enkel. Man använder två primrar, som passar på var sin sträng på var sin sida om den bit man vill kopiera. Sedan upprepar man samma tre steg om och om igen (<a href="#fig-l03-pcr" class="quarto-xref">Figur&nbsp;<span>3.8</span></a>):</p>
+<ol type="1">
+<li><strong>Värm</strong> till nära 100 °C, så att DNA-strängarna går isär.</li>
+<li><strong>Kyl</strong> till omkring 50 °C, så att primrarna kan binda där de passar.</li>
+<li><strong>Värm lite igen</strong>, till omkring 70 °C, så att DNA-polymeras kan bygga nya strängar från primrarna.</li>
+</ol>
+<p>Eftersom de nya strängarna i sin tur blir mallar i nästa cykel, fördubblas antalet kopior av den önskade biten i varje cykel. Efter 10 cykler har man ungefär tusen kopior, efter 20 ungefär en miljon och efter 30 ungefär en miljard. Efter 35 cykler har en enda DNA-molekyl blivit omkring 34 miljarder kopior av den önskade biten.</p>
+<p>Men blir alla kopior verkligen just den bit man ville ha? I de första cyklerna bildas också strängar som börjar vid en primer men fortsätter långt bortom målet. De blir dock inte fler än ett fåtal, medan biten mellan primrarna fördubblas varje gång. Efter 16 cykler finns 65 536 kopior, och av dem har alla utom 32 exakt den längd som primrarna bestämmer. Det är hemligheten bakom PCR: det man får är i stort sett bara den bit som ligger mellan de två primrarna.</p>
+<div id="fig-l03-pcr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l03-pcr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L03/pcr.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l03-pcr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3.8: PCR. I varje cykel värms DNA så att strängarna går isär, primrar (röda) binder på var sin sträng, och DNA-polymeras bygger nya strängar från primrarna. Eftersom de nya strängarna i sin tur blir mallar fördubblas antalet kopior av biten mellan primrarna i varje cykel. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Ett problem var att vanligt DNA-polymeras förstörs när man värmer till nära 100 °C. Lösningen blev ett DNA-polymeras från en bakterie som lever i heta källor, i Yellowstone i USA. Det tål värmen och klarar alla cykler. Därmed kunde hela processen skötas automatiskt av en liten maskin som växlar temperaturen upp och ned. Man lägger i sitt DNA, sina två primrar, byggstenar och enzym, trycker på start, och några timmar senare har man miljarder kopior. I dag finns en PCR-maskin i nästan varje biologiskt laboratorium. Mullis fick Nobelpriset i kemi 1993.</p>
+<section id="sec-l03-covidtest" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l03-covidtest">PCR-testet för covid-19</h3>
+<p>De flesta har kommit i kontakt med PCR, även om de inte vet om det. Det test för covid-19 där man tog ett prov långt in i näsan byggde på PCR. Viruset SARS-CoV-2, som vi mötte i <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>, har en arvsmassa av RNA. Ur provet renade man fram allt RNA. Eftersom det är lättare att arbeta med DNA, kopierades RNA:t sedan tillbaka till DNA med omvänt transkriptas, samma enzym som vid genkloningen. Därefter kördes PCR med primrar som bara passar på virusets arvsmassa.</p>
+<p>Om provet inte innehöll något virus fanns det ingenting för primrarna att binda till, och ingenting kopierades. Fanns det däremot bara några få virusmolekyler, så bildades miljarder kopior, som är lätta att upptäcka. Man kan till och med följa hur snabbt kopiorna ökar och därmed uppskatta hur mycket virus provet innehöll.</p>
+<p>Snabbtesterna som man kunde göra hemma fungerade på ett annat sätt. De använde antikroppar för att känna igen virusets proteiner. De var enklare, men mindre känsliga än PCR-testet, som kunde upptäcka bara några få virusmolekyler.</p>
+<p>PCR-testet kunde också tas fram slående snabbt. Kinesiska forskare publicerade virusets arvsmassa på internet i januari 2020, och omkring en vecka senare hade en forskargrupp i Berlin tagit fram och publicerat ett färdigt PCR-test som vilket laboratorium som helst kunde använda. Eftersom viruset hela tiden muterade, följde man förändringarna i dess arvsmassa och valde primrar mot delar som sällan förändrades.</p>
+</section>
+</section>
+<section id="sec-l03-mutagenes" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="sec-l03-mutagenes"><span class="header-section-number">3.8</span> Riktad mutagenes: att ändra en enda bokstav</h2>
+<p>Primrar och DNA-polymeras kan användas inte bara för att kopiera en gen, utan också för att ändra den, en enda bas i taget. Man tillverkar en primer som passar nästan perfekt på det ställe man vill ändra, men där en bas i mitten är utbytt. Om primern är 15–20 baser lång räcker de korrekta baserna på var sida för att den ska fastna på rätt ställe, trots felet. När DNA-polymeras sedan bygger vidare från primern får den nya strängen den ändrade basen, och den förs vidare i alla följande kopior.</p>
+<p>Resultatet är en gen som är exakt som originalet, utom på en enda punkt. En sådan förändring i DNA kallas en <strong>mutation</strong>, och metoden kallas <strong>riktad mutagenes</strong>. På liknande sätt kan man ta bort eller lägga till några baser.</p>
+<p>Riktad mutagenes gjorde det möjligt att fråga hur ett protein fungerar genom att byta ut en aminosyra i taget och se vad som händer. Den kanadensiske forskaren Michael Smith fick Nobelpriset i kemi 1993, samma år som Mullis, för en tidig metod för riktad mutagenes. Teknikerna har sedan vidareutvecklats. Frances Arnold fick Nobelpriset i kemi 2018 för att ha använt slumpmässiga mutationer och urval, en sorts evolution i provröret, för att ta fram enzymer med nya egenskaper. Mer om det i <a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>.</p>
+</section>
+<section id="sec-l03-crispr" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="sec-l03-crispr"><span class="header-section-number">3.9</span> CRISPR-Cas9: gensaxen</h2>
+<p>Metoderna ovan fungerar bra i bakterier och jäst, men det är svårt att använda dem för att ändra arvsmassan i växter, djur eller människor. Det ändrades med upptäckten av <strong>CRISPR-Cas9</strong>, i medierna ofta kallad <strong>gensaxen</strong>.</p>
+<p>Cas9 är ett enzym från bakterier som, precis som ett restriktionsenzym, klipper av DNA. Skillnaden är hur det hittar rätt ställe. Ett restriktionsenzym känner alltid igen samma korta sekvens. Cas9 bär i stället med sig en RNA-molekyl, ett <strong>guide-RNA</strong>, och klipper där guide-RNA:t hittar en DNA-sekvens som det kan baspara med (<a href="#fig-l03-cas9" class="quarto-xref">Figur&nbsp;<span>3.9</span></a>).</p>
+<p>I bakterierna är det ett försvarssystem, precis som restriktionsenzymerna. Bakterien sparar bitar av arvsmassan från virus som har angripit den, och använder dem som guide-RNA för att känna igen och klippa sönder samma virus om det kommer tillbaka.</p>
+<div id="fig-l03-cas9" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l03-cas9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L03/cas9-goodsell.jpg" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l03-cas9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3.9: Enzymet Cas9 (blått) med sitt guide-RNA (rött) bundet till en DNA-sträng (gult) som guide-RNA:t basparar med. Det är guide-RNA:t som bestämmer var i arvsmassan Cas9 klipper. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Det geniala är att man inte behöver ändra något i enzymet för att få det att klippa på ett nytt ställe, bara i guide-RNA:t. Eftersom vi känner till hela sekvensen i människans arvsmassa, kan man välja en position i en viss gen, beställa ett guide-RNA som passar just där och ingen annanstans, och föra in det tillsammans med Cas9 i cellerna. Enzymet letar upp stället och klipper av DNA-molekylen.</p>
+<p>Själva ändringen gör cellen. När den reparerar skadan kan man få den att föra in en ändring, ta bort en bit eller sätta in en ny. Vill man föra in en bestämd ändring ger man samtidigt cellen en bit DNA med den önskade sekvensen, som cellen använder som mall när den lagar brottet. Det fungerar inte i varje cell, men bland många celler finns alltid några där ändringen har lyckats. Metoden fungerar i nästan alla sorters organismer: bakterier, växter, djur och människor.</p>
+<p>Upptäckten gjordes av två forskare tillsammans. Emmanuelle Charpentier, som är fransk, arbetade då vid Umeå universitet och studerade hur en bakterie försvarar sig mot virus. Jennifer Doudna, vid University of California i Berkeley, var expert på RNA. De möttes på en konferens 2011, insåg att de hade kompletterande kunskaper, och redan året därpå kunde de visa att Cas9 kan programmeras att klippa var man vill. De fick Nobelpriset i kemi 2020 (<a href="#fig-l03-charpentier-doudna" class="quarto-xref">Figur&nbsp;<span>3.10</span></a>).</p>
+<p>När metoden väl var känd exploderade kreativiteten bland forskare världen över, och i dag finns en mängd varianter och tillämpningar. Bland annat har de första behandlingarna av ärftliga blodsjukdomar med hjälp av CRISPR godkänts.</p>
+<div id="fig-l03-charpentier-doudna" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l03-charpentier-doudna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L03/charpentier-doudna.jpg" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l03-charpentier-doudna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;3.10: Emmanuelle Charpentier (till vänster) och Jennifer Doudna, som tillsammans visade att Cas9 kan programmeras att klippa DNA där man vill, och som fick Nobelpriset i kemi 2020. Bild: Bianca Fioretti, Hallbauer &amp; Fioretti (Charpentier), och Duncan Hull/The Royal Society (Doudna), Wikimedia Commons, CC BY-SA 4.0.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l03-sammanfattning" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="sec-l03-sammanfattning"><span class="header-section-number">3.10</span> Sammanfattning</h2>
+<ul>
+<li>Proteiner är kedjor av tjugo sorters aminosyror, som ribosomen kopplar ihop med peptidbindningar. Nio av aminosyrorna kan människan inte tillverka själv utan måste få i sig med maten.</li>
+<li>Ordningsföljden av aminosyror avgör hur kedjan veckar sig: de opolära sidogrupperna hamnar inuti och de polära på ytan. Alfahelixar och betaflak, som hålls ihop av vätebindningar, finns i nästan alla proteiner.</li>
+<li>En gen är ett avsnitt av DNA som är mall för ett RNA, oftast ett mRNA som översätts till ett protein. Bakteriernas gener ligger tätt och styrs ofta i grupper (operon). Våra gener är uppdelade i exoner och introner, och intronerna klipps bort genom splitsning.</li>
+<li>Genteknik bygger på basparningen. Restriktionsenzymer klipper DNA vid bestämda sekvenser, och med ligas kan bitarna klistras in i plasmider som förs in i bakterier, som då tillverkar till exempel mänskligt insulin. För en mänsklig gen utgår man från mRNA, eftersom bakterier inte kan klippa bort introner.</li>
+<li>Gelelektrofores sorterar DNA-bitar efter längd.</li>
+<li>Sangers metod läser DNA med hjälp av byggstenar som stoppar kopieringen. PCR kopierar en bestämd bit DNA miljarder gånger genom att upprepa cykler av uppvärmning och kopiering.</li>
+<li>Med riktad mutagenes kan man ändra enstaka baser i en gen, och med CRISPR-Cas9, som styrs av ett guide-RNA, kan man ändra arvsmassan på ett bestämt ställe i nästan vilken organism som helst.</li>
+</ul>
+</section>
+<section id="sec-l03-nyckelbegrepp" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="sec-l03-nyckelbegrepp"><span class="header-section-number">3.11</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>essentiell aminosyra</strong> – Aminosyra som kroppen inte kan tillverka själv och som vi därför måste få i oss med maten. Människan har nio sådana.</li>
+<li><strong>promotor</strong> – Bassekvens i DNA framför en gen där RNA-polymeras binder och börjar kopiera genen till RNA. En startsignal.</li>
+<li><strong>operon</strong> – Grupp av bakteriegener som sitter efter varandra, styrs av samma promotor och kopieras till ett gemensamt mRNA.</li>
+<li><strong>exon</strong> – Del av en eukaryot gen som blir kvar i det färdiga mRNA:t och som oftast kodar för en del av proteinet.</li>
+<li><strong>intron</strong> – Del av en eukaryot gen som kopieras till RNA men klipps bort innan mRNA:t är färdigt.</li>
+<li><strong>splitsning</strong> – Processen där intronerna klipps bort ur RNA och exonerna fogas ihop till ett färdigt mRNA (eng. splicing). Vid alternativ splitsning kan exonerna kombineras på olika sätt, så att en gen ger flera proteinvarianter.</li>
+<li><strong>baspar</strong> – Två baser, en på vardera DNA-strängen, som binder till varandra (A med T, G med C). Genomets storlek anges ofta i antal baspar.</li>
+<li><strong>genteknik</strong> – Metoder för att klippa, klistra, kopiera, läsa och ändra DNA, till exempel för att få en organism att tillverka ett nytt protein.</li>
+<li><strong>restriktionsenzym</strong> – Bakterieenzym som känner igen en bestämd kort bassekvens i DNA och klipper av båda strängarna där. Kan ge klibbiga eller trubbiga ändar.</li>
+<li><strong>plasmid</strong> – Liten ringformad DNA-molekyl i bakterier, som kopieras när bakterien delar sig. Används för att föra in nya gener i bakterier.</li>
+<li><strong>DNA-ligas</strong> – Enzym som fogar ihop DNA-strängar, till exempel när en DNA-bit ska klistras in i en plasmid.</li>
+<li><strong>kloning</strong> – Att föra in en gen i en organism, oftast en bakterie, så att genen kopieras och kanske också används för att tillverka proteinet.</li>
+<li><strong>gelelektrofores</strong> – Metod för att sortera DNA-bitar (eller proteiner) efter storlek genom att låta dem vandra i en gel i ett elektriskt fält. Korta bitar vandrar snabbast.</li>
+<li><strong>DNA-polymeras</strong> – Enzym som bygger en ny DNA-sträng med en befintlig sträng som mall.</li>
+<li><strong>primer</strong> – Kort bit DNA som basparar med en mallsträng och som DNA-polymeras kan bygga vidare från.</li>
+<li><strong>DNA-sekvensering</strong> – Att bestämma i vilken ordning baserna sitter i en DNA-molekyl.</li>
+<li><strong>dideoxinukleotid</strong> – DNA-byggsten som saknar den OH-grupp som nästa byggsten ska binda till. När den fogas in tar kopieringen stopp. Grunden för Sangers sekvenseringsmetod.</li>
+<li><strong>PCR</strong> – Polymeraskedjereaktion: metod där en bestämd bit DNA kopieras miljarder gånger genom upprepade cykler av uppvärmning, inbindning av primrar och kopiering.</li>
+<li><strong>omvänt transkriptas</strong> – Enzym, ursprungligen från virus, som kopierar RNA tillbaka till DNA. Används bland annat för att göra DNA-kopior av mänskliga gener utan introner och i PCR-test för RNA-virus.</li>
+<li><strong>riktad mutagenes</strong> – Metod för att med hjälp av en primer med en avvikande bas ändra en gen på ett bestämt ställe.</li>
+<li><strong>CRISPR-Cas9</strong> – Gensaxen: bakterieenzymet Cas9 tillsammans med ett guide-RNA som styr var i DNA enzymet klipper. Används för att ändra arvsmassan i nästan alla organismer.</li>
+<li><strong>guide-RNA</strong> – RNA-molekyl som Cas9 bär med sig och som genom basparning letar upp det ställe i DNA där enzymet ska klippa.</li>
+</ul>
+</section>
+<section id="sec-l03-testa" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="sec-l03-testa"><span class="header-section-number">3.12</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L03"></div>
+<script>
+renderQuiz("quiz-L03", [
+ {
+  "question": "Varför kan vilken aminosyra som helst kopplas ihop med vilken annan som helst i en proteinkedja?",
+  "choices": [
+   "Bindningen sker mellan ryggraderna, och ryggraden är likadan i alla aminosyror",
+   "Bindningen sker mellan sidogrupperna, som alla passar ihop",
+   "Alla aminosyror har samma laddning och attraherar varandra",
+   "Aminosyrorna hålls ihop av DNA"
+  ],
+  "correctIndex": 0,
+  "explanation": "Peptidbindningen bildas mellan delar av ryggraden, som är gemensam för alla tjugo aminosyror. Ordningsföljden bestäms av mRNA, inte av kemin."
+ },
+ {
+  "question": "Var hamnar de opolära (vattenskygga) sidogrupperna när ett vattenlösligt protein veckar sig?",
+  "choices": [
+   "Inuti proteinet, bort från vattnet",
+   "På proteinets yta, mot vattnet",
+   "De klipps bort innan proteinet veckar sig",
+   "Jämnt fördelade, eftersom placeringen är slumpmässig"
+  ],
+  "correctIndex": 0,
+  "explanation": "Opolära sidogrupper undviker vatten och samlas i mitten, medan polära och laddade sidogrupper hamnar på ytan."
+ },
+ {
+  "question": "Vad är skillnaden mellan exoner och introner?",
+  "choices": [
+   "Exonerna blir kvar i det färdiga mRNA:t, medan intronerna klipps bort",
+   "Intronerna kodar för protein, medan exonerna är styrsignaler",
+   "Exoner finns bara hos bakterier och introner bara hos människan",
+   "Intronerna klipps bort ur DNA innan genen kopieras"
+  ],
+  "correctIndex": 0,
+  "explanation": "Hela genen kopieras till pre-mRNA. Sedan klipps intronerna bort och exonerna fogas ihop (splitsning)."
+ },
+ {
+  "question": "Hur kan en enda mänsklig gen ge upphov till flera olika proteiner?",
+  "choices": [
+   "Exonerna kan fogas ihop på olika sätt vid splitsningen (alternativ splitsning)",
+   "Ribosomen läser mRNA:t i slumpmässig ordning",
+   "Genen muteras varje gång den kopieras",
+   "Varje gen finns i flera kopior med olika sekvens i varje cell"
+  ],
+  "correctIndex": 0,
+  "explanation": "Vid alternativ splitsning kan ett eller flera exoner hoppas över, så att olika men besläktade proteiner bildas från samma gen."
+ },
+ {
+  "question": "Varför kan man inte ta en mänsklig gen direkt från vårt DNA och få en bakterie att tillverka rätt protein?",
+  "choices": [
+   "Genen innehåller introner, och bakterien kan inte klippa bort dem",
+   "Bakterier kan inte läsa DNA från andra organismer över huvud taget",
+   "Mänskligt DNA har andra baser än bakteriers DNA",
+   "Mänskliga gener är för korta för bakteriens ribosomer"
+  ],
+  "correctIndex": 0,
+  "explanation": "Bakterier saknar maskineriet för splitsning. Man utgår därför från mRNA, där intronerna redan är bortklippta, och kopierar det tillbaka till DNA."
+ },
+ {
+  "question": "Varför klipper man både plasmiden och DNA-biten med genen med samma restriktionsenzym vid genkloning?",
+  "choices": [
+   "Då får alla bitar likadana klibbiga ändar, som kan baspara med varandra",
+   "Annars förstörs genen av enzymet",
+   "Enzymet behövs för att bakterien ska kunna läsa genen",
+   "Samma enzym gör att DNA:t blir positivt laddat"
+  ],
+  "correctIndex": 0,
+  "explanation": "Restriktionsenzymet klipper vid samma sekvens i båda molekylerna och lämnar passande klibbiga ändar, som sedan fogas ihop med DNA-ligas."
+ },
+ {
+  "question": "Vad avgör hur långt en DNA-bit vandrar i en gelelektrofores?",
+  "choices": [
+   "Dess längd: korta bitar tar sig snabbare genom gelen",
+   "Dess sekvens: bitar med mycket A och T vandrar längst",
+   "Vilken organism DNA:t kommer från",
+   "Hur många gener biten innehåller"
+  ],
+  "correctIndex": 0,
+  "explanation": "Alla DNA-bitar är negativt laddade och vandrar mot den positiva polen, men gelen bromsar långa bitar mer än korta."
+ },
+ {
+  "question": "Varför tar DNA-kopieringen stopp när en dideoxinukleotid har fogats in i Sangers metod?",
+  "choices": [
+   "Den saknar den OH-grupp som nästa byggsten ska binda till",
+   "Den förstör DNA-polymeraset",
+   "Den kan inte baspara med mallsträngen",
+   "Den lossnar genast igen och tar strängen med sig"
+  ],
+  "correctIndex": 0,
+  "explanation": "Nästa byggsten binder till en OH-grupp på sockret i den sista byggstenen. Dideoxinukleotiden saknar den, så kedjan kan inte förlängas."
+ },
+ {
+  "question": "Vad bestämmer vilken bit DNA som kopieras i en PCR?",
+  "choices": [
+   "De två primrarna, som binder på var sin sida om den önskade biten",
+   "Temperaturen i maskinen",
+   "Vilket restriktionsenzym man tillsätter",
+   "DNA-polymeraset, som bara känner igen vissa gener"
+  ],
+  "correctIndex": 0,
+  "explanation": "Kopieringen börjar vid primrarna. Efter några cykler dominerar strängar som både börjar och slutar vid primrarna, och deras antal fördubblas i varje cykel."
+ },
+ {
+  "question": "Varför behövs ett värmetåligt DNA-polymeras i PCR?",
+  "choices": [
+   "Varje cykel börjar med uppvärmning till nära 100 °C, som skulle förstöra ett vanligt enzym",
+   "DNA kan bara kopieras vid temperaturer över 100 °C",
+   "Ett värmetåligt enzym gör inga fel",
+   "Primrarna binder bara till värmetåliga enzymer"
+  ],
+  "correctIndex": 0,
+  "explanation": "Strängarna separeras genom upphettning i varje cykel. Ett polymeras från bakterier i heta källor tål det och kan användas genom alla cykler."
+ },
+ {
+  "question": "Vad är det som gör CRISPR-Cas9 lätt att använda på nya ställen i arvsmassan?",
+  "choices": [
+   "Man behöver bara byta guide-RNA:t, som letar upp rätt ställe genom basparning",
+   "Cas9 klipper överallt där det finns sekvensen GAATTC",
+   "Man måste konstruera ett nytt enzym för varje gen",
+   "Cas9 känner själv igen sjuka gener"
+  ],
+  "correctIndex": 0,
+  "explanation": "Enzymet är detsamma; det är guide-RNA:ts sekvens som bestämmer var det klipper, och ett nytt guide-RNA kan beställas för nästan vilken position som helst."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>3.1</strong> Ett protein med 300 aminosyror kan i princip byggas på ett astronomiskt antal sätt. Förklara varför, och varför ändå inte vilken sekvens som helst ger ett fungerande protein.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I varje position kan någon av tjugo aminosyror sitta, så antalet möjligheter är 20 multiplicerat med sig självt 300 gånger, ett tal med omkring 390 siffror. Men för att proteinet ska fungera måste kedjan kunna vecka sig till en bestämd, tätt packad form, där de opolära sidogrupperna hamnar inuti och de polära och laddade på ytan. Det är som ett tredimensionellt pussel, och för många sekvenser finns ingen bra lösning. I naturliga proteiner har evolutionen finslipat ordningsföljden så att pusslet har en bestämd lösning.</p>
+</div>
+</div>
+</div>
+<p><strong>3.2</strong> Jämför hur gener är organiserade hos bakterier och hos människan.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Hos bakterier ligger generna tätt, och omkring 90 procent av DNA:t kodar för protein. Gener som hör ihop sitter ofta i ett operon, styrs av samma promotor och kopieras till ett gemensamt mRNA. Hos människan är generna uppdelade i exoner och introner. Hela genen kopieras till pre-mRNA, och intronerna klipps bort vid splitsningen. Genom alternativ splitsning kan en gen ge flera proteinvarianter. Dessutom finns stora områden mellan generna, så bara omkring 1–2 procent av vårt DNA kodar för protein.</p>
+</div>
+</div>
+</div>
+<p><strong>3.3</strong> Beskriv i stora drag hur man kan få en bakterie att tillverka mänskligt insulin.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Man behöver en DNA-version av den mänskliga insulingenen utan introner, till exempel kopierad från mRNA. Man klipper upp en plasmid och DNA-biten med samma restriktionsenzym, så att de får passande klibbiga ändar. Biten klistras in i plasmiden med DNA-ligas, och den nya plasmiden förs in i bakterier. Om genen sitter bakom rätt startsignaler tillverkar bakterierna insulin, och eftersom bakterierna kan odlas i stora tankar kan man få stora mängder som sedan renas fram.</p>
+</div>
+</div>
+</div>
+<p><strong>3.4</strong> Förklara hur PCR-testet för covid-19 kunde visa om en person var smittad.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ur provet från näsan renade man fram RNA och kopierade det till DNA med omvänt transkriptas, eftersom virusets arvsmassa är RNA. Sedan kördes PCR med primrar som bara passar på virusets arvsmassa. Fanns inget virus hade primrarna inget att binda till, och inget DNA kopierades. Fanns det virus, även bara några få molekyler, fördubblades den önskade biten i varje cykel, och efter några tiotal cykler fanns miljarder kopior som var lätta att upptäcka.</p>
+</div>
+</div>
+</div>
+<p><strong>3.5</strong> På vilket sätt liknar CRISPR-Cas9 ett restriktionsenzym, och vad är den avgörande skillnaden?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Båda är bakterieenzymer som klipper av DNA på ett bestämt ställe, och båda används av bakterier för att försvara sig mot virus. Ett restriktionsenzym känner dock alltid igen samma korta sekvens, och vill man klippa någon annanstans måste man hitta ett annat enzym. Cas9 styrs i stället av ett guide-RNA som letar upp rätt ställe genom basparning. Genom att bara byta guide-RNA kan man därför klippa var man vill i arvsmassan, i nästan vilken organism som helst.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l03-las-mer" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="sec-l03-las-mer"><span class="header-section-number">3.13</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Genteknik">Genteknik</a>, <a href="https://sv.wikipedia.org/wiki/Polymeraskedjereaktion">Polymeraskedjereaktion</a> och <a href="https://sv.wikipedia.org/wiki/CRISPR">CRISPR</a> på svenska Wikipedia.</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2020/popular-information/">Nobelpriset i kemi 2020</a>, populärvetenskaplig beskrivning av gensaxen CRISPR-Cas9 (på engelska).</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/1993/summary/">Nobelpriset i kemi 1993</a> till Kary Mullis för PCR och Michael Smith för riktad mutagenes, och <a href="https://www.nobelprize.org/prizes/chemistry/1980/summary/">Nobelpriset i kemi 1980</a> till bland andra Frederick Sanger för DNA-sekvensering (på engelska).</li>
+<li><a href="https://pdb101.rcsb.org/motm/8">Restriction Enzymes</a> och <a href="https://pdb101.rcsb.org/motm/181">Cascade and CRISPR</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), med bilder av David S. Goodsell.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/02-molekyler-och-reaktioner.html" class="pagination-link" aria-label="Livets molekyler och reaktioner">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/04-enzymer.html" class="pagination-link" aria-label="Enzymer – cellens katalytiska maskineri">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

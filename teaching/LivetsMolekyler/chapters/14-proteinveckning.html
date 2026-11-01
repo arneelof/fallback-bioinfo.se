@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>14&nbsp; Proteiners veckning – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/15-felveckning.html" rel="next">
+<link href="../chapters/13-chaperoner.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/14-proteinveckning.html">Veckning, sjukdom och framtid</a></li><li class="breadcrumb-item"><a href="../chapters/14-proteinveckning.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l14-kedja" id="toc-sec-l14-kedja" class="nav-link active" data-scroll-target="#sec-l14-kedja"><span class="header-section-number">14.1</span> Från kedja till form</a>
+  <ul class="collapse">
+  <li><a href="#sec-l14-anfinsen" id="toc-sec-l14-anfinsen" class="nav-link" data-scroll-target="#sec-l14-anfinsen">Formen finns i sekvensen</a></li>
+  </ul></li>
+  <li><a href="#sec-l14-fett" id="toc-sec-l14-fett" class="nav-link" data-scroll-target="#sec-l14-fett"><span class="header-section-number">14.2</span> Fett dras till fett</a>
+  <ul class="collapse">
+  <li><a href="#sec-l14-stabilitet" id="toc-sec-l14-stabilitet" class="nav-link" data-scroll-target="#sec-l14-stabilitet">Nätt och jämnt stabilt</a></li>
+  <li><a href="#sec-l14-klumpning" id="toc-sec-l14-klumpning" class="nav-link" data-scroll-target="#sec-l14-klumpning">Veckning och klumpning: samma krafter</a></li>
+  </ul></li>
+  <li><a href="#sec-l14-sod1" id="toc-sec-l14-sod1" class="nav-link" data-scroll-target="#sec-l14-sod1"><span class="header-section-number">14.3</span> Ett exempel: SOD1</a></li>
+  <li><a href="#sec-l14-trangsel" id="toc-sec-l14-trangsel" class="nav-link" data-scroll-target="#sec-l14-trangsel"><span class="header-section-number">14.4</span> Cellen: trångt och livligt</a></li>
+  <li><a href="#sec-l14-ytan" id="toc-sec-l14-ytan" class="nav-link" data-scroll-target="#sec-l14-ytan"><span class="header-section-number">14.5</span> Ytan: den bortglömda delen</a></li>
+  <li><a href="#sec-l14-experiment" id="toc-sec-l14-experiment" class="nav-link" data-scroll-target="#sec-l14-experiment"><span class="header-section-number">14.6</span> Ett mänskligt protein i en bakterie</a></li>
+  <li><a href="#sec-l14-lagom" id="toc-sec-l14-lagom" class="nav-link" data-scroll-target="#sec-l14-lagom"><span class="header-section-number">14.7</span> Lagom klibbiga</a></li>
+  <li><a href="#sec-l14-proteom" id="toc-sec-l14-proteom" class="nav-link" data-scroll-target="#sec-l14-proteom"><span class="header-section-number">14.8</span> Proteinytor berättar om livets historia</a></li>
+  <li><a href="#sec-l14-salt" id="toc-sec-l14-salt" class="nav-link" data-scroll-target="#sec-l14-salt"><span class="header-section-number">14.9</span> Hur fysiologisk är “fysiologisk” koksaltlösning?</a>
+  <ul class="collapse">
+  <li><a href="#sec-l14-cytokrom" id="toc-sec-l14-cytokrom" class="nav-link" data-scroll-target="#sec-l14-cytokrom">Ett exempel från andningskedjan</a></li>
+  </ul></li>
+  <li><a href="#sec-l14-halofiler" id="toc-sec-l14-halofiler" class="nav-link" data-scroll-target="#sec-l14-halofiler"><span class="header-section-number">14.10</span> Livet i mättad saltlösning</a></li>
+  <li><a href="#sec-l14-sammanfattning" id="toc-sec-l14-sammanfattning" class="nav-link" data-scroll-target="#sec-l14-sammanfattning"><span class="header-section-number">14.11</span> Sammanfattning</a></li>
+  <li><a href="#sec-l14-nyckelbegrepp" id="toc-sec-l14-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l14-nyckelbegrepp"><span class="header-section-number">14.12</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l14-testa" id="toc-sec-l14-testa" class="nav-link" data-scroll-target="#sec-l14-testa"><span class="header-section-number">14.13</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l14-las-mer" id="toc-sec-l14-las-mer" class="nav-link" data-scroll-target="#sec-l14-las-mer"><span class="header-section-number">14.14</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/14-proteinveckning.html">Veckning, sjukdom och framtid</a></li><li class="breadcrumb-item"><a href="../chapters/14-proteinveckning.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l14" class="quarto-section-identifier"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsningarna 14 och 15, <em>Proteiners veckning</em> och <em>Proteiners felveckning</em>, av Mikael Oliveberg (VT 2026). Det här kapitlet handlar om hur proteiner veckas och hur de klarar sig i cellens trängsel. Sjukdomarna som uppstår när veckningen går fel behandlas i <a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>.</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>förklara varför en kedja av aminosyror veckar sig till en bestämd form, och vad som menas med att “fett dras till fett”,</li>
+<li>förklara varför ett protein bara är nätt och jämnt stabilt, och varför det är viktigt,</li>
+<li>beskriva vilka delar av ett protein som bevaras under evolutionen och vilka som får variera,</li>
+<li>förklara hur proteinernas laddade ytor hindrar dem från att klumpa ihop sig i cellens trängsel,</li>
+<li>ge exempel på hur ett protein påverkas av att flyttas till en annan sorts cell eller till en annan salthalt.</li>
+</ul>
+</div>
+</div>
+<p>Den som har kokat ett ägg har sett proteiner förändras. Äggvitan är från början en klar, trögflytande vätska. Den består till största delen av vatten och protein. När ägget värms upp blir vitan vit och fast, och den blir aldrig klar igen hur länge den än får svalna. Det som har hänt är att proteinerna har förlorat sin form. De har vecklats upp, och de oveckade kedjorna har fastnat i varandra till en enda stor härva. Att ett protein förlorar sin form kallas <strong>denaturering</strong>.</p>
+<p>I en levande cell händer det motsatta hela tiden. Nya proteinkedjor tillverkas, och var och en viker ihop sig till exakt rätt form, ofta på bråkdelen av en sekund. Att kedjan veckas rätt och inte klumpar ihop sig med andra kedjor är inte självklart. I det här kapitlet ska vi se vilka krafter som styr veckningen, varför proteiner är så sköra och hur de lyckas hålla sig lösta i en cell som är mer packad med protein än en äggvita. I <a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a> ser vi vad som händer när det går fel.</p>
+<section id="sec-l14-kedja" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="sec-l14-kedja"><span class="header-section-number">14.1</span> Från kedja till form</h2>
+<p>Det här avsnittet handlar om hur en lång kedja av aminosyror får sin form, och varför formen är så viktig. Först en påminnelse om var kedjan kommer ifrån. Som vi såg i <a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a> och <a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a> innehåller DNA instruktionerna för cellens proteiner. Informationen skrivs först av till RNA och läses sedan av i <strong>ribosomen</strong>, cellens proteinfabrik, som fogar ihop aminosyror en i taget till en lång kedja. Det brukar kallas biologins <strong>centrala dogm</strong>: från DNA via RNA till protein.</p>
+<p>Proteinerna är många och mycket små. Människans arvsmassa innehåller omkring 20 000 gener som beskriver proteiner. Varje celltyp tillverkar många tusen olika proteiner, och ofta mycket många exemplar av varje sort. Ett typiskt protein är bara omkring 5 nanometer stort (en nanometer är en miljondels millimeter). Det betyder att det får plats ungefär 200 000 proteiner i rad på en millimeter.</p>
+<p>En nytillverkad proteinkedja är som ett pärlband av aminosyror, utan någon bestämd form. För att kunna göra sitt jobb måste den vika ihop sig till en bestämd tredimensionell form. Det kallas <strong>veckning</strong> (eng. <em>protein folding</em>). Den färdiga, fungerande formen kallas proteinets <strong>nativa struktur</strong>. Formen avgör vad proteinet kan göra: vilka molekyler det binder, vilka reaktioner det sätter fart på och vilka andra proteiner det samarbetar med. Först när kedjan har veckats och, för många proteiner, fogats ihop med andra kedjor får den sin funktion.</p>
+<section id="sec-l14-anfinsen" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l14-anfinsen">Formen finns i sekvensen</h3>
+<p>Hur vet kedjan vilken form den ska ha? Svaret kom på 1950- och 60-talen genom försök av den amerikanske biokemisten Christian Anfinsen (<a href="#fig-l14-anfinsen-foto" class="quarto-xref">Figur&nbsp;<span>14.1</span></a>). Han arbetade med ett renat enzym, <strong>ribonukleas</strong>, som bryter ned RNA. Enzymets kedja hålls ihop av fyra <strong>disulfidbryggor</strong>, starka bindningar mellan två svavelatomer i aminosyran cystein. Med urea, ett ämne som får proteiner att veckla upp sig, och merkaptoetanol, som bryter disulfidbryggorna, fick han enzymet att förlora sin form. Det slutade då att fungera. När han sedan försiktigt tog bort kemikalierna veckade sig kedjorna tillbaka av sig själva, bryggorna bildades mellan rätt cysteiner, och enzymet blev aktivt igen.</p>
+<p>Slutsatsen var att det inte behövdes någon ritning utöver själva kedjan: <strong>informationen om formen finns i ordningen mellan aminosyrorna</strong>, i proteinets sekvens (<a href="#fig-l14-anfinsen" class="quarto-xref">Figur&nbsp;<span>14.2</span></a>). Anfinsen fick Nobelpriset i kemi 1972 för upptäckten.</p>
+<div id="fig-l14-anfinsen-foto" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-anfinsen-foto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/anfinsen.jpg" class="img-fluid figure-img" style="width:30.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-anfinsen-foto-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.1: Christian B. Anfinsen (1916–1995), fotograferad 1969 vid National Institutes of Health i USA, där han gjorde sina försök med ribonukleas. Bild: Edward A. Hubbard, National Institutes of Health, allmän egendom.
+</figcaption>
+</figure>
+</div>
+<div id="fig-l14-anfinsen" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-anfinsen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/anfinsen-forsok.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-anfinsen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.2: Anfinsens försök i principskiss. Det veckade enzymet (1) hålls ihop av fyra disulfidbryggor mellan cysteiner (gula). Med urea och merkaptoetanol vecklas kedjan upp och bryggorna bryts (2). När kemikalierna tas bort veckar sig kedjan tillbaka till samma form, med bryggorna mellan rätt cysteiner, och enzymet fungerar igen (3). Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Att formen finns i sekvensen gör att forskare i dag kan förutsäga ett proteins form från dess sekvens med datorprogram, något vi återkommer till i <a href="16-ai-och-proteiner.html" class="quarto-xref"><span>Kapitel 16</span></a>.</p>
+<p>Men om formen finns i sekvensen, hur hittar kedjan den så snabbt? Ett tankeexperiment visar att veckningen är en bedrift. En kedja med hundra aminosyror kan i princip anta ett ofattbart stort antal former. Om kedjan skulle pröva dem en i taget skulle det ta längre tid än universums ålder att hitta rätt. I verkligheten tar det millisekunder till sekunder. Motsägelsen brukar kallas <strong>Levinthals paradox</strong>, efter den amerikanske molekylärbiologen Cyrus Levinthal, som formulerade den 1969.</p>
+<p>Lösningen är att kedjan inte provar allt. Den glider stegvis mot former med allt lägre energi, ungefär som vatten som rinner nedför en sluttning mot en dalbotten. Bilden brukar ritas som en tratt (<a href="#fig-l14-tratt" class="quarto-xref">Figur&nbsp;<span>14.3</span></a>).</p>
+<div id="fig-l14-tratt" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-tratt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/veckningstratt.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-tratt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.3: Veckningstratten. Den svarta kurvan är ett snitt genom tratten, och höjden anger energin (<em>energy</em>). Högst upp finns den oveckade kedjan (<em>unfolded</em>) med sina ofattbart många möjliga former; att tratten är bred där visar hur många de är (<em>entropy</em>, entropi, ett mått på oordning). På vägen nedåt passerar kedjan ofta en lös mellanform, en så kallad <em>molten globule</em>, där en del av strukturen redan finns men inte är tätt packad. Längst ned finns den veckade formen (<em>native state</em>) med lägst energi. De små gropar som kurvan har längs väggarna visar att kedjan kan fastna en stund på vägen. Bild: Thomas Splettstoesser (www.scistyle.com), Wikimedia Commons, CC BY-SA 3.0.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-l14-fett" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="sec-l14-fett"><span class="header-section-number">14.2</span> Fett dras till fett</h2>
+<p>Vad är det då som driver veckningen? Den viktigaste kraften är densamma som gör att oljedroppar i en soppa flyter ihop till större droppar. För att se varför måste man veta att de tjugo aminosyrorna är olika. Några är <strong>vattenälskande</strong> (<em>hydrofila</em>): de är laddade eller har grupper som gärna binder till vatten. Andra är <strong>vattenskygga</strong> (<em>hydrofoba</em>), feta och oljiga, och trivs inte i vatten.</p>
+<p>När kedjan veckar sig samlas de vattenskygga aminosyrorna i mitten och bildar en tät, oljig <strong>kärna</strong>, skyddad från vattnet, precis som oljan i soppan samlas i droppar. De vattenälskande hamnar på ytan, där de har kontakt med vattnet runt omkring (<a href="#fig-l14-veckning" class="quarto-xref">Figur&nbsp;<span>14.4</span></a>).</p>
+<p>Det finns också en andra regel. En kort sammanfattning av veckningens fysik är: <em>fett dras till fett, och vätebindningarna ska matcha</em>. Med vätebindningar menas svaga bindningar mellan väteatomer och syre- eller kväveatomer. Att de ska matcha betyder att kedjans egna vätebindningar ska para ihop sig med varandra när kedjan veckas. Det sker i regelbundna mönster: spiraler (<em>alfahelixar</em>) och plana flak (<em>betaflak</em>).</p>
+<div id="fig-l14-veckning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-veckning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/veckning.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-veckning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.4: När en proteinkedja veckar sig samlas de vattenskygga aminosyrorna (orange) i en kärna i mitten, medan de vattenälskande (blå) hamnar på ytan mot vattnet. Kedjan pendlar mellan oveckat tillstånd (D) och veckat tillstånd (N), men nästan hela tiden är den veckad. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l14-stabilitet" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l14-stabilitet">Nätt och jämnt stabilt</h3>
+<p>Ett veckat protein är inte stelt och evigt. Det hålls ihop av många svaga bindningar, och den sammanlagda vinsten med att vara veckad är förvånansvärt liten. Proteinkedjan pendlar därför fram och tillbaka mellan veckat tillstånd, som brukar betecknas <strong>N</strong> (av eng. <em>native</em>), och oveckat (denaturerat) tillstånd, <strong>D</strong> (av eng. <em>denatured</em>). Det är en <strong>jämvikt</strong>, precis som en kemisk reaktion som kan gå åt båda hållen: hela tiden vecklas några molekyler upp medan andra veckas ihop igen.</p>
+<p>Proteinets <strong>stabilitet</strong> beskriver hur förskjuten jämvikten är, det vill säga hur många molekyler som är veckade för varje molekyl som är oveckad. För ett typiskt protein är bara en mycket liten andel oveckad i varje ögonblick, ofta en på många tusen eller miljoner. Men andelen är aldrig noll, och den ändras lätt. Värme skjuter jämvikten mot det oveckade tillståndet, vilket är vad som händer i det kokta ägget. En enda förändrad aminosyra, en <strong>mutation</strong>, kan också göra ett protein mindre stabilt så att en större andel av molekylerna är oveckade.</p>
+<p>Varför har evolutionen inte gjort proteinerna stabilare? En förklaring är att proteinerna behöver vara rörliga för att fungera; ett enzym måste kunna ändra form lite när det arbetar. En annan är att det inte finns något evolutionärt tryck mot mer stabilitet än vad som behövs: så länge proteinet klarar sitt jobb under organismens livstid finns det ingen fördel med att vara stabilare. Resultatet är att de flesta proteiner balanserar på gränsen. Det är viktigt, eftersom det är de oveckade molekylerna som kan ställa till problem. Hur det går till är ämnet för nästa avsnitt, och för <a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>.</p>
+</section>
+<section id="sec-l14-klumpning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l14-klumpning">Veckning och klumpning: samma krafter</h3>
+<p>De krafter som får en kedja att vecka sig kan också få kedjor att fastna i varandra. När ett protein är oveckat ligger dess vattenskygga delar öppna mot vattnet. Då kan de lika gärna dra sig mot de vattenskygga delarna på en <em>annan</em> oveckad kedja som mot sina egna. Resultatet blir då inte ett veckat protein, utan en klump av flera kedjor, ett <strong>aggregat</strong>.</p>
+<p>Veckning och <strong>aggregering</strong>, att kedjor klumpar ihop sig till aggregat, är två sidor av samma fenomen. Klumparna behöver inte vara oordnade. Samma krafter kan under rätt förutsättningar bygga upp långa, regelbundna strukturer, ungefär som när vattenmolekyler ordnar sig till iskristaller på en fönsterruta en kall morgon. På samma sätt kan proteiner bilda kristaller i ett provrör (<a href="#fig-l14-kristaller" class="quarto-xref">Figur&nbsp;<span>14.5</span></a>), och ibland långa, tunna <strong>fibrer</strong>. Det är sådana fibrer som byggs upp vid sjukdomar som Alzheimers och ALS (<a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>).</p>
+<p>Eftersom en liten andel av kedjorna alltid är oveckad, har cellen ett eget skyddssystem mot felveckning: <strong>chaperoner</strong> (eng. <em>chaperones</em>), hjälpproteiner som tar hand om felveckade kedjor och hjälper dem att vecka sig rätt, eller ser till att de bryts ned. De beskrivs närmare i <a href="13-chaperoner.html" class="quarto-xref"><span>Kapitel 13</span></a>.</p>
+<div id="fig-l14-kristaller" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-kristaller-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figs/L14/iskristaller.jpg" class="img-fluid figure-img"></p>
+<figcaption>Iskristaller på en fönsterruta. Bild: Jojoo64, Wikimedia Commons, CC BY-SA 4.0.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figs/L14/proteinkristaller.jpg" class="img-fluid figure-img"></p>
+<figcaption>Proteinkristaller i mikroskop. Bild: CSIRO, Wikimedia Commons, CC BY 3.0.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-kristaller-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.5: Samma sorts krafter som ordnar vattenmolekyler till iskristaller (vänster) kan ordna proteinmolekyler till kristaller (höger), där miljontals likadana molekyler ligger i ett regelbundet mönster. Sådana kristaller används för att bestämma proteiners struktur (<a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>).
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-l14-sod1" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="sec-l14-sod1"><span class="header-section-number">14.3</span> Ett exempel: SOD1</h2>
+<p>Ett enskilt protein kan visa vilka delar av ett protein som är viktiga och vilka som får variera. Vi använder ett protein som återkommer i både det här och nästa kapitel: <strong>SOD1</strong>, eller koppar-zink-superoxiddismutas (<a href="#fig-l14-sod1" class="quarto-xref">Figur&nbsp;<span>14.6</span></a>). Det är ett enzym som skyddar cellen mot syreradikaler. När cellen använder syre för att utvinna energi ur maten bildas av misstag små mängder <strong>superoxid</strong>, en syremolekyl med en extra elektron. Superoxid är mycket reaktiv och kan skada DNA, proteiner och membran. SOD1 omvandlar superoxid till syre och väteperoxid, som andra enzymer sedan bryter ned till vatten. Därför kallas SOD1 ibland en “radikalätare”.</p>
+<div id="fig-l14-sod1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-sod1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/sod1-goodsell.jpg" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-sod1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.6: Koppar-zink-superoxiddismutas (SOD1) består av två likadana kedjor (gul och röd). Varje kedja binder en kopparjon och en zinkjon (de små kulorna), som behövs för att enzymet ska fungera. Strukturen kommer här från nötkreatur, men människans SOD1 är mycket lik. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Varje SOD1-kedja består av 153 aminosyror, och två kedjor sitter ihop till ett par. SOD1 finns hos många arter, från svampar till människor. Om man jämför dem och undersöker vilka aminosyror som är lika och vilka som skiljer sig, ser man ett tydligt mönster:</p>
+<ul>
+<li><strong>De aminosyror som binder metallerna</strong> är helt <em>konserverade</em>, det vill säga desamma hos alla arter. Det är framför allt aminosyran histidin, som griper tag i koppar- och zinkjonerna. Utan dem fungerar inte enzymet, och varje förändring har tydligen sorterats bort av det naturliga urvalet.</li>
+<li><strong>De vattenskygga aminosyrorna i kärnan</strong> är ganska konserverade. De kan bytas mot andra vattenskygga aminosyror, men kärnan måste förbli oljig för att proteinet ska vecka sig.</li>
+<li><strong>De vattenälskande aminosyrorna på ytan</strong> är <em>okonserverade</em>. De skiljer sig mycket mellan arterna och verkar vara fria att variera.</li>
+</ul>
+<p>Konserverade aminosyror är på så sätt ett fingeravtryck. De visar vilka delar av ett protein som är viktiga för dess uppgift, och de kan användas för att känna igen proteiner med samma funktion i olika organismer.</p>
+<p>Skillnaderna mellan arterna berättar dessutom om släktskap: ju fler skillnader, desto längre sedan arterna hade en gemensam förfader. Det är samma tanke som Charles Darwin skissade i sin anteckningsbok 1837, med orden “I think” ovanför ett förgrenat släktträd (<a href="#fig-l14-darwin" class="quarto-xref">Figur&nbsp;<span>14.7</span></a>). I dag kan släktträd byggas från proteinsekvenser.</p>
+<div id="fig-l14-darwin" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-darwin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/darwin-trad.jpg" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-darwin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.7: En sida ur Charles Darwins anteckningsbok från 1837, med orden “I think” (jag tror) överst. Släktträdet förgrenar sig från en gemensam förfader (1). Under skissen skriver Darwin att B och C är närmast släkt, B och D lite mindre, och A och B minst. Bild: Charles Darwin, Wikimedia Commons, allmän egendom.
+</figcaption>
+</figure>
+</div>
+<p>Men frågan som det här kapitlet kretsar kring är en annan. Det mesta av ett proteins yta är “okonserverat”. Betyder det att ytan saknar betydelse? För att svara på det måste vi först titta på hur det ser ut där proteinerna lever: inuti cellen.</p>
+</section>
+<section id="sec-l14-trangsel" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="sec-l14-trangsel"><span class="header-section-number">14.4</span> Cellen: trångt och livligt</h2>
+<p>Proteinernas miljö är cellen, och den är både liten och mycket trång. Det är trängseln som gör proteinernas yta viktig.</p>
+<p>Celler är små. En bakterie är oftast en eller ett par mikrometer lång (en mikrometer är en tusendels millimeter), så att flera hundra bakterier får plats i rad på en millimeter. Våra egna celler är tio till hundra gånger större. Det finns också jätteceller: gulan i ett strutsägg är en enda cell. Den <strong>eukaryota</strong> cellen, alltså en cell med cellkärna som våra egna, kan liknas vid en påse som är fylld med mindre, ihopknycklade påsar, nämligen cellkärnan, mitokondrierna och de andra membranomslutna utrymmena (<a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>).</p>
+<p>Inuti påsarna är det trångt. I en bakterie som <em>E. coli</em> finns 300–400 milligram protein per milliliter, ungefär lika tjockt som en fruktyoghurt (<a href="13-chaperoner.html" class="quarto-xref"><span>Kapitel 13</span></a>). Det är tre till fyra gånger så mycket som i en äggvita. Avståndet mellan två proteiners mittpunkter är i genomsnitt bara omkring 6 nanometer. Mellan deras ytor återstår då bara ett par nanometer. Proteinerna stöter därför hela tiden i varandra. Goodsells målning av en bakterie i <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a> ger en bra känsla för hur tätt det är.</p>
+<p>Man kan se på en cell på två sätt. Det ena är den bild som en lärobok eller ett läkemedelsbolag ofta har: en karta över tusentals bestämda kemiska reaktioner, där varje reaktion sköts av ett särskilt enzym och där varje protein har sin bestämda partner, som i en fabrik där varje maskin har sin plats. Ett läkemedel ska då träffa ett utvalt protein i kartan. Den bilden visar sällan trängseln. I populära animationer, som filmen <em>The Inner Life of the Cell</em> (<a href="07-biomembran.html#sec-l07-filmen" class="quarto-xref"><span>Avsnitt 7.9</span></a>), går till exempel motorproteinet kinesin längs cellens skelett och bär last genom en nästan tom cell.</p>
+<p>Den andra bilden är lika sann: cellen är en trängsel där allt hela tiden knuffas och rör sig slumpvis, helt “fullknökad”, som i Goodsells målning. Varje protein måste, mitt i trängseln, hitta just sina partner bland tusentals andra sorters molekyler utan att fastna i alla de andra. Det är i den bilden som proteinets yta blir viktig.</p>
+</section>
+<section id="sec-l14-ytan" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="sec-l14-ytan"><span class="header-section-number">14.5</span> Ytan: den bortglömda delen</h2>
+<p>Nu kan vi återvända till frågan om proteinets yta. Det som gör ytan viktig i cellens trängsel är framför allt dess elektriska laddningar.</p>
+<p>En stor del av aminosyrorna på ett proteins yta är laddade. Några är positiva och några negativa. Laddningar fungerar ungefär som magneter: lika laddningar stöter bort varandra, och olika laddningar drar till sig varandra. Summan av alla laddningar kallas proteinets <strong>nettoladdning</strong>. SOD1 har till exempel 38 negativa och 28 positiva laddningar på sin yta, vilket ger en nettoladdning på minus 10.</p>
+<p>Ser man på cellen som helhet framträder en grundprincip: <strong>nästan allt inuti cellen är negativt laddat</strong> (<a href="#fig-l14-cell" class="quarto-xref">Figur&nbsp;<span>14.8</span></a>). Membranens insida, som vetter mot cellens inre, är negativt laddad, DNA och RNA är kraftigt negativa, och de flesta proteiner har en negativ nettoladdning. Eftersom allt är negativt stöter allt bort allt annat lite grand. Den ömsesidiga repulsionen hindrar proteinerna från att klumpa ihop sig, och den håller cellens innehåll i lösning.</p>
+<div id="fig-l14-cell" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-cell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/negativ-cell.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-cell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.8: Inuti en cell är nästan allt negativt laddat: membranet, DNA och RNA, och de flesta proteiner. Den ömsesidiga repulsionen håller allt i lösning. Undantaget är proteiner som ska binda till DNA eller RNA. De är positivt laddade, så att de dras till de negativa nukleinsyrorna. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Det finns ett viktigt undantag. Proteiner som ska binda till DNA eller RNA är ofta positivt laddade, så att de dras till de negativa nukleinsyrorna. Hit hör till exempel de proteiner som DNA lindas kring i cellkärnan och många av ribosomens proteiner. Undantaget visar att laddningen inte är slumpmässig, utan anpassad efter var proteinet ska vara.</p>
+<p>Det ger svaret på frågan från förra avsnittet. Proteinets yta är inte betydelselös, även om enskilda aminosyror får variera. Det som spelar roll är inte vilken exakt aminosyra som sitter var, utan ytans samlade egenskaper: hur laddad den är och hur vattenälskande den är.</p>
+<p>Ytans laddning har också betydelse för sjukdom. Bland de mutationer i SOD1 som ger den ärftliga formen av ALS finns påfallande många som minskar proteinets negativa nettoladdning. Redan en enda laddning mindre kan göra skillnad. Vi återkommer till det i <a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>.</p>
+</section>
+<section id="sec-l14-experiment" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="sec-l14-experiment"><span class="header-section-number">14.6</span> Ett mänskligt protein i en bakterie</h2>
+<p>Hur känner ett protein av sin omgivning, och vad händer om det flyttas till en främmande cell? Det har Mikael Olivebergs forskargrupp undersökt med ett elegant försök. Tanken var att jämföra proteiner som har samma uppgift men kommer från helt olika organismer. Båda är små proteiner som binder och transporterar koppar: det ena kommer från en värmeälskande bakterie (<em>Thermus thermophilus</em>), det andra från människa. För att bara studera ytans betydelse tog man bort den del som binder koppar. Som ett tredje testprotein användes en “naken” variant av SOD1, där bara proteinets grundstomme fanns kvar.</p>
+<p>Proteinerna fick sedan tillverkas inuti levande celler, både bakterieceller och mänskliga celler. Med en teknik som kallas <strong>NMR</strong> (kärnmagnetisk resonans, samma fysik som i sjukhusens magnetkameror, se <a href="06-enskilda-molekyler.html#sec-l06-nmr" class="quarto-xref"><span>Avsnitt 6.10.3</span></a>) kan man mäta hur fritt ett protein roterar inne i cellen. Ett protein som snurrar fritt ger skarpa signaler. Ett protein som fastnar på andra molekyler roterar långsamt, och då suddas signalerna ut.</p>
+<p>Resultatet i bakterien <em>E. coli</em> var tydligt:</p>
+<ul>
+<li>Bakterieproteinet rörde sig relativt fritt.</li>
+<li>Det mänskliga proteinet “fastnade”. Det trivdes inte i bakterien.</li>
+<li>När en enda aminosyra på ytan av det mänskliga proteinet byttes ut, en positivt laddad aminosyra (lysin) mot en negativt laddad (glutamat) på samma plats som bakterieproteinet har en negativ, började det mänskliga proteinet röra sig nästan lika fritt som bakterieproteinet.</li>
+</ul>
+<p>En enda laddning på ytan räckte alltså för att ändra hur proteinet trivdes i cellen. När man gjorde samma sak med många varianter av proteinerna, med olika laddningar och olika mycket vattenälskande ytor, framträdde en sorts fysikalisk-kemisk kod för hur rörligt ett protein är inne i en cell. Ju mer negativt laddad och ju mer vattenälskande ytan var, desto friare rörde sig proteinet. Slutsatserna kan sammanfattas så här:</p>
+<ol type="1">
+<li>Ett protein rör sig “bäst” i den sorts cell där det har utvecklats. Men det kan lätt anpassas till en ny miljö med en eller några få mutationer på ytan.</li>
+<li>Det verkar finnas en optimal rörlighet som cellen strävar efter: inte för klibbig, men inte heller helt oberörd av omgivningen.</li>
+</ol>
+</section>
+<section id="sec-l14-lagom" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="sec-l14-lagom"><span class="header-section-number">14.7</span> Lagom klibbiga</h2>
+<p>Varför skulle cellen vilja att proteinerna är just lagom klibbiga? Tänk på hur ett protein hittar sin partner. Om det bara studsade runt tills det råkade träffa partnern med exakt rätt sida först, skulle det ta lång tid. I stället bildar två proteiner ofta ett <strong>kortlivat möte</strong> (eng. <em>transient encounter</em>). De stannar ihop en kort stund och glider runt på varandras ytor, ungefär som när man trevar efter en strömbrytare i mörkret. Om de passar ihop hittar de rätt läge och binder fast. Om inte, släpper de och fortsätter.</p>
+<p>Vad är det som gör ett protein lagom klibbigt? Två krafter verkar mellan proteinerna (<a href="#fig-l14-krafter" class="quarto-xref">Figur&nbsp;<span>14.9</span></a>). Den ena är den elektriska repulsionen mellan lika laddningar, som når en bit ut från proteinet och håller proteinerna isär. Den andra är svaga attraktionskrafter som bara verkar på mycket korta avstånd, mindre än en halv nanometer, när ytorna nästan rör vid varandra. Där verkar också de specifika kontakter som avgör om två proteiner passar ihop.</p>
+<div id="fig-l14-krafter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-krafter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/krafter.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-krafter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.9: Energin mellan två proteiner som funktion av avståndet mellan deras ytor (principskiss). Långt ifrån varandra stöter de bort varandra svagt (röd streckad linje) på grund av sina lika laddningar. Mycket nära dras de ihop (grön streckad linje). Summan (svart linje) ger en låg tröskel, som proteinerna lätt kan ta sig över för en kort stund. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>För att komma riktigt nära varandra måste två proteiner först ta sig förbi den svaga repulsionen. Tillsammans ger de två krafterna därför en låg tröskel. Proteinerna är lösta, men bara nätt och jämnt, på samma sätt som deras veckade form bara är nätt och jämnt stabil (<a href="#sec-l14-stabilitet" class="quarto-xref"><span>Avsnitt 14.2.1</span></a>). Fysiker kallar det <strong>marginell kolloidal stabilitet</strong>. En kolloid är en vätska med små partiklar som svävar fritt utan att sjunka eller klumpa ihop sig. Mjölk är ett vardagsexempel.</p>
+<p>Att stabiliteten är marginell har en stor fördel: proteinerna kan utan större kostnad komma nära varandra och “känna på” varandras ytor. Därmed blir ytans detaljerade sammansättning avgörande för vilka möten som leder till bindning. Samtidigt betyder det att små förändringar av ytan, som en enda mutation, kan tippa balansen åt ett klibbigare håll.</p>
+</section>
+<section id="sec-l14-proteom" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="sec-l14-proteom"><span class="header-section-number">14.8</span> Proteinytor berättar om livets historia</h2>
+<p>Om proteinernas ytor är anpassade till cellen de lever i, borde man kunna se spår av det när man jämför olika organismer. I dag finns arvsmassan för tusentals arter kartlagd. För varje art kan man räkna fram två enkla egenskaper för alla dess proteiner: deras <strong>genomsnittliga storlek</strong> och deras <strong>genomsnittliga laddning per ytenhet</strong>.</p>
+<p>När varje organism placeras som en punkt i ett diagram med de två egenskaperna på axlarna sorterar sig livet i tydliga grupper. Livets tre stora grenar hamnar i olika områden: bakterierna, eukaryoterna och arkéerna, som liknar bakterier till utseendet men är en egen gren av livet. Eukaryoterna har i genomsnitt större proteiner. Några grupper sticker ut särskilt:</p>
+<ul>
+<li><strong>Salttåliga arkéer</strong> som lever i nästan mättad saltlösning har ovanligt starkt negativt laddade proteiner. Vi återkommer till dem i slutet av kapitlet.</li>
+<li><strong>Bakterier med positivt laddade proteiner</strong> är ofta bakterier som lever inuti andra organismers celler, till exempel i insekter som cikador och bladlöss. De har små arvsmassor med en stor andel proteiner som binder DNA och RNA, och sådana proteiner är, som vi såg, ofta positivt laddade. På det sättet påminner de om mitokondrierna, som en gång var fritt levande bakterier.</li>
+<li>Bland eukaryoterna har malariaparasiten ovanligt stora proteiner.</li>
+<li>En tidigare okänd grupp arkéer, som bara är känd från DNA i miljöprover insamlade runt om i världen, bildar en egen “mystisk” grupp. Vi återkommer också till den.</li>
+</ul>
+<p>Mönstret syns också på finare nivåer, inom stammar och klasser. Två enkla siffror räcker därmed för att säga något om en organisms släktskap och om vilken miljö den lever i.</p>
+</section>
+<section id="sec-l14-salt" class="level2" data-number="14.9">
+<h2 data-number="14.9" class="anchored" data-anchor-id="sec-l14-salt"><span class="header-section-number">14.9</span> Hur fysiologisk är “fysiologisk” koksaltlösning?</h2>
+<p>Proteinernas laddningar och salthalten runt dem har praktisk betydelse för hur forskare gör sina försök. Det mesta vi vet om proteiner kommer från försök i provrör. Sedan prövas resultaten i celler, och till sist i hela organismer, till exempel i möss som bär på en mänsklig ALS-mutation (<a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>). Men beter sig ett protein likadant i alla tre miljöerna?</p>
+<p>I provröret löser forskare oftast sina proteiner i så kallad <strong>fysiologisk koksaltlösning</strong>, 0,9 procent koksalt i vatten. Det är samma lösning som används i dropp på sjukhus, och den har samma salthalt som blodet. Den innehåller lika mycket positiva natriumjoner som negativa kloridjoner.</p>
+<p>Joner i en lösning <strong>skärmar av</strong> elektriska krafter. Runt varje laddat protein samlas joner med motsatt laddning, som en dämpande dimma. Ju mer salt det finns, desto tätare blir dimman, och desto kortare blir den sträcka som laddningarna verkar över. I fysiologisk koksaltlösning når laddningarna bara knappt en nanometer.</p>
+<p>Inuti en cell är det annorlunda. Cellen innehåller ungefär lika mycket positiva joner som blodet, framför allt kalium. Men den har få fria kloridjoner. En stor del av de negativa motparterna är i stället laddningar som sitter fast på proteinerna, på DNA och RNA och på membranen, och de dämpar inte de elektriska krafterna lika mycket som fria joner. Därför når de elektriska krafterna ungefär dubbelt så långt i en bakteriecell, drygt två nanometer, som i fysiologisk koksaltlösning (<a href="#fig-l14-skarmning" class="quarto-xref">Figur&nbsp;<span>14.10</span></a>).</p>
+<p>Skillnaden är viktig, eftersom det som vi såg bara är ett par nanometer mellan grannproteinernas ytor i cellen. I cellen når varje proteins laddningar därför precis fram till grannarna. I fysiologisk koksaltlösning gör de det inte. “Fysiologisk” koksaltlösning är med andra ord inte så fysiologisk när det gäller hur proteiner känner av varandra.</p>
+<p>Det har betydelse också för läkemedel. Ett ämne som binder bra till sitt målprotein i ett provrör med koksaltlösning kan bete sig annorlunda i cellens trängsel, där laddningarna når längre.</p>
+<div id="fig-l14-skarmning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-skarmning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/skarmning.svg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-skarmning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.10: Salt dämpar elektriska krafter. I fysiologisk koksaltlösning (vänster) når proteinernas laddningar knappt en nanometer ut. I en bakteriecell (höger) finns färre fria joner, och laddningarna når ungefär dubbelt så långt. Siffrorna är ungefärliga. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l14-cytokrom" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l14-cytokrom">Ett exempel från andningskedjan</h3>
+<p>Hur långt de elektriska krafterna når kan avgöra hur proteiner samarbetar. Ett exempel är andningskedjan i mitokondrierna, som vi mötte i <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a> och <a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a>. Där bär ett litet protein, <strong>cytokrom c</strong>, elektroner mellan två stora proteinkomplex. Försök med mitokondrier från jäst tyder på att cytokrom c inte alltid simmar fritt mellan komplexen. I stället kan det glida längs ytan på de sammansatta komplexen, som på en räls, hållet på plats av svaga elektriska krafter.</p>
+<p>Rälsen fungerar bara om krafterna når tillräckligt långt. När forskarna mätte hur snabbt elektronerna fördes vidare syntes “rälsen” bara när de elektriska krafterna fick nå ungefär lika långt som i en cell, omkring två nanometer. Då ökade hastigheten brant när det fanns tillräckligt med cytokrom c.&nbsp;Vid en salthalt som i fysiologisk koksaltlösning, där krafterna bara når knappt en nanometer, försvann effekten.</p>
+</section>
+</section>
+<section id="sec-l14-halofiler" class="level2" data-number="14.10">
+<h2 data-number="14.10" class="anchored" data-anchor-id="sec-l14-halofiler"><span class="header-section-number">14.10</span> Livet i mättad saltlösning</h2>
+<p>Det finns organismer som lever på gränsen till det omöjliga. I saltdammar, saltsjöar och vid saltutvinning vid havet kan vattnet bli så salt att saltet börjar falla ut som kristaller. Där lever <strong>halofiler</strong> (av grekiskans “salt” och “vän”), framför allt arkéer som <em>Halobacterium salinarum</em> (<a href="#fig-l14-halobacterium" class="quarto-xref">Figur&nbsp;<span>14.12</span></a>), som vi mötte i <a href="08-membranproteiner.html#sec-l08-bakteriorodopsin" class="quarto-xref"><span>Avsnitt 8.2</span></a>, och den märkliga, fyrkantiga <em>Haloquadratum walsbyi</em>. De färgar ofta vattnet rosa eller rött (<a href="#fig-l14-saltdammar" class="quarto-xref">Figur&nbsp;<span>14.11</span></a>). Inne i cellerna har de lika hög salthalt som utanför, men med kalium i stället för natrium.</p>
+<div id="fig-l14-saltdammar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-saltdammar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/saltdammar.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-saltdammar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.11: Saltdammar vid Salin-de-Giraud i Rhônedeltat i södra Frankrike, fotograferade från en satellit. Dammarnas rosa och orange färg kommer från salttåliga mikroorganismer, bland annat arkéer, som trivs när vattnet blivit mycket salt. Bild: NASA Earth Observatory (Landsat), allmän egendom.
+</figcaption>
+</figure>
+</div>
+<div id="fig-l14-halobacterium" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l14-halobacterium-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L14/halobacterium.png" class="img-fluid figure-img" style="width:35.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l14-halobacterium-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;14.12: Arkén <em>Halobacterium salinarum</em> sedd i svepelektronmikroskop. Den lever i nästan mättad saltlösning. Den vita linjen motsvarar 270 nanometer. Bild: Helga Stan-Lotter och Sergiu Fendrihan, Wikimedia Commons, CC BY-SA 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Halofilerna är en gåta för teorin om hur salt skärmar av laddningar. Som vi såg blir de elektriska krafternas räckvidd kortare ju mer salt det finns. Vid så höga salthalter borde krafterna vara helt utsläckta, och då skulle proteinerna inte längre stöta bort varandra. Ändå har halofilernas proteiner, som vi såg, extremt många negativa laddningar.</p>
+<p>Hur halofilerna klarar sig är än så länge en öppen fråga. De visar hur långt man kan komma från en så enkel fråga som hur ett protein känner av sin omgivning.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: en ledtråd från mycket salta lösningar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>En ledtråd kommer från fysiken bakom mycket koncentrerade saltlösningar. När jonerna blir så många att de trängs, börjar de ordna sig i förhållande till varandra, och då uppstår elektriska effekter med längre räckvidd igen. De elektriska krafternas räckvidd blir alltså kortast vid en mellanliggande salthalt, något högre än havets, och längre igen vid både lägre och högre halter.</p>
+<p>Vid just den salthalten finns det ett glapp när man ser på hur organismernas proteinladdningar fördelar sig. De salttåliga arkéerna ligger på ena sidan, nästan alla andra organismer på den andra, och mycket få organismer finns däremellan. De få som finns där tycks vara just den “mystiska” gruppen arkéer som bara är känd från DNA i miljöprover. Glappet har lett till spekulationer om att den mellanliggande salthalten fungerar som en sorts elektrisk barriär, som det är svårt för en organism att utvecklas över. Kanske kan det också säga något om hur salta haven var när livet uppstod, och om livets sista gemensamma förfader. Det är än så länge öppna frågor.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l14-sammanfattning" class="level2" data-number="14.11">
+<h2 data-number="14.11" class="anchored" data-anchor-id="sec-l14-sammanfattning"><span class="header-section-number">14.11</span> Sammanfattning</h2>
+<ul>
+<li>En proteinkedja veckar sig av sig själv till en bestämd form. Formen bestäms av ordningen mellan aminosyrorna, och formen avgör vad proteinet kan göra.</li>
+<li>Den viktigaste drivkraften är att “fett dras till fett”: de vattenskygga aminosyrorna samlas i en kärna, och de vattenälskande hamnar på ytan.</li>
+<li>Ett protein är bara nätt och jämnt stabilt. Det pendlar mellan veckat och oveckat tillstånd, och värme eller en mutation kan förskjuta balansen. Samma krafter som ger veckning kan också få kedjor att klumpa ihop sig.</li>
+<li>Aminosyror som är viktiga för funktionen, som de som binder metaller i SOD1, är konserverade mellan arter. Ytan varierar mer, men dess samlade laddning är viktig.</li>
+<li>Inuti cellen är det mycket trångt, och nästan allt är negativt laddat. Den ömsesidiga repulsionen håller proteinerna lösta. Proteinerna är lagom klibbiga, så att de kan mötas kort och hitta rätt partner.</li>
+<li>Ett protein trivs bäst i den cell där det utvecklats, men en enda mutation på ytan kan räcka för att anpassa det till en ny cell.</li>
+<li>Salt dämpar elektriska krafter. I cellen når krafterna ungefär dubbelt så långt som i fysiologisk koksaltlösning, och salttåliga arkéer visar att det finns mycket kvar att förstå.</li>
+</ul>
+</section>
+<section id="sec-l14-nyckelbegrepp" class="level2" data-number="14.12">
+<h2 data-number="14.12" class="anchored" data-anchor-id="sec-l14-nyckelbegrepp"><span class="header-section-number">14.12</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>veckning</strong> – Den process där en nytillverkad proteinkedja viker ihop sig till sin bestämda tredimensionella form (eng. protein folding).</li>
+<li><strong>nativ struktur</strong> – Ett proteins färdiga, fungerande form.</li>
+<li><strong>hydrofob</strong> – Vattenskygg. Hydrofoba aminosyror samlas i proteinets inre när kedjan veckar sig.</li>
+<li><strong>hydrofil</strong> – Vattenälskande. Hydrofila aminosyror är ofta laddade och hamnar på proteinets yta.</li>
+<li><strong>proteinets stabilitet</strong> – Ett mått på hur förskjuten jämvikten mellan veckat (N) och oveckat (D) tillstånd är, det vill säga hur många molekyler som är veckade för varje oveckad.</li>
+<li><strong>Levinthals paradox</strong> – Motsägelsen att en proteinkedja i princip kan anta så många former att det skulle ta längre tid än universums ålder att pröva alla, medan den i verkligheten veckar sig på millisekunder till sekunder. Kedjan provar inte allt utan glider stegvis mot allt bättre former.</li>
+<li><strong>ribonukleas</strong> – Enzym som bryter ned RNA. Christian Anfinsen använde det för att visa att ett protein kan vecka sig tillbaka av sig självt, eftersom formen bestäms av sekvensen.</li>
+<li><strong>denaturering</strong> – När ett protein förlorar sin veckade form, till exempel av värme. Äggvitan som stelnar när ägget kokas är ett exempel.</li>
+<li><strong>aggregat</strong> – En klump av flera proteinkedjor som fastnat i varandra, ofta för att deras vattenskygga delar legat öppna.</li>
+<li><strong>konserverad aminosyra</strong> – En aminosyra som är densamma i ett protein hos många olika arter. Konserverade aminosyror är ofta viktiga för proteinets funktion.</li>
+<li><strong>SOD1</strong> – Koppar-zink-superoxiddismutas, ett enzym som oskadliggör syreradikalen superoxid. Mutationer i SOD1 kan ge den ärftliga formen av ALS.</li>
+<li><strong>superoxid</strong> – En syremolekyl med en extra elektron. Den är mycket reaktiv och kan skada cellens molekyler.</li>
+<li><strong>nettoladdning</strong> – Summan av ett proteins positiva och negativa laddningar. De flesta proteiner i en cell har negativ nettoladdning.</li>
+<li><strong>kortlivat möte</strong> – När två proteiner stannar ihop en kort stund och känner på varandras ytor, innan de antingen binder fast eller släpper (eng. transient encounter).</li>
+<li><strong>marginell kolloidal stabilitet</strong> – Att proteinerna i en cell är lösta, men bara nätt och jämnt, så att de lätt kan mötas en kort stund utan att klumpa ihop sig.</li>
+<li><strong>skärmning</strong> – Att joner i en lösning dämpar elektriska krafter. Ju mer salt, desto kortare räckvidd får laddningarna.</li>
+<li><strong>fysiologisk koksaltlösning</strong> – En lösning med 0,9 procent koksalt, med samma salthalt som blodet. Används ofta i provrörsförsök, men liknar inte cellens inre.</li>
+<li><strong>NMR</strong> – Kärnmagnetisk resonans, en mätmetod som bygger på samma fysik som magnetkameran. Kan bland annat visa hur fritt ett protein roterar inne i en levande cell.</li>
+<li><strong>halofil</strong> – En organism som lever i mycket salta miljöer, till exempel arkén Halobacterium salinarum.</li>
+</ul>
+</section>
+<section id="sec-l14-testa" class="level2" data-number="14.13">
+<h2 data-number="14.13" class="anchored" data-anchor-id="sec-l14-testa"><span class="header-section-number">14.13</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L14"></div>
+<script>
+renderQuiz("quiz-L14", [
+ {
+  "question": "Christian Anfinsen fick ett oveckat enzym att vecka sig tillbaka och fungera igen. Vad visade det?",
+  "choices": [
+   "Att informationen om proteinets form finns i ordningen mellan aminosyrorna",
+   "Att proteiner bara kan vecka sig inne i levande celler",
+   "Att ribosomen bestämmer proteinets form",
+   "Att alla proteiner har samma form"
+  ],
+  "correctIndex": 0,
+  "explanation": "Kedjan veckade sig av sig själv utan hjälp. Alltså räcker sekvensen för att bestämma formen."
+ },
+ {
+  "question": "Var hamnar de vattenskygga aminosyrorna när ett protein veckar sig?",
+  "choices": [
+   "I en kärna i mitten av proteinet, skyddade från vattnet",
+   "På proteinets yta, mot vattnet",
+   "De lossnar från kedjan",
+   "De fördelas jämnt överallt"
+  ],
+  "correctIndex": 0,
+  "explanation": "Fett dras till fett: de vattenskygga aminosyrorna samlas i mitten och de vattenälskande hamnar på ytan."
+ },
+ {
+  "question": "Vad menas med att ett protein bara är nätt och jämnt stabilt?",
+  "choices": [
+   "Det pendlar mellan veckat och oveckat tillstånd, och små förändringar kan öka andelen oveckade molekyler",
+   "Det bryts ned efter några sekunder",
+   "Det är veckat bara när det binder sin partner",
+   "Det kan bara finnas i en cell i taget"
+  ],
+  "correctIndex": 0,
+  "explanation": "Vinsten med att vara veckad är liten. En liten andel av molekylerna är alltid oveckade, och värme eller mutationer kan öka den andelen."
+ },
+ {
+  "question": "Varför kan oveckade proteinkedjor klumpa ihop sig?",
+  "choices": [
+   "Deras vattenskygga delar ligger öppna och kan fastna i vattenskygga delar på andra kedjor",
+   "De blir positivt laddade",
+   "De binder till DNA",
+   "De förlorar alla sina aminosyror"
+  ],
+  "correctIndex": 0,
+  "explanation": "Samma krafter som driver veckningen kan få flera kedjor att fastna i varandra när de vattenskygga delarna ligger exponerade."
+ },
+ {
+  "question": "När man jämför SOD1 hos många arter, vilka aminosyror är mest lika?",
+  "choices": [
+   "De som binder koppar och zink",
+   "De vattenälskande aminosyrorna på ytan",
+   "Alla aminosyror är lika konserverade",
+   "Inga aminosyror är lika mellan arterna"
+  ],
+  "correctIndex": 0,
+  "explanation": "Metallbindande aminosyror är helt konserverade eftersom enzymet inte fungerar utan dem. Ytan varierar mest."
+ },
+ {
+  "question": "Vad håller cellens proteiner lösta, trots att cellen är full av protein?",
+  "choices": [
+   "Nästan allt i cellen är negativt laddat, så molekylerna stöter bort varandra",
+   "Proteinerna är positivt laddade och drar till sig DNA",
+   "Cellen innehåller så lite protein att de sällan möts",
+   "Proteinerna är fastsittande i membranet"
+  ],
+  "correctIndex": 0,
+  "explanation": "Membran, DNA, RNA och de flesta proteiner är negativa. Den ömsesidiga repulsionen hindrar klumpning."
+ },
+ {
+  "question": "Ett mänskligt protein fastnade inne i bakterieceller. Vad hände när en positiv aminosyra på ytan byttes mot en negativ?",
+  "choices": [
+   "Proteinet började röra sig nästan lika fritt som motsvarande bakterieprotein",
+   "Proteinet fastnade ännu mer",
+   "Proteinet slutade vecka sig",
+   "Ingenting, ytan saknar betydelse"
+  ],
+  "correctIndex": 0,
+  "explanation": "En enda ytmutation som gjorde proteinet mer negativt räckte för att anpassa det till bakteriens miljö."
+ },
+ {
+  "question": "Varför kan det vara en fördel att proteiner är lagom klibbiga?",
+  "choices": [
+   "De kan mötas kort och känna på varandras ytor, så att de lättare hittar rätt partner",
+   "De klumpar ihop sig snabbare, vilket cellen behöver",
+   "De slipper vecka sig",
+   "De kan då lämna cellen"
+  ],
+  "correctIndex": 0,
+  "explanation": "Låg tröskel för korta möten gör att proteiner kan pröva många kontakter och binda fast bara där ytorna passar."
+ },
+ {
+  "question": "Varför når elektriska krafter längre inne i en bakteriecell än i fysiologisk koksaltlösning?",
+  "choices": [
+   "Cellen har färre fria negativa joner, eftersom mycket av den negativa laddningen sitter fast på proteiner, DNA och membran",
+   "Cellen innehåller inget salt alls",
+   "Proteinerna i cellen är oladdade",
+   "Cellen är varmare än provröret"
+  ],
+  "correctIndex": 0,
+  "explanation": "Fria joner skärmar av laddningar. I cellen är kloridhalten låg, och laddningar som sitter fast dämpar inte på samma sätt."
+ },
+ {
+  "question": "Vad är speciellt med proteinerna hos salttåliga arkéer som Halobacterium?",
+  "choices": [
+   "De är ovanligt starkt negativt laddade",
+   "De saknar laddningar helt",
+   "De är positivt laddade som DNA-bindande proteiner",
+   "De är mycket större än människans proteiner"
+  ],
+  "correctIndex": 0,
+  "explanation": "Halofilernas proteiner har extremt många negativa laddningar, trots att teorin säger att saltet borde släcka ut de elektriska krafterna."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>14.1</strong> Förklara varför äggvitan stelnar när ett ägg kokas, och varför den inte blir klar igen när den svalnar.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Äggvitan består till stor del av proteiner som är veckade och lösta i vatten. När ägget värms upp skjuts jämvikten mot det oveckade tillståndet: proteinerna vecklas upp. Då ligger deras vattenskygga delar öppna, och de fastnar i vattenskygga delar på andra oveckade proteiner. Kedjorna bildar en stor härva, ett aggregat, som sprider ljus och är fast. När ägget svalnar kan kedjorna inte ta sig loss ur härvan och vecka sig rätt igen, så förändringen blir bestående.</p>
+</div>
+</div>
+</div>
+<p><strong>14.2</strong> Ytan på ett protein är okonserverad mellan arter. Betyder det att ytan inte spelar någon roll? Använd kapitlets exempel.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Nej. Vilken exakt aminosyra som sitter på en viss plats får variera, men ytans samlade egenskaper, framför allt laddning och hur vattenälskande den är, är viktiga. Nästan allt i cellen är negativt laddat, och den negativa laddningen håller proteinerna lösta. Försöket med det mänskliga proteinet i bakterier visade att en enda ytmutation kunde avgöra om proteinet fastnade eller rörde sig fritt. Dessutom minskar många ALS-mutationer i SOD1 proteinets negativa laddning, och jämförelser mellan organismer visar att proteinernas laddning är anpassad efter miljön.</p>
+</div>
+</div>
+</div>
+<p><strong>14.3</strong> Varför kan resultat från försök i provrör skilja sig från vad som händer i en levande cell?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I provröret löses proteinerna ofta i fysiologisk koksaltlösning, där lika mycket fria positiva och negativa joner skärmar av de elektriska krafterna så att de bara når knappt en nanometer. I cellen finns få fria kloridjoner, och de elektriska krafterna når ungefär dubbelt så långt. Cellen är dessutom extremt trång, med andra proteiner bara några nanometer bort. Ett protein kan därför bete sig annorlunda, till exempel fastna mer eller mindre, i cellen än i provröret. Därför prövas resultat i celler och i hela organismer.</p>
+</div>
+</div>
+</div>
+<p><strong>14.4</strong> Hur kan två enkla egenskaper hos en organisms proteiner säga något om dess släktskap och livsmiljö?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>För varje organism kan man räkna ut proteinernas genomsnittliga storlek och genomsnittliga laddning per ytenhet. När organismerna placeras i ett diagram efter de två egenskaperna hamnar arkéer, bakterier och eukaryoter i olika områden. Salttåliga arkéer har mycket negativt laddade proteiner, och bakterier som lever inuti insektsceller har positivt laddade proteiner. Det visar att ytans egenskaper har anpassats både efter släktskap och efter den miljö proteinerna lever i.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l14-las-mer" class="level2" data-number="14.14">
+<h2 data-number="14.14" class="anchored" data-anchor-id="sec-l14-las-mer"><span class="header-section-number">14.14</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Proteinveckning">Proteinveckning</a> på svenska Wikipedia och den mer utförliga <a href="https://en.wikipedia.org/wiki/Protein_folding">Protein folding</a> på engelska Wikipedia.</li>
+<li><a href="https://pdb101.rcsb.org/motm/94">Superoxide Dismutase</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), om SOD1 och dess släktingar.</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/1972/summary/">Nobelpriset i kemi 1972</a>, bland annat till Christian Anfinsen för upptäckten att proteinets form bestäms av dess sekvens (på engelska).</li>
+<li><a href="https://en.wikipedia.org/wiki/Macromolecular_crowding">Macromolecular crowding</a> på engelska Wikipedia, om trängseln i cellen.</li>
+<li><a href="https://en.wikipedia.org/wiki/Halophile">Halophile</a> på engelska Wikipedia, om organismer som lever i mycket salta miljöer.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/13-chaperoner.html" class="pagination-link" aria-label="Molekylära förkläden">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/15-felveckning.html" class="pagination-link" aria-label="Proteiners felveckning – Alzheimer och ALS">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>16&nbsp; Vad kan AI lära oss om proteiner? – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/17-idag-och-i-morgon.html" rel="next">
+<link href="../chapters/15-felveckning.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/14-proteinveckning.html">Veckning, sjukdom och framtid</a></li><li class="breadcrumb-item"><a href="../chapters/16-ai-och-proteiner.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l16-problemet" id="toc-sec-l16-problemet" class="nav-link active" data-scroll-target="#sec-l16-problemet"><span class="header-section-number">16.1</span> Från sekvens till struktur</a>
+  <ul class="collapse">
+  <li><a href="#sec-l16-nivaer" id="toc-sec-l16-nivaer" class="nav-link" data-scroll-target="#sec-l16-nivaer">Fyra nivåer av struktur</a></li>
+  <li><a href="#sec-l16-anfinsen" id="toc-sec-l16-anfinsen" class="nav-link" data-scroll-target="#sec-l16-anfinsen">Formen finns i sekvensen, men hur hittar man den?</a></li>
+  <li><a href="#sec-l16-fysik" id="toc-sec-l16-fysik" class="nav-link" data-scroll-target="#sec-l16-fysik">Varför fysiken inte räcker</a></li>
+  </ul></li>
+  <li><a href="#sec-l16-casp" id="toc-sec-l16-casp" class="nav-link" data-scroll-target="#sec-l16-casp"><span class="header-section-number">16.2</span> CASP: en tävling där ingen vet svaret</a></li>
+  <li><a href="#sec-l16-maskininlarning" id="toc-sec-l16-maskininlarning" class="nav-link" data-scroll-target="#sec-l16-maskininlarning"><span class="header-section-number">16.3</span> Vad är maskininlärning?</a></li>
+  <li><a href="#sec-l16-evolution" id="toc-sec-l16-evolution" class="nav-link" data-scroll-target="#sec-l16-evolution"><span class="header-section-number">16.4</span> Evolutionen som hjälpreda</a>
+  <ul class="collapse">
+  <li><a href="#sec-l16-msa" id="toc-sec-l16-msa" class="nav-link" data-scroll-target="#sec-l16-msa">Att ställa upp släktingarna</a></li>
+  <li><a href="#sec-l16-sekundarstruktur" id="toc-sec-l16-sekundarstruktur" class="nav-link" data-scroll-target="#sec-l16-sekundarstruktur">Spiral eller flak?</a></li>
+  <li><a href="#sec-l16-homologi" id="toc-sec-l16-homologi" class="nav-link" data-scroll-target="#sec-l16-homologi">Att låna formen av en släkting</a></li>
+  <li><a href="#sec-l16-tradning" id="toc-sec-l16-tradning" class="nav-link" data-scroll-target="#sec-l16-tradning">Samma form utan synlig släktskap</a></li>
+  <li><a href="#sec-l16-fragment" id="toc-sec-l16-fragment" class="nav-link" data-scroll-target="#sec-l16-fragment">Att pussla med fragment</a></li>
+  </ul></li>
+  <li><a href="#sec-l16-samevolution" id="toc-sec-l16-samevolution" class="nav-link" data-scroll-target="#sec-l16-samevolution"><span class="header-section-number">16.5</span> Aminosyror som ändras i par</a>
+  <ul class="collapse">
+  <li><a href="#sec-l16-dca" id="toc-sec-l16-dca" class="nav-link" data-scroll-target="#sec-l16-dca">Från idé till verktyg</a></li>
+  <li><a href="#sec-l16-kontaktkarta" id="toc-sec-l16-kontaktkarta" class="nav-link" data-scroll-target="#sec-l16-kontaktkarta">Kontaktkartan</a></li>
+  </ul></li>
+  <li><a href="#sec-l16-djupinlarning" id="toc-sec-l16-djupinlarning" class="nav-link" data-scroll-target="#sec-l16-djupinlarning"><span class="header-section-number">16.6</span> Djupinlärning kommer in</a>
+  <ul class="collapse">
+  <li><a href="#sec-l16-alphafold1" id="toc-sec-l16-alphafold1" class="nav-link" data-scroll-target="#sec-l16-alphafold1">AlphaFold 1</a></li>
+  </ul></li>
+  <li><a href="#sec-l16-alphafold2" id="toc-sec-l16-alphafold2" class="nav-link" data-scroll-target="#sec-l16-alphafold2"><span class="header-section-number">16.7</span> AlphaFold 2: genombrottet</a>
+  <ul class="collapse">
+  <li><a href="#sec-l16-hur" id="toc-sec-l16-hur" class="nav-link" data-scroll-target="#sec-l16-hur">Hur AlphaFold 2 fungerar</a></li>
+  <li><a href="#sec-l16-casp-historia" id="toc-sec-l16-casp-historia" class="nav-link" data-scroll-target="#sec-l16-casp-historia">Trettio år av CASP i korthet</a></li>
+  </ul></li>
+  <li><a href="#sec-l16-nobel" id="toc-sec-l16-nobel" class="nav-link" data-scroll-target="#sec-l16-nobel"><span class="header-section-number">16.8</span> Nobelpriset i kemi 2024</a>
+  <ul class="collapse">
+  <li><a href="#sec-l16-design" id="toc-sec-l16-design" class="nav-link" data-scroll-target="#sec-l16-design">Att designa nya proteiner</a></li>
+  </ul></li>
+  <li><a href="#sec-l16-sakerhet" id="toc-sec-l16-sakerhet" class="nav-link" data-scroll-target="#sec-l16-sakerhet"><span class="header-section-number">16.9</span> Hur vet man om modellen är rätt?</a></li>
+  <li><a href="#sec-l16-oppen" id="toc-sec-l16-oppen" class="nav-link" data-scroll-target="#sec-l16-oppen"><span class="header-section-number">16.10</span> Öppen kod och 200 miljoner strukturer</a></li>
+  <li><a href="#sec-l16-komplex" id="toc-sec-l16-komplex" class="nav-link" data-scroll-target="#sec-l16-komplex"><span class="header-section-number">16.11</span> Proteiner som arbetar tillsammans</a>
+  <ul class="collapse">
+  <li><a href="#sec-l16-ytor" id="toc-sec-l16-ytor" class="nav-link" data-scroll-target="#sec-l16-ytor">Ytan mellan två proteiner</a></li>
+  <li><a href="#sec-l16-dockning" id="toc-sec-l16-dockning" class="nav-link" data-scroll-target="#sec-l16-dockning">Pussel med färdiga bitar</a></li>
+  <li><a href="#sec-l16-par" id="toc-sec-l16-par" class="nav-link" data-scroll-target="#sec-l16-par">Samevolution mellan två proteiner</a></li>
+  <li><a href="#sec-l16-multimer" id="toc-sec-l16-multimer" class="nav-link" data-scroll-target="#sec-l16-multimer">AlphaFold för komplex</a></li>
+  <li><a href="#sec-l16-natverk" id="toc-sec-l16-natverk" class="nav-link" data-scroll-target="#sec-l16-natverk">Alla mot alla</a></li>
+  <li><a href="#sec-l16-stora" id="toc-sec-l16-stora" class="nav-link" data-scroll-target="#sec-l16-stora">Stora komplex, bit för bit</a></li>
+  <li><a href="#sec-l16-komplex-granser" id="toc-sec-l16-komplex-granser" class="nav-link" data-scroll-target="#sec-l16-komplex-granser">En säker modell är inget bevis</a></li>
+  </ul></li>
+  <li><a href="#sec-l16-alphafold3" id="toc-sec-l16-alphafold3" class="nav-link" data-scroll-target="#sec-l16-alphafold3"><span class="header-section-number">16.12</span> AlphaFold 3: fler sorters molekyler</a></li>
+  <li><a href="#sec-l16-granser" id="toc-sec-l16-granser" class="nav-link" data-scroll-target="#sec-l16-granser"><span class="header-section-number">16.13</span> Vad AlphaFold inte kan</a></li>
+  <li><a href="#sec-l16-sammanfattning" id="toc-sec-l16-sammanfattning" class="nav-link" data-scroll-target="#sec-l16-sammanfattning"><span class="header-section-number">16.14</span> Sammanfattning</a></li>
+  <li><a href="#sec-l16-nyckelbegrepp" id="toc-sec-l16-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l16-nyckelbegrepp"><span class="header-section-number">16.15</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l16-testa" id="toc-sec-l16-testa" class="nav-link" data-scroll-target="#sec-l16-testa"><span class="header-section-number">16.16</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l16-las-mer" id="toc-sec-l16-las-mer" class="nav-link" data-scroll-target="#sec-l16-las-mer"><span class="header-section-number">16.17</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/14-proteinveckning.html">Veckning, sjukdom och framtid</a></li><li class="breadcrumb-item"><a href="../chapters/16-ai-och-proteiner.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l16" class="quarto-section-identifier"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 16, <em>Vad kan AI lära oss om proteiner?</em>, av Arne Elofsson (VT 2026). Bakgrunden om strukturförutsägelsens historia är utökad med material från Arne Elofssons kurser i bioinformatik.</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>förklara vad som menas med ett proteins struktur på olika nivåer, och varför det är så svårt att räkna fram strukturen med fysik,</li>
+<li>beskriva de klassiska vägarna till en struktur, att låna formen av en släkting, att pröva kända grundformer och att pussla med fragment, och när de fungerar,</li>
+<li>beskriva i stora drag hur maskininlärning fungerar: att en dator lär sig av exempel,</li>
+<li>förklara varför släktskapen mellan proteiner, och särskilt aminosyror som ändras i par, innehåller information om proteinets form,</li>
+<li>beskriva vad AlphaFold förutsäger, hur man kan veta om en förutsägelse är pålitlig, vad programmet inte kan och vad Nobelpriset i kemi 2024 belönade,</li>
+<li>förklara hur man förutsäger hur proteiner binder till varandra, och varför det är svårare än för ett enskilt protein.</li>
+</ul>
+</div>
+</div>
+<p>I oktober 2024 tillkännagavs att halva Nobelpriset i kemi skulle gå till två forskare som hade löst ett problem som biokemister brottats med i mer än femtio år: hur man ur ett proteins byggstenar kan förutsäga dess form. Demis Hassabis och John Jumper arbetade inte på ett universitet utan på DeepMind, ett företag som ägs av Google och som tidigare blivit känt för att ha byggt datorprogram som slog världsmästare i brädspelet go. Deras verktyg var <strong>artificiell intelligens</strong> (AI). Den andra halvan av priset gick till David Baker, som med datorns hjälp lärt sig att konstruera helt nya proteiner.</p>
+<p>I dag kan vem som helst skriva in en proteinsekvens på en webbsida och efter några minuter få se en tredimensionell modell av proteinet, i de flesta fall nästan lika noggrann som om den hade bestämts med röntgenkristallografi. Hur gick det till? Genombrottet kom inte från ingenstans. Det byggde på idéer som hade vuxit fram under flera decennier, och som till slut fogades ihop till ett enda program. I det här kapitlet följer vi hela den utvecklingen, från de första försöken att gissa hur en proteinkedja ser ut, genom trettio år av långsamma framsteg, till ett genombrott som överraskade nästan alla.</p>
+<div id="fig-l16-tidslinje" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-tidslinje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/tidslinje.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-tidslinje-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.1: De viktigaste stegen på vägen från sekvens till struktur, från Paulings förutsägelse av alfahelixen 1951 till Nobelpriset 2024. Lägg märke till hur stegen kommer allt tätare efter 2010. Egen figur.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l16-problemet" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="sec-l16-problemet"><span class="header-section-number">16.1</span> Från sekvens till struktur</h2>
+<p>För att förstå vad AlphaFold åstadkom måste man först veta vilket problem det löste, och varför problemet var så svårt.</p>
+<p>Som vi såg i <a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a> och <a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a> är ett protein en lång kedja av aminosyror. Ordningen mellan aminosyrorna kallas proteinets <strong>sekvens</strong>, och den bestäms av en gen. När kedjan har tillverkats i ribosomen veckar den sig till en bestämd tredimensionell form, proteinets <strong>struktur</strong>. Vattenskygga (hydrofoba) aminosyror samlas i mitten, och vattenälskande och laddade hamnar på ytan (<a href="14-proteinveckning.html#sec-l14-fett" class="quarto-xref"><span>Avsnitt 14.2</span></a>). Formen avgör vad proteinet kan göra.</p>
+<p>Den första proteinstrukturen, myoglobin, bestämdes i slutet av 1950-talet (<a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>). Sedan dess har forskare bestämt mer än 200 000 strukturer med röntgenkristallografi, kryo-EM och andra metoder (<a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>), och samlat dem i en öppen databas, <em>Protein Data Bank</em> (PDB). Men varje struktur kostar mycket arbete, ofta flera år. Proteinsekvenser är däremot billiga: de kan läsas direkt ur DNA, och i dag känner vi till omkring 200 miljoner (<a href="11-omik.html" class="quarto-xref"><span>Kapitel 11</span></a>). Att kunna gå direkt från sekvens till struktur vore därför mycket värdefullt.</p>
+<section id="sec-l16-nivaer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-nivaer">Fyra nivåer av struktur</h3>
+<p>Alla delar av strukturen är inte lika svåra att förutsäga. För att se var svårigheten ligger brukar man skilja mellan fyra nivåer:</p>
+<ul>
+<li><strong>Primärstruktur</strong> är själva sekvensen, ordningen mellan aminosyrorna.</li>
+<li><strong>Sekundärstruktur</strong> är de regelbundna mönster som kedjans ryggrad bildar på korta sträckor: spiraler, <strong>alfahelixar</strong>, och plana <strong>betaflak</strong>, där kedjan går fram och tillbaka och delarna ligger bredvid varandra. De hålls ihop av vätebindningar mellan ryggradens atomer (<a href="01-levande-celler.html#sec-l01-veckning" class="quarto-xref"><span>Avsnitt 1.10.3</span></a>). Partier utan regelbundet mönster kallas slingor.</li>
+<li><strong>Tertiärstruktur</strong> är hela kedjans tredimensionella form: hur helixar och flak packas mot varandra till en kompakt enhet.</li>
+<li><strong>Kvartärstruktur</strong> är hur flera kedjor fogas ihop till ett komplex, som de fyra kedjorna i hemoglobin.</li>
+</ul>
+<div id="fig-l16-nivaer" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-nivaer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/strukturnivaer.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-nivaer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.2: Proteinets fyra strukturnivåer. Sekvensen (primärstruktur) bildar på korta sträckor helixar och flak (sekundärstruktur). De packas mot varandra till kedjans tredimensionella form (tertiärstruktur), och flera kedjor kan fogas ihop till ett komplex (kvartärstruktur). Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Den lokala formen, sekundärstrukturen, kan delvis räknas fram från enkla principer. Det visade sig redan i den första lyckade strukturförutsägelsen, som gjordes innan någon proteinstruktur alls var känd. Linus Pauling, som vi mötte i <a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a>, utgick från hur atomerna i ryggraden kan ligga och vilka vätebindningar som kan bildas mellan dem. Enligt historien fick han idén när han låg sjuk och vek en pappersremsa med ritade aminosyror. År 1951 beskrev han både alfahelixen och betaflaket, och när de första strukturerna bestämdes några år senare fanns de där. Det svåra är tertiärstrukturen: hur hela kedjan lägger sig.</p>
+<p>Men även tertiärstrukturen följer vissa mönster, som gör problemet mindre hopplöst än det låter. Större proteiner består ofta av flera <strong>domäner</strong>, kompakta delar på ungefär 50 till 250 aminosyror som kan vecka sig var för sig. Under evolutionen har domänerna kombinerats på nya sätt, ungefär som byggklossar. Och antalet olika grundformer (eng. <em>folds</em>) är förvånansvärt litet: de hundratusentals kända strukturerna kan sorteras in i bara drygt tusen grundformer. Ett nytt protein har därför ofta en form som redan finns i databasen, även när man inte kan se släktskapen på sekvensen. Det är en av de genvägar vi återkommer till.</p>
+</section>
+<section id="sec-l16-anfinsen" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-anfinsen">Formen finns i sekvensen, men hur hittar man den?</h3>
+<p>Att det alls är möjligt att förutsäga strukturen visade Christian Anfinsen på 1950- och 60-talen. Som vi såg i <a href="14-proteinveckning.html#sec-l14-anfinsen" class="quarto-xref"><span>Avsnitt 14.1.1</span></a> veckar sig ett protein som vecklats upp tillbaka till samma form av sig självt, om förhållandena är de rätta. All information om formen måste alltså finnas i sekvensen. Anfinsen tolkade det som att den rätta formen är den där proteinet har lägst energi: som en kula som till sist hamnar på botten av en dal, oavsett var den släpptes. I cellen får många proteiner hjälp av chaperoner (<a href="13-chaperoner.html" class="quarto-xref"><span>Kapitel 13</span></a>), men de hjälper bara kedjan att undvika att fastna på vägen. Själva formen bestäms fortfarande av sekvensen.</p>
+<p>Men hur hittar proteinet den formen? Det finns oerhört många möjliga former. En kedja på hundra aminosyror skulle behöva längre tid än universums ålder för att pröva dem alla. Det är <strong>Levinthals paradox</strong>, som vi mötte i <a href="14-proteinveckning.html#sec-l14-anfinsen" class="quarto-xref"><span>Avsnitt 14.1.1</span></a>. Lösningen är att proteinet inte provar alla former. Man brukar likna energin vid ett landskap format som en tratt: nästan varje steg som gör kedjan lite mer lik den rätta formen sänker energin, så kedjan glider stegvis nedför tratten, längs många olika vägar, mot botten (<a href="14-proteinveckning.html#fig-l14-tratt" class="quarto-xref">Figur&nbsp;<span>14.3</span></a> i <a href="14-proteinveckning.html" class="quarto-xref"><span>Kapitel 14</span></a>).</p>
+<p>Två egenskaper hos veckade proteiner från <a href="14-proteinveckning.html" class="quarto-xref"><span>Kapitel 14</span></a> får betydelse för den som vill förutsäga strukturen. Ett veckat protein är inte stelt, utan vibrerar och böjer sig hela tiden och pendlar ibland mellan veckat och oveckat tillstånd. Den form vi ser i en struktur är en sorts ögonblicksbild. Och som vi såg i <a href="14-proteinveckning.html#sec-l14-stabilitet" class="quarto-xref"><span>Avsnitt 14.2.1</span></a> är proteiner bara nätt och jämnt stabila. Tusentals svaga bindningar är inblandade, men skillnaden i energi mellan veckat och oveckat motsvarar bara några få vätebindningar.</p>
+<p>För den som vill förutsäga strukturen blir uppgiften alltså: hitta den form som har lägst energi. Krafterna mellan atomerna är ganska väl kända. Två atomer kan inte överlappa, laddningar drar till sig eller stöter bort varandra, vätebindningar bildas, och vattenskygga delar vill gömma sig från vattnet, på samma sätt som oljedroppar i vatten flyter ihop till en större droppe (<a href="14-proteinveckning.html#sec-l14-fett" class="quarto-xref"><span>Avsnitt 14.2</span></a>). Varför inte bara låta en stor dator simulera hur kedjan rör sig tills den hittar sin form?</p>
+</section>
+<section id="sec-l16-fysik" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-fysik">Varför fysiken inte räcker</h3>
+<p>Det finns två skäl till att en sådan simulering inte fungerar. Det första är att det tar för lång tid. Atomerna vibrerar så snabbt att en simulering måste ta steg på ungefär en femtosekund, en miljondels miljarddels sekund. För att simulera en enda sekund krävs alltså omkring en miljon miljarder steg, och i varje steg ska krafterna mellan alla atomer räknas ut, inte bara i proteinet utan också i allt vatten runt omkring, som utgör den största delen av systemet. Många proteiner behöver millisekunder eller sekunder för att vecka sig. Även med dagens snabbaste datorer är simuleringarna för vanliga proteiner ungefär tusen gånger för långsamma. För några mycket små proteiner, som veckar sig på mikrosekunder, har man med specialbyggda superdatorer lyckats simulera hela veckningen. Det är alltså en fråga om datorkraft snarare än om att fysiken är fel.</p>
+<p>Det andra skälet har att göra med att proteinet bara är nätt och jämnt stabilt. Skillnaden i energi mellan den rätta formen och en nästan rätt form är därför liten, mycket mindre än summan av alla krafter som ska räknas ut. Små fel i beskrivningen av krafterna, till exempel av hur vattnet beter sig, kan då få en felaktig form att se bättre ut än den rätta.</p>
+<p>Den som vill ta en genväg, och leta direkt efter formen med lägst energi utan att simulera hela förloppet, står alltså inför två uppgifter. Man måste kunna leta effektivt bland alla tänkbara former, och man måste kunna känna igen den rätta när den dyker upp. För vanliga proteiner har vägen via fysiken inte fungerat, och den används inte heller av de program som till slut löste problemet. I stället har forskarna sedan 1970-talet tagit olika genvägar, och nästan alla bygger på samma insikt: att evolutionen redan har gjort mycket av arbetet.</p>
+</section>
+</section>
+<section id="sec-l16-casp" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="sec-l16-casp"><span class="header-section-number">16.2</span> CASP: en tävling där ingen vet svaret</h2>
+<p>Med så många olika genvägar behövs ett sätt att avgöra vilka som fungerar. Hur vet man om en metod för att förutsäga strukturer är bra? Det låter enkelt: man testar den på proteiner vars struktur man redan känner. Men erfarenheten visar att sådana tester nästan alltid blir för optimistiska. Den som utvecklar en metod vet svaret och justerar, ofta omedvetet, metoden tills den fungerar på just de testade proteinerna.</p>
+<p>Därför startade forskarna 1994 tävlingen <strong>CASP</strong> (<em>Critical Assessment of Protein Structure Prediction</em>). Den går till så här. Forskare som just har bestämt en ny struktur med experiment, men ännu inte publicerat den, lämnar in proteinets sekvens till arrangörerna. Sekvenserna läggs ut, och deltagarna får några veckor på sig att skicka in sina förutsägelser. När strukturerna sedan publiceras jämförs förutsägelserna med facit av oberoende bedömare. Tävlingen hålls vartannat år, och omkring hundra proteiner ingår varje gång.</p>
+<p>Eftersom ingen av deltagarna vet svaret i förväg går det knappt att fuska. Det har hänt att någon försökt ta sig in i en dator för att komma åt facit, eller till och med försökt bestämma strukturen själv med experiment under de få veckor som står till buds. Men i stort sett har upplägget hållit i trettio år.</p>
+<p>CASP var ett av de första helt oberoende, <strong>dubbelblinda</strong> testerna av datorförutsägelser: förutsägelserna görs innan svaret är känt, och de bedöms av andra än de som har gjort dem, utan att bedömarna vet vems förutsägelse de bedömer. Idén har senare spridits till många andra fält, till exempel till förutsägelser av hur proteiner binder till varandra och av vad proteiner gör.</p>
+<p>Eftersom samma typ av mått har använts sedan starten kan man också följa utvecklingen över trettio år. Ett av de viktigaste måtten anger hur stor del av proteinet som kan läggas ovanpå den experimentella strukturen så att de stämmer överens, på en skala från 0 till 100. Ungefär 90 motsvarar skillnaden mellan två experimentella bestämningar av samma protein.</p>
+<p>Under lång tid såg bilden likadan ut. Proteiner som liknade något som redan fanns i databasen kunde förutsägas bra, eftersom man kunde använda den kända strukturen som mall. Men för helt nya proteiner, utan någon känd släkting, gick det dåligt, och framstegen mellan tävlingarna var små. Det var just den här tydliga måttstocken, med facit och siffror som kan jämföras över tid, som senare lockade företaget DeepMind att ge sig in på problemet.</p>
+</section>
+<section id="sec-l16-maskininlarning" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="sec-l16-maskininlarning"><span class="header-section-number">16.3</span> Vad är maskininlärning?</h2>
+<p>Innan vi följer genvägarna behöver vi ett av verktygen. Flera av dem, och till slut AlphaFold, bygger på <strong>maskininlärning</strong>, den del av AI som handlar om att låta en dator lära sig av exempel i stället för att följa regler som en människa har skrivit.</p>
+<p>Tänk dig att du ska skriva ett program som avgör om en bild föreställer en katt eller en hund. Med vanlig programmering måste du själv formulera reglerna: leta efter spetsiga öron, titta på nosen, mät ögonens form. Det blir snabbt hopplöst, särskilt om djuret är fotograferat bakifrån eller ligger hoprullat. Med maskininlärning gör man i stället så här:</p>
+<ol type="1">
+<li>Man samlar in tusentals bilder där en människa redan har angett svaret, katt eller hund. Det kallas <strong>träningsdata</strong>.</li>
+<li>Programmet, som från början gissar på måfå, får se en bild och gissar.</li>
+<li>Programmet får veta hur fel det hade och justerar sina inre inställningar en aning, så att det skulle ha gissat lite bättre.</li>
+<li>Det upprepas miljontals gånger, med alla bilderna om och om igen.</li>
+</ol>
+<p>Till slut har programmet lärt sig själv vilka drag som skiljer katter från hundar, utan att någon har talat om vilka de är.</p>
+<p>Den vanligaste sortens program för maskininlärning kallas ett <strong>neuralt nätverk</strong>, efter en löst inspirerad likhet med hjärnans nervceller. Det består av många lager av enkla räknesteg, och de inre inställningarna, som kan vara många miljoner, är de siffror som justeras under träningen. Ett nätverk med många lager kallas <strong>djupt</strong>, och att träna sådana nätverk kallas <strong>djupinlärning</strong> (eng. <em>deep learning</em>).</p>
+<p>Lagren delar upp arbetet mellan sig. När man undersöker vad de har lärt sig visar det sig ofta att de första lagren känner igen enkla saker som kanter och streck, och de senare lagren allt mer sammansatta mönster, som ögon och öron.</p>
+<p>Den största faran med maskininlärning är att programmet <strong>lär sig utantill</strong> i stället för att förstå. Ett program som bara har memorerat träningsbilderna klarar dem perfekt men misslyckas med nya bilder. Därför testar man alltid på exempel som programmet inte har sett under träningen, och det är just det som CASP gör.</p>
+<p>Neurala nätverk är ingen ny idé. Redan i början av 1990-talet användes små nätverk för att förutsäga delar av proteiners struktur, som vi snart ska se. Det som förändrade läget var de djupa nätverken, och genombrottet kom kring 2012 inom bildigenkänning. Ett nytt djupt nätverk, <strong>AlexNet</strong>, tränades med hjälp av grafikkort, samma sorts kretsar som används i datorspel, och det gjorde plötsligt mycket färre fel än alla tidigare program. På några år sjönk andelen felaktigt klassade bilder i en stor årlig tävling från ungefär var femte till ungefär var tjugonde. Som vi ska se fick det betydelse även för proteinerna.</p>
+</section>
+<section id="sec-l16-evolution" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="sec-l16-evolution"><span class="header-section-number">16.4</span> Evolutionen som hjälpreda</h2>
+<p>Nästan alla genvägar bygger, som vi såg i <a href="#sec-l16-fysik" class="quarto-xref"><span>Avsnitt 16.1.3</span></a>, på att evolutionen redan har gjort mycket av arbetet. Det vilar på en enkel iakttagelse: proteiner som har ett gemensamt ursprung har nästan alltid liknande struktur, även när deras sekvenser har förändrats mycket. Myoglobin, som lagrar syre i musklerna, och de fyra kedjorna i hemoglobin, som bär syre i blodet, härstammar från samma ursprungliga gen. Sekvenserna skiljer sig åt, men formen är nästan densamma. Sådana släktingar kallas <strong>homologa</strong> proteiner. Ett protein från människa, mus, jäst eller en bakterie som har samma uppgift har oftast samma grundform. Formen förändras alltså mycket långsammare än sekvensen under evolutionen.</p>
+<p>Det ger en möjlighet som naturen själv inte använder när proteinet veckar sig, men som en forskare kan använda: att titta på hela proteinfamiljen samtidigt.</p>
+<section id="sec-l16-msa" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-msa">Att ställa upp släktingarna</h3>
+<p>För att kunna titta på hela familjen måste man först samla ihop den och ställa upp den så att släktingarna går att jämföra. Man börjar med att söka efter proteinets släktingar i de stora sekvensdatabaserna, som UniProt. Sökprogrammen har blivit snabbare och känsligare under årens lopp. Under covid-pandemin tog det bara ett par dagar från det att virusets arvsmassa hade lästs tills man kunde jämföra alla dess proteiner med alla andra kända proteiner. Men programmen har ständigt fått kämpa för att hinna med, eftersom databaserna växer ännu fortare än datorerna blir snabbare.</p>
+<p>De släktingar man hittar ställs upp under varandra, så att aminosyror som motsvarar varandra hamnar i samma kolumn. En sådan uppställning kallas en <strong>multipel sekvensuppställning</strong> (eng. <em>multiple sequence alignment</em>, ofta förkortat MSA). Den blir en sorts släktbok för proteinet (<a href="#fig-l16-samevolution" class="quarto-xref">Figur&nbsp;<span>16.4</span></a>).</p>
+<p>Vad kan man då läsa ut ur släktboken? Det första är vilka positioner som är viktiga. Under evolutionen sker hela tiden små slumpmässiga förändringar, <strong>mutationer</strong>, i DNA. De flesta mutationer som förstör ett viktigt protein försvinner, eftersom bäraren inte överlever eller inte får avkomma. Om en position ser likadan ut i alla släktingar, från människa till bakterie, betyder det därför att just den aminosyran är viktig. Den är <strong>konserverad</strong> (bevarad), som vi såg i <a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a> och <a href="14-proteinveckning.html#sec-l14-sod1" class="quarto-xref"><span>Avsnitt 14.3</span></a>. Aminosyror i proteinets inre, där de är tätt packade mot andra, är ofta mer konserverade än de på ytan.</p>
+<p>Andra positioner varierar, men inom vissa gränser: kanske måste det alltid sitta en vattenskygg aminosyra där, men vilken spelar mindre roll. En sammanfattning av vad som är tillåtet i varje position kallas en <strong>profil</strong>.</p>
+</section>
+<section id="sec-l16-sekundarstruktur" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-sekundarstruktur">Spiral eller flak?</h3>
+<p>Ett av de första försöken att förutsäga struktur gällde bara <strong>sekundärstrukturen</strong>: vilka delar av kedjan som bildar alfahelixar, vilka som bildar betaflak och vilka som är slingor. Det är tre möjligheter, så den som gissar på måfå får ungefär en tredjedel rätt.</p>
+<p>De första metoderna, från 1970-talet, räknade ut hur ofta varje aminosyra förekom i helixar och flak i de få strukturer som då var kända. Vissa aminosyror trivs i helixar, andra i flak. Senare metoder tog också hänsyn till grannarna längs kedjan. Ändå nådde de bara omkring 60 procent rätt. Uppgiften är svårare än den låter: samma korta sekvens om tio aminosyror kan i ett protein bli en del av ett betaflak och i ett annat en alfahelix, beroende på omgivningen, alltså på delar av kedjan som ligger långt bort i sekvensen men nära i rummet.</p>
+<p>Genombrottet kom från evolutionen. På 1990-talet visade Burkhard Rost och Chris Sander att man kom betydligt längre om man lät ett litet neuralt nätverk se profilen för hela proteinfamiljen i stället för en enda sekvens. Släktingarna avslöjar vad som är viktigt i varje position, och därmed vilken form den delen av kedjan troligen har.</p>
+<p>Andelen rätt steg först till över 70 procent och med senare metoder till omkring 80 procent. I dag når de bästa programmen omkring 85 procent, nära den gräns som sätts av att inte ens experimentella strukturer alltid entydigt visar var en helix börjar och slutar. Samma idé, att låta familjen berätta mer än den enskilda sekvensen, kom att bära hela fältet.</p>
+</section>
+<section id="sec-l16-homologi" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-homologi">Att låna formen av en släkting</h3>
+<p>Den säkraste genvägen till en tertiärstruktur är att hitta en släkting vars struktur redan är känd. Eftersom formen förändras så långsamt kan man då använda släktingens struktur som <strong>mall</strong> och bygga en modell av det nya proteinet på den. Det kallas <strong>homologimodellering</strong>. Arbetet sker i fyra steg:</p>
+<ol type="1">
+<li>Sök efter släktingar med känd struktur i PDB.</li>
+<li>Ställ upp det nya proteinets sekvens mot mallens, så att aminosyror som motsvarar varandra hamnar mitt för varandra. Det är det viktigaste steget: ett fel här kan inte rättas senare.</li>
+<li>Kopiera mallens ryggrad för de delar som motsvarar varandra. Bygg sedan slingorna, där de två proteinerna skiljer sig, och lägg på sidogrupperna. Sidogrupperna kan bara inta ett fåtal föredragna lägen, så uppgiften blir att välja rätt läge för var och en så att de passar ihop.</li>
+<li>Kontrollera modellen.</li>
+</ol>
+<p>Hur bra modellen blir beror främst på hur lika sekvenserna är. Om ungefär hälften av aminosyrorna är identiska blir modellen nästan lika bra som en experimentell struktur. Om mindre än en tredjedel är identiska blir uppställningen ofta fel, och modellen likaså. Program som MODELLER och webbtjänsten SWISS-MODEL gjorde homologimodellering till ett rutinverktyg redan på 1990-talet, och i CASP var det länge den enda metoden som pålitligt gav bra modeller.</p>
+</section>
+<section id="sec-l16-tradning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-tradning">Samma form utan synlig släktskap</h3>
+<p>Många proteiner har en grundform som redan finns i databasen, men utan att någon släktskap syns i sekvensen. Släktskapen kan vara så avlägsen att sekvenserna har glidit isär helt, eller så har två proteiner hittat samma form oberoende av varandra. Kring 1990 började forskare därför fråga: vilken av de kända grundformerna passar den här sekvensen bäst?</p>
+<p>Metoden kallas <strong>trådning</strong> (eng. <em>threading</em>). Man trär sekvensen på ryggraden av varje känd struktur, en i taget, och bedömer hur väl den passar. Hamnar de vattenskygga aminosyrorna i proteinets inre och de laddade på ytan? Sitter aminosyror som brukar trivas i helixar där mallen har en helix? Poängen räknas fram med statistik över vilka aminosyror som brukar sitta var, och bredvid vilka, i de kända strukturerna.</p>
+<p>Trådningen blev med tiden känsligare. Det visade sig fungera ännu bättre att jämföra hela profiler med varandra: släktboken för det nya proteinet mot släktböckerna för de proteiner vars struktur är känd. På 2000-talet blev det också vanligt att väga samman svaren från flera olika program, eftersom en grundform som många metoder pekar ut oftare är rätt.</p>
+</section>
+<section id="sec-l16-fragment" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-fragment">Att pussla med fragment</h3>
+<p>För proteiner som inte liknar någon känd grundform återstod att bygga modellen från grunden. I mitten av 1990-talet fick David Baker i Seattle en idé som gjorde det möjligt. Korta bitar av en kedja, på tre till nio aminosyror, har nästan alltid en form som redan finns någonstans i databasen. Man kan därför plocka <strong>fragment</strong> ur kända strukturer, bitar vars sekvens liknar motsvarande bit av det nya proteinet, och låta ett program pussla ihop dem till ett helt protein. Programmet byter fragment ett i taget och behåller bytet om modellen blir bättre enligt en poängskala som bygger på statistik från kända strukturer (<a href="#fig-l16-vagar" class="quarto-xref">Figur&nbsp;<span>16.3</span></a>).</p>
+<p>Programmet, <strong>Rosetta</strong>, gav vid CASP kring sekelskiftet de första riktigt lyckade förutsägelserna av små proteiner utan mall. Det fungerade dock bara för proteiner kortare än ungefär hundra aminosyror, och ofta var bara en av tjugo modeller ungefär rätt, utan att man visste vilken. Rosetta växte så småningom till en hel verktygslåda, och det var med den som Bakers grupp senare började designa nya proteiner.</p>
+<div id="fig-l16-vagar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-vagar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/tre-vagar.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-vagar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.3: De tre klassiska vägarna till en struktur. Finns en nära släkting med känd struktur kan dess form lånas (homologimodellering). Finns ingen synlig släkting kan sekvensen prövas mot de kända grundformerna (trådning). Passar ingen kan modellen pusslas ihop av korta fragment från kända strukturer. Ju längre åt höger, desto svårare och mindre säkert. Egen figur.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-l16-samevolution" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="sec-l16-samevolution"><span class="header-section-number">16.5</span> Aminosyror som ändras i par</h2>
+<p>Alla de klassiska metoderna hade samma svaghet. De visste mycket om den lokala formen, men nästan ingenting om vilka delar av kedjan som hamnar nära varandra, trots att de ligger långt ifrån varandra i sekvensen. Det var den informationen som saknades. Den visade sig också finnas i släktboken.</p>
+<p>Titta på <a href="#fig-l16-samevolution" class="quarto-xref">Figur&nbsp;<span>16.4</span></a>. I två av kolumnerna varierar aminosyrorna, men inte oberoende av varandra. När den ena är blå är den andra gul, och tvärtom. De ändras i par. Det kallas <strong>samevolution</strong> eller <strong>koevolution</strong>.</p>
+<div id="fig-l16-samevolution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-samevolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/samevolution.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-samevolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.4: En multipel sekvensuppställning (förenklad). Varje rad är samma protein från en organism, och varje ruta en aminosyra; färgerna står för olika sorters aminosyror. Den gröna kolumnen är konserverad: den ändras aldrig, vilket tyder på att den är viktig. De två lila inramade kolumnerna ändras alltid tillsammans: när den ena är blå är den andra gul. Det tyder på att de två aminosyrorna ligger nära varandra i det veckade proteinet, till höger. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Förklaringen är att aminosyrorna ligger nära varandra i det veckade proteinet. Anta att en positivt laddad aminosyra sitter mot en negativt laddad, så att de drar till sig varandra (<a href="#fig-l16-mutation" class="quarto-xref">Figur&nbsp;<span>16.5</span></a>). Om en mutation byter den positiva mot en negativ stöter de två bort varandra, och proteinet blir mindre stabilt. Organismen överlever kanske ändå, men den är lite sämre ställd. Om sedan en andra mutation byter den andra aminosyran mot en positiv passar de ihop igen. En sådan <strong>kompenserande mutation</strong> har större chans att bevaras av det naturliga urvalet. Samma resonemang gäller storlek: om en stor aminosyra byts mot en liten uppstår ett hål i proteinets inre, och det kan fyllas igen om grannen i stället blir större.</p>
+<div id="fig-l16-mutation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-mutation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/kompenserande-mutation.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-mutation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.5: Kompenserande mutationer. Två aminosyror som ligger mot varandra i proteinet passar ihop (1). En mutation gör att de stöter bort varandra (2). En andra mutation i grannen återställer balansen (3). Över miljontals år lämnar sådana parvisa förändringar spår i släktboken. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Om man vet vilka aminosyror som ligger nära varandra, och vet det för tillräckligt många par, kan man räkna fram strukturen. Det är samma princip som används i en av de experimentella metoderna, NMR, där man mäter vilka atomer som är nära varandra och sedan bygger en modell som stämmer med alla mätningarna.</p>
+<section id="sec-l16-dca" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-dca">Från idé till verktyg</h3>
+<p>Idén publicerades redan 1994, av bland andra Chris Sander och Alfonso Valencia, men fungerade inte i praktiken. Problemet är att proteinet inte består av isolerade par. Om A ligger mot B, och B ligger mot C, kan A och C se ut att samevolvera fast de inte är i kontakt. De <strong>indirekta</strong> sambanden drunknade de direkta (<a href="#fig-l16-indirekt" class="quarto-xref">Figur&nbsp;<span>16.6</span></a>). Dessutom ser alla organismer som är nära släkt med varandra lika ut i många positioner, bara för att de har ett gemensamt ursprung, och även det kan misstas för samevolution.</p>
+<div id="fig-l16-indirekt" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-indirekt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/indirekta-samband.svg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-indirekt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.6: Direkta och indirekta samband. A ligger mot B, och B ligger mot C. Då kommer A och C också att se ut att ändras tillsammans, fast de inte är i kontakt. Innan man kunde räkna bort sådana indirekta samband drunknade de verkliga kontakterna bland de falska. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Kring 2009–2012 lärde man sig att räkna bort de indirekta sambanden. I stället för att jämföra kolumnerna två och två anpassade man en enda statistisk modell till hela släktboken på en gång, med metoder hämtade från fysiken, och modellen kunde då skilja direkta samband från indirekta. Det andra problemet, att nära släktingar liknar varandra, löste man med hjälp av fylogeni, alltså kunskap om hur sekvenserna är släkt med varandra. På så sätt räknas likheter som bara beror på ett gemensamt ursprung inte som samevolution.</p>
+<p>Martin Weigt och kolleger visade 2009 att metoden hittade kontaktytan mellan två bakteriella proteiner som samarbetar, och 2011 visade Debora Marks, Chris Sander och kolleger att kontakterna räckte för att bygga hela strukturer av proteiner. En av de mest använda varianterna utvecklades av forskare vid KTH i Stockholm tillsammans med kolleger utomlands. Andelen korrekt förutsagda kontakter ökade betydligt, och nu räckte informationen för att bygga strukturer av proteiner som tidigare var omöjliga. Plötsligt fanns det hopp på CASP-mötena.</p>
+<p>Varför fungerade det just då, när idén hade funnits sedan 1994? En viktig orsak var att databaserna hade vuxit. Metoden kräver många släktingar, i praktiken hundratals eller tusentals sekvenser, för att man ska kunna se vilka positioner som ändras tillsammans. Under 2000-talet hade antalet kända sekvenser mångdubblats, tack vare genomprojekten och sekvensering av hela miljöprover (<a href="11-omik.html" class="quarto-xref"><span>Kapitel 11</span></a>). De omkring 200 miljoner kända proteinsekvenserna kan sorteras in i ungefär 15 000–20 000 vanliga proteinfamiljer, så varje familj har i dag mycket många medlemmar. Antalet kända sekvenser fördubblas ungefär varje år. Antalet strukturer ökar däremot mycket långsammare, och många nya strukturer är varianter av proteiner som redan är kända, till exempel samma protein med olika läkemedel bundna.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: idén som fick vänta
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Lösningen på problemet med de indirekta sambanden var i själva verket känd tidigare. Alan Lapedes och hans kolleger i Los Alamos beskrev redan 1999 både svårigheten med släktskapen och den med de indirekta sambanden. I ett manuskript från 2002 anpassade de just den sortens statistiska modell till proteinfamiljer och visade att den hittade kontakter bättre än enkla jämförelser. Manuskriptet publicerades aldrig i någon tidskrift, och lades ut på internet först 2012, när metoden redan hade blivit känd genom andra. Det är ett exempel på att en god idé inte räcker. Den måste också komma vid rätt tid, när data och datorer finns för att visa att den fungerar.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l16-kontaktkarta" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-kontaktkarta">Kontaktkartan</h3>
+<p>Det som kom sedan hänger på hur förutsägelserna av kontakter brukar ritas: som en <strong>kontaktkarta</strong> (<a href="#fig-l16-kontaktkarta" class="quarto-xref">Figur&nbsp;<span>16.7</span></a>). Det är en kvadrat där både raderna och kolumnerna är aminosyrorna i kedjan, i ordning. Om aminosyra nummer 10 ligger nära aminosyra nummer 225, till exempel närmare än ungefär 8 ångström, sätter man en prick i rad 10, kolumn 225. Kartan är en sorts fingeravtryck av strukturen. En alfahelix syns som ett band längs diagonalen, eftersom varje aminosyra i en helix är nära den som kommer tre eller fyra steg senare. Två delar av ett betaflak som ligger bredvid varandra syns som streck vinkelräta mot eller parallella med diagonalen.</p>
+<div id="fig-l16-kontaktkarta" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-kontaktkarta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/kontaktkarta.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-kontaktkarta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.7: En kontaktkarta. Till vänster en liten kedja med fjorton aminosyror som vikt sig som en hårnål. Till höger kartan: en orange ruta betyder att två aminosyror ligger nära varandra. Hårnålens kontakter (1 mot 14, 2 mot 13 och så vidare) bildar ett diagonalt streck tvärs över kartan. Riktiga proteiner har hundratals aminosyror och mer invecklade mönster, men principen är densamma. Egen figur.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-l16-djupinlarning" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="sec-l16-djupinlarning"><span class="header-section-number">16.6</span> Djupinlärning kommer in</h2>
+<p>En kontaktkarta är i grunden en bild: en kvadrat med prickar. Och kontakterna är inte slumpmässigt utspridda. De bildar diagonala streck och band, och vissa mönster förekommer ofta medan andra aldrig gör det. Det är precis den sortens mönster som de djupa nätverken för bildigenkänning (<a href="#sec-l16-maskininlarning" class="quarto-xref"><span>Avsnitt 16.3</span></a>) var bra på att hitta.</p>
+<p>Flera forskargrupper såg möjligheten nästan samtidigt. Arne Elofssons grupp i Stockholm var 2014 en av de första som lät maskininlärning städa upp kontaktkartorna, med programmet <strong>PconsC2</strong>. Det var ännu inte ett neuralt nätverk utan en enklare sorts maskininlärning, men idén var densamma: programmet fick se de statistiska förutsägelserna och rättade prickar som inte passade in i mönstret (<a href="#fig-l16-pconsc2" class="quarto-xref">Figur&nbsp;<span>16.8</span></a>). Några år senare lät Jinbo Xu i Chicago ett djupt nätverk från bildigenkänningen se hela kartan på en gång, och förutsägelserna blev mycket bättre. Andra grupper, bland dem den i Stockholm, gjorde snart liknande program.</p>
+<div id="fig-l16-pconsc2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-pconsc2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/pconsc2-kontaktkarta.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-pconsc2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.8: En verklig kontaktkarta för ett protein med 250 aminosyror (en DNA-klämma från arkén <em>Pyrococcus furiosus</em>). De grå prickarna är kontakterna i den experimentella strukturen; lägg märke till banden längs diagonalen och strecken vinkelräta mot den. Stjärnorna är förutsagda kontakter, gröna om de är rätt och röda om de är fel. Ovanför diagonalen visas förutsägelsen från enbart samevolution (PconsC), nedanför samma förutsägelse efter att maskininlärning har städat kartan (PconsC2). Andelen rätt bland de säkraste kontakterna steg från 43 till 77 procent (PPV i figuren). Bild: Skwark m.fl., <em>PLOS Computational Biology</em> (2014), CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Effekten av djupinlärningen syns tydligt i CASP (<a href="#fig-l16-kontakter" class="quarto-xref">Figur&nbsp;<span>16.9</span></a>). Mellan 2010 och 2014 var omkring en femtedel till en fjärdedel av den bästa gruppens förutsagda kontakter rätt för svåra proteiner. 2016 var det nästan hälften och 2018 över 70 procent.</p>
+<div id="fig-l16-kontakter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-kontakter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/kontakter-casp.svg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-kontakter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.9: Hur stor andel av de förutsagda kontakterna som var rätt, för proteiner utan kända släktingar med känd struktur, för den bästa gruppen i varje CASP. Samevolutionsmetoderna gav en jämn nivå kring en femtedel. Med djupinlärning från bildigenkänningen steg andelen kraftigt på bara fyra år. Siffrorna gäller de säkraste kontakterna mellan aminosyror långt ifrån varandra i kedjan, enligt CASP:s officiella utvärderingar. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Med så många rätta kontakter gick det att bygga användbara modeller även av proteiner utan kända släktingar med känd struktur. David Bakers grupp kunde 2017 förutsäga strukturen för över 600 proteinfamiljer vars form ingen kände till, med hjälp av sekvenser från miljöprover, och gruppen i Stockholm gjorde samtidigt en liknande studie. Där båda grupperna hade gjort modeller för samma familj liknade de varandra, vilket stärkte tilltron till dem. Ett viktigt resultat var också att kombinationen av evolutionär information, samevolution och maskininlärning var bättre än varje del för sig.</p>
+<section id="sec-l16-alphafold1" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-alphafold1">AlphaFold 1</h3>
+<p>Samtidigt hade DeepMind, lockat av CASP:s tydliga måttstock (<a href="#sec-l16-casp" class="quarto-xref"><span>Avsnitt 16.2</span></a>), gett sig in på problemet. Vid CASP 2018 deltog företaget för första gången, med programmet <strong>AlphaFold</strong>. Grundidén var densamma som hos de akademiska grupperna: släktbok, samevolution och ett djupt nätverk som tränats på kända strukturer. Men i stället för att bara förutsäga om två aminosyror är i kontakt förutsade AlphaFold hur långt det är mellan dem, och hur säker förutsägelsen är. Nätverket var också större och bättre tränat.</p>
+<p>Resultatet var ett stort steg. Enligt Nobelkommitténs sammanfattning hade de bästa förutsägelserna för svåra proteiner tidigare legat kring 40 på CASP:s skala till 100. AlphaFold nådde nästan 60. Det var lovande, men inte tillräckligt: för att en modell ska vara lika bra som ett experiment behövs omkring 90. Och det var inte fundamentalt nytt. Inom ungefär ett år hade Bakers grupp och andra byggt liknande program, som <strong>trRosetta</strong>.</p>
+</section>
+</section>
+<section id="sec-l16-alphafold2" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="sec-l16-alphafold2"><span class="header-section-number">16.7</span> AlphaFold 2: genombrottet</h2>
+<p>Det verkliga genombrottet kom vid nästa tävling. CASP 2020 hölls mitt under covid-pandemin. Mötet, som brukar samla deltagarna på en badort i december, hölls i stället via internet, och deltagarna fick följa presentationerna hemifrån. Där presenterade DeepMind <strong>AlphaFold 2</strong>.</p>
+<p>Det som chockade var inte bara att förutsägelserna var bättre, utan hur mycket bättre. Tidigare hade kurvan alltid sluttat: lätta proteiner gick bra, svåra dåligt. För AlphaFold 2 var kurvan nästan platt (<a href="#fig-l16-casp" class="quarto-xref">Figur&nbsp;<span>16.10</span></a>). Mittvärdet för alla proteiner i tävlingen låg kring 92, alltså i nivå med experimenten, och även de svåraste proteinerna låg nära 90. Alla andra grupper låg ungefär där AlphaFold 1 hade legat två år tidigare. Arrangörerna konstaterade att problemet med att förutsäga ett enskilt proteins struktur i stort sett var löst.</p>
+<div id="fig-l16-casp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-casp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/casp-schema.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-casp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.10: Schematisk bild av hur förutsägelserna i CASP utvecklades. Före 2018 gick det bra för proteiner som liknade kända strukturer (till vänster) men dåligt för proteiner utan kända släktingar (till höger). AlphaFold 1 lyfte kurvan, och AlphaFold 2 gjorde den nästan platt: även de svåraste proteinerna förutsades nästan lika bra som experimentet. Kurvorna är förenklade. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Detaljerna var också imponerande. Inte bara kedjans väg utan även sidogrupperna satt rätt. I ett av exemplen fanns en zinkjon i proteinet. AlphaFold 2 visste ingenting om zink och hade ingen zinkjon med i sin modell, men aminosyrorna runt det tomma stället var placerade precis som de ska vara för att hålla fast en zinkjon. Programmet hade lärt sig hur sådana platser ser ut.</p>
+<section id="sec-l16-hur" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-hur">Hur AlphaFold 2 fungerar</h3>
+<p>AlphaFold 2 var inte bara en förbättring av AlphaFold 1. De tidigare metoderna bestod av flera separata steg: först räknades samevolutionen ut, sedan förutsade ett nätverk kontakter, och sist fick ett annat program bygga en struktur. AlphaFold 2 är i stället ett enda stort neuralt nätverk som går hela vägen från släktbok till färdig tredimensionell struktur (<a href="#fig-l16-alphafold" class="quarto-xref">Figur&nbsp;<span>16.11</span></a>). Det tränades på strukturerna i PDB, med släktböckerna för varje protein som indata och den kända strukturen som facit. Man kan säga att programmet tog med sig alla de tidigare idéerna, släktboken, samevolutionen, kontakterna och avstånden, och gjorde var och en till en del av nätverket som kunde tränas.</p>
+<div id="fig-l16-alphafold" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-alphafold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/alphafold-schema.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-alphafold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.11: AlphaFold 2 i stora drag. Programmet söker först släktingar och ställer upp dem i en släktbok. Evoformer-delen, med 48 likadana men olika tränade lager, arbetar fram vilka par av aminosyror som hör ihop. Strukturmodulen bygger sedan en tredimensionell modell. Modellen kan skickas tillbaka genom nätverket några varv för att förfinas. Till sist får man både en modell och ett mått på hur säker den är. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>En av de viktigaste byggstenarna kallas <strong>uppmärksamhet</strong> (eng. <em>attention</em>). Det är ett sätt för nätverket att själv lära sig vilka delar av indata som hänger ihop med vilka, även när de ligger långt ifrån varandra. Idén kommer från de språkmodeller som i dag ligger bakom chattprogram som ChatGPT. En språkmodell tränas på att gissa nästa ord i en mening. I meningen “jag bor i ett …” är det ordet “bor” som gör att “hus” är en bättre gissning än “kyrka”, och nätverket måste lära sig att just det ordet är viktigt för gissningen. I AlphaFold används samma idé på släktboken: vilka organismer ska man jämföra med varandra, och vilka positioner i kedjan hänger ihop?</p>
+<p>En annan byggsten var ny: ett slags geometriskt sunt förnuft, inbyggt i nätverket. Om aminosyra A ligger nära B, och B ligger nära C, då kan A och C inte ligga hur långt ifrån varandra som helst, och nätverket kontrollerar hela tiden att avstånden går ihop.</p>
+<p>När modellen till sist byggs upp börjar alla aminosyror i samma punkt och flyttar sig sedan ut till sina platser. Det har ingenting med hur ett verkligt protein veckar sig att göra. AlphaFold räknar inte med några fysikaliska krafter alls.</p>
+<p>Det är en viktig poäng. AlphaFold 2 förutsäger strukturen genom att känna igen mönster i evolutionen, som det har lärt sig från tidigare kända strukturer. Det säger därför ingenting om veckningsvägen, det vill säga hur kedjan tar sig till sin form.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: inuti AlphaFold 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Hjärtat i programmet kallas <strong>Evoformer</strong>. Den håller två saker i minnet samtidigt: släktboken, och en tabell över alla par av aminosyror, som liknar en kontaktkarta men innehåller mycket mer än bara avstånd. I 48 lager efter varandra får de två uppdatera varandra. Släktboken säger något om vilka par som hör ihop, och paren säger något om vilka delar av släktboken man ska titta extra noga på. Kontrollen av avstånden görs genom att Evoformer går igenom alla trianglar av tre aminosyror. Det är beräkningsmässigt dyrt, eftersom det finns mycket många trianglar, men det är en viktig del av programmet.</p>
+<p>Efter de 48 lagren tar <strong>strukturmodulen</strong> över. Den behandlar varje aminosyra som en liten triangel som kan flyttas och vridas fritt, som i en gas, och placerar dem steg för steg i förhållande till varandra. Till sist läggs sidogrupperna på. Det mesta av arbetet är dock redan gjort i Evoformer. Strukturmodulen gör det snabbare och enklare, men en äldre metod som bygger en modell från förutsagda avstånd ger nästan lika bra resultat. Att skicka modellen tillbaka genom nätverket några varv hjälper också mest i svåra fall.</p>
+</div>
+</div>
+</div>
+<p>Sommaren 2021 publicerade även Bakers grupp ett liknande program, <strong>RoseTTAFold</strong>, som var nästan lika bra. Det visade att idéerna gick att upprepa utanför DeepMind, och att genombrottet inte hängde på någon hemlig ingrediens.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: varför vann DeepMind?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Hur kunde ett företag ta sig så långt förbi hela den akademiska forskarvärlden? Nästan alla delarna fanns redan. Björn Wallner i Linköping, tidigare doktorand hos Arne Elofsson, hade till exempel visat att ett nätverk kan läsa släktboken direkt, utan den statistiska samevolutionsanalysen. Idéer som liknar Evoformer publicerades ungefär samtidigt av andra. Trianglarna och den effektiva strukturmodulen var dock nya.</p>
+<p>Skillnaden låg främst i arbetssättet. DeepMind hade gott om datorkraft, även om det knappast var mer än alla akademiska grupper hade tillsammans. Viktigare var att en liten grupp, kanske ett tiotal personer, arbetade fokuserat mot ett tydligt och mätbart mål, med skickliga ingenjörer och projektledare och med datorer som alltid var tillgängliga. En idé kunde prövas på några timmar i stället för efter en vecka i kö. Eftersom de flesta idéer inte fungerar är det en stor fördel att kunna pröva många. Till det kom en kombination av djup kunskap om både maskininlärning och proteiner.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l16-casp-historia" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-casp-historia">Trettio år av CASP i korthet</h3>
+<p>Med facit i hand kan man sammanfatta utvecklingen i CASP så här (<a href="#tbl-l16-casp" class="quarto-xref">Tabell&nbsp;<span>16.1</span></a>).</p>
+<div id="tbl-l16-casp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-l16-casp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabell&nbsp;16.1: Utvecklingen i CASP, sammanfattad.
+</figcaption>
+<div aria-describedby="tbl-l16-casp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>År</th>
+<th>Vad som fungerade</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1994–2004</td>
+<td>Homologimodellering när det fanns en nära släkting med känd struktur. Trådningen blev stegvis bättre. Fragmentpussel gav de första lyckade modellerna av små proteiner utan mall.</td>
+</tr>
+<tr class="even">
+<td>2006–2016</td>
+<td>Små steg. Program som vägde samman flera metoders svar, och program som bedömde hur bra en modell var. Från 2014 gav samevolution de första modellerna av större proteiner utan mall.</td>
+</tr>
+<tr class="odd">
+<td>2018</td>
+<td>Djupinlärning av avstånd mellan aminosyror. AlphaFold 1 var bäst.</td>
+</tr>
+<tr class="even">
+<td>2020</td>
+<td>AlphaFold 2: nästan experimentell noggrannhet för de flesta enskilda proteiner.</td>
+</tr>
+<tr class="odd">
+<td>2022–2024</td>
+<td>Nästan alla grupper bygger på AlphaFold. 2024 hade de bästa grupperna rätt grundform för alla enskilda domäner. Kvar finns stora komplex, RNA, små molekyler och proteiner som växlar form.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-l16-nobel" class="level2" data-number="16.8">
+<h2 data-number="16.8" class="anchored" data-anchor-id="sec-l16-nobel"><span class="header-section-number">16.8</span> Nobelpriset i kemi 2024</h2>
+<p>Nobelpriset i kemi 2024 delades i två lika delar. Den ena gick till Demis Hassabis och John Jumper vid Google DeepMind “för proteinstrukturprediktion”, den andra till David Baker vid University of Washington i Seattle “för datorbaserad proteindesign” (<a href="#fig-l16-nobel" class="quarto-xref">Figur&nbsp;<span>16.12</span></a>). Hassabis ledde DeepMind och Jumper ledde arbetet med AlphaFold. Baker hade varit en av de ledande inom strukturförutsägelse i decennier, med fragmentpusslet, samevolutionen och djupinlärningen, men priset gavs framför allt för att han lärt sig att använda metoderna baklänges, för att skapa helt nya proteiner.</p>
+<div id="fig-l16-nobel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-nobel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/nobel-2024.jpg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-nobel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.12: Pristagarna i kemi 2024, från vänster David Baker, Demis Hassabis och John Jumper, vid Kungl. Vetenskapsakademien under Nobelveckan. Bild: Jennifer 8. Lee, Wikimedia Commons, CC BY-SA 4.0.
+</figcaption>
+</figure>
+</div>
+<p>När priset presenterades var Peter Brzezinski, vars forskning om molekylära maskiner vi mötte i <a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a> och <a href="10-signalering.html" class="quarto-xref"><span>Kapitel 10</span></a>, sekreterare i Nobelkommittén för kemi.</p>
+<section id="sec-l16-design" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-design">Att designa nya proteiner</h3>
+<p>Att förutsäga en struktur betyder att gå från sekvens till form. Design är det omvända: man börjar med en form, eller en uppgift, och söker en sekvens som veckar sig till den. 2003 presenterade Bakers grupp <strong>Top7</strong>, ett protein med en form som inte finns i naturen och som visade sig ha nästan exakt den struktur man hade ritat. Sedan dess har gruppen designat proteiner som binder till virus, som bygger upp små partiklar för vacciner och som sätter fart på kemiska reaktioner.</p>
+<p>Efter AlphaFold 2 har även designen tagit in djupinlärning. Ett vanligt arbetssätt har fyra steg. Ett program skapar en ny form, till exempel en som passar mot en viss yta på ett virusprotein, på liknande sätt som AI-program skapar bilder. Ett annat program föreslår en sekvens till formen. AlphaFold får sedan kontrollera förslaget: veckar sig sekvensen verkligen till den form man ville ha? Och till sist måste proteinet tillverkas och testas i laboratoriet, eftersom datorns kontroll inte är något experiment. Som vi såg i <a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a> är det fortfarande svårt att designa riktigt bra enzymer, men proteiner som binder till andra molekyler kan i dag ofta designas med god träffsäkerhet.</p>
+</section>
+</section>
+<section id="sec-l16-sakerhet" class="level2" data-number="16.9">
+<h2 data-number="16.9" class="anchored" data-anchor-id="sec-l16-sakerhet"><span class="header-section-number">16.9</span> Hur vet man om modellen är rätt?</h2>
+<p>En av AlphaFolds viktigaste egenskaper är att programmet vet när det inte vet. För varje aminosyra anger det ett mått på hur säker förutsägelsen är, kallat <strong>pLDDT</strong>, på en skala från 0 till 100. Det har tränats in på samma sätt som allt annat: under träningen fick nätverket inte bara gissa strukturen utan också gissa hur fel det hade. Måttet visade sig vara mycket pålitligt. Där AlphaFold säger att det är säkert stämmer det nästan alltid (<a href="#fig-l16-mot-experiment" class="quarto-xref">Figur&nbsp;<span>16.13</span></a>).</p>
+<div id="fig-l16-mot-experiment" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-mot-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/alphafold-mot-experiment.png" class="img-fluid figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-mot-experiment-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.13: En förutsägelse från AlphaFold 2 lagd ovanpå den experimentella strukturen (grå) för ett av proteinerna i CASP14. Förutsägelsen är färgad efter säkerhet: mörkblått mycket säkert, ljusblått säkert, gult osäkert och orange mycket osäkert. Där modellen är blå följer den den grå strukturen nästan exakt. Den orange svansen längst upp till vänster saknas i experimentet; den är en extra bit som forskarna hade lagt till för att kunna rena proteinet och som inte har någon fast form. Bild: Tunyasuvunakool m.fl., <em>Nature</em> (2021), CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Modellerna brukar färgas efter säkerheten, från mörkblått (mycket säkert) till orange (mycket osäkert), som i <a href="#fig-l16-plddt" class="quarto-xref">Figur&nbsp;<span>16.14</span></a>. Det gör det möjligt att använda de säkra delarna och bortse från resten.</p>
+<div id="fig-l16-plddt" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-plddt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/alphafold-plddt.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-plddt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.14: En modell från AlphaFold av ett stort mänskligt protein, myosin-XVIIIa, färgad efter hur säker förutsägelsen är: mörkblått mycket säkert, ljusblått säkert, gult osäkert och orange mycket osäkert. Den kompakta delen nere till höger, en välveckad domän, är mörkblå. Långa helixar är ljusblå, men hur de ligger i förhållande till varandra är godtyckligt. De orange trådarna är troligen delar som inte har någon bestämd form alls. Bild: Hproger, Wikimedia Commons, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>pLDDT säger dock bara något om den lokala formen kring varje aminosyra. Det säger inget om hur två domäner ligger i förhållande till varandra. Därför ger AlphaFold också ett andra mått, <strong>PAE</strong> (eng. <em>predicted aligned error</em>), som för varje par av aminosyror anger hur säker programmet är på deras inbördes läge. Två domäner kan båda vara mörkblå, alltså var för sig säkra, medan PAE visar att programmet inte vet hur de ligger mot varandra. Det är vad som har hänt med helixarna i <a href="#fig-l16-plddt" class="quarto-xref">Figur&nbsp;<span>16.14</span></a>, och det är principen bakom <a href="#fig-l16-pae" class="quarto-xref">Figur&nbsp;<span>16.15</span></a>.</p>
+<div id="fig-l16-pae" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-pae-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/plddt-pae.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-pae-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.15: Två mått på säkerhet. Till vänster: båda domänerna har hög pLDDT, så formen på var och en är säker, men länken mellan dem är rörlig och domän 2 kan ligga på flera ställen. Till höger: PAE-kartan visar det. Inom varje domän är det inbördes läget säkert (mörkt), men mellan domänerna är det osäkert (ljust). Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Det visade sig också att de osäkra delarna ofta inte är fel i vanlig mening. Många proteiner har delar som saknar fast struktur, <strong>oordnade regioner</strong> (<a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a>), som bara får en bestämd form när de binder till något annat, eller inte ens då. AlphaFold ritar dem som långa, slingrande band med låg säkerhet, och programmet har därför blivit ett av de bästa verktygen för att hitta oordnade delar i proteiner. Men låg säkerhet kan också bero på att det finns för få släktingar, eller på att proteinet kan inta flera former. Och omvänt kan en del som bara veckar sig när den binder till något ritas med hög säkerhet, i den bundna formen.</p>
+<p>Det viktigaste att komma ihåg är att säkerhet inte är detsamma som riktighet. Måtten är programmets egen uppskattning, inlärd från samma data som allt annat. En modell är en välgrundad hypotes med en uppskattad pålitlighet, inte ett experiment.</p>
+</section>
+<section id="sec-l16-oppen" class="level2" data-number="16.10">
+<h2 data-number="16.10" class="anchored" data-anchor-id="sec-l16-oppen"><span class="header-section-number">16.10</span> Öppen kod och 200 miljoner strukturer</h2>
+<p>En förutsägelse gör bara nytta om forskarna kan använda den. Det kanske mest berömvärda med DeepMind var att de släppte koden fritt sommaren 2021, samtidigt som den vetenskapliga artikeln publicerades. Google hade kunnat försöka tjäna pengar på programmet, men i stället kunde alla forskare ladda ned det, köra det på egna datorer och bygga vidare på det. Inom ett halvår hade det kommit en lång rad nya studier som byggde vidare på programmet. De inställningar som nätverket hade lärt sig under träningen fick till en början bara användas för forskning, men villkoren blev senare friare även för företag.</p>
+<p>Tillsammans med det europeiska bioinformatikinstitutet EMBL-EBI byggde DeepMind också en öppen databas med förutsagda strukturer. Först innehöll den alla mänskliga proteiner och proteinerna från ett tjugotal viktiga modellorganismer. Ett år senare hade den byggts ut till över 200 miljoner strukturer, i stort sett alla kända proteiner utom virusens. Virusens proteiner har andra forskare förutsagt senare. Den som är nyfiken på ett visst protein behöver alltså ofta inte köra något program alls, utan kan slå upp modellen direkt.</p>
+<p>För den som vill göra egna förutsägelser byggde några forskare, bland andra Martin Steinegger i Seoul och Sergey Ovchinnikov, <strong>ColabFold</strong>. Där sker sökningen efter släktingar på en snabb server, och själva förutsägelsen körs gratis på Googles datorer via webbläsaren. Det tar en kvart till en halvtimme för ett normalstort protein, och man behöver inga datorkunskaper.</p>
+<p>För förutsägelser i stor skala behövs däremot större datorer. I Sverige har superdatorn <strong>Berzelius</strong> i Linköping, som invigdes 2021 och betalades av Knut och Alice Wallenbergs stiftelse, varit ett viktigt verktyg för att köra AlphaFold på det sättet.</p>
+<p>Modellerna används nu överallt: för att tolka experiment med röntgenkristallografi och kryo-EM (<a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>), för att se var en sjukdomsmutation sitter i proteinet, som utgångspunkt för att utveckla läkemedel och för att få en överblick över vilka former proteiner kan ha.</p>
+</section>
+<section id="sec-l16-komplex" class="level2" data-number="16.11">
+<h2 data-number="16.11" class="anchored" data-anchor-id="sec-l16-komplex"><span class="header-section-number">16.11</span> Proteiner som arbetar tillsammans</h2>
+<p>Proteiner arbetar sällan ensamma. Som vi har sett i flera kapitel bildar de stora maskiner av många kedjor: ribosomen, ATP-syntaset och proteasomen, som bryter ned uttjänta proteiner. Redan efter CASP 2018 var det tydligt att de flesta enskilda proteiner snart skulle gå att förutsäga. Nästa stora fråga var hur proteiner sitter ihop med varandra. Den rymmer egentligen två frågor: <em>vilka</em> proteiner binder till varandra, och <em>hur</em> gör de det?</p>
+<section id="sec-l16-ytor" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-ytor">Ytan mellan två proteiner</h3>
+<p>För att förutsäga hur två proteiner binder till varandra hjälper det att veta hur ytan mellan dem brukar se ut. Ytan där två proteiner möts liknar på många sätt insidan av ett protein. Den är mer vattenskygg än resten av proteinets utsida, och aminosyrorna är tätt packade mot varandra. Bindningen är inte jämnt fördelad över ytan. Några få aminosyror i mitten, ofta stora sådana, står för det mesta av den. Byter man ut en av dem kan bindningen nästan försvinna, medan förändringar i kanten knappt märks. Ytor mellan proteiner är därför mer konserverade än resten av proteinets utsida, men mindre än dess inre.</p>
+<p>Resten av ytan är inte heller betydelselös. Som vi såg i <a href="14-proteinveckning.html#sec-l14-ytan" class="quarto-xref"><span>Avsnitt 14.5</span></a> och <a href="14-proteinveckning.html#sec-l14-lagom" class="quarto-xref"><span>Avsnitt 14.7</span></a> avgör dess samlade laddning hur klibbigt proteinet är i den trånga cellen, och därmed vilka kortlivade möten som kan leda till bindning.</p>
+</section>
+<section id="sec-l16-dockning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-dockning">Pussel med färdiga bitar</h3>
+<p>De första försöken att förutsäga hur proteiner binder byggde på att man redan kände strukturerna för de enskilda proteinerna. De gamla metoderna, så kallad <strong>dockning</strong>, tog strukturerna för två proteiner och försökte passa ihop dem som pusselbitar. År 1992 visade en israelisk forskargrupp hur en dator snabbt kan pröva alla möjliga lägen, alla vridningar och förflyttningar av den ena biten i förhållande till den andra, och ge poäng för hur väl ytorna passar. Sedan 2001 har metoderna testats i en egen dubbelblind tävling, CAPRI, som fungerar som CASP.</p>
+<p>Dockning fungerade dåligt, av två skäl. Proteiner ändrar ofta form lite när de binder till varandra, så de färdiga bitarna passar inte riktigt. Och programmen tog fram tusentals tänkbara lägen, men hade svårt att avgöra vilket som var det rätta. Ungefär en av tio eller en av fem förutsägelser blev godtagbar. Det gick bra i stort sett bara när det redan fanns en känd struktur av ett liknande komplex att utgå från.</p>
+</section>
+<section id="sec-l16-par" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-par">Samevolution mellan två proteiner</h3>
+<p>Samevolution fungerar även mellan proteiner. Om två proteiner binder till varandra måste ytorna passa ihop, och en förändring på den ena ytan kan kompenseras av en förändring på den andra. Men för att se det måste man veta vilka släktingar som hör ihop. Ett protein från en människa binder knappast till ett protein från en mus. Därför paras släktingarna ihop organism för organism: människans protein A med människans protein B, musens A med musens B, och så vidare (<a href="#fig-l16-parade" class="quarto-xref">Figur&nbsp;<span>16.16</span></a>). Det är enklast hos bakterier, där gener för proteiner som arbetar tillsammans ofta sitter bredvid varandra i arvsmassan. Det är svårare om en organism har flera kopior av samma gen, eftersom man då inte vet vilken kopia som binder till vilken, men det går för de flesta.</p>
+<div id="fig-l16-parade" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-parade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/parade-slaktbocker.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-parade-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.16: Ihopparade släktböcker. Varje rad innehåller protein A och protein B från samma organism. En kolumn i A och en kolumn i B ändras tillsammans: när den ena är blå är den andra gul. Det tyder på att de två aminosyrorna möts i kontaktytan mellan proteinerna, till höger. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Redan 2014 använde Bakers grupp och Debora Marks grupp sådana ihopparade släktböcker för att förutsäga ytorna mellan proteiner i bakteriella komplex. Efter CASP 2018 prövade flera grupper, bland dem den i Stockholm, att låta de nya nätverken förutsäga hur två proteiner veckar sig och binder till varandra samtidigt. Det fungerade ungefär lika bra som dockning, men ofta i andra fall. Det var lovande, men långt ifrån ett genombrott.</p>
+</section>
+<section id="sec-l16-multimer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-multimer">AlphaFold för komplex</h3>
+<p>När koden till AlphaFold 2 släpptes i juli 2021 upptäckte forskare inom några dagar att man kunde lura programmet. Genom att sätta ihop två proteinkedjor med en lång, meningslös länk, eller genom att numrera aminosyrorna så att det blev ett stort hopp mellan kedjorna, kunde AlphaFold förutsäga strukturen för två proteiner tillsammans som om de vore ett.</p>
+<p>Arne Elofssons grupp gjorde, med programmet <strong>FoldDock</strong>, en av de första stora utvärderingarna av tricket, i kombination med ihopparade släktböcker. Med AlphaFold 2 rakt av blev drygt 40 procent av förutsägelserna för par av proteiner godtagbara, och med bättre släktböcker omkring 60 procent. Många av modellerna var i stort sett perfekta. DeepMind släppte strax därefter en egen version tränad på komplex, <em>AlphaFold-Multimer</em>, som fungerade något bättre.</p>
+<p>Det anmärkningsvärda är att AlphaFold 2 bara hade tränats på enskilda proteinkedjor. Det hade aldrig sett två proteiner binda till varandra. Ändå kunde det förutsäga hur de sitter ihop. Det tyder på att programmet inte bara har lärt sig strukturer utantill, utan har lärt sig något allmänt om hur proteiner packas, och att ytan mellan två proteiner följer samma regler som insidan av ett protein.</p>
+<p>Precis som för enskilda proteiner behövs ett mått på hur säker förutsägelsen är, men nu för själva kontaktytan. Varje kedja kan vara rätt för sig, medan deras inbördes läge är fel. Stockholmsgruppen tog fram måttet <strong>pDockQ</strong> och DeepMind ett liknande mått, ipTM. Med dem kan man i de flesta fall avgöra om en modell för ett proteinpar är rätt eller fel. Det visade sig att måtten också säger något om ifall proteinerna alls binder till varandra: för par som inte gör det blir modellerna nästan alltid osäkra.</p>
+</section>
+<section id="sec-l16-natverk" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-natverk">Alla mot alla</h3>
+<p>Därmed gick det att ställa den första frågan, vilka proteiner som binder till varandra, i stor skala. En grupp i Texas, tillsammans med Bakers grupp, prövade 2021 alla par av proteiner i jäst, över åtta miljoner, och fann omkring 1 500 par som troligen binder till varandra, många av dem tidigare okända.</p>
+<p>För människan vet man genom experiment att tusentals par av proteiner binder till varandra, men för de flesta vet man inte hur. Arne Elofssons grupp gjorde, tillsammans med kolleger vid det europeiska bioinformatikinstitutet, modeller för omkring 65 000 sådana par. För drygt 3 000 blev modellerna så säkra att man kan lita på dem. Många av dem gällde par vars struktur ingen tidigare hade känt till.</p>
+<p>Modellerna kan avslöja mer än enskilda par. Ett protein som heter GDI1 binder till ett stort antal så kallade Rab-proteiner, som styr transporten av vesikler i cellen (<a href="12-proteintrafik.html" class="quarto-xref"><span>Kapitel 12</span></a>). Modellerna visade att alla Rab-proteinerna binder till samma ställe på GDI1. De kan alltså inte binda samtidigt utan måste turas om (<a href="#fig-l16-natverk" class="quarto-xref">Figur&nbsp;<span>16.17</span></a>).</p>
+<div id="fig-l16-natverk" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-natverk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/manniskans-natverk.jpg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-natverk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.17: De säkraste förutsagda paren av mänskliga proteiner, ritade som ett nätverk (mitten). Varje prick är ett protein och varje streck ett par som binder till varandra. Rött betyder att man redan kände till strukturen för paret eller ett liknande par, blått att strukturen var helt okänd. Runt om visas fyra exempel, med förutsägelsen i färg ovanpå den kända strukturen i grått: proteasomens kärna (uppe till vänster), transkriptionsfaktorn TFIIH (uppe till höger), RFC-komplexet som hjälper till när DNA kopieras (nere till vänster) och GDI1 med alla Rab-proteiner som binder till samma ställe (nere till höger). Engelska beteckningar. Bild: Burke m.fl., <em>Nature Structural &amp; Molecular Biology</em> (2023), CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l16-stora" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-stora">Stora komplex, bit för bit</h3>
+<p>Hela stora komplex var för stora för att köras i AlphaFold på en gång. Men man kan bygga dem bit för bit. Man förutsäger först hur kedjorna sitter ihop två eller tre i taget. Sedan lägger man ihop delarna, så att de bitar som är gemensamma för två förutsägelser läggs ovanpå varandra, ungefär som när man lägger ett pussel (<a href="#fig-l16-pussel" class="quarto-xref">Figur&nbsp;<span>16.19</span></a>).</p>
+<p>Ett exempel är proteasomens kärna, 20S-proteasomen (<a href="#fig-l16-proteasom" class="quarto-xref">Figur&nbsp;<span>16.18</span></a>). Hos människan består den av 28 kedjor: 14 olika proteiner, med två exemplar av varje, ordnade i fyra ringar med sju kedjor i varje.</p>
+<div id="fig-l16-proteasom" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-proteasom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/proteasom-goodsell.jpg" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-proteasom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.18: Proteasomen, cellens sophanterare, målad av David S. Goodsell. Den cylinderformade kärnan (gult och rött) består av fyra ringar av proteinkedjor; i de röda sitter de aktiva centrum som klipper sönder proteiner. Locken i båda ändar (lila) reglerar vad som får komma in. Kärnan är ett exempel på ett stort komplex som kunnat byggas upp ur förutsägelser av några kedjor i taget. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Problemet är att ordningen spelar roll: lägger man till bitarna i fel ordning blir det fel. Stockholmsgruppen löste det genom att låta datorn pröva många olika ordningar och systematiskt satsa mer på de vägar som såg lovande ut, en metod som kallas <em>Monte Carlo-trädsökning</em> och som är känd från datorprogram som spelar spel. Någon fysik ingår inte. Ändå kunde ungefär hälften av 175 testade komplex med mellan 10 och 30 kedjor byggas ihop helt, och omkring 30 av dem blev mycket noggranna, från ett program som aldrig tränats på mer än en kedja i taget.</p>
+<div id="fig-l16-pussel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l16-pussel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L16/stora-komplex-pussel.jpg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l16-pussel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;16.19: Ett stort komplex byggt bit för bit. Överst: sekvenserna för komplexets kedjor och ett nätverk över vilka kedjor som rör vid varandra. AlphaFold förutsäger strukturen för par av kedjor (uppe till höger). I mitten: två par som delar en kedja (C) läggs ovanpå varandra, så att H-C och C-A blir H-C-A. Röda streck i nätverket visar hur många kedjor som har lagts till efter 1, 4 och 10 steg. Nederst: det färdiga komplexet med tolv kedjor (i färg) ovanpå den experimentella strukturen (grått), sett från två håll. De två stämmer nästan helt överens (TM-score 0,93, där 1 är perfekt). Engelska beteckningar. Bild: Bryant m.fl., <em>Nature Communications</em> (2022), CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l16-komplex-granser" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l16-komplex-granser">En säker modell är inget bevis</h3>
+<p>Komplex är fortfarande mycket svårare än enskilda proteiner, och svårigheten varierar. Stabila komplex, där två proteiner har arbetat tillsammans under lång tid i evolutionen och samevolverat, förutsägs ofta bra. Antikroppar och de virusproteiner de binder till har däremot inte utvecklats tillsammans, så där finns ingen samevolution att hämta. Sådana komplex förutsägs mycket sämre. Om man låter programmet göra hundratals modeller finns det ofta en bra bland dem, men det är svårt att veta vilken. Att ta fram en bra modell har blivit lättare än att veta vilken av modellerna som är bra.</p>
+<p>Viktigast av allt: ett program som får två proteiner kan föreslå <em>hur</em> de skulle kunna binda till varandra, men det visar inte <em>att</em> de gör det i cellen. Två proteiner kan få en övertygande gemensam modell fast de finns i olika celltyper eller i olika delar av cellen och aldrig möts. Och i den trånga cellen (<a href="14-proteinveckning.html#sec-l14-trangsel" class="quarto-xref"><span>Avsnitt 14.4</span></a>) möter varje protein tusentals andra, som ett program som bara får se två av dem inte vet något om. En säker modell av ett komplex är en hypotes som måste prövas på annat sätt.</p>
+</section>
+</section>
+<section id="sec-l16-alphafold3" class="level2" data-number="16.12">
+<h2 data-number="16.12" class="anchored" data-anchor-id="sec-l16-alphafold3"><span class="header-section-number">16.12</span> AlphaFold 3: fler sorters molekyler</h2>
+<p>I maj 2024 presenterade DeepMind <strong>AlphaFold 3</strong>. Den stora nyheten är att programmet inte bara hanterar proteiner, utan också DNA, RNA, små molekyler som läkemedel, metalljoner och kemiska förändringar av proteinerna.</p>
+<p>Grundidéerna är desamma som i AlphaFold 2, men programmet lägger mindre vikt vid släktboken och mer vid paren av aminosyror. Strukturmodulen har bytts mot en teknik som kallas <strong>diffusion</strong>, samma teknik som används i AI-program som skapar bilder. Under träningen får nätverket se kända strukturer som man har gjort suddiga genom att flytta atomerna slumpmässigt, och det lär sig att ta bort oskärpan. När det sedan ska förutsäga en struktur börjar det från ett slumpmässigt moln av atomer, som stegvis görs allt skarpare.</p>
+<p>Att kunna förutsäga hur små molekyler binder har ett stort kommersiellt värde. De flesta läkemedel är små molekyler som binder till ett protein och hindrar det från att göra något. Den som kan förutsäga hur en molekyl binder kan snabbare välja ut lovande kandidater. Men att hitta själva molekylen står bara för en mindre del, kanske en tiondel, av kostnaden för ett nytt läkemedel. En molekyl som binder perfekt kan ändå vara giftig, och de dyraste stegen, de kliniska prövningarna på människor, återstår.</p>
+<p>Den här gången var DeepMind inte lika generöst. Koden släpptes i november 2024, strax före Nobelprisutdelningen, men får bara användas för forskning som inte är kommersiell. Metoden var dock så noggrant beskriven att andra grupper inom några månader hade byggt egna versioner, som <strong>Boltz-1</strong> och <strong>Chai-1</strong>, som är nästan lika bra och har friare villkor. Bakers grupp gjorde samtidigt ett eget program med liknande förmåga.</p>
+<p>Hur mycket bättre är då AlphaFold 3? I CASP 2024 var AlphaFold 3 något bättre än AlphaFold 2 för komplex, men om man lät AlphaFold 2 göra väldigt många modeller försvann skillnaden. Diffusion har också en baksida: programmet kan hitta på en övertygande form för delar som i verkligheten saknar fast struktur.</p>
+</section>
+<section id="sec-l16-granser" class="level2" data-number="16.13">
+<h2 data-number="16.13" class="anchored" data-anchor-id="sec-l16-granser"><span class="header-section-number">16.13</span> Vad AlphaFold inte kan</h2>
+<p>Trots framgångarna finns det mycket som AlphaFold inte klarar. Några av de viktigaste begränsningarna:</p>
+<ul>
+<li><strong>Rörelser.</strong> AlphaFold ger en stillbild. Men många proteiner växlar mellan olika former när de arbetar, som pumpar och transportörer (<a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>, <a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a>). Ibland får man fram två olika former, ibland inte.</li>
+<li><strong>Hur veckningen går till.</strong> Programmet säger ingenting om veckningsvägen, eller om en viss kedja alls veckar sig. Att proteiner ibland veckar sig fel och klumpar ihop sig, som vid Alzheimers sjukdom, kan det inte förutsäga. Inte heller de amyloida fibrernas form, som skiljer sig helt från det veckade proteinets (<a href="15-felveckning.html#sec-l15-amyloid" class="quarto-xref"><span>Avsnitt 15.2.1</span></a>).</li>
+<li><strong>Effekten av en enstaka mutation.</strong> Modellen visar var en mutation sitter, till exempel i proteinets inre eller i ytan mot ett annat protein, och det hjälper till att tolka sjukdomsmutationer. Men själva förändringen syns oftast inte: en mutation som gör proteinet instabilt ger i regel samma modell som det friska proteinet, eftersom släktboken är densamma. Ett exempel är ALS-mutationerna i SOD1, som gör proteinet mindre stabilt så att fler molekyler är oveckade (<a href="15-felveckning.html#sec-l15-sod1-mutationer" class="quarto-xref"><span>Avsnitt 15.8.1</span></a>). Den skillnaden syns inte i en modell från AlphaFold.</li>
+<li><strong>Proteiner med få släktingar.</strong> Utan en rik släktbok blir förutsägelserna sämre. Det gäller proteiner som är unika för en enda organism, proteiner som förändras snabbt och antikroppar.</li>
+<li><strong>Stora, rörliga proteiner.</strong> De enskilda delarna, domänerna, blir ofta bra, men hur de ligger i förhållande till varandra kan bli godtyckligt.</li>
+<li><strong>Membranet.</strong> AlphaFold 2 vet inte vad ett cellmembran är. Proteiner som går en enda gång genom membranet (<a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>) kan därför bli fel.</li>
+<li><strong>Det som inte finns med i beräkningen.</strong> Modellen gäller den kedja man matat in. Metalljoner, andra hjälpmolekyler och kemiska förändringar som proteinet behöver i cellen saknas, om man inte uttryckligen lägger till dem i AlphaFold 3. Om ett protein egentligen binder till DNA eller till någon annan stor molekyl som inte är med, kan AlphaFold 2 ibland lägga ett annat protein på den platsen.</li>
+</ul>
+<p>Den gemensamma nämnaren är att AlphaFold har lärt sig av de strukturer som finns i databaserna, och de är nästan alla frysta ögonblicksbilder av välveckade proteiner. Det programmet aldrig har sett exempel på kan det inte heller lära sig.</p>
+<p>Kort sagt: maskininlärning har i stort sett löst förutsägelsen av proteiners struktur, gjort stora framsteg för hur proteiner binder till varandra och förändrat proteindesignen. Men hur proteiner veckar sig, hur de rör sig när de arbetar och hur de påverkas av små förändringar är fortfarande öppna frågor. Där behövs både experimenten och fysiken.</p>
+</section>
+<section id="sec-l16-sammanfattning" class="level2" data-number="16.14">
+<h2 data-number="16.14" class="anchored" data-anchor-id="sec-l16-sammanfattning"><span class="header-section-number">16.14</span> Sammanfattning</h2>
+<ul>
+<li>Ett proteins struktur beskrivs på fyra nivåer: sekvens, lokala helixar och flak, hela kedjans form och hur flera kedjor fogas ihop. Strukturen bestäms av sekvensen, men att räkna fram den med fysik tar alldeles för lång tid, och små fel i beräkningen kan få fel form att se rätt ut.</li>
+<li>Sedan 1994 testas metoder för att förutsäga strukturer i den dubbelblinda tävlingen CASP.</li>
+<li>Släktingar till ett protein har nästan samma form. De klassiska genvägarna utnyttjade det: profiler från hela familjen för att förutsäga helixar och flak, homologimodellering efter en släkting med känd struktur, trådning mot kända grundformer, och fragmentpussel för små proteiner utan mall.</li>
+<li>Maskininlärning betyder att en dator lär sig av exempel. Ett neuralt nätverk justerar miljontals inre inställningar tills det ger rätt svar, och testas sedan på exempel det inte har sett.</li>
+<li>Positioner som ändras i par i en proteinfamilj (samevolution) avslöjar vilka aminosyror som ligger nära varandra. Det började fungera kring 2009–2012, när man lärde sig skilja direkta från indirekta samband och databaserna hade blivit stora. Djupinlärning, lånad från bildigenkänning, gjorde förutsägelserna ännu bättre.</li>
+<li>AlphaFold 2 nådde 2020 nästan experimentell noggrannhet, även för proteiner utan kända släktingar. Det är ett enda neuralt nätverk som lärt sig mönster ur evolutionen, utan någon fysik. Det anger själv hur säker varje del av modellen är (pLDDT och PAE), men säkerhet är inte detsamma som riktighet.</li>
+<li>Koden släpptes fritt, och strukturer för omkring 200 miljoner proteiner finns i en öppen databas. Nobelpriset i kemi 2024 gick till Demis Hassabis och John Jumper för AlphaFold och till David Baker för datorbaserad proteindesign.</li>
+<li>Metoderna förutsäger nu också hur proteiner sitter ihop, i par och i stora komplex. Det fungerar bäst när proteinerna har samevolverat, och en säker modell visar inte att proteinerna verkligen binder i cellen. AlphaFold säger inget om hur proteiner veckar sig eller rör sig, och klarar dåligt effekten av enstaka mutationer.</li>
+</ul>
+</section>
+<section id="sec-l16-nyckelbegrepp" class="level2" data-number="16.15">
+<h2 data-number="16.15" class="anchored" data-anchor-id="sec-l16-nyckelbegrepp"><span class="header-section-number">16.15</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>strukturförutsägelse</strong> – Att med datorns hjälp beräkna ett proteins tredimensionella form utifrån dess aminosyrasekvens.</li>
+<li><strong>primärstruktur</strong> – Ett proteins sekvens, ordningen mellan aminosyrorna i kedjan.</li>
+<li><strong>sekundärstruktur</strong> – De regelbundna mönster, alfahelixar och betaflak, som kedjans ryggrad bildar på korta sträckor och som hålls ihop av vätebindningar.</li>
+<li><strong>tertiärstruktur</strong> – Hela proteinkedjans tredimensionella form, hur helixar och flak packas mot varandra.</li>
+<li><strong>kvartärstruktur</strong> – Hur flera proteinkedjor fogas ihop till ett komplex, som de fyra kedjorna i hemoglobin.</li>
+<li><strong>domän</strong> – En kompakt del av ett protein, oftast 50–250 aminosyror, som kan vecka sig för sig själv. Domäner kombineras på nya sätt under evolutionen.</li>
+<li><strong>energilandskap</strong> – En bild av hur ett proteins energi beror på dess form. För proteiner liknar landskapet en tratt med den veckade formen längst ned.</li>
+<li><strong>CASP</strong> – Critical Assessment of Protein Structure Prediction, en dubbelblind tävling vartannat år sedan 1994 där forskare förutsäger strukturer som ännu inte publicerats.</li>
+<li><strong>artificiell intelligens</strong> – AI, datorprogram som utför uppgifter som tidigare krävde mänskligt omdöme, till exempel att känna igen bilder eller förstå språk.</li>
+<li><strong>maskininlärning</strong> – Den del av AI där en dator lär sig av exempel med kända svar i stället för att följa regler som en människa skrivit.</li>
+<li><strong>neuralt nätverk</strong> – Ett program för maskininlärning byggt av många lager av enkla räknesteg, vars inre inställningar justeras under träningen.</li>
+<li><strong>djupinlärning</strong> – Maskininlärning med neurala nätverk som har många lager (eng. deep learning).</li>
+<li><strong>träningsdata</strong> – De exempel med kända svar som ett maskininlärningsprogram lär sig av. För AlphaFold var det de experimentellt bestämda strukturerna i PDB.</li>
+<li><strong>homologa proteiner</strong> – Proteiner med gemensamt evolutionärt ursprung. De har oftast liknande form även om sekvenserna skiljer sig.</li>
+<li><strong>multipel sekvensuppställning</strong> – En uppställning av många besläktade sekvenser under varandra, så att aminosyror som motsvarar varandra hamnar i samma kolumn (eng. multiple sequence alignment, MSA).</li>
+<li><strong>konserverad aminosyra</strong> – En aminosyra som är densamma i alla släktingar till ett protein, kallas också bevarad. Tyder på att aminosyran är viktig för proteinets form eller funktion.</li>
+<li><strong>profil</strong> – En sammanfattning av vilka aminosyror som förekommer i varje position i en proteinfamilj.</li>
+<li><strong>homologimodellering</strong> – Att bygga en modell av ett protein med strukturen hos en släkting som mall. Fungerar bra när sekvenserna är tillräckligt lika.</li>
+<li><strong>trådning</strong> – Att pröva en sekvens mot kända grundformer för att se vilken den passar bäst, även när ingen släktskap syns i sekvensen (eng. threading).</li>
+<li><strong>fragmentpussel</strong> – Att bygga en modell från grunden genom att pussla ihop korta bitar av kända strukturer, som i programmet Rosetta.</li>
+<li><strong>samevolution</strong> – Att två positioner i en proteinfamilj ändras tillsammans under evolutionen, oftast för att aminosyrorna ligger mot varandra (även koevolution).</li>
+<li><strong>kompenserande mutation</strong> – En mutation som återställer en funktion eller stabilitet som en tidigare mutation försämrat, till exempel genom att en granne byter laddning.</li>
+<li><strong>kontaktkarta</strong> – En kvadratisk tabell över alla par av aminosyror i ett protein, där en markering visar att två aminosyror ligger nära varandra.</li>
+<li><strong>AlphaFold</strong> – Program från företaget DeepMind som förutsäger proteiners struktur med djupinlärning. Version 2 nådde 2020 nästan experimentell noggrannhet, och version 3 (2024) hanterar också DNA, RNA och små molekyler.</li>
+<li><strong>uppmärksamhet</strong> – En teknik i neurala nätverk, från språkmodellerna, där nätverket själv lär sig vilka delar av indata som hänger ihop (eng. attention).</li>
+<li><strong>pLDDT</strong> – AlphaFolds mått, från 0 till 100, på hur säker förutsägelsen är för varje aminosyra.</li>
+<li><strong>PAE</strong> – AlphaFolds mått på hur säkert det inbördes läget är mellan två delar av en modell, till exempel två domäner eller två proteiner (eng. predicted aligned error).</li>
+<li><strong>dockning</strong> – Att förutsäga hur två molekyler, till exempel två proteiner, sitter ihop.</li>
+<li><strong>proteindesign</strong> – Att konstruera nya proteinsekvenser som veckar sig till en önskad form eller utför en önskad uppgift.</li>
+</ul>
+</section>
+<section id="sec-l16-testa" class="level2" data-number="16.16">
+<h2 data-number="16.16" class="anchored" data-anchor-id="sec-l16-testa"><span class="header-section-number">16.16</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L16"></div>
+<script>
+renderQuiz("quiz-L16", [
+ {
+  "question": "Varför går det inte att förutsäga ett proteins struktur genom att simulera hur atomerna rör sig, trots att krafterna mellan atomerna är ganska väl kända?",
+  "choices": [
+   "Simuleringen måste ta så små tidssteg, och räkna med så mycket vatten, att det tar alldeles för lång tid att följa veckningen",
+   "Krafterna mellan atomerna är helt okända",
+   "Proteiner veckar sig inte av sig själva utan behöver alltid hjälp",
+   "Datorer kan inte räkna med vatten"
+  ],
+  "correctIndex": 0,
+  "explanation": "Varje steg motsvarar ungefär en femtosekund, så att simulera en sekund kräver omkring en miljon miljarder steg. Det klarar man bara för mycket små och snabba proteiner."
+ },
+ {
+  "question": "Varför är CASP ett bra sätt att testa metoder för strukturförutsägelse?",
+  "choices": [
+   "Ingen av deltagarna känner till strukturerna i förväg, så metoderna kan inte anpassas efter svaret",
+   "Deltagarna får använda de experimentella strukturerna som mall",
+   "Det är bara DeepMind som deltar",
+   "Alla proteiner i tävlingen är mycket små"
+  ],
+  "correctIndex": 0,
+  "explanation": "Strukturerna är bestämda men inte publicerade när deltagarna gör sina förutsägelser. Testet är dubbelblint och bedöms av oberoende granskare."
+ },
+ {
+  "question": "En position i en multipel sekvensuppställning har samma aminosyra i alla organismer, från människa till bakterie. Vad tyder det på?",
+  "choices": [
+   "Aminosyran är viktig, eftersom mutationer där har sorterats bort av det naturliga urvalet",
+   "Det sker aldrig några mutationer i just den delen av genen",
+   "Aminosyran sitter säkert på proteinets yta",
+   "Släktingarna är felaktigt uppställda"
+  ],
+  "correctIndex": 0,
+  "explanation": "Mutationer sker överallt, men de som förstör något viktigt överlever inte. En konserverad position är därför ofta viktig för form eller funktion."
+ },
+ {
+  "question": "I släktboken för ett protein ändras två positioner alltid samtidigt. Vad är den troligaste förklaringen?",
+  "choices": [
+   "De två aminosyrorna ligger nära varandra i det veckade proteinet, så att en förändring i den ena kompenseras av en förändring i den andra",
+   "De två aminosyrorna ligger alltid längst bort från varandra",
+   "Det är ett tecken på att proteinet saknar struktur",
+   "De två positionerna kodas av samma bas i DNA"
+  ],
+  "correctIndex": 0,
+  "explanation": "Det kallas samevolution. Aminosyror som är i kontakt måste passa ihop, och därför tenderar de att ändras i par."
+ },
+ {
+  "question": "Varför började samevolutionsmetoderna fungera först kring 2009–2012, trots att idén var känd sedan 1990-talet?",
+  "choices": [
+   "Man lärde sig skilja direkta samband från indirekta, och databaserna hade blivit så stora att det fanns tillräckligt många släktingar",
+   "Proteinerna hade förändrats sedan 1990-talet",
+   "Man började använda röntgenkristallografi",
+   "DeepMind uppfann samevolution 2009"
+  ],
+  "correctIndex": 0,
+  "explanation": "Indirekta samband (A–B–C) dränkte de direkta, och metoden kräver hundratals eller tusentals sekvenser. Båda hindren försvann ungefär samtidigt."
+ },
+ {
+  "question": "Ett nytt protein har en släkting med känd struktur, och ungefär hälften av aminosyrorna är identiska. Vilken metod är då säkrast för att få fram strukturen?",
+  "choices": [
+   "Homologimodellering: att bygga modellen med släktingens struktur som mall",
+   "Att pussla ihop korta fragment från grunden",
+   "Att simulera veckningen atom för atom",
+   "Att bara förutsäga helixar och flak"
+  ],
+  "correctIndex": 0,
+  "explanation": "Släktingar har nästan samma form. När sekvenserna är så lika blir uppställningen pålitlig, och modellen blir nästan lika bra som en experimentell struktur."
+ },
+ {
+  "question": "Vad var det mest anmärkningsvärda med resultaten för AlphaFold 2 i CASP 2020?",
+  "choices": [
+   "Även proteiner utan kända släktingar med känd struktur förutsades nästan lika bra som med experiment",
+   "Programmet simulerade veckningen atom för atom",
+   "Det var bra på lätta proteiner men misslyckades med svåra",
+   "Det kunde förutsäga hur snabbt proteinerna veckar sig"
+  ],
+  "correctIndex": 0,
+  "explanation": "Tidigare sjönk kvaliteten kraftigt för svåra proteiner. För AlphaFold 2 var kurvan nästan platt, kring 90 av 100."
+ },
+ {
+  "question": "AlphaFold färgar en del av en modell orange, vilket betyder mycket låg säkerhet (pLDDT). Vad är en vanlig förklaring?",
+  "choices": [
+   "Den delen av proteinet saknar troligen en fast struktur",
+   "Den delen är alltid en alfahelix",
+   "Det är den del av proteinet som är mest konserverad",
+   "Programmet har kraschat"
+  ],
+  "correctIndex": 0,
+  "explanation": "Låg säkerhet sammanfaller ofta med oordnade regioner, som inte har någon bestämd form. Därför används AlphaFold också för att hitta sådana regioner."
+ },
+ {
+  "question": "Hur skiljer sig AlphaFolds sätt att bygga en struktur från hur ett protein veckar sig i cellen?",
+  "choices": [
+   "AlphaFold använder mönster det lärt sig ur kända strukturer och evolutionen; det räknar inte med några fysikaliska krafter och säger inget om veckningsvägen",
+   "AlphaFold följer exakt samma väg som proteinet i cellen, bara snabbare",
+   "AlphaFold veckar proteinet i ett provrör",
+   "Det finns ingen skillnad; båda drivs av chaperoner"
+  ],
+  "correctIndex": 0,
+  "explanation": "I strukturmodulen startar alla aminosyror i samma punkt och flyttas ut till sina platser. Det har ingenting med verklig veckning att göra."
+ },
+ {
+  "question": "Varför måste släktingarna paras ihop organism för organism när man förutsäger hur två proteiner binder till varandra?",
+  "choices": [
+   "Det är bara proteiner från samma organism som kan ha samevolverat med varandra",
+   "Proteiner från olika organismer har alltid olika längd",
+   "AlphaFold kan bara läsa en organism i taget",
+   "Det behövs för att räkna ut proteinernas vikt"
+  ],
+  "correctIndex": 0,
+  "explanation": "Ett protein från en människa binder knappast till ett från en mus. Samevolution mellan två proteiner syns bara om de par man jämför verkligen hör ihop."
+ },
+ {
+  "question": "AlphaFold ger två domäner i ett protein hög pLDDT, men PAE visar att läget mellan dem är osäkert. Hur ska modellen tolkas?",
+  "choices": [
+   "Formen på varje domän är troligen rätt, men hur de ligger mot varandra vet programmet inte",
+   "Hela modellen är fel",
+   "Domänerna saknar fast struktur",
+   "Proteinet binder säkert till ett annat protein"
+  ],
+  "correctIndex": 0,
+  "explanation": "pLDDT gäller den lokala formen kring varje aminosyra, medan PAE gäller det inbördes läget mellan olika delar. Båda behövs för att bedöma en modell."
+ },
+ {
+  "question": "AlphaFold ger en mycket säker modell av två proteiner som sitter ihop. Vad visar det?",
+  "choices": [
+   "Hur proteinerna skulle kunna binda till varandra, men inte att de faktiskt gör det i cellen",
+   "Att proteinerna säkert binder till varandra i alla celler",
+   "Att proteinerna har samma sekvens",
+   "Att modellen har bestämts med experiment"
+  ],
+  "correctIndex": 0,
+  "explanation": "En säker modell är en hypotes. Proteinerna kan finnas i olika celltyper eller olika delar av cellen och aldrig mötas. Det måste prövas på annat sätt."
+ },
+ {
+  "question": "Nobelpriset i kemi 2024 delades mellan förutsägelse och design av proteiner. Vad är skillnaden mellan de två?",
+  "choices": [
+   "Förutsägelse går från en känd sekvens till dess form; design går åt andra hållet, från en önskad form eller uppgift till en ny sekvens",
+   "Förutsägelse görs med experiment, design med datorer",
+   "Förutsägelse gäller bara enzymer, design bara antikroppar",
+   "Det är samma sak, men gjord av olika forskargrupper"
+  ],
+  "correctIndex": 0,
+  "explanation": "Hassabis och Jumper belönades för AlphaFold, som går från sekvens till struktur. Baker belönades för att han lärt sig använda datormetoderna baklänges, för att skapa helt nya proteiner."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>16.1</strong> Förklara med egna ord varför en samling släktingar till ett protein innehåller information om proteinets tredimensionella form.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Släktingar till ett protein har i stort sett samma form, även om sekvenserna har förändrats under evolutionen. Ställer man upp dem under varandra syns det vilka positioner som aldrig ändras; de är ofta viktiga, till exempel i proteinets inre. Dessutom kan man se positioner som ändras i par. Det beror på att aminosyror som ligger mot varandra måste passa ihop: om den ena ändras, till exempel byter laddning, gynnas en kompenserande förändring i den andra. Sådana par avslöjar vilka aminosyror som är i kontakt, och om man känner tillräckligt många kontakter kan man räkna fram formen.</p>
+</div>
+</div>
+</div>
+<p><strong>16.2</strong> Hur mycket tror du att databasernas tillväxt bidrog till genombrottet för strukturförutsägelse, jämfört med nya idéer inom maskininlärning?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Båda behövdes. Samevolutionsmetoderna kräver hundratals eller tusentals sekvenser per proteinfamilj, och sådana mängder fanns först när genomprojekten och sekvenseringen av miljöprover hade fått databaserna att växa enormt. Maskininlärning kräver dessutom många exempel att träna på, och där var de omkring 200 000 kända strukturerna i PDB avgörande. Men samma data fanns tillgängliga för alla, och det var djupinlärningen, med idéer från bildigenkänning och språkmodeller, som gjorde att informationen kunde utnyttjas fullt ut. Utan data hade metoderna inte haft något att lära sig av, och utan metoderna hade datan inte räckt.</p>
+</div>
+</div>
+</div>
+<p><strong>16.3</strong> AlphaFold 2 hade bara tränats på enskilda proteinkedjor, men kunde ändå förutsäga hur två proteiner sitter ihop. Vad säger det om vad programmet har lärt sig?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Om programmet bara hade lärt sig strukturerna utantill skulle det inte klara något det aldrig sett, som ytan mellan två olika proteiner. Att det ändå lyckas i ungefär hälften av fallen tyder på att det har lärt sig något allmänt om hur aminosyror packas mot varandra och hur samevolution hänger ihop med kontakter. Det tyder också på att ytan mellan två proteiner följer ungefär samma regler som insidan av ett enskilt protein. Programmet behövde bara luras att tro att de två kedjorna var en.</p>
+</div>
+</div>
+</div>
+<p><strong>16.4</strong> Ge några exempel på vad AlphaFold inte kan, och förklara varför det är så.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>AlphaFold ger en stillbild och kan inte visa hur ett protein rör sig eller växlar mellan olika former när det arbetar. Det säger heller ingenting om hur kedjan veckar sig, eller om den kan vecka sig fel och klumpa ihop sig. Effekten av en enstaka mutation fångas oftast inte, eftersom släktboken är densamma. Stora rörliga proteiner får ofta rätt domäner men godtycklig inbördes placering, och AlphaFold 2 vet inte vad ett membran är. Gemensamt är att programmet har lärt sig av databasens strukturer, som nästan alla är frysta bilder av välveckade proteiner. Det som inte finns bland exemplen kan det inte lära sig.</p>
+</div>
+</div>
+</div>
+<p><strong>16.5</strong> Jämför de tre klassiska vägarna till en proteinstruktur: homologimodellering, trådning och fragmentpussel. När fungerar var och en?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Homologimodellering bygger modellen på en släkting med känd struktur. Den är säkrast och fungerar bra när sekvenserna är tillräckligt lika, ungefär hälften identiska aminosyror, men blir osäker när likheten är under en tredjedel, eftersom uppställningen då ofta blir fel. Trådning prövar sekvensen mot alla kända grundformer och kan hitta rätt form även när ingen släktskap syns i sekvensen, men den är osäkrare. Fragmentpussel bygger modellen från grunden av korta bitar från kända strukturer och behövs när ingen känd form passar. Det fungerade bara för små proteiner, och man visste ofta inte vilken av många modeller som var rätt. Alla tre utnyttjar att det som redan finns i databaserna säger något om nya proteiner.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l16-las-mer" class="level2" data-number="16.17">
+<h2 data-number="16.17" class="anchored" data-anchor-id="sec-l16-las-mer"><span class="header-section-number">16.17</span> Läs mer</h2>
+<ul>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2024/popular-information/">Nobelpriset i kemi 2024, populärvetenskaplig information</a> på nobelprize.org (på engelska): en lättläst genomgång av både AlphaFold och Bakers proteindesign, med bra bilder.</li>
+<li><a href="https://sv.wikipedia.org/wiki/Proteinstruktur">Proteinstruktur</a> på svenska Wikipedia, om strukturens fyra nivåer.</li>
+<li><a href="https://sv.wikipedia.org/wiki/AlphaFold">AlphaFold</a> på svenska Wikipedia och den utförligare <a href="https://en.wikipedia.org/wiki/AlphaFold">artikeln på engelska Wikipedia</a>.</li>
+<li><a href="https://en.wikipedia.org/wiki/Protein_structure_prediction">Protein structure prediction</a> på engelska Wikipedia, en översikt av de klassiska metoderna: homologimodellering, trådning och modellbygge från grunden.</li>
+<li><a href="https://alphafold.ebi.ac.uk/">AlphaFold Protein Structure Database</a>, där man kan söka på ett proteins namn och se den förutsagda modellen, färgad efter säkerhet (på engelska).</li>
+<li><a href="https://predictioncenter.org/">CASP</a>, tävlingens egen webbplats, med resultat från alla omgångar sedan 1994 (på engelska).</li>
+<li><a href="https://pdb101.rcsb.org/motm/166">Proteasome</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), med bilder av David S. Goodsell.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/15-felveckning.html" class="pagination-link" aria-label="Proteiners felveckning – Alzheimer och ALS">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/17-idag-och-i-morgon.html" class="pagination-link" aria-label="Livets molekyler – idag och i morgon">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

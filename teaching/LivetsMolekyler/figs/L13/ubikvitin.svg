@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 420" width="940" height="420">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="470" y="31.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#222222">Ubikvitin märker ut proteiner som ska brytas ned</text>
+<rect x="35.0" y="85.0" width="110" height="50" rx="6" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="90" y="116.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">E1</text>
+<circle cx="90" cy="70" r="10" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="90" y="156.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#222222">aktiverar</text>
+<text x="90" y="172.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#222222">ubikvitin (ATP)</text>
+<rect x="215.0" y="85.0" width="110" height="50" rx="6" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="270" y="116.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">E2</text>
+<text x="270" y="156.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#222222">bär ubikvitin</text>
+<text x="270" y="172.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#222222">vidare</text>
+<rect x="405.0" y="85.0" width="130" height="50" rx="6" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="470" y="116.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">E3</text>
+<text x="470" y="156.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#222222">känner igen</text>
+<text x="470" y="172.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#222222">rätt protein</text>
+<path d="M147,110 L212,110" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<path d="M327,110 L402,110" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<path d="M430.0,224.8 L438.0,229.9 L446.0,227.5 L454.0,219.4 L462.0,211.8 L470.0,210.4 L478.0,216.3 L486.0,224.9 L494.0,229.9 L502.0,227.3" fill="none" stroke="#666666" stroke-width="2"/>
+<circle cx="430" cy="224.8" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="438" cy="229.9" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="446" cy="227.5" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="454" cy="219.4" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="462" cy="211.8" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="470" cy="210.4" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="478" cy="216.3" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="486" cy="224.9" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="494" cy="229.9" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="502" cy="227.3" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<text x="470" y="251.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#222222">protein som</text>
+<text x="470" y="267.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#222222">ska bort</text>
+<path d="M515,200 L515,140" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+<path d="M600.0,123.4 L608.0,124.5 L616.0,118.3 L624.0,109.7 L632.0,105.1 L640.0,107.9 L648.0,116.2 L656.0,123.5 L664.0,124.4" fill="none" stroke="#666666" stroke-width="2"/>
+<circle cx="600" cy="123.4" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="608" cy="124.5" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="616" cy="118.3" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="624" cy="109.7" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="632" cy="105.1" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="640" cy="107.9" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="648" cy="116.2" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="656" cy="123.5" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="664" cy="124.4" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<line x1="632" y1="112" x2="640" y2="80" stroke="#d9822b" stroke-width="2"/>
+<circle cx="640" cy="80" r="10" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="660" cy="72" r="10" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="680" cy="64" r="10" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="700" cy="56" r="10" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="690" y="156.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#d9822b">kedja av ubikvitin:</text>
+<text x="690" y="172.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#d9822b">"dödskyssen"</text>
+<path d="M537,110 L590,110" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<rect x="808" y="95" width="64" height="30" rx="10" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<rect x="810" y="128" width="60" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="810" y="162" width="60" height="30" rx="6" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="810" y="196" width="60" height="30" rx="6" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="810" y="230" width="60" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="808" y="264" width="64" height="30" rx="10" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="840" y="322.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">26S-proteasom</text>
+<text x="880" y="114.5" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#7a4f9a">lock</text>
+<text x="880" y="204.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#b5443b">kärna</text>
+<path d="M730,105 L800,105" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<rect x="786" y="337" width="18" height="7" rx="3" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1"/>
+<rect x="816" y="343" width="18" height="7" rx="3" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1"/>
+<rect x="846" y="337" width="18" height="7" rx="3" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1"/>
+<rect x="876" y="343" width="18" height="7" rx="3" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1"/>
+<text x="840" y="372.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#222222">korta bitar</text>
+<text x="470" y="404.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">Ubikvitinet lossnar och återanvänds; proteinets bitar blir nya aminosyror.</text>
+</svg>

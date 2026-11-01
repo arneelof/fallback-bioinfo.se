@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" width="880" height="520">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<circle cx="440" cy="265" r="82" fill="#eeeeee" stroke="#666666" stroke-width="2"/>
+<text x="440" y="260.5" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">Hur fungerar</text>
+<text x="440" y="282.1" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">enzymet?</text>
+<rect x="325.0" y="25.0" width="230" height="110" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="440.0" y="67.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Struktur</text>
+<text x="440.0" y="85.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">röntgen, kryo-EM:</text>
+<text x="440.0" y="103.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">var sitter atomerna?</text>
+<rect x="537.75" y="210.0" width="230" height="110" rx="6" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="652.75" y="243.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Beräkningar</text>
+<text x="652.75" y="261.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">simuleringar:</text>
+<text x="652.75" y="279.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">hur rör sig atomerna,</text>
+<text x="652.75" y="297.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">hur sker reaktionen?</text>
+<rect x="325.0" y="395.0" width="230" height="110" rx="6" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<text x="440.0" y="437.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Riktad mutagenes</text>
+<text x="440.0" y="455.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">byt ut en utvald</text>
+<text x="440.0" y="473.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">aminosyra</text>
+<rect x="112.25000000000003" y="210.0" width="230" height="110" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="227.25000000000003" y="252.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Aktivitetsmätningar</text>
+<text x="227.25000000000003" y="270.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">hur snabbt arbetar</text>
+<text x="227.25000000000003" y="288.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">mutanten?</text>
+<path d="M559,80 Q637.0,118.5 653,204" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M653,324 Q638.5,410.0 561,450" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M321,450 Q243.0,411.5 227,326" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M227,206 Q241.5,120.0 319,80" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500" width="820" height="500">
+<defs><marker id="ah4a8c4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a8c4a"/></marker><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="410" y="30.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">Axeln vrids med magneter, och huvudet tillverkar ATP</text>
+<rect x="120" y="420" width="580" height="26" rx="2" fill="#dde7ee" stroke="#666666" stroke-width="1.5"/>
+<text x="410" y="475.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">Glasyta där huvudet är fastsatt</text>
+<ellipse cx="345" cy="345" rx="40" ry="72" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<ellipse cx="410" cy="345" rx="40" ry="72" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<ellipse cx="475" cy="345" rx="40" ry="72" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="398" y="215" width="24" height="70" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<circle cx="410" cy="165" r="52" fill="#c9b48a" stroke="#7a5f2e" stroke-width="2"/>
+<text x="410" y="161.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#5a4520">magnetisk</text>
+<text x="410" y="178.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#5a4520">kula</text>
+<rect x="80" y="145" width="170" height="40" rx="4" fill="#d0d0d0" stroke="#666666" stroke-width="1.5"/>
+<line x1="92" y1="145" x2="86" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="104" y1="145" x2="98" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="116" y1="145" x2="110" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="128" y1="145" x2="122" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="140" y1="145" x2="134" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="152" y1="145" x2="146" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="164" y1="145" x2="158" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="176" y1="145" x2="170" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="188" y1="145" x2="182" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="200" y1="145" x2="194" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="212" y1="145" x2="206" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="224" y1="145" x2="218" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="236" y1="145" x2="230" y2="185" stroke="#666666" stroke-width="2"/>
+<text x="165.0" y="214.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">elektromagnet</text>
+<rect x="570" y="145" width="170" height="40" rx="4" fill="#d0d0d0" stroke="#666666" stroke-width="1.5"/>
+<line x1="582" y1="145" x2="576" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="594" y1="145" x2="588" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="606" y1="145" x2="600" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="618" y1="145" x2="612" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="630" y1="145" x2="624" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="642" y1="145" x2="636" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="654" y1="145" x2="648" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="666" y1="145" x2="660" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="678" y1="145" x2="672" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="690" y1="145" x2="684" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="702" y1="145" x2="696" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="714" y1="145" x2="708" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="726" y1="145" x2="720" y2="185" stroke="#666666" stroke-width="2"/>
+<text x="655.0" y="214.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">elektromagnet</text>
+<ellipse cx="410" cy="165" rx="110" ry="30" fill="none" stroke="#b5443b" stroke-width="2.5"/>
+<path d="M300,170 L316,190" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<text x="410" y="86.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">Magnetfältet vrids runt, och kulan och</text>
+<text x="410" y="104.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">axeln tvingas med</text>
+<text x="175" y="335.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">ADP + fosfat</text>
+<path d="M225,330 L300,335" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<path d="M520,345 L590,345" fill="none" stroke="#4a8c4a" stroke-width="2.5" marker-end="url(#ah4a8c4a)"/>
+<text x="625" y="352.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#4a8c4a">ATP</text>
+<text x="140" y="376.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#7a4f9a">Huvudet</text>
+<text x="140" y="393.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#7a4f9a">(utan membrandel)</text>
+</svg>

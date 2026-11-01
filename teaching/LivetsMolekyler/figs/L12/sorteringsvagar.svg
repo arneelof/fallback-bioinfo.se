@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520">
+<defs><marker id="ah3b6ea8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6ea8"/></marker><marker id="ahd9822b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="230" y="30.6" font-family="Helvetica, Arial, sans-serif" font-size="19" text-anchor="middle" font-weight="bold" fill="#3b6ea8">Den sekretoriska vägen</text>
+<text x="705" y="30.6" font-family="Helvetica, Arial, sans-serif" font-size="19" text-anchor="middle" font-weight="bold" fill="#d9822b">Import av färdiga proteiner</text>
+<path d="M470,10 L470,505" fill="none" stroke="#666666" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="6,4"/>
+<rect x="80.0" y="52.0" width="300" height="56" rx="6" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="230" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">Ribosom med signalpeptid</text>
+<text x="230" y="95.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">fäster vid ER</text>
+<rect x="80.0" y="157.0" width="300" height="56" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="230" y="181.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Endoplasmatiska nätverket</text>
+<text x="230" y="200.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">(ER)</text>
+<rect x="80.0" y="265.0" width="300" height="50" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="230" y="295.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Golgiapparaten</text>
+<path d="M230,108 L230,155" fill="none" stroke="#3b6ea8" stroke-width="3" marker-end="url(#ah3b6ea8)"/>
+<path d="M230,213 L230,263" fill="none" stroke="#3b6ea8" stroke-width="3" marker-end="url(#ah3b6ea8)"/>
+<text x="248" y="242.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" font-style="italic" fill="#666666">i blåsor (vesikler)</text>
+<rect x="32.5" y="388.0" width="125" height="44" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="95" y="415.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Cellmembranet</text>
+<path d="M196.25,315 L95,386" fill="none" stroke="#3b6ea8" stroke-width="2.5" marker-end="url(#ah3b6ea8)"/>
+<rect x="167.5" y="388.0" width="125" height="44" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="230" y="415.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Ut ur cellen</text>
+<path d="M230.0,315 L230,386" fill="none" stroke="#3b6ea8" stroke-width="2.5" marker-end="url(#ah3b6ea8)"/>
+<rect x="302.5" y="388.0" width="125" height="44" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="365" y="415.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Lysosomer</text>
+<path d="M263.75,315 L365,386" fill="none" stroke="#3b6ea8" stroke-width="2.5" marker-end="url(#ah3b6ea8)"/>
+<text x="230" y="473.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#3b6ea8">Proteinet förs in i nätverket medan det tillverkas</text>
+<text x="230" y="495.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#3b6ea8">och skickas sedan vidare i blåsor.</text>
+<rect x="485.0" y="212.0" width="200" height="76" rx="6" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="585" y="237.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Fri ribosom</text>
+<text x="585" y="255.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">i cellvätskan:</text>
+<text x="585" y="273.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">proteinet görs färdigt</text>
+<rect x="725" y="63" width="222" height="64" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="836" y="88.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Mitokondrier</text>
+<text x="836" y="111.5" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">oveckat, signal i N-änden</text>
+<path d="M686,203.5 L722,95" fill="none" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ahd9822b)"/>
+<rect x="725" y="163" width="222" height="64" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="836" y="188.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Kloroplaster (växter)</text>
+<text x="836" y="211.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">oveckat, signal i N-änden</text>
+<path d="M686,233.5 L722,195" fill="none" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ahd9822b)"/>
+<rect x="725" y="273" width="222" height="64" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="836" y="298.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Cellkärnan</text>
+<text x="836" y="321.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">veckat, signal på ytan</text>
+<path d="M686,266.5 L722,305" fill="none" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ahd9822b)"/>
+<rect x="725" y="373" width="222" height="64" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="836" y="398.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Peroxisomer</text>
+<text x="836" y="421.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">veckat, oftast signal i C-änden</text>
+<path d="M686,296.5 L722,405" fill="none" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ahd9822b)"/>
+<text x="705" y="473.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#d9822b">Proteinet görs färdigt i cellvätskan och</text>
+<text x="705" y="495.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#d9822b">förs sedan in genom porer i organellens membran.</text>
+</svg>

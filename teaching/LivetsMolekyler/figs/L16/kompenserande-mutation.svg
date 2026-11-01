@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="150" y="36.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">1. Två aminosyror</text>
+<text x="150" y="55.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">passar ihop</text>
+<path d="M40,150 Q80,120 112,150" fill="none" stroke="#666666" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M260,150 Q220,180 188,150" fill="none" stroke="#666666" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="122" cy="150" r="24" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="3"/>
+<text x="122" y="159.1" font-family="Helvetica, Arial, sans-serif" font-size="26" text-anchor="middle" font-weight="bold" fill="#3b6ea8">+</text>
+<circle cx="178" cy="150" r="24" fill="#f4d4d0" stroke="#b5443b" stroke-width="3"/>
+<text x="178" y="159.1" font-family="Helvetica, Arial, sans-serif" font-size="26" text-anchor="middle" font-weight="bold" fill="#b5443b">−</text>
+<text x="150" y="204.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#4a8c4a">attraktion</text>
+<text x="150" y="239.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#4a8c4a">proteinet är stabilt</text>
+<path d="M275,150 L322,150" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<text x="450" y="36.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">2. En mutation:</text>
+<text x="450" y="55.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">de stöter bort varandra</text>
+<path d="M340,150 Q380,120 412,150" fill="none" stroke="#666666" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M560,150 Q520,180 488,150" fill="none" stroke="#666666" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="422" cy="150" r="24" fill="#f4d4d0" stroke="#b5443b" stroke-width="3"/>
+<text x="422" y="159.1" font-family="Helvetica, Arial, sans-serif" font-size="26" text-anchor="middle" font-weight="bold" fill="#b5443b">−</text>
+<circle cx="478" cy="150" r="24" fill="#f4d4d0" stroke="#b5443b" stroke-width="3"/>
+<text x="478" y="159.1" font-family="Helvetica, Arial, sans-serif" font-size="26" text-anchor="middle" font-weight="bold" fill="#b5443b">−</text>
+<path d="M444,200 L400,200" fill="none" stroke="#b5443b" stroke-width="2.5" marker-end="url(#ahb5443b)"/>
+<path d="M456,200 L500,200" fill="none" stroke="#b5443b" stroke-width="2.5" marker-end="url(#ahb5443b)"/>
+<text x="450" y="239.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#b5443b">proteinet blir instabilt</text>
+<path d="M575,150 L622,150" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<text x="750" y="36.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">3. En andra mutation:</text>
+<text x="750" y="55.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">de passar ihop igen</text>
+<path d="M640,150 Q680,120 712,150" fill="none" stroke="#666666" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M860,150 Q820,180 788,150" fill="none" stroke="#666666" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="722" cy="150" r="24" fill="#f4d4d0" stroke="#b5443b" stroke-width="3"/>
+<text x="722" y="159.1" font-family="Helvetica, Arial, sans-serif" font-size="26" text-anchor="middle" font-weight="bold" fill="#b5443b">−</text>
+<circle cx="778" cy="150" r="24" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="3"/>
+<text x="778" y="159.1" font-family="Helvetica, Arial, sans-serif" font-size="26" text-anchor="middle" font-weight="bold" fill="#3b6ea8">+</text>
+<text x="750" y="204.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#4a8c4a">attraktion</text>
+<text x="750" y="239.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#4a8c4a">proteinet är stabilt</text>
+<text x="450" y="284.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">Positioner i kontakt med varandra tenderar att ändras tillsammans under evolutionen.</text>
+</svg>

@@ -1,0 +1,2680 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>Bilaga A — Ordlista – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./svar.html" rel="next">
+<link href="./chapters/17-idag-och-i-morgon.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ordlista.html">Bilagor</a></li><li class="breadcrumb-item"><a href="./ordlista.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="./Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ordlista.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#a" id="toc-a" class="nav-link active" data-scroll-target="#a">A</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">B</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">C</a></li>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d">D</a></li>
+  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">E</a></li>
+  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">F</a></li>
+  <li><a href="#g" id="toc-g" class="nav-link" data-scroll-target="#g">G</a></li>
+  <li><a href="#h" id="toc-h" class="nav-link" data-scroll-target="#h">H</a></li>
+  <li><a href="#i" id="toc-i" class="nav-link" data-scroll-target="#i">I</a></li>
+  <li><a href="#j" id="toc-j" class="nav-link" data-scroll-target="#j">J</a></li>
+  <li><a href="#k" id="toc-k" class="nav-link" data-scroll-target="#k">K</a></li>
+  <li><a href="#l" id="toc-l" class="nav-link" data-scroll-target="#l">L</a></li>
+  <li><a href="#m" id="toc-m" class="nav-link" data-scroll-target="#m">M</a></li>
+  <li><a href="#n" id="toc-n" class="nav-link" data-scroll-target="#n">N</a></li>
+  <li><a href="#o" id="toc-o" class="nav-link" data-scroll-target="#o">O</a></li>
+  <li><a href="#p" id="toc-p" class="nav-link" data-scroll-target="#p">P</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
+  <li><a href="#s" id="toc-s" class="nav-link" data-scroll-target="#s">S</a></li>
+  <li><a href="#t" id="toc-t" class="nav-link" data-scroll-target="#t">T</a></li>
+  <li><a href="#u" id="toc-u" class="nav-link" data-scroll-target="#u">U</a></li>
+  <li><a href="#v" id="toc-v" class="nav-link" data-scroll-target="#v">V</a></li>
+  <li><a href="#y" id="toc-y" class="nav-link" data-scroll-target="#y">Y</a></li>
+  <li><a href="#å" id="toc-å" class="nav-link" data-scroll-target="#å">Å</a></li>
+  <li><a href="#ö" id="toc-ö" class="nav-link" data-scroll-target="#ö">Ö</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./ordlista.html">Bilagor</a></li><li class="breadcrumb-item"><a href="./ordlista.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ordlista" class="quarto-section-identifier">Bilaga A — Ordlista</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Här är alla nyckelbegrepp från bokens kapitel samlade i bokstavsordning. Siffrorna inom parentes anger i vilka kapitel begreppet är ett nyckelbegrepp; det första av dem är där begreppet förklaras.</p>
+<section id="a" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="a">A</h2>
+<dl>
+<dt><strong>acetogen</strong></dt>
+<dd>
+Bakterie som får sin energi genom att föra elektroner från vätgas till koldioxid, som då blir ättiksyra. Lever utan syre. <em>(kap. 9)</em>
+</dd>
+<dt><strong>ACE2</strong></dt>
+<dd>
+Ett enzym på ytan av bland annat lungans celler, som deltar i regleringen av blodtrycket. Coronavirusets spikprotein binder till det. <em>(kap. 8)</em>
+</dd>
+<dt><strong>aggregat</strong></dt>
+<dd>
+Klump av proteinkedjor som har fastnat i varandra, ofta med sina vattenskygga delar, i stället för att vecka sig var för sig. <em>(kap. 13, 14)</em>
+</dd>
+<dt><strong>aktiveringsenergi</strong></dt>
+<dd>
+Den energibarriär som molekylerna måste ta sig över för att en reaktion ska ske. Ju högre barriär, desto långsammare reaktion. <em>(kap. 4)</em>
+</dd>
+<dt><strong>aktivt centrum</strong></dt>
+<dd>
+Den ficka i ett enzym där substratet binder och där reaktionen sker. <em>(kap. 4)</em>
+</dd>
+<dt><strong>akvaporin</strong></dt>
+<dd>
+Vattenkanal (eng. aquaporin): ett membranprotein som släpper igenom vatten snabbt, en molekyl i taget, men inte protoner. I njurarna tar akvaporiner tillbaka nästan allt vatten ur primärurinen. <em>(kap. 8)</em>
+</dd>
+<dt><strong>albumin</strong></dt>
+<dd>
+Det vanligaste proteinet i blodet. Det binder bland annat fettsyror och kan bära med sig läkemedel så att de stannar längre i kroppen. <em>(kap. 17)</em>
+</dd>
+<dt><strong>alfahelix</strong></dt>
+<dd>
+En vanlig form i proteiner (α-helix) där kedjan vrider sig som en spiral, hållen ihop av vätebindningar i ryggraden. Tillsammans med betaflaket det vanligaste mönstret i proteiner. <em>(kap. 1)</em>
+</dd>
+<dt><strong>α-kristallin</strong></dt>
+<dd>
+Litet värmechockprotein i ögats lins som hindrar linsproteinerna från att klumpa ihop sig. När skyddet sviktar kan grå starr uppstå. <em>(kap. 13)</em>
+</dd>
+<dt><strong>α-synuklein</strong></dt>
+<dd>
+Ett litet protein i nervcellerna som klumpar ihop sig i Lewykroppar vid Parkinsons sjukdom. <em>(kap. 15)</em>
+</dd>
+<dt><strong>AlphaFold</strong></dt>
+<dd>
+Program från företaget DeepMind som förutsäger proteiners struktur med djupinlärning. Version 2 nådde 2020 nästan experimentell noggrannhet, och version 3 (2024) hanterar också DNA, RNA och små molekyler. <em>(kap. 16)</em>
+</dd>
+<dt><strong>ALS</strong></dt>
+<dd>
+Amyotrofisk lateralskleros, en sjukdom där de nervceller som styr musklerna (motorneuronen) dör, så att musklerna försvagas och förtvinar. <em>(kap. 15)</em>
+</dd>
+<dt><strong>alternating access</strong></dt>
+<dd>
+Principen för hur transportörer arbetar: proteinet är öppet åt ett håll i taget, utåt, stängt eller inåt, men aldrig åt båda hållen samtidigt. <em>(kap. 8)</em>
+</dd>
+<dt><strong>amantadin</strong></dt>
+<dd>
+Läkemedel som täpper till influensavirusets M2-kanal. Används inte längre mot influensa, eftersom nästan alla virus har blivit resistenta. <em>(kap. 10)</em>
+</dd>
+<dt><strong>amfifil helix</strong></dt>
+<dd>
+En alfahelix med vattenälskande (laddade) aminosyror på ena sidan och vattenskygga på den andra. <em>(kap. 12)</em>
+</dd>
+<dt><strong>aminosyra</strong></dt>
+<dd>
+Proteinernas byggsten. Det finns 20 vanliga aminosyror, med samma ryggrad men olika sidogrupper. <em>(kap. 1)</em>
+</dd>
+<dt><strong>amyloid</strong></dt>
+<dd>
+Långa, tunna och mycket stabila proteinfibrer, där tusentals kedjor ligger staplade som platta band. Finns vid bland annat Alzheimers sjukdom och prionsjukdomar. <em>(kap. 15)</em>
+</dd>
+<dt><strong>amyloid-beta (Aβ)</strong></dt>
+<dd>
+En bit av proteinet APP, omkring 40 aminosyror lång, som klipps ut från nervcellernas membran och bildar placken vid Alzheimers sjukdom. <em>(kap. 15)</em>
+</dd>
+<dt><strong>anabolism</strong></dt>
+<dd>
+Den del av ämnesomsättningen där cellen bygger upp sina egna molekyler. Kräver energi. <em>(kap. 2)</em>
+</dd>
+<dt><strong>andningskedjan</strong></dt>
+<dd>
+En kedja av proteinkomplex i mitokondriernas inre membran som för elektroner till syre och samtidigt pumpar protoner över membranet. <em>(kap. 2)</em>
+</dd>
+<dt><strong>antenn</strong></dt>
+<dd>
+Hundratals färgämnesmolekyler kring ett fotosystem som fångar ljus och leder energin vidare till reaktionscentret. <em>(kap. 10)</em>
+</dd>
+<dt><strong>antikodon</strong></dt>
+<dd>
+De tre baser på ett tRNA som parar ihop sig med ett kodon på mRNA. <em>(kap. 1)</em>
+</dd>
+<dt><strong>antikropp</strong></dt>
+<dd>
+Protein från immunförsvaret som binder mycket specifikt till en viss annan molekyl. Används i forskningen för att påvisa var ett protein finns. <em>(kap. 11)</em>
+</dd>
+<dt><strong>apoptos</strong></dt>
+<dd>
+Programmerad celldöd, då cellen på ett ordnat sätt tar livet av sig själv. Kan sättas igång av signaler från mitokondrierna. <em>(kap. 12)</em>
+</dd>
+<dt><strong>arkéer</strong></dt>
+<dd>
+Encelliga organismer utan cellkärna som liknar bakterier men är en egen gren av livet. Många lever i extrema miljöer. <em>(kap. 2)</em>
+</dd>
+<dt><strong>artificiell intelligens</strong></dt>
+<dd>
+AI, datorprogram som utför uppgifter som tidigare krävde mänskligt omdöme, till exempel att känna igen bilder eller förstå språk. <em>(kap. 16)</em>
+</dd>
+<dt><strong>atom</strong></dt>
+<dd>
+Den minsta delen av ett grundämne: en liten, positivt laddad kärna omgiven av negativt laddade elektroner. <em>(kap. 1)</em>
+</dd>
+<dt><strong>ATP</strong></dt>
+<dd>
+Adenosintrifosfat, cellens energivaluta. När den yttersta fosfatgruppen spjälkas av frigörs energi, och kvar blir ADP. <em>(kap. 2)</em>
+</dd>
+<dt><strong>ATPas</strong></dt>
+<dd>
+Enzym som binder och spjälkar ATP. De flesta chaperoner är ATPaser och använder energin för att ändra sin egen form. <em>(kap. 13)</em>
+</dd>
+<dt><strong>ATP-syntas</strong></dt>
+<dd>
+Enzym i mitokondriernas inre membran (och i kloroplaster och bakterier) som tillverkar ATP. Drivs av protoner som strömmar genom det och får en del av enzymet att rotera. <em>(kap. 2, 9)</em>
+</dd>
+</dl>
+</section>
+<section id="b" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="b">B</h2>
+<dl>
+<dt><strong>bakteriorodopsin</strong></dt>
+<dd>
+En ljusdriven protonpump i membranet hos saltälskande mikroorganismer. Det första membranprotein vars struktur bestämdes, 1975. <em>(kap. 8)</em>
+</dd>
+<dt><strong>baspar</strong></dt>
+<dd>
+Två baser, en på vardera DNA-strängen, som binder till varandra (A med T, G med C). Genomets storlek anges ofta i antal baspar. <em>(kap. 3)</em>
+</dd>
+<dt><strong>basparning</strong></dt>
+<dd>
+Regeln att A alltid parar ihop sig med T (eller U i RNA) och G med C, med hjälp av vätebindningar. <em>(kap. 1)</em>
+</dd>
+<dt><strong>betaflak</strong></dt>
+<dd>
+Vanligt mönster i proteiner (β-flak) där utsträckta delar av kedjan ligger sida vid sida och hålls ihop av vätebindningar. Ritas ofta som breda pilar. <em>(kap. 1)</em>
+</dd>
+<dt><strong>bindningsbytesmodellen</strong></dt>
+<dd>
+Paul Boyers förklaring av hur ATP-syntas arbetar: var och en av huvudets tre fabriker går under ett varv igenom tre lägen, där ADP och fosfat binder, pressas ihop till ATP och släpps. <em>(kap. 9)</em>
+</dd>
+</dl>
+</section>
+<section id="c" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="c">C</h2>
+<dl>
+<dt><strong>CASP</strong></dt>
+<dd>
+Critical Assessment of Protein Structure Prediction, en dubbelblind tävling vartannat år sedan 1994 där forskare förutsäger strukturer som ännu inte publicerats. <em>(kap. 16)</em>
+</dd>
+<dt><strong>cell</strong></dt>
+<dd>
+Livets minsta enhet: en liten behållare omgiven av ett membran, som kan ta upp näring, växa och dela sig. Allt levande består av en eller flera celler. <em>(kap. 1)</em>
+</dd>
+<dt><strong>cellkärna</strong></dt>
+<dd>
+Det avgränsade utrymme i eukaryota celler där DNA:t finns. Bakterier saknar cellkärna. <em>(kap. 1)</em>
+</dd>
+<dt><strong>cellmembran</strong></dt>
+<dd>
+Membranet som omger cellen, även kallat plasmamembran. Ett lipiddubbelskikt med kolesterol, proteiner och sockerkedjor. <em>(kap. 7)</em>
+</dd>
+<dt><strong>centrala dogmen, den</strong></dt>
+<dd>
+Principen att informationen i cellen flödar från DNA via RNA till protein, och aldrig tillbaka från protein till DNA eller RNA. Att RNA ibland skrivs tillbaka till DNA (omvänd transkription) är ovanligt men bryter inte mot den. <em>(kap. 1)</em>
+</dd>
+<dt><strong>chaperonin</strong></dt>
+<dd>
+Chaperon som bildar ett hålrum där en proteinkedja kan vecka sig i skydd, till exempel GroEL i bakterier och TRiC i våra celler. <em>(kap. 13)</em>
+</dd>
+<dt><strong>Creutzfeldt-Jakobs sjukdom</strong></dt>
+<dd>
+Den vanligaste prionsjukdomen hos människa. Mycket sällsynt; den uppstår oftast utan känd orsak. <em>(kap. 15)</em>
+</dd>
+<dt><strong>CRISPR-Cas9</strong></dt>
+<dd>
+Gensaxen: bakterieenzymet Cas9 tillsammans med ett guide-RNA som styr var i DNA enzymet klipper. Används för att ändra arvsmassan i nästan alla organismer. <em>(kap. 3)</em>
+</dd>
+<dt><strong>cyanobakterier</strong></dt>
+<dd>
+Bakterier som har fotosyntes och bildar syre, förr kallade blågröna alger. Växternas kloroplaster härstammar från dem. <em>(kap. 10)</em>
+</dd>
+<dt><strong>cykliskt AMP</strong></dt>
+<dd>
+cAMP, ett litet budbärarämne som cellen gör av ATP när ett hormon som adrenalin binder till sin receptor. För signalen vidare inne i cellen. <em>(kap. 2)</em>
+</dd>
+<dt><strong>cytokrom</strong></dt>
+<dd>
+Protein som innehåller en eller flera hemgrupper och som transporterar elektroner, till exempel i andningskedjan. Fick sitt namn av David Keilin 1925, som visade cytokromernas roll i andningen. <em>(kap. 9)</em>
+</dd>
+<dt><strong>cytokrom c-oxidas</strong></dt>
+<dd>
+Andningskedjans sista komplex (komplex IV), som lämnar elektronerna till syre så att vatten bildas, och samtidigt pumpar protoner. Warburgs andningsenzym. <em>(kap. 9, 10)</em>
+</dd>
+<dt><strong>cytoskelett</strong></dt>
+<dd>
+Ett rörligt nätverk av proteintrådar i cellen: aktintrådar, intermediära filament och mikrotubuli. Ger cellen form och fungerar som spår för transporter. <em>(kap. 7)</em>
+</dd>
+<dt><strong>cytosol</strong></dt>
+<dd>
+Cellvätskan, det vill säga cellens inre utanför organellerna. Här tillverkas nästan alla proteiner på ribosomer. <em>(kap. 12)</em>
+</dd>
+</dl>
+</section>
+<section id="d" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="d">D</h2>
+<dl>
+<dt><strong>dalton</strong></dt>
+<dd>
+Atommassenhet, ungefär vikten av en väteatom. Proteiners vikt anges ofta i kilodalton (tusen dalton). <em>(kap. 2)</em>
+</dd>
+<dt><strong>denaturering</strong></dt>
+<dd>
+När ett protein förlorar sin veckade form, till exempel av värme. Äggvitan som stelnar när ägget kokas är ett exempel. <em>(kap. 14)</em>
+</dd>
+<dt><strong>de novo-protein</strong></dt>
+<dd>
+Ett protein som konstruerats helt från början och inte finns i naturen. <em>(kap. 5)</em>
+</dd>
+<dt><strong>dideoxinukleotid</strong></dt>
+<dd>
+DNA-byggsten som saknar den OH-grupp som nästa byggsten ska binda till. När den fogas in tar kopieringen stopp. Grunden för Sangers sekvenseringsmetod. <em>(kap. 3)</em>
+</dd>
+<dt><strong>diffraktion</strong></dt>
+<dd>
+Att vågor breder ut sig åt sidorna när de passerar en öppning eller en kant. Gör att bilden av en ljuspunkt blir en suddig prick. <em>(kap. 6)</em>
+</dd>
+<dt><strong>diffraktionsgränsen</strong></dt>
+<dd>
+Gränsen för hur små detaljer ett vanligt ljusmikroskop kan skilja åt, ungefär 200 nanometer för synligt ljus. Beskrevs av Ernst Abbe 1873. <em>(kap. 6)</em>
+</dd>
+<dt><strong>diffusion</strong></dt>
+<dd>
+Molekylers slumpvisa rörelse i en lösning, som drivs av värme. Små molekyler diffunderar snabbare än stora. Sätter en övre gräns för hur snabbt ett enzym kan arbeta. <em>(kap. 4, 6)</em>
+</dd>
+<dt><strong>disulfidbrygga</strong></dt>
+<dd>
+Stark bindning mellan svavelatomerna i två cysteiner. Håller ihop många proteiner, till exempel keratinet i hår. <em>(kap. 13)</em>
+</dd>
+<dt><strong>djupinlärning</strong></dt>
+<dd>
+Maskininlärning med neurala nätverk som har många lager (eng. deep learning). <em>(kap. 16)</em>
+</dd>
+<dt><strong>DNA</strong></dt>
+<dd>
+Deoxiribonukleinsyra. Den molekyl som bär arvsmassan: två komplementära strängar av nukleotider tvinnade till en dubbelspiral. <em>(kap. 1)</em>
+</dd>
+<dt><strong>DNA-ligas</strong></dt>
+<dd>
+Enzym som fogar ihop DNA-strängar, till exempel när en DNA-bit ska klistras in i en plasmid. <em>(kap. 3)</em>
+</dd>
+<dt><strong>DNA-polymeras</strong></dt>
+<dd>
+Enzym som bygger en ny DNA-sträng med en befintlig sträng som mall. <em>(kap. 3)</em>
+</dd>
+<dt><strong>DNA-sekvensering</strong></dt>
+<dd>
+Att bestämma i vilken ordning baserna sitter i en DNA-molekyl. <em>(kap. 3, 11)</em>
+</dd>
+<dt><strong>DNA-streckkod</strong></dt>
+<dd>
+En kort bit av en gen, för djur oftast genen för en del av cytokrom c-oxidas (COI), som skiljer sig mellan arter och används för att artbestämma prover. <em>(kap. 10)</em>
+</dd>
+<dt><strong>dockning</strong></dt>
+<dd>
+Att förutsäga hur två molekyler, till exempel två proteiner, sitter ihop. <em>(kap. 16)</em>
+</dd>
+<dt><strong>domän</strong></dt>
+<dd>
+En kompakt del av ett protein, oftast 50–250 aminosyror, som kan vecka sig för sig själv. Domäner kombineras på nya sätt under evolutionen. <em>(kap. 16)</em>
+</dd>
+<dt><strong>duplikation</strong></dt>
+<dd>
+När en bit DNA har kopierats, så att den finns i två eller flera nästan likadana exemplar i arvsmassan. <em>(kap. 11)</em>
+</dd>
+<dt><strong>dynamiskt jämviktstillstånd</strong></dt>
+<dd>
+Ett tillstånd där ämnen hela tiden tas upp och omsätts, men där inflöde och utflöde är lika stora så att sammansättningen är konstant (eng. steady state). <em>(kap. 2)</em>
+</dd>
+</dl>
+</section>
+<section id="e" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="e">E</h2>
+<dl>
+<dt><strong>elektromagnetisk strålning</strong></dt>
+<dd>
+Strålning som kan beskrivas som vågor, från radiovågor via synligt ljus till röntgen- och gammastrålning. Ju kortare våglängd, desto mer energi. <em>(kap. 6)</em>
+</dd>
+<dt><strong>emission</strong></dt>
+<dd>
+När en exciterad molekyl faller tillbaka till grundtillståndet och sänder ut energin som ljus. <em>(kap. 6)</em>
+</dd>
+<dt><strong>encellssekvensering</strong></dt>
+<dd>
+Metod för att läsa RNA, och ibland DNA, från enskilda celler var för sig, så att man ser hur cellerna skiljer sig åt. <em>(kap. 11)</em>
+</dd>
+<dt><strong>endoplasmatiska nätverket</strong></dt>
+<dd>
+Ett stort system av membranpåsar och rör i eukaryota celler (ER). Ribosomer på dess yta tillverkar proteiner som ska till membranen eller ut ur cellen. <em>(kap. 7)</em>
+</dd>
+<dt><strong>endosymbiontteorin</strong></dt>
+<dd>
+Teorin att mitokondrier och kloroplaster härstammar från bakterier som en gång togs upp av en annan cell och fortsatte att leva där. <em>(kap. 12)</em>
+</dd>
+<dt><strong>energilandskap</strong></dt>
+<dd>
+En bild av hur ett proteins energi beror på dess form. För proteiner liknar landskapet en tratt med den veckade formen längst ned. <em>(kap. 16)</em>
+</dd>
+<dt><strong>enmolekylexperiment</strong></dt>
+<dd>
+Experiment där man följer molekylerna en och en i stället för att mäta ett medelvärde av miljarder molekyler (eng. single-molecule experiment). <em>(kap. 6)</em>
+</dd>
+<dt><strong>enzym</strong></dt>
+<dd>
+En biologisk katalysator, nästan alltid ett protein, som gör en viss kemisk reaktion mycket snabbare utan att själv förbrukas. <em>(kap. 4)</em>
+</dd>
+<dt><strong>enzymkinetik</strong></dt>
+<dd>
+Läran om hur snabbt enzymer arbetar och hur hastigheten beror på till exempel mängden substrat. <em>(kap. 4)</em>
+</dd>
+<dt><strong>enzym–substratkomplex</strong></dt>
+<dd>
+Enzymet med substratet bundet i det aktiva centret, det första steget i en enzymreaktion: enzym + substrat ⇄ enzym–substratkomplex → enzym + produkt. <em>(kap. 4)</em>
+</dd>
+<dt><strong>essentiell aminosyra</strong></dt>
+<dd>
+Aminosyra som kroppen inte kan tillverka själv och som vi därför måste få i oss med maten. Människan har nio sådana. <em>(kap. 3)</em>
+</dd>
+<dt><strong>eukaryot</strong></dt>
+<dd>
+Cell med cellkärna och andra organeller, oftast 5–100 mikrometer stor. Djur, växter och svampar består av eukaryota celler. <em>(kap. 2)</em>
+</dd>
+<dt><strong>excitation</strong></dt>
+<dd>
+När en molekyl tar upp energi, till exempel från ljus, och lyfts från sitt grundtillstånd till ett tillstånd med högre energi. <em>(kap. 6)</em>
+</dd>
+<dt><strong>exon</strong></dt>
+<dd>
+Del av en eukaryot gen som blir kvar i det färdiga mRNA:t och som oftast kodar för en del av proteinet. <em>(kap. 3)</em>
+</dd>
+<dt><strong>extremofil</strong></dt>
+<dd>
+Organism som lever under extrema förhållanden, till exempel i mycket hett, surt eller salt vatten. <em>(kap. 10)</em>
+</dd>
+<dt><strong>E1, E2 och E3</strong></dt>
+<dd>
+De tre sorters enzymer som aktiverar ubikvitin (E1), bär det vidare (E2) och fäster det vid rätt målprotein (E3). <em>(kap. 13)</em>
+</dd>
+</dl>
+</section>
+<section id="f" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="f">F</h2>
+<dl>
+<dt><strong>faciliterad diffusion</strong></dt>
+<dd>
+Det sätt som transkriptionsfaktorer söker sitt bindningsställe: de växlar mellan fri diffusion i cellen och glidning längs DNA-molekylen. <em>(kap. 6)</em>
+</dd>
+<dt><strong>felveckning</strong></dt>
+<dd>
+När en proteinkedja viker sig fel och i stället för att bli ett fungerande protein klumpar ihop sig med andra kedjor. <em>(kap. 15)</em>
+</dd>
+<dt><strong>flagell</strong></dt>
+<dd>
+En lång, skruvformad tråd som bakterier simmar med. Den drivs av en roterande motor i bakteriens hölje, som i sin tur drivs av protoner eller natriumjoner. <em>(kap. 9)</em>
+</dd>
+<dt><strong>flerskalemodell</strong></dt>
+<dd>
+Datormodell där den viktigaste delen, till exempel ett aktivt centrum, beräknas med kvantmekanik och resten med enklare fysik. <em>(kap. 5)</em>
+</dd>
+<dt><strong>flogistonteorin</strong></dt>
+<dd>
+En 1700-talsteori om att allt som kan brinna innehåller ett eldämne, flogiston, som frigörs vid förbränning. Ersattes av Lavoisiers förklaring att förbränning är en reaktion med syre. <em>(kap. 9)</em>
+</dd>
+<dt><strong>fluorescens</strong></dt>
+<dd>
+När en molekyl tar upp ljus och strax därefter sänder ut ljus med lite längre våglängd. <em>(kap. 6)</em>
+</dd>
+<dt><strong>fluorescensmikroskop</strong></dt>
+<dd>
+Mikroskop som belyser provet med excitationsljus och med filter bara släpper fram det ljus som fluoroforerna sänder ut. <em>(kap. 6)</em>
+</dd>
+<dt><strong>fluorofor</strong></dt>
+<dd>
+En molekyl, eller del av en molekyl, som kan fluorescera. Används för att märka de molekyler man vill se i mikroskopet. <em>(kap. 6)</em>
+</dd>
+<dt><strong>fosfolipid</strong></dt>
+<dd>
+Den vanligaste sortens membranlipid: ett polärt huvud med en fosfatgrupp och två opolära svansar av kol och väte. <em>(kap. 2, 7)</em>
+</dd>
+<dt><strong>foton</strong></dt>
+<dd>
+Ett litet energipaket av ljus. Ju kortare våglängd ljuset har, desto mer energi har varje foton. <em>(kap. 6, 10)</em>
+</dd>
+<dt><strong>fotosyntes</strong></dt>
+<dd>
+Processen där växter, alger och cyanobakterier med hjälp av ljusets energi tar elektroner från vatten och bygger socker av koldioxid. Syre bildas. <em>(kap. 10)</em>
+</dd>
+<dt><strong>fotosystem</strong></dt>
+<dd>
+Stort proteinkomplex i tylakoidmembranet som fångar ljus och använder energin för att flytta elektroner. Växter har två, fotosystem I och II. <em>(kap. 10)</em>
+</dd>
+<dt><strong>fragmentering</strong></dt>
+<dd>
+När fibrer bryts av. Varje bit får nya ändar som kan växa, vilket gör att mängden fibrer ökar exponentiellt. <em>(kap. 15)</em>
+</dd>
+<dt><strong>fragmentpussel</strong></dt>
+<dd>
+Att bygga en modell från grunden genom att pussla ihop korta bitar av kända strukturer, som i programmet Rosetta. <em>(kap. 16)</em>
+</dd>
+<dt><strong>frikoppling</strong></dt>
+<dd>
+När protoner släpps tillbaka över mitokondriemembranet utan att ATP bildas, så att energin blir värme, till exempel i brunt fett. <em>(kap. 2)</em>
+</dd>
+<dt><strong>fusionsprotein</strong></dt>
+<dd>
+Ett protein som tillverkats efter två sammanfogade gener och därför består av två proteiner i en kedja, till exempel ett protein med GFP fäst i ena änden. <em>(kap. 6)</em>
+</dd>
+<dt><strong>fysiologisk koksaltlösning</strong></dt>
+<dd>
+En lösning med 0,9 procent koksalt, med samma salthalt som blodet. Används ofta i provrörsförsök, men liknar inte cellens inre. <em>(kap. 14)</em>
+</dd>
+</dl>
+</section>
+<section id="g" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="g">G</h2>
+<dl>
+<dt><strong>gelelektrofores</strong></dt>
+<dd>
+Metod för att sortera DNA-bitar (eller proteiner) efter storlek genom att låta dem vandra i en gel i ett elektriskt fält. Korta bitar vandrar snabbast. <em>(kap. 3)</em>
+</dd>
+<dt><strong>gen</strong></dt>
+<dd>
+En bit av DNA som innehåller ritningen till ett protein (eller till en RNA-molekyl). Människan har omkring 20 000 proteinkodande gener. <em>(kap. 1)</em>
+</dd>
+<dt><strong>genetiska koden</strong></dt>
+<dd>
+Tabellen över vilka kodon som motsvarar vilka aminosyror. I stort sett densamma i allt levande. <em>(kap. 1)</em>
+</dd>
+<dt><strong>genom</strong></dt>
+<dd>
+Allt DNA i en cell. I princip detsamma i alla celler hos en organism. <em>(kap. 2)</em>
+</dd>
+<dt><strong>genomik</strong></dt>
+<dd>
+Studiet av hela genom, alltså en organisms hela arvsmassa, i stället för enstaka gener. <em>(kap. 11)</em>
+</dd>
+<dt><strong>genteknik</strong></dt>
+<dd>
+Metoder för att klippa, klistra, kopiera, läsa och ändra DNA, till exempel för att få en organism att tillverka ett nytt protein. <em>(kap. 3)</em>
+</dd>
+<dt><strong>GFP</strong></dt>
+<dd>
+Grönt fluorescerande protein (eng. green fluorescent protein), från maneten Aequorea victoria. Kan fogas till andra proteiner med genteknik så att de lyser grönt. <em>(kap. 6)</em>
+</dd>
+<dt><strong>GLP-1</strong></dt>
+<dd>
+Ett peptidhormon på 31 aminosyror som bildas i tarmen när vi äter. Det får bukspottkörteln att frisätta insulin och minskar aptiten (eng. glucagon-like peptide 1). <em>(kap. 17)</em>
+</dd>
+<dt><strong>GLP-1-receptorn</strong></dt>
+<dd>
+En G-proteinkopplad receptor i cellmembranet som GLP-1 och läkemedel som semaglutid binder till. <em>(kap. 17)</em>
+</dd>
+<dt><strong>glykogen</strong></dt>
+<dd>
+Polysackarid av glukos som djur, även människan, lagrar energi i, framför allt i levern och musklerna. <em>(kap. 2)</em>
+</dd>
+<dt><strong>glykolys</strong></dt>
+<dd>
+Den första delen av nedbrytningen av glukos: tio reaktioner i cellens cytoplasma som gör glukos till pyruvat. <em>(kap. 2)</em>
+</dd>
+<dt><strong>golgiapparaten</strong></dt>
+<dd>
+En organell av staplade, platta membranpåsar där proteiner på väg ut ur cellen sorteras och förädlas. <em>(kap. 7)</em>
+</dd>
+<dt><strong>gramicidin</strong></dt>
+<dd>
+Kort kedja av aminosyror från en jordbakterie som bildar en kanal genom membran. Används som antibiotikum på huden och i halsen. <em>(kap. 10)</em>
+</dd>
+<dt><strong>grind</strong></dt>
+<dd>
+Den del av en kanal som kan öppnas och stängas, så att cellen kan styra när joner får passera. <em>(kap. 8)</em>
+</dd>
+<dt><strong>GroEL och GroES</strong></dt>
+<dd>
+Bakteriens chaperonin: GroEL är två staplade ringar med sju kedjor i varje, och GroES är det lock som stänger hålrummet. <em>(kap. 13)</em>
+</dd>
+<dt><strong>grå starr (katarakt)</strong></dt>
+<dd>
+Grumling av ögats lins, ofta på äldre dagar, som beror på att linsens proteiner klumpar ihop sig. <em>(kap. 13)</em>
+</dd>
+<dt><strong>guide-RNA</strong></dt>
+<dd>
+RNA-molekyl som Cas9 bär med sig och som genom basparning letar upp det ställe i DNA där enzymet ska klippa. <em>(kap. 3)</em>
+</dd>
+<dt><strong>G-proteinkopplad receptor</strong></dt>
+<dd>
+Den största gruppen receptorer på cellytan (GPCR), med sju helixar genom membranet. Känner av hormoner, signalämnen, dofter och ljus, och är mål för många läkemedel. <em>(kap. 8)</em>
+</dd>
+</dl>
+</section>
+<section id="h" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="h">H</h2>
+<dl>
+<dt><strong>halofil</strong></dt>
+<dd>
+En organism som lever i mycket salta miljöer, till exempel arkén Halobacterium salinarum. <em>(kap. 14)</em>
+</dd>
+<dt><strong>hem</strong></dt>
+<dd>
+En ringformad molekyl med en järnatom i mitten. Finns i hemoglobin, där den binder syre, och i cytokromer, där den tar emot och lämnar elektroner. <em>(kap. 9)</em>
+</dd>
+<dt><strong>homologa proteiner</strong></dt>
+<dd>
+Proteiner med gemensamt evolutionärt ursprung. De har oftast liknande form även om sekvenserna skiljer sig. <em>(kap. 16)</em>
+</dd>
+<dt><strong>homologimodellering</strong></dt>
+<dd>
+Att bygga en modell av ett protein med strukturen hos en släkting som mall. Fungerar bra när sekvenserna är tillräckligt lika. <em>(kap. 16)</em>
+</dd>
+<dt><strong>hormon</strong></dt>
+<dd>
+Signalämne som förs med blodet och påverkar celler i andra delar av kroppen, till exempel adrenalin, glukagon och insulin. <em>(kap. 2)</em>
+</dd>
+<dt><strong>Hsp100 (Clp-proteiner)</strong></dt>
+<dd>
+Ringformade ATPaser som drar proteinkedjor genom en kanal, så att proteiner vecklas upp och klumpar löses upp, ofta inför nedbrytning. <em>(kap. 13)</em>
+</dd>
+<dt><strong>Hsp70</strong></dt>
+<dd>
+Chaperon som griper tag i korta vattenskygga partier hos oveckade kedjor och släpper dem igen. Arbetar med Hsp40 och GrpE och hjälper även till vid import till mitokondrier. <em>(kap. 12, 13)</em>
+</dd>
+<dt><strong>Hsp90</strong></dt>
+<dd>
+Vanlig chaperon som bildar en klämma av två kedjor och hjälper klientproteiner, som steroidhormonreceptorer och kinaser, med den sista mognaden. <em>(kap. 13)</em>
+</dd>
+<dt><strong>Human Genome Project</strong></dt>
+<dd>
+Det internationella, offentligt finansierade projekt som 1990–2003 läste människans genom. Ett första utkast publicerades 2001, samtidigt med företaget Celeras. <em>(kap. 11)</em>
+</dd>
+<dt><strong>Human Protein Atlas</strong></dt>
+<dd>
+Svenskt projekt, startat 2003 vid KTH, som med antikroppar kartlägger var i kroppens organ och celler människans proteiner finns. <em>(kap. 11)</em>
+</dd>
+<dt><strong>hydrofil</strong></dt>
+<dd>
+Vattenälskande. Hydrofila molekyler och sidogrupper är polära eller laddade och trivs bland vattenmolekylerna, till exempel på ett proteins yta. <em>(kap. 1, 14)</em>
+</dd>
+<dt><strong>hydrofob</strong></dt>
+<dd>
+Vattenskygg. Hydrofoba molekyler och sidogrupper består mest av kol och väte, som fett, och undviker vatten. I ett protein samlas de i det inre. <em>(kap. 1, 14)</em>
+</dd>
+<dt><strong>hårcell</strong></dt>
+<dd>
+Sinnescell i innerörat med en knippe utskott på toppen. När knippet böjs av en ljudvåg öppnas mekanokänsliga kanaler och en signal går till hörselnerven. <em>(kap. 10)</em>
+</dd>
+<dt><strong>hämmare</strong></dt>
+<dd>
+En molekyl som binder till ett enzym och hindrar det från att arbeta (eng. inhibitor). Många läkemedel och gifter är hämmare. <em>(kap. 4)</em>
+</dd>
+</dl>
+</section>
+<section id="i" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="i">I</h2>
+<dl>
+<dt><strong>icke-kompetitiv hämning</strong></dt>
+<dd>
+Hämning där hämmaren binder på ett annat ställe än det aktiva centret och ändrar enzymets form så att det inte fungerar. <em>(kap. 4)</em>
+</dd>
+<dt><strong>importin</strong></dt>
+<dd>
+En bärare i cytosolen som binder proteiner med kärnsignal och bär dem genom kärnporen in i kärnan. <em>(kap. 12)</em>
+</dd>
+<dt><strong>inducerad passform</strong></dt>
+<dd>
+Att ett enzym ändrar form när substratet binder och sluter sig runt det, som en handske runt en hand (eng. induced fit). <em>(kap. 4)</em>
+</dd>
+<dt><strong>inducerare</strong></dt>
+<dd>
+En liten molekyl som får en repressor att släppa från DNA, så att generna slås på. För lac-repressorn en molekyl som bildas av laktos, eller den konstgjorda IPTG. <em>(kap. 6)</em>
+</dd>
+<dt><strong>integrin</strong></dt>
+<dd>
+Ett protein på cellytan som kan aktiveras och då fästa cellen vid en granncell eller en yta, och sedan släppa igen. <em>(kap. 7)</em>
+</dd>
+<dt><strong>intron</strong></dt>
+<dd>
+Del av en eukaryot gen som kopieras till RNA men klipps bort innan mRNA:t är färdigt. <em>(kap. 3)</em>
+</dd>
+<dt><strong>in silico</strong></dt>
+<dd>
+Experiment som görs som beräkningar i en dator. <em>(kap. 5)</em>
+</dd>
+<dt><strong>in vitro</strong></dt>
+<dd>
+Experiment i provrör, utanför levande celler (latin för ‘i glas’). <em>(kap. 5)</em>
+</dd>
+<dt><strong>in vivo</strong></dt>
+<dd>
+Experiment i levande celler eller organismer (latin för ‘i det levande’). <em>(kap. 5)</em>
+</dd>
+</dl>
+</section>
+<section id="j" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="j">J</h2>
+<dl>
+<dt><strong>jon</strong></dt>
+<dd>
+En atom eller molekyl med elektrisk laddning, till exempel natrium (Na+), kalium (K+) och klorid (Cl−). <em>(kap. 2)</em>
+</dd>
+<dt><strong>jonkanal</strong></dt>
+<dd>
+Ett membranprotein som bildar en väg för en viss sorts jon genom membranet. Jonerna strömmar av sig själva från där de är många till där de är få. <em>(kap. 8)</em>
+</dd>
+</dl>
+</section>
+<section id="k" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="k">K</h2>
+<dl>
+<dt><strong>kalciumpump</strong></dt>
+<dd>
+En pump som med energi från ATP flyttar kalciumjoner över ett membran, till exempel så att en muskel kan slappna av. <em>(kap. 8)</em>
+</dd>
+<dt><strong>kanal</strong></dt>
+<dd>
+Ett membranprotein som bildar en öppning genom membranet, så att joner, protoner eller vatten kan passera av sig själva. Många kanaler kan öppnas och stängas. <em>(kap. 10)</em>
+</dd>
+<dt><strong>karotenoider</strong></dt>
+<dd>
+Gula och orange färgämnen, till exempel karoten och xantofyller, som hjälper till att fånga ljus och skyddar fotosystemen mot för starkt ljus. <em>(kap. 10)</em>
+</dd>
+<dt><strong>katabolism</strong></dt>
+<dd>
+Den del av ämnesomsättningen där molekyler bryts ned. Frigör energi. <em>(kap. 2)</em>
+</dd>
+<dt><strong>katalysator</strong></dt>
+<dd>
+Ett ämne som gör en kemisk reaktion snabbare utan att förbrukas. Enzymer är cellens katalysatorer. <em>(kap. 4)</em>
+</dd>
+<dt><strong>kedjemolekyl</strong></dt>
+<dd>
+En molekyl byggd som en lång kedja av enkla byggstenar, som DNA, RNA och proteiner. Ordningen mellan byggstenarna (sekvensen) bär informationen. <em>(kap. 17)</em>
+</dd>
+<dt><strong>kemiosmotiska teorin</strong></dt>
+<dd>
+Peter Mitchells förklaring från 1961: andningskedjan pumpar protoner över membranet, och det är den uppbyggda protongradienten som driver ATP-tillverkningen. <em>(kap. 9)</em>
+</dd>
+<dt><strong>ketonkroppar</strong></dt>
+<dd>
+Små vattenlösliga molekyler som levern gör av fettsyror vid fasta. Hjärnan kan använda dem som bränsle. <em>(kap. 2)</em>
+</dd>
+<dt><strong>kinetiskt perfekt enzym</strong></dt>
+<dd>
+Ett enzym som är så effektivt att det i stort sett omvandlar varje substratmolekyl som når det. Hastigheten begränsas då bara av hur snabbt molekylerna rör sig i lösningen. <em>(kap. 4)</em>
+</dd>
+<dt><strong>klatrin</strong></dt>
+<dd>
+Ett protein vars trebenta enheter bildar en bur runt en bit membran, så att den kan knoppas av som en blåsa. <em>(kap. 12)</em>
+</dd>
+<dt><strong>Kleibers lag</strong></dt>
+<dd>
+Sambandet mellan djurs kroppsvikt och hur mycket energi de omsätter i vila. Stora djur omsätter mer energi totalt men mindre per kilo kroppsvikt. <em>(kap. 9)</em>
+</dd>
+<dt><strong>klientprotein</strong></dt>
+<dd>
+Protein som är beroende av en viss chaperon, särskilt Hsp90, för att få sin slutliga, fungerande form. <em>(kap. 13)</em>
+</dd>
+<dt><strong>kloning</strong></dt>
+<dd>
+Att föra in en gen i en organism, oftast en bakterie, så att genen kopieras och kanske också används för att tillverka proteinet. <em>(kap. 3)</em>
+</dd>
+<dt><strong>klorofyll</strong></dt>
+<dd>
+Grönt färgämne som fångar ljus i fotosyntesen. Absorberar blått och rött ljus men reflekterar grönt. <em>(kap. 10)</em>
+</dd>
+<dt><strong>kloroplast</strong></dt>
+<dd>
+Organell i växt- och algceller där fotosyntesen sker. Innehåller tylakoidmembran med fotosystem och ATP-syntas. <em>(kap. 10)</em>
+</dd>
+<dt><strong>kochaperon</strong></dt>
+<dd>
+Hjälpprotein (eng. co-chaperone) som samarbetar med en chaperon, till exempel Hsp40 och GrpE som styr när Hsp70 griper och släpper. <em>(kap. 13)</em>
+</dd>
+<dt><strong>kodon</strong></dt>
+<dd>
+En grupp om tre baser på mRNA som motsvarar en aminosyra eller en startsignal eller stoppsignal. <em>(kap. 1)</em>
+</dd>
+<dt><strong>kofaktor</strong></dt>
+<dd>
+En liten hjälpmolekyl eller metalljon som ett protein behöver för att fungera. Organiska kofaktorer kallas koenzymer och tillverkas ofta av vitaminer. <em>(kap. 2)</em>
+</dd>
+<dt><strong>kolesterol</strong></dt>
+<dd>
+En lipid med en stel ringstruktur och en liten polär grupp. Sticker in sig mellan fosfolipiderna i membranet och håller det lagom stadigt. <em>(kap. 7)</em>
+</dd>
+<dt><strong>kolsyraanhydras</strong></dt>
+<dd>
+Ett zinkinnehållande enzym som omvandlar koldioxid och vatten till bikarbonat och vätejoner, och tillbaka. Viktigt för transporten av koldioxid i blodet. <em>(kap. 4)</em>
+</dd>
+<dt><strong>kompenserande mutation</strong></dt>
+<dd>
+En mutation som återställer en funktion eller stabilitet som en tidigare mutation försämrat, till exempel genom att en granne byter laddning. <em>(kap. 16)</em>
+</dd>
+<dt><strong>kompetitiv hämning</strong></dt>
+<dd>
+Hämning där hämmaren binder i det aktiva centret och tävlar med substratet om platsen. <em>(kap. 4)</em>
+</dd>
+<dt><strong>komplementär</strong></dt>
+<dd>
+Om två DNA-strängar: de passar ihop bas för bas enligt basparningsreglerna, så att sekvensen på den ena bestämmer den andra. <em>(kap. 1)</em>
+</dd>
+<dt><strong>komplex I</strong></dt>
+<dd>
+Det första och största enzymet i andningskedjan. Det för elektroner från NADH till ubikinon och använder energin till att pumpa protoner över membranet. <em>(kap. 5)</em>
+</dd>
+<dt><strong>koncentrationsgradient</strong></dt>
+<dd>
+En skillnad i halten av ett ämne mellan två ställen, till exempel mellan membranets två sidor. Ämnen strömmar av sig själva från hög till låg halt. <em>(kap. 8)</em>
+</dd>
+<dt><strong>kondensator</strong></dt>
+<dd>
+En anordning med två ledande ytor åtskilda av ett tunt isolerande skikt, som lagrar elektrisk energi. Ett biologiskt membran fungerar som en kondensator. <em>(kap. 9)</em>
+</dd>
+<dt><strong>konserverad aminosyra</strong></dt>
+<dd>
+En aminosyra som är densamma i ett protein hos många olika arter, eftersom den inte kan bytas ut utan att funktionen skadas. Att den är konserverad tyder alltså på att den är viktig. <em>(kap. 5, 14, 16)</em>
+</dd>
+<dt><strong>kontaktkarta</strong></dt>
+<dd>
+En kvadratisk tabell över alla par av aminosyror i ett protein, där en markering visar att två aminosyror ligger nära varandra. <em>(kap. 16)</em>
+</dd>
+<dt><strong>kortlivat möte</strong></dt>
+<dd>
+När två proteiner stannar ihop en kort stund och känner på varandras ytor, innan de antingen binder fast eller släpper (eng. transient encounter). <em>(kap. 14)</em>
+</dd>
+<dt><strong>kotranslationell veckning</strong></dt>
+<dd>
+Veckning som sker medan proteinet fortfarande tillverkas på ribosomen. Veckningen börjar då i den ände av kedjan som kommer ut först. <em>(kap. 17)</em>
+</dd>
+<dt><strong>kromatografi</strong></dt>
+<dd>
+Metod för att skilja molekyler åt genom att låta dem passera genom en kolonn med ett material som sorterar dem, till exempel efter storlek. <em>(kap. 5)</em>
+</dd>
+<dt><strong>kromosom</strong></dt>
+<dd>
+En mycket lång DNA-molekyl med många gener. Människan har 23 kromosompar. <em>(kap. 1)</em>
+</dd>
+<dt><strong>kryoelektronmikroskopi</strong></dt>
+<dd>
+Metod där man fryser en proteinlösning blixtsnabbt och tar bilder med elektroner. Bilder av tiotusentals till hundratusentals enskilda molekyler läggs ihop till en tredimensionell bild. Förkortas kryo-EM. <em>(kap. 5, 6)</em>
+</dd>
+<dt><strong>kryoelektrontomografi</strong></dt>
+<dd>
+Metod där ett fryst, tunt prov av en cell fotograferas i elektronmikroskop från många vinklar, så att en dator kan räkna fram en tredimensionell bild med molekylerna på sina platser (kryo-ET). <em>(kap. 17)</em>
+</dd>
+<dt><strong>kvartärstruktur</strong></dt>
+<dd>
+Hur flera proteinkedjor fogas ihop till ett komplex, som de fyra kedjorna i hemoglobin. <em>(kap. 16)</em>
+</dd>
+<dt><strong>kvävebas</strong></dt>
+<dd>
+Den del av en nukleotid som bär informationen. DNA har baserna adenin (A), guanin (G), cytosin (C) och tymin (T); i RNA ersätts tymin av uracil (U). <em>(kap. 1)</em>
+</dd>
+<dt><strong>kärnhölje</strong></dt>
+<dd>
+De två membran som omger cellkärnan. Det yttre hänger ihop med det endoplasmatiska nätverket. <em>(kap. 7)</em>
+</dd>
+<dt><strong>kärnpor</strong></dt>
+<dd>
+Ett stort proteinkomplex som bildar ett hål genom kärnhöljet. Mitt i poren finns en gel som bara särskilda transportproteiner kan passera. <em>(kap. 7)</em>
+</dd>
+<dt><strong>kärnsignal</strong></dt>
+<dd>
+En grupp positivt laddade aminosyror på ytan av ett protein som visar att det ska in i cellkärnan. Klipps inte bort. <em>(kap. 12)</em>
+</dd>
+<dt><strong>k<sub>cat</sub></strong></dt>
+<dd>
+Hur många substratmolekyler en enzymmolekyl hinner omvandla per sekund när den är mättad med substrat (uttalas k-katt). <em>(kap. 4)</em>
+</dd>
+<dt><strong>K<sub>M</sub> (Michaelis-konstanten)</strong></dt>
+<dd>
+Den mängd substrat som ger halva maxhastigheten. Ett lågt värde betyder att enzymet fångar sitt substrat effektivt. <em>(kap. 4)</em>
+</dd>
+</dl>
+</section>
+<section id="l" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="l">L</h2>
+<dl>
+<dt><strong>lac-repressorn</strong></dt>
+<dd>
+Ett protein i bakterien E. coli som stänger av generna för nedbrytning av laktos så länge det inte finns någon laktos. <em>(kap. 6)</em>
+</dd>
+<dt><strong>Levinthals paradox</strong></dt>
+<dd>
+Motsägelsen att en proteinkedja i princip kan anta så många former att det skulle ta längre tid än universums ålder att pröva alla, medan den i verkligheten veckar sig på millisekunder till sekunder. Kedjan provar inte allt utan glider stegvis mot allt bättre former. <em>(kap. 14)</em>
+</dd>
+<dt><strong>lipid</strong></dt>
+<dd>
+Samlingsnamn för fettlösliga ämnen som fett, fosfolipider och kolesterol. <em>(kap. 2)</em>
+</dd>
+<dt><strong>lipiddubbelskikt</strong></dt>
+<dd>
+Två lager av lipider med svansarna mot varandra och huvudena mot vattnet på båda sidor. Grunden i alla biologiska membran, ungefär 5 nanometer tjockt. <em>(kap. 7)</em>
+</dd>
+<dt><strong>lipidflotte</strong></dt>
+<dd>
+Ett litet område i cellmembranet med extra mycket kolesterol, som är lite stelare än omgivningen och där vissa proteiner gärna sitter. <em>(kap. 7)</em>
+</dd>
+<dt><strong>liposom</strong></dt>
+<dd>
+En liten ihålig blåsa av ett lipiddubbelskikt som slutit sig. Bildas av sig själv när lipider skakas i vatten. <em>(kap. 7)</em>
+</dd>
+<dt><strong>lysosom</strong></dt>
+<dd>
+En liten organell som bryter ned utslitna proteiner och främmande ämnen, cellens återvinningsstation. <em>(kap. 7)</em>
+</dd>
+</dl>
+</section>
+<section id="m" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="m">M</h2>
+<dl>
+<dt><strong>makromolekyl</strong></dt>
+<dd>
+Mycket stor molekyl, till exempel ett protein, en nukleinsyra eller en polysackarid. De flesta är polymerer. <em>(kap. 2)</em>
+</dd>
+<dt><strong>marginell kolloidal stabilitet</strong></dt>
+<dd>
+Att proteinerna i en cell är lösta, men bara nätt och jämnt, så att de lätt kan mötas en kort stund utan att klumpa ihop sig. <em>(kap. 14)</em>
+</dd>
+<dt><strong>maskininlärning</strong></dt>
+<dd>
+Den del av AI där en dator lär sig av exempel med kända svar i stället för att följa regler som en människa skrivit. <em>(kap. 16)</em>
+</dd>
+<dt><strong>mekanokänslig kanal</strong></dt>
+<dd>
+Kanal som öppnas när membranet sträcks eller när något drar i den. Ger oss känsel och hörsel, och skyddar bakterier mot att spricka. <em>(kap. 10)</em>
+</dd>
+<dt><strong>membranprotein</strong></dt>
+<dd>
+Ett protein som sitter i ett membran, helt eller delvis. Ungefär 25–30 procent av alla proteiner är membranproteiner. De delar som går genom membranet är oftast alfahelixar med omkring 20 opolära aminosyror. <em>(kap. 8)</em>
+</dd>
+<dt><strong>metabolism</strong></dt>
+<dd>
+Ämnesomsättning: alla kemiska reaktioner i en cell eller organism. <em>(kap. 2)</em>
+</dd>
+<dt><strong>metabolom</strong></dt>
+<dd>
+Alla små molekyler som deltar i en cells ämnesomsättning: byggstenar, mellanprodukter och avfallsämnen. <em>(kap. 2, 11)</em>
+</dd>
+<dt><strong>metagenomik</strong></dt>
+<dd>
+Att läsa allt DNA i ett prov på en gång, till exempel jord, havsvatten eller tarminnehåll, för att se vilka organismer som finns där. <em>(kap. 11)</em>
+</dd>
+<dt><strong>metanogen</strong></dt>
+<dd>
+Mikroorganism (en arké) som får sin energi genom att göra vätgas och koldioxid till metan. Lever utan syre, till exempel i sumpmarker och i kons mage. <em>(kap. 9)</em>
+</dd>
+<dt><strong>MHC</strong></dt>
+<dd>
+Proteiner som visar upp korta proteinbitar på cellens yta, så att immunförsvarets T-celler kan upptäcka infekterade celler. <em>(kap. 13)</em>
+</dd>
+<dt><strong>Michaelis–Mentens ekvation</strong></dt>
+<dd>
+Ett matematiskt samband från 1913 som beskriver hur ett enzyms reaktionshastighet beror på mängden substrat. <em>(kap. 4)</em>
+</dd>
+<dt><strong>mikrobiom</strong></dt>
+<dd>
+Alla mikroorganismer som lever på och i en människa, till exempel i tarmen, och deras gener. <em>(kap. 11)</em>
+</dd>
+<dt><strong>mikrotubuli</strong></dt>
+<dd>
+Ihåliga rör av protein i cytoskelettet. Motorproteiner går längs dem och drar med sig last. <em>(kap. 7)</em>
+</dd>
+<dt><strong>minimal cell</strong></dt>
+<dd>
+En cell som forskare har skapat genom att ta bort alla gener som inte behövs för att den ska leva och dela sig, till exempel JCVI-syn3A med 493 gener. <em>(kap. 17)</em>
+</dd>
+<dt><strong>mitokondrie</strong></dt>
+<dd>
+Organell i eukaryota celler där det mesta av cellens ATP tillverkas, med hjälp av syre. Kallas cellens kraftverk. <em>(kap. 2)</em>
+</dd>
+<dt><strong>mitokondriellt DNA</strong></dt>
+<dd>
+Mitokondriens eget lilla DNA. Hos människan en ring med 16 569 baspar som kodar för 13 proteiner. Ärvs bara från modern. <em>(kap. 12)</em>
+</dd>
+<dt><strong>mitokondriell sjukdom</strong></dt>
+<dd>
+Sjukdom där mitokondriernas energiomvandling inte fungerar, ofta på grund av mutationer i andningskedjans enzymer. Drabbar främst energikrävande organ som hjärnan och musklerna. <em>(kap. 5)</em>
+</dd>
+<dt><strong>modellorganism</strong></dt>
+<dd>
+Art som forskarna studerar särskilt ingående för att lära sig om biologi i allmänhet, till exempel bakjäst, bananfluga och mus. <em>(kap. 11)</em>
+</dd>
+<dt><strong>molekyl</strong></dt>
+<dd>
+En grupp atomer som hålls ihop av kemiska bindningar, till exempel en vattenmolekyl (H2O). <em>(kap. 1)</em>
+</dd>
+<dt><strong>molekyldynamik</strong></dt>
+<dd>
+Datorsimulering där man med Newtons lagar räknar ut hur alla atomer i en molekyl rör sig, steg för steg. <em>(kap. 5)</em>
+</dd>
+<dt><strong>molekylär chaperon</strong></dt>
+<dd>
+Protein som hjälper andra proteiner att vecka sig, foga ihop sig eller ta sig genom membran, utan att självt bli en del av det färdiga proteinet. På svenska ibland “molekylärt förkläde”. <em>(kap. 13)</em>
+</dd>
+<dt><strong>molekylär maskin</strong></dt>
+<dd>
+Ett protein eller proteinkomplex som omvandlar energi till rörelse eller arbete, till exempel en roterande motor eller en pump. <em>(kap. 9)</em>
+</dd>
+<dt><strong>motorneuron</strong></dt>
+<dd>
+En nervcell i hjärnan eller ryggmärgen som skickar signaler till kroppens muskler. <em>(kap. 15)</em>
+</dd>
+<dt><strong>motorprotein</strong></dt>
+<dd>
+Ett protein som med energi från ATP tar steg längs en tråd i cytoskelettet och kan bära med sig last, till exempel en vesikel. <em>(kap. 7)</em>
+</dd>
+<dt><strong>MPP</strong></dt>
+<dd>
+Mitokondriellt processande peptidas, enzymet som klipper bort signalpeptiden när proteinet kommit in i matrix. Hos växter är det inbyggt i andningskedjans komplex III. <em>(kap. 12)</em>
+</dd>
+<dt><strong>mRNA</strong></dt>
+<dd>
+Budbärar-RNA (eng. messenger RNA): en RNA-kopia av en gen som bär ritningen till ett protein till ribosomen. <em>(kap. 1)</em>
+</dd>
+<dt><strong>multipel sekvensuppställning</strong></dt>
+<dd>
+En uppställning av många besläktade sekvenser under varandra, så att aminosyror som motsvarar varandra hamnar i samma kolumn (eng. multiple sequence alignment, MSA). <em>(kap. 16)</em>
+</dd>
+<dt><strong>mutation</strong></dt>
+<dd>
+En förändring i arvsmassans bassekvens, i DNA (eller i RNA hos vissa virus). <em>(kap. 2)</em>
+</dd>
+<dt><strong>mättnad</strong></dt>
+<dd>
+När det finns så mycket substrat att alla enzymers aktiva centra är upptagna hela tiden. Då ökar inte hastigheten med mer substrat. <em>(kap. 4)</em>
+</dd>
+<dt><strong>M2</strong></dt>
+<dd>
+Protonkanal i influensa A-virusets hölje som öppnas av sur miljö och behövs för att viruset ska kunna släppa ut sin arvsmassa i cellen. <em>(kap. 10)</em>
+</dd>
+</dl>
+</section>
+<section id="n" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="n">N</h2>
+<dl>
+<dt><strong>NADH</strong></dt>
+<dd>
+En bärare av elektroner som tar upp energi vid nedbrytningen av maten och lämnar den vidare till andningskedjan. Släktingen NADPH levererar elektroner vid uppbyggnaden. <em>(kap. 2)</em>
+</dd>
+<dt><strong>nanodisk</strong></dt>
+<dd>
+En liten bit membran som hålls ihop av ett proteinband runt kanten. Används för att studera membranproteiner i en membranliknande miljö. <em>(kap. 5)</em>
+</dd>
+<dt><strong>nanometer</strong></dt>
+<dd>
+En miljarddels meter (en miljondels millimeter). En ribosom är 20–30 nanometer, ett vanligt protein omkring 5 nanometer. <em>(kap. 1)</em>
+</dd>
+<dt><strong>nanoporsekvensering</strong></dt>
+<dd>
+Metod där en DNA-sträng dras genom en mycket liten por i ett membran. Sekvensen avläses ur hur den elektriska jonströmmen genom poren förändras. <em>(kap. 11)</em>
+</dd>
+<dt><strong>nanotråd</strong></dt>
+<dd>
+Ett långt utskott från vissa bakterier, till exempel Shewanella, som kan leda elektroner ut från cellen till mineraler i omgivningen. <em>(kap. 9)</em>
+</dd>
+<dt><strong>nativ struktur</strong></dt>
+<dd>
+Ett proteins färdiga, fungerande form. <em>(kap. 14)</em>
+</dd>
+<dt><strong>nettoladdning</strong></dt>
+<dd>
+Summan av ett proteins positiva och negativa laddningar. De flesta proteiner i en cell har negativ nettoladdning. <em>(kap. 14)</em>
+</dd>
+<dt><strong>neuralt nätverk</strong></dt>
+<dd>
+Ett program för maskininlärning byggt av många lager av enkla räknesteg, vars inre inställningar justeras under träningen. <em>(kap. 16)</em>
+</dd>
+<dt><strong>NMR</strong></dt>
+<dd>
+Kärnmagnetisk resonans. Metod där proteinet ligger löst i ett starkt magnetfält och atomkärnorna tar upp radiovågor; ger form och rörelser för små proteiner. <em>(kap. 6, 14)</em>
+</dd>
+<dt><strong>nukleotid</strong></dt>
+<dd>
+Byggsten i DNA och RNA, bestående av ett socker, en fosfatgrupp och en kvävebas. <em>(kap. 1)</em>
+</dd>
+<dt><strong>nyfikenhetsdriven forskning</strong></dt>
+<dd>
+Forskning som görs för att förstå hur naturen fungerar, utan att i första hand sikta på en tillämpning. Kallas också grundforskning. <em>(kap. 17)</em>
+</dd>
+<dt><strong>N-ände</strong></dt>
+<dd>
+Den ände av en proteinkedja som tillverkas först (kallas också N-terminalen). Den andra änden kallas C-änden. <em>(kap. 12, 17)</em>
+</dd>
+</dl>
+</section>
+<section id="o" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="o">O</h2>
+<dl>
+<dt><strong>omik</strong></dt>
+<dd>
+Samlingsnamn för forskning där man mäter allt av en viss sorts molekyl på en gång i en cell, ett organ eller en organism, till exempel genomik och proteomik. <em>(kap. 11)</em>
+</dd>
+<dt><strong>omvänt transkriptas</strong></dt>
+<dd>
+Enzym, ursprungligen från virus, som kopierar RNA tillbaka till DNA. Används bland annat för att göra DNA-kopior av mänskliga gener utan introner och i PCR-test för RNA-virus. <em>(kap. 3, 11)</em>
+</dd>
+<dt><strong>oordnat protein</strong></dt>
+<dd>
+Protein, eller del av ett protein, som saknar en fast tredimensionell form. Binder ofta tillfälligt till andra proteiner och för samman dem. <em>(kap. 1)</em>
+</dd>
+<dt><strong>operator</strong></dt>
+<dd>
+Den korta bassekvens på DNA intill ett operon där en repressor binder. <em>(kap. 6)</em>
+</dd>
+<dt><strong>operon</strong></dt>
+<dd>
+Grupp av bakteriegener som sitter efter varandra, styrs av samma promotor och kopieras till ett gemensamt mRNA. <em>(kap. 3)</em>
+</dd>
+<dt><strong>organell</strong></dt>
+<dd>
+Ett avgränsat utrymme i en eukaryot cell med en egen uppgift, till exempel cellkärnan eller mitokondrierna. <em>(kap. 2)</em>
+</dd>
+<dt><strong>osmos</strong></dt>
+<dd>
+Att vatten strömmar genom ett membran mot den sida där det finns mest löst ämne, så att halterna jämnas ut. <em>(kap. 8)</em>
+</dd>
+<dt><strong>oxidation</strong></dt>
+<dd>
+När elektroner tas bort från ett ämne. Motsatsen, när elektroner tillförs, kallas reduktion. <em>(kap. 2)</em>
+</dd>
+</dl>
+</section>
+<section id="p" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="p">P</h2>
+<dl>
+<dt><strong>PAE</strong></dt>
+<dd>
+AlphaFolds mått på hur säkert det inbördes läget är mellan två delar av en modell, till exempel två domäner eller två proteiner (eng. predicted aligned error). <em>(kap. 16)</em>
+</dd>
+<dt><strong>PALM och STORM</strong></dt>
+<dd>
+Superupplösta metoder där bara några få slumpvis påslagna fluoroforer lyser åt gången, så att mitten av varje prick kan bestämmas noggrant. <em>(kap. 6)</em>
+</dd>
+<dt><strong>PCR</strong></dt>
+<dd>
+Polymeraskedjereaktion: metod där en bestämd bit DNA kopieras miljarder gånger genom upprepade cykler av uppvärmning, inbindning av primrar och kopiering. <em>(kap. 3)</em>
+</dd>
+<dt><strong>peptid</strong></dt>
+<dd>
+En kort kedja av aminosyror, från ett par stycken upp till några tiotal. Gränsen mot protein är inte skarp. <em>(kap. 1, 17)</em>
+</dd>
+<dt><strong>peptidbindning</strong></dt>
+<dd>
+Bindningen mellan två aminosyror i en proteinkedja. När den bildas frigörs en vattenmolekyl. <em>(kap. 1)</em>
+</dd>
+<dt><strong>peroxisom</strong></dt>
+<dd>
+En liten organell med omkring 50 enzymer, bland annat katalas, som bryter ned väteperoxid. Dess enzymer importeras färdigveckade från cytosolen. <em>(kap. 12)</em>
+</dd>
+<dt><strong>pH</strong></dt>
+<dd>
+Ett mått på hur surt något är. Ju fler protoner, desto lägre pH. Neutralt vatten har pH 7; varje steg är en tiofaldig skillnad i protonhalt. <em>(kap. 2)</em>
+</dd>
+<dt><strong>pH-indikator</strong></dt>
+<dd>
+Ett färgämne som byter färg beroende på hur sur eller basisk en lösning är. <em>(kap. 4)</em>
+</dd>
+<dt><strong>Piezo</strong></dt>
+<dd>
+En tryckkänslig jonkanal med tre böjda blad som böjer membranet. När membranet plattas ut öppnas kanalen. Används bland annat i känselsinnet. <em>(kap. 8)</em>
+</dd>
+<dt><strong>plack</strong></dt>
+<dd>
+En stor ansamling av amyloida fibrer i vävnaden, till exempel mellan nervcellerna vid Alzheimers sjukdom. <em>(kap. 15)</em>
+</dd>
+<dt><strong>plasmid</strong></dt>
+<dd>
+Liten ringformad DNA-molekyl i bakterier, som kopieras när bakterien delar sig. Används för att föra in nya gener i bakterier. <em>(kap. 3)</em>
+</dd>
+<dt><strong>pLDDT</strong></dt>
+<dd>
+AlphaFolds mått, från 0 till 100, på hur säker förutsägelsen är för varje aminosyra. <em>(kap. 16)</em>
+</dd>
+<dt><strong>polymer</strong></dt>
+<dd>
+En lång kedja av många likartade byggstenar (monomerer) som kopplats ihop. <em>(kap. 2)</em>
+</dd>
+<dt><strong>polysackarid</strong></dt>
+<dd>
+Lång kedja av sockermolekyler, till exempel stärkelse, glykogen och cellulosa. <em>(kap. 2)</em>
+</dd>
+<dt><strong>polär</strong></dt>
+<dd>
+Om en molekyl eller molekyldel med ojämnt fördelad laddning, som vatten. Polära ämnen kan bilda vätebindningar och trivs bland vattenmolekyler. <em>(kap. 1)</em>
+</dd>
+<dt><strong>prebiotisk kemi</strong></dt>
+<dd>
+Läran om hur livets byggstenar kan ha bildats och reagerat innan det fanns liv på jorden. <em>(kap. 1)</em>
+</dd>
+<dt><strong>precisionsmedicin</strong></dt>
+<dd>
+Vård där behandlingen anpassas efter den enskilda patientens egenskaper, till exempel generna eller tumörens DNA. <em>(kap. 11)</em>
+</dd>
+<dt><strong>PreP</strong></dt>
+<dd>
+Ett enzym i mitokondrierna som bryter ned bortklippta signalpeptider. Kan också bryta ned amyloid-beta. <em>(kap. 12)</em>
+</dd>
+<dt><strong>presekvens</strong></dt>
+<dd>
+Signalpeptiden i N-änden på mitokondriella proteiner. Bildar en amfifil helix med många positivt laddade aminosyror. <em>(kap. 12)</em>
+</dd>
+<dt><strong>primer</strong></dt>
+<dd>
+Kort bit DNA som basparar med en mallsträng och som DNA-polymeras kan bygga vidare från. <em>(kap. 3)</em>
+</dd>
+<dt><strong>primärstruktur</strong></dt>
+<dd>
+Ett proteins sekvens, ordningen mellan aminosyrorna i kedjan. <em>(kap. 16)</em>
+</dd>
+<dt><strong>prion</strong></dt>
+<dd>
+Ett felveckat protein som kan omvandla normala exemplar av samma protein till sin egen form och därmed föröka sig och smitta. <em>(kap. 15)</em>
+</dd>
+<dt><strong>produkt</strong></dt>
+<dd>
+En molekyl som bildas i en kemisk reaktion, till exempel när ett enzym har omvandlat sitt substrat. <em>(kap. 4)</em>
+</dd>
+<dt><strong>profil</strong></dt>
+<dd>
+En sammanfattning av vilka aminosyror som förekommer i varje position i en proteinfamilj. <em>(kap. 16)</em>
+</dd>
+<dt><strong>prokaryot</strong></dt>
+<dd>
+Cell utan cellkärna, oftast 1–10 mikrometer stor. Bakterier och arkéer är prokaryoter. <em>(kap. 2)</em>
+</dd>
+<dt><strong>promotor</strong></dt>
+<dd>
+Bassekvens i DNA framför en gen där RNA-polymeras binder och börjar kopiera genen till RNA. En startsignal. <em>(kap. 3)</em>
+</dd>
+<dt><strong>prostetisk grupp</strong></dt>
+<dd>
+En kofaktor som sitter hårt eller permanent fast i ett enzym, till exempel hemgruppen. <em>(kap. 4)</em>
+</dd>
+<dt><strong>proteas</strong></dt>
+<dd>
+Enzym som klipper sönder proteiner. Oveckade kedjor klipps lättare än veckade proteiner. <em>(kap. 13)</em>
+</dd>
+<dt><strong>proteasom</strong></dt>
+<dd>
+Stor proteinmaskin i eukaryota celler som bryter ned proteiner märkta med ubikvitin. Består av en cylinder (20S) med de klippande delarna inuti och lock (19S) i ändarna. <em>(kap. 13)</em>
+</dd>
+<dt><strong>protein</strong></dt>
+<dd>
+En kedja av aminosyror som har veckat ihop sig till en bestämd form. Proteinerna är cellens maskiner: enzymer, pumpar, kanaler, motorer och byggmaterial. <em>(kap. 1)</em>
+</dd>
+<dt><strong>proteindesign</strong></dt>
+<dd>
+Att konstruera nya proteinsekvenser som veckar sig till en önskad form eller utför en önskad uppgift. <em>(kap. 5, 16)</em>
+</dd>
+<dt><strong>proteinets stabilitet</strong></dt>
+<dd>
+Ett mått på hur förskjuten jämvikten mellan veckat (N) och oveckat (D) tillstånd är, det vill säga hur många molekyler som är veckade för varje oveckad. <em>(kap. 14)</em>
+</dd>
+<dt><strong>proteintrafik</strong></dt>
+<dd>
+Transporten av nytillverkade proteiner från ribosomerna till det ställe i eller utanför cellen där de ska arbeta. <em>(kap. 12)</em>
+</dd>
+<dt><strong>proteom</strong></dt>
+<dd>
+Alla proteiner i en cell eller ett organ vid ett visst tillfälle. Skiljer sig mellan celltyper och ändras med tiden. <em>(kap. 2, 11)</em>
+</dd>
+<dt><strong>proton</strong></dt>
+<dd>
+En väteatom som förlorat sin elektron, en positivt laddad atomkärna. Kallas också vätejon (H+). <em>(kap. 2)</em>
+</dd>
+<dt><strong>protongradient</strong></dt>
+<dd>
+Skillnad i halten av protoner (vätejoner) mellan membranets två sidor. En form av lagrad energi. <em>(kap. 2)</em>
+</dd>
+<dt><strong>protonpump</strong></dt>
+<dd>
+Ett membranprotein som använder energi, till exempel från elektroner eller ljus, för att flytta protoner över ett membran mot gradienten. <em>(kap. 10)</em>
+</dd>
+<dt><strong>PrP</strong></dt>
+<dd>
+Prionproteinet, som normalt sitter på nervcellernas yta. Den felveckade, sjukdomsframkallande formen kallas prion. <em>(kap. 15)</em>
+</dd>
+</dl>
+</section>
+<section id="r" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="r">R</h2>
+<dl>
+<dt><strong>receptor</strong></dt>
+<dd>
+Ett protein, ofta på cellytan, som binder en signalmolekyl, till exempel ett hormon, och för signalen vidare in i cellen. <em>(kap. 8)</em>
+</dd>
+<dt><strong>redoxpotential</strong></dt>
+<dd>
+Ett mått, i volt, på hur starkt ett ämne drar i elektroner. Elektroner går av sig själva från ämnen med låg redoxpotential till ämnen med hög. <em>(kap. 9)</em>
+</dd>
+<dt><strong>referenssekvens</strong></dt>
+<dd>
+En sammanfogad, så komplett som möjligt sekvens av en arts genom, som används som facit när andra individers DNA läses. <em>(kap. 11)</em>
+</dd>
+<dt><strong>replikation</strong></dt>
+<dd>
+Kopiering av DNA. Strängarna dras isär och var och en används som mall för en ny sträng. <em>(kap. 1)</em>
+</dd>
+<dt><strong>repressor</strong></dt>
+<dd>
+En transkriptionsfaktor som stänger av en gen, ofta genom att sitta i vägen för RNA-polymeraset. <em>(kap. 6)</em>
+</dd>
+<dt><strong>restriktionsenzym</strong></dt>
+<dd>
+Bakterieenzym som känner igen en bestämd kort bassekvens i DNA och klipper av båda strängarna där. Kan ge klibbiga eller trubbiga ändar. <em>(kap. 3)</em>
+</dd>
+<dt><strong>retinal</strong></dt>
+<dd>
+En liten molekyl som sitter inne i bakteriorodopsin och i rodopsin i ögat. Fångar ljus och ändrar då form. <em>(kap. 8)</em>
+</dd>
+<dt><strong>ribonukleas</strong></dt>
+<dd>
+Enzym som bryter ned RNA. Christian Anfinsen använde det för att visa att ett protein kan vecka sig tillbaka av sig självt, eftersom formen bestäms av sekvensen. <em>(kap. 14)</em>
+</dd>
+<dt><strong>ribosom</strong></dt>
+<dd>
+Stor molekylär maskin av RNA och proteiner, 20–30 nanometer stor, som tillverkar proteiner genom att läsa av mRNA. <em>(kap. 1)</em>
+</dd>
+<dt><strong>ribosomens utgångstunnel</strong></dt>
+<dd>
+Den omkring 10 nanometer långa tunnel genom ribosomens stora subenhet som den växande proteinkedjan passerar. Den rymmer 30–40 aminosyror. <em>(kap. 17)</em>
+</dd>
+<dt><strong>ribozym</strong></dt>
+<dd>
+En RNA-molekyl som fungerar som katalysator. Ribosomens RNA är det viktigaste exemplet. <em>(kap. 4)</em>
+</dd>
+<dt><strong>riktad evolution</strong></dt>
+<dd>
+Metod där man upprepade gånger skapar slumpvisa varianter av ett enzym och väljer ut de bästa, för att stegvis få fram nya eller bättre egenskaper. <em>(kap. 5)</em>
+</dd>
+<dt><strong>riktad mutagenes</strong></dt>
+<dd>
+Metod för att med hjälp av en primer med en avvikande bas ändra en gen på ett bestämt ställe. <em>(kap. 3)</em>
+</dd>
+<dt><strong>RNA</strong></dt>
+<dd>
+Ribonukleinsyra. Nära släkt med DNA men oftast enkelsträngad, med sockret ribos och basen uracil i stället för tymin. För bland annat informationen från DNA till ribosomerna. <em>(kap. 1)</em>
+</dd>
+<dt><strong>RNA-polymeras</strong></dt>
+<dd>
+Det enzym som läser av en gen och bygger en RNA-kopia av den (transkription). <em>(kap. 1)</em>
+</dd>
+<dt><strong>rotor</strong></dt>
+<dd>
+Den roterande delen av en motor. I ATP-syntas en ring av 8–17 c-delar i membranet, som drivs runt av protoner. <em>(kap. 9)</em>
+</dd>
+<dt><strong>rubisco</strong></dt>
+<dd>
+Enzymet i kloroplasten som binder in koldioxid från luften i fotosyntesen. Det finns i mycket stora mängder och syns som enskilda korn i kryo-ET-bilder. <em>(kap. 17)</em>
+</dd>
+<dt><strong>rumslig RNA-sekvensering</strong></dt>
+<dd>
+Metod (ofta kallad spatiell RNA-sekvensering) där RNA fångas från ett tunt vävnadssnitt på en yta med streckkodade fläckar, så att man vet var i vävnaden varje RNA kom ifrån. <em>(kap. 11)</em>
+</dd>
+<dt><strong>röntgenfrielektronlaser</strong></dt>
+<dd>
+Anläggning som ger extremt korta och intensiva pulser av röntgenstrålning (eng. X-ray free-electron laser, XFEL). Används bland annat för att göra filmer av proteiner i arbete. <em>(kap. 10)</em>
+</dd>
+<dt><strong>röntgenkristallografi</strong></dt>
+<dd>
+Metod för att bestämma var atomerna sitter i ett protein. Man skickar röntgenstrålning genom en kristall av proteinet och räknar fram strukturen ur mönstret av prickar som uppstår. <em>(kap. 5, 6)</em>
+</dd>
+</dl>
+</section>
+<section id="s" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="s">S</h2>
+<dl>
+<dt><strong>samevolution</strong></dt>
+<dd>
+Att två positioner i en proteinfamilj ändras tillsammans under evolutionen, oftast för att aminosyrorna ligger mot varandra (även koevolution). <em>(kap. 16)</em>
+</dd>
+<dt><strong>sekretoriska vägen</strong></dt>
+<dd>
+Vägen för proteiner som ska ut ur cellen, till cellmembranet eller till lysosomerna: in i det endoplasmatiska nätverket medan de tillverkas och sedan vidare i blåsor via golgiapparaten. <em>(kap. 12)</em>
+</dd>
+<dt><strong>sekundärstruktur</strong></dt>
+<dd>
+De regelbundna mönster, alfahelixar och betaflak, som kedjans ryggrad bildar på korta sträckor och som hålls ihop av vätebindningar. <em>(kap. 16)</em>
+</dd>
+<dt><strong>selektivitetsfilter</strong></dt>
+<dd>
+Den trånga del av en jonkanal som avgör vilka joner som släpps igenom. I kaliumkanalen efterliknar filtret kaliumjonens vattenskal. <em>(kap. 8)</em>
+</dd>
+<dt><strong>semaglutid</strong></dt>
+<dd>
+Läkemedel (Ozempic, Wegovy) som är en ändrad form av GLP-1. En fettsyra som binder till albumin gör att det räcker en vecka. Används mot typ 2-diabetes och fetma. <em>(kap. 17)</em>
+</dd>
+<dt><strong>sidogrupp</strong></dt>
+<dd>
+Den del av en aminosyra som sticker ut från proteinkedjans ryggrad och som skiljer de 20 aminosyrorna åt. Kan vara opolär (vattenskygg), polär eller laddad. <em>(kap. 1)</em>
+</dd>
+<dt><strong>signalpeptid</strong></dt>
+<dd>
+En kort sträcka i början av en proteinkedja som fungerar som adresslapp och styr proteinet till rätt ställe i cellen. Klipps oftast bort när proteinet kommit fram. <em>(kap. 12)</em>
+</dd>
+<dt><strong>signalpeptidas</strong></dt>
+<dd>
+Ett enzym som klipper bort signalpeptiden när proteinet har förts in i det endoplasmatiska nätverket. <em>(kap. 12)</em>
+</dd>
+<dt><strong>skräp-DNA</strong></dt>
+<dd>
+Äldre, omdiskuterat namn på de delar av arvsmassan som inte kodar för proteiner eller har någon känd uppgift. <em>(kap. 11)</em>
+</dd>
+<dt><strong>skärmning</strong></dt>
+<dd>
+Att joner i en lösning dämpar elektriska krafter. Ju mer salt, desto kortare räckvidd får laddningarna. <em>(kap. 14)</em>
+</dd>
+<dt><strong>små värmechockproteiner</strong></dt>
+<dd>
+Chaperoner som inte använder ATP utan bildar stora klot som håller fast skadade proteiner tills andra chaperoner tar över. Hit hör α-kristallin i ögats lins. <em>(kap. 13)</em>
+</dd>
+<dt><strong>SOD1</strong></dt>
+<dd>
+Koppar-zink-superoxiddismutas, ett enzym som oskadliggör syreradikalen superoxid. Mutationer i SOD1 kan ge den ärftliga formen av ALS. <em>(kap. 14)</em>
+</dd>
+<dt><strong>specificitet</strong></dt>
+<dd>
+Ett enzyms förmåga att bara binda och omvandla ett visst substrat, eller några få närbesläktade. <em>(kap. 4)</em>
+</dd>
+<dt><strong>spektrofotometer</strong></dt>
+<dd>
+Instrument som mäter hur mycket ljus av olika färger ett prov tar upp. Används för att följa hur mängden av ett färgat ämne ändras. <em>(kap. 5)</em>
+</dd>
+<dt><strong>spikprotein</strong></dt>
+<dd>
+Det stora membranproteinet på coronavirusets yta, som binder till ACE2 på våra celler och tar viruset in i dem. <em>(kap. 8)</em>
+</dd>
+<dt><strong>splitsning</strong></dt>
+<dd>
+Processen där intronerna klipps bort ur RNA och exonerna fogas ihop till ett färdigt mRNA (eng. splicing). Vid alternativ splitsning kan exonerna kombineras på olika sätt, så att en gen ger flera proteinvarianter. <em>(kap. 3)</em>
+</dd>
+<dt><strong>SRP</strong></dt>
+<dd>
+Signaligenkännande partikel (eng. signal recognition particle). Ett komplex av protein och RNA som känner igen signalpeptiden och för ribosomen till det endoplasmatiska nätverket. <em>(kap. 12)</em>
+</dd>
+<dt><strong>stam (av aggregat)</strong></dt>
+<dd>
+En bestämd form av proteinaggregat som förs vidare när aggregatet sprider sig. Olika stammar kan ge olika snabba sjukdomsförlopp. <em>(kap. 15)</em>
+</dd>
+<dt><strong>stator</strong></dt>
+<dd>
+Den del av en motor som står stilla. I ATP-syntas en arm som håller fast enzymets huvud så att axeln kan vrida sig inuti det. <em>(kap. 9)</em>
+</dd>
+<dt><strong>STED</strong></dt>
+<dd>
+Superupplöst metod där en ring av ljus stänger av fluoroforerna runt en excitationsprick, så att bara en liten prick i mitten lyser. <em>(kap. 6)</em>
+</dd>
+<dt><strong>strukturförutsägelse</strong></dt>
+<dd>
+Att med datorns hjälp beräkna ett proteins tredimensionella form utifrån dess aminosyrasekvens. <em>(kap. 16)</em>
+</dd>
+<dt><strong>substrat</strong></dt>
+<dd>
+Den molekyl som ett enzym binder och omvandlar. <em>(kap. 4)</em>
+</dd>
+<dt><strong>superkomplex</strong></dt>
+<dd>
+Flera av andningskedjans proteinkomplex som sitter ihop till en större enhet i mitokondriens membran. <em>(kap. 5, 17)</em>
+</dd>
+<dt><strong>superoxid</strong></dt>
+<dd>
+En syremolekyl med en extra elektron. Den är mycket reaktiv och kan skada cellens molekyler. <em>(kap. 14)</em>
+</dd>
+<dt><strong>superupplöst mikroskopi</strong></dt>
+<dd>
+Ljusmikroskopi med bättre upplösning än diffraktionsgränsen, ner till 20–50 nanometer eller mindre. Exempel är PALM, STORM och STED. <em>(kap. 6)</em>
+</dd>
+<dt><strong>svedberg (S)</strong></dt>
+<dd>
+Enhet för hur snabbt en partikel sjunker vid centrifugering. Beror på både storlek och form, så värdena kan inte adderas. <em>(kap. 13)</em>
+</dd>
+<dt><strong>synkrotron</strong></dt>
+<dd>
+Ringformad anläggning där elektroner rusar runt med nästan ljusets hastighet och sänder ut intensiv röntgenstrålning. Används bland annat för röntgenkristallografi; Sveriges synkrotron, MAX IV, finns i Lund. <em>(kap. 6)</em>
+</dd>
+<dt><strong>syrgasutvecklande centret</strong></dt>
+<dd>
+Ett kluster av fyra manganatomer, en kalciumatom och fem syreatomer i fotosystem II, där vatten klyvs till syre, protoner och elektroner. <em>(kap. 10)</em>
+</dd>
+</dl>
+</section>
+<section id="t" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="t">T</h2>
+<dl>
+<dt><strong>tau</strong></dt>
+<dd>
+Ett protein som normalt stabiliserar nervcellernas inre skelett, men som vid Alzheimers sjukdom bildar nystan inuti nervcellerna. <em>(kap. 15)</em>
+</dd>
+<dt><strong>tertiärstruktur</strong></dt>
+<dd>
+Hela proteinkedjans tredimensionella form, hur helixar och flak packas mot varandra. <em>(kap. 16)</em>
+</dd>
+<dt><strong>TIM-tunna</strong></dt>
+<dd>
+En vanlig proteinform där åtta raka kedjedelar bildar en tunna omgiven av helixar. Används ofta som stomme vid enzymdesign. <em>(kap. 5)</em>
+</dd>
+<dt><strong>TOC och TIC</strong></dt>
+<dd>
+Kloroplastens motsvarigheter till TOM och TIM, i kloroplastens yttre och inre membran. <em>(kap. 12)</em>
+</dd>
+<dt><strong>tomogram</strong></dt>
+<dd>
+En tredimensionell bild som räknats fram ur många tvådimensionella bilder tagna från olika vinklar, som vid skiktröntgen. <em>(kap. 17)</em>
+</dd>
+<dt><strong>TOM och TIM</strong></dt>
+<dd>
+Translokaserna i mitokondriens yttre (TOM) och inre (TIM) membran, som för in proteiner från cytosolen. <em>(kap. 12)</em>
+</dd>
+<dt><strong>transgen mus</strong></dt>
+<dd>
+En mus som fått en främmande gen, till exempel mänskligt SOD1 med en ALS-mutation, för att forskare ska kunna studera en sjukdom. <em>(kap. 15)</em>
+</dd>
+<dt><strong>transkription</strong></dt>
+<dd>
+Avskrift av en gen från DNA till RNA, utförd av enzymet RNA-polymeras. <em>(kap. 1)</em>
+</dd>
+<dt><strong>transkriptionsfaktor</strong></dt>
+<dd>
+Protein som sätter sig på DNA nära en gen och slår på (eller av) avskriften av den. Så styr cellen vilka gener som används. <em>(kap. 1)</em>
+</dd>
+<dt><strong>transkriptom</strong></dt>
+<dd>
+Alla RNA-molekyler i en cell vid ett visst tillfälle. Visar vilka gener som används just då. <em>(kap. 11)</em>
+</dd>
+<dt><strong>translation</strong></dt>
+<dd>
+Översättning av mRNA till protein på ribosomen. <em>(kap. 1)</em>
+</dd>
+<dt><strong>translokas</strong></dt>
+<dd>
+Ett proteinkomplex som för proteiner genom ett membran, till exempel TOM och TIM i mitokondrierna. <em>(kap. 12)</em>
+</dd>
+<dt><strong>translokon</strong></dt>
+<dd>
+En proteinpor i det endoplasmatiska nätverkets membran (och i bakteriers cellmembran). Ribosomer skjuter in nya proteiner i den. Vattenlösliga delar går igenom poren, och opolära sträckor glider ut åt sidan och blir helixar i membranet. <em>(kap. 8, 12)</em>
+</dd>
+<dt><strong>transportör</strong></dt>
+<dd>
+Ett membranprotein som flyttar ett bestämt ämne över membranet. Med hjälp av energi kan den flytta ämnet mot en koncentrationsgradient. <em>(kap. 8)</em>
+</dd>
+<dt><strong>transposon</strong></dt>
+<dd>
+En bit DNA som kan kopieras och sättas in på ett annat ställe i arvsmassan, med egna enzymer eller med enzymer från andra transposoner. Nästan hälften av människans DNA består av transposoner. <em>(kap. 11)</em>
+</dd>
+<dt><strong>transtyretin (TTR)</strong></dt>
+<dd>
+Ett protein från levern som transporterar sköldkörtelhormon och A-vitamin i blodet. En mutation i TTR orsakar Skelleftesjukan. <em>(kap. 15)</em>
+</dd>
+<dt><strong>tRNA</strong></dt>
+<dd>
+Transfer-RNA: en liten RNA-molekyl som bär en bestämd aminosyra och med sitt antikodon känner igen rätt kodon på mRNA. <em>(kap. 1)</em>
+</dd>
+<dt><strong>trådning</strong></dt>
+<dd>
+Att pröva en sekvens mot kända grundformer för att se vilken den passar bäst, även när ingen släktskap syns i sekvensen (eng. threading). <em>(kap. 16)</em>
+</dd>
+<dt><strong>träningsdata</strong></dt>
+<dd>
+De exempel med kända svar som ett maskininlärningsprogram lär sig av. För AlphaFold var det de experimentellt bestämda strukturerna i PDB. <em>(kap. 16)</em>
+</dd>
+<dt><strong>tylakoid</strong></dt>
+<dd>
+Platt membranpåse inuti kloroplasten. I tylakoidmembranet sitter fotosystemen, cytokrom b6f och ATP-syntas. <em>(kap. 7, 10)</em>
+</dd>
+<dt><strong>tylakoidmembran</strong></dt>
+<dd>
+De staplade, platta membransäckarna inuti en kloroplast, där fotosystemen och de andra proteinerna i fotosyntesens ljusreaktioner sitter. <em>(kap. 17)</em>
+</dd>
+</dl>
+</section>
+<section id="u" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="u">U</h2>
+<dl>
+<dt><strong>ubikinon</strong></dt>
+<dd>
+En liten fettlöslig molekyl (koenzym Q10) som bär elektroner inne i mitokondriens membran, från komplex I och II till komplex III. Säljs också som Q10 i kosttillskott och hudkrämer. <em>(kap. 5, 9)</em>
+</dd>
+<dt><strong>ubikvitin</strong></dt>
+<dd>
+Litet protein på 76 aminosyror som fästs i kedjor på proteiner som ska brytas ned, en “dödskyss” som proteasomen känner igen. <em>(kap. 13)</em>
+</dd>
+<dt><strong>upplösning</strong></dt>
+<dd>
+Förmågan att skilja två punkter som ligger nära varandra åt. Anges som ett avstånd; ett litet tal betyder hög upplösning. <em>(kap. 6)</em>
+</dd>
+<dt><strong>uppmärksamhet</strong></dt>
+<dd>
+En teknik i neurala nätverk, från språkmodellerna, där nätverket själv lär sig vilka delar av indata som hänger ihop (eng. attention). <em>(kap. 16)</em>
+</dd>
+</dl>
+</section>
+<section id="v" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="v">V</h2>
+<dl>
+<dt><strong>vasopressin</strong></dt>
+<dd>
+Hormon från hjärnan (antidiuretiskt hormon) som får njurarna att ta upp mer vatten, genom att vattenkanalen AQP2 sätts in i njurcellernas membran. <em>(kap. 10)</em>
+</dd>
+<dt><strong>vattenskal</strong></dt>
+<dd>
+De vattenmolekyler som sitter närmast en jon i vatten, med syreatomerna vända mot en positiv jon. <em>(kap. 8)</em>
+</dd>
+<dt><strong>veckning</strong></dt>
+<dd>
+Den process där en nytillverkad proteinkedja viker ihop sig till sin bestämda tredimensionella form (eng. protein folding). <em>(kap. 14)</em>
+</dd>
+<dt><strong>vesikel</strong></dt>
+<dd>
+En liten blåsa omgiven av membran. I cellen används vesikler för att transportera last mellan organeller och ut ur cellen. <em>(kap. 7)</em>
+</dd>
+<dt><strong>vildtyp</strong></dt>
+<dd>
+Det ursprungliga, oförändrade proteinet eller den ursprungliga organismen, som mutanter jämförs med. <em>(kap. 5)</em>
+</dd>
+<dt><strong>virus</strong></dt>
+<dd>
+Arvsmassa (DNA eller RNA) i ett skal av proteiner. Kan bara föröka sig inuti en levande cell och räknas därför inte som levande. <em>(kap. 2)</em>
+</dd>
+<dt><strong>våglängd</strong></dt>
+<dd>
+Avståndet mellan två vågtoppar. För synligt ljus 400–700 nanometer; våglängden bestämmer vilken färg vi ser. <em>(kap. 6)</em>
+</dd>
+<dt><strong>värmechockprotein (Hsp)</strong></dt>
+<dd>
+Protein som cellen tillverkar mer av vid värme och annan stress. Många är chaperoner. Siffran i namnet, som i Hsp70, anger ungefärlig vikt i kilodalton. <em>(kap. 13)</em>
+</dd>
+<dt><strong>vätebindning</strong></dt>
+<dd>
+En svag bindning där en väteatom på en molekyl dras till en syre- eller kväveatom på en annan. Håller ihop baspar i DNA och formen hos proteiner. <em>(kap. 1)</em>
+</dd>
+</dl>
+</section>
+<section id="y" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="y">Y</h2>
+<dl>
+<dt><strong>ympning</strong></dt>
+<dd>
+När färdiga fiberbitar, frön, tillsätts och får nya fibrer att växa utan fördröjning (eng. seeding). <em>(kap. 15)</em>
+</dd>
+</dl>
+</section>
+<section id="å" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="å">Å</h2>
+<dl>
+<dt><strong>ångström</strong></dt>
+<dd>
+Längdmått: en tiondels nanometer, ungefär storleken på en atom. Skrivs Å. <em>(kap. 4, 6)</em>
+</dd>
+<dt><strong>återkoppling</strong></dt>
+<dd>
+När slutprodukten i en kedja av reaktioner bromsar det första steget, så att cellen inte tillverkar mer än den behöver (eng. feedback). <em>(kap. 2)</em>
+</dd>
+</dl>
+</section>
+<section id="ö" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="ö">Ö</h2>
+<dl>
+<dt><strong>övergångstillstånd</strong></dt>
+<dd>
+Det instabila läget högst upp på energibarriären, där gamla bindningar håller på att brytas och nya att bildas (eng. transition state). Enzymer binder det särskilt starkt. <em>(kap. 4)</em>
+</dd>
+</dl>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapters/17-idag-och-i-morgon.html" class="pagination-link" aria-label="Livets molekyler – idag och i morgon">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./svar.html" class="pagination-link" aria-label="Svar till flervalsfrågorna">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

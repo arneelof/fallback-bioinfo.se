@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" width="860" height="420">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<line x1="110" y1="340" x2="750" y2="340" stroke="#222222" stroke-width="2"/>
+<line x1="110" y1="340" x2="110" y2="70" stroke="#222222" stroke-width="2"/>
+<line x1="104" y1="340.0" x2="110" y2="340.0" stroke="#222222" stroke-width="1.5"/>
+<text x="98" y="344.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="end" font-weight="normal" fill="#222222">0</text>
+<line x1="104" y1="286.0" x2="110" y2="286.0" stroke="#222222" stroke-width="1.5"/>
+<text x="98" y="290.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="end" font-weight="normal" fill="#222222">20</text>
+<line x1="110" y1="286.0" x2="750" y2="286.0" stroke="#e4e4e4" stroke-width="1"/>
+<line x1="104" y1="232.0" x2="110" y2="232.0" stroke="#222222" stroke-width="1.5"/>
+<text x="98" y="236.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="end" font-weight="normal" fill="#222222">40</text>
+<line x1="110" y1="232.0" x2="750" y2="232.0" stroke="#e4e4e4" stroke-width="1"/>
+<line x1="104" y1="178.0" x2="110" y2="178.0" stroke="#222222" stroke-width="1.5"/>
+<text x="98" y="182.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="end" font-weight="normal" fill="#222222">60</text>
+<line x1="110" y1="178.0" x2="750" y2="178.0" stroke="#e4e4e4" stroke-width="1"/>
+<line x1="104" y1="124.0" x2="110" y2="124.0" stroke="#222222" stroke-width="1.5"/>
+<text x="98" y="128.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="end" font-weight="normal" fill="#222222">80</text>
+<line x1="110" y1="124.0" x2="750" y2="124.0" stroke="#e4e4e4" stroke-width="1"/>
+<line x1="104" y1="70.0" x2="110" y2="70.0" stroke="#222222" stroke-width="1.5"/>
+<text x="98" y="74.5" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="end" font-weight="normal" fill="#222222">100</text>
+<line x1="110" y1="70.0" x2="750" y2="70.0" stroke="#e4e4e4" stroke-width="1"/>
+<text x="38" y="205.0" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" fill="#222222" transform="rotate(-90 38 205.0)">Likhet med experimentet (0–100)</text>
+<text x="180" y="368.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">lätta proteiner</text>
+<text x="680" y="368.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">svåra proteiner</text>
+<text x="430.0" y="395.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Hur svårt proteinet är att förutsäga</text>
+<path d="M270,364 L580,364" fill="none" stroke="#666666" stroke-width="1.8" marker-end="url(#ah666666)"/>
+<path d="M110,110 L238,164 L366,218 L494,254 L622,275 L750,286" fill="none" stroke="#666666" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="7,5"/>
+<path d="M110,97 L238,119 L366,146 L494,167 L622,183 L750,192" fill="none" stroke="#d9822b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M110,86 L238,89 L366,92 L494,94 L622,97 L750,100" fill="none" stroke="#3b6ea8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="745" y="88.8" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="end" font-weight="bold" fill="#3b6ea8">2020: AlphaFold 2</text>
+<text x="745" y="218.4" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="end" font-weight="bold" fill="#d9822b">2018: AlphaFold 1</text>
+<text x="745" y="315.6" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="end" font-weight="bold" fill="#666666">tidigare CASP</text>
+<text x="430" y="29.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">CASP: hur bra förutsägelserna blev (schematiskt)</text>
+</svg>

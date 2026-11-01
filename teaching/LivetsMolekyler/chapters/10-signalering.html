@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>10&nbsp; Cellers signalering – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/11-omik.html" rel="next">
+<link href="../chapters/09-molekylara-maskiner.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-biomembran.html">Membran och energi</a></li><li class="breadcrumb-item"><a href="../chapters/10-signalering.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l10-oxidas" id="toc-sec-l10-oxidas" class="nav-link active" data-scroll-target="#sec-l10-oxidas"><span class="header-section-number">10.1</span> En protonpump: cytokrom c-oxidas</a>
+  <ul class="collapse">
+  <li><a href="#sec-l10-extremofiler" id="toc-sec-l10-extremofiler" class="nav-link" data-scroll-target="#sec-l10-extremofiler">Liv i extrema miljöer</a></li>
+  <li><a href="#sec-l10-streckkod" id="toc-sec-l10-streckkod" class="nav-link" data-scroll-target="#sec-l10-streckkod">En streckkod för alla arter</a></li>
+  </ul></li>
+  <li><a href="#sec-l10-fotosyntes" id="toc-sec-l10-fotosyntes" class="nav-link" data-scroll-target="#sec-l10-fotosyntes"><span class="header-section-number">10.2</span> Fotosyntesen: ljus blir kemisk energi</a>
+  <ul class="collapse">
+  <li><a href="#sec-l10-kloroplast" id="toc-sec-l10-kloroplast" class="nav-link" data-scroll-target="#sec-l10-kloroplast">Kloroplasten</a></li>
+  <li><a href="#sec-l10-tva-fotosystem" id="toc-sec-l10-tva-fotosystem" class="nav-link" data-scroll-target="#sec-l10-tva-fotosystem">Varför två fotosystem?</a></li>
+  <li><a href="#sec-l10-antenner" id="toc-sec-l10-antenner" class="nav-link" data-scroll-target="#sec-l10-antenner">Antenner som samlar ljus</a></li>
+  </ul></li>
+  <li><a href="#sec-l10-vattenklyvning" id="toc-sec-l10-vattenklyvning" class="nav-link" data-scroll-target="#sec-l10-vattenklyvning"><span class="header-section-number">10.3</span> Att klyva vatten</a>
+  <ul class="collapse">
+  <li><a href="#sec-l10-atmosfaren" id="toc-sec-l10-atmosfaren" class="nav-link" data-scroll-target="#sec-l10-atmosfaren">Syret i atmosfären</a></li>
+  <li><a href="#sec-l10-blixtar" id="toc-sec-l10-blixtar" class="nav-link" data-scroll-target="#sec-l10-blixtar">Fyra blixtar för en syremolekyl</a></li>
+  <li><a href="#sec-l10-xfel" id="toc-sec-l10-xfel" class="nav-link" data-scroll-target="#sec-l10-xfel">Molekylära filmer med röntgenlaser</a></li>
+  </ul></li>
+  <li><a href="#sec-l10-kanaler" id="toc-sec-l10-kanaler" class="nav-link" data-scroll-target="#sec-l10-kanaler"><span class="header-section-number">10.4</span> Kanaler som öppnas och stängs</a>
+  <ul class="collapse">
+  <li><a href="#sec-l10-gramicidin" id="toc-sec-l10-gramicidin" class="nav-link" data-scroll-target="#sec-l10-gramicidin">Gramicidin: en av de enklaste kanalerna</a></li>
+  <li><a href="#sec-l10-m2" id="toc-sec-l10-m2" class="nav-link" data-scroll-target="#sec-l10-m2">En kanal som känner av surhet: influensavirusets M2</a></li>
+  <li><a href="#sec-l10-vattenkanaler" id="toc-sec-l10-vattenkanaler" class="nav-link" data-scroll-target="#sec-l10-vattenkanaler">Att reglera vattenkanalerna</a></li>
+  <li><a href="#sec-l10-mekanokansliga" id="toc-sec-l10-mekanokansliga" class="nav-link" data-scroll-target="#sec-l10-mekanokansliga">Kanaler som öppnas av tryck och rörelse</a></li>
+  </ul></li>
+  <li><a href="#sec-l10-sammanfattning" id="toc-sec-l10-sammanfattning" class="nav-link" data-scroll-target="#sec-l10-sammanfattning"><span class="header-section-number">10.5</span> Sammanfattning</a></li>
+  <li><a href="#sec-l10-nyckelbegrepp" id="toc-sec-l10-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l10-nyckelbegrepp"><span class="header-section-number">10.6</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l10-testa" id="toc-sec-l10-testa" class="nav-link" data-scroll-target="#sec-l10-testa"><span class="header-section-number">10.7</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l10-las-mer" id="toc-sec-l10-las-mer" class="nav-link" data-scroll-target="#sec-l10-las-mer"><span class="header-section-number">10.8</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/07-biomembran.html">Membran och energi</a></li><li class="breadcrumb-item"><a href="../chapters/10-signalering.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l10" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 10, <em>Cellers signalering</em>, av Peter Brzezinski (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>beskriva hur cytokrom c-oxidas tar emot elektroner, bildar vatten av syre och samtidigt pumpar protoner,</li>
+<li>förklara i grova drag hur fotosyntesen fångar ljus och varför växterna behöver två fotosystem,</li>
+<li>beskriva hur fotosystem II klyver vatten till syre, och hur syret i atmosfären har uppstått,</li>
+<li>ge exempel på hur kanaler i membranet styrs av signaler: surhetsgrad, hormoner, fosfatgrupper och mekaniskt tryck,</li>
+<li>förklara hur influensamedlet amantadin verkar och varför det slutat fungera.</li>
+</ul>
+</div>
+</div>
+<p>En cell måste hela tiden känna av sin omgivning och svara på den. En växtcell måste fånga solljuset när det finns. En njurcell måste släppa igenom mer eller mindre vatten beroende på om vi har druckit mycket eller lite. En hårcell i örat måste reagera inom en bråkdel av en millisekund när en ljudvåg når den. Ett influensavirus måste veta när det har kommit in i en cell, så att det kan släppa ut sin arvsmassa.</p>
+<p>Allt detta sköts av proteiner i cellens membran. Men för att kunna svara på signaler behöver cellen energi, och mycket av den energin lagras som en laddning över ett membran. Kapitlet bygger därför direkt på <a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a>, där vi såg hur protoner som strömmar tillbaka genom membranet driver ATP-syntas.</p>
+<p>Det leder till kapitlets första fråga: hur laddas membranet från början? Hos djur kommer energin från maten och hos växter från ljuset. Vi börjar med cytokrom c-oxidas, en protonpump som drivs av elektroner från maten och som förbrukar nästan allt syre vi andas in. Sedan ser vi hur fotosyntesen gör det omvända: med ljusets energi klyver den vatten och bildar syre.</p>
+<p>Till sist går vi igenom några kanaler i membranet, proteiner som släpper igenom protoner eller vatten, och ser hur de öppnas, stängs eller sätts in i membranet när cellen får en signal: surhet, ett hormon eller tryck.</p>
+<section id="sec-l10-oxidas" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="sec-l10-oxidas"><span class="header-section-number">10.1</span> En protonpump: cytokrom c-oxidas</h2>
+<p>I <a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a> följde vi elektronerna nedför andningskedjans trappa, från NADH till syre. Det sista steget sköts av <strong>cytokrom c-oxidas</strong>, det andningsenzym som Otto Warburg studerade redan på 1920-talet. Det är ett stort protein som sitter i mitokondriens inre membran. Mer än 90 procent av det syre vi andas in förbrukas av cytokrom c-oxidas.</p>
+<p>Enzymet utför två uppgifter på en gång (<a href="#fig-l10-oxidas" class="quarto-xref">Figur&nbsp;<span>10.1</span></a>):</p>
+<ol type="1">
+<li><strong>Det gör vatten av syre.</strong> Det lilla proteinet cytokrom c kommer med elektroner, en i taget, från membranets utsida. Elektronerna går först till ett par kopparatomer, sedan till en järnhaltig hemgrupp och till sist till den plats där syret binder. Där sitter ytterligare en hemgrupp och en kopparatom tillsammans. När fyra elektroner har samlats och fyra protoner har hämtats från membranets insida, bildar syret två vattenmolekyler.</li>
+<li><strong>Det pumpar protoner.</strong> Samtidigt pumpar enzymet ytterligare fyra protoner från insidan till utsidan av membranet. Det är det som bidrar till att ladda membranet.</li>
+</ol>
+<div id="fig-l10-oxidas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-oxidas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/cytokromoxidas.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-oxidas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.1: Cytokrom c-oxidas i mitokondriens inre membran, förenklat. Elektroner kommer från cytokrom c på utsidan och vandrar via koppar och två hemgrupper till platsen där syre binder. Där bildas vatten med hjälp av protoner från insidan. Samtidigt pumpas lika många protoner till, hela vägen över membranet. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Båda delarna bidrar till spänningen över membranet. Elektronerna, som är negativt laddade, kommer från utsidan. Protonerna som går till vattnet, och som är positivt laddade, hämtas från insidan. Bara genom att vatten bildas flyttas alltså laddning över membranet. De pumpade protonerna flyttar ännu mer laddning.</p>
+<p>Hur enzymet ser till att protonerna verkligen pumpas åt rätt håll, och inte läcker tillbaka, är en fråga som forskare har arbetat med i decennier, och som de fortfarande arbetar med. Det handlar om hur enzymets inre vägar för protoner öppnas och stängs i takt med att elektronerna flyttar sig.</p>
+<section id="sec-l10-extremofiler" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-extremofiler">Liv i extrema miljöer</h3>
+<p>Enzymer av samma slag som cytokrom c-oxidas finns hos nästan allt liv som andas syre, också hos organismer som lever under förhållanden som vi skulle tycka är omöjliga. Organismer som trivs i sådana miljöer kallas <strong>extremofiler</strong>.</p>
+<p>Ett exempel är <em>Acidianus ambivalens</em>, en arké (arkéerna är en egen gren av livet, se <a href="02-molekyler-och-reaktioner.html#sec-l02-celler" class="quarto-xref"><span>Avsnitt 2.2</span></a>) som lever i heta, sura källor. Den trivs bäst när vattnet är omkring 80 grader varmt och nästan lika surt som magsaft (pH 2–2,5). Ändå andas den med ett enzym som i grunden fungerar som vårt.</p>
+<p>Extremofiler finns i nästan hela skalan från mycket surt till mycket basiskt, och från under fryspunkten till över 100 grader varmt. Proteinerna hos dessa organismer är byggda för att hålla ihop under förhållanden där våra egna proteiner skulle falla isär. Därför är de också intressanta för bioteknik, där man ofta vill ha enzymer som tål värme eller syra.</p>
+</section>
+<section id="sec-l10-streckkod" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-streckkod">En streckkod för alla arter</h3>
+<p>Cytokrom c-oxidas har också fått en oväntad användning: att artbestämma djur. Enzymet finns hos nästan alla djur, och dess gener ändras långsamt, men ändå tillräckligt för att skilja arter åt. En bit av genen för en av enzymets delar, som kallas COI, används därför som en <strong>DNA-streckkod</strong>. Genom att läsa av den biten kan man ta reda på vilken art ett prov kommer från, ungefär som när man läser av streckkoden på en vara i affären. Metoden används för att kartlägga den biologiska mångfalden, men också för att avslöja fusk, till exempel när billig fisk säljs under namnet på en dyrare art, eller för att identifiera produkter från hotade djur.</p>
+</section>
+</section>
+<section id="sec-l10-fotosyntes" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="sec-l10-fotosyntes"><span class="header-section-number">10.2</span> Fotosyntesen: ljus blir kemisk energi</h2>
+<p>I andningen tar vi elektroner från maten och lämnar dem till syre, som bildar vatten. I fotosyntesen sker det omvända. Med hjälp av ljusets energi tar växterna elektroner från vatten, och då bildas syre. Elektronerna används sedan till att bygga upp socker av koldioxid ur luften. Sammantaget kan det skrivas så här: sex molekyler koldioxid och sex molekyler vatten blir, med ljusets energi, en molekyl glukos och sex molekyler syre.</p>
+<p>Andningen och fotosyntesen bildar ett kretslopp. Växterna gör socker och syre av koldioxid och vatten, och vi, liksom växterna själva, bränner sockret med syret och får tillbaka koldioxid och vatten. Energin i allt detta kommer ytterst från solen.</p>
+<p>Fotosyntes finns inte bara hos växter. Den form av fotosyntes som bildar syre uppfanns av <strong>cyanobakterier</strong>, som förr kallades blågröna alger, och finns också hos alger. (Vissa andra bakterier har en äldre och enklare fotosyntes, som inte klyver vatten och inte bildar syre.) Växterna fick sin fotosyntes från cyanobakterierna: växternas kloroplaster härstammar från cyanobakterier som för mycket länge sedan togs upp av en annan cell och blev kvar som en del av den.</p>
+<section id="sec-l10-kloroplast" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-kloroplast">Kloroplasten</h3>
+<p>Fotosyntesen sker i <strong>kloroplasterna</strong>, de gröna kornen i växternas celler. Inuti kloroplasten finns ett system av platta membranpåsar, <strong>tylakoider</strong>, som ofta ligger staplade som myntrullar. I tylakoidmembranet sitter de proteiner som fångar ljuset och flyttar elektroner (<a href="#fig-l10-kloroplast" class="quarto-xref">Figur&nbsp;<span>10.2</span></a>).</p>
+<div id="fig-l10-kloroplast" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-kloroplast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/kloroplast.svg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-kloroplast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.2: En kloroplast i genomskärning. Den omges av två membran, ett yttre och ett inre. Inuti, i vätskan stroma, ligger tylakoiderna, platta membranpåsar staplade som myntrullar (grana) och förbundna med varandra. Fotosyntesens ljusfångande proteiner sitter i tylakoidernas membran. Bild: Ollin och Smartse, Wikimedia Commons, allmän egendom, översatt till svenska.
+</figcaption>
+</figure>
+</div>
+<p>Principen är densamma som i mitokondrien. Elektroner förs genom en kedja av proteinkomplex i ett membran, och samtidigt flyttas protoner över membranet. Den skillnad i protoner mellan membranets två sidor som byggs upp, protongradienten, driver ett ATP-syntas, som är mycket likt mitokondriernas. Skillnaderna är att elektronerna kommer från vatten i stället för från maten, att det är ljuset som ger dem energi, och att de till sist hamnar på bäraren <strong>NADPH</strong> i stället för på syre. ATP och NADPH används sedan för att bygga socker av koldioxid, i en serie reaktioner som kallas Calvincykeln.</p>
+<p>I kedjan ingår tre stora proteinkomplex: <strong>fotosystem II</strong>, som tar elektroner från vatten, <strong>cytokrom b6f</strong>, som pumpar protoner, och <strong>fotosystem I</strong>, som till sist lämnar elektronerna till NADPH.</p>
+</section>
+<section id="sec-l10-tva-fotosystem" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-tva-fotosystem">Varför två fotosystem?</h3>
+<p>Kedjan har alltså två fotosystem, och båda fångar ljus. Varför räcker det inte med ett? Svaret har att göra med hur mycket energi som behövs och hur mycket energi ljuset innehåller.</p>
+<p>Ljus kommer i små energipaket, <strong>fotoner</strong>. Hur mycket energi en foton har beror på ljusets färg: blått ljus har mer energi per foton än rött. Vatten håller mycket hårt i sina elektroner, och NADPH ligger högt upp i energitrappan. På papperet räcker energin i en foton rött ljus för att lyfta en elektron hela vägen från vatten till NADPH.</p>
+<p>Men en stor del av fotonens energi går alltid förlorad. När elektronen har lyfts måste den snabbt föras bort, så att den inte faller tillbaka direkt, och varje sådant steg kostar energi. Det som blir kvar av en röd foton räcker inte för hela vägen. Med ett enda fotosystem skulle växterna bara kunna använda ljus med kortare våglängd och mer energi per foton, och de skulle gå miste om det röda ljuset.</p>
+<p>Lösningen är att lyfta elektronerna i två steg, med två fotosystem i rad (<a href="#fig-l10-tva-fotosystem" class="quarto-xref">Figur&nbsp;<span>10.3</span></a>). Fotosystem II använder en foton för att lyfta en elektron från vatten en bit upp. Elektronen faller sedan en bit nedför genom cytokrom b6f, som tar tillvara energin för att pumpa protoner. I fotosystem I lyfts elektronen igen av en andra foton, nu ända upp till NADPH. Med två fotosystem kan växterna därför använda rött ljus, som det finns gott om, och samla in fler av de fotoner som når dem.</p>
+<div id="fig-l10-tva-fotosystem" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-tva-fotosystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/tva-fotosystem.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-tva-fotosystem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.3: Fotosyntesens elektroner lyfts i två steg. En foton i fotosystem II lyfter en elektron som tagits från vatten. Elektronen faller sedan genom cytokrom b6f, som pumpar protoner, innan en andra foton i fotosystem I lyfter den till NADPH. NADPH används för att göra socker av koldioxid. Egen figur, förenklad.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l10-antenner" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-antenner">Antenner som samlar ljus</h3>
+<p>Ljuset fångas av färgämnen. Innan vi ser hur de är ordnade runt fotosystemen ska vi se vilka färger de tar upp. Det gröna färgämnet <strong>klorofyll</strong> är fotosyntesens viktigaste ljusfångare. Klorofyll absorberar framför allt blått och rött ljus, men nästan inget grönt (<a href="#fig-l10-klorofyll" class="quarto-xref">Figur&nbsp;<span>10.4</span></a>). Det gröna ljuset reflekteras, och det är därför växterna ser gröna ut.</p>
+<div id="fig-l10-klorofyll" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-klorofyll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/klorofyll-spektrum.svg" class="img-fluid figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-klorofyll-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.4: Hur mycket ljus av olika våglängder (färger) som de två formerna av klorofyll absorberar. Båda tar upp blått och rött ljus, men nästan inget grönt, som i stället reflekteras. Därför är bladen gröna. Bild: Daniele Pugliesi och M0tty, Wikimedia Commons, CC BY-SA 3.0, översatt till svenska.
+</figcaption>
+</figure>
+</div>
+<p>Men ett klorofyll räcker inte långt. Även i fullt solljus träffas varje klorofyllmolekyl bara av ungefär en foton per sekund. Ett fotosystem kan däremot utföra några hundra reaktioner per sekund. Om varje fotosystem bara hade en klorofyllmolekyl skulle det stå sysslolöst nästan hela tiden.</p>
+<p>Därför är varje fotosystem omgivet av en <strong>antenn</strong>: hundratals klorofyllmolekyler, inbäddade i proteiner, som fångar ljuset och skickar energin vidare från molekyl till molekyl, tills den når fotosystemets mitt, <strong>reaktionscentret</strong>. Där används energin för att flytta en elektron. Antennen fungerar som en tratt som samlar ljus från en stor yta till en liten punkt (<a href="#fig-l10-antenn" class="quarto-xref">Figur&nbsp;<span>10.5</span></a>).</p>
+<div id="fig-l10-antenn" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-antenn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/antenn.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-antenn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.5: Antennen runt ett reaktionscentrum, sedd ovanifrån och förenklad. Ljus (röda vågor) träffar någon av de hundratals klorofyllmolekylerna i antennen. Energin hoppar sedan från molekyl till molekyl (orange pilar) tills den når reaktionscentret i mitten, där den används för att flytta en elektron. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>I antennerna finns också andra färgämnen. <strong>Karotenoider</strong>, till exempel karoten (som ger morötter deras färg) och de gula xantofyllerna, fångar blågrönt ljus som klorofyllet missar. De skyddar också fotosystemen mot skador när ljuset är för starkt. Hos cyanobakterier och rödalger finns dessutom blå och röda färgämnen som fångar grönt, gult och orange ljus.</p>
+<p>Karotenoiderna kan vi se själva på hösten. När växten bryter ned klorofyllet i bladen framträder de gula och orange färgerna som hela tiden har funnits där. De röda höstfärgerna kommer från andra färgämnen, som många växter bildar just på hösten.</p>
+</section>
+</section>
+<section id="sec-l10-vattenklyvning" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="sec-l10-vattenklyvning"><span class="header-section-number">10.3</span> Att klyva vatten</h2>
+<p>Den mest anmärkningsvärda reaktionen i fotosyntesen sker i fotosystem II. Där tas elektroner från vatten, och vattnet klyvs till syre och protoner. Det är en mycket svår reaktion. Vatten är en av de stabilaste molekylerna vi känner till, och ingen människotillverkad katalysator gör det lika effektivt med hjälp av synligt ljus.</p>
+<section id="sec-l10-atmosfaren" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-atmosfaren">Syret i atmosfären</h3>
+<p>Vattenklyvningen är inte bara en svår reaktion. Den har också format jordens atmosfär: nästan allt syre i luften vi andas har bildats på detta sätt. När jorden var ung fanns nästan inget fritt syre i atmosfären. När cyanobakterierna “uppfann” vattenklyvningen började syre släppas ut. Till en början reagerade syret med järn och andra ämnen i haven och berggrunden, men för omkring 2,4 miljarder år sedan började syre ansamlas i luften (<a href="#fig-l10-syre" class="quarto-xref">Figur&nbsp;<span>10.6</span></a>). Händelsen brukar kallas den stora syresättningen.</p>
+<p>Den stora syresättningen förändrade livets villkor på jorden. Många organismer som inte tålde syre dog ut eller trängdes undan till syrefria miljöer, medan andra lärde sig att utnyttja syret för andning, som ger mycket mer energi. Syret gav också upphov till ozonskiktet, som skyddar mot solens ultravioletta strålning. Halten nådde ungefär dagens nivå först för några hundra miljoner år sedan.</p>
+<div id="fig-l10-syre" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-syre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/syre-atmosfar.svg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-syre-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.6: Syrehalten i jordens atmosfär under de senaste 3,8 miljarder åren, uttryckt som syrgasens tryck i atmosfärer (i dag 0,21). De två kurvorna visar övre och nedre gränsen för uppskattningarna, och siffrorna överst anger olika skeden i jordens historia. Fritt syre började ansamlas för omkring 2,4 miljarder år sedan och nådde ungefär dagens nivå först under de senaste 600 miljoner åren. Bild: Heinrich D. Holland och Loudubewe, Wikimedia Commons, CC BY-SA 3.0, översatt till svenska.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l10-blixtar" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-blixtar">Fyra blixtar för en syremolekyl</h3>
+<p>Hur går det då till när vattnet klyvs? I fotosystem II sitter ett litet kluster av fyra manganatomer, en kalciumatom och fem syreatomer. Det kallas det <strong>syrgasutvecklande centret</strong> och är den plats där vattnet klyvs. För att bilda en syremolekyl måste fyra elektroner tas från två vattenmolekyler. Men reaktionscentret kan bara flytta en elektron åt gången, en för varje foton. Klustret måste alltså samla på sig fyra “hål” innan syret kan bildas.</p>
+<p>Det visades på ett elegant sätt 1969 av den franske forskaren Pierre Joliot. Han höll alger i mörker och belyste dem sedan med en serie mycket korta ljusblixtar, så korta att varje fotosystem bara kunde fånga en foton per blixt. Efter varje blixt mätte han hur mycket syre som bildades. Resultatet var överraskande. Efter de två första blixtarna bildades nästan inget syre. Efter den tredje bildades mycket, och sedan kom en topp var fjärde blixt (<a href="#fig-l10-s-cykel" class="quarto-xref">Figur&nbsp;<span>10.7</span></a>). Svängningarna dämpades efter hand, eftersom fotosystemen kom ur takt med varandra.</p>
+<div id="fig-l10-s-cykel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-s-cykel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/s-cykel.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-s-cykel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.7: Det syrgasutvecklande centret går runt i en cykel med fem lägen, S0–S4. Varje ljusblixt tar bort en elektron och flyttar klustret ett steg. När S4 har nåtts frigörs en syremolekyl och nytt vatten binds in. Eftersom klustret vilar i S1 i mörker kommer den första syretoppen vid tredje blixten och sedan var fjärde. Diagrammet till höger är schematiskt. Egen figur, efter Joliot (1969) och Kok (1970).
+</figcaption>
+</figure>
+</div>
+<p>Varför kom syret var fjärde blixt, och varför redan vid den tredje? Förklaringen gavs året efter av Bessel Kok och hans kolleger. Klustret kan befinna sig i fem olika lägen, som kallas S0 till S4. Varje blixt för det ett steg framåt. När S4 nås bildas syre, och klustret återgår till S0. I mörker vilar klustret i läget S1, och därför behövs tre blixtar innan det första syret frigörs.</p>
+</section>
+<section id="sec-l10-xfel" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-xfel">Molekylära filmer med röntgenlaser</h3>
+<p>Hur ser då klustret ut, och vad händer med atomerna i varje steg? För att se enskilda atomer i ett protein används <strong>röntgenkristallografi</strong>, där man låter röntgenstrålning passera genom en kristall av proteinet och räknar ut strukturen från hur strålningen sprids (<a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a> och <a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>). År 2011 lyckades en japansk forskargrupp bestämma strukturen hos fotosystem II så noggrant att manganklustrets form kunde ses i detalj. Klustret liknar en sned stol.</p>
+<p>Men vanlig röntgenkristallografi har två begränsningar. Den ger en stillbild, inte en film. Och den kraftiga röntgenstrålningen kan i sig förändra klustret, eftersom mangan lätt tar upp elektroner som frigörs av strålningen. Lösningen har blivit <strong>röntgenfrielektronlasern</strong> (eng. <em>X-ray free-electron laser</em>, XFEL). Det är en upp till flera kilometer lång anläggning där elektroner accelereras till nästan ljusets hastighet och får sända ut extremt korta och intensiva pulser av röntgenstrålning. En puls varar bara några femtosekunder, några miljondels miljarddels sekunder. Det är så kort att man hinner registrera hur strålningen sprids innan molekylen förstörs av den.</p>
+<p>Med röntgenlasern kan man göra en sorts film. Små kristaller av fotosystem II sprutas i en tunn stråle genom röntgenpulsen. Strax innan träffas de av en eller flera ljusblixtar från en vanlig laser, som sätter igång vattenklyvningen. Genom att variera tiden mellan ljusblixten och röntgenpulsen kan man få bilder av klustret i olika steg av cykeln och sätta ihop dem till en film (<a href="#fig-l10-xfel" class="quarto-xref">Figur&nbsp;<span>10.8</span></a>). På så sätt har forskare kunnat följa hur atomerna i manganklustret flyttar sig mellan stegen och var vattnet tas in. Sådana anläggningar finns bland annat i USA, Japan och Tyskland (European XFEL i Hamburg, som Sverige är med och driver).</p>
+<div id="fig-l10-xfel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-xfel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/xfel-film.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-xfel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.8: Så gör man en film med röntgenlaser. Små kristaller av fotosystem II flödar i en tunn stråle. En ljusblixt från en vanlig laser sätter igång reaktionen (1), och strax efter träffas samma kristaller av en kort röntgenpuls (2). Spridningsmönstret fångas av en detektor. Med olika lång fördröjning mellan blixt och puls får man bilder av klustret i olika steg, som kan sättas ihop till en film (nederst, schematiskt). Egen figur.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-l10-kanaler" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="sec-l10-kanaler"><span class="header-section-number">10.4</span> Kanaler som öppnas och stängs</h2>
+<p>Både cytokrom c-oxidas och fotosystemen flyttar protoner och elektroner genom membranet med hjälp av energi. Men det finns också proteiner som bara öppnar en väg genom membranet, <strong>kanaler</strong>, så att protoner, joner eller vatten kan passera av sig själva, från den sida där de är många till den sida där de är få. I <a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a> mötte vi jonkanaler och vattenkanaler och såg hur de är byggda. Här ska vi se hur några kanaler regleras av signaler från omgivningen, och vad det betyder för hälsa och sjukdom.</p>
+<section id="sec-l10-gramicidin" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-gramicidin">Gramicidin: en av de enklaste kanalerna</h3>
+<p>Vi börjar med en kanal som inte regleras alls, för att se hur lite som behövs för att göra ett hål i ett membran, och vad ett sådant hål ställer till med. En av de enklaste kanaler man känner till är <strong>gramicidin A</strong>. Det är inte ens ett riktigt protein, utan en kort kedja av 15 aminosyror som tillverkas av en jordbakterie. Kedjan bildar en spiral med ett hål i mitten. Två sådana spiraler kan ställa sig ände mot ände tvärs genom ett membran och bilda en tunn kanal, som släpper igenom vatten, protoner och små positiva joner som natrium och kalium.</p>
+<p>Gramicidin var ett av de första antibiotika som användes. Det upptäcktes 1939 av René Dubos. När kanalerna bildas i bakteriers membran läcker jonerna ut och in, och membranets laddning går förlorad. Bakterien kan då varken tillverka ATP eller ta upp näring. Gramicidin är dock giftigt också för våra egna celler och används därför bara på ytan, till exempel i vissa halstabletter (i Sverige Bafucin) och ögondroppar.</p>
+</section>
+<section id="sec-l10-m2" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-m2">En kanal som känner av surhet: influensavirusets M2</h3>
+<p>Influensa A-viruset har en proteinkanal som heter <strong>M2</strong> i sitt hölje. M2 består av fyra likadana spiraler som tillsammans bildar en smal kanal genom membranet. Kanalen är normalt stängd, men den öppnas när omgivningen blir sur. Det är en signal som viruset utnyttjar för att veta när det har kommit in i en cell.</p>
+<p>När ett influensavirus infekterar en cell tas det först in i en liten blåsa (en vesikel), som cellen bildar av sitt eget membran. Cellen pumpar sedan protoner in i blåsan, så att den blir sur. Den sura miljön öppnar M2-kanalen. Protoner strömmar in i viruset, och det får virusets inre proteiner att släppa taget om arvsmassan. Samtidigt får den sura miljön virusets hölje att smälta samman med blåsans membran, och den nu lösa arvsmassan kan ta sig ut i cellen, som börjar tillverka nya virus. Utan fungerande M2 kommer arvsmassan inte loss, och infektionen stannar av.</p>
+<p>Hur känner då kanalen av att det har blivit surt? Mitt i kanalen sitter fyra histidiner, en aminosyra som lätt tar upp protoner. När omgivningen blir sur blir histidinerna positivt laddade och stöter bort varandra. Då vrids en grind av fyra andra aminosyror, tryptofaner, undan, och kanalen öppnas.</p>
+<p>Eftersom viruset inte klarar sig utan M2 är kanalen ett bra mål för läkemedel. Läkemedlet <strong>amantadin</strong> verkar genom att täppa till M2-kanalen. Det sätter sig som en propp i kanalens mynning, så att protonerna inte kan ta sig in (<a href="#fig-l10-m2" class="quarto-xref">Figur&nbsp;<span>10.9</span></a>).</p>
+<div id="fig-l10-m2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-m2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/m2-amantadin.png" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-m2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.9: M2-kanalen från influensa A, sedd från sidan. Fyra spiraler av protein (blå) bildar en kanal genom membranet. I kanalens mynning sitter en molekyl av läkemedlet amantadin (röd), som stoppar protonerna. Bild: Opabinia regalis, Wikimedia Commons, CC BY-SA 4.0, efter PDB 3C9J.
+</figcaption>
+</figure>
+</div>
+<p>Amantadin användes länge mot influensa. Men små förändringar i M2 kan göra att läkemedlet inte längre fastnar. Det räcker att en enda aminosyra i kanalen byts ut, till exempel att serin på plats 31 ersätts av asparagin. Under 1990-talet var resistenta virus mycket ovanliga. Från omkring 2003 ökade de mycket snabbt, först i Asien, och några år senare var nästan alla virus av typen H3N2, en av de vanliga säsongsinfluensorna, resistenta. Även det pandemiska viruset från 2009, “svininfluensan” av typen H1N1, var resistent.</p>
+<p>I dag är motståndskraften i princip hundraprocentig, eftersom mutationerna har blivit en fast del av virusets arvsmassa. Amantadin rekommenderas därför inte längre mot influensa. Det är ett tydligt exempel på hur snabbt ett virus kan anpassa sig till ett läkemedel.</p>
+</section>
+<section id="sec-l10-vattenkanaler" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-vattenkanaler">Att reglera vattenkanalerna</h3>
+<p>Vatten kan ta sig igenom ett membran även utan hjälp, men långsamt. Där vattnet behöver gå snabbt finns <strong>vattenkanaler</strong>, eller <strong>akvaporiner</strong> (<a href="#fig-l10-akvaporin" class="quarto-xref">Figur&nbsp;<span>10.10</span></a>). Hur de är byggda, och hur de släpper igenom vatten men inte protoner, såg vi i <a href="08-membranproteiner.html#sec-l08-vattenkanaler" class="quarto-xref"><span>Avsnitt 8.5</span></a>. Här ska vi se hur cellen reglerar sina vattenkanaler.</p>
+<div id="fig-l10-akvaporin" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-akvaporin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/akvaporin-goodsell.jpg" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-akvaporin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.10: Akvaporin-1 sett ovanifrån, från membranets yta. Proteinet består av fyra likadana delar, och i var och en finns en smal kanal där vattenmolekylerna passerar på led. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Akvaporiner finns i nästan alla organ i kroppen: i ögat, i spottkörtlarna, i lungorna, i hjärnan och i de röda blodkropparna. Men de är särskilt viktiga i njurarna.</p>
+<section id="sec-l10-njurar" class="level4">
+<h4 class="anchored" data-anchor-id="sec-l10-njurar">Njurarna och vasopressin</h4>
+<p>Varje dygn filtrerar njurarna omkring 180 liter vätska ur blodet. Det är den så kallade primärurinen. Ändå kissar vi bara ut ett par liter om dagen. Nästan allt vatten tas alltså upp igen, och det sker genom vattenkanaler i njurarnas små rör. På vissa ställen sitter vattenkanalen <strong>AQP1</strong> fast hela tiden. Men i den sista delen, i samlingsrören, finns <strong>AQP2</strong>, och där regleras mängden efter kroppens behov.</p>
+<p>Regleringen sköts av hormonet <strong>vasopressin</strong>, som också kallas antidiuretiskt hormon, det hormon som minskar urinmängden. Det bildas i en del av hjärnan och släpps ut i blodet från hypofysen, en liten körtel under hjärnan, när kroppen behöver spara vatten, till exempel när vi är törstiga.</p>
+<p>Vasopressin binder till en receptor på njurcellerna, ett protein som känner igen hormonet (se <a href="02-molekyler-och-reaktioner.html#sec-l02-hormoner" class="quarto-xref"><span>Avsnitt 2.11.2</span></a>). Det sätter igång en signal i cellen, som får små blåsor med AQP2 att smälta samman med den del av cellmembranet som vetter mot urinen (<a href="#fig-l10-vasopressin" class="quarto-xref">Figur&nbsp;<span>10.11</span></a>). Då fylls membranet med vattenkanaler, vatten tas upp från urinen och urinen blir koncentrerad. När kroppen har vatten nog upphör vasopressinet, AQP2 tas tillbaka in i cellen och mer vatten lämnar kroppen med urinen.</p>
+<div id="fig-l10-vasopressin" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-vasopressin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/vasopressin.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-vasopressin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.11: Så reglerar vasopressin vattenupptaget i njuren. Hormonet binder till en receptor på den sida av cellen som vetter mot blodet (1). Det ger en signal i cellen (2), och små blåsor med vattenkanalen AQP2 smälter samman med membranet på den sida som vetter mot urinen (3). Då kan vatten tas upp från urinen och föras tillbaka till blodet (4). Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Detta förklarar en välkänd erfarenhet. Alkohol hämmar utsöndringen av vasopressin. Då sätts färre vattenkanaler in i njurarna, vi kissar mer än vi dricker, och kroppen torkar ut. Det är en del av förklaringen till att man mår dåligt dagen efter.</p>
+<p>Vad som händer när systemet inte fungerar alls syns vid en ärftlig sjukdom. Om AQP2 eller vasopressinets receptor inte fungerar på grund av en ärftlig förändring kan njurarna inte koncentrera urinen. Det leder till sjukdomen nefrogen diabetes insipidus, där man kissar ut mycket stora mängder utspädd urin och ständigt är törstig.</p>
+</section>
+<section id="sec-l10-vaxter" class="level4">
+<h4 class="anchored" data-anchor-id="sec-l10-vaxter">Vattenkanaler hos växter</h4>
+<p>Växterna har också vattenkanaler, och för dem är vattnet ännu mer avgörande. Vid torka måste växten hushålla med vattnet och stänga sina vattenkanaler. En svensk forskargrupp i Göteborg och Lund kunde 2006 bestämma strukturen hos en vattenkanal från spenat, både i stängt och öppet läge. Den visade att kanalen stängs av en slinga i proteinet som lägger sig som ett lock över kanalens öppning (<a href="#fig-l10-vaxtkanal" class="quarto-xref">Figur&nbsp;<span>10.12</span></a>).</p>
+<p>Om kanalen är öppen eller stängd styrs av en fosfatgrupp som cellen kan sätta på eller ta bort. När växten har gott om vatten sitter fosfatgruppen på och kanalen är öppen. Vid torka tas fosfatgruppen bort och kanalen stängs. Kanalen stängs också när cellens insida blir sur, vilket händer när rötterna står i vatten och får för lite syre.</p>
+<div id="fig-l10-vaxtkanal" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-vaxtkanal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/vaxt-vattenkanal.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-vaxtkanal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.12: En vattenkanal hos växter, förenklad. Till vänster, vid torka: en slinga i proteinet ligger som ett lock under kanalens öppning på cellens insida, och vattnet kommer inte igenom. Till höger, när växten har gott om vatten: en fosfatgrupp (P) sitter på proteinet, slingan har flyttat sig åt sidan och vattenmolekylerna passerar på led. Egen figur, efter Törnroth-Horsefield m.fl. (2006).
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-l10-mekanokansliga" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l10-mekanokansliga">Kanaler som öppnas av tryck och rörelse</h3>
+<p>Den sista sortens signal vi ska se på är mekanisk: tryck, sträckning och rörelse. Kanaler som öppnas när membranet sträcks eller när något drar i dem kallas <strong>mekanokänsliga kanaler</strong>. Hur de fungerar, från bakteriernas säkerhetsventiler till Piezo-kanalerna som gör att vi känner beröring, beskrivs i <a href="08-membranproteiner.html#sec-l08-tryck" class="quarto-xref"><span>Avsnitt 8.6</span></a>. Här ska vi se på ett exempel där de används som sinnesorgan.</p>
+<section id="sec-l10-horsel" class="level4">
+<h4 class="anchored" data-anchor-id="sec-l10-horsel">Hörseln</h4>
+<p>Ett särskilt elegant exempel finns i innerörat. Där sitter <strong>hårceller</strong>, celler med en knippe av styva utskott på toppen, ordnade i rader efter längd som orgelpipor. Utskotten är förbundna med varandra av tunna proteintrådar. När en ljudvåg får knippet att böja sig åt ena hållet sträcks trådarna och drar upp mekanokänsliga kanaler i utskottens spetsar (<a href="#fig-l10-harcell" class="quarto-xref">Figur&nbsp;<span>10.13</span></a>). Positiva joner strömmar in i hårcellen, som skickar en signal vidare till hörselnerven. När knippet böjer sig tillbaka stängs kanalerna igen.</p>
+<p>Det här måste gå mycket fort. Vi kan höra toner med frekvenser upp till omkring 20 000 svängningar per sekund. En ton på 200 svängningar per sekund har en period på 5 millisekunder, och en på 20 000 svängningar per sekund bara 0,05 millisekunder. Kanalerna öppnas och stängs därför på mindre än en tiondels millisekund, vilket är mycket snabbare än de flesta andra signaler i kroppen. Snabbheten behövs också för att vi ska kunna höra varifrån ett ljud kommer. Ett ljud från sidan når det ena örat lite tidigare än det andra, men skillnaden är som mest ungefär en halv millisekund. Hjärnan kan ändå avgöra från vilket håll ljudet kom.</p>
+<div id="fig-l10-harcell" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l10-harcell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L10/harcell.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l10-harcell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;10.13: Hårcellens utskott är ordnade efter längd, och en tunn proteintråd går från spetsen på varje utskott till nästa, högre utskott. I vila (till vänster) är kanalerna vid trådarnas nedre ände nästan stängda. När en ljudvåg böjer knippet mot det högsta utskottet (till höger) sträcks trådarna, kanalerna dras upp och positiva joner strömmar in i cellen, som skickar en signal till hörselnerven. Egen figur.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="sec-l10-sammanfattning" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="sec-l10-sammanfattning"><span class="header-section-number">10.5</span> Sammanfattning</h2>
+<ul>
+<li>Cytokrom c-oxidas, andningskedjans sista enzym, tar emot elektroner från cytokrom c och gör vatten av syre, och pumpar samtidigt protoner över membranet. Mer än 90 procent av det syre vi andas in förbrukas av detta enzym.</li>
+<li>Liknande enzymer finns hos organismer i extrema miljöer, och en bit av genen för cytokrom c-oxidas används som DNA-streckkod för att artbestämma djur.</li>
+<li>I fotosyntesen tas elektroner från vatten med hjälp av ljus, och syre bildas. Två fotosystem i rad behövs för att lyfta elektronerna hela vägen från vatten till NADPH med rött ljus, eftersom mycket av varje fotons energi går förlorad på vägen. Antenner med hundratals klorofyllmolekyler samlar ljuset till varje reaktionscentrum.</li>
+<li>Vattnet klyvs i ett kluster av mangan och kalcium i fotosystem II, som måste ta emot fyra fotoner, en i taget, för varje syremolekyl. Det har gett allt syre i atmosfären, som började ansamlas för omkring 2,4 miljarder år sedan.</li>
+<li>Med röntgenfrielektronlasrar kan man göra “filmer” av hur atomerna rör sig i ett protein medan det arbetar.</li>
+<li>Kanaler i membranet styrs av signaler: influensavirusets M2-kanal öppnas av surhet, hormonet vasopressin styr hur många vattenkanaler som sätts in i njurcellernas membran, växternas vattenkanaler öppnas och stängs med fosfatgrupper och mekanokänsliga kanaler öppnas av tryck och rörelse.</li>
+<li>Läkemedlet amantadin täpper till M2-kanalen, men influensaviruset har blivit resistent genom små förändringar i kanalen.</li>
+</ul>
+</section>
+<section id="sec-l10-nyckelbegrepp" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="sec-l10-nyckelbegrepp"><span class="header-section-number">10.6</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>cytokrom c-oxidas</strong> – Andningskedjans sista enzym. Tar emot elektroner från cytokrom c, gör vatten av syre och pumpar samtidigt protoner över membranet.</li>
+<li><strong>protonpump</strong> – Ett membranprotein som använder energi, till exempel från elektroner eller ljus, för att flytta protoner över ett membran mot gradienten.</li>
+<li><strong>extremofil</strong> – Organism som lever under extrema förhållanden, till exempel i mycket hett, surt eller salt vatten.</li>
+<li><strong>DNA-streckkod</strong> – En kort bit av en gen, för djur oftast genen för en del av cytokrom c-oxidas (COI), som skiljer sig mellan arter och används för att artbestämma prover.</li>
+<li><strong>fotosyntes</strong> – Processen där växter, alger och cyanobakterier med hjälp av ljusets energi tar elektroner från vatten och bygger socker av koldioxid. Syre bildas.</li>
+<li><strong>cyanobakterier</strong> – Bakterier som har fotosyntes och bildar syre, förr kallade blågröna alger. Växternas kloroplaster härstammar från dem.</li>
+<li><strong>kloroplast</strong> – Organell i växt- och algceller där fotosyntesen sker. Innehåller tylakoidmembran med fotosystem och ATP-syntas.</li>
+<li><strong>tylakoid</strong> – Platt membranpåse inuti kloroplasten. I tylakoidmembranet sitter fotosystemen, cytokrom b6f och ATP-syntas.</li>
+<li><strong>fotosystem</strong> – Stort proteinkomplex i tylakoidmembranet som fångar ljus och använder energin för att flytta elektroner. Växter har två, fotosystem I och II.</li>
+<li><strong>foton</strong> – Ett litet energipaket av ljus. Blått ljus har mer energi per foton än rött.</li>
+<li><strong>klorofyll</strong> – Grönt färgämne som fångar ljus i fotosyntesen. Absorberar blått och rött ljus men reflekterar grönt.</li>
+<li><strong>antenn</strong> – Hundratals färgämnesmolekyler kring ett fotosystem som fångar ljus och leder energin vidare till reaktionscentret.</li>
+<li><strong>karotenoider</strong> – Gula och orange färgämnen, till exempel karoten och xantofyller, som hjälper till att fånga ljus och skyddar fotosystemen mot för starkt ljus.</li>
+<li><strong>syrgasutvecklande centret</strong> – Ett kluster av fyra manganatomer, en kalciumatom och fem syreatomer i fotosystem II, där vatten klyvs till syre, protoner och elektroner.</li>
+<li><strong>röntgenfrielektronlaser</strong> – Anläggning som ger extremt korta och intensiva pulser av röntgenstrålning (eng. X-ray free-electron laser, XFEL). Används bland annat för att göra filmer av proteiner i arbete.</li>
+<li><strong>kanal</strong> – Ett membranprotein som bildar en öppning genom membranet, så att joner, protoner eller vatten kan passera av sig själva. Många kanaler kan öppnas och stängas.</li>
+<li><strong>gramicidin</strong> – Kort kedja av aminosyror från en jordbakterie som bildar en kanal genom membran. Används som antibiotikum på huden och i halsen.</li>
+<li><strong>M2</strong> – Protonkanal i influensa A-virusets hölje som öppnas av sur miljö och behövs för att viruset ska kunna släppa ut sin arvsmassa i cellen.</li>
+<li><strong>amantadin</strong> – Läkemedel som täpper till influensavirusets M2-kanal. Används inte längre mot influensa, eftersom nästan alla virus har blivit resistenta.</li>
+<li><strong>vasopressin</strong> – Hormon från hjärnan (antidiuretiskt hormon) som får njurarna att ta upp mer vatten, genom att vattenkanalen AQP2 sätts in i njurcellernas membran.</li>
+<li><strong>mekanokänslig kanal</strong> – Kanal som öppnas när membranet sträcks eller när något drar i den. Ger oss känsel och hörsel, och skyddar bakterier mot att spricka.</li>
+<li><strong>hårcell</strong> – Sinnescell i innerörat med en knippe utskott på toppen. När knippet böjs av en ljudvåg öppnas mekanokänsliga kanaler och en signal går till hörselnerven.</li>
+</ul>
+</section>
+<section id="sec-l10-testa" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="sec-l10-testa"><span class="header-section-number">10.7</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L10"></div>
+<script>
+renderQuiz("quiz-L10", [
+ {
+  "question": "Vilka två uppgifter utför cytokrom c-oxidas samtidigt?",
+  "choices": [
+   "Det gör vatten av syre och pumpar protoner över membranet",
+   "Det tillverkar ATP och bryter ned glukos",
+   "Det fångar ljus och bildar syre",
+   "Det släpper igenom vatten och stänger ute protoner"
+  ],
+  "correctIndex": 0,
+  "explanation": "Enzymet tar emot elektroner från cytokrom c och lämnar dem till syre, som med protoner bildar vatten. Samtidigt pumpas lika många protoner till över membranet."
+ },
+ {
+  "question": "Varför används en bit av genen för cytokrom c-oxidas som DNA-streckkod för djurarter?",
+  "choices": [
+   "Genen finns hos nästan alla djur och skiljer sig tillräckligt mellan arter för att de ska kunna särskiljas",
+   "Genen är exakt likadan hos alla djur",
+   "Genen finns bara hos utrotningshotade arter",
+   "Genen bestämmer djurets färg och form"
+  ],
+  "correctIndex": 0,
+  "explanation": "En bra streckkod måste finnas hos alla och samtidigt variera mellan arter. COI-genen uppfyller båda kraven."
+ },
+ {
+  "question": "Var kommer syret som bildas i fotosyntesen ifrån?",
+  "choices": [
+   "Från vatten, som klyvs i fotosystem II",
+   "Från koldioxid, som klyvs i fotosystem I",
+   "Från sockret som växten bildar",
+   "Från luften, som växten tar upp och släpper ut igen"
+  ],
+  "correctIndex": 0,
+  "explanation": "Fotosystem II tar elektroner från vatten, och då bildas syre. Kolatomerna i koldioxiden hamnar i sockret."
+ },
+ {
+  "question": "Varför behöver växterna två fotosystem?",
+  "choices": [
+   "Det som kan tas tillvara av en foton rött ljus räcker inte för att lyfta en elektron hela vägen från vatten till NADPH, men två fotoner i rad räcker",
+   "Det ena fotosystemet arbetar på dagen och det andra på natten",
+   "Det ena fångar rött ljus och det andra grönt ljus",
+   "Det ena gör syre och det andra gör koldioxid"
+  ],
+  "correctIndex": 0,
+  "explanation": "En stor del av varje fotons energi går förlorad när elektronen ska föras bort och hållas kvar. Genom att lyfta elektronerna i två steg kan växterna ändå använda rött ljus, som det finns gott om."
+ },
+ {
+  "question": "Varför är bladen gröna?",
+  "choices": [
+   "Klorofyll absorberar blått och rött ljus men reflekterar det mesta av det gröna",
+   "Klorofyll absorberar framför allt grönt ljus",
+   "Bladen innehåller inget annat färgämne än grönt",
+   "Grönt ljus har mest energi och behövs inte"
+  ],
+  "correctIndex": 0,
+  "explanation": "Det ljus som inte tas upp reflekteras, och det är det vi ser. Klorofyll tar upp blått och rött, så bladen ser gröna ut."
+ },
+ {
+  "question": "Vad är poängen med fotosystemens antenner?",
+  "choices": [
+   "Varje klorofyll träffas sällan av ljus, så många klorofyllmolekyler samlar ljus till ett och samma reaktionscentrum",
+   "Antennerna tar emot radiovågor",
+   "Antennerna leder elektroner till syre",
+   "Antennerna skyddar växten mot insekter"
+  ],
+  "correctIndex": 0,
+  "explanation": "I fullt solljus träffas varje klorofyll ungefär en gång per sekund, medan ett reaktionscentrum kan arbeta hundratals gånger per sekund. Antennen gör att reaktionscentret får nog med energi."
+ },
+ {
+  "question": "I Joliots experiment frigjordes mest syre efter den tredje ljusblixten och sedan var fjärde. Vad visar det?",
+  "choices": [
+   "Det syrgasutvecklande centret måste samla fyra elektronhål, ett per blixt, innan en syremolekyl bildas",
+   "Varje blixt bildar en syremolekyl",
+   "Syret bildas bara i mörker",
+   "Fotosystemen förstörs efter fyra blixtar"
+  ],
+  "correctIndex": 0,
+  "explanation": "Klustret går igenom lägena S0–S4, ett steg per foton. I mörker vilar det i S1, så tre blixtar behövs till det första syret och sedan fyra för varje nytt."
+ },
+ {
+  "question": "Hur hjälper M2-kanalen influensaviruset att infektera en cell?",
+  "choices": [
+   "Den öppnas av den sura miljön i cellens blåsa och släpper in protoner i viruset, så att arvsmassan kan frigöras",
+   "Den pumpar ut virusets arvsmassa genom cellens membran",
+   "Den binder till receptorer på cellens yta",
+   "Den bryter ned cellens DNA"
+  ],
+  "correctIndex": 0,
+  "explanation": "När blåsan med viruset blir sur öppnas M2, protoner strömmar in och virusets proteiner släpper arvsmassan."
+ },
+ {
+  "question": "Varför fungerar inte amantadin längre mot influensa?",
+  "choices": [
+   "Små förändringar i M2-kanalen, ofta en enda aminosyra, gör att läkemedlet inte fastnar, och sådana virus har spridit sig över hela världen",
+   "Läkemedlet har förbjudits för att det är giftigt",
+   "Influensaviruset har blivit av med M2-kanalen helt",
+   "Människor har utvecklat motståndskraft mot läkemedlet"
+  ],
+  "correctIndex": 0,
+  "explanation": "Mutationer som till exempel byter serin 31 mot asparagin ger resistens. I dag är i princip alla influensa A-virus resistenta."
+ },
+ {
+  "question": "Varför kissar man mer när man har druckit alkohol?",
+  "choices": [
+   "Alkohol hämmar utsöndringen av vasopressin, så färre vattenkanaler (AQP2) sätts in i njurarna och mindre vatten tas upp",
+   "Alkohol öppnar alla vattenkanaler i njurarna",
+   "Alkohol gör att njurarna filtrerar mer blod",
+   "Alkohol innehåller mer vatten än andra drycker"
+  ],
+  "correctIndex": 0,
+  "explanation": "Utan vasopressin tas AQP2 tillbaka in i njurcellerna. Då tas mindre vatten upp från urinen och kroppen förlorar vatten."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>10.1</strong> Jämför andningen och fotosyntesen. På vilka sätt är de varandras motsats, och vad har de gemensamt?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I andningen tas elektroner från maten och lämnas till syre, så att vatten och koldioxid bildas och energi frigörs. I fotosyntesen tas elektroner från vatten med hjälp av ljusets energi, syre bildas och elektronerna används för att bygga socker av koldioxid. Processerna bildar alltså ett kretslopp. Gemensamt är principen: elektroner förs genom en kedja av proteinkomplex i ett membran, protoner pumpas över membranet, och den protongradient som byggs upp driver ett ATP-syntas.</p>
+</div>
+</div>
+</div>
+<p><strong>10.2</strong> Förklara Joliots blixtexperiment och vad det säger om hur vatten klyvs i fotosystem II.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Joliot höll alger i mörker och belyste dem med korta blixtar, så korta att varje fotosystem bara fick en foton per blixt. Han mätte syret efter varje blixt. Nästan inget syre bildades efter de två första blixtarna, mycket efter den tredje och sedan en topp var fjärde blixt. Det visar att klustret i fotosystem II måste ta emot fyra fotoner, en i taget, och lämna ifrån sig fyra elektroner innan en syremolekyl kan bildas av två vattenmolekyler. Att första toppen kommer redan vid tredje blixten beror på att klustret vilar i läget S1, ett steg in i cykeln, i mörker.</p>
+</div>
+</div>
+</div>
+<p><strong>10.3</strong> Ge tre exempel från kapitlet på kanaler som öppnas eller stängs av en signal. Vilken är signalen, och vad blir följden?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Influensavirusets M2-kanal öppnas av sur miljö. Då strömmar protoner in i viruset, som kan släppa ut sin arvsmassa i cellen. Njurarnas vattenkanal AQP2 regleras av hormonet vasopressin. Med vasopressin sätts kanalerna in i membranet, vatten tas upp från urinen och urinen blir koncentrerad. Mekanokänsliga kanaler öppnas av sträckning eller dragning. I örats hårceller släpper de in joner när en ljudvåg böjer cellens utskott, så att en signal går till hörselnerven.</p>
+</div>
+</div>
+</div>
+<p><strong>10.4</strong> Amantadin slutade fungera mot influensa efter några decennier. Vad säger det om hur virus anpassar sig till läkemedel, och vad kan man lära sig av det?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Amantadin sätter sig i M2-kanalen och täpper till den. Men det räcker att en enda aminosyra i kanalen byts ut för att läkemedlet inte ska fastna, medan kanalen ändå fungerar för viruset. Influensavirus förökar sig i enorma mängder och muterar ofta, så sådana varianter uppstår hela tiden. När läkemedlet används får de resistenta virusen en fördel och sprids. Därför har resistensen blivit en fast del av virusets arvsmassa. Lärdomen är att läkemedel mot virus och bakterier bör användas med eftertanke och gärna angripa delar som viruset har svårt att förändra.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l10-las-mer" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="sec-l10-las-mer"><span class="header-section-number">10.8</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Fotosyntes">Fotosyntes</a> och <a href="https://sv.wikipedia.org/wiki/Cytokrom_c-oxidas">Cytokrom c-oxidas</a> på svenska Wikipedia.</li>
+<li><a href="https://pdb101.rcsb.org/motm/59">Photosystem II</a>, <a href="https://pdb101.rcsb.org/motm/5">Cytochrome c Oxidase</a>, <a href="https://pdb101.rcsb.org/motm/173">Aquaporin</a> och <a href="https://pdb101.rcsb.org/motm/107">Mechanosensitive Channels</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska).</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2003/summary/">Nobelpriset i kemi 2003</a>, för upptäckten av vattenkanaler och studier av jonkanaler (på engelska).</li>
+<li><a href="https://en.wikipedia.org/wiki/Great_Oxidation_Event">Great Oxidation Event</a> på engelska Wikipedia, om hur syret kom till atmosfären.</li>
+<li><a href="https://sv.wikipedia.org/wiki/DNA-streckkodning">DNA-streckkodning</a> på svenska Wikipedia.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/09-molekylara-maskiner.html" class="pagination-link" aria-label="Molekylära maskiner – nanovärlden">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/11-omik.html" class="pagination-link" aria-label="Omik-världen – en totalbild">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

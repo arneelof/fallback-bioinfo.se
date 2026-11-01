@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 640" width="920" height="640">
+<defs><marker id="ah222222" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="ah3b6ea8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6ea8"/></marker><marker id="ah7a4f9a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4f9a"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="460" y="32.6" font-family="Helvetica, Arial, sans-serif" font-size="19" text-anchor="middle" font-weight="bold" fill="#222222">Det aktiva centret i kolsyraanhydras (förenklat)</text>
+<line x1="130" y1="200" x2="290" y2="290" stroke="#666666" stroke-width="4"/>
+<rect x="92.0" y="180.0" width="76" height="40" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="130" y="205.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">His</text>
+<line x1="130" y1="380" x2="290" y2="290" stroke="#666666" stroke-width="4"/>
+<rect x="92.0" y="360.0" width="76" height="40" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="130" y="385.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">His</text>
+<line x1="290" y1="420" x2="290" y2="290" stroke="#666666" stroke-width="4"/>
+<rect x="252.0" y="400.0" width="76" height="40" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="290" y="425.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">His</text>
+<circle cx="290" cy="290" r="34" fill="#9aa7b5" stroke="#222222" stroke-width="2"/>
+<text x="270.4178" y="296.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="start" font-weight="bold" fill="#222222">Zn</text>
+<text x="294.7718" y="286.2" font-family="Helvetica, Arial, sans-serif" font-size="12.24" text-anchor="start" font-weight="bold" fill="#222222">2+</text>
+<text x="150" y="286.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#3b6ea8">tre histidiner</text>
+<text x="150" y="303.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#3b6ea8">håller zinken</text>
+<line x1="318" y1="272" x2="370" y2="242" stroke="#666666" stroke-width="4"/>
+<circle cx="400" cy="230" r="34" fill="#f4d4d0" stroke="#b5443b" stroke-width="2"/>
+<text x="385.6945" y="227.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#222222">H</text>
+<text x="396.91450000000003" y="230.1" font-family="Helvetica, Arial, sans-serif" font-size="10.200000000000001" text-anchor="start" font-weight="bold" fill="#222222">2</text>
+<text x="403.0855" y="227.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#222222">O</text>
+<text x="376.795" y="248.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#b5443b">→ OH</text>
+<text x="417.595" y="239.8" font-family="Helvetica, Arial, sans-serif" font-size="10.200000000000001" text-anchor="start" font-weight="normal" fill="#b5443b">–</text>
+<circle cx="390" cy="100" r="30" fill="#eeeeee" stroke="#666666" stroke-width="2"/>
+<text x="374.7408" y="105.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="start" font-weight="bold" fill="#222222">CO</text>
+<text x="398.67679999999996" y="108.6" font-family="Helvetica, Arial, sans-serif" font-size="10.88" text-anchor="start" font-weight="bold" fill="#222222">2</text>
+<path d="M392,132 L398,192" fill="none" stroke="#222222" stroke-width="2.5" marker-end="url(#ah222222)"/>
+<circle cx="500" cy="270" r="21" fill="white" stroke="#b5443b" stroke-width="2"/>
+<text x="489.596" y="274.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#222222">H</text>
+<text x="497.75600000000003" y="276.5" font-family="Helvetica, Arial, sans-serif" font-size="8.16" text-anchor="start" font-weight="normal" fill="#222222">2</text>
+<text x="502.244" y="274.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#222222">O</text>
+<circle cx="580" cy="230" r="21" fill="white" stroke="#b5443b" stroke-width="2"/>
+<text x="569.596" y="234.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#222222">H</text>
+<text x="577.756" y="236.5" font-family="Helvetica, Arial, sans-serif" font-size="8.16" text-anchor="start" font-weight="normal" fill="#222222">2</text>
+<text x="582.244" y="234.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#222222">O</text>
+<circle cx="660" cy="270" r="21" fill="white" stroke="#b5443b" stroke-width="2"/>
+<text x="649.596" y="274.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#222222">H</text>
+<text x="657.756" y="276.5" font-family="Helvetica, Arial, sans-serif" font-size="8.16" text-anchor="start" font-weight="normal" fill="#222222">2</text>
+<text x="662.244" y="274.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#222222">O</text>
+<line x1="427" y1="242.0" x2="475" y2="258.0" stroke="#b5443b" stroke-width="2" stroke-dasharray="6,5"/>
+<line x1="527" y1="258.0" x2="555" y2="242.0" stroke="#b5443b" stroke-width="2" stroke-dasharray="6,5"/>
+<line x1="607" y1="242.0" x2="635" y2="258.0" stroke="#b5443b" stroke-width="2" stroke-dasharray="6,5"/>
+<line x1="687" y1="264.0" x2="710" y2="256.0" stroke="#b5443b" stroke-width="2" stroke-dasharray="6,5"/>
+<text x="476.512" y="189.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#b5443b">H</text>
+<text x="486.032" y="182.0" font-family="Helvetica, Arial, sans-serif" font-size="9.520000000000001" text-anchor="start" font-weight="normal" fill="#b5443b">+</text>
+<text x="495.46799999999996" y="189.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#b5443b">hoppar längs vattenkedjan</text>
+<rect x="732.0" y="230.0" width="76" height="40" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="770" y="255.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">His</text>
+<rect x="812" y="340" width="76" height="40" rx="6" fill="white" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="850" y="365.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#3b6ea8">His</text>
+<path d="M800,273 Q834.5,294.5 838,335" fill="none" stroke="#3b6ea8" stroke-width="2" marker-end="url(#ah3b6ea8)"/>
+<text x="770" y="216.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#3b6ea8">rörlig histidin</text>
+<path d="M850,383 L850,425" fill="none" stroke="#7a4f9a" stroke-width="2.5" marker-end="url(#ah7a4f9a)"/>
+<text x="776.562" y="446.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#7a4f9a">H</text>
+<text x="786.082" y="439.0" font-family="Helvetica, Arial, sans-serif" font-size="9.520000000000001" text-anchor="start" font-weight="normal" fill="#7a4f9a">+</text>
+<text x="795.518" y="446.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#7a4f9a">ut i vätskan</text>
+<rect x="60" y="470" width="800" height="36" rx="10" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="460" y="493.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#4a8c4a">stabilt betaflak som bär det aktiva centret</text>
+<text x="60" y="550.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#222222">1  Zinken hjälper vattnet att lämna ifrån sig en proton; kvar blir en negativ hydroxidjon.</text>
+<text x="60" y="578.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#222222">2  Hydroxidjonen angriper koldioxiden, och bikarbonat bildas.</text>
+<text x="60" y="606.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#222222">3  Protonen förs via vattenkedjan till histidinen, som svänger ut och lämnar den till vätskan.</text>
+</svg>

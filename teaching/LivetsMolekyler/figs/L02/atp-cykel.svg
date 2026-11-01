@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" width="760" height="300">
+<defs><marker id="ah3b6ea8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6ea8"/></marker><marker id="ahd9822b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="55.0" y="105.0" width="190" height="90" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="150" y="145.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#222222">ATP</text>
+<text x="150" y="169.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#222222">(laddat)</text>
+<rect x="515.0" y="105.0" width="190" height="90" rx="6" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="610" y="145.5" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">ADP + fosfat</text>
+<text x="610" y="167.1" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">(urladdat)</text>
+<path d="M250,115 Q377.5,69.1 505,115" fill="none" stroke="#d9822b" stroke-width="4" marker-end="url(#ahd9822b)"/>
+<path d="M505,185 Q377.5,230.9 250,185" fill="none" stroke="#3b6ea8" stroke-width="4" marker-end="url(#ah3b6ea8)"/>
+<text x="380" y="23.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#d9822b">Energi används: muskelarbete, pumpar,</text>
+<text x="380" y="43.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#d9822b">tillverkning av nya molekyler</text>
+<text x="380" y="270.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#3b6ea8">Energi tillförs: nedbrytning av näring</text>
+<text x="380" y="290.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#3b6ea8">(i mitokondrierna, med hjälp av syre)</text>
+</svg>

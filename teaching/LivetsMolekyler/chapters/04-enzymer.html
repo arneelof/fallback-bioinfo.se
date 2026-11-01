@@ -1,0 +1,1744 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>4&nbsp; Enzymer – cellens katalytiska maskineri – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/05-syntetisk-biokemi.html" rel="next">
+<link href="../chapters/03-gener-och-genteknik.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/04-enzymer.html">Proteiner i arbete</a></li><li class="breadcrumb-item"><a href="../chapters/04-enzymer.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l04-vad" id="toc-sec-l04-vad" class="nav-link active" data-scroll-target="#sec-l04-vad"><span class="header-section-number">4.1</span> Vad är ett enzym?</a>
+  <ul class="collapse">
+  <li><a href="#sec-l04-protein" id="toc-sec-l04-protein" class="nav-link" data-scroll-target="#sec-l04-protein">Proteiner, och några RNA-molekyler</a></li>
+  <li><a href="#sec-l04-byggstenar" id="toc-sec-l04-byggstenar" class="nav-link" data-scroll-target="#sec-l04-byggstenar">Byggstenarna</a></li>
+  </ul></li>
+  <li><a href="#sec-l04-overlagsna" id="toc-sec-l04-overlagsna" class="nav-link" data-scroll-target="#sec-l04-overlagsna"><span class="header-section-number">4.2</span> Naturens katalysatorer är överlägsna</a></li>
+  <li><a href="#sec-l04-historia" id="toc-sec-l04-historia" class="nav-link" data-scroll-target="#sec-l04-historia"><span class="header-section-number">4.3</span> En kort historik</a></li>
+  <li><a href="#sec-l04-hur" id="toc-sec-l04-hur" class="nav-link" data-scroll-target="#sec-l04-hur"><span class="header-section-number">4.4</span> Hur fungerar ett enzym?</a>
+  <ul class="collapse">
+  <li><a href="#sec-l04-bindningar" id="toc-sec-l04-bindningar" class="nav-link" data-scroll-target="#sec-l04-bindningar">Kemiska bindningar och svaga krafter</a></li>
+  <li><a href="#sec-l04-barriar" id="toc-sec-l04-barriar" class="nav-link" data-scroll-target="#sec-l04-barriar">Energibarriären</a></li>
+  <li><a href="#sec-l04-overgang" id="toc-sec-l04-overgang" class="nav-link" data-scroll-target="#sec-l04-overgang">Enzymet binder hårdast till övergångstillståndet</a></li>
+  <li><a href="#sec-l04-las" id="toc-sec-l04-las" class="nav-link" data-scroll-target="#sec-l04-las">Lås och nyckel, eller hand och handske</a></li>
+  </ul></li>
+  <li><a href="#sec-l04-hammare" id="toc-sec-l04-hammare" class="nav-link" data-scroll-target="#sec-l04-hammare"><span class="header-section-number">4.5</span> Hämmare: att stoppa ett enzym</a>
+  <ul class="collapse">
+  <li><a href="#sec-l04-gifter" id="toc-sec-l04-gifter" class="nav-link" data-scroll-target="#sec-l04-gifter">Gifter</a></li>
+  <li><a href="#sec-l04-lakemedel" id="toc-sec-l04-lakemedel" class="nav-link" data-scroll-target="#sec-l04-lakemedel">Läkemedel</a></li>
+  </ul></li>
+  <li><a href="#sec-l04-kolsyraanhydras" id="toc-sec-l04-kolsyraanhydras" class="nav-link" data-scroll-target="#sec-l04-kolsyraanhydras"><span class="header-section-number">4.6</span> Ett enzym i detalj: kolsyraanhydras</a>
+  <ul class="collapse">
+  <li><a href="#sec-l04-blodet" id="toc-sec-l04-blodet" class="nav-link" data-scroll-target="#sec-l04-blodet">Varför reaktionen är viktig</a></li>
+  <li><a href="#sec-l04-design" id="toc-sec-l04-design" class="nav-link" data-scroll-target="#sec-l04-design">Vi bygger ett enzym på papper</a></li>
+  <li><a href="#sec-l04-experiment" id="toc-sec-l04-experiment" class="nav-link" data-scroll-target="#sec-l04-experiment">Ett experiment i köket, nästan</a></li>
+  </ul></li>
+  <li><a href="#sec-l04-kinetik" id="toc-sec-l04-kinetik" class="nav-link" data-scroll-target="#sec-l04-kinetik"><span class="header-section-number">4.7</span> Hur bra är ett enzym? Enzymkinetik</a>
+  <ul class="collapse">
+  <li><a href="#sec-l04-mattnad" id="toc-sec-l04-mattnad" class="nav-link" data-scroll-target="#sec-l04-mattnad">Från få kunder till fullt hus</a></li>
+  <li><a href="#sec-l04-kcat-km" id="toc-sec-l04-kcat-km" class="nav-link" data-scroll-target="#sec-l04-kcat-km">Två tal som beskriver ett enzym</a></li>
+  <li><a href="#sec-l04-perfekt" id="toc-sec-l04-perfekt" class="nav-link" data-scroll-target="#sec-l04-perfekt">Det perfekta enzymet</a></li>
+  <li><a href="#sec-l04-recept" id="toc-sec-l04-recept" class="nav-link" data-scroll-target="#sec-l04-recept">Ett recept för ett bättre enzym</a></li>
+  </ul></li>
+  <li><a href="#sec-l04-sammanfattning" id="toc-sec-l04-sammanfattning" class="nav-link" data-scroll-target="#sec-l04-sammanfattning"><span class="header-section-number">4.8</span> Sammanfattning</a></li>
+  <li><a href="#sec-l04-nyckelbegrepp" id="toc-sec-l04-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l04-nyckelbegrepp"><span class="header-section-number">4.9</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l04-testa" id="toc-sec-l04-testa" class="nav-link" data-scroll-target="#sec-l04-testa"><span class="header-section-number">4.10</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l04-las-mer" id="toc-sec-l04-las-mer" class="nav-link" data-scroll-target="#sec-l04-las-mer"><span class="header-section-number">4.11</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/04-enzymer.html">Proteiner i arbete</a></li><li class="breadcrumb-item"><a href="../chapters/04-enzymer.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l04" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 4, <em>Enzymer – cellens katalytiska maskineri</em>, av Ville Kaila (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>förklara vad ett enzym är och använda begreppen substrat, produkt, aktivt centrum och hämmare (inhibitor),</li>
+<li>förklara varför ett enzym gör en reaktion snabbare genom att stabilisera övergångstillståndet, och varför det inte förbrukas,</li>
+<li>beskriva hur en hämmare kan blockera ett enzym, och varför många läkemedel och gifter fungerar så,</li>
+<li>i ord förklara hur kolsyraanhydras omvandlar koldioxid i blodet,</li>
+<li>förklara vad maxhastigheten och K<sub>M</sub> säger om ett enzym, och vad som menas med ett “perfekt” enzym.</li>
+</ul>
+</div>
+</div>
+<p>En skål med socker kan stå på köksbordet i åratal utan att något händer. Sockret är en mycket stabil molekyl. Men om vi äter sockret bryts det inom några timmar ned till koldioxid och vatten, och energin används av kroppens celler. Kemiskt är det samma reaktion som om sockret hade brunnit, men den sker vid 37 grader, i vattenlösning och utan lågor. Det som gör skillnaden är <strong>enzymer</strong>.</p>
+<p>I <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a> mötte vi enzymerna som cellens arbetare i ämnesomsättningen. I det här kapitlet ska vi se närmare på hur de egentligen fungerar: vad de är byggda av, hur de kan få en reaktion att gå miljontals gånger snabbare, hur man kan stoppa dem, och hur man mäter hur bra ett enzym är. I nästa kapitel (<a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>) fortsätter vi med hur forskare studerar enzymer i detalj, och hur man kan försöka bygga helt nya.</p>
+<section id="sec-l04-vad" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-l04-vad"><span class="header-section-number">4.1</span> Vad är ett enzym?</h2>
+<p>Ett enzym är en <strong>biologisk katalysator</strong>. En katalysator är ett ämne som gör att en kemisk reaktion går snabbare, utan att själv förbrukas. Många känner till ordet från bilens katalysator, som omvandlar giftiga avgaser till mindre farliga ämnen. Enzymerna gör samma sak i cellen, men för tusentals olika reaktioner. I princip har varje kemisk omvandling i ämnesomsättningen sitt eget enzym. Utan enzymer skulle nästan ingenting hända i en cell: den skulle inte kunna växa, inte bryta ned maten och inte anpassa sig när omgivningen förändras.</p>
+<p>Några grundbegrepp återkommer hela kapitlet:</p>
+<ul>
+<li><strong>Substrat</strong> är den molekyl som enzymet ska omvandla, utgångsämnet.</li>
+<li><strong>Produkter</strong> är de molekyler som bildas.</li>
+<li><strong>Aktivt centrum</strong> är den lilla ficka i enzymet där substratet binder och där själva reaktionen sker.</li>
+<li>En <strong>hämmare</strong> (eng. <em>inhibitor</em>) är en molekyl som binder till enzymet och hindrar det från att arbeta.</li>
+</ul>
+<p>Ett enzym kan beskrivas som en liten maskin med en ficka. Substratet binder i fickan, bindningar bryts eller bildas, produkterna släpper, och enzymet är redo för nästa substratmolekyl.</p>
+<section id="sec-l04-protein" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-protein">Proteiner, och några RNA-molekyler</h3>
+<p>Vad är då den här maskinen gjord av? Länge var det oklart. Det var den amerikanske kemisten <strong>James Sumner</strong> som visade att enzymer är proteiner. Han lyckades 1926 rena fram enzymet ureas så noga att det bildade kristaller, och kristallerna bestod av protein. Han fick Nobelpriset i kemi 1946.</p>
+<p>Det finns också ett fåtal katalytiska RNA-molekyler, som kallas <strong>ribozymer</strong>. Det viktigaste exemplet är ribosomen, cellens proteinfabrik (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>). Det är RNA-delen av ribosomen, inte proteinerna, som kopplar ihop aminosyrorna. Ribosomens struktur belönades med Nobelpriset i kemi 2009 (Ada Yonath, Venki Ramakrishnan och Thomas Steitz). Många forskare tror att ribozymer var de första katalysatorerna när livet uppstod, innan det fanns proteiner. Men i dag är nästan alla enzymer proteiner.</p>
+</section>
+<section id="sec-l04-byggstenar" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-byggstenar">Byggstenarna</h3>
+<p>Som alla proteiner är enzymerna kedjor av <strong>aminosyror</strong> (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>), och det är aminosyrorna som avgör vad ett enzym kan göra. De 20 aminosyrorna kan liknas vid en konstnärs palett, eller vid legobitar av olika slag. Några är positivt eller negativt laddade, några är polära och trivs i vatten, några är opolära och undviker vatten, och några har stora platta ringar (aromatiska aminosyror). Genom att placera rätt aminosyror på rätt ställe i det aktiva centret kan enzymet skapa precis den kemiska miljö som en viss reaktion behöver.</p>
+<p>Ibland räcker inte de 20 aminosyrorna. Många enzymer behöver då hjälp av <strong>kofaktorer</strong>, som vi mötte i <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>. Det kan vara metalljoner, som järn, zink, magnesium, koppar eller mangan. Det är en av anledningarna till att vi behöver mineraler i maten. Det kan också vara större organiska molekyler: hemgruppen, med en järnatom i mitten, som binder syre; klorofyll, som fångar in ljus i växterna; eller små kluster av järn och svavel, som leder elektroner. En kofaktor som sitter hårt eller permanent fast i enzymet kallas en <strong>prostetisk grupp</strong>.</p>
+<p>Många kofaktorer tillverkas av vitaminer. Vitamin B12 behövs av enzymer som bygger och bryter bindningar mellan kolatomer. B12 tillverkas bara av mikroorganismer och finns naturligt nästan bara i animalisk mat, som lever. Det tillsätts därför ofta i vegansk mat, till exempel i jästextrakt och växtdrycker. Vitamin B3 (niacin) görs om till NADH, en molekyl som bär elektroner mellan enzymer i ämnesomsättningen och som vi möter igen i <a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>. Ett annat exempel är C-vitamin. För att kollagenet i senor, leder och hud ska bli starkt måste aminosyran prolin i kollagenkedjan förses med en extra kemisk grupp. Enzymet som gör det behöver C-vitamin. Utan C-vitamin blir kollagenet svagt, och det är därför brist på C-vitamin ger skörbjugg.</p>
+</section>
+</section>
+<section id="sec-l04-overlagsna" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-l04-overlagsna"><span class="header-section-number">4.2</span> Naturens katalysatorer är överlägsna</h2>
+<p>Människan använder också katalysatorer i stor skala, i kemisk industri. Men enzymerna skiljer sig från dem på fyra viktiga sätt.</p>
+<p><strong>De arbetar under milda förhållanden.</strong> De flesta enzymer fungerar bäst vid kroppstemperatur, neutralt pH och vanligt lufttryck. (pH är ett mått på hur sur en lösning är: 7 är neutralt, lägre värden är surt och högre basiskt; se <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>.) Industrin däremot behöver ofta höga temperaturer och tryck. Ett exempel är Haber–Bosch-metoden, som används för att göra ammoniak till konstgödsel av luftens kväve. Den kräver flera hundra grader och mycket högt tryck. Vissa bakterier gör samma sak med ett enzym, vid rumstemperatur.</p>
+<p>Baksidan är att enzymerna är känsliga för sin miljö. Aktiviteten är högst vid en viss temperatur och ett visst pH, och sjunker om det blir för varmt, för kallt, för surt eller för basiskt (<a href="#fig-l04-temp-ph" class="quarto-xref">Figur&nbsp;<span>4.1</span></a>). Våra enzymer är anpassade till 37 grader, och det är en av anledningarna till att mycket hög feber är farlig: proteinerna börjar förlora sin form. Andra enzymer är anpassade till helt andra miljöer. Matsmältningsenzymerna i magsäcken arbetar i den starkt sura magsaften, och vissa bakterier som lever i heta källor har enzymer som fungerar nära kokpunkten.</p>
+<div id="fig-l04-temp-ph" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l04-temp-ph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L04/temperatur-ph.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l04-temp-ph-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4.1: Hur ett enzyms aktivitet beror på temperatur (till vänster) och surhet (till höger). Varje enzym har en topp där det arbetar bäst. Våra enzymer arbetar bäst vid kroppstemperatur och neutralt pH, men enzymer i magsäcken är anpassade till starkt sur miljö, och bakterier i heta källor har enzymer som tål nära kokpunkten. Lägg märke till hur snabbt aktiviteten faller när det blir för varmt: proteinerna förlorar sin form. Kurvorna är schematiska. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p><strong>De är enormt effektiva.</strong> Enzymer kan göra en reaktion miljontals eller miljardtals gånger snabbare, ofta utan oönskade biprodukter. Två exempel:</p>
+<ul>
+<li><strong>Kolsyraanhydras</strong> omvandlar koldioxid och vatten till bikarbonat, samma ämne som i bakpulver. Reaktionen går av sig själv, men ganska långsamt: utan enzym tar det i genomsnitt omkring tio sekunder innan en koldioxidmolekyl reagerar. I den ficka där enzymet arbetar går det ungefär tio miljoner gånger snabbare, och en enda enzymmolekyl hinner omvandla omkring en miljon molekyler per sekund. Vi återkommer till detta enzym i <a href="#sec-l04-kolsyraanhydras" class="quarto-xref"><span>Avsnitt 4.6</span></a>.</li>
+<li>Ett enzym som behövs för att tillverka byggstenar till DNA och RNA (orotidinfosfat-dekarboxylas) är ännu mer extremt. Utan enzym skulle det i genomsnitt ta 78 miljoner år innan en enskild molekyl reagerade. Med enzymet tar det 18 millisekunder. Det är en försnabbning med ungefär en faktor 10<sup>17</sup>, en etta följd av sjutton nollor.</li>
+</ul>
+<p>Hur kan man veta att något tar 78 miljoner år? Man mäter på väldigt många molekyler samtidigt. Även om varje molekyl reagerar sällan, så reagerar några av dem hela tiden, och från det kan man räkna ut hur lång tid det i genomsnitt tar för en molekyl.</p>
+<p><strong>De förnyas hela tiden.</strong> Enzymer byggs ständigt upp av ribosomerna och bryts ned igen. Ett exempel är fotosystem II, det stora enzym i växter som använder solljus för att spjälka vatten och därvid bildar syre. Det arbetar under så hårda förhållanden att delar av det skadas hela tiden och byggs om, i starkt ljus så ofta som ungefär var tjugonde minut.</p>
+<p><strong>De klarar kemi som vi inte kan efterlikna.</strong> Fotosystem II är också ett exempel på det. I dess aktiva centrum sitter ett litet kluster av manganjoner och en kalciumjon, som med hjälp av ljusets energi tar fyra elektroner från två vattenmolekyler och bildar syre (hur det går till beskrivs i <a href="10-signalering.html#sec-l10-vattenklyvning" class="quarto-xref"><span>Avsnitt 10.3</span></a>). Det är tack vare den reaktionen som jordens atmosfär innehåller syre. Kemister har lyckats bygga konstgjorda katalysatorer som kan spjälka vatten, men de kräver till exempel elektrisk ström och sällsynta metaller som rutenium, och de är inte lika effektiva. Enzymerna har förfinats under miljarder år av evolution, och vi har mycket kvar att lära av dem.</p>
+</section>
+<section id="sec-l04-historia" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-l04-historia"><span class="header-section-number">4.3</span> En kort historik</h2>
+<p>Människan har använt enzymer i tusentals år, långt innan någon visste vad de var. Ost tillverkades redan för mer än 7 000 år sedan, och en metod var att låta mjölk stå i magsäcken från ett djur. Där finns ett enzym, i dag kallat kymosin eller löpe, som får mjölkens protein kasein att klumpa ihop sig. Jäsning av mat och dryck är också mycket gammal. Egyptiska gravmålningar från omkring 2000 f.Kr. visar vintillverkning, och i Kina jäste man drycker ännu tidigare.</p>
+<p>Under 1800-talet började man undra vad som egentligen händer vid jäsning. Den franske kemisten och mikrobiologen <strong>Louis Pasteur</strong> studerade på 1850-talet hur jäst omvandlar socker till alkohol och koldioxid. Han menade att det krävdes levande jästceller, med en särskild livskraft, för att omvandlingen skulle ske. Den tyske fysiologen <strong>Wilhelm Kühne</strong> myntade på 1870-talet ordet <em>enzym</em>, från grekiskans “i jäst”. 1897 visade den tyske kemisten <strong>Eduard Buchner</strong> att det inte behövdes några levande celler alls. Ett cellfritt extrakt av krossad jäst kunde jäsa socker lika bra. Det var alltså molekyler i jästen som gjorde arbetet, inte livet självt. Buchner fick Nobelpriset i kemi 1907.</p>
+<p>Nästa steg var att ta reda på vad molekylerna var. Som vi redan har sett visade Sumner 1926 att enzymer är proteiner. Men hur enzymerna såg ut fick man vänta på mycket länge, eftersom de är för små för att ses i mikroskop. Den första strukturen av ett enzym, där man kunde se var varje atom satt, bestämdes 1965 av <strong>David Phillips</strong> och hans medarbetare med hjälp av röntgenkristallografi (<a href="06-enskilda-molekyler.html#sec-l06-rontgen" class="quarto-xref"><span>Avsnitt 6.10.1</span></a>). Enzymet var <strong>lysozym</strong>, som finns i tårar, saliv och äggvita. Lysozym bryter ned kolhydratkedjorna i bakteriers cellväggar och skyddar oss därmed mot bakterier.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: enzymernas sju klasser
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Kemister grupperar enzymer efter vilken sorts reaktion de utför. Varje enzym får ett nummer i fyra nivåer, där den första siffran anger en av sju huvudklasser:</p>
+<ol type="1">
+<li><strong>Oxidoreduktaser</strong> flyttar elektroner (oxidation och reduktion).</li>
+<li><strong>Transferaser</strong> flyttar en kemisk grupp från en molekyl till en annan.</li>
+<li><strong>Hydrolaser</strong> klyver en bindning med hjälp av vatten.</li>
+<li><strong>Lyaser</strong> klyver bindningar på andra sätt.</li>
+<li><strong>Isomeraser</strong> flyttar om atomer inom en molekyl.</li>
+<li><strong>Ligaser</strong> kopplar ihop två molekyler.</li>
+<li><strong>Translokaser</strong> flyttar joner eller molekyler genom ett membran.</li>
+</ol>
+<p>Kolsyraanhydras har till exempel numret 4.2.1.1: det är ett lyas (4), som klyver en bindning mellan kol och syre (4.2), med vatten inblandat (4.2.1), och är det första enzymet i den undergruppen.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l04-hur" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="sec-l04-hur"><span class="header-section-number">4.4</span> Hur fungerar ett enzym?</h2>
+<p>Nu kommer vi till kapitlets huvudfråga: hur kan ett enzym få en reaktion att gå miljontals gånger snabbare, utan att själv förändras? För att svara på det behöver vi först se vad som händer i en kemisk reaktion, och vilka krafter ett enzym har att arbeta med.</p>
+<section id="sec-l04-bindningar" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-bindningar">Kemiska bindningar och svaga krafter</h3>
+<p>En kemisk reaktion handlar om att bryta vissa kemiska bindningar och bilda nya. En <strong>kovalent bindning</strong> uppstår när två atomer delar på elektroner: det finns en ökad chans att hitta elektronerna mellan de två atomkärnorna, och elektronerna håller ihop kärnorna som ett lim. Att det fungerar så kan inte förklaras med vardaglig fysik, utan är en effekt av kvantmekaniken. En typisk bindning är 1–2 ångström lång. En <strong>ångström</strong>, uppkallad efter den svenske fysikern Anders Ångström, är en tiomiljarddels meter (10<sup>−10</sup> m), ungefär storleken av en atom.</p>
+<p>Kovalenta bindningar är starka. Hur kan då ett enzym få en sådan att brytas, utan att förbruka ATP eller någon annan energikälla? Svaret är att enzymet inte behöver tillföra hela bindningens energi. I en reaktion bryts gamla bindningar samtidigt som nya bildas, och det som måste övervinnas är en energibarriär, som vi strax ska se. Enzymet sänker barriären med hjälp av många <strong>svaga växelverkningar</strong> med substratet: dragningskraft mellan positiva och negativa laddningar, <strong>vätebindningar</strong> (en svag bindning där en väteatom delas mellan två andra atomer) och ännu svagare krafter mellan atomer som ligger tätt intill varandra. Var för sig är de svaga, men i det aktiva centret finns många av dem, och tillsammans kan de dra och skjuta på substratet så att det lättare tar sig över barriären. Det påminner om magneter som drar i ett föremål från flera håll samtidigt.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: hur många svaga krafter behövs?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Kemister mäter bindningars styrka i kilokalorier per mol. En mol är ett bestämt antal molekyler, ungefär 6 × 10<sup>23</sup> stycken, och används för att atomer och molekyler är för små för att räkna en och en. En vanlig kovalent bindning mellan kol och kol eller kol och väte håller ihop med ungefär 80–100 kilokalorier per mol. En dragningskraft mellan laddningar ger ungefär 5–15, en vätebindning 3–5, och de svagaste krafterna 1–3 kilokalorier per mol.</p>
+<p>Men för att en reaktion ska ske behöver molekylerna inte få hela bindningsenergin, bara ta sig över energibarriären. För en biokemisk reaktion utan enzym är den barriären ofta 15–40 kilokalorier per mol. I ett aktivt centrum kan det finnas tre laddade grupper som tillsammans ger 30–40 kilokalorier per mol, och därtill ett antal vätebindningar och svaga kontakter. Summan är alltså av samma storlek som barriären. Det förklarar hur många svaga kontakter tillsammans kan sänka barriären så mycket att reaktionen går miljontals gånger snabbare.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l04-barriar" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-barriar">Energibarriären</h3>
+<p>Vad är då den energibarriär som enzymet sänker? Även om en reaktion frigör energi, som när socker förbränns, sker den inte av sig själv i någon märkbar takt. Det beror på att molekylerna först måste ta sig över en <strong>energibarriär</strong>. Man kan tänka sig en vandrare som ska från en dal till en annan, lägre dal. Vägen går över ett bergspass, och ju högre passet är, desto färre tar sig över det på en given tid. Höjden på passet kallas reaktionens <strong>aktiveringsenergi</strong>.</p>
+<p>Hur mycket höjden spelar roll visade den svenske kemisten <strong>Svante Arrhenius</strong>. Det var han som i slutet av 1800-talet beskrev sambandet mellan aktiveringsenergin och hur snabbt en reaktion går. Han visade att sambandet inte är proportionellt utan exponentiellt: om barriären sänks lite går reaktionen mycket snabbare. Arrhenius fick Nobelpriset i kemi 1903, dock för ett annat arbete, om hur salter delas upp i joner i vatten.</p>
+<p>Högst uppe på passet befinner sig molekylerna i ett <strong>övergångstillstånd</strong> (eng. <em>transition state</em>). Där har den gamla bindningen börjat brytas men den nya har ännu inte bildats helt. Om man tänker sig spjälkningen av ATP till ADP och fosfat, är övergångstillståndet det ögonblick då fosfatgruppen är på väg att lossna men ännu sitter kvar. Övergångstillståndet är inte stabilt. Molekylerna stannar där bara under en ytterst kort stund innan de faller ned åt ena eller andra hållet.</p>
+<p>Därför går det inte att ta en bild av ett övergångstillstånd. Ingenting håller kvar molekylen på toppen av passet. Med extremt snabba laserpulser kan man skymta hur bindningarna rör sig under bråkdelar av en miljarddels sekund, men någon struktur får man inte. I stället bestämmer forskarna strukturen av enzymet med substratet och med produkten, och räknar sedan fram med kvantmekanik hur övergångstillståndet däremellan bör se ut (<a href="05-syntetisk-biokemi.html#sec-l05-simulering" class="quarto-xref"><span>Avsnitt 5.6</span></a>). Det är en viktig anledning till att vi ännu inte helt förstår hur många enzymer fungerar.</p>
+<div id="fig-l04-barriar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l04-barriar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L04/energibarriar.svg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l04-barriar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4.2: Energin under en reaktion. Substratet måste ta sig över en barriär, med övergångstillståndet högst upp, för att bli produkter. Enzymet sänker barriären (blå kurva) så att reaktionen går mycket snabbare. Den lilla gropen på den blå kurvan är enzym–substratkomplexet, där substratet sitter bundet i enzymet. Däremot ändrar enzymet inte energiskillnaden mellan start och slut (grön pil). Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l04-overgang" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-overgang">Enzymet binder hårdast till övergångstillståndet</h3>
+<p>Hur sänker ett enzym barriären? Den amerikanske kemisten <strong>Linus Pauling</strong> föreslog 1946 svaret, som i dag är grunden för vår förståelse av enzymer: enzymet <strong>stabiliserar övergångstillståndet</strong>.</p>
+<p>När substratet har bundit till enzymet bildas ett <strong>enzym–substratkomplex</strong>. Förloppet kan skrivas</p>
+<p>enzym + substrat ⇄ enzym–substratkomplex → enzym + produkt</p>
+<p>Det aktiva centret är format så att det passar allra bäst till övergångstillståndets form och laddningar, bättre än till substratet och bättre än till produkterna. När substratet binder och börjar omvandlas uppstår därför fler och starkare växelverkningar med enzymet, och övergångstillståndets energi sänks. Barriären blir lägre (<a href="#fig-l04-barriar" class="quarto-xref">Figur&nbsp;<span>4.2</span></a>).</p>
+<p>Här finns en balans. Om enzymet band substratet alltför hårt skulle enzym–substratkomplexet bli liggande i en djup energigrop, och det skulle bli längre upp till övergångstillståndet. Ett bra enzym ska alltså binda substratet tillräckligt för att fånga det, men binda övergångstillståndet ännu mycket starkare.</p>
+<p>Två saker är viktiga att komma ihåg:</p>
+<ul>
+<li><strong>Enzymet ändrar inte reaktionens slutresultat.</strong> Energiskillnaden mellan substrat och produkter är densamma med och utan enzym. En reaktion som inte kan ske av sig själv blir inte möjlig av ett enzym. Enzymet gör bara att det som ändå kan ske går mycket snabbare, åt båda hållen.</li>
+<li><strong>Enzymet förbrukas inte.</strong> När produkterna har släppt är enzymet oförändrat och kan ta emot nästa substratmolekyl, i en <strong>katalytisk cykel</strong> som upprepas om och om igen (<a href="#fig-l04-cykel" class="quarto-xref">Figur&nbsp;<span>4.3</span></a>).</li>
+</ul>
+<div id="fig-l04-cykel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l04-cykel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L04/katalyscykel.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l04-cykel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4.3: Enzymets katalytiska cykel, med påhittade former. Substratet (blå cirkel) binder i enzymets aktiva centrum men passar inte perfekt. Övergångstillståndet (röd kvadrat) passar precis och binds starkast. Produkterna (gröna trianglar) passar sämre och släpper, och enzymet kan börja om. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Pauling hade en ovanlig bakgrund för en kemist: han hämtade många av sina verktyg från fysiken. Han hade på 1920-talet rest till Europa för att lära sig den nya kvantmekaniken av fysiker som Erwin Schrödinger, och han använde den för att förklara den kemiska bindningen. Han är en av få personer som fått två Nobelpris, båda odelade: i kemi 1954, för sitt arbete om den kemiska bindningens natur, och Nobels fredspris 1962, för sitt arbete mot kärnvapenprov.</p>
+</section>
+<section id="sec-l04-las" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-las">Lås och nyckel, eller hand och handske</h3>
+<p>Långt innan någon hade sett ett enzym föreslog den tyske kemisten <strong>Emil Fischer</strong> 1894 en bild som fortfarande används. Han skrev att enzymet och dess substrat måste passa ihop “som lås och nyckel” för att kunna påverka varandra kemiskt. Det är en bra bild av att enzymer är <strong>specifika</strong>: varje enzym tar bara emot ett visst substrat, eller några få närbesläktade.</p>
+<p>Bilden stämmer för vissa enzymer, men inte för alla. Den amerikanske biokemisten <strong>Daniel Koshland</strong> föreslog 1958 att enzymet ofta ändrar form när substratet binder, som en handske som formar sig efter handen. Det kallas <strong>inducerad passform</strong> (eng. <em>induced fit</em>). Ett känt exempel är <strong>hexokinas</strong>, det första enzymet i nedbrytningen av socker. Enzymet ser ut som en klämma med en öppen klyfta. När en sockermolekyl binder i klyftan sluter sig enzymet runt den (<a href="#fig-l04-hexokinas" class="quarto-xref">Figur&nbsp;<span>4.4</span></a>). Därmed stängs vattnet ute, så att reaktionen kan ske utan störning.</p>
+<div id="fig-l04-hexokinas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l04-hexokinas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L04/hexokinas-goodsell.jpg" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l04-hexokinas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4.4: Hexokinas från jäst utan socker (till vänster) och med socker bundet (till höger). Pilen visar klyftan där sockret binder. När sockret binder sluter sig de två halvorna av enzymet runt det. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Hur noga enzymerna skiljer mellan olika molekyler syns i ett exempel från Ville Kailas egen forskning. Ett enzym från mögelsvampen <em>Aspergillus nidulans</em> tillverkar ämnen som kallas kinolonalkaloider, som är intressanta som möjliga läkemedel mot cancer. Kemister kan bygga dem i laboratoriet, men det kräver ett mycket stort antal steg. Svampen klarar det med hjälp av enzymer. När forskarna bytte ut en liten metylgrupp (en kolatom med tre väten) på substratet mot en enda väteatom slutade enzymet nästan helt att fungera. Strukturen visade varför: den lilla gruppen var precis det som behövdes för att substratet skulle binda med tillräckligt många kontakter.</p>
+<p>Samma noggrannhet märks i vardagen. Många vuxna i världen tål inte mjölksocker, laktos, eftersom de som vuxna inte längre tillverkar laktas, det enzym som bryter ned just det sockret. Tarmens andra sockerspjälkande enzymer kan inte ta över, trots att laktos bara skiljer sig lite från de sockerarter de bryter ned.</p>
+</section>
+</section>
+<section id="sec-l04-hammare" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="sec-l04-hammare"><span class="header-section-number">4.5</span> Hämmare: att stoppa ett enzym</h2>
+<p>Ibland vill man stoppa ett enzym. Det kan vara ett enzym som en sjukdomsframkallande bakterie eller ett virus behöver, eller ett enzym som låter cancerceller dela sig. Då kan man använda en <strong>hämmare</strong>. En bra hämmare är ofta en molekyl som liknar substratet eller övergångstillståndet, så att den binder i det aktiva centret, men som inte kan reagera. Den sitter då kvar och blockerar enzymet. Molekyler som liknar övergångstillståndet är särskilt effektiva, eftersom enzymet binder övergångstillståndet allra hårdast.</p>
+<p>Man skiljer på två huvudtyper (<a href="#fig-l04-hamning" class="quarto-xref">Figur&nbsp;<span>4.5</span></a>):</p>
+<ul>
+<li>Vid <strong>kompetitiv hämning</strong> tävlar hämmaren och substratet om samma plats i det aktiva centret. Ju mer hämmare, desto färre enzymmolekyler är lediga för substratet.</li>
+<li>Vid <strong>icke-kompetitiv hämning</strong> binder hämmaren någon annanstans på enzymet. Den ändrar då enzymets form så att det aktiva centret inte längre fungerar. Detta är ett slags <strong>allosterisk</strong> påverkan, av grekiskans <em>allos</em>, annan, samma princip som vid återkopplingen i <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>.</li>
+</ul>
+<div id="fig-l04-hamning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l04-hamning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L04/inhibering.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l04-hamning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4.5: Två sätt att hämma ett enzym. Till vänster tar hämmaren substratets plats i det aktiva centret. Till höger binder hämmaren på ett annat ställe och ändrar formen på det aktiva centret, så att substratet inte längre passar. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l04-gifter" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-gifter">Gifter</h3>
+<p>Många gifter är enzymhämmare. <strong>Cyanid</strong> är ett välkänt exempel. Det slår ut det sista enzymet i andningskedjan, <strong>cytokrom c-oxidas</strong> (komplex IV), som tar hand om nästan allt det syre som kroppen förbrukar och gör det till vatten (vi återkommer till enzymet i <a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a> och <a href="10-signalering.html#sec-l10-oxidas" class="quarto-xref"><span>Avsnitt 10.1</span></a>). Syret binder till en järnatom i en hemgrupp i enzymets aktiva centrum. Cyanidjonen, som består av en kolatom och en kväveatom, är ungefär lika stor som en syremolekyl och binder på samma plats, och mycket hårt. Då stannar andningskedjan, och cellerna kan inte längre utnyttja syret. Det är därför cyanid är så giftigt. Kolmonoxid binder på liknande sätt till järnet, men är farligt framför allt för att det tränger undan syret i blodets hemoglobin. Andra exempel är vissa nervgaser och extremt giftiga ämnen som binder till viktiga enzymer och slår ut dem helt.</p>
+<p>Hämmare är också ett verktyg i forskningen, eftersom de kan visa hur ett enzym binder sitt substrat. I ett samarbete där Ville Kailas grupp deltog bestämde man strukturen av komplex I, det första enzymet i andningskedjan (<a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>), med en hämmare bunden som liknar enzymets naturliga substrat, ubikinon (koenzym Q10). Hämmaren binder nästan på samma sätt, men saknar den kemiska grupp som behövs för reaktionen, och därför fastnar den och blockerar enzymet.</p>
+</section>
+<section id="sec-l04-lakemedel" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-lakemedel">Läkemedel</h3>
+<p>En stor del av alla läkemedel är enzymhämmare. Ett exempel är läkemedlen mot hiv. Viruset behöver ett enzym, <strong>HIV-proteas</strong>, som klipper sönder långa proteinkedjor till de mindre proteiner som nya viruspartiklar byggs av. Läkemedel som <strong>ritonavir</strong> är molekyler som byggts för att passa precis i proteasets aktiva centrum och blockera det (<a href="#fig-l04-hiv" class="quarto-xref">Figur&nbsp;<span>4.6</span></a>). Utan ett fungerande proteas kan viruset inte bilda nya smittsamma partiklar.</p>
+<div id="fig-l04-hiv" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l04-hiv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L04/hiv-proteas-goodsell.jpg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l04-hiv-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4.6: HIV-proteasets aktiva centrum, sett ovanifrån med enzymets lock borttaget. I mitten ligger en hämmare (grön) i den tunnel där proteinkedjan som ska klippas annars skulle ligga. Till höger samma enzym utan hämmare; asteriskerna markerar de två aminosyror som utför själva klippningen. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>För att kunna konstruera sådana läkemedel måste man veta hur enzymet ser ut och hur det fungerar. Det är en viktig anledning till att grundforskning om enzymer har så stor praktisk betydelse.</p>
+</section>
+</section>
+<section id="sec-l04-kolsyraanhydras" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="sec-l04-kolsyraanhydras"><span class="header-section-number">4.6</span> Ett enzym i detalj: kolsyraanhydras</h2>
+<p>Det mesta i kapitlet hittills går att se i ett enda enzym. Därför ska vi nu följa ett enzym i detalj: vad det gör i kroppen, hur dess aktiva centrum är byggt och hur snabbt det arbetar. <strong>Kolsyraanhydras</strong> (eng. <em>carbonic anhydrase</em>) skyndar på en till synes enkel reaktion: koldioxid reagerar med vatten och bildar bikarbonat och en vätejon. Reaktionen sker även utan enzym. Det är samma reaktion som sker i en läskflaska: koldioxid löser sig i vattnet och bildar kolsyra, som delvis blir bikarbonat. Och det är den som går baklänges och får bubblorna att forsa upp när man skakar flaskan och öppnar den. Men utan enzym går den för långsamt för kroppens behov.</p>
+<section id="sec-l04-blodet" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-blodet">Varför reaktionen är viktig</h3>
+<p>När cellerna förbränner socker och fett bildas koldioxid, som måste transporteras till lungorna. Koldioxiden går från vävnaderna in i de röda blodkropparna. Där finns kolsyraanhydras, som snabbt gör om koldioxiden till bikarbonat, som löser sig i blodet. Det bildas inga gasbubblor, vilket skulle vara farligt. Bikarbonatjonerna förs ut i blodplasman i utbyte mot kloridjoner och transporteras till lungorna (<a href="#fig-l04-blod" class="quarto-xref">Figur&nbsp;<span>4.7</span></a>).</p>
+<p>Samtidigt bildas vätejoner, som gör blodet i de röda blodkropparna lite surare. Det får hemoglobinet att släppa sitt syre, som då kan gå ut till vävnaden. Det är en elegant koppling: just där det bildas mycket koldioxid, alltså där cellerna förbränner mycket, lämnar hemoglobinet ifrån sig mest syre.</p>
+<p>I lungorna går allt baklänges. Bikarbonatet förenas med vätejoner och blir koldioxid igen, som vi andas ut, och hemoglobinet tar upp nytt syre. Samma enzym skyndar på reaktionen åt båda hållen, precis som vi såg att ett enzym ska göra.</p>
+<div id="fig-l04-blod" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l04-blod-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L04/kolsyraanhydras-blod.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l04-blod-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4.7: Kolsyraanhydras i blodet. I vävnaderna gör enzymet om koldioxid till bikarbonat, som förs med blodet till lungorna. Vätejonerna som bildas får hemoglobinet att släppa syre. I lungorna går reaktionen åt andra hållet och koldioxiden andas ut. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Balansen är känslig. Om man hyperventilerar andas man ut för mycket koldioxid, och blodets surhet rubbas. Det är därför man förr ofta fick rådet att andas i en papperspåse. I dag rekommenderas i stället lugn, långsam andning.</p>
+</section>
+<section id="sec-l04-design" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-design">Vi bygger ett enzym på papper</h3>
+<p>Hur skulle man själv konstruera ett enzym för den här reaktionen? Det är ett bra sätt att förstå hur enzymer fungerar. Reaktionen sker i tre steg:</p>
+<ol type="1">
+<li>En vattenmolekyl måste lämna ifrån sig en vätejon (en proton). Kvar blir en <strong>hydroxidjon</strong>, en syreatom med en väteatom, som är negativt laddad.</li>
+<li>Hydroxidjonen angriper koldioxidmolekylen, och en ny bindning bildas mellan syret och kolet. Då har bikarbonat bildats.</li>
+<li>Protonen måste föras bort, ut i den omgivande vätskan.</li>
+</ol>
+<p>Vad behöver vårt enzym då?</p>
+<ul>
+<li><strong>Något som tar emot protonen.</strong> Aminosyran <strong>histidin</strong> passar bra. Den kan lätt både ta upp och lämna ifrån sig en proton vid neutralt pH. Histidinen bör sitta på en rörlig del av enzymet, så att den kan svänga ut och lämna protonen till vätskan utanför.</li>
+<li><strong>En väg för protonen.</strong> Vatten är bra på att leda protoner. En kedja av vattenmolekyler mellan reaktionsplatsen och histidinen kan föra protonen vidare, ungefär som en hink som skickas längs en rad av människor.</li>
+<li><strong>Något som stabiliserar den negativa hydroxidjonen.</strong> Det måste vara något positivt. En metalljon med två positiva laddningar är ett bra val, till exempel <strong>zink</strong>.</li>
+<li><strong>Något som håller zinken på plats.</strong> Histidin är bra på att binda metaller, så tre histidiner kan hålla zinkjonen.</li>
+<li><strong>En omgivning som håller allt i ordning.</strong> Polära aminosyror kan hålla vattenkedjan på plats med vätebindningar. Opolära aminosyror kan skapa en vattenfri miljö på andra sidan, där de elektriska krafterna blir starkare. Ett stabilt betaflak kan bära alltihop.</li>
+</ul>
+<p>Hur har naturen gjort? Om man tittar i den experimentellt bestämda strukturen av kolsyraanhydras hittar man nästan exakt detta. Det finns en zinkjon, bunden av tre histidiner, med en vattenmolekyl eller hydroxidjon fäst vid sig. Det finns en kedja av vattenmolekyler fram till en fjärde histidin, som i strukturen syns i två lägen: ett inåt och ett utåt. Runt omkring finns polära och opolära aminosyror, och alltihop vilar på ett betaflak (<a href="#fig-l04-centrum" class="quarto-xref">Figur&nbsp;<span>4.8</span></a>).</p>
+<p>Att vår ritning och naturens lösning stämmer så väl är ingen slump. Evolutionen har provat sig fram under väldigt lång tid. De organismer som hade ett fungerande enzym överlevde, och därför kan vi i dag förstå varför varje del sitter där den sitter.</p>
+<div id="fig-l04-centrum" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l04-centrum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L04/kolsyraanhydras-centrum.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l04-centrum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4.8: Det aktiva centret i kolsyraanhydras, förenklat. Zinkjonen (grå) hålls på plats av tre histidiner och håller i sin tur en vattenmolekyl. Följ de tre stegen: vattnet lämnar ifrån sig en proton och blir en hydroxidjon, hydroxidjonen angriper koldioxiden så att bikarbonat bildas, och protonen hoppar längs en kedja av vattenmolekyler till en fjärde, rörlig histidin, som svänger ut och lämnar den till vätskan utanför. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<div id="fig-l04-ca" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l04-ca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L04/kolsyraanhydras-goodsell.jpg" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l04-ca-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4.9: Kolsyraanhydras från människa. Enzymet är ett ganska litet protein. I mitten syns det aktiva centrets ficka, här med en hämmare (grön) bunden. Hämmare av kolsyraanhydras används som läkemedel mot grön starr (glaukom), där de minskar trycket i ögat. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Med datorberäkningar, som vi beskriver i <a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>, kan man följa hur reaktionen går till steg för steg: hur protonen hoppar längs vattenkedjan till histidinen, hur hydroxidjonen och koldioxiden bildar en bindning, och hur bikarbonatet till sist lossnar. Varje steg har sitt eget övergångstillstånd.</p>
+</section>
+<section id="sec-l04-experiment" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-experiment">Ett experiment i köket, nästan</h3>
+<p>Hur snabbt enzymet är kan man se med ett enkelt försök. Man tar två glas med samma vattenlösning, som innehåller en <strong>pH-indikator</strong>, ett färgämne som byter färg när lösningen blir sur. En vanlig indikator, tymolblått, är blågrön i den svagt basiska lösningen och slår om till gult eller orange när den blir sur. I det ena glaset tillsätter man lite kolsyraanhydras. Sedan häller man i vatten mättat med koldioxid i båda.</p>
+<p>I glaset med enzym slår färgen om nästan omedelbart. Det beror på att vätejonerna bildas så fort. I glaset utan enzym ändras färgen också, men långsamt. Båda glasen hamnar till sist i samma läge, eftersom enzymet inte ändrar slutresultatet, bara hur snabbt man kommer dit.</p>
+</section>
+</section>
+<section id="sec-l04-kinetik" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="sec-l04-kinetik"><span class="header-section-number">4.7</span> Hur bra är ett enzym? Enzymkinetik</h2>
+<p>Att se att ett glas byter färg snabbare än ett annat är en början. Men naturvetenskap vill mäta. Läran om hur snabbt reaktioner går kallas <strong>kinetik</strong>, och <strong>enzymkinetik</strong> handlar om att beskriva ett enzyms förmåga med några få tal. Färgförändringen i försöket ovan kan till exempel mätas med ett instrument som registrerar hur mycket ljus av en viss färg lösningen släpper igenom, och hur det ändras med tiden (<a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>).</p>
+<section id="sec-l04-mattnad" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-mattnad">Från få kunder till fullt hus</h3>
+<p>Det första man vill veta är hur reaktionen går snabbare när det finns mer substrat, och var det tar stopp. En vardaglig bild gör det lättare att förstå.</p>
+<p>Tänk dig en mataffär med tio kassor och lika många kassörer. När det bara finns ett par kunder i butiken står de flesta kassörerna sysslolösa, och det är kunderna som är begränsningen. Kommer det fler kunder hinner fler kassor arbeta, och fler kunder per minut passerar ut. Men när det står kö vid alla kassor går det inte fortare hur många kunder som än kommer in. Då är det kassörernas arbetstakt som sätter gränsen.</p>
+<p>Ett enzym i en lösning beter sig på samma sätt. Enzymmolekylerna är kassorna och substratmolekylerna kunderna. Med lite substrat tar det tid för substratet att hitta fram till ett enzym, och de flesta enzymer står sysslolösa. Om man ökar mängden substrat ökar reaktionshastigheten. Men till slut är alla enzymers aktiva centra upptagna hela tiden, och då hjälper det inte med mer substrat. Enzymet är <strong>mättat</strong> (<a href="#fig-l04-mattnad" class="quarto-xref">Figur&nbsp;<span>4.10</span></a>).</p>
+<div id="fig-l04-mattnad" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l04-mattnad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L04/mattnad.svg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l04-mattnad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;4.10: Hur reaktionshastigheten beror på mängden substrat. Med lite substrat ökar hastigheten snabbt när man tillsätter mer. Med mycket substrat planar kurvan ut mot maxhastigheten, när alla enzymer arbetar hela tiden. K<sub>M</sub> är den mängd substrat som ger halva maxhastigheten. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l04-kcat-km" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-kcat-km">Två tal som beskriver ett enzym</h3>
+<p>Ur kurvan kan man läsa av två tal som biokemister alltid vill veta om ett enzym:</p>
+<ul>
+<li><strong>Maxhastigheten</strong> visar hur snabbt enzymet arbetar när det har allt substrat det kan önska. Räknat per enzymmolekyl kallas den <strong>k<sub>cat</sub></strong> (uttalas “k-katt”, av <em>katalys</em>), och anger hur många substratmolekyler varje enzymmolekyl hinner omvandla per sekund. Det är kassörens arbetstakt. För kolsyraanhydras är det ungefär en miljon per sekund.</li>
+<li><strong>K<sub>M</sub></strong>, <strong>Michaelis-konstanten</strong>, är den mängd substrat som behövs för att enzymet ska arbeta med halva sin maxhastighet. Den säger något om hur lätt enzymet fångar sitt substrat. Ett enzym med lågt K<sub>M</sub> blir halvmättat redan vid låga substratmängder; det griper substratet effektivt. Ett enzym med högt K<sub>M</sub> behöver mycket substrat.</li>
+</ul>
+<p>Talen kan också kopplas till energidiagrammet (<a href="#fig-l04-barriar" class="quarto-xref">Figur&nbsp;<span>4.2</span></a>). K<sub>M</sub> svarar ungefär mot hur djup gropen för enzym–substratkomplexet är, och k<sub>cat</sub> mot hur högt det är därifrån upp till övergångstillståndet. Det är de två som tillsammans avgör hur bra ett enzym är.</p>
+<p>Sambandet beskrevs matematiskt 1913 av den tyske biokemisten <strong>Leonor Michaelis</strong> och den kanadensiska läkaren och biokemisten <strong>Maud Menten</strong>, och kallas därför <strong>Michaelis–Mentens ekvation</strong>. Konstanten fick bara hans namn, men ekvationen bär bådas.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: Michaelis–Mentens ekvation
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Med <em>v</em> för reaktionshastigheten, <em>V</em><sub>max</sub> för maxhastigheten och [S] för mängden (koncentrationen) substrat lyder ekvationen</p>
+<p><em>v</em> = <em>V</em><sub>max</sub> × [S] / (K<sub>M</sub> + [S])</p>
+<p>I ord: hastigheten är maxhastigheten gånger en andel. Andelen är substratmängden delad med substratmängden plus K<sub>M</sub>, och den ligger alltid mellan noll och ett.</p>
+<ul>
+<li>När det finns mycket mer substrat än K<sub>M</sub> är andelen nästan ett, och hastigheten nästan lika med maxhastigheten.</li>
+<li>När substratmängden är precis lika med K<sub>M</sub> blir andelen [S] / ([S] + [S]), alltså en halv. Det är därför K<sub>M</sub> är den substratmängd som ger halva maxhastigheten.</li>
+<li>När det finns mycket mindre substrat än K<sub>M</sub> kan man bortse från [S] i nämnaren. Då växer hastigheten i proportion till substratmängden, och lutningen bestäms av förhållandet k<sub>cat</sub>/K<sub>M</sub>.</li>
+</ul>
+<p>Maxhastigheten är k<sub>cat</sub> gånger den totala mängden enzym: ju fler kassor, desto fler kunder per minut när det är fullt.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l04-perfekt" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-perfekt">Det perfekta enzymet</h3>
+<p>Hur effektivt ett enzym är när det är ont om substrat, vilket ofta är fallet i cellen, beror på två saker: hur snabbt det arbetar (k<sub>cat</sub>) och hur lätt det fångar substratet (K<sub>M</sub>). Förhållandet <strong>k<sub>cat</sub>/K<sub>M</sub></strong> kallas därför enzymets <strong>effektivitet</strong> (eller specificitetskonstant).</p>
+<p>Det finns en övre gräns för hur effektivt ett enzym kan bli. Ett enzym kan aldrig arbeta snabbare än substratmolekylerna hinner ta sig fram till det. Molekyler i en lösning rör sig genom slumpmässig <strong>diffusion</strong>, och hur snabbt det går beror bland annat på molekylernas storlek. Ett enzym vars effektivitet når upp till den gräns som diffusionen sätter kallas <strong>kinetiskt perfekt</strong>: det omvandlar i stort sett varje substratmolekyl som råkar stöta in i dess aktiva centrum. Kolsyraanhydras ligger mycket nära den gränsen.</p>
+<p>Det överraskande är att kolsyraanhydras binder koldioxid ganska svagt: det har ett högt K<sub>M</sub>, och det behövs relativt mycket koldioxid för att enzymet ska arbeta med halva farten. Men varje gång det väl har fångat en molekyl går omvandlingen så snabbt att kvoten k<sub>cat</sub>/K<sub>M</sub> ändå hamnar nära diffusionsgränsen. Ett bra enzym behöver alltså inte hålla hårt i sitt substrat, bara släppa igenom det snabbt.</p>
+<p>Kolsyraanhydras kan inte bli mycket bättre, och det behöver det inte heller. Det säger något om hur viktigt det är för kroppen att koldioxiden tas om hand snabbt.</p>
+</section>
+<section id="sec-l04-recept" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l04-recept">Ett recept för ett bättre enzym</h3>
+<p>Nu kan vi knyta ihop energidiagrammet och kinetiken till ett recept för hur ett bra enzym ska se ut. Det ska sänka barriären så mycket som möjligt genom att binda övergångstillståndet mycket starkt, så att k<sub>cat</sub> blir högt. Men det ska inte binda substratet så starkt att enzym–substratkomplexet fastnar i en djup grop. Målet är att k<sub>cat</sub>/K<sub>M</sub> blir så högt som möjligt.</p>
+<p>Receptet är användbart när man vill förbättra ett enzym. Om man vill ha ett enzym för en reaktion som inte finns i naturen, till exempel ett som bryter ned plast eller olja, kan man börja med ett enzym som utför reaktionen dåligt, och sedan försöka förbättra det. Antingen byter man ut utvalda aminosyror enligt en idé om hur enzymet fungerar, eller så låter man slumpen och urvalet göra jobbet, som i evolutionen. Hur det går till, och hur forskare tar reda på hur enzymer fungerar i detalj, är ämnet för nästa kapitel (<a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a>).</p>
+</section>
+</section>
+<section id="sec-l04-sammanfattning" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="sec-l04-sammanfattning"><span class="header-section-number">4.8</span> Sammanfattning</h2>
+<ul>
+<li>Enzymer är biologiska katalysatorer, nästan alltid proteiner. De gör kemiska reaktioner miljontals gånger snabbare, under milda förhållanden och utan att förbrukas.</li>
+<li>Ett enzym binder sitt <strong>substrat</strong> i ett <strong>aktivt centrum</strong> och omvandlar det till <strong>produkter</strong>. Många enzymer behöver kofaktorer, som metalljoner eller molekyler tillverkade av vitaminer.</li>
+<li>En reaktion måste ta sig över en energibarriär. Enzymet sänker barriären genom att binda <strong>övergångstillståndet</strong> starkare än substratet, med hjälp av många svaga växelverkningar. Enzymet ändrar inte reaktionens slutresultat.</li>
+<li>Enzymer är specifika: substratet passar som en nyckel i ett lås, och ibland formar enzymet sig efter substratet (inducerad passform).</li>
+<li><strong>Hämmare</strong> binder till enzymet och blockerar det, antingen i det aktiva centret (kompetitiv hämning) eller på ett annat ställe (icke-kompetitiv hämning). Många läkemedel och gifter är hämmare.</li>
+<li>Kolsyraanhydras gör om koldioxid till bikarbonat i blodet med hjälp av en zinkjon, histidiner och en kedja av vattenmolekyler, ungefär en miljon gånger per sekund.</li>
+<li>Ett enzyms förmåga beskrivs med <strong>k<sub>cat</sub></strong>, hur snabbt det arbetar när det är mättat, och <strong>K<sub>M</sub></strong>, hur mycket substrat som behövs för halva maxhastigheten. Kvoten k<sub>cat</sub>/K<sub>M</sub> mäter effektiviteten, och ett enzym som når diffusionsgränsen kallas kinetiskt perfekt.</li>
+</ul>
+</section>
+<section id="sec-l04-nyckelbegrepp" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="sec-l04-nyckelbegrepp"><span class="header-section-number">4.9</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>enzym</strong> – En biologisk katalysator, nästan alltid ett protein, som gör en viss kemisk reaktion mycket snabbare utan att själv förbrukas.</li>
+<li><strong>katalysator</strong> – Ett ämne som gör en kemisk reaktion snabbare utan att förbrukas. Enzymer är cellens katalysatorer.</li>
+<li><strong>substrat</strong> – Den molekyl som ett enzym binder och omvandlar.</li>
+<li><strong>produkt</strong> – En molekyl som bildas i en kemisk reaktion, till exempel när ett enzym har omvandlat sitt substrat.</li>
+<li><strong>aktivt centrum</strong> – Den ficka i ett enzym där substratet binder och där reaktionen sker.</li>
+<li><strong>ribozym</strong> – En RNA-molekyl som fungerar som katalysator. Ribosomens RNA är det viktigaste exemplet.</li>
+<li><strong>prostetisk grupp</strong> – En kofaktor som sitter hårt eller permanent fast i ett enzym, till exempel hemgruppen.</li>
+<li><strong>enzym–substratkomplex</strong> – Enzymet med substratet bundet i det aktiva centret, det första steget i en enzymreaktion: enzym + substrat ⇄ enzym–substratkomplex → enzym + produkt.</li>
+<li><strong>aktiveringsenergi</strong> – Den energibarriär som molekylerna måste ta sig över för att en reaktion ska ske. Ju högre barriär, desto långsammare reaktion.</li>
+<li><strong>övergångstillstånd</strong> – Det instabila läget högst upp på energibarriären, där gamla bindningar håller på att brytas och nya att bildas (eng. transition state). Enzymer binder det särskilt starkt.</li>
+<li><strong>ångström</strong> – En längdenhet, en tiomiljarddels meter (0,1 nanometer). Ungefär storleken av en atom.</li>
+<li><strong>inducerad passform</strong> – Att ett enzym ändrar form när substratet binder och sluter sig runt det, som en handske runt en hand (eng. induced fit).</li>
+<li><strong>specificitet</strong> – Ett enzyms förmåga att bara binda och omvandla ett visst substrat, eller några få närbesläktade.</li>
+<li><strong>hämmare</strong> – En molekyl som binder till ett enzym och hindrar det från att arbeta (eng. inhibitor). Många läkemedel och gifter är hämmare.</li>
+<li><strong>kompetitiv hämning</strong> – Hämning där hämmaren binder i det aktiva centret och tävlar med substratet om platsen.</li>
+<li><strong>icke-kompetitiv hämning</strong> – Hämning där hämmaren binder på ett annat ställe än det aktiva centret och ändrar enzymets form så att det inte fungerar.</li>
+<li><strong>kolsyraanhydras</strong> – Ett zinkinnehållande enzym som omvandlar koldioxid och vatten till bikarbonat och vätejoner, och tillbaka. Viktigt för transporten av koldioxid i blodet.</li>
+<li><strong>pH-indikator</strong> – Ett färgämne som byter färg beroende på hur sur eller basisk en lösning är.</li>
+<li><strong>enzymkinetik</strong> – Läran om hur snabbt enzymer arbetar och hur hastigheten beror på till exempel mängden substrat.</li>
+<li><strong>mättnad</strong> – När det finns så mycket substrat att alla enzymers aktiva centra är upptagna hela tiden. Då ökar inte hastigheten med mer substrat.</li>
+<li><strong>k<sub>cat</sub></strong> – Hur många substratmolekyler en enzymmolekyl hinner omvandla per sekund när den är mättad med substrat (uttalas k-katt).</li>
+<li><strong>K<sub>M</sub> (Michaelis-konstanten)</strong> – Den mängd substrat som ger halva maxhastigheten. Ett lågt värde betyder att enzymet fångar sitt substrat effektivt.</li>
+<li><strong>Michaelis–Mentens ekvation</strong> – Ett matematiskt samband från 1913 som beskriver hur ett enzyms reaktionshastighet beror på mängden substrat.</li>
+<li><strong>diffusion</strong> – Molekylers slumpvisa rörelse i en lösning, som drivs av värme. Små molekyler diffunderar snabbare än stora. Sätter en övre gräns för hur snabbt ett enzym kan arbeta.</li>
+<li><strong>kinetiskt perfekt enzym</strong> – Ett enzym som är så effektivt att det i stort sett omvandlar varje substratmolekyl som når det. Hastigheten begränsas då bara av hur snabbt molekylerna rör sig i lösningen.</li>
+</ul>
+</section>
+<section id="sec-l04-testa" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="sec-l04-testa"><span class="header-section-number">4.10</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L04"></div>
+<script>
+renderQuiz("quiz-L04", [
+ {
+  "question": "Vad gör ett enzym med en kemisk reaktion?",
+  "choices": [
+   "Det gör reaktionen snabbare utan att självt förbrukas",
+   "Det tillför den energi som reaktionen behöver, från ATP",
+   "Det ändrar vilka produkter som bildas och hur mycket energi som frigörs",
+   "Det förbrukas i reaktionen och måste ersättas efter varje gång"
+  ],
+  "correctIndex": 0,
+  "explanation": "Ett enzym är en katalysator. Det sänker energibarriären så att reaktionen går snabbare, men det ändrar inte energiskillnaden mellan start och slut och det går ur reaktionen oförändrat."
+ },
+ {
+  "question": "Vad betyder det att ett enzym stabiliserar övergångstillståndet?",
+  "choices": [
+   "Enzymet binder starkast till det instabila mellanläget högst upp på energibarriären, så att barriären blir lägre",
+   "Enzymet binder substratet så hårt som möjligt så att det aldrig släpper",
+   "Enzymet gör produkterna mer stabila än de annars skulle vara",
+   "Enzymet håller kvar molekylerna i övergångstillståndet under lång tid så att de kan fotograferas"
+  ],
+  "correctIndex": 0,
+  "explanation": "Det aktiva centret passar bäst till övergångstillståndet. De många svaga växelverkningarna sänker dess energi, och därmed blir barriären lägre och reaktionen snabbare."
+ },
+ {
+  "question": "Hur kan ett enzym sänka energibarriären för en reaktion utan att förbruka ATP?",
+  "choices": [
+   "Med många svaga växelverkningar med substratet, som tillsammans blir starka nog att sänka barriären",
+   "Det kan det inte; varje reaktion kräver ATP från enzymet",
+   "Det samlar upp värme från omgivningen och lagrar den tills reaktionen behöver den",
+   "Enzymet bryts själv ned under reaktionen och lämnar ifrån sig energi"
+  ],
+  "correctIndex": 0,
+  "explanation": "Enzymet behöver inte tillföra hela bindningsenergin, bara hjälpa substratet över barriären. Laddningar, vätebindningar och andra svaga krafter är var för sig svaga men många, och tillsammans räcker de."
+ },
+ {
+  "question": "Hexokinas sluter sig runt sockermolekylen när den binder. Vilken modell beskriver det bäst?",
+  "choices": [
+   "Inducerad passform: enzymet ändrar form när substratet binder",
+   "Lås och nyckel: enzymet och substratet har exakt rätt form redan från början",
+   "Kompetitiv hämning: sockret tävlar med en hämmare om platsen",
+   "Mättnad: alla enzymer är upptagna"
+  ],
+  "correctIndex": 0,
+  "explanation": "Koshlands modell om inducerad passform säger att enzymet formar sig efter substratet, som en handske efter handen. Hexokinas är ett typexempel."
+ },
+ {
+  "question": "Varför är molekyler som liknar övergångstillståndet ofta särskilt effektiva hämmare?",
+  "choices": [
+   "Enzymet binder övergångstillståndet allra hårdast, så en molekyl som liknar det binder också mycket hårt",
+   "De reagerar snabbare än det vanliga substratet",
+   "De förstör enzymet så att det måste byggas om",
+   "De binder alltid på ett annat ställe än det aktiva centret"
+  ],
+  "correctIndex": 0,
+  "explanation": "Det aktiva centret är format för att passa övergångstillståndet bäst. En stabil molekyl med liknande form fastnar därför hårt men kan inte reagera, och blockerar enzymet."
+ },
+ {
+  "question": "Vad kännetecknar icke-kompetitiv (allosterisk) hämning?",
+  "choices": [
+   "Hämmaren binder på ett annat ställe än det aktiva centret och ändrar enzymets form",
+   "Hämmaren tävlar med substratet om platsen i det aktiva centret",
+   "Hämmaren bryter ned substratet innan det når enzymet",
+   "Hämmaren gör enzymet snabbare"
+  ],
+  "correctIndex": 0,
+  "explanation": "Vid icke-kompetitiv hämning sitter hämmaren någon annanstans på enzymet. Formförändringen gör att det aktiva centret inte längre fungerar, oavsett hur mycket substrat som finns."
+ },
+ {
+  "question": "Varför är cyanid så giftigt?",
+  "choices": [
+   "Det binder mycket hårt i det aktiva centret på cytokrom c-oxidas, där syret annars binder, så att andningskedjan stannar",
+   "Det förstör cellmembranet så att cellerna spricker",
+   "Det binder till DNA och stoppar celldelningen",
+   "Det sänker blodets pH så mycket att alla enzymer slutar fungera"
+  ],
+  "correctIndex": 0,
+  "explanation": "Cyanid liknar syremolekylen i storlek och binder till järnet i det aktiva centret hos cytokrom c-oxidas. Då kan cellerna inte längre använda syret."
+ },
+ {
+  "question": "Vad händer i de röda blodkropparna i vävnaderna, där kolsyraanhydras arbetar?",
+  "choices": [
+   "Koldioxid görs om till bikarbonat, och de vätejoner som bildas får hemoglobinet att släppa syre",
+   "Bikarbonat görs om till koldioxid som andas ut",
+   "Syre görs om till koldioxid",
+   "Hemoglobinet bryts ned till bikarbonat"
+  ],
+  "correctIndex": 0,
+  "explanation": "Kolsyraanhydras gör koldioxiden löslig som bikarbonat, som förs till lungorna. Vätejonerna gör det lite surare, och då släpper hemoglobinet syre där det behövs. I lungorna går reaktionen baklänges."
+ },
+ {
+  "question": "Varför har kolsyraanhydras en zinkjon i sitt aktiva centrum?",
+  "choices": [
+   "Den positivt laddade zinkjonen stabiliserar den negativa hydroxidjonen som angriper koldioxiden",
+   "Zinken tar emot protonen och för ut den i lösningen",
+   "Zinken ger enzymet dess färg",
+   "Zinken lagrar energi som enzymet sedan använder"
+  ],
+  "correctIndex": 0,
+  "explanation": "När vattnet lämnar en proton blir en negativ hydroxidjon kvar. Den positiva zinkjonen håller den på plats och stabiliserar den. Protonen förs i stället bort via en vattenkedja till en histidin."
+ },
+ {
+  "question": "Ett enzym är mättat med substrat. Vad händer om man tillsätter ännu mer substrat?",
+  "choices": [
+   "Reaktionshastigheten ökar inte nämnvärt, eftersom alla enzymer redan arbetar för fullt",
+   "Reaktionshastigheten fördubblas",
+   "Enzymet slutar fungera",
+   "Michaelis-konstanten ökar så att enzymet blir snabbare"
+  ],
+  "correctIndex": 0,
+  "explanation": "Som i en butik där det står kö vid alla kassor: när alla aktiva centra är upptagna hela tiden sätter enzymets egen arbetstakt gränsen."
+ },
+ {
+  "question": "Två enzymer har samma maxhastighet, men enzym A har lägre Michaelis-konstant än enzym B. Vad betyder det?",
+  "choices": [
+   "Enzym A når halva maxhastigheten vid en lägre substratmängd; det fångar sitt substrat effektivare",
+   "Enzym A arbetar snabbare när det är mättat",
+   "Enzym B binder sitt substrat starkare än enzym A",
+   "Enzym A behöver mer substrat än enzym B för att arbeta"
+  ],
+  "correctIndex": 0,
+  "explanation": "Michaelis-konstanten är den substratmängd som ger halva maxhastigheten. Ett lågt värde betyder att enzymet arbetar bra redan när det finns lite substrat."
+ },
+ {
+  "question": "Vad menas med att kolsyraanhydras är nästan kinetiskt perfekt?",
+  "choices": [
+   "Det omvandlar i stort sett varje substratmolekyl som når fram till det, så hastigheten begränsas av hur snabbt molekylerna hinner diffundera dit",
+   "Det fungerar lika bra vid alla temperaturer och pH-värden",
+   "Det kan katalysera alla kemiska reaktioner i cellen",
+   "Det behöver ingen kofaktor"
+  ],
+  "correctIndex": 0,
+  "explanation": "Ett enzym kan inte arbeta snabbare än substratet hinner ta sig fram till det. När kvoten mellan arbetstakt och Michaelis-konstant (effektiviteten) når den gräns som diffusionen sätter kallas enzymet kinetiskt perfekt."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>4.1</strong> Förklara med egna ord, gärna med en liknelse, varför en reaktion som frigör energi ändå kan gå mycket långsamt, och hur ett enzym kan ändra det.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>En reaktion måste först ta sig över en energibarriär innan den kan frigöra energi, ungefär som en vandrare som ska till en lägre dal men först måste över ett högt bergspass. Högst upp på passet finns övergångstillståndet, där gamla bindningar håller på att brytas och nya att bildas. Ju högre passet är, desto färre molekyler tar sig över på en viss tid, och sambandet är exponentiellt. Enzymet sänker passet genom att binda övergångstillståndet starkare än substratet, med många svaga växelverkningar. Det ändrar inte hur långt ned dalen på andra sidan ligger, bara hur svårt det är att komma dit.</p>
+</div>
+</div>
+</div>
+<p><strong>4.2</strong> Läkemedel mot hiv blockerar ett enzym som viruset behöver. Förklara hur en sådan hämmare fungerar, och varför det är viktigt att känna till enzymets struktur när man utvecklar den.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>HIV-proteas klipper långa proteinkedjor till de mindre proteiner som nya viruspartiklar byggs av. En hämmare som ritonavir är en molekyl som passar precis i enzymets aktiva centrum och binder hårt där, men som inte kan klippas. Den sitter kvar och blockerar enzymet, så att viruset inte kan bilda nya smittsamma partiklar. Det är en kompetitiv hämmare. För att konstruera en molekyl som passar så väl måste man veta hur det aktiva centret ser ut och helst hur övergångstillståndet ser ut, eftersom molekyler som liknar övergångstillståndet binder allra hårdast.</p>
+</div>
+</div>
+</div>
+<p><strong>4.3</strong> Beskriv vad som behövs i ett enzym för att det ska kunna omvandla koldioxid till bikarbonat, och hur kolsyraanhydras löser varje uppgift.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Reaktionen kräver att en vattenmolekyl lämnar en proton, att den negativa hydroxidjon som blir kvar angriper koldioxiden, och att protonen förs bort. Kolsyraanhydras har en positiv zinkjon, hållen på plats av tre histidiner, som stabiliserar hydroxidjonen. En kedja av vattenmolekyler för protonen vidare till en fjärde histidin, som kan ta emot protoner och svänga ut och lämna dem till lösningen. Polära aminosyror håller vattenkedjan på plats, opolära aminosyror skapar en miljö där de elektriska krafterna blir starka, och ett betaflak håller alltihop stabilt.</p>
+</div>
+</div>
+</div>
+<p><strong>4.4</strong> Förklara vad k<sub>cat</sub> och K<sub>M</sub> säger om ett enzym, med hjälp av liknelsen med kassorna i en mataffär.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Enzymmolekylerna är kassorna och substratmolekylerna kunderna. När det finns få kunder står de flesta kassor tomma, och ju fler kunder som kommer, desto fler passerar per minut. När det står kö vid alla kassor går det inte fortare, och då är det kassörernas arbetstakt som bestämmer. Den takten, räknad per kassa, motsvarar k<sub>cat</sub>: hur många substratmolekyler ett enzym omvandlar per sekund när det är mättat. K<sub>M</sub> är den mängd kunder som behövs för att kassorna ska arbeta med halva sin maxtakt. Ett lågt K<sub>M</sub> betyder att enzymet arbetar bra redan när det finns lite substrat.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l04-las-mer" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="sec-l04-las-mer"><span class="header-section-number">4.11</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Enzym">Enzym</a> på svenska Wikipedia, en bra översikt med historik och fler exempel.</li>
+<li><a href="https://pdb101.rcsb.org/motm/49">Carbonic Anhydrase</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), om kolsyraanhydras i blod, växter och koraller.</li>
+<li><a href="https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics">Michaelis–Menten kinetics</a> på engelska Wikipedia, för den som vill se mer av matematiken bakom enzymkinetiken.</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/1946/summary/">Nobelpriset i kemi 1946</a> till James Sumner med flera, för upptäckten att enzymer kan kristalliseras och är proteiner (på engelska).</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/1907/summary/">Nobelpriset i kemi 1907</a> till Eduard Buchner, för upptäckten av cellfri jäsning (på engelska).</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/03-gener-och-genteknik.html" class="pagination-link" aria-label="Gener och genteknik">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/05-syntetisk-biokemi.html" class="pagination-link" aria-label="Syntetisk biokemi – drömmen om att bygga nya proteiner">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

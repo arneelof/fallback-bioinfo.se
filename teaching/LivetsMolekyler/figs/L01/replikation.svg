@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="900" height="360">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="174.0" y="36.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">Ursprunglig DNA-molekyl</text>
+<rect x="32.0" y="130.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="46.0" y="150.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="64.0" y="130.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="78.0" y="150.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="96.0" y="130.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="110.0" y="150.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="128.0" y="130.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="142.0" y="150.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="160.0" y="130.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="174.0" y="150.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="192.0" y="130.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="206.0" y="150.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="224.0" y="130.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="238.0" y="150.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="256.0" y="130.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="270.0" y="150.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="288.0" y="130.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="302.0" y="150.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<line x1="46.0" y1="160" x2="46.0" y2="200" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="78.0" y1="160" x2="78.0" y2="200" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="110.0" y1="160" x2="110.0" y2="200" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="142.0" y1="160" x2="142.0" y2="200" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="174.0" y1="160" x2="174.0" y2="200" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="206.0" y1="160" x2="206.0" y2="200" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="238.0" y1="160" x2="238.0" y2="200" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="270.0" y1="160" x2="270.0" y2="200" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="302.0" y1="160" x2="302.0" y2="200" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<rect x="32.0" y="200.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="46.0" y="220.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="64.0" y="200.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="78.0" y="220.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="96.0" y="200.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="110.0" y="220.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="128.0" y="200.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="142.0" y="220.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="160.0" y="200.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="174.0" y="220.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="192.0" y="200.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="206.0" y="220.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="224.0" y="200.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="238.0" y="220.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="256.0" y="200.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="270.0" y="220.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="288.0" y="200.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="302.0" y="220.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<text x="174.0" y="270.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">A passar bara med T,</text>
+<text x="174.0" y="292.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">G bara med C</text>
+<path d="M340,165 L545,95" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M340,195 L545,265" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<text x="445" y="184.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">strängarna dras isär,</text>
+<text x="445" y="202.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">varje sträng blir mall</text>
+<text x="719.0" y="36.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">Två identiska kopior</text>
+<rect x="577.0" y="55.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="591.0" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="609.0" y="55.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="623.0" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="641.0" y="55.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="655.0" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="673.0" y="55.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="687.0" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="705.0" y="55.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="719.0" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="737.0" y="55.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="751.0" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="769.0" y="55.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="783.0" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="801.0" y="55.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="815.0" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="833.0" y="55.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="847.0" y="76.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<line x1="591.0" y1="85" x2="591.0" y2="115" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="623.0" y1="85" x2="623.0" y2="115" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="655.0" y1="85" x2="655.0" y2="115" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="687.0" y1="85" x2="687.0" y2="115" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="719.0" y1="85" x2="719.0" y2="115" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="751.0" y1="85" x2="751.0" y2="115" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="783.0" y1="85" x2="783.0" y2="115" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="815.0" y1="85" x2="815.0" y2="115" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="847.0" y1="85" x2="847.0" y2="115" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<rect x="577.0" y="115.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="591.0" y="135.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="609.0" y="115.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="623.0" y="135.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="641.0" y="115.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="655.0" y="135.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="673.0" y="115.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="687.0" y="135.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="705.0" y="115.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="719.0" y="135.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="737.0" y="115.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="751.0" y="135.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="769.0" y="115.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="783.0" y="135.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="801.0" y="115.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="815.0" y="135.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="833.0" y="115.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="847.0" y="135.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="577.0" y="220.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="591.0" y="240.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="609.0" y="220.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="623.0" y="240.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="641.0" y="220.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="655.0" y="240.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="673.0" y="220.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="687.0" y="240.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="705.0" y="220.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="719.0" y="240.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="737.0" y="220.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="751.0" y="240.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="769.0" y="220.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="783.0" y="240.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="801.0" y="220.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="815.0" y="240.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="833.0" y="220.0" width="28" height="30" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="847.0" y="240.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<line x1="591.0" y1="250" x2="591.0" y2="280" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="623.0" y1="250" x2="623.0" y2="280" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="655.0" y1="250" x2="655.0" y2="280" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="687.0" y1="250" x2="687.0" y2="280" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="719.0" y1="250" x2="719.0" y2="280" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="751.0" y1="250" x2="751.0" y2="280" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="783.0" y1="250" x2="783.0" y2="280" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="815.0" y1="250" x2="815.0" y2="280" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<line x1="847.0" y1="250" x2="847.0" y2="280" stroke="#666666" stroke-width="2" stroke-dasharray="3,3"/>
+<rect x="577.0" y="280.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="591.0" y="300.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="609.0" y="280.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="623.0" y="300.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="641.0" y="280.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="655.0" y="300.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="673.0" y="280.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="687.0" y="300.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="705.0" y="280.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="719.0" y="300.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">G</text>
+<rect x="737.0" y="280.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="751.0" y="300.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="769.0" y="280.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="783.0" y="300.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">A</text>
+<rect x="801.0" y="280.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="815.0" y="300.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">C</text>
+<rect x="833.0" y="280.0" width="28" height="30" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="847.0" y="300.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">T</text>
+<rect x="30" y="322" width="22" height="18" rx="3" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="60" y="335.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#222222">gammal sträng</text>
+<rect x="200" y="322" width="22" height="18" rx="3" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="230" y="335.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#222222">ny sträng</text>
+</svg>

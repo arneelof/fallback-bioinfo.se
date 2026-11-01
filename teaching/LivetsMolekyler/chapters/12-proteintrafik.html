@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>12&nbsp; Proteintrafik i cellen – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/13-chaperoner.html" rel="next">
+<link href="../chapters/11-omik.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/11-omik.html">Cellen som helhet</a></li><li class="breadcrumb-item"><a href="../chapters/12-proteintrafik.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l12-hur-manga" id="toc-sec-l12-hur-manga" class="nav-link active" data-scroll-target="#sec-l12-hur-manga"><span class="header-section-number">12.1</span> Hur många proteiner finns det?</a></li>
+  <li><a href="#sec-l12-var" id="toc-sec-l12-var" class="nav-link" data-scroll-target="#sec-l12-var"><span class="header-section-number">12.2</span> Var tillverkas proteinerna?</a>
+  <ul class="collapse">
+  <li><a href="#sec-l12-organell-dna" id="toc-sec-l12-organell-dna" class="nav-link" data-scroll-target="#sec-l12-organell-dna">Organeller med eget DNA</a></li>
+  <li><a href="#sec-l12-trafik" id="toc-sec-l12-trafik" class="nav-link" data-scroll-target="#sec-l12-trafik">En enorm trafik</a></li>
+  </ul></li>
+  <li><a href="#sec-l12-signaler" id="toc-sec-l12-signaler" class="nav-link" data-scroll-target="#sec-l12-signaler"><span class="header-section-number">12.3</span> Adresslappar på proteinerna</a></li>
+  <li><a href="#sec-l12-sekretoriska" id="toc-sec-l12-sekretoriska" class="nav-link" data-scroll-target="#sec-l12-sekretoriska"><span class="header-section-number">12.4</span> Den sekretoriska vägen</a>
+  <ul class="collapse">
+  <li><a href="#sec-l12-srp" id="toc-sec-l12-srp" class="nav-link" data-scroll-target="#sec-l12-srp">Signalpeptiden och SRP</a></li>
+  <li><a href="#sec-l12-vesiklar" id="toc-sec-l12-vesiklar" class="nav-link" data-scroll-target="#sec-l12-vesiklar">Blåsor som paket</a></li>
+  <li><a href="#sec-l12-omsattning" id="toc-sec-l12-omsattning" class="nav-link" data-scroll-target="#sec-l12-omsattning">Hundratals gram protein om dagen</a></li>
+  </ul></li>
+  <li><a href="#sec-l12-mitokondrier" id="toc-sec-l12-mitokondrier" class="nav-link" data-scroll-target="#sec-l12-mitokondrier"><span class="header-section-number">12.5</span> In i mitokondrierna</a>
+  <ul class="collapse">
+  <li><a href="#sec-l12-presekvens" id="toc-sec-l12-presekvens" class="nav-link" data-scroll-target="#sec-l12-presekvens">Adresslappen: en helix med två ansikten</a></li>
+  <li><a href="#sec-l12-tom-tim" id="toc-sec-l12-tom-tim" class="nav-link" data-scroll-target="#sec-l12-tom-tim">Två portar i rad</a></li>
+  <li><a href="#sec-l12-drivkraft" id="toc-sec-l12-drivkraft" class="nav-link" data-scroll-target="#sec-l12-drivkraft">Vad drar in proteinet?</a></li>
+  <li><a href="#sec-l12-vagar-mito" id="toc-sec-l12-vagar-mito" class="nav-link" data-scroll-target="#sec-l12-vagar-mito">Många vägar inne i mitokondrien</a></li>
+  <li><a href="#sec-l12-mpp" id="toc-sec-l12-mpp" class="nav-link" data-scroll-target="#sec-l12-mpp">Saxen som klipper av adresslappen</a></li>
+  <li><a href="#sec-l12-prep" id="toc-sec-l12-prep" class="nav-link" data-scroll-target="#sec-l12-prep">Städaren och Alzheimers sjukdom</a></li>
+  </ul></li>
+  <li><a href="#sec-l12-kloroplaster" id="toc-sec-l12-kloroplaster" class="nav-link" data-scroll-target="#sec-l12-kloroplaster"><span class="header-section-number">12.6</span> Kloroplaster: samma princip, andra maskiner</a></li>
+  <li><a href="#sec-l12-karnan" id="toc-sec-l12-karnan" class="nav-link" data-scroll-target="#sec-l12-karnan"><span class="header-section-number">12.7</span> In i kärnan: veckade proteiner genom stora porer</a></li>
+  <li><a href="#sec-l12-peroxisomer" id="toc-sec-l12-peroxisomer" class="nav-link" data-scroll-target="#sec-l12-peroxisomer"><span class="header-section-number">12.8</span> Peroxisomer: en adresslapp i slutet</a></li>
+  <li><a href="#sec-l12-jamforelse" id="toc-sec-l12-jamforelse" class="nav-link" data-scroll-target="#sec-l12-jamforelse"><span class="header-section-number">12.9</span> Fyra organeller, fyra sorters adresslappar</a></li>
+  <li><a href="#sec-l12-sammanfattning" id="toc-sec-l12-sammanfattning" class="nav-link" data-scroll-target="#sec-l12-sammanfattning"><span class="header-section-number">12.10</span> Sammanfattning</a></li>
+  <li><a href="#sec-l12-nyckelbegrepp" id="toc-sec-l12-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l12-nyckelbegrepp"><span class="header-section-number">12.11</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l12-testa" id="toc-sec-l12-testa" class="nav-link" data-scroll-target="#sec-l12-testa"><span class="header-section-number">12.12</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l12-las-mer" id="toc-sec-l12-las-mer" class="nav-link" data-scroll-target="#sec-l12-las-mer"><span class="header-section-number">12.13</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/11-omik.html">Cellen som helhet</a></li><li class="breadcrumb-item"><a href="../chapters/12-proteintrafik.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l12" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 12, <em>Proteintrafik i cellen</em>, av Elzbieta Glaser (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>förklara var i cellen proteinerna kodas och tillverkas, och varför mitokondrier och kloroplaster har eget DNA,</li>
+<li>beskriva hur en signalpeptid fungerar som en adresslapp som styr ett protein till rätt ställe i cellen,</li>
+<li>förklara skillnaden mellan den sekretoriska vägen, där proteiner förs in i det endoplasmatiska nätverket medan de tillverkas, och import av färdiga proteiner till mitokondrier, kloroplaster, cellkärna och peroxisomer,</li>
+<li>beskriva i grova drag hur ett protein tar sig in genom mitokondriens två membran och vad som händer med signalpeptiden efteråt,</li>
+<li>ge exempel på sjukdomar som beror på fel i proteintrafiken.</li>
+</ul>
+</div>
+</div>
+<p>Ett stort postsorteringsverk tar varje dag emot miljontals brev och paket. Nästan inget av dem kommer fel, eftersom varje försändelse har en adress och sorteringsmaskinerna kan läsa den. En cell har samma problem, fast i mycket mindre skala. Människokroppen består av ungefär 37 000 miljarder celler, och i var och en tillverkas hela tiden tusentals olika proteiner. De flesta tillverkas på samma ställe, i cellvätskan, men de ska användas på helt olika ställen: i cellkärnan, i mitokondrierna, i cellmembranet eller utanför cellen. Hur vet ett nytillverkat protein vart det ska?</p>
+<p>Svaret är att proteinerna bär sin egen adresslapp, en kort bit av aminosyrakedjan som cellens maskineri kan läsa. I det här kapitlet ser vi hur adresslapparna ser ut, vilka “brevbärare” och “portar” som läser dem, och vad som händer när något går fel. Kapitlet bygger på det vi lärt oss om proteinsyntes i <a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a> och om cellens membran och organeller i <a href="07-biomembran.html" class="quarto-xref"><span>Kapitel 7</span></a>.</p>
+<section id="sec-l12-hur-manga" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="sec-l12-hur-manga"><span class="header-section-number">12.1</span> Hur många proteiner finns det?</h2>
+<p>För att förstå trafiken måste vi först veta hur många “försändelser” det handlar om. Proteinerna kodas av DNA, och för omkring trettio år sedan började laboratorier över hela världen att läsa av, <strong>sekvensera</strong>, hela arvsmassan hos olika organismer (<a href="03-gener-och-genteknik.html#sec-l03-sekvensering" class="quarto-xref"><span>Avsnitt 3.6</span></a>). Man började med små genom, från bakterier och mitokondrier, och år 2000 presenterades ett första utkast av människans arvsmassa. Sedan dess har mängden sekvenserat DNA vuxit explosionsartat. De stora offentliga databaserna innehåller i dag tiotusentals miljarder baspar, fritt tillgängliga för forskare i hela världen (<a href="11-omik.html#sec-l11-explosion" class="quarto-xref"><span>Avsnitt 11.5.5</span></a>).</p>
+<p>När människans arvsmassa var färdigläst blev många förvånade. Man hade trott att den skulle innehålla kanske 50 000 gener som kodar för proteiner, men det var bara omkring 20 000. Som vi såg i <a href="11-omik.html#tbl-l11-gener" class="quarto-xref">Tabell&nbsp;<span>11.1</span></a> har en liten ogräsväxt, backtrav, fler sådana gener än vi, och bakjäst har omkring 6 000. De proteinkodande delarna utgör bara någon procent av vårt DNA; resten har andra uppgifter eller okänd funktion (<a href="11-omik.html#sec-l11-innehall" class="quarto-xref"><span>Avsnitt 11.10</span></a>).</p>
+<p>Att bakjäst klarar sig med 6 000 proteiner och människan bara har drygt tre gånger så många kändes för en del forskare nästan förolämpande. Men siffran berättar inte hela sanningen. En och samma gen kan ge flera olika proteiner, eftersom budbärar-RNA:t kan klippas ihop på olika sätt (<a href="03-gener-och-genteknik.html#sec-l03-eukaryota" class="quarto-xref"><span>Avsnitt 3.2.2</span></a>) och eftersom proteinerna kan förändras efter att de tillverkats, till exempel genom att socker eller fosfatgrupper fästs vid dem. Räknar man alla sådana varianter blir det i storleksordningen 100 000 olika proteiner, kanske fler. Mellan olika människor är skillnaderna däremot små: vårt DNA är till 99,9 procent identiskt, varifrån vi än kommer.</p>
+<p>Alla celler tillverkar inte alla proteiner, men varje cell gör tusentals olika. Det är de försändelserna som ska sorteras.</p>
+</section>
+<section id="sec-l12-var" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="sec-l12-var"><span class="header-section-number">12.2</span> Var tillverkas proteinerna?</h2>
+<p>Innan vi kan följa ett protein till dess mål måste vi veta var det startar. Svaret beror på hur cellen är byggd.</p>
+<p>Bakterier är enkelt byggda. Deras DNA ligger fritt i cellen, och nästan alla proteiner tillverkas och används i samma utrymme. Djur- och växtceller är däremot uppdelade i många rum, <strong>organeller</strong>, omgivna av membran (<a href="07-biomembran.html#sec-l07-organeller" class="quarto-xref"><span>Avsnitt 7.4</span></a>): cellkärnan, det endoplasmatiska nätverket, golgiapparaten, lysosomerna, mitokondrierna och, hos växter, kloroplasterna.</p>
+<p>Nästan allt DNA finns i <strong>cellkärnan</strong>, och därifrån kodas mer än 98 procent av cellens proteiner. Men cellkärnan tillverkar inga proteiner. Där sker bara transkriptionen, då DNA skrivs av till budbärar-RNA, mRNA (<a href="01-levande-celler.html#sec-l01-transkription" class="quarto-xref"><span>Avsnitt 1.8</span></a>). mRNA:t förs ut genom kärnporerna till <strong>cytosolen</strong>, cellvätskan utanför organellerna. Där läses det av ribosomer som bygger proteinerna (<a href="01-levande-celler.html#sec-l01-translation" class="quarto-xref"><span>Avsnitt 1.9</span></a>). Det betyder att även de proteiner som ska arbeta inne i kärnan tillverkas ute i cytosolen och måste transporteras tillbaka in.</p>
+<p>Ribosomerna i cytosolen är av två slag. En del flyter fritt. Andra sitter fast på det endoplasmatiska nätverkets membran, vilket ger nätverket ett knottrigt utseende i elektronmikroskopet. Varför de sitter där förklaras i avsnittet om den sekretoriska vägen nedan.</p>
+<section id="sec-l12-organell-dna" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-organell-dna">Organeller med eget DNA</h3>
+<p>Det finns två undantag från regeln att allt DNA finns i kärnan. <strong>Mitokondrierna</strong> har ett eget litet DNA, och det har även växternas <strong>kloroplaster</strong>. De har också egna ribosomer och tillverkar själva de proteiner som deras eget DNA kodar för.</p>
+<p>Förklaringen ligger långt tillbaka i evolutionen och kallas <strong>endosymbiontteorin</strong>. För mer än en och en halv miljard år sedan levde en cell som inte kunde använda syre för att bryta ned sin näring helt. Den tog upp en bakterie som kunde det. I stället för att bakterien bröts ned fortsatte den att leva och föröka sig inuti värdcellen, och båda tjänade på samarbetet: värdcellen fick tillgång till den effektiva syreandningen, och bakterien fick skydd och näring. Med tiden blev bakterien en mitokondrie. Senare tog en cell som redan hade mitokondrier på samma sätt upp en fotosyntetiserande <strong>cyanobakterie</strong>, och den blev kloroplasten. Så uppstod förfäderna till dagens växter och alger (<a href="#fig-l12-endosymbios" class="quarto-xref">Figur&nbsp;<span>12.1</span></a>).</p>
+<div id="fig-l12-endosymbios" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-endosymbios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/endosymbios.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-endosymbios-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.1: Endosymbiontteorin, förenklad. En värdcell tog upp en bakterie som kunde andas syre, och den blev med tiden en mitokondrie. Senare tog en cell som redan hade mitokondrier upp en cyanobakterie, som blev kloroplasten. I rutan: några av de spår av bakterieursprunget som syns än i dag. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Under de mer än en miljard år som gått har det mesta av de gamla bakteriernas gener flyttat över till cellkärnan. Det som finns kvar är ett litet rest-DNA. Mitokondrierna är alltså inte bakterier längre, men ungefär hälften av deras proteiner liknar fortfarande bakteriernas. Resten är nya uppfinningar som bara finns hos eukaryoter, organismer med cellkärna.</p>
+<p>Människans mitokondriella DNA är en ring med 16 569 baspar som kodar för bara 13 proteiner (<a href="#fig-l12-mtdna" class="quarto-xref">Figur&nbsp;<span>12.2</span></a>). Det är få, men de är viktiga. Alla är delar av de stora proteinkomplexen i andningskedjan och av ATP-syntas, de maskiner som tillverkar det mesta av vårt ATP (<a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a>).</p>
+<p>Hos andra organismer varierar antalet: malariaparasiten <em>Plasmodium</em> har bara 3 proteingener kvar i sina mitokondrier, medan vissa encelliga organismer, som <em>Reclinomonas</em>, har över 60. Men en mitokondrie innehåller omkring tusen olika proteiner, så även i det mest generösa fallet tillverkas bara en bråkdel av dem i organellen. Detsamma gäller kloroplasten. Dess DNA är flera gånger större och kodar för omkring hundra proteiner, men en kloroplast innehåller 2 000–3 000. Resten kodas i kärnan och måste föras in utifrån.</p>
+<div id="fig-l12-mtdna" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-mtdna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/mitokondrie-dna.svg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-mtdna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.2: Människans mitokondriella DNA, en ring med 16 569 baspar. Generna för proteiner i andningskedjans komplex I (gult, ND1–ND6), komplex III (CYTB, cytokrom b, laxrosa), komplex IV (COX1–COX3, orange) och ATP-syntas (ATP6 och ATP8, rött) utgör tillsammans 13 proteiner. De blå fälten är gener för ribosomernas RNA och de små vita rutorna gener för tRNA. Bild: Emmanuel Douzery, Wikimedia Commons, CC BY-SA 4.0.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: den mitokondriella Eva
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Vi ärver våra mitokondrier bara från vår mor, eftersom de kommer med äggcellen. Mitokondriernas DNA blandas därför inte med faderns DNA i varje generation, som kärnans DNA gör. Det förändras dessutom snabbare än DNA:t i cellkärnan. En förklaring som brukar ges är att det ligger nära andningskedjan, där det bildas reaktiva syreföreningar som kan skada DNA. Små skillnader i det mitokondriella DNA:t kan därför användas för att följa släktlinjer på mödernet bakåt i tiden. Sådana studier visar att alla nu levande människors mitokondrier härstammar från en kvinna som levde i Afrika för omkring 150 000–200 000 år sedan, den så kallade mitokondriella Eva. Hon var inte den enda kvinnan på sin tid, men den enda vars mitokondriella släktlinje har överlevt till i dag.</p>
+</div>
+</div>
+</div>
+<p>Att mitokondriernas proteiner kodas på två ställen, i organellen och i kärnan, märks också när något går fel. Eftersom mitokondrierna levererar energi till hela kroppen kan fel i deras proteiner ge allvarliga sjukdomar. Det drabbar särskilt organ som gör av med mycket energi: hjärnan, musklerna, hjärtat och ögonen. Ett exempel är <strong>Lebers hereditära opticusneuropati</strong>, där synnerven skadas så att man plötsligt förlorar synen, ofta i ung vuxen ålder. Den beror på mutationer i mitokondriernas egna gener för andningskedjan. Ett annat är en form av epilepsi med muskelsjukdom, som beror på en mutation i en av mitokondriernas tRNA-gener. Men de flesta mitokondriella proteiner kodas i kärnan, så mitokondriella sjukdomar kan lika gärna bero på mutationer i kärnans DNA.</p>
+</section>
+<section id="sec-l12-trafik" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-trafik">En enorm trafik</h3>
+<p>Nu förstår vi omfattningen av problemet. Omkring tusen olika proteiner ska in i varje mitokondrie, och flera tusen i varje kloroplast, trots att de tillverkats ute i cytosolen. Alla proteiner som arbetar i cellkärnan ska in i kärnan. Därtill kommer de proteiner som ska ut ur cellen eller sitta i cellmembranet. Varje sekund skickas mängder av nytillverkade proteiner åt olika håll, och nästan alla kommer rätt.</p>
+</section>
+</section>
+<section id="sec-l12-signaler" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="sec-l12-signaler"><span class="header-section-number">12.3</span> Adresslappar på proteinerna</h2>
+<p>Hur kan nästan alla dessa proteiner hamna rätt? På 1970-talet visade den tysk-amerikanske cellbiologen <strong>Günter Blobel</strong> (<a href="#fig-l12-blobel" class="quarto-xref">Figur&nbsp;<span>12.3</span></a>) vid Rockefelleruniversitetet i New York att nytillverkade proteiner har en inbyggd signal, en kort sträcka av aminosyror, som styr dem till rätt ställe i cellen. Han jämförde signalerna med postnummer eller adresslappar på resväskor: utan att öppna paketet kan sorteringsmaskineriet läsa adressen och skicka det rätt. Blobel fick Nobelpriset i fysiologi eller medicin 1999 “för upptäckten att proteiner har inbyggda signaler som styr deras transport och placering i cellen”.</p>
+<p>Blobel växte upp i Schlesien och flydde som barn med sin familj till Dresden strax före bombningarna av staden 1945. Han skänkte hela sin prissumma till återuppbyggnaden av Dresden, framför allt av den förstörda kyrkan Frauenkirche och av en ny synagoga.</p>
+<div id="fig-l12-blobel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-blobel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/gunter-blobel.jpg" class="img-fluid figure-img" style="width:35.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-blobel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.3: Günter Blobel (1936–2018), som visade att proteiner bär sina egna adresslappar, fotograferad 2008. Bild: Masur och Lämpel, Wikimedia Commons, CC BY-SA 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Adresslapparna ser olika ut beroende på vart proteinet ska. Proteiner som ska till det endoplasmatiska nätverket, till mitokondrier och till kloroplaster har sin signal längst fram, i den ände av aminosyrakedjan som tillverkas först, <strong>N-änden</strong> (eller N-terminalen). Den andra änden kallas <strong>C-änden</strong>. En signal som sitter i början av kedjan och klipps bort när proteinet har kommit fram kallas en <strong>signalpeptid</strong>. Proteiner som ska till cellkärnan eller till de små organeller som heter peroxisomer har helt andra sorters signaler.</p>
+<p>Adresslappen avgör inte bara målet utan också vägen dit. Cellen har två huvudvägar, som skiljer sig i grunden från varandra (<a href="#fig-l12-vagar" class="quarto-xref">Figur&nbsp;<span>12.4</span></a>):</p>
+<ol type="1">
+<li><strong>Den sekretoriska vägen.</strong> Proteiner som ska ut ur cellen, till cellmembranet eller till lysosomerna förs in i det endoplasmatiska nätverket redan medan de tillverkas. Därifrån skickas de vidare i små membranblåsor, som paket.</li>
+<li><strong>Import av färdiga proteiner.</strong> Proteiner som ska till mitokondrier, kloroplaster, cellkärnan eller peroxisomerna tillverkas färdigt av fria ribosomer i cytosolen. Först därefter förs de in i sin organell, ett och ett, genom särskilda porer i membranet.</li>
+</ol>
+<div id="fig-l12-vagar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-vagar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/sorteringsvagar.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-vagar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.4: Cellens två huvudvägar för proteintrafik. Till vänster den sekretoriska vägen: proteinet förs in i det endoplasmatiska nätverket medan det tillverkas, och skickas sedan vidare i blåsor via golgiapparaten. Till höger import av färdiga proteiner till fyra sorters organeller. Observera att proteinerna förs in i mitokondrier och kloroplaster oveckade, men in i cellkärnan och peroxisomerna i veckad form. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l12-sekretoriska" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="sec-l12-sekretoriska"><span class="header-section-number">12.4</span> Den sekretoriska vägen</h2>
+<p>Vi börjar med den första huvudvägen. Den kallas sekretorisk eftersom den leder till sekretion, att proteiner utsöndras ur cellen, men den används också av proteiner som ska till cellmembranet eller lysosomerna. Många proteiner som vi känner till går den här vägen. Hit hör blodets proteiner, som albumin, transferrin (som transporterar järn) och antikropparna, våra försvarsproteiner mot inkräktare. Hit hör också kollagen och andra proteiner i bindväven mellan cellerna, hormoner som insulin, matsmältningsenzymer som trypsin och amylas från bukspottkörteln, och mjölkens proteiner, till exempel kasein.</p>
+<section id="sec-l12-srp" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-srp">Signalpeptiden och SRP</h3>
+<p>Signalpeptiden för den sekretoriska vägen är 15–30 aminosyror lång och består av tre delar (<a href="#fig-l12-srp" class="quarto-xref">Figur&nbsp;<span>12.5</span></a>, överst). Längst fram finns några positivt laddade aminosyror, ofta arginin eller lysin. I mitten finns en sträcka med vattenskygga (<strong>hydrofoba</strong>) aminosyror. Sist kommer några små aminosyror som markerar var signalpeptiden ska klippas av. Exakt vilka aminosyror som ingår varierar mycket mellan olika proteiner. Det som räknas är mönstret: laddat, vattenskyggt, litet.</p>
+<div id="fig-l12-srp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-srp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/srp.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-srp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.5: Överst: en signalpeptid för det endoplasmatiska nätverket har en positivt laddad början, en vattenskygg mitt och en kort polär del där den klipps av. Nederst: hur proteinet förs in. (1) Medan ribosomen tillverkar proteinet sticker signalpeptiden ut ur ribosomen och känns igen av SRP. (2) SRP för ribosomen till sin receptor på det endoplasmatiska nätverkets membran. (3) SRP släpper, och den växande kedjan skjuts genom translokonet. (4) Ett enzym, signalpeptidas, klipper bort signalpeptiden, och proteinet veckas på insidan. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Hur läses då adresslappen? När ribosomen börjar tillverka ett sådant protein kommer signalpeptiden ut först. Den känns genast igen av en “medhjälpare” i cytosolen, en <strong>signaligenkännande partikel</strong> (eng. <em>signal recognition particle</em>, <strong>SRP</strong>). SRP är byggd av både protein och RNA. Den binder till signalpeptiden och bromsar proteintillverkningen, så att proteinet inte hinner bli färdigt ute i cytosolen. Sedan för den hela komplexet av ribosom, mRNA och växande protein till en <strong>SRP-receptor</strong> i det endoplasmatiska nätverkets membran. Både SRP och receptorn har bundit <strong>GTP</strong>, en energirik molekyl som liknar ATP. När de möts spjälkas GTP:t, SRP och receptorn släpper taget, och ribosomen hamnar direkt över en por i membranet, <strong>translokonet</strong>. Det är sådana ribosomer som sitter fast på det endoplasmatiska nätverket och ger det dess knottriga utseende.</p>
+<p>Nu fortsätter tillverkningen, och den växande proteinkedjan skjuts rakt genom poren in i det endoplasmatiska nätverket. Där inne sitter ett enzym, <strong>signalpeptidas</strong>, som klipper bort signalpeptiden. Adresslappen behövs inte längre och bryts ned. Resten av proteinet veckas till sin färdiga form, ofta med hjälp av hjälpproteiner, och många proteiner får också kedjor av socker fästa vid sig.</p>
+<p>Proteinet förs med andra ord in i det endoplasmatiska nätverket <em>samtidigt</em> som det tillverkas. Det är viktigt, för en veckad proteinkedja skulle inte kunna ta sig igenom den smala poren. Därför bromsar SRP tillverkningen tills ribosomen sitter på plats.</p>
+<p>Proteiner som ska sitta i ett membran, till exempel i cellmembranet, tar samma väg in. Skillnaden är att de har sträckor av vattenskygga aminosyror som inte klipps bort. När en sådan sträcka passerar translokonet glider den ut åt sidan, in bland membranets lipider, och blir kvar där som en helix som går genom membranet (<a href="08-membranproteiner.html#sec-l08-insattning" class="quarto-xref"><span>Avsnitt 8.2.2</span></a>).</p>
+</section>
+<section id="sec-l12-vesiklar" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-vesiklar">Blåsor som paket</h3>
+<p>Det endoplasmatiska nätverket är bara första stationen. Därifrån skickas proteinerna vidare i små membranblåsor, <strong>vesikler</strong>, som knoppas av från nätverkets membran (<a href="07-biomembran.html#sec-l07-vesikler" class="quarto-xref"><span>Avsnitt 7.8</span></a>). Blåsorna förs till <strong>golgiapparaten</strong>, en stapel av platta membranpåsar där proteinerna förädlas och sorteras. Golgiapparaten har en mottagarsida, <em>cis</em>-sidan, och en avsändarsida, <em>trans</em>-sidan. Från trans-sidan knoppas nya blåsor av. En del går till cellmembranet, där de smälter samman med det och släpper ut sitt innehåll utanför cellen. En del går till lysosomerna, cellens återvinningsstationer. Proteiner som ska sitta i cellmembranet följer med i blåsornas membran och hamnar i cellmembranet när blåsan smälter samman med det.</p>
+<p>Hur kan alla dessa blåsor hitta rätt? För sina upptäckter av maskineriet som styr blåsornas trafik fick James Rothman, Randy Schekman och Thomas Südhof Nobelpriset i fysiologi eller medicin 2013. Svaret har två delar: hur en blåsa bildas och hur den smälter samman med rätt mål. Under resan “klär blåsorna på sig” och “klär av sig”.</p>
+<p>För att en bit membran ska knoppas av måste proteiner från cytosolen samlas på dess utsida och bilda ett skal, en sorts kappa, som böjer membranet till en bubbla. GTP används för att styra när skalet byggs upp. Ett välkänt sådant skalprotein är <strong>klatrin</strong>. Det består av trebenta enheter som fogas ihop till en bur av fem- och sexhörningar, ungefär som lapparna på en fotboll (<a href="#fig-l12-klatrin" class="quarto-xref">Figur&nbsp;<span>12.6</span></a>).</p>
+<div id="fig-l12-klatrin" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-klatrin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/klatrin-goodsell.jpg" class="img-fluid figure-img" style="width:45.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-klatrin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.6: Klatrin. Överst en bur av klatrin, byggd av 36 trebenta enheter; en av dem är markerad i ljusare färg. Nederst en enskild trebent enhet. Den lilla röda pricken är en hemoglobinmolekyl, som jämförelse för storleken. I cellen bildas en sådan bur runt en bit membran som ska knoppas av till en blåsa. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>När blåsan har knoppats av måste den klä av sig skalet igen, annars kan den inte smälta samman med sitt mål. På blåsans yta och på målmembranet sitter proteiner som passar ihop, ungefär som de två halvorna av ett blixtlås. Bara när rätt blåsa möter rätt membran dras de ihop, så att membranen smälter samman. Det ger trafiken dess precision.</p>
+<p>Trafiken går också åt andra hållet, och det visar hur genomtänkt systemet är. Om blåsor hela tiden knoppades av från det endoplasmatiska nätverket utan att något kom tillbaka, skulle nätverket till slut ta slut på membran. Dessutom följer en del proteiner som ska stanna i nätverket med av misstag. Därför går det också blåsor tillbaka från golgiapparaten till det endoplasmatiska nätverket. Proteiner som hör hemma i nätverket har en egen kort signal längst bak, fyra bestämda aminosyror. En receptor i golgiapparaten känner igen signalen och skickar proteinerna tillbaka, tillsammans med membranet i returblåsorna.</p>
+</section>
+<section id="sec-l12-omsattning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-omsattning">Hundratals gram protein om dagen</h3>
+<p>Allt detta pågår oavbrutet, eftersom proteinerna hela tiden byts ut. Proteiner lever olika länge, en del i minuter och andra i månader, men de flesta bryts så småningom ned och ersätts med nya. En vuxen människa i västvärlden äter ungefär 100 gram protein om dagen, trots att omkring hälften skulle räcka. Men i kroppens celler tillverkas och bryts ned flera gånger så mycket protein varje dag, flera hundra gram. En stor del av det går genom det endoplasmatiska nätverket, golgiapparaten och blåsorna. Cellen är en fabrik med ständigt löpande band.</p>
+</section>
+</section>
+<section id="sec-l12-mitokondrier" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="sec-l12-mitokondrier"><span class="header-section-number">12.5</span> In i mitokondrierna</h2>
+<p>Nu till den andra huvudvägen, import av färdiga proteiner, och till mitokondrien, den organell som Elzbieta Glaser har forskat om under nästan hela sitt yrkesliv. Hos människan tillverkas bara 13 av mitokondriens omkring tusen proteiner inne i mitokondrien. Mer än 98 procent tillverkas i cytosolen och måste importeras. För att förstå hur det går till måste vi först se hur mitokondrien är byggd.</p>
+<p>En mitokondrie har två membran (<a href="09-molekylara-maskiner.html#sec-l09-mitokondrier" class="quarto-xref"><span>Avsnitt 9.1.1</span></a> och <a href="#fig-l12-cristae" class="quarto-xref">Figur&nbsp;<span>12.7</span></a>, till vänster). Det <strong>yttre membranet</strong> omsluter hela organellen. Det <strong>inre membranet</strong> är kraftigt veckat i instjälpningar, <strong>cristae</strong>, och innesluter mitokondriens innersta rum, <strong>matrix</strong>. Mellan de två membranen finns ett smalt <strong>mellanmembranutrymme</strong>. Ett protein som ska till matrix måste alltså ta sig igenom två membran.</p>
+<p>Den klassiska bilden av mitokondrien, med cristae som tvärslåar, är mer än sjuttio år gammal. Den kommer från de första elektronmikroskopiska bilderna i början av 1950-talet, bland annat av svensken Fritiof Sjöstrand. Var proteinerna sitter i membranen har man kunnat se först på senare år. Med kryoelektrontomografi (<a href="17-idag-och-i-morgon.html#sec-l17-tomografi" class="quarto-xref"><span>Avsnitt 17.3.1</span></a>) kan man i dag avbilda mitokondrier inne i frusna celler och se de enskilda proteinkomplexen. En studie från 2025, gjord i en encellig grönalg, visar att andningskedjans komplex sitter längs de platta delarna av cristae, ofta ihopkopplade i större grupper, medan ATP-syntaserna sitter parvis längs cristaes böjda kanter (<a href="#fig-l12-cristae" class="quarto-xref">Figur&nbsp;<span>12.7</span></a>, till höger).</p>
+<p>Mitokondriens egna ribosomer sitter vid det inre membranet och tillverkar sina få proteiner direkt in i det. Alla andra proteiner måste in utifrån, genom båda membranen.</p>
+<div id="fig-l12-cristae" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-cristae-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/mitokondrie-cristae.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-cristae-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.7: Till vänster: mitokondriens rum. Det yttre membranet omsluter organellen, och det inre membranet är veckat i instjälpningar, cristae, som når in i matrix. Mellan membranen ligger mellanmembranutrymmet. Till höger: en förstorad crista, så som proteinerna har setts sitta i den med kryoelektrontomografi. Andningskedjans komplex sitter längs de platta delarna och ATP-syntaserna parvis vid den böjda kanten, med huvudena ut mot matrix. Egen figur, förenklad.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l12-presekvens" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-presekvens">Adresslappen: en helix med två ansikten</h3>
+<p>Den första frågan är hur ett protein märks för mitokondrien. Mitokondriella proteiner har sin signalpeptid i N-änden, precis som de sekretoriska. Men den ser helt annorlunda ut, och den används på ett annat sätt: proteinet tillverkas i regel färdigt i cytosolen innan det förs in i mitokondrien.</p>
+<p>Den mitokondriella signalpeptiden, som ofta kallas <strong>presekvens</strong>, är oftast 20–60 aminosyror lång och rik på positivt laddade aminosyror, särskilt arginin. Den viktigaste egenskapen syns först när man ser på dess form. Signalpeptiden veckar sig till en <strong>alfahelix</strong>, en spiral (<a href="01-levande-celler.html#sec-l01-veckning" class="quarto-xref"><span>Avsnitt 1.10.3</span></a>), och aminosyrorna är ordnade så att de laddade hamnar på ena sidan av spiralen och de vattenskygga på den andra (<a href="#fig-l12-helix" class="quarto-xref">Figur&nbsp;<span>12.8</span></a>). En sådan helix, med ett vattenälskande och ett vattenskyggt ansikte, kallas <strong>amfifil</strong>. Det är detta mönster, och inte någon bestämd följd av aminosyror, som är mitokondriens adress.</p>
+<div id="fig-l12-helix" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-helix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/amfifil-helix.svg" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-helix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.8: En mitokondriell signalpeptid sedd längs helixens axel, som om man tittar ned i en spiraltrappa. Varje aminosyra hamnar 100 grader längre runt än den förra. De positivt laddade aminosyrorna (blå) samlas på ena sidan och de vattenskygga (orange) på den andra. Sekvensen är början av ett protein i bakjästens andningskedja. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Signalpeptiden känns igen av en <strong>receptor</strong> på mitokondriens yttre membran. Länge trodde man att receptorn band till den laddade sidan av helixen. När man till slut fick se strukturen av receptorn med en bunden signalpeptid visade det sig vara tvärtom: receptorn griper tag i den vattenskygga sidan, medan de positivt laddade argininerna pekar ut från receptorn.</p>
+</section>
+<section id="sec-l12-tom-tim" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-tom-tim">Två portar i rad</h3>
+<p>Efter receptorn kommer själva portarna. De kallas <strong>translokaser</strong>, och ett translokas är ett maskineri som för proteiner genom ett membran. I det yttre membranet sitter ett stort proteinkomplex som kallas <strong>TOM</strong> (eng. <em>translocase of the outer membrane</em>), och i det inre membranet ett som kallas <strong>TIM</strong> (<em>translocase of the inner membrane</em>). Tillsammans för de in proteinet i matrix (<a href="#fig-l12-import" class="quarto-xref">Figur&nbsp;<span>12.9</span></a>).</p>
+<div id="fig-l12-import" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-import-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/mitokondrieimport.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-import-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.9: Import av ett protein till mitokondriens matrix. Förproteinet har tillverkats i cytosolen och är ännu inte veckat. Signalpeptiden känns igen av en receptor och förs med N-änden först genom TOM i det yttre membranet och TIM i det inre. Det inre membranets laddning, negativ på insidan, drar i den positivt laddade signalpeptiden, och chaperonen Hsp70 drar in resten av kedjan med hjälp av ATP. I matrix klipper enzymet MPP bort signalpeptiden, och proteinet veckas till sin färdiga form. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Varför måste proteinet vara oveckat när det förs in? Svaret syns i TOM-komplexets byggnad. Redan 1999 kunde man i elektronmikroskop se att komplexet har två kanaler sida vid sida. Men det tog nästan tjugo år innan man med kryoelektronmikroskopi kunde bestämma dess struktur i detalj, först 2017 och med ännu skarpare bilder 2019 av en japansk forskargrupp. Kanalerna bildas av ett protein som heter Tom40. Det är format som en tunna, och några mindre proteiner håller ihop två sådana tunnor. Varje kanal är ungefär två nanometer bred, lagom för en utsträckt proteinkedja men alldeles för smal för ett veckat protein. Därför måste mitokondriella proteiner föras in oveckade, som en tråd genom ett nålsöga.</p>
+</section>
+<section id="sec-l12-drivkraft" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-drivkraft">Vad drar in proteinet?</h3>
+<p>Vad får kedjan att röra sig inåt genom portarna, i stället för att bli kvar eller glida tillbaka? Det finns två drivkrafter. Den första är elektrisk. Andningskedjan pumpar ut protoner ur matrix, så att det inre membranet blir laddat som ett batteri, negativt på insidan och positivt på utsidan (<a href="09-molekylara-maskiner.html#sec-l09-mitokondrier" class="quarto-xref"><span>Avsnitt 9.1.1</span></a>). Den positivt laddade signalpeptiden dras då mot den negativa insidan, på samma sätt som plus och minus dras till varandra.</p>
+<p>Den andra drivkraften kommer från insidan. Där sitter en <strong>chaperon</strong>, ett hjälpprotein som binder till andra proteiner, kallad mitokondriellt <strong>Hsp70</strong>. Den griper tag i kedjan när den kommer in. Om den aktivt drar in kedjan, som en sjöman som halar in ett rep hand över hand med energi från ATP, eller om den bara hindrar kedjan från att glida tillbaka, som en spärrhake, diskuterades länge. I dag tror man att båda sker. Långa proteiner som delvis hunnit vecka sig i cytosolen måste dras in aktivt. Korta och oveckade proteiner rör sig fram och tillbaka av sig själva genom värmerörelser, och då räcker det att Hsp70 griper tag i dem för varje bit som kommit in, så att de bara kan röra sig inåt. Den modellen brukar kallas en <em>brownsk spärrhake</em> (eng. <em>Brownian ratchet</em>). Mer om chaperoner följer i <a href="13-chaperoner.html" class="quarto-xref"><span>Kapitel 13</span></a>.</p>
+</section>
+<section id="sec-l12-vagar-mito" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-vagar-mito">Många vägar inne i mitokondrien</h3>
+<p>Alla mitokondriella proteiner ska inte till matrix. En del ska sitta i det yttre eller inre membranet, andra i mellanmembranutrymmet. Därför finns det flera olika importvägar, med var sin uppsättning portar och hjälpproteiner, beroende på om proteinet ska till matrix, till något av membranen eller till utrymmet mellan dem. Alla börjar med TOM.</p>
+<p>Varje mitokondrie innehåller tusentals kopior av importmaskinerna, och mängder av proteiner står hela tiden i kö i cytosolen för att komma in. Det är en trafik som skulle behöva trafikpoliser, och troligen finns det också sådana: många proteiner i cytosolen påverkar transporten, men alla är ännu inte kända.</p>
+<p>Med så mycket trafik får fel stora följder. Fel i importmaskineriet kan ge allvarliga sjukdomar: muskelsjukdomar, neurologiska sjukdomar, epilepsi och till och med en ärftlig form av dövhet, som beror på ett defekt hjälpprotein i mellanmembranutrymmet.</p>
+<p>Fel kan också uppstå i själva adresslappen. Vid den ärftliga sjukdomen <strong>primär hyperoxaluri</strong> gör en mutation hos en del patienter att ett leverenzym som ska till peroxisomerna i stället hamnar i mitokondrierna. Där kan det inte göra sitt arbete, ett avfallsämne ansamlas, och patienten får njursten redan i unga år. Felet sitter alltså i levern, men det är njurarna som skadas. Sjukdomen nämndes som exempel när Blobel fick Nobelpriset.</p>
+</section>
+<section id="sec-l12-mpp" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-mpp">Saxen som klipper av adresslappen</h3>
+<p>När signalpeptiden har kommit in i matrix klipps den bort av ett enzym som heter <strong>mitokondriellt processande peptidas</strong>, förkortat <strong>MPP</strong>. Det är en svår uppgift. Tusen olika proteiner har tusen olika signalpeptider, och det enda de har gemensamt är den amfifila helixen. Ändå ska ett och samma enzym klippa av alla på rätt ställe. När man jämförde många signalpeptider fann man en ledtråd: många har ett arginin två eller tre aminosyror före klyvningsstället. Men inte alla, så enzymet måste också känna igen formen. Efter MPP kan ytterligare några enzymer putsa av enstaka aminosyror.</p>
+<p>Var i mitokondrien MPP sitter visade sig vara en överraskning. Elzbieta Glasers forskargrupp vid Stockholms universitet har studerat MPP i växter. Hos råtta och bakjäst hade man funnit att enzymet består av två delar, kallade α och β, och att det finns löst i matrix. Man hade också lagt märke till att delarna liknar två stora proteiner i andningskedjans komplex III.</p>
+<p>När en doktorand i gruppen skulle ta reda på var MPP fanns i växternas mitokondrier hittade hon det inte alls i matrix, bara i membranen. Hon fick först höra att hon antagligen hade förväxlat proverna, men resultatet blev detsamma gång på gång. Det visade sig att MPP hos växter är en del av själva komplex III i det inre membranet. Komplexet har alltså två uppgifter på en gång: det för elektroner vidare i andningskedjan och klipper av signalpeptider.</p>
+<p>Hos andra organismer finns MPP på det ena eller andra stället, eller på båda (<a href="#fig-l12-mpp" class="quarto-xref">Figur&nbsp;<span>12.10</span></a>). Det tyder på att de två funktionerna en gång satt i samma komplex och sedan har skilts åt under evolutionen.</p>
+<div id="fig-l12-mpp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-mpp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/mpp-organismer.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-mpp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.10: Var MPP, enzymet som klipper av signalpeptiden, sitter hos olika organismer. Hos växter är MPP en del av andningskedjans komplex III i det inre membranet. Hos svampen <em>Neurospora</em> finns det både där och löst i matrix. Hos bakjäst och däggdjur finns MPP bara löst i matrix, och i komplex III sitter i stället två liknande proteiner som inte klipper. Egen figur, förenklad, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l12-prep" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l12-prep">Städaren och Alzheimers sjukdom</h3>
+<p>Vad händer med de bortklippta signalpeptiderna? De kan inte bara lämnas kvar. Eftersom de har en vattenskygg och en laddad sida kan de tränga in i membran. Om de skulle göra hål i mitokondriens inre membran skulle protonerna läcka tillbaka, och utan protongradient kan inget ATP tillverkas. Ämnen som läcker protoner genom membranet kallas frikopplare. Ett sådant ämne, dinitrofenol, såldes en gång som bantningsmedel, med dödliga följder (<a href="02-molekyler-och-reaktioner.html#sec-l02-frikoppling" class="quarto-xref"><span>Avsnitt 2.9.3</span></a>). Signalpeptiderna måste alltså städas bort.</p>
+<p>Glasers grupp hittade enzymet som gör det och kallade det <strong>PreP</strong> (eng. <em>presequence protease</em>). Med hjälp av kristallografer bestämde man dess struktur med en upplösning på 2,1 ångström. PreP består av två halvor som kan sluta sig om en peptid ungefär som ett musselskal. Inne i den slutna kammaren klipps peptiden i småbitar, och sedan öppnas skalet igen för nästa peptid.</p>
+<p>PreP visade sig också ha en koppling till en vanlig sjukdom. När forskarna jämförde PreP:s aminosyrasekvens med andra enzymer såg de att det liknar ett enzym som bryter ned <strong>amyloid-beta</strong>, den lilla peptid som klumpar ihop sig till plack i hjärnan vid Alzheimers sjukdom (<a href="15-felveckning.html#sec-l15-alzheimer" class="quarto-xref"><span>Avsnitt 15.4</span></a>). En morgon hörde Elzbieta Glaser på radions vetenskapsnyheter att en amerikansk forskare som studerade nedbrytningen av amyloid-beta besökte Karolinska institutet. Hon ringde radion, fick namnen och ringde sedan Karolinska. Det blev början på ett samarbete.</p>
+<p>Det visade sig att amyloid-beta kan ta sig in i mitokondrierna och att PreP kan bryta ned det. Om PreP saknas eller har skadats, till exempel av reaktiva syreföreningar, kan amyloid-beta i stället binda till ett annat mitokondriellt enzym. Det kan i sin tur sätta igång <strong>apoptos</strong>, programmerad celldöd: proteinet cytokrom <em>c</em> läcker ut ur mitokondrien, skadliga syreföreningar bildas och cellens DNA bryts ned.</p>
+<p>En hypotes är därför att PreP skyddar nervcellernas mitokondrier mot amyloid-beta (<a href="#fig-l12-prep" class="quarto-xref">Figur&nbsp;<span>12.11</span></a>), och att sätt att förstärka det skyddet skulle kunna bli en väg mot nya behandlingar. Det är ännu forskning, inte en behandling. Människans motsvarighet till PreP studeras i dag av flera grupper med just Alzheimers sjukdom i tankarna.</p>
+<div id="fig-l12-prep" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-prep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/prep-hypotes.svg" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-prep-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.11: Hypotesen om PreP och amyloid-beta. Till vänster: i en normal mitokondrie sluter PreP sina två halvor om amyloid-beta och klipper det i småbitar. Till höger: om PreP saknas eller är skadat binder amyloid-beta i stället till ett annat enzym, ABAD. Det kan leda till att cytokrom <em>c</em> läcker ut, att skadliga syreföreningar bildas och att DNA bryts ned, så att cellen dör. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Mitokondrierna är inte heller isolerade öar, och även deras kontakter med resten av cellen har kopplats till sjukdom. På vissa ställen ligger de tätt intill det endoplasmatiska nätverket, och på senare år har man förstått att dessa kontaktpunkter är viktiga. Där överförs bland annat kalciumjoner och lipider mellan organellerna. Störningar i kontaktpunkterna har kopplats till Alzheimers sjukdom, typ 2-diabetes och cancer.</p>
+<p>Därmed är importen till mitokondrien klar. När signalpeptiden är borta och städad ska det färdiga proteinet vecka sig till sin rätta form, och det sker med hjälp av chaperoner. Dem återkommer vi till i <a href="13-chaperoner.html" class="quarto-xref"><span>Kapitel 13</span></a>.</p>
+</section>
+</section>
+<section id="sec-l12-kloroplaster" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="sec-l12-kloroplaster"><span class="header-section-number">12.6</span> Kloroplaster: samma princip, andra maskiner</h2>
+<p>Växternas kloroplaster står inför samma uppgift som mitokondrierna: de flesta av deras proteiner måste föras in utifrån. Kloroplasten har, precis som mitokondrien, ett yttre och ett inre membran. Innanför dem finns dessutom de platta membranpåsarna <strong>tylakoiderna</strong>, där fotosyntesen fångar ljuset (<a href="07-biomembran.html#sec-l07-mitokondrier" class="quarto-xref"><span>Avsnitt 7.7</span></a>). Kloroplasternas import fungerar i princip som mitokondriernas. Proteinerna tillverkas i cytosolen med en signalpeptid i N-änden, förs in oveckade genom ett komplex i det yttre membranet och ett i det inre, får signalpeptiden bortklippt och veckas med hjälp av chaperoner. Komplexen heter här <strong>TOC</strong> och <strong>TIC</strong> (<em>translocon at the outer/inner envelope of chloroplasts</em>). Så mitokondrien har sin TOM och TIM, och kloroplasten sin TOC och TIC (<a href="#fig-l12-toctic" class="quarto-xref">Figur&nbsp;<span>12.12</span></a>).</p>
+<div id="fig-l12-toctic" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l12-toctic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L12/toc-tic-iwasa.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l12-toctic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;12.12: TOC–TIC-komplexet från en grönalg, som spänner över båda kloroplastens membran (grå band, det yttre överst och det inre nederst). Delarna från TOC är blå och delarna från TIC gröna. Proteiner som ska in i kloroplasten passerar genom komplexet från cytosolen ovanför. Bild: Janet Iwasa, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>En växtcell har både mitokondrier och kloroplaster. Hur kan den skilja proteiner som ska till den ena från dem som ska till den andra, när båda har en signalpeptid i N-änden? När Glasers grupp jämförde hundratals signalpeptider fann de att likheterna är stora. Båda sorterna saknar nästan helt negativt laddade aminosyror. Men kloroplastens signalpeptider är i genomsnitt längre, rikare på aminosyrorna serin och treonin och har betydligt färre arginin än mitokondriernas. Klyvningsstället ser också annorlunda ut, och kloroplasterna har ett eget enzym som klipper. Dessutom finns det hjälpproteiner i cytosolen som känner igen kloroplastens signalpeptider och för dem rätt. Små skillnader i adresslappen räcker alltså för att skilja två mycket lika postadresser åt.</p>
+</section>
+<section id="sec-l12-karnan" class="level2" data-number="12.7">
+<h2 data-number="12.7" class="anchored" data-anchor-id="sec-l12-karnan"><span class="header-section-number">12.7</span> In i kärnan: veckade proteiner genom stora porer</h2>
+<p>Proteiner som ska in i cellkärnan importeras på ett helt annat sätt. Det tillverkas inga proteiner i kärnan, så alla kärnproteiner måste in från cytosolen. Men de går inte genom smala portar som i mitokondrien. I stället passerar de genom <strong>kärnporerna</strong>, mycket stora hål i kärnhöljets två membran (<a href="07-biomembran.html#sec-l07-karnan" class="quarto-xref"><span>Avsnitt 7.6</span></a>). Kärnporerna är byggda av omkring 30 olika proteiner i många kopior och hör till cellens största strukturer.</p>
+<p>Den stora skillnaden mot mitokondrierna är att kärnproteinerna är <strong>färdigveckade</strong> när de förs in. Deras adresslapp är därför ingen signalpeptid i änden av kedjan, utan en <strong>kärnsignal</strong>, en grupp positivt laddade aminosyror som sticker ut på ytan av det veckade proteinet. Signalen klipps inte bort.</p>
+<p>Kärnsignalen känns igen av en bärare i cytosolen, ett <strong>importin</strong>. Importinet binder till proteinet och tar det med sig genom poren. Inne i kärnan släpper importinet sin last och åker tillbaka ut till cytosolen för att hämta nästa. Som vi såg i <a href="07-biomembran.html#sec-l07-karnan" class="quarto-xref"><span>Avsnitt 7.6</span></a> fungerar det eftersom importinerna, men inte vanliga proteiner, kan glida genom den gel av oordnade proteinsvansar som fyller porens mitt. Genom samma porer, men åt motsatt håll, går mRNA ut ur kärnan till ribosomerna i cytosolen.</p>
+</section>
+<section id="sec-l12-peroxisomer" class="level2" data-number="12.8">
+<h2 data-number="12.8" class="anchored" data-anchor-id="sec-l12-peroxisomer"><span class="header-section-number">12.8</span> Peroxisomer: en adresslapp i slutet</h2>
+<p><strong>Peroxisomerna</strong> är små organeller med omkring 50 olika enzymer. De bryter ned bland annat vissa fettsyror. Vid flera av reaktionerna bildas väteperoxid, som är giftigt för cellen men genast bryts ned av enzymet <strong>katalas</strong>. Peroxisomerna har inget eget DNA, så alla deras proteiner måste importeras.</p>
+<p>Länge trodde man att peroxisomerna importerade proteiner på samma sätt som mitokondrierna. Men så visade det sig att de kan ta in färdigveckade proteiner, till och med hela komplex av flera proteiner, och i försök till och med små guldkulor klädda med rätt signal. Det överraskade alla.</p>
+<p>Förklaringen ligger i adresslappen. De flesta peroxisomala proteiner har sin adresslapp i <em>slutet</em> av kedjan, i C-änden. Den är bara tre aminosyror lång, oftast serin, lysin och leucin, och klipps inte bort. Eftersom signalen tillverkas sist är proteinet redan färdigt och veckat när signalen dyker upp. Ett fåtal peroxisomala proteiner har i stället en signal i N-änden som klipps bort.</p>
+<p>Signalen känns igen av en rörlig receptor i cytosolen. Receptorn binder lasten och tar sig in genom peroxisomens membran genom en kanal som är fylld av ett nät av proteinsvansar, påfallande likt kärnporens gel. På insidan släpper lasten.</p>
+<p>För att receptorn ska komma ut igen märks den med ett litet protein, <strong>ubikvitin</strong>, som fungerar som en etikett. Etiketten känns igen av en ATP-driven maskin som drar ut receptorn ur membranet, så att den kan hämta nästa protein. Ärftliga fel i detta maskineri gör att peroxisomerna inte kan fyllas med enzymer. Det ger svåra sjukdomar hos små barn, till exempel Zellwegers syndrom.</p>
+</section>
+<section id="sec-l12-jamforelse" class="level2" data-number="12.9">
+<h2 data-number="12.9" class="anchored" data-anchor-id="sec-l12-jamforelse"><span class="header-section-number">12.9</span> Fyra organeller, fyra sorters adresslappar</h2>
+<p>Vi kan nu sammanfatta de olika adresslapparna:</p>
+<div id="tbl-l12-signaler" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-l12-signaler-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabell&nbsp;12.1: Cellens adresslappar.
+</figcaption>
+<div aria-describedby="tbl-l12-signaler-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Mål</th>
+<th>Var signalen sitter</th>
+<th>Klipps bort?</th>
+<th>Proteinet förs in</th>
+<th>Port</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Endoplasmatiska nätverket</td>
+<td>N-änden</td>
+<td>ja</td>
+<td>medan det tillverkas, oveckat</td>
+<td>translokonet</td>
+</tr>
+<tr class="even">
+<td>Mitokondrier</td>
+<td>N-änden (amfifil helix)</td>
+<td>ja</td>
+<td>efter tillverkningen, oveckat</td>
+<td>TOM och TIM</td>
+</tr>
+<tr class="odd">
+<td>Kloroplaster</td>
+<td>N-änden</td>
+<td>ja</td>
+<td>efter tillverkningen, oveckat</td>
+<td>TOC och TIC</td>
+</tr>
+<tr class="even">
+<td>Cellkärnan</td>
+<td>på ytan av proteinet</td>
+<td>nej</td>
+<td>veckat, med importin</td>
+<td>kärnporen</td>
+</tr>
+<tr class="odd">
+<td>Peroxisomer</td>
+<td>oftast C-änden (tre aminosyror)</td>
+<td>nej</td>
+<td>veckat, med en rörlig receptor</td>
+<td>peroxisomens kanal</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Bakom tabellen finns samma idé som Blobel formulerade: varje protein bär sin adress i sin egen aminosyrakedja. Till varje adress hör en <strong>receptor</strong> som läser den och ett <strong>translokas</strong> som för proteinet genom membranet. Signalen klipps av, <strong>processas</strong>, om den sitter i början av kedjan, men inte om den behövs igen, som kärnsignalen.</p>
+</section>
+<section id="sec-l12-sammanfattning" class="level2" data-number="12.10">
+<h2 data-number="12.10" class="anchored" data-anchor-id="sec-l12-sammanfattning"><span class="header-section-number">12.10</span> Sammanfattning</h2>
+<ul>
+<li>Människan har omkring 20 000 gener som kodar för proteiner, men genom olika varianter av samma gen blir det långt fler proteiner.</li>
+<li>Nästan alla proteiner kodas av DNA i cellkärnan och tillverkas av ribosomer i cytosolen. Mitokondrier och kloroplaster har eget DNA, en rest av de bakterier de en gång var, men det kodar bara för en liten del av deras proteiner.</li>
+<li>Proteiner har inbyggda adresslappar, signaler i aminosyrakedjan, som styr dem till rätt ställe. Günter Blobel fick Nobelpriset 1999 för den upptäckten.</li>
+<li>I den sekretoriska vägen känns signalpeptiden igen av SRP medan proteinet tillverkas. Proteinet förs in i det endoplasmatiska nätverket genom translokonet och skickas sedan vidare i blåsor via golgiapparaten.</li>
+<li>Proteiner till mitokondrierna tillverkas färdigt i cytosolen och förs in oveckade genom TOM och TIM. Signalen är en amfifil helix, och membranets laddning och chaperonen Hsp70 drar in kedjan. MPP klipper bort signalpeptiden och PreP bryter ned den.</li>
+<li>Kloroplaster importerar på liknande sätt med TOC och TIC, men deras signalpeptider skiljer sig tillräckligt för att växtcellen ska kunna sortera rätt.</li>
+<li>Kärnproteiner och peroxisomala proteiner förs in färdigveckade, med hjälp av rörliga receptorer i cytosolen.</li>
+<li>Fel i adresslappar och importmaskiner ger sjukdomar, och PreP kan ha en roll vid Alzheimers sjukdom.</li>
+</ul>
+</section>
+<section id="sec-l12-nyckelbegrepp" class="level2" data-number="12.11">
+<h2 data-number="12.11" class="anchored" data-anchor-id="sec-l12-nyckelbegrepp"><span class="header-section-number">12.11</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>proteintrafik</strong> – Transporten av nytillverkade proteiner från ribosomerna till det ställe i eller utanför cellen där de ska arbeta.</li>
+<li><strong>cytosol</strong> – Cellvätskan, det vill säga cellens inre utanför organellerna. Här tillverkas nästan alla proteiner på ribosomer.</li>
+<li><strong>endosymbiontteorin</strong> – Teorin att mitokondrier och kloroplaster härstammar från bakterier som en gång togs upp av en annan cell och fortsatte att leva där.</li>
+<li><strong>mitokondriellt DNA</strong> – Mitokondriens eget lilla DNA. Hos människan en ring med 16 569 baspar som kodar för 13 proteiner. Ärvs bara från modern.</li>
+<li><strong>signalpeptid</strong> – En kort sträcka i början av en proteinkedja som fungerar som adresslapp och styr proteinet till rätt ställe i cellen. Klipps oftast bort när proteinet kommit fram.</li>
+<li><strong>N-ände</strong> – Den ände av en proteinkedja som tillverkas först (kallas också N-terminalen). Den andra änden kallas C-änden.</li>
+<li><strong>sekretoriska vägen</strong> – Vägen för proteiner som ska ut ur cellen, till cellmembranet eller till lysosomerna: in i det endoplasmatiska nätverket medan de tillverkas och sedan vidare i blåsor via golgiapparaten.</li>
+<li><strong>SRP</strong> – Signaligenkännande partikel (eng. signal recognition particle). Ett komplex av protein och RNA som känner igen signalpeptiden och för ribosomen till det endoplasmatiska nätverket.</li>
+<li><strong>translokon</strong> – En por i det endoplasmatiska nätverkets membran som en växande proteinkedja skjuts igenom.</li>
+<li><strong>signalpeptidas</strong> – Ett enzym som klipper bort signalpeptiden när proteinet har förts in i det endoplasmatiska nätverket.</li>
+<li><strong>klatrin</strong> – Ett protein vars trebenta enheter bildar en bur runt en bit membran, så att den kan knoppas av som en blåsa.</li>
+<li><strong>presekvens</strong> – Signalpeptiden i N-änden på mitokondriella proteiner. Bildar en amfifil helix med många positivt laddade aminosyror.</li>
+<li><strong>amfifil helix</strong> – En alfahelix med vattenälskande (laddade) aminosyror på ena sidan och vattenskygga på den andra.</li>
+<li><strong>translokas</strong> – Ett proteinkomplex som för proteiner genom ett membran, till exempel TOM och TIM i mitokondrierna.</li>
+<li><strong>TOM och TIM</strong> – Translokaserna i mitokondriens yttre (TOM) och inre (TIM) membran, som för in proteiner från cytosolen.</li>
+<li><strong>TOC och TIC</strong> – Kloroplastens motsvarigheter till TOM och TIM, i kloroplastens yttre och inre membran.</li>
+<li><strong>MPP</strong> – Mitokondriellt processande peptidas, enzymet som klipper bort signalpeptiden när proteinet kommit in i matrix. Hos växter är det inbyggt i andningskedjans komplex III.</li>
+<li><strong>PreP</strong> – Ett enzym i mitokondrierna som bryter ned bortklippta signalpeptider. Kan också bryta ned amyloid-beta.</li>
+<li><strong>Hsp70</strong> – En chaperon som binder till oveckade proteinkedjor. I mitokondriens matrix hjälper den till att dra in importerade proteiner.</li>
+<li><strong>kärnsignal</strong> – En grupp positivt laddade aminosyror på ytan av ett protein som visar att det ska in i cellkärnan. Klipps inte bort.</li>
+<li><strong>importin</strong> – En bärare i cytosolen som binder proteiner med kärnsignal och bär dem genom kärnporen in i kärnan.</li>
+<li><strong>peroxisom</strong> – En liten organell med omkring 50 enzymer, bland annat katalas, som bryter ned väteperoxid. Dess enzymer importeras färdigveckade från cytosolen.</li>
+<li><strong>apoptos</strong> – Programmerad celldöd, då cellen på ett ordnat sätt tar livet av sig själv. Kan sättas igång av signaler från mitokondrierna.</li>
+</ul>
+</section>
+<section id="sec-l12-testa" class="level2" data-number="12.12">
+<h2 data-number="12.12" class="anchored" data-anchor-id="sec-l12-testa"><span class="header-section-number">12.12</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L12"></div>
+<script>
+renderQuiz("quiz-L12", [
+ {
+  "question": "Var tillverkas de proteiner som ska arbeta inne i cellkärnan?",
+  "choices": [
+   "På ribosomer i cytosolen, varefter de förs in genom kärnporerna",
+   "Inne i cellkärnan, på kärnans egna ribosomer",
+   "I mitokondrierna",
+   "I golgiapparaten"
+  ],
+  "correctIndex": 0,
+  "explanation": "Inga proteiner tillverkas i kärnan. Där sker bara transkriptionen; mRNA förs ut, proteinerna tillverkas i cytosolen och kärnproteinerna importeras sedan genom kärnporerna."
+ },
+ {
+  "question": "Varför har mitokondrier och kloroplaster eget DNA?",
+  "choices": [
+   "De härstammar från bakterier som en gång togs upp av en annan cell, och en liten rest av bakteriernas DNA finns kvar",
+   "De har fått en kopia av allt DNA i cellkärnan",
+   "De tillverkar själva alla sina proteiner",
+   "DNA:t behövs som energiförråd i kraftverket"
+  ],
+  "correctIndex": 0,
+  "explanation": "Enligt endosymbiontteorin var mitokondrierna och kloroplasterna en gång fritt levande bakterier. De flesta av deras gener har flyttat till kärnan, men ett litet rest-DNA finns kvar."
+ },
+ {
+  "question": "Ungefär hur stor del av en mitokondries proteiner tillverkas inne i mitokondrien hos människan?",
+  "choices": [
+   "Mycket liten: 13 av omkring tusen",
+   "Ungefär hälften",
+   "Nästan alla",
+   "Inga alls"
+  ],
+  "correctIndex": 0,
+  "explanation": "Människans mitokondriella DNA kodar för 13 proteiner, alla delar av andningskedjan och ATP-syntas. Resten, mer än 98 procent, tillverkas i cytosolen och importeras."
+ },
+ {
+  "question": "Vad upptäckte Günter Blobel, som fick Nobelpriset 1999?",
+  "choices": [
+   "Att proteiner har inbyggda signaler, som adresslappar, som styr dem till rätt ställe i cellen",
+   "Att DNA är en dubbelspiral",
+   "Att mitokondrierna en gång var bakterier",
+   "Hur ATP-syntas roterar"
+  ],
+  "correctIndex": 0,
+  "explanation": "Blobel visade att nytillverkade proteiner har en signal i sin aminosyrakedja som styr deras transport, ungefär som ett postnummer."
+ },
+ {
+  "question": "Vad gör SRP, den signaligenkännande partikeln?",
+  "choices": [
+   "Den känner igen signalpeptiden medan proteinet tillverkas och för ribosomen till det endoplasmatiska nätverkets membran",
+   "Den klipper bort signalpeptiden inne i det endoplasmatiska nätverket",
+   "Den för färdigveckade proteiner in i cellkärnan",
+   "Den bryter ned bortklippta signalpeptider i mitokondrierna"
+  ],
+  "correctIndex": 0,
+  "explanation": "SRP binder signalpeptiden så fort den kommer ut ur ribosomen, bromsar tillverkningen och för ribosomen till SRP-receptorn och translokonet i det endoplasmatiska nätverkets membran."
+ },
+ {
+  "question": "Varför måste ett protein föras in i det endoplasmatiska nätverket medan det tillverkas, eller in i mitokondrien i oveckad form?",
+  "choices": [
+   "Porerna i membranen är för smala för att ett veckat protein ska komma igenom",
+   "Veckade proteiner är alltid inaktiva",
+   "Ribosomerna finns bara inne i organellerna",
+   "Signalpeptiden försvinner när proteinet veckas"
+  ],
+  "correctIndex": 0,
+  "explanation": "Translokonet och TOM-komplexets kanaler släpper bara igenom en utsträckt kedja, som en tråd genom ett nålsöga. Kärnporerna är däremot så stora att veckade proteiner kan passera."
+ },
+ {
+  "question": "Vad är speciellt med en mitokondriell signalpeptid?",
+  "choices": [
+   "Den bildar en helix med positivt laddade aminosyror på ena sidan och vattenskygga på den andra",
+   "Den sitter alltid i slutet av proteinet och klipps aldrig bort",
+   "Den består bara av negativt laddade aminosyror",
+   "Den är exakt likadan i alla mitokondriella proteiner"
+  ],
+  "correctIndex": 0,
+  "explanation": "Signalpeptiden är en amfifil helix. Det är mönstret, med en laddad och en vattenskygg sida, som är adressen, inte en exakt sekvens."
+ },
+ {
+  "question": "Vad hjälper till att dra in ett protein genom mitokondriens membran?",
+  "choices": [
+   "Det inre membranets laddning, som drar i den positiva signalpeptiden, och chaperonen Hsp70 på insidan, som använder ATP",
+   "Klatrin, som klär in proteinet i en bur",
+   "Importin, som bär proteinet genom en kärnpor",
+   "Signalpeptidas, som skjuter proteinet framför sig"
+  ],
+  "correctIndex": 0,
+  "explanation": "Insidan av det inre membranet är negativt laddad och drar i den positivt laddade signalpeptiden. Hsp70 i matrix griper tag i kedjan och drar in den eller hindrar den från att glida tillbaka."
+ },
+ {
+  "question": "Hur skiljer sig import till cellkärnan från import till mitokondrierna?",
+  "choices": [
+   "Kärnproteiner förs in färdigveckade genom stora porer, och deras signal sitter på proteinets yta och klipps inte bort",
+   "Kärnproteiner förs in oveckade genom TOM och TIM",
+   "Kärnproteiner tillverkas inne i kärnan och behöver ingen import",
+   "Kärnproteiner skickas till kärnan i blåsor från golgiapparaten"
+  ],
+  "correctIndex": 0,
+  "explanation": "Kärnsignalen är en grupp positivt laddade aminosyror på ytan av det veckade proteinet. Ett importin bär proteinet genom kärnporen, och signalen behålls."
+ },
+ {
+  "question": "Var sitter adresslappen hos de flesta proteiner som ska till peroxisomerna?",
+  "choices": [
+   "I slutet av kedjan (C-änden), tre aminosyror som inte klipps bort",
+   "I början av kedjan, en lång helix som klipps bort",
+   "Det finns ingen signal; peroxisomerna tillverkar sina egna proteiner",
+   "I en sockerkedja som fästs i golgiapparaten"
+  ],
+  "correctIndex": 0,
+  "explanation": "Den vanligaste peroxisomala signalen är tre aminosyror, ofta serin, lysin och leucin, längst bak i kedjan. Proteinet hinner därför vecka sig innan signalen ens finns, och det förs in veckat."
+ },
+ {
+  "question": "Varför behövs ett enzym som PreP i mitokondrierna?",
+  "choices": [
+   "Bortklippta signalpeptider kan skada membranet och måste brytas ned",
+   "PreP klipper av signalpeptiden från nyimporterade proteiner",
+   "PreP tillverkar mitokondriens egna 13 proteiner",
+   "PreP för in proteiner genom det yttre membranet"
+  ],
+  "correctIndex": 0,
+  "explanation": "Signalpeptiderna klipps av av MPP. Kvar blir fria peptider med en vattenskygg och en laddad sida som kan tränga in i membran; PreP bryter ned dem. PreP kan också bryta ned amyloid-beta."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>12.1</strong> Använd liknelsen med en postterminal för att förklara hur proteinerna i en cell hamnar rätt. Var håller liknelsen, och var haltar den?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Proteinerna är försändelserna och signalpeptiderna eller andra signaler är adresslapparna. Receptorer, som SRP eller receptorn på mitokondriens yta, motsvarar sorteringsmaskinerna som läser adressen, och translokaserna är portarna till olika avdelningar. Liknelsen håller i att adressen sitter på själva försändelsen och kan läsas utan att paketet öppnas. Den haltar i att adresslappen är en del av proteinet självt, att den ofta klipps bort och förstörs vid framkomsten, och att paketet ibland måste packas upp (vecklas upp) för att komma genom porten. Ingen tänker heller ut adresserna; de har formats av evolutionen.</p>
+</div>
+</div>
+</div>
+<p><strong>12.2</strong> Jämför den sekretoriska vägen med importen till mitokondrierna. Vad är lika och vad skiljer?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I båda fallen har proteinet en signalpeptid i början av kedjan som känns igen av en receptor, proteinet förs oveckat genom en por i membranet och signalpeptiden klipps bort av ett enzym. Skillnaden är tidpunkten: i den sekretoriska vägen förs proteinet in i det endoplasmatiska nätverket medan det tillverkas, styrt av SRP. Ett mitokondriellt protein tillverkas färdigt i cytosolen och importeras efteråt. Signalerna ser också olika ut: den sekretoriska har en vattenskygg mitt, den mitokondriella är en amfifil helix med många positiva laddningar. Den sekretoriska vägen fortsätter dessutom i blåsor till golgiapparaten och vidare, medan det mitokondriella proteinet stannar i mitokondrien.</p>
+</div>
+</div>
+</div>
+<p><strong>12.3</strong> En växtcell har både mitokondrier och kloroplaster, och proteiner till båda har en signalpeptid i N-änden. Hur kan cellen ändå skicka dem rätt?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Signalpeptiderna liknar varandra; båda saknar nästan helt negativt laddade aminosyror. Men kloroplastens signalpeptider är i genomsnitt längre, rika på serin och treonin och har färre arginin än mitokondriernas. Klyvningsstället ser olika ut, och de klipps av olika enzymer. Mitokondrien och kloroplasten har också olika importmaskiner, TOM och TIM respektive TOC och TIC, med receptorer som känner igen just sin sorts signal. Dessutom finns hjälpproteiner i cytosolen som känner igen kloroplastens signaler och för proteinerna dit.</p>
+</div>
+</div>
+</div>
+<p><strong>12.4</strong> Varför kan en mutation i cellkärnans DNA ge en mitokondriell sjukdom? Ge ett exempel från kapitlet.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>De allra flesta mitokondriella proteiner, inklusive hela importmaskineriet, kodas i cellkärnan och tillverkas i cytosolen. En mutation i en sådan gen kan göra att proteinet inte fungerar, eller att importen till mitokondrien går fel, så att många andra proteiner inte kommer in. Exempel är en ärftlig form av dövhet som beror på ett defekt hjälpprotein i mellanmembranutrymmet. Kapitlet ger också ett exempel på att adresslappen själv kan bli fel, fast där är det peroxisomen som blir utan sitt enzym: vid primär hyperoxaluri hamnar ett leverenzym som ska till peroxisomerna i stället i mitokondrierna, och patienten får njursten.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l12-las-mer" class="level2" data-number="12.13">
+<h2 data-number="12.13" class="anchored" data-anchor-id="sec-l12-las-mer"><span class="header-section-number">12.13</span> Läs mer</h2>
+<ul>
+<li><a href="https://www.nobelprize.org/prizes/medicine/1999/press-release/">Nobelpriset i fysiologi eller medicin 1999</a>, pressmeddelandet om Günter Blobels upptäckt av proteinernas adresslappar, med tydliga bilder (på engelska).</li>
+<li><a href="https://www.nobelprize.org/prizes/medicine/2013/press-release/">Nobelpriset i fysiologi eller medicin 2013</a>, om hur blåsorna i cellen hittar rätt (på engelska).</li>
+<li><a href="https://sv.wikipedia.org/wiki/Endosymbiontteorin">Endosymbiontteorin</a> på svenska Wikipedia, om hur mitokondrier och kloroplaster en gång var fritt levande bakterier.</li>
+<li><a href="https://en.wikipedia.org/wiki/Protein_targeting">Protein targeting</a> på engelska Wikipedia, en översikt över cellens olika adresslappar.</li>
+<li><a href="https://pdb101.rcsb.org/motm/305">TOC-TIC Translocon</a> och <a href="https://pdb101.rcsb.org/motm/88">Clathrin</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska).</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/11-omik.html" class="pagination-link" aria-label="Omik-världen – en totalbild">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/13-chaperoner.html" class="pagination-link" aria-label="Molekylära förkläden">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

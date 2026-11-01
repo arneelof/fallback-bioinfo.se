@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>2&nbsp; Livets molekyler och reaktioner – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/03-gener-och-genteknik.html" rel="next">
+<link href="../chapters/01-levande-celler.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-levande-celler.html">Grunderna</a></li><li class="breadcrumb-item"><a href="../chapters/02-molekyler-och-reaktioner.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l02-liv" id="toc-sec-l02-liv" class="nav-link active" data-scroll-target="#sec-l02-liv"><span class="header-section-number">2.1</span> Vad är liv?</a>
+  <ul class="collapse">
+  <li><a href="#sec-l02-virus" id="toc-sec-l02-virus" class="nav-link" data-scroll-target="#sec-l02-virus">Är virus levande?</a></li>
+  </ul></li>
+  <li><a href="#sec-l02-celler" id="toc-sec-l02-celler" class="nav-link" data-scroll-target="#sec-l02-celler"><span class="header-section-number">2.2</span> Två sorters celler</a></li>
+  <li><a href="#sec-l02-innehall" id="toc-sec-l02-innehall" class="nav-link" data-scroll-target="#sec-l02-innehall"><span class="header-section-number">2.3</span> Vad består en cell av?</a>
+  <ul class="collapse">
+  <li><a href="#sec-l02-makromolekyler" id="toc-sec-l02-makromolekyler" class="nav-link" data-scroll-target="#sec-l02-makromolekyler">Makromolekyler: långa kedjor av enkla byggstenar</a></li>
+  </ul></li>
+  <li><a href="#sec-l02-proteiner" id="toc-sec-l02-proteiner" class="nav-link" data-scroll-target="#sec-l02-proteiner"><span class="header-section-number">2.4</span> Proteiner gör nästan allt</a>
+  <ul class="collapse">
+  <li><a href="#sec-l02-vitaminer" id="toc-sec-l02-vitaminer" class="nav-link" data-scroll-target="#sec-l02-vitaminer">Hjälpmolekyler: vitaminer och metaller</a></li>
+  <li><a href="#sec-l02-genom" id="toc-sec-l02-genom" class="nav-link" data-scroll-target="#sec-l02-genom">Genom och proteom</a></li>
+  </ul></li>
+  <li><a href="#sec-l02-kolhydrater" id="toc-sec-l02-kolhydrater" class="nav-link" data-scroll-target="#sec-l02-kolhydrater"><span class="header-section-number">2.5</span> Kolhydrater: socker i många former</a></li>
+  <li><a href="#sec-l02-lipider" id="toc-sec-l02-lipider" class="nav-link" data-scroll-target="#sec-l02-lipider"><span class="header-section-number">2.6</span> Lipider: fett, membran och kolesterol</a></li>
+  <li><a href="#sec-l02-metabolism" id="toc-sec-l02-metabolism" class="nav-link" data-scroll-target="#sec-l02-metabolism"><span class="header-section-number">2.7</span> Ämnesomsättning: cellens kemiska fabrik</a></li>
+  <li><a href="#sec-l02-atp" id="toc-sec-l02-atp" class="nav-link" data-scroll-target="#sec-l02-atp"><span class="header-section-number">2.8</span> ATP: cellens energivaluta</a></li>
+  <li><a href="#sec-l02-katabolism" id="toc-sec-l02-katabolism" class="nav-link" data-scroll-target="#sec-l02-katabolism"><span class="header-section-number">2.9</span> Från mat till ATP</a>
+  <ul class="collapse">
+  <li><a href="#sec-l02-andningskedjan" id="toc-sec-l02-andningskedjan" class="nav-link" data-scroll-target="#sec-l02-andningskedjan">Andningskedjan bygger upp en spänning</a></li>
+  <li><a href="#sec-l02-atpsyntas" id="toc-sec-l02-atpsyntas" class="nav-link" data-scroll-target="#sec-l02-atpsyntas">ATP-syntas: en molekylär vattenkvarn</a></li>
+  <li><a href="#sec-l02-frikoppling" id="toc-sec-l02-frikoppling" class="nav-link" data-scroll-target="#sec-l02-frikoppling">När energin blir värme</a></li>
+  </ul></li>
+  <li><a href="#sec-l02-atp-anvandning" id="toc-sec-l02-atp-anvandning" class="nav-link" data-scroll-target="#sec-l02-atp-anvandning"><span class="header-section-number">2.10</span> Vad används ATP till?</a></li>
+  <li><a href="#sec-l02-reglering" id="toc-sec-l02-reglering" class="nav-link" data-scroll-target="#sec-l02-reglering"><span class="header-section-number">2.11</span> Reglering: rätt mängd vid rätt tillfälle</a>
+  <ul class="collapse">
+  <li><a href="#sec-l02-aterkoppling" id="toc-sec-l02-aterkoppling" class="nav-link" data-scroll-target="#sec-l02-aterkoppling">Återkoppling</a></li>
+  <li><a href="#sec-l02-hormoner" id="toc-sec-l02-hormoner" class="nav-link" data-scroll-target="#sec-l02-hormoner">Hormoner</a></li>
+  <li><a href="#sec-l02-fasta" id="toc-sec-l02-fasta" class="nav-link" data-scroll-target="#sec-l02-fasta">När vi fastar</a></li>
+  </ul></li>
+  <li><a href="#sec-l02-kartan" id="toc-sec-l02-kartan" class="nav-link" data-scroll-target="#sec-l02-kartan"><span class="header-section-number">2.12</span> Hela kartan</a></li>
+  <li><a href="#sec-l02-sammanfattning" id="toc-sec-l02-sammanfattning" class="nav-link" data-scroll-target="#sec-l02-sammanfattning"><span class="header-section-number">2.13</span> Sammanfattning</a></li>
+  <li><a href="#sec-l02-nyckelbegrepp" id="toc-sec-l02-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l02-nyckelbegrepp"><span class="header-section-number">2.14</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l02-testa" id="toc-sec-l02-testa" class="nav-link" data-scroll-target="#sec-l02-testa"><span class="header-section-number">2.15</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l02-las-mer" id="toc-sec-l02-las-mer" class="nav-link" data-scroll-target="#sec-l02-las-mer"><span class="header-section-number">2.16</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-levande-celler.html">Grunderna</a></li><li class="breadcrumb-item"><a href="../chapters/02-molekyler-och-reaktioner.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l02" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 2, <em>Livets molekyler och reaktioner</em>, av Elzbieta Glaser (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>förklara vad som skiljer levande organismer från död materia, och varför ett virus inte räknas som levande,</li>
+<li>beskriva de fyra stora grupperna av makromolekyler – proteiner, nukleinsyror, kolhydrater och lipider – och vad de används till,</li>
+<li>förklara skillnaden mellan katabolism och anabolism,</li>
+<li>beskriva hur cellen lagrar och använder energi i form av ATP, och i grova drag hur ATP tillverkas i mitokondrierna,</li>
+<li>ge exempel på hur cellens ämnesomsättning regleras.</li>
+</ul>
+</div>
+</div>
+<p>Vad är egentligen liv? Länge trodde man att levande varelser innehöll en särskild livskraft som saknades i död materia. I dag vet vi att det inte finns några mystiska krafter. En levande cell består av samma atomer som stenar, luft och vatten, och den följer samma kemiska och fysikaliska lagar. Det som gör cellen levande är hur molekylerna är organiserade och vad de gör tillsammans.</p>
+<p>I det här kapitlet går vi igenom de viktigaste molekylerna i en cell och de kemiska reaktioner som håller cellen vid liv. Kapitlet är en grund för resten av boken: vi kommer att möta proteiner, membran, ATP och ämnesomsättning i nästan alla senare kapitel.</p>
+<section id="sec-l02-liv" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-l02-liv"><span class="header-section-number">2.1</span> Vad är liv?</h2>
+<p>Om det inte är någon särskild livskraft, vad är det då som utmärker det levande? Biologer brukar beskriva liv med två egenskaper:</p>
+<ol type="1">
+<li><strong>Förmåga att föröka sig.</strong> En levande organism kan göra kopior av sig själv. För det behövs ärftlig information, som lagras i DNA, och ett maskineri som kan läsa av informationen och bygga nya molekyler.</li>
+<li><strong>Förmåga att skaffa och omvandla energi.</strong> En levande cell tar upp energi från omgivningen, till exempel från mat eller solljus, och använder den för att bygga upp sig själv och för att utföra arbete.</li>
+</ol>
+<p>Till detta hör att en levande cell ständigt måste hålla sig i balans. Hela tiden tas ämnen upp och hela tiden bryts ämnen ned och lämnar cellen. Ändå är cellens sammansättning ungefär densamma från en minut till nästa. Det kallas ett <strong>dynamiskt jämviktstillstånd</strong> (eng. <em>steady state</em>): som ett badkar där kranen står på och proppen är ur, men där vattennivån ändå är konstant eftersom inflöde och utflöde är lika stora. Att hålla den balansen kräver noggrann kontroll, och vi återkommer till hur cellen reglerar sin ämnesomsättning i slutet av kapitlet.</p>
+<section id="sec-l02-virus" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l02-virus">Är virus levande?</h3>
+<p>Med de två egenskaperna som måttstock kan vi pröva ett gränsfall: virus. Ett virus har ärftlig information, i form av DNA eller RNA, inslagen i ett skal av proteiner. Men ett virus kan inte föröka sig på egen hand och har ingen egen ämnesomsättning. För att föröka sig måste det ta sig in i en levande cell och få cellens maskineri att tillverka nya viruspartiklar. Därför räknas virus i allmänhet inte som levande.</p>
+<p>Virus kan se mycket olika ut. Bakteriofagen T4, ett virus som infekterar bakterier, ser ut som en liten månlandare: ett huvud som rymmer arvsmassan och ben som fäster på bakteriens yta.</p>
+<p>Ett virus som alla känner till är <strong>SARS-CoV-2</strong>, viruset som orsakar covid-19. Dess arvsmassa består av RNA och är för att vara ett virus ganska stor: omkring 30 000 byggstenar (nukleotider), som kodar för 29 proteiner. Ett av dem, <strong>spikproteinet</strong>, sitter på virusets yta och ger viruset dess karaktäristiska krona av utskott (därav namnet <em>corona</em>, se <a href="#fig-l02-sars" class="quarto-xref">Figur&nbsp;<span>2.1</span></a>). Spikproteinet fäster vid ett protein på ytan av våra celler som heter <strong>ACE2</strong>. Det är denna bindning som öppnar vägen in i cellen.</p>
+<div id="fig-l02-sars" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l02-sars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L02/sars-cov-2.jpg" class="img-fluid figure-img" style="width:45.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l02-sars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2.1: Viruset SARS-CoV-2 som det brukar avbildas. De röda utskotten på ytan är spikproteiner; det är de som fäster vid ACE2 på våra celler. Viruspartikeln är bara omkring en tiondels mikrometer stor. Bild: Alissa Eckert och Dan Higgins, CDC, Wikimedia Commons, allmän egendom.
+</figcaption>
+</figure>
+</div>
+<p>Bindningen mellan spikprotein och ACE2 förklarar också hur vaccinerna mot covid-19 fungerar. mRNA-vaccinerna innehåller instruktionen för att tillverka spikproteinet. Våra celler tillverkar då en tid lite spikprotein, och immunförsvaret lär sig att göra <strong>antikroppar</strong> mot det. Antikropparna fastnar på spikproteinet och hindrar det från att binda till ACE2, och därmed kan viruset inte ta sig in i cellerna.</p>
+<p>Viruset förändras dock hela tiden genom <strong>mutationer</strong>, små förändringar i arvsmassan, och spikproteinet visar tydligt att små förändringar i ett proteins byggstenar kan få stora följder. Mutationer i den del av spikproteinet som binder till ACE2 kan göra att viruset binder bättre och smittar lättare, eller att antikroppar från tidigare infektioner och vaccinationer inte fastnar lika bra.</p>
+<p>Omikron, som upptäcktes i slutet av 2021, hade 32 mutationer i spikproteinet. Den var mer smittsam än tidigare varianter men gav i regel mildare sjukdom. Sedan dess har nya omikronvarianter avlöst varandra. En av dem, XBB.1.5 med smeknamnet Kraken (2022), uppstod när två omikronvarianter blandade sina arvsmassor. Den tog sig in i cellerna ännu effektivare än tidigare varianter, men det fanns inget som tydde på att den var farligare.</p>
+</section>
+</section>
+<section id="sec-l02-celler" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-l02-celler"><span class="header-section-number">2.2</span> Två sorters celler</h2>
+<p>Ett virus behöver alltså en cell för att föröka sig. Cellen är däremot levande, och alla levande organismer består av en eller flera celler. Cellerna är av två huvudtyper:</p>
+<ul>
+<li><strong>Prokaryoter</strong> är små celler, oftast 1–10 mikrometer (tusendels millimeter) långa, utan cellkärna. Hit hör bakterierna och <strong>arkéerna</strong>, encelliga organismer som liknar bakterier till utseendet men är en egen gren av livet; många lever i heta källor eller mycket salt vatten. Deras DNA ligger fritt i cellen.</li>
+<li><strong>Eukaryoter</strong> är större celler, ungefär 5–100 mikrometer. Deras DNA är inneslutet i en <strong>cellkärna</strong>, och de har också andra avgränsade utrymmen, <strong>organeller</strong>, med egna uppgifter. Ett exempel är mitokondrierna, cellens kraftverk, som vi återkommer till nedan. Djur, växter och svampar består av eukaryota celler, liksom många encelliga organismer.</li>
+</ul>
+<p>Eftersom arkéerna är en egen gren talar man ofta om livets tre stora grenar: bakterier, arkéer och eukaryoter.</p>
+<p><a href="#fig-l02-bakterie" class="quarto-xref">Figur&nbsp;<span>2.2</span></a> och <a href="#fig-l02-djurcell" class="quarto-xref">Figur&nbsp;<span>2.3</span></a> visar en cell av vardera slaget.</p>
+<div id="fig-l02-bakterie" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l02-bakterie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L02/prokaryot-cell.svg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l02-bakterie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2.2: En bakteriecell i genomskärning. Bakteriens DNA ligger fritt i cellens inre, som en tät härva (nukleoid), utan något membran omkring sig. Där finns också små ringar av DNA, plasmider, som vi återkommer till i <a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a>, och tusentals ribosomer. Cellen omges av ett cellmembran, en cellvägg och ofta en kapsel, och många bakterier har en lång flagell som de simmar med. Bild: Mariana Ruiz Villarreal (LadyofHats), Wikimedia Commons, allmän egendom, översatt till svenska.
+</figcaption>
+</figure>
+</div>
+<div id="fig-l02-djurcell" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l02-djurcell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L02/djurcell.svg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l02-djurcell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2.3: En eukaryot cell (här en djurcell) är indelad i flera avgränsade utrymmen, organeller. DNA finns i cellkärnan, och energin omvandlas i mitokondrierna. Bild: Mariana Ruiz Villarreal (LadyofHats), svensk översättning av Bounce1337, Wikimedia Commons, allmän egendom.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l02-innehall" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sec-l02-innehall"><span class="header-section-number">2.3</span> Vad består en cell av?</h2>
+<p>Vad finns då inne i en cell? Om man vägde alla molekyler i en bakteriecell skulle man finna att ungefär 70 procent av vikten är vatten (<a href="#fig-l02-innehall" class="quarto-xref">Figur&nbsp;<span>2.4</span></a>). Resten består till största delen av stora molekyler, <strong>makromolekyler</strong>: proteiner, nukleinsyror (DNA och RNA), kolhydrater och lipider. Därtill kommer små molekyler, som byggstenar till makromolekylerna, och joner, det vill säga laddade atomer som natrium, kalium och klorid.</p>
+<div id="fig-l02-innehall" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l02-innehall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L02/cellens-innehall.svg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l02-innehall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2.4: Ungefärlig sammansättning av en bakteriecell, i procent av vikten. Vatten dominerar; bland de övriga molekylerna är proteinerna flest. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Trots att det mesta är vatten är en cell inte en påse med vatten där några molekyler simmar omkring. Proteiner och andra makromolekyler är så tätt packade att de hela tiden stöter i varandra (<a href="#fig-l02-ecoli" class="quarto-xref">Figur&nbsp;<span>2.5</span></a>). Det är en bra bild att ha i huvudet när man läser om cellens kemi.</p>
+<div id="fig-l02-ecoli" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l02-ecoli-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L02/e-coli-goodsell.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l02-ecoli-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2.5: Tvärsnitt genom en bakterie, <em>Escherichia coli</em>, målat i rätt skala av David S. Goodsell. Till vänster ses cellens hölje (grönt) med ett av de långa trådformiga utskott som bakterien simmar med. I mitten finns cellens inre, packat med proteiner (blått) och ribosomer, de stora maskiner som tillverkar proteiner (lila). Nere till höger ligger bakteriens DNA (gult). Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l02-makromolekyler" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l02-makromolekyler">Makromolekyler: långa kedjor av enkla byggstenar</h3>
+<p>Innan vi ser på varje grupp av makromolekyler för sig ska vi se vad de har gemensamt: hur stora de är och hur de är byggda.</p>
+<p>Makromolekyler är mycket stora. En vattenmolekyl väger 18 atommassenheter (en atommassenhet är ungefär vikten av en väteatom och kallas också en <strong>dalton</strong>). En makromolekyl väger från några tusen upp till flera miljoner atommassenheter, alltså hundratals till hundratusentals gånger mer än en vattenmolekyl. Proteinernas vikt anges därför ofta i <strong>kilodalton</strong>, tusen atommassenheter: ett vanligt protein väger några tiotal kilodalton.</p>
+<p>Trots sin storlek är makromolekylerna byggda enligt en enkel princip. De är långa kedjor av små byggstenar, <strong>monomerer</strong>, som kopplats ihop en efter en, som pärlor på ett halsband. En sådan kedja kallas en <strong>polymer</strong>. Cellen behöver därför inte tillverka miljontals olika komplicerade molekyler från grunden, utan bara ett fåtal sorters byggstenar som den sedan sätter ihop på olika sätt (<a href="#tbl-l02-makro" class="quarto-xref">Tabell&nbsp;<span>2.1</span></a>):</p>
+<div id="tbl-l02-makro" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-l02-makro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabell&nbsp;2.1: De fyra stora grupperna av makromolekyler i cellen. Lipiderna är ett undantag: de bildar inga långa kedjor, men många lipidmolekyler samlas tillsammans till större strukturer, till exempel membran.
+</figcaption>
+<div aria-describedby="tbl-l02-makro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Makromolekyl</th>
+<th>Byggstenar</th>
+<th>Exempel på uppgift</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Proteiner</td>
+<td>aminosyror (20 sorter)</td>
+<td>utför nästan allt arbete i cellen</td>
+</tr>
+<tr class="even">
+<td>Nukleinsyror (DNA, RNA)</td>
+<td>nukleotider (4 sorter i vardera)</td>
+<td>lagrar och för vidare ärftlig information</td>
+</tr>
+<tr class="odd">
+<td>Kolhydrater (polysackarider)</td>
+<td>sockerarter, oftast glukos</td>
+<td>energiförråd, byggmaterial i växternas cellväggar</td>
+</tr>
+<tr class="even">
+<td>Lipider</td>
+<td>fettsyror m.m. (bildar inte kedjor)</td>
+<td>energiförråd, bygger upp membran</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-l02-proteiner" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="sec-l02-proteiner"><span class="header-section-number">2.4</span> Proteiner gör nästan allt</h2>
+<p>Om DNA är cellens ritningar, så är proteinerna dess arbetare. Proteinerna utför nästan allt som händer i en cell:</p>
+<ul>
+<li><strong>Katalys.</strong> Enzymer är proteiner som sätter fart på kemiska reaktioner, ofta miljontals gånger (<a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a>).</li>
+<li><strong>Kommunikation.</strong> Receptorer är proteiner som tar emot signaler, till exempel hormoner, och för dem vidare in i cellen (<a href="#sec-l02-hormoner" class="quarto-xref"><span>Avsnitt 2.11.2</span></a>, <a href="08-membranproteiner.html#sec-l08-lakemedel" class="quarto-xref"><span>Avsnitt 8.1.1</span></a>).</li>
+<li><strong>Transport.</strong> Hemoglobin i de röda blodkropparna transporterar syre från lungorna ut i kroppen.</li>
+<li><strong>Försvar.</strong> Antikroppar känner igen och binder till främmande ämnen, som spikproteinet på coronaviruset.</li>
+<li><strong>Rörelse.</strong> Proteinerna aktin och myosin får musklerna att dra ihop sig.</li>
+<li><strong>Struktur.</strong> Keratin bygger upp hår och naglar, och kollagen ger styrka åt hud och senor.</li>
+</ul>
+<p>Hur kan en och samma sorts molekyl göra så olika saker? Svaret ligger i formen. Ett protein är en kedja av aminosyror, och ordningen mellan aminosyrorna bestämmer hur kedjan veckar sig till en bestämd tredimensionell form. Det är formen som avgör vad proteinet kan göra. Mer om detta i <a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a> och <a href="14-proteinveckning.html" class="quarto-xref"><span>Kapitel 14</span></a>.</p>
+<section id="sec-l02-vitaminer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l02-vitaminer">Hjälpmolekyler: vitaminer och metaller</h3>
+<p>Många proteiner klarar inte sitt arbete ensamma. De behöver små hjälpmolekyler, <strong>kofaktorer</strong>, som binder till proteinet. Det kan vara metalljoner som järn, zink eller magnesium, eller organiska molekyler som kallas <strong>koenzymer</strong>. Många koenzymer tillverkas i kroppen av vitaminer som vi måste få i oss med maten. Det är därför brist på vitaminer ger sjukdom: utan vitaminet kan kroppen inte tillverka koenzymet, och då fungerar inte enzymerna som behöver det. <a href="#tbl-l02-vitaminer" class="quarto-xref">Tabell&nbsp;<span>2.2</span></a> ger några exempel.</p>
+<div id="tbl-l02-vitaminer" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-l02-vitaminer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabell&nbsp;2.2: Några vitaminer, vad de används till i cellen och vad som händer vid brist.
+</figcaption>
+<div aria-describedby="tbl-l02-vitaminer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Vitamin</th>
+<th>Behövs för</th>
+<th>Bristsjukdom (exempel)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B1 (tiamin)</td>
+<td>nedbrytning av socker</td>
+<td>beriberi</td>
+</tr>
+<tr class="even">
+<td>B3 (niacin)</td>
+<td>överföring av elektroner</td>
+<td>pellagra (hudinflammation, diarré, förvirring)</td>
+</tr>
+<tr class="odd">
+<td>B6</td>
+<td>omvandling av aminosyror</td>
+<td>blodbrist, kramper</td>
+</tr>
+<tr class="even">
+<td>B12</td>
+<td>flera reaktioner i ämnesomsättningen</td>
+<td>blodbrist och nervskador</td>
+</tr>
+<tr class="odd">
+<td>Folsyra</td>
+<td>tillverkning av DNA:s byggstenar</td>
+<td>missbildningar hos foster</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="sec-l02-genom" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l02-genom">Genom och proteom</h3>
+<p>Proteinerna tillverkas efter instruktioner i cellens DNA. Därför är två begrepp bra att känna till redan nu: genom och proteom.</p>
+<p>Allt DNA i en cell kallas cellens <strong>genom</strong>. Genomet är i princip detsamma i alla celler i en organism: en levercell och en hjärncell hos samma människa har samma DNA. Genomet ändras inte heller med vad vi äter, och med åldern bara genom små, slumpvisa förändringar, mutationer.</p>
+<p>DNA-molekylen är mycket lång i förhållande till cellen. En bakterie, <em>Escherichia coli</em>, är ungefär 2 mikrometer lång, men om man drog ut dess DNA till en rak tråd skulle den bli 1,7 millimeter, nästan tusen gånger längre än cellen. DNA:t måste alltså vara mycket tätt packat.</p>
+<p>Alla proteiner i en cell kallas cellens <strong>proteom</strong>. Proteomet skiljer sig mellan olika celler i samma kropp: en levercell tillverkar andra proteiner än en muskelcell, trots att de har samma DNA. Proteomet ändras också med tiden, till exempel beroende på vad vi har ätit och vilken tid på dygnet det är. Det är alltså inte bara vilka gener en cell har som spelar roll, utan vilka av dem som används. Vi återkommer till genom och proteom i <a href="11-omik.html" class="quarto-xref"><span>Kapitel 11</span></a>.</p>
+</section>
+</section>
+<section id="sec-l02-kolhydrater" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="sec-l02-kolhydrater"><span class="header-section-number">2.5</span> Kolhydrater: socker i många former</h2>
+<p>Kolhydrater är en viktig källa till energi och till kolatomer, som cellen behöver för att bygga nya molekyler. Bröd, pasta, potatis och kakor är exempel på kolhydratrik mat.</p>
+<p>Den enklaste formen av kolhydrat är ett enkelt socker, en <strong>monosackarid</strong>. Den viktigaste är <strong>glukos</strong> (druvsocker), som är det socker som finns i blodet. Ett annat exempel är <strong>fruktos</strong> (fruktsocker). Två sockermolekyler kan kopplas ihop till en <strong>disackarid</strong>. Vanligt socker, sackaros (rör- eller betsocker), består av en glukos och en fruktos, och mjölksocker, laktos, av en glukos och en galaktos.</p>
+<p>Långa kedjor av sockermolekyler kallas <strong>polysackarider</strong>. Tre av de viktigaste består alla av glukos, men kopplad på olika sätt:</p>
+<ul>
+<li><strong>Stärkelse</strong> är växternas sätt att lagra energi, till exempel i potatis och sädeskorn.</li>
+<li><strong>Glykogen</strong> är djurens sätt att lagra energi, främst i levern och musklerna.</li>
+<li><strong>Cellulosa</strong> är byggmaterial i växternas cellväggar. Den är det vanligaste organiska ämnet på jorden och finns i trä, bomull och papper.</li>
+</ul>
+<p>Skillnaden mellan stärkelse och cellulosa ligger bara i hur glukosenheterna sitter ihop. Ändå är skillnaden stor för oss: vi har enzymer som kan bryta ned stärkelse till glukos, men inga som kan bryta ned cellulosa. Kor och andra idisslare kan leva på gräs bara tack vare bakterier i magen som har sådana enzymer.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Snabba och långsamma kolhydrater
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Hur snabbt kolhydraterna i ett livsmedel får blodsockret att stiga anges med livsmedlets <strong>glykemiska index</strong> (GI). Livsmedel med högt GI bryts ned och tas upp snabbt, så att blodsockret stiger fort. Kroppen svarar med att utsöndra mycket av hormonet insulin, som får cellerna att ta upp sockret ur blodet. Då kan blodsockret i stället sjunka snabbt, vilket kan ge trötthet, sötsug och hunger. Livsmedel med lågt GI ger en långsammare och jämnare ökning av blodsockret, som kroppens insulin lättare hinner ta hand om.</p>
+</div>
+</div>
+<p>Kolhydrater sitter också på utsidan av våra celler, där korta kedjor av socker, <strong>oligosackarider</strong>, är fästa vid proteiner och lipider i cellmembranet. Våra blodgrupper är ett exempel. Skillnaden mellan blodgrupperna A, B och O är att de röda blodkropparna har lite olika sockerkedjor på sin yta. Kedjorna i blodgrupp A och B har varsin extra sockermolekyl, av olika slag, som saknas i blodgrupp O. Immunförsvaret kan känna igen sockerkedjor som inte är kroppens egna, och därför måste man få blod av rätt blodgrupp vid en blodtransfusion.</p>
+</section>
+<section id="sec-l02-lipider" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="sec-l02-lipider"><span class="header-section-number">2.6</span> Lipider: fett, membran och kolesterol</h2>
+<p><strong>Lipider</strong> är ett samlingsnamn för ämnen som löser sig i fett men inte i vatten. De har tre huvuduppgifter: de lagrar energi, de bygger upp cellernas membran och de fungerar som signalämnen, till exempel hormoner.</p>
+<p>Många lipider innehåller <strong>fettsyror</strong>, långa kedjor av kol- och väteatomer med en sur grupp i ena änden. Fettsyrorna kan vara <strong>mättade</strong>, med raka kedjor som packas tätt, eller <strong>omättade</strong>, med böjar i kedjorna som gör att de inte kan packas lika tätt. Det förklarar varför smör, som har mycket mättat fett, är fast i rumstemperatur, medan olivolja, med mer omättat fett, är flytande. Omega-3-fettsyror, som finns i fet fisk och vissa oljor, är fleromättade: de har flera böjar.</p>
+<p>Cellerna utnyttjar detta. Ju fler omättade fettsyror ett membran innehåller, desto mer lättflytande är det. Vissa organismer kan ändra andelen omättade fettsyror för att membranen inte ska stelna när det blir kallt.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: kaskelotens flytväst
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Kaskeloten har ett stort organ i huvudet fyllt med en vaxartad olja, <em>spermaceti</em>. Oljan ändrar täthet när den svalnar och stelnar, och man har föreslagit att valen kan utnyttja det för att lättare stanna på stort djup när den dyker efter föda. Organet används också för att fokusera de ljud som valen navigerar med.</p>
+</div>
+</div>
+</div>
+<p>De viktigaste grupperna av lipider är:</p>
+<ul>
+<li><strong>Fett</strong> (triglycerider). En molekyl av glycerol med tre fettsyror. Det är den form som kroppen lagrar energi i, i fettcellerna, och fettet isolerar också mot kyla.</li>
+<li><strong>Fosfolipider</strong>. En glycerol med två fettsyror och ett vattenlösligt “huvud” med en fosfatgrupp. Fosfolipider har alltså en ände som trivs i vatten och en ände som inte gör det. Därför ordnar de sig spontant i dubbla lager, med fettsyrorna inåt och huvudena utåt mot vattnet. Så bildas cellernas membran, som vi återkommer till i <a href="07-biomembran.html" class="quarto-xref"><span>Kapitel 7</span></a>.</li>
+<li><strong>Kolesterol</strong>. En stel molekyl av fyra sammanbyggda ringar av kolatomer. Kolesterol gör cellmembranen stabilare, och det är också utgångsmaterial för D-vitamin och för flera hormoner, bland annat könshormonerna. Kolesterol löser sig inte i blodet och transporteras därför i små partiklar av fett och protein. Det är dessa partiklar, HDL och LDL, som brukar kallas “gott” och “ont” kolesterol.</li>
+</ul>
+</section>
+<section id="sec-l02-metabolism" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="sec-l02-metabolism"><span class="header-section-number">2.7</span> Ämnesomsättning: cellens kemiska fabrik</h2>
+<p>Hittills har vi sett vilka molekyler en cell består av. Nu ska vi se vad cellen gör med dem. Allt det som händer kemiskt i en cell kallas med ett gemensamt namn <strong>metabolism</strong>, eller på svenska <strong>ämnesomsättning</strong>. Ämnesomsättningen har fyra syften:</p>
+<ol type="1">
+<li>att skaffa energi,</li>
+<li>att skaffa utgångsmaterial för att tillverka cellens beståndsdelar,</li>
+<li>att tillverka cellens egna molekyler, och</li>
+<li>att utföra annat arbete, till exempel att röra sig eller att pumpa ämnen in i eller ut ur cellen.</li>
+</ol>
+<p>Ämnesomsättningen brukar delas i två delar (<a href="#fig-l02-metabolism" class="quarto-xref">Figur&nbsp;<span>2.6</span></a>):</p>
+<ul>
+<li><strong>Katabolism</strong> är nedbrytning. Stora energirika molekyler från maten – kolhydrater, fett och proteiner – bryts ned till mindre molekyler, och till sist till koldioxid, vatten och urea (ett kväveinnehållande avfallsämne som lämnar kroppen med urinen). Vid nedbrytningen frigörs energi.</li>
+<li><strong>Anabolism</strong> är uppbyggnad. Av små byggstenar, som aminosyror och socker, tillverkar cellen sina egna stora molekyler: proteiner, nukleinsyror, polysackarider och lipider. Uppbyggnaden kräver energi.</li>
+</ul>
+<div id="fig-l02-metabolism" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l02-metabolism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L02/metabolism.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l02-metabolism-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2.6: Ämnesomsättningens två delar. Vid nedbrytningen (katabolism, till vänster) frigörs energi som lagras i ATP. Den energin används vid uppbyggnaden av cellens egna molekyler (anabolism, till höger). Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>De två delarna hänger ihop. Energin som frigörs vid nedbrytningen används vid uppbyggnaden, och många av de små molekyler som bildas vid nedbrytningen används som byggstenar.</p>
+</section>
+<section id="sec-l02-atp" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="sec-l02-atp"><span class="header-section-number">2.8</span> ATP: cellens energivaluta</h2>
+<p>Energin från nedbrytningen av maten kan inte användas direkt. Den måste först lagras i en form som cellen kan använda överallt. Den formen är framför allt molekylen <strong>ATP</strong>, <em>adenosintrifosfat</em>.</p>
+<p>ATP har tre fosfatgrupper i rad. Den yttersta fosfatgruppen kan spjälkas av, och då frigörs energi som cellen kan använda för att utföra arbete. Kvar blir <strong>ADP</strong>, <em>adenosindifosfat</em>, och en fri fosfatgrupp. För att göra ATP av ADP och fosfat igen krävs energi, och den kommer från nedbrytningen av maten (<a href="#fig-l02-atp" class="quarto-xref">Figur&nbsp;<span>2.7</span></a>).</p>
+<div id="fig-l02-atp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l02-atp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L02/atp-cykel.svg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l02-atp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2.7: ATP fungerar som ett laddningsbart batteri. Energi från nedbrytningen av maten används för att ladda upp ADP till ATP, och när ATP spjälkas till ADP frigörs energi för cellens arbete. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>ATP brukar kallas cellens <strong>energivaluta</strong>, och jämförelsen är träffande. Precis som pengar gör det möjligt att byta arbete mot mat utan att byta direkt, gör ATP det möjligt att använda energin från en reaktion till en helt annan reaktion. Nedbrytningsprocesserna bildar ATP, och uppbyggnadsprocesserna och cellens arbete förbrukar ATP. Omsättningen är enorm: en vuxen människa bildar och förbrukar ungefär sin egen kroppsvikt i ATP varje dag, trots att kroppen bara innehåller en liten mängd ATP åt gången. Varje ATP-molekyl laddas alltså ur och upp igen många hundra gånger om dagen.</p>
+<p>Utöver ATP använder cellen några andra bärare av energi, som <strong>NADH</strong> och <strong>FADH<sub>2</sub></strong> (namnen behöver du inte lära dig). De bär på elektroner som frigjorts vid nedbrytningen av maten. Man kan tänka sig att elektronerna i maten sitter högt upp, som vatten i en damm, och när de till sist får falla ned till syret frigörs energi. NADH och FADH<sub>2</sub> lämnar elektronerna vidare till andningskedjan, som vi ska se strax.</p>
+<p>Att ta bort elektroner från ett ämne kallar kemister <strong>oxidation</strong>, och att tillföra elektroner <strong>reduktion</strong>. Vid nedbrytningen oxideras alltså näringsämnena. Vid uppbyggnaden går det åt andra hållet: där behövs elektroner, och dem levererar en nära släkting till NADH, som heter <strong>NADPH</strong>.</p>
+</section>
+<section id="sec-l02-katabolism" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="sec-l02-katabolism"><span class="header-section-number">2.9</span> Från mat till ATP</h2>
+<p>Nu kan vi följa hur energin i maten till sist hamnar i ATP. Nedbrytningen sker i flera steg. Kolhydrater bryts ned till glukos, fett till fettsyror och glycerol, och proteiner till aminosyror. Glukos bryts sedan ned i <strong>glykolysen</strong>, en kedja av tio reaktioner i cellens <strong>cytoplasma</strong> (vätskan som fyller cellen utanför organellerna), till en mindre molekyl som heter pyruvat. Fettsyrorna klipps ned två kolatomer i taget, och från aminosyrorna tas kvävet bort och blir urea.</p>
+<p>Alla dessa vägar leder till en och samma molekyl, <strong>acetyl-CoA</strong>, en bit med två kolatomer från maten fäst vid en bärarmolekyl. Det är en sorts gemensam knutpunkt i ämnesomsättningen: oavsett om energin kommer från bröd, smör eller skinka passerar den acetyl-CoA.</p>
+<p>Acetyl-CoA går sedan in i <strong>citronsyracykeln</strong>, en serie reaktioner i mitokondrierna där kolatomerna till sist lämnar cellen som koldioxid, den koldioxid vi andas ut. Det mesta av energin hamnar dock inte direkt i ATP, utan i elektronbärarna NADH och FADH<sub>2</sub>.</p>
+<section id="sec-l02-andningskedjan" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l02-andningskedjan">Andningskedjan bygger upp en spänning</h3>
+<p>Hur blir då energin i NADH och FADH<sub>2</sub> till ATP? Det sista steget sker i mitokondriernas inre membran, i den så kallade <strong>andningskedjan</strong>. Där lämnar NADH och FADH<sub>2</sub> ifrån sig sina elektroner, som förs vidare genom en kedja av stora proteinkomplex till slutmottagaren, syre. Syret förenas med elektronerna och vätejoner och bildar vatten. Det är därför vi behöver andas: syret vi andas in används i andningskedjan.</p>
+<p>När elektronerna passerar genom kedjan används energin till att pumpa <strong>protoner</strong> från mitokondriens insida till utsidan av det inre membranet. En proton är en väteatom som har förlorat sin enda elektron, alltså en naken atomkärna med en positiv laddning. Därför kallas den också vätejon (H<sup>+</sup>).</p>
+<p>Halten av protoner avgör hur surt något är. Den mäts med <strong>pH</strong>-skalan: ju fler protoner, desto lägre pH och desto surare. Rent vatten har pH 7, citronsaft omkring 2 och magsaft ännu lägre. Insidan av de flesta celler har ett pH strax över 7. Varje steg på skalan motsvarar tio gånger så många protoner, så en liten skillnad i pH är en stor skillnad i protonhalt.</p>
+<p>När andningskedjan pumpar ut protoner blir det fler protoner på ena sidan av membranet än på den andra, ungefär som när vatten pumpas upp i en damm. Skillnaden kallas en <strong>protongradient</strong> och är en sorts lagrad energi: membranet blir laddat som ett batteri (<a href="#fig-l02-andningskedja" class="quarto-xref">Figur&nbsp;<span>2.8</span></a>).</p>
+<div id="fig-l02-andningskedja" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l02-andningskedja-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L02/andningskedja.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l02-andningskedja-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2.8: Andningskedjan och ATP-syntas i mitokondriens inre membran. Elektroner från NADH (lila pilar) förs genom en kedja av proteinkomplex (orange) till syre, som blir vatten. Energin används till att pumpa ut protoner (röda pilar uppåt), så att det blir många fler på utsidan än på insidan. Den enda vägen tillbaka går genom ATP-syntas (blått), och när protonerna strömmar igenom roterar enzymet och tillverkar ATP. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l02-atpsyntas" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l02-atpsyntas">ATP-syntas: en molekylär vattenkvarn</h3>
+<p>Protonerna vill tillbaka till insidan, men membranet släpper inte igenom dem. Den viktigaste vägen tillbaka går genom ett enzym som heter <strong>ATP-syntas</strong> (<a href="#fig-l02-atpsyntas" class="quarto-xref">Figur&nbsp;<span>2.9</span></a>). När protonerna passerar genom den del av enzymet som sitter i membranet, börjar den delen att rotera, som ett vattenhjul i en bäck. Rotationen förs vidare upp i enzymets huvud, där den tvingar fram formförändringar som pressar ihop ADP och fosfat till ATP.</p>
+<div id="fig-l02-atpsyntas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l02-atpsyntas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L02/atp-syntas-goodsell.jpg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l02-atpsyntas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2.9: ATP-syntas, en roterande molekylär motor. Två ATP-syntaser sitter här ihop i mitokondriens inre membran, markerat i grått. Den del som sitter i membranet roterar när protoner strömmar igenom, och i de stora huvudena högst upp tillverkas ATP. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>ATP-syntas är en av naturens mest fascinerande maskiner, en verklig motor i molekylär skala. Energin omvandlas i flera steg. Den kemiska energin i maten blir lagrad energi i protongradienten, som i ett laddat batteri. Den lagrade energin blir mekanisk energi i den roterande motorn, och den blir till sist kemisk energi igen i ATP. Upptäckten av hur ATP-syntas fungerar belönades med Nobelpriset i kemi 1997 (Paul Boyer och John Walker). Vi återkommer till molekylära maskiner i <a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a>.</p>
+</section>
+<section id="sec-l02-frikoppling" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l02-frikoppling">När energin blir värme</h3>
+<p>Protongradienten behöver inte alltid användas för att göra ATP. I det så kallade <strong>bruna fettet</strong> finns ett protein, <strong>termogenin</strong>, som släpper tillbaka protonerna genom membranet utan att något ATP bildas. Energin i protongradienten blir då i stället värme. Det kallas att mitokondrierna <strong>frikopplas</strong>.</p>
+<p>Frikoppling är ett sätt att hålla värmen. Det sker hos små däggdjur som går i ide, som igelkottar och fladdermöss, hos nyfödda barn, som har mycket brunt fett, och i viss mån hos vuxna som utsätts för kyla.</p>
+<p>Djur som går i ide behöver också stora förråd av energi att ta av. Hur mycket energi som kan lagras som fett visar björnen. Inför vintern äter den upp till 20 000 kilokalorier om dagen och lagrar energin som fett. Under vintervilan håller den sedan kroppstemperaturen på 32–35 grader i flera månader utan att äta eller dricka.</p>
+<p>Frikopplingen kan också gå fel. Vid en mycket ovanlig mitokondriesjukdom, Lufts sjukdom, är mitokondrierna frikopplade hela tiden. Sjukdomen beskrevs först av den svenske läkaren Rolf Luft 1962. Den som är sjuk får en extremt hög ämnesomsättning, svettas mycket, har feber och är svag, trots att den äter mycket.</p>
+<p>Samma sak kan framkallas med ett ämne utifrån. Dinitrofenol, som frikopplar mitokondrierna, såldes på 1930-talet som bantningsmedel. Det gav snabb viktnedgång men var livsfarligt och orsakade dödsfall.</p>
+</section>
+</section>
+<section id="sec-l02-atp-anvandning" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="sec-l02-atp-anvandning"><span class="header-section-number">2.10</span> Vad används ATP till?</h2>
+<p>ATP används till nästan allt arbete i cellen. Tre exempel:</p>
+<p><strong>Uppbyggnad.</strong> Att tillverka proteiner, DNA och andra makromolekyler kräver energi, som tas från ATP. Den energikrävande uppbyggnaden använder delvis samma vägar som nedbrytningen, fast åt andra hållet.</p>
+<p><strong>Muskelarbete.</strong> När en muskel drar ihop sig glider två sorters proteintrådar, <strong>aktin</strong> och <strong>myosin</strong>, förbi varandra. Myosin har ett litet “huvud” som binder ATP. När ATP spjälkas och fosfatet lossnar, ändrar huvudet form och drar aktintråden med sig, som en roddare som tar ett årtag. Sedan binder ett nytt ATP och huvudet släpper taget och spänns för nästa tag. Ett enormt antal sådana årtag i samma riktning får muskeln att dra ihop sig, vare sig det gäller en sprinter på hundra meter eller en diskuskastare.</p>
+<p><strong>Pumpar.</strong> Cellens insida och utsida har mycket olika halter av joner. Inuti cellen är halten kalium ungefär 35 gånger högre än utanför, medan natriumhalten är mer än tio gånger lägre. Skillnaden upprätthålls av en pump i cellmembranet, <strong>natrium-kaliumpumpen</strong>, som använder ATP för att pumpa ut natrium och in kalium. Pumpen arbetar mot strömmen, ungefär som en vattenpump som pumpar upp vatten i ett torn. Den gör av med en stor del av kroppens ATP; i nervcellerna, som behöver jongradienterna för att skicka signaler, är andelen ännu större. Vi återkommer till membranets pumpar i <a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>.</p>
+</section>
+<section id="sec-l02-reglering" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="sec-l02-reglering"><span class="header-section-number">2.11</span> Reglering: rätt mängd vid rätt tillfälle</h2>
+<p>En cell med tusentals olika kemiska reaktioner måste hålla ordning på dem. Den får inte tillverka mer av ett ämne än den behöver, och nedbrytningen av näring ska öka när cellen behöver mer energi. Ämnesomsättningen regleras på flera sätt.</p>
+<section id="sec-l02-aterkoppling" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l02-aterkoppling">Återkoppling</h3>
+<p>Ett viktigt sätt är <strong>återkoppling</strong> (eng. <em>feedback</em>). I en kedja av reaktioner, där ett ämne steg för steg omvandlas till ett annat, kan slutprodukten själv bromsa det första steget. Principen är densamma som i en termostat: när det blivit varmt nog stängs elementet av.</p>
+<p>Ett exempel är hur bakterier tillverkar aminosyran isoleucin från aminosyran treonin, i fem steg med fem olika enzymer (<a href="#fig-l02-aterkoppling" class="quarto-xref">Figur&nbsp;<span>2.10</span></a>). När det finns tillräckligt med isoleucin binder isoleucin till det första enzymet och stänger av det. Då stannar hela kedjan, och inget treonin slösas bort. När isoleucinet förbrukats släpper det från enzymet, och tillverkningen kommer igång igen.</p>
+<div id="fig-l02-aterkoppling" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l02-aterkoppling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L02/aterkoppling.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l02-aterkoppling-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;2.10: Återkoppling. Isoleucin tillverkas av treonin i fem steg, där varje steg sköts av ett eget enzym (E1–E5). Slutprodukten isoleucin hämmar det första enzymet, så att tillverkningen stängs av när det finns tillräckligt. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Isoleucinet binder till enzymet på ett annat ställe än där reaktionen sker, och ändrar därmed enzymets form. Den sortens reglering kallas <strong>allosterisk reglering</strong>.</p>
+<p>Det omvända finns också, <strong>framkoppling</strong> (eng. <em>feed-forward</em>): ett ämne tidigt i en kedja aktiverar ett enzym längre fram, så att cellen är förberedd på det som är på väg.</p>
+</section>
+<section id="sec-l02-hormoner" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l02-hormoner">Hormoner</h3>
+<p>I en flercellig organism måste också olika organ samordnas. Det sköts bland annat av <strong>hormoner</strong>, signalämnen som förs med blodet och påverkar celler på andra ställen i kroppen.</p>
+<p>Ett exempel är <strong>adrenalin</strong>, som utsöndras vid stress, till exempel när vi blir rädda. Adrenalinet binder till en receptor på utsidan av muskel- och leverceller. Receptorn ändrar då form, och det sätter i gång en kedja av händelser inne i cellen. Först aktiveras ett enzym som av ATP gör ett litet budbärarämne, <strong>cykliskt AMP</strong> (cAMP). cAMP aktiverar i sin tur ett annat protein, som aktiverar ett tredje, och så vidare. Varje steg förstärker signalen, eftersom varje aktiverat enzym kan aktivera många molekyler i nästa steg. En sådan kedja kallas en <strong>signalkaskad</strong>.</p>
+<p>I slutet av kaskaden aktiveras ett enzym som bryter ned glykogen. I musklerna används sockret direkt i cellen för att göra ATP, medan levern släpper ut glukos i blodet, som förs vidare till musklerna och andra organ. Inom några sekunder har musklerna mer bränsle, och kroppen är redo att springa eller slåss. Vi återkommer till receptorerna på cellytan i <a href="08-membranproteiner.html#sec-l08-lakemedel" class="quarto-xref"><span>Avsnitt 8.1.1</span></a> och <a href="17-idag-och-i-morgon.html#sec-l17-ozempic" class="quarto-xref"><span>Avsnitt 17.3.2</span></a>.</p>
+</section>
+<section id="sec-l02-fasta" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l02-fasta">När vi fastar</h3>
+<p>Hormonerna styr också vad kroppen gör när det inte kommer någon ny mat. När blodsockret blir lågt, till exempel efter en natts sömn eller vid längre fasta, utsöndras hormonet <strong>glukagon</strong> (och adrenalin). Hormonerna får fettcellerna att bryta ned sitt lagrade fett till fettsyror och glycerol. Fettsyrorna förs med blodet till musklerna, där de bryts ned och ger ATP, och till levern.</p>
+<p>Vid längre fasta händer något mer i levern. Levern omvandlar då en del av citronsyracykelns ämnen till glukos, för att hålla uppe blodsockret till hjärnan. Cykeln behöver de ämnena för att hålla igång, och utan dem går den långsammare, ungefär som ett kugghjul som saknar kuggar. Levern kan då inte bryta ned all acetyl-CoA som bildas från fettsyrorna. Överskottet görs i stället om till <strong>ketonkroppar</strong>, små vattenlösliga molekyler som går ut i blodet. Fördelen med ketonkropparna är att hjärnan kan använda dem som bränsle, vilket den inte kan med fettsyror. En av ketonkropparna är aceton, och den som fastat länge kan därför få en lätt doft av aceton i andedräkten.</p>
+</section>
+</section>
+<section id="sec-l02-kartan" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="sec-l02-kartan"><span class="header-section-number">2.12</span> Hela kartan</h2>
+<p>Det vi har gått igenom är bara en liten del av cellens ämnesomsättning. Om man ritar upp alla kända reaktioner i en cell blir det en karta med tusentals ämnen och pilar mellan dem, som ett tunnelbanenät i en storstad. Alla små molekyler som deltar i ämnesomsättningen, alltså byggstenar, mellanprodukter och avfallsämnen, kallas tillsammans cellens <strong>metabolom</strong>, och att kartlägga det är ett eget forskningsfält, <em>metabolomik</em>. Men grundprinciperna är de vi har sett: näring bryts ned och ger energi i form av ATP, ATP används för att bygga upp cellen och utföra arbete, och alltihop regleras så att cellen hålls i balans.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Att fundera på: en skinkmacka
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vad händer i kroppen när du äter en macka med smör, skinka och ost? Brödet innehåller kolhydrater, i form av stärkelse. Smöret är fett. Skinkan innehåller framför allt protein, och osten både fett och protein. Hundra gram av en sådan macka ger ungefär 270 kilokalorier, med omkring 32 gram kolhydrater, 13 gram protein och 10 gram fett, plus lite vitaminer och mineraler.</p>
+<p>Som jämförelse rekommenderas att ungefär 55 procent av energin i kosten kommer från kolhydrater, 30 procent från fett och 15 procent från protein. Hur ser fördelningen ut i mackan?</p>
+<p>Försök att följa de olika delarna genom kroppen med hjälp av kapitlet. Vart tar stärkelsen vägen, och vad blir den till? Vad händer med proteinet i skinkan? Och vad gör kroppen med fettet om du inte behöver energin just nu?</p>
+</div>
+</div>
+</section>
+<section id="sec-l02-sammanfattning" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="sec-l02-sammanfattning"><span class="header-section-number">2.13</span> Sammanfattning</h2>
+<ul>
+<li>Levande organismer kan föröka sig och skaffa och omvandla energi, och de håller sig i ett dynamiskt jämviktstillstånd. Virus kan inte föröka sig på egen hand och räknas inte som levande.</li>
+<li>Det finns två sorters celler: små prokaryota celler utan cellkärna (bakterier och arkéer) och större eukaryota celler med cellkärna och andra organeller (bland annat djur, växter och svampar).</li>
+<li>En cell består till cirka 70 procent av vatten. Resten är framför allt makromolekyler: proteiner, nukleinsyror, kolhydrater och lipider, de flesta uppbyggda som långa kedjor av enkla byggstenar.</li>
+<li>Proteinerna utför nästan allt arbete i cellen. Många behöver hjälpmolekyler, och flera av dem tillverkas av vitaminer.</li>
+<li>Ämnesomsättningen består av nedbrytning (katabolism), som frigör energi, och uppbyggnad (anabolism), som kräver energi.</li>
+<li>ATP är cellens energivaluta. Det mesta ATP:t tillverkas av ATP-syntas, en roterande motor i mitokondriernas membran, som drivs av en protongradient som andningskedjan byggt upp med hjälp av syre.</li>
+<li>Ämnesomsättningen regleras, bland annat genom återkoppling, där en slutprodukt bromsar sin egen tillverkning, och genom hormoner som adrenalin och glukagon.</li>
+</ul>
+</section>
+<section id="sec-l02-nyckelbegrepp" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="sec-l02-nyckelbegrepp"><span class="header-section-number">2.14</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>dynamiskt jämviktstillstånd</strong> – Ett tillstånd där ämnen hela tiden tas upp och omsätts, men där inflöde och utflöde är lika stora så att sammansättningen är konstant (eng. steady state).</li>
+<li><strong>virus</strong> – Arvsmassa (DNA eller RNA) i ett skal av proteiner. Kan bara föröka sig inuti en levande cell och räknas därför inte som levande.</li>
+<li><strong>prokaryot</strong> – Cell utan cellkärna, oftast 1–10 mikrometer stor. Bakterier och arkéer är prokaryoter.</li>
+<li><strong>eukaryot</strong> – Cell med cellkärna och andra organeller, oftast 5–100 mikrometer stor. Djur, växter och svampar består av eukaryota celler.</li>
+<li><strong>organell</strong> – Ett avgränsat utrymme i en eukaryot cell med en egen uppgift, till exempel cellkärnan eller mitokondrierna.</li>
+<li><strong>makromolekyl</strong> – Mycket stor molekyl, till exempel ett protein, en nukleinsyra eller en polysackarid. De flesta är polymerer.</li>
+<li><strong>polymer</strong> – En lång kedja av många likartade byggstenar (monomerer) som kopplats ihop.</li>
+<li><strong>kofaktor</strong> – En liten hjälpmolekyl eller metalljon som ett protein behöver för att fungera. Organiska kofaktorer kallas koenzymer och tillverkas ofta av vitaminer.</li>
+<li><strong>genom</strong> – Allt DNA i en cell. I princip detsamma i alla celler hos en organism.</li>
+<li><strong>proteom</strong> – Alla proteiner i en cell. Skiljer sig mellan olika celltyper och ändras med tiden.</li>
+<li><strong>polysackarid</strong> – Lång kedja av sockermolekyler, till exempel stärkelse, glykogen och cellulosa.</li>
+<li><strong>glykogen</strong> – Polysackarid av glukos som djur, även människan, lagrar energi i, framför allt i levern och musklerna.</li>
+<li><strong>lipid</strong> – Samlingsnamn för fettlösliga ämnen som fett, fosfolipider och kolesterol.</li>
+<li><strong>fosfolipid</strong> – Lipid med en vattenlöslig ände och två fettsyror. Fosfolipider bildar spontant de dubbla lager som cellmembranen består av.</li>
+<li><strong>metabolom</strong> – Alla små molekyler som deltar i en cells ämnesomsättning: byggstenar, mellanprodukter och avfallsämnen.</li>
+<li><strong>metabolism</strong> – Ämnesomsättning: alla kemiska reaktioner i en cell eller organism.</li>
+<li><strong>katabolism</strong> – Den del av ämnesomsättningen där molekyler bryts ned. Frigör energi.</li>
+<li><strong>anabolism</strong> – Den del av ämnesomsättningen där cellen bygger upp sina egna molekyler. Kräver energi.</li>
+<li><strong>ATP</strong> – Adenosintrifosfat, cellens energivaluta. När den yttersta fosfatgruppen spjälkas av frigörs energi, och kvar blir ADP.</li>
+<li><strong>andningskedjan</strong> – En kedja av proteinkomplex i mitokondriernas inre membran som för elektroner till syre och samtidigt pumpar protoner över membranet.</li>
+<li><strong>protongradient</strong> – Skillnad i halten av protoner (vätejoner) mellan membranets två sidor. En form av lagrad energi.</li>
+<li><strong>mitokondrie</strong> – Organell i eukaryota celler där det mesta av cellens ATP tillverkas, med hjälp av syre. Kallas cellens kraftverk.</li>
+<li><strong>proton</strong> – En väteatom som förlorat sin elektron, en positivt laddad atomkärna. Kallas också vätejon (H+).</li>
+<li><strong>jon</strong> – En atom eller molekyl med elektrisk laddning, till exempel natrium (Na+), kalium (K+) och klorid (Cl−).</li>
+<li><strong>pH</strong> – Ett mått på hur surt något är. Ju fler protoner, desto lägre pH. Neutralt vatten har pH 7; varje steg är en tiofaldig skillnad i protonhalt.</li>
+<li><strong>dalton</strong> – Atommassenhet, ungefär vikten av en väteatom. Proteiners vikt anges ofta i kilodalton (tusen dalton).</li>
+<li><strong>NADH</strong> – En bärare av elektroner som tar upp energi vid nedbrytningen av maten och lämnar den vidare till andningskedjan. Släktingen NADPH levererar elektroner vid uppbyggnaden.</li>
+<li><strong>glykolys</strong> – Den första delen av nedbrytningen av glukos: tio reaktioner i cellens cytoplasma som gör glukos till pyruvat.</li>
+<li><strong>oxidation</strong> – När elektroner tas bort från ett ämne. Motsatsen, när elektroner tillförs, kallas reduktion.</li>
+<li><strong>cykliskt AMP</strong> – cAMP, ett litet budbärarämne som cellen gör av ATP när ett hormon som adrenalin binder till sin receptor. För signalen vidare inne i cellen.</li>
+<li><strong>arkéer</strong> – Encelliga organismer utan cellkärna som liknar bakterier men är en egen gren av livet. Många lever i extrema miljöer.</li>
+<li><strong>ATP-syntas</strong> – Enzym i mitokondriernas inre membran (och i kloroplaster och bakterier) som tillverkar ATP. Drivs av protoner som strömmar genom det och får en del av enzymet att rotera.</li>
+<li><strong>frikoppling</strong> – När protoner släpps tillbaka över mitokondriemembranet utan att ATP bildas, så att energin blir värme, till exempel i brunt fett.</li>
+<li><strong>återkoppling</strong> – När slutprodukten i en kedja av reaktioner bromsar det första steget, så att cellen inte tillverkar mer än den behöver (eng. feedback).</li>
+<li><strong>hormon</strong> – Signalämne som förs med blodet och påverkar celler i andra delar av kroppen, till exempel adrenalin, glukagon och insulin.</li>
+<li><strong>ketonkroppar</strong> – Små vattenlösliga molekyler som levern gör av fettsyror vid fasta. Hjärnan kan använda dem som bränsle.</li>
+<li><strong>mutation</strong> – En förändring i arvsmassans bassekvens, i DNA (eller i RNA hos vissa virus).</li>
+</ul>
+</section>
+<section id="sec-l02-testa" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="sec-l02-testa"><span class="header-section-number">2.15</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L02"></div>
+<script>
+renderQuiz("quiz-L02", [
+ {
+  "question": "Varför räknas ett virus i allmänhet inte som levande?",
+  "choices": [
+   "Det kan inte föröka sig själv utan måste använda en levande cells maskineri",
+   "Det saknar helt ärftlig information",
+   "Det består inte av vanliga atomer",
+   "Det är för litet för att innehålla proteiner"
+  ],
+  "correctIndex": 0,
+  "explanation": "Ett virus har arvsmassa och proteiner, men ingen egen ämnesomsättning och kan inte föröka sig utan en värdcell."
+ },
+ {
+  "question": "Hur hindrar antikroppar mot spikproteinet att coronaviruset infekterar en cell?",
+  "choices": [
+   "De binder till spikproteinet så att det inte kan fästa vid ACE2 på cellens yta",
+   "De bryter ned virusets RNA inne i cellen",
+   "De tar bort ACE2 från alla celler i kroppen",
+   "De gör cellmembranet ogenomträngligt för alla molekyler"
+  ],
+  "correctIndex": 0,
+  "explanation": "Viruset tar sig in genom att spikproteinet binder till ACE2. Antikroppar som sitter på spikproteinet blockerar den bindningen."
+ },
+ {
+  "question": "Vad skiljer en eukaryot cell från en prokaryot?",
+  "choices": [
+   "Den eukaryota cellen har en cellkärna och andra organeller",
+   "Den eukaryota cellen saknar DNA",
+   "Den eukaryota cellen är alltid mindre",
+   "Bara den prokaryota cellen har proteiner"
+  ],
+  "correctIndex": 0,
+  "explanation": "Eukaryota celler (till exempel djur- och växtceller) har sitt DNA i en cellkärna och flera andra organeller. Prokaryoter (bakterier och arkéer) saknar cellkärna."
+ },
+ {
+  "question": "Vilket ämne utgör den största delen av en cells vikt?",
+  "choices": [
+   "Vatten",
+   "Proteiner",
+   "DNA",
+   "Fett"
+  ],
+  "correctIndex": 0,
+  "explanation": "Ungefär 70 procent av cellens vikt är vatten. Av resten är proteinerna den största gruppen."
+ },
+ {
+  "question": "Stärkelse och cellulosa är båda långa kedjor av glukos. Varför kan vi få energi av potatis men inte av papper?",
+  "choices": [
+   "Glukosenheterna sitter ihop på olika sätt, och vi saknar enzymer som bryter ned cellulosans bindningar",
+   "Cellulosa innehåller ingen energi",
+   "Cellulosa är ett protein och inte en kolhydrat",
+   "Stärkelse består av fruktos och inte glukos"
+  ],
+  "correctIndex": 0,
+  "explanation": "Skillnaden ligger i hur glukosenheterna är kopplade. Vi har enzymer för stärkelsens kopplingar men inte för cellulosans."
+ },
+ {
+  "question": "Varför är smör fast men olivolja flytande i rumstemperatur?",
+  "choices": [
+   "Smöret har mer mättade fettsyror, som har raka kedjor och packas tätt",
+   "Olivolja innehåller mer vatten",
+   "Smör innehåller mer kolesterol, som gör det fast",
+   "Olivoljans fettsyror är längre"
+  ],
+  "correctIndex": 0,
+  "explanation": "Mättade fettsyror är raka och kan packas tätt. Omättade fettsyror har böjar som gör packningen glesare, så fettet blir mer flytande."
+ },
+ {
+  "question": "Vad är skillnaden mellan katabolism och anabolism?",
+  "choices": [
+   "Katabolism är nedbrytning som frigör energi; anabolism är uppbyggnad som kräver energi",
+   "Katabolism sker bara i växter och anabolism bara i djur",
+   "Katabolism kräver energi; anabolism frigör energi",
+   "Katabolism handlar om fett och anabolism om proteiner"
+  ],
+  "correctIndex": 0,
+  "explanation": "Nedbrytning (katabolism) frigör energi som lagras i ATP; uppbyggnad (anabolism) förbrukar den."
+ },
+ {
+  "question": "Varför kallas ATP cellens energivaluta?",
+  "choices": [
+   "Energi från nedbrytningen av maten lagras i ATP och kan sedan användas till nästan allt arbete i cellen",
+   "ATP är den enda molekyl i cellen som innehåller energi",
+   "ATP används bara i musklerna",
+   "ATP bildas direkt av solljus i alla celler"
+  ],
+  "correctIndex": 0,
+  "explanation": "Som pengar gör ATP det möjligt att använda energi från en process till en helt annan."
+ },
+ {
+  "question": "Vad driver ATP-syntas, den roterande motorn som tillverkar det mesta av vårt ATP?",
+  "choices": [
+   "Protoner som strömmar tillbaka genom membranet från den sida där andningskedjan pumpat ut dem",
+   "Elektrisk ström från nervcellerna",
+   "Värme från brunt fett",
+   "Muskelrörelser som vrider enzymet runt"
+  ],
+  "correctIndex": 0,
+  "explanation": "Andningskedjan pumpar protoner över mitokondriens inre membran. När de strömmar tillbaka genom ATP-syntas roterar enzymet och ATP bildas."
+ },
+ {
+  "question": "Vad händer i brunt fett, där proteinet termogenin finns?",
+  "choices": [
+   "Protonerna släpps tillbaka över membranet utan att ATP bildas, och energin blir värme",
+   "Fett omvandlas direkt till glukos",
+   "Mitokondrierna slutar använda syre",
+   "ATP lagras för vintern"
+  ],
+  "correctIndex": 0,
+  "explanation": "Termogenin frikopplar mitokondrierna. Det är ett sätt att hålla värmen, till exempel hos nyfödda och djur i ide."
+ },
+ {
+  "question": "I bakterier hämmar isoleucin det första av de fem enzymer som tillverkar isoleucin av treonin. Vad är poängen?",
+  "choices": [
+   "Tillverkningen stängs av när det finns tillräckligt med isoleucin, så att inget slösas bort",
+   "Isoleucinet förstörs så att det inte blir för mycket",
+   "Det gör att treonin tillverkas snabbare",
+   "Enzymet omvandlas till isoleucin"
+  ],
+  "correctIndex": 0,
+  "explanation": "Det är återkoppling: slutprodukten bromsar sin egen tillverkning, som en termostat."
+ },
+ {
+  "question": "Varför bildar levern ketonkroppar vid längre fasta?",
+  "choices": [
+   "Hjärnan kan använda ketonkroppar som bränsle när det är ont om glukos, vilket den inte kan med fettsyror",
+   "Ketonkroppar är ett sätt att lagra protein",
+   "Ketonkroppar höjer blodsockret direkt",
+   "Levern behöver bli av med överskott av syre"
+  ],
+  "correctIndex": 0,
+  "explanation": "Vid fasta bryts fett ned till mycket acetyl-CoA, som levern gör om till vattenlösliga ketonkroppar som hjärnan kan använda."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>2.1</strong> Förklara med egna ord hur energin i maten till slut hamnar i ATP. Använd begreppen nedbrytning, andningskedjan, protongradient och ATP-syntas.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Maten bryts ned i flera steg, och kolatomerna lämnar till sist kroppen som koldioxid. Energin samlas under tiden upp av elektronbärare som NADH. I mitokondriernas inre membran lämnar de ifrån sig sina elektroner till andningskedjan, som för dem vidare till syre, som bildar vatten. Energin används för att pumpa protoner över membranet, så att det blir fler protoner på ena sidan, en protongradient. Protonerna strömmar framför allt tillbaka genom ATP-syntas, och då roterar en del av enzymet. Rotationen tvingar ihop ADP och fosfat till ATP.</p>
+</div>
+</div>
+</div>
+<p><strong>2.2</strong> En levercell och en hjärncell hos samma person har samma genom men olika proteom. Vad betyder det, och hur kan det komma sig?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Genomet är allt DNA i cellen, och det är i princip detsamma i alla kroppens celler. Proteomet är alla proteiner som cellen faktiskt har tillverkat. Olika celltyper använder olika delar av sitt DNA: en levercell tillverkar de proteiner som behövs för leverns uppgifter, och en hjärncell andra. Därför har de olika proteom trots att de har samma gener. Proteomet ändras också med tiden, till exempel efter en måltid.</p>
+</div>
+</div>
+</div>
+<p><strong>2.3</strong> Varför kan brist på ett vitamin ge sjukdom, trots att vitaminer inte används som energi eller byggmaterial i någon större mängd?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Många vitaminer används för att tillverka koenzymer, små hjälpmolekyler som vissa enzymer behöver för att fungera. Utan vitaminet kan kroppen inte göra koenzymet, och då stannar de reaktioner som enzymet ska sköta. Eftersom ett enzym används om och om igen behövs bara små mängder vitamin, men helt utan går det inte. Ett exempel är brist på B1, som ger beriberi, eftersom ett enzym som bryter ned socker inte fungerar.</p>
+</div>
+</div>
+</div>
+<p><strong>2.4</strong> Följ en skinkmacka genom kroppen. Vad händer med kolhydraterna i brödet, proteinet i skinkan och fettet i smöret?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Stärkelsen i brödet bryts ned till glukos som tas upp i blodet. Glukosen används som bränsle och bryts ned till koldioxid och vatten, varvid ATP bildas, eller lagras som glykogen i levern och musklerna. Proteinet i skinkan bryts ned till aminosyror, som kroppen använder för att bygga sina egna proteiner; överskott kan brytas ned och ge energi, och kvävet lämnar kroppen som urea. Fettet bryts ned till fettsyror och glycerol. Behövs inte energin just då lagras det som fett i fettcellerna, och annars bryts fettsyrorna ned via acetyl-CoA och ger ATP.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l02-las-mer" class="level2" data-number="2.16">
+<h2 data-number="2.16" class="anchored" data-anchor-id="sec-l02-las-mer"><span class="header-section-number">2.16</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Ämnesomsättning">Ämnesomsättning</a> och <a href="https://sv.wikipedia.org/wiki/Adenosintrifosfat">Adenosintrifosfat</a> på svenska Wikipedia.</li>
+<li><a href="https://pdb101.rcsb.org/motm/72">ATP Synthase</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), med bilder av David S. Goodsell.</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/1997/summary/">Nobelpriset i kemi 1997</a>, för upptäckterna om hur ATP tillverkas och hur natrium-kaliumpumpen fungerar (på engelska).</li>
+<li><a href="https://en.wikipedia.org/wiki/Cellular_respiration">Cellular respiration</a> på engelska Wikipedia, med bra översiktsbilder av hela vägen från glukos till ATP.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/01-levande-celler.html" class="pagination-link" aria-label="Levande celler, nukleinsyror och proteiner">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/03-gener-och-genteknik.html" class="pagination-link" aria-label="Gener och genteknik">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

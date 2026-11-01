@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>13&nbsp; Molekylära förkläden – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/14-proteinveckning.html" rel="next">
+<link href="../chapters/12-proteintrafik.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/11-omik.html">Cellen som helhet</a></li><li class="breadcrumb-item"><a href="../chapters/13-chaperoner.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l13-varfor" id="toc-sec-l13-varfor" class="nav-link active" data-scroll-target="#sec-l13-varfor"><span class="header-section-number">13.1</span> Varför proteiner behöver hjälp</a></li>
+  <li><a href="#sec-l13-namnet" id="toc-sec-l13-namnet" class="nav-link" data-scroll-target="#sec-l13-namnet"><span class="header-section-number">13.2</span> Förkläden för molekyler</a></li>
+  <li><a href="#sec-l13-varmechock" id="toc-sec-l13-varmechock" class="nav-link" data-scroll-target="#sec-l13-varmechock"><span class="header-section-number">13.3</span> Värmechockproteiner</a></li>
+  <li><a href="#sec-l13-hsp70" id="toc-sec-l13-hsp70" class="nav-link" data-scroll-target="#sec-l13-hsp70"><span class="header-section-number">13.4</span> Hsp70: griper och släpper</a>
+  <ul class="collapse">
+  <li><a href="#sec-l13-hsp70-cykel" id="toc-sec-l13-hsp70-cykel" class="nav-link" data-scroll-target="#sec-l13-hsp70-cykel">Ett arbetslag i tre delar</a></li>
+  <li><a href="#sec-l13-hsp70-var" id="toc-sec-l13-hsp70-var" class="nav-link" data-scroll-target="#sec-l13-hsp70-var">Var griper Hsp70 tag?</a></li>
+  <li><a href="#sec-l13-mitokondrier" id="toc-sec-l13-mitokondrier" class="nav-link" data-scroll-target="#sec-l13-mitokondrier">Hsp70 drar in proteiner i mitokondrierna</a></li>
+  </ul></li>
+  <li><a href="#sec-l13-groel" id="toc-sec-l13-groel" class="nav-link" data-scroll-target="#sec-l13-groel"><span class="header-section-number">13.5</span> Chaperoniner: ett rum att vecka sig i</a>
+  <ul class="collapse">
+  <li><a href="#sec-l13-groel-cykel" id="toc-sec-l13-groel-cykel" class="nav-link" data-scroll-target="#sec-l13-groel-cykel">Ett andningsrum för proteiner</a></li>
+  </ul></li>
+  <li><a href="#sec-l13-hsp90" id="toc-sec-l13-hsp90" class="nav-link" data-scroll-target="#sec-l13-hsp90"><span class="header-section-number">13.6</span> Hsp90: en klämma för klientproteiner</a>
+  <ul class="collapse">
+  <li><a href="#sec-l13-cancer" id="toc-sec-l13-cancer" class="nav-link" data-scroll-target="#sec-l13-cancer">Ett mål för cancerläkemedel</a></li>
+  </ul></li>
+  <li><a href="#sec-l13-hsp100" id="toc-sec-l13-hsp100" class="nav-link" data-scroll-target="#sec-l13-hsp100"><span class="header-section-number">13.7</span> Hsp100: veckla upp eller tugga sönder</a></li>
+  <li><a href="#sec-l13-shsp" id="toc-sec-l13-shsp" class="nav-link" data-scroll-target="#sec-l13-shsp"><span class="header-section-number">13.8</span> Små värmechockproteiner</a></li>
+  <li><a href="#sec-l13-proteasom" id="toc-sec-l13-proteasom" class="nav-link" data-scroll-target="#sec-l13-proteasom"><span class="header-section-number">13.9</span> Proteasomen: cellens återvinningsstation</a>
+  <ul class="collapse">
+  <li><a href="#sec-l13-ubikvitin" id="toc-sec-l13-ubikvitin" class="nav-link" data-scroll-target="#sec-l13-ubikvitin">Ubikvitin: dödskyssen</a></li>
+  <li><a href="#sec-l13-dysfunktion" id="toc-sec-l13-dysfunktion" class="nav-link" data-scroll-target="#sec-l13-dysfunktion">När nedbrytningen inte fungerar</a></li>
+  <li><a href="#sec-l13-immun" id="toc-sec-l13-immun" class="nav-link" data-scroll-target="#sec-l13-immun">Proteasomen och immunförsvaret</a></li>
+  </ul></li>
+  <li><a href="#sec-l13-livshistoria" id="toc-sec-l13-livshistoria" class="nav-link" data-scroll-target="#sec-l13-livshistoria"><span class="header-section-number">13.10</span> Proteinernas livshistoria</a></li>
+  <li><a href="#sec-l13-sammanfattning" id="toc-sec-l13-sammanfattning" class="nav-link" data-scroll-target="#sec-l13-sammanfattning"><span class="header-section-number">13.11</span> Sammanfattning</a></li>
+  <li><a href="#sec-l13-nyckelbegrepp" id="toc-sec-l13-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l13-nyckelbegrepp"><span class="header-section-number">13.12</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l13-testa" id="toc-sec-l13-testa" class="nav-link" data-scroll-target="#sec-l13-testa"><span class="header-section-number">13.13</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l13-las-mer" id="toc-sec-l13-las-mer" class="nav-link" data-scroll-target="#sec-l13-las-mer"><span class="header-section-number">13.14</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/11-omik.html">Cellen som helhet</a></li><li class="breadcrumb-item"><a href="../chapters/13-chaperoner.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l13" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 13, <em>Molekylära förkläden</em>, av Elzbieta Glaser (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>förklara varför nytillverkade proteiner behöver skyddas i cellens trängsel, och vad som menas med en molekylär chaperon,</li>
+<li>förklara vad värmechockproteiner är och varför cellen tillverkar mer av dem vid feber och annan stress,</li>
+<li>beskriva i grova drag hur de viktigaste chaperonfamiljerna arbetar: Hsp70, chaperoninerna (Hsp60), Hsp90, Hsp100 och de små värmechockproteinerna,</li>
+<li>förklara hur cellen märker ut och bryter ned proteiner med hjälp av ubikvitin och proteasomen,</li>
+<li>ge exempel på hur chaperoner och proteinnedbrytning hänger ihop med sjukdomar och läkemedel, till exempel mot cancer.</li>
+</ul>
+</div>
+</div>
+<p>Tänk dig en tunnelbanevagn i rusningstid. Människor står tätt, axel mot axel, och var och en ska ta sig av vid rätt station utan att fastna i någon annan på vägen. Ungefär så ser det ut inuti en cell. Där finns 300–400 milligram protein per milliliter, ungefär lika tjockt som en fruktyoghurt, och därtill fett, DNA och RNA, små molekyler och salter (se även <a href="07-biomembran.html#sec-l07-trangsel" class="quarto-xref"><span>Avsnitt 7.1</span></a>). Det är inte några enstaka proteiner som simmar runt i ett stort hav, som svanar på en sjö, utan en trängsel där alla hela tiden stöter i alla.</p>
+<p>Mitt i den trängseln tillverkar cellen hela tiden nya proteiner. Varje ny proteinkedja ska vecka sig till rätt form, kanske foga ihop sig med rätt partner, och många ska dessutom transporteras till rätt plats i cellen. Hur undviker de att klumpa ihop sig med fel molekyler på vägen? En stor del av svaret är en grupp hjälpproteiner som kallas <strong>molekylära chaperoner</strong>.</p>
+<p>Ordet <em>chaperon</em> kommer från franskan och används på engelska om en person som följer med och vakar över någon. På svenska kallas en sådan person ett <strong>förkläde</strong>: förr i tiden en äldre dam som följde med en ung flicka på baler och middagar. Förklädets uppgift var att se till att flickan inte inledde några olämpliga bekantskaper innan hon hittade den rätta partnern. De molekylära förklädena gör samma sak för proteinerna.</p>
+<p>I det här kapitlet ska vi först se varför proteiner behöver hjälp, och sedan hur de olika förklädena arbetar. Till sist ser vi hur cellen gör sig av med de proteiner som ändå inte blir som de ska.</p>
+<section id="sec-l13-varfor" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="sec-l13-varfor"><span class="header-section-number">13.1</span> Varför proteiner behöver hjälp</h2>
+<p>Som vi såg i <a href="01-levande-celler.html#sec-l01-veckning" class="quarto-xref"><span>Avsnitt 1.10.3</span></a> och <a href="03-gener-och-genteknik.html#sec-l03-veckning" class="quarto-xref"><span>Avsnitt 3.1.3</span></a> måste en proteinkedja vecka sig till en bestämd tredimensionell form för att fungera. En kedja som inte är veckad, eller som har veckat sig fel, har tre problem:</p>
+<ul>
+<li><strong>Den fungerar inte.</strong> Ett enzym som inte har rätt form kan inte sätta fart på sin reaktion.</li>
+<li><strong>Den klumpar lätt ihop sig.</strong> De vattenskygga (hydrofoba) delarna, som i ett färdigt protein är gömda i mitten, ligger öppna. De fastnar gärna i motsvarande delar av andra kedjor, så att det bildas <strong>aggregat</strong>.</li>
+<li><strong>Den bryts lätt ned.</strong> Cellen innehåller <strong>proteaser</strong>, enzymer som klipper sönder proteiner. En utsträckt kedja är ett lätt byte, medan ett tätt veckat protein står emot.</li>
+</ul>
+<p>Ett veckat protein är tvärtom funktionellt, stabilt och tåligt mot proteaser. Och kedjan kan i princip hitta sin form på egen hand. Christian Anfinsen visade på 1950- och 60-talen, i försök som gav honom Nobelpriset i kemi 1972, att ett enzym som fått veckla upp sig i provröret kan vecka sig tillbaka av sig självt: informationen om formen finns i ordningen mellan aminosyrorna (<a href="05-syntetisk-biokemi.html#sec-l05-svart" class="quarto-xref"><span>Avsnitt 5.8.2</span></a>). Vi återkommer till försöket i nästa kapitel (<a href="14-proteinveckning.html#sec-l14-anfinsen" class="quarto-xref"><span>Avsnitt 14.1.1</span></a>).</p>
+<p>Anfinsens enzym hölls dessutom ihop av <strong>disulfidbryggor</strong>, starka bindningar mellan två svavelatomer i aminosyran cystein. Sådana bryggor är något man kan ändra på med kemi, och det används i vardagen (se fördjupningen).</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: kemi hos frisören
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Att proteiners form kan ändras med kemi använder man i <strong>permanentning</strong>. Hårstrået består till största delen av proteinet keratin, vars kedjor hålls ihop av många disulfidbryggor. Hos frisören behandlar man först håret med ett medel som bryter bryggorna, så att kedjorna kan glida i förhållande till varandra. Sedan rullas håret upp på spolar, och i det läget behandlas det med ett oxiderande medel som får bryggorna att bildas igen, men nu mellan andra cysteiner än tidigare. Proteinet har tvingats in i en ny form, och håret blir lockigt.</p>
+</div>
+</div>
+</div>
+<p>Om kedjan kan hitta sin form själv, varför behövs då hjälp? Anfinsens försök gjordes med ett enda renat protein i en utspädd lösning i ett provrör. I cellen är förutsättningarna helt andra. Människans arvsmassa innehåller omkring 20 000 gener för proteiner, och varje cell tillverkar många tusen olika sorter samtidigt. En ny kedja kommer dessutom ut ur ribosomen bit för bit. Den börjar vecka sig redan medan den tillverkas, men länge är bara en del av kedjan färdig, och den delen kan inte vecka sig klart förrän resten finns. Under tiden ligger vattenskygga partier öppna, mitt i trängseln, och kan lätt fastna i andra proteiner.</p>
+<p>En del proteiner ska inte heller vecka sig direkt. I <a href="12-proteintrafik.html" class="quarto-xref"><span>Kapitel 12</span></a> såg vi att proteiner som tillverkas i cytosolen och ska in i mitokondrierna eller kloroplasterna måste hållas mer eller mindre oveckade för att kunna trädas genom de smala porerna i organellens membran. Någon måste se till att de inte veckar sig, eller klumpar ihop sig, under tiden.</p>
+</section>
+<section id="sec-l13-namnet" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="sec-l13-namnet"><span class="header-section-number">13.2</span> Förkläden för molekyler</h2>
+<p>Vad är då en molekylär chaperon, och vad har alla chaperoner gemensamt? Historien börjar med ett enda protein.</p>
+<p>Begreppet <em>molekylär chaperon</em> infördes 1978 av den brittiske biokemisten Ron Laskey i Cambridge. Han studerade proteinet <strong>nukleoplasmin</strong>, som hjälper histonerna, de proteiner som DNA lindas kring i cellkärnan, att foga ihop sig med DNA utan att klumpa ihop sig.</p>
+<p>Liknelsen med förklädet blev populär och gav upphov till många skämt på konferenser. Laskey själv spelade gärna gitarr och sjöng egna sånger om biokemi, bland annat om molekylära chaperoner. De gavs till och med ut på skiva, <em>Selected Songs for Cynical Scientists</em>.</p>
+<p>Under 1980-talet visade det sig att det finns många olika proteiner som gör liknande saker, och begreppet fick en bredare betydelse. En vanlig definition i dag är att molekylära chaperoner är <em>en stor grupp proteinfamiljer, som inte behöver vara släkt med varandra, och som stabiliserar oveckade proteiner, vecklar upp dem för transport genom membran eller för nedbrytning, och hjälper dem att vecka sig och foga ihop sig med andra proteiner.</em></p>
+<p>Två egenskaper är gemensamma för nästan alla chaperoner och värda att lägga på minnet:</p>
+<ol type="1">
+<li><strong>De binder och släpper.</strong> En chaperon griper tag i en kedja, håller den en stund och släpper den sedan, ofta många gånger om. Den blir aldrig en del av det färdiga proteinet. Det skulle göra hela poängen om intet: förklädet ska inte följa med in i äktenskapet.</li>
+<li><strong>De bestämmer inte formen.</strong> Informationen om formen finns i kedjan själv, precis som Anfinsen visade. Chaperonerna ger kedjan en chans att hitta den formen genom att hindra den från att fastna i fel sällskap.</li>
+</ol>
+<p>De flesta chaperoner är dessutom <strong>ATPaser</strong>, enzymer som binder och spjälkar ATP, cellens energivaluta (<a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>). De arbetar långsamt, och energin i ATP används inte för att vecka kedjan, utan för att chaperonen själv ska ändra form: öppna och stänga sitt grepp.</p>
+</section>
+<section id="sec-l13-varmechock" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="sec-l13-varmechock"><span class="header-section-number">13.3</span> Värmechockproteiner</h2>
+<p>Många chaperoner upptäcktes för att cellen tillverkar mer av dem när den blir för varm. Det har gett dem deras namn, och det säger något om vad de är till för.</p>
+<p>Den som har kokat ett ägg vet vad som händer med proteiner när de blir för varma: de vecklas upp och klumpar ihop sig. Våra egna proteiner är också känsliga. De flesta tål några graders feber, men blir kroppen mycket varmare än 40 grader börjar allt fler av dem veckla upp sig.</p>
+<p>Cellerna har ett försvar. När temperaturen stiger, eller när cellen utsätts för annan stress som giftiga ämnen eller ändrat pH, börjar den tillverka mycket mer av vissa proteiner. Fenomenet upptäcktes på 1960-talet hos bananflugor, och proteinerna kallas därför <strong>värmechockproteiner</strong> (eng. <em>heat shock proteins</em>), förkortat <strong>Hsp</strong>. Många av dem visade sig vara chaperoner. Att det blir mer av dem vid stress är logiskt: det är då många proteiner riskerar att veckla upp sig och behöver hjälp. Men de flesta värmechockproteiner finns också i normala celler, där de hjälper nytillverkade proteiner.</p>
+<p>Hur vet cellen när den ska tillverka mer? Det sker genom att ett reglerprotein, en <em>värmechockfaktor</em>, aktiveras, tar sig in i cellkärnan och sätter igång avläsningen av generna för värmechockproteinerna. I en cell utan stress hålls värmechockfaktorn overksam av chaperoner, bland andra Hsp70. När många proteiner börjar veckla upp sig behövs chaperonerna där i stället. Värmechockfaktorn släpps då fri och sätter igång tillverkningen av fler chaperoner. Cellen mäter alltså själv hur mycket hjälp som behövs.</p>
+<p>Siffran i namnet anger ungefär hur mycket proteinet väger, i kilodalton (<a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>). Ett kilodalton är tusen dalton, och en dalton är ungefär vikten av en väteatom. Hsp70 väger alltså cirka 70 kilodalton och består av drygt 600 aminosyror. Samma proteiner har ofta andra namn i bakterier, där de först studerades i tarmbakterien <em>Escherichia coli</em>. Chaperonerna delas in i några stora familjer (<a href="#tbl-l13-familjer" class="quarto-xref">Tabell&nbsp;<span>13.1</span></a>).</p>
+<div id="tbl-l13-familjer" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-l13-familjer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabell&nbsp;13.1: De viktigaste familjerna av molekylära chaperoner.
+</figcaption>
+<div aria-describedby="tbl-l13-familjer-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Familj</th>
+<th>Andra namn och exempel</th>
+<th>Huvudsaklig uppgift</th>
+<th>Använder ATP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Hsp70</td>
+<td>DnaK; BiP i ER</td>
+<td>griper tag i oveckade kedjor, hjälper till vid transport genom membran</td>
+<td>ja</td>
+</tr>
+<tr class="even">
+<td>Hsp60 (chaperoniner)</td>
+<td>GroEL; TRiC hos eukaryoter</td>
+<td>erbjuder ett skyddat rum där kedjan kan vecka sig</td>
+<td>ja</td>
+</tr>
+<tr class="odd">
+<td>Hsp90</td>
+<td>finns i nästan alla celler</td>
+<td>slutlig mognad av vissa proteiner, t.ex. hormonreceptorer</td>
+<td>ja</td>
+</tr>
+<tr class="even">
+<td>Hsp100</td>
+<td>Clp-proteiner</td>
+<td>vecklar upp proteiner och löser upp klumpar, ofta inför nedbrytning</td>
+<td>ja</td>
+</tr>
+<tr class="odd">
+<td>Små värmechockproteiner</td>
+<td>α-kristallin i ögats lins</td>
+<td>håller fast skadade proteiner så att de inte klumpar ihop sig</td>
+<td>nej</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Familjerna samarbetar och bildar tillsammans ett nätverk för cellens <strong>kvalitetskontroll</strong> av proteiner (<a href="#fig-l13-natverk" class="quarto-xref">Figur&nbsp;<span>13.1</span></a>). Vi går igenom dem en i taget.</p>
+<div id="fig-l13-natverk" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-natverk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/natverk.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-natverk-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.1: Cellens kvalitetskontroll i översikt. En ny kedja från ribosomen får hjälp av Hsp70, och vissa går vidare till ett chaperonin. Hsp90 hjälper ett antal proteiner med den sista mognaden. Proteiner som skadas av värme eller annan stress kan hållas fast av små värmechockproteiner, och klumpar kan lösas upp av Hsp100 tillsammans med Hsp70. Det som inte går att rädda bryts ned. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l13-hsp70" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="sec-l13-hsp70"><span class="header-section-number">13.4</span> Hsp70: griper och släpper</h2>
+<p>Hsp70 är den mest allsidiga chaperonen. Den finns hos bakterier (där den kallas DnaK) och i nästan alla delar av den eukaryota cellen: i cytosolen, i mitokondrierna, i kloroplasterna och i endoplasmatiska nätverket (ER). Dess uppgifter är många:</p>
+<ul>
+<li>den binder till vattenskygga partier hos oveckade kedjor,</li>
+<li>den hindrar proteiner från att klumpa ihop sig, både direkt efter tillverkningen och efter stress,</li>
+<li>den hindrar kedjor från att vecka sig för tidigt, när de ska transporteras in i en organell,</li>
+<li>den hjälper proteiner att foga ihop sig med andra proteiner, och</li>
+<li>den hjälper till vid transporten genom membran.</li>
+</ul>
+<p>Hsp70 består av två delar (<a href="#fig-l13-hsp70" class="quarto-xref">Figur&nbsp;<span>13.2</span></a>). Den ena binder ATP och styr arbetet. Den andra har en skåra där en bit av en proteinkedja kan ligga, och ovanför skåran sitter ett rörligt lock, en alfahelix. När Hsp70 har ATP bundet står locket öppet. Kedjor kan då lätt glida in i skåran, men de släpper också lätt. När ATP spjälkas till ADP ändrar hela proteinet form, och locket fälls ned över skåran. Nu sitter kedjan fast, som en pinne i en knuten hand.</p>
+<div id="fig-l13-hsp70" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-hsp70-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/hsp70-goodsell.jpg" class="img-fluid figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-hsp70-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.2: Hsp70 från bakterien <em>E. coli</em> (DnaK). Till vänster ses den del som binder ATP och styr arbetet. Till höger finns den del som griper tag i proteinkedjor. En kort bit av en kedja (rosa) ligger i skåran, där den hålls fast av ett lock. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l13-hsp70-cykel" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l13-hsp70-cykel">Ett arbetslag i tre delar</h3>
+<p>Hsp70 arbetar inte ensam utan med två medhjälpare, så kallade <strong>kochaperoner</strong> (eng. <em>co-chaperones</em>) (<a href="#fig-l13-hsp70-cykel" class="quarto-xref">Figur&nbsp;<span>13.3</span></a>). Den första, <strong>Hsp40</strong> (i bakterier DnaJ), är mindre nogräknad med vad den binder. Den hittar en oveckad kedja och lämnar över den till Hsp70, som har ATP bundet och alltså ett öppet grepp. Hsp40 får sedan Hsp70 att spjälka sitt ATP, så att locket stängs och kedjan sitter fast. Den andra medhjälparen, i bakterier kallad <strong>GrpE</strong>, byter ut ADP mot ett nytt ATP. Då öppnas locket igen och kedjan släpps.</p>
+<div id="fig-l13-hsp70-cykel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-hsp70-cykel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/hsp70-cykel.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-hsp70-cykel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.3: Hsp70:s arbetscykel. Hsp40 hittar en oveckad kedja och lämnar den till Hsp70 (1–2). När ATP spjälkas stängs locket och kedjan hålls hårt (3). När ADP byts mot ett nytt ATP släpps kedjan (4). Den kan då vecka sig, eller fångas in för en ny runda. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>När kedjan släpps kan den vecka sig en bit på egen hand. Är den inte klar kan den fångas in igen, och efter några sådana rundor är den ofta helt veckad. Varje gång Hsp70 håller i kedjan skyddas de vattenskygga partierna från att fastna i andra proteiner. Kedjor som inte klarar sig med Hsp70:s hjälp kan lämnas vidare till ett chaperonin, som vi ska se strax.</p>
+</section>
+<section id="sec-l13-hsp70-var" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l13-hsp70-var">Var griper Hsp70 tag?</h3>
+<p>Vi har sagt att Hsp70 binder till vattenskygga partier. Men kan den gripa tag var som helst på en proteinkedja? Det undersökte en tysk forskargrupp i ett elegant försök som publicerades 1997. De delade upp kända proteiner i korta, överlappande bitar: en bit på 13 aminosyror från början av kedjan, sedan en bit som började tre aminosyror längre in, och så vidare längs hela kedjan. Bitarna tillverkades kemiskt och fästes som prickar på ett membran. Membranet badades sedan i en lösning med Hsp70 (i det här fallet bakteriens DnaK). Efter tvättning såg man med hjälp av antikroppar mot Hsp70 vilka prickar Hsp70 hade fastnat på. Så undersökte man 37 olika proteiner, sammanlagt omkring 4 500 bitar (<a href="#fig-l13-hsp70-bindning" class="quarto-xref">Figur&nbsp;<span>13.4</span></a>).</p>
+<div id="fig-l13-hsp70-bindning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-hsp70-bindning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/hsp70-bindning.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-hsp70-bindning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.4: Försöket som visade var Hsp70 griper tag, i principskiss. En känd proteinkedja (1) delas upp i korta, överlappande bitar (2). Bitarna sätts som prickar på ett membran, som badas i Hsp70 (3). De mörka prickarna visar bitar där Hsp70 har fastnat. Gemensamt för dem är mönstret längst ned (4): en kärna av vattenskygga aminosyror (orange) med positivt laddade aminosyror (blå) på sidorna. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Resultatet var tydligt. Hsp70 binder bara till vissa bitar, och de har ett gemensamt mönster: en kärna av ungefär fem <strong>vattenskygga aminosyror</strong>, som leucin, isoleucin, valin och fenylalanin, omgiven av <strong>positivt laddade aminosyror</strong> som arginin och lysin. Ett sådant bindningsställe förekommer i genomsnitt ungefär var 36:e aminosyra. Nästan alla proteiner har alltså flera ställen där Hsp70 kan gripa tag. I ett färdigt protein är de vattenskygga partierna gömda inuti, och därför binder Hsp70 framför allt till kedjor som är oveckade eller nytillverkade. Det är precis de som behöver hjälp.</p>
+</section>
+<section id="sec-l13-mitokondrier" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l13-mitokondrier">Hsp70 drar in proteiner i mitokondrierna</h3>
+<p>Hsp70 har också en särskild uppgift när proteiner ska in i mitokondrierna, och den finns därför även på insidan av dem. Ett protein som ska in i mitokondrien trär sig oveckat genom porer i de två membranen (<a href="12-proteintrafik.html#sec-l12-mitokondrier" class="quarto-xref"><span>Avsnitt 12.5</span></a>), och på insidan tar mitokondriens Hsp70 emot kedjan och ser till att den bara kan röra sig inåt. Hur det går till beskrivs i <a href="12-proteintrafik.html#sec-l12-drivkraft" class="quarto-xref"><span>Avsnitt 12.5.3</span></a>.</p>
+</section>
+</section>
+<section id="sec-l13-groel" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="sec-l13-groel"><span class="header-section-number">13.5</span> Chaperoniner: ett rum att vecka sig i</h2>
+<p>Nästa familj, Hsp60, är helt annorlunda. I stället för att gripa tag i korta bitar av en kedja erbjuder den kedjan ett skyddat rum att vecka sig i. Familjens medlemmar kallas <strong>chaperoniner</strong>. I bakterier heter den viktigaste <strong>GroEL</strong>, och den arbetar tillsammans med ett mindre protein, <strong>GroES</strong> (Hsp10). Motsvarigheter finns i mitokondrier och kloroplaster, som en gång var bakterier. I eukaryoternas cytosol finns i stället ett besläktat chaperonin, <strong>TRiC</strong>, som är byggt på liknande sätt men skiljer sig i detaljerna. Två av TRiC:s viktigaste klienter är aktin och tubulin, byggstenarna i cellskelettets trådar och rör (<a href="07-biomembran.html#sec-l07-cytoskelett" class="quarto-xref"><span>Avsnitt 7.5</span></a>), som inte kan vecka sig rätt utan TRiC.</p>
+<p>När chaperonerna var nya trodde många att de hjälpte proteiner genom att binda dem på sin yta. Den första strukturen av GroEL, som bestämdes i mitten av 1990-talet, visade något helt annat. GroEL består av fjorton likadana proteinkedjor, ordnade i två ringar med sju i varje, staplade på varandra (<a href="#fig-l13-groel" class="quarto-xref">Figur&nbsp;<span>13.5</span></a>). Varje ring omsluter ett stort hålrum, tillräckligt för ett medelstort protein. GroES bildar en ring av sju mindre kedjor som passar som ett lock över den ena öppningen.</p>
+<div id="fig-l13-groel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-groel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/groel-groes-goodsell.jpg" class="img-fluid figure-img" style="width:35.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-groel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.5: Chaperoninet GroEL-GroES från <em>E. coli</em>, sett ovanifrån (överst) och från sidan (nederst). GroEL består av två ringar med sju kedjor i varje (grönt och blått). Ovanifrån syns hålrummet i mitten, där proteiner veckar sig. Locket GroES (rött och gult) sitter här på den nedre ringen. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l13-groel-cykel" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l13-groel-cykel">Ett andningsrum för proteiner</h3>
+<p>GroEL arbetar i en cykel (<a href="#fig-l13-groel-cykel" class="quarto-xref">Figur&nbsp;<span>13.6</span></a>). Kanterna kring öppningen i en ring är vattenskygga, och där fastnar en oveckad kedja med sina vattenskygga partier. Sedan binder sju ATP-molekyler, en till varje kedja i ringen, och locket GroES sätts på. Då händer något avgörande: väggarna i ringen vrider sig och ändrar form. De vattenskygga ytorna där kedjan satt vrids bort, och insidan av hålrummet blir i stället vattenälskande. Kedjan släpper från väggen och hamnar fri i ett skyddat rum, där den kan vecka sig ostört. Den har ingen granne att klumpa ihop sig med. Och eftersom väggarna nu är vattenälskande lönar det sig för kedjan att gömma sina vattenskygga delar inuti sig själv.</p>
+<div id="fig-l13-groel-cykel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-groel-cykel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/groel-cykel.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-groel-cykel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.6: Chaperoninet GroEL:s arbetscykel, sett från sidan i genomskärning. En oveckad kedja fastnar vid öppningen (1). När ATP och locket GroES binder blir insidan vattenälskande, och kedjan veckar sig i skydd i några sekunder (2). När ATP har spjälkats och locket släpper kommer proteinet ut (3). Är det inte färdigt fångas det in igen. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Efter några sekunder har ATP spjälkats. När nya ATP-molekyler och en ny kedja binder till den andra ringen lossnar locket, och proteinet kommer ut. Är det färdigveckat kan det börja arbeta. Är det inte färdigt binder det snabbt in igen, och cykeln upprepas, ibland många gånger. De två ringarna turas om, ungefär som två cylindrar i en motor.</p>
+<p>Man kan säga att GroEL andas: den öppnar och stänger sig, och för varje andetag får kedjan en ny chans. Formförändringarna är mycket stora och har kunnat följas i detalj med kryoelektronmikroskopi (<a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>).</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: två restauranger samma kväll
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Hur många proteiner behöver egentligen GroEL? Den frågan var länge omstridd. En tysk forskare menade att chaperoninet hjälper en stor del av cellens proteiner, medan amerikanska forskare menade att det bara rör sig om ett fåtal. Diskussionen var så het att när tre av forskarna en gång bjöds till Kungliga Vetenskapsakademien i Stockholm för att föreläsa, fick värdarna dela upp sällskapet på två olika restauranger: alla ville inte äta middag med varandra. En av dem hade bestämt chaperoninets struktur, de andra två studerade hur det fungerar.</p>
+<p>Sanningen visade sig ligga mittemellan, men närmare amerikanernas uppfattning. I <em>E. coli</em> samverkar några hundra av bakteriens drygt 4 000 proteiner med GroEL, och omkring hundra av dem är helt beroende av det för att vecka sig. Det är många, men ändå en liten andel. De flesta proteiner klarar sig med Hsp70, eller helt utan hjälp.</p>
+<p>Trots chaperonernas betydelse har forskningen om dem ännu inte gett något Nobelpris, kanske för att det rör sig om så många olika proteinfamiljer och forskare. Andra stora priser har den däremot fått: Franz-Ulrich Hartl och Arthur Horwich, som visade hur chaperoninerna fungerar, fick det amerikanska Laskerpriset 2011.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-l13-hsp90" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="sec-l13-hsp90"><span class="header-section-number">13.6</span> Hsp90: en klämma för klientproteiner</h2>
+<p><strong>Hsp90</strong> är ett av de vanligaste proteinerna i cellen: omkring en procent av alla proteiner i cytosolen. Den har förändrats mycket lite under evolutionen och finns i allt från bakterier till människor, i eukaryoter både i cytosolen, i mitokondrierna och i ER. Hsp90 hindrar proteiner från att klumpa ihop sig och från att veckla upp sig, men dess mest speciella uppgift är att hjälpa vissa proteiner med den allra sista mognaden. Dessa proteiner, som redan är nästan färdigveckade, brukar kallas Hsp90:s <strong>klientproteiner</strong>.</p>
+<p>Hsp90 består av två likadana kedjor, en <strong>dimer</strong>. Varje kedja har tre delar. Den yttersta delen binder och spjälkar ATP, mittdelen binder klientproteinet och olika medhjälpare, och den tredje delen håller ihop de två kedjorna. Tillsammans bildar de en sorts klämma, formad som ett V (<a href="#fig-l13-hsp90" class="quarto-xref">Figur&nbsp;<span>13.7</span></a>). Utan ATP står klämman öppen. När ATP binder sluts den, och klientproteinet hålls i hålrummet mellan de två armarna, där det kan ändra form. När ATP spjälkas öppnas klämman och klienten släpps i sin nya form. Hsp90 arbetar sällan ensam. Den bildar stora komplex med en lång rad medhjälpare, och ofta får den sina klienter överlämnade från Hsp70 och Hsp40.</p>
+<div id="fig-l13-hsp90" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-hsp90-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/hsp90-goodsell.jpg" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-hsp90-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.7: Hsp90 i sluten form. De två kedjorna (blått och turkos) har slutit sig som en klämma kring ett ATP (rött, högst upp). Längst upp till vänster sitter en av Hsp90:s medhjälpare (grönt). Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Vilka är då klientproteinerna? Ett välstuderat exempel är <strong>receptorerna för steroidhormoner</strong>, som könshormonerna och kortisol. Steroidhormonerna bildas i binjurebarken och könskörtlarna och kan, eftersom de är fettlösliga, ta sig rakt genom cellmembranet. Inne i cellen binder de till sin receptor, som sedan tar sig in i cellkärnan och sätter igång avläsningen av vissa gener. Men receptorn kan bara ta emot hormonet om den har rätt form, och den formen får den med hjälp av Hsp90. Andra viktiga klienter är många <strong>kinaser</strong>, enzymer som styr cellens signaler om tillväxt och delning (om signaler i cellen, se <a href="02-molekyler-och-reaktioner.html#sec-l02-hormoner" class="quarto-xref"><span>Avsnitt 2.11.2</span></a>).</p>
+<section id="sec-l13-cancer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l13-cancer">Ett mål för cancerläkemedel</h3>
+<p>Just därför har Hsp90 blivit intressant i cancerforskningen. Cancerceller har ofta muterade eller överaktiva kinaser och andra proteiner som driver den okontrollerade celldelningen. Sådana proteiner är ofta instabila och behöver extra mycket hjälp av Hsp90 för att fungera. Cancerceller tillverkar dessutom ofta mer Hsp90 än vanliga celler. Om man blockerar Hsp90 drabbas därför cancercellerna hårdare än friska celler.</p>
+<p>De första ämnen man fann som hämmar Hsp90 var naturliga ämnen från mikroorganismer: <strong>geldanamycin</strong>, från en jordbakterie av släktet <em>Streptomyces</em>, och <strong>radicicol</strong>, från en svamp. Båda binder i den ficka där Hsp90 normalt binder ATP. Utan ATP kan klämman inte slutas, och klientproteinerna kan inte mogna. Andra hämmare angriper den del som håller ihop de två kedjorna. Med utgångspunkt från de naturliga ämnena har man tillverkat en rad nya varianter, och flera har prövats som läkemedel mot cancer. Ett av dem, pimitespib, godkändes 2022 i Japan mot en ovanlig form av tumör i mag-tarmkanalen (GIST).</p>
+</section>
+</section>
+<section id="sec-l13-hsp100" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="sec-l13-hsp100"><span class="header-section-number">13.7</span> Hsp100: veckla upp eller tugga sönder</h2>
+<p>Ibland går det ändå fel, och proteiner klumpar ihop sig. Då kommer familjen <strong>Hsp100</strong> in, i bakterier kallad <strong>Clp-proteiner</strong>. De är ATPaser av en stor grupp som kallas <strong>AAA+-proteiner</strong> (av eng. <em>ATPases associated with various cellular activities</em>). Sex kedjor bildar en ring med en smal kanal i mitten. Med kraft från ATP griper ringen tag i en proteinkedja och drar den genom kanalen. Då vecklas proteinet upp, och en kedja som satt fast i en klump lirkas loss.</p>
+<p>Vad som händer sedan beror på vilken partner ringen har. Några av ringarna, som ClpA och ClpX, sätter sig på ett <strong>proteas</strong>, ClpP, som består av två ringar med sju kedjor vardera och har sina klippande delar gömda inuti. Den oveckade kedjan matas då rakt in i proteaset och tuggas sönder till korta bitar. En annan ring, <strong>ClpB</strong>, saknar proteas. Den samarbetar i stället med Hsp70 för att lösa upp klumpar, så att kedjorna kan få en ny chans att vecka sig rätt (<a href="#fig-l13-hsp100" class="quarto-xref">Figur&nbsp;<span>13.8</span></a>).</p>
+<div id="fig-l13-hsp100" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-hsp100-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/hsp100.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-hsp100-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.8: Två sätt att använda en Hsp100-ring. Till vänster löser ClpB upp en klump tillsammans med Hsp70. En kedja dras ut ur klumpen genom ringens smala kanal och får sedan vecka sig på nytt. Till höger sitter ringen (ClpA eller ClpX) på proteaset ClpP. Den uppvecklade kedjan matas rakt in i ClpP och klipps i korta bitar. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Samma ring kan också först försöka rädda ett protein, och döma ut det bara om räddningen misslyckas. Ett välstuderat exempel är bakterieproteinet RepA, som bildar inaktiva par. ClpA kan med hjälp av ATP dra isär paren, så att RepA blir aktivt igen. Lyckas det inte binder ClpA till proteaset ClpP, och RepA bryts ned.</p>
+<p>Hsp100-proteinerna är alltså cellens kvalitetskontrollanter. De kan rädda ett protein genom att veckla upp det, eller döma ut det och se till att det bryts ned. Ofta är det bättre för cellen att bryta ned ett felveckat protein och tillverka ett nytt än att låta det ligga kvar och bilda klumpar.</p>
+</section>
+<section id="sec-l13-shsp" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="sec-l13-shsp"><span class="header-section-number">13.8</span> Små värmechockproteiner</h2>
+<p>Den sista familjen är de <strong>små värmechockproteinerna</strong> (eng. <em>small heat shock proteins</em>). De skiljer sig från de andra chaperonerna genom att de inte använder ATP. De kan alltså inte aktivt vecka eller veckla upp något. I stället fungerar de som en sorts uppsamlingsplats för proteiner som håller på att skadas.</p>
+<p>De små värmechockproteinerna är små var för sig, men de sätter sig ihop till stora, ihåliga klot, ofta av 24 kedjor, och i vissa organismer till ännu större strukturer. När cellen utsätts för stress, som värme eller skadliga syreföreningar, öppnas kloten upp och exponerar klibbiga ytor. Proteiner som håller på att veckla upp sig fastnar där i stället för att klumpa ihop sig med varandra. De hålls kvar i ett stabilt komplex tills andra chaperoner, som Hsp70 och Hsp100, kan ta hand om dem och antingen vecka dem rätt eller skicka dem till nedbrytning.</p>
+<p>Den mest kända medlemmen är <strong>α-kristallin</strong> (alfa-kristallin) i ögats lins. Linsen är speciell: dess celler har förlorat sin cellkärna och kan inte tillverka nya proteiner, och linsproteinerna måste därför hålla hela livet. Linsen måste dessutom vara helt genomskinlig, vilket kräver att proteinerna är jämnt lösta. α-kristallin hjälper till att hindra linsproteinerna från att klumpa ihop sig. När det inte längre räcker till, som ofta på äldre dagar, bildas klumpar som sprider ljuset, och linsen grumlas. Det är <strong>grå starr</strong> (katarakt) (<a href="#fig-l13-katarakt" class="quarto-xref">Figur&nbsp;<span>13.9</span></a>).</p>
+<div id="fig-l13-katarakt" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-katarakt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/katarakt.jpg" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-katarakt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.9: Grå starr. Bakom pupillen syns den grumliga, gråvita linsen, där proteinerna har klumpat ihop sig och sprider ljuset. Bild: Rakesh Ahuja, Wikimedia Commons, CC BY-SA 3.0.
+</figcaption>
+</figure>
+</div>
+<p>Grå starr är ett exempel på vad som händer när skyddet sviker. Om varken chaperonerna eller nedbrytningen räcker till kan proteinerna bilda klumpar som skadar cellen. Det ligger bakom en lång rad sjukdomar, från grå starr till typ 2-diabetes och sjukdomar i hjärnan som Alzheimers, Parkinsons och ALS. De beskrivs närmare i <a href="15-felveckning.html" class="quarto-xref"><span>Kapitel 15</span></a>, där vi också ser hur cellernas försvar mot felveckning försämras med åldern.</p>
+</section>
+<section id="sec-l13-proteasom" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="sec-l13-proteasom"><span class="header-section-number">13.9</span> Proteasomen: cellens återvinningsstation</h2>
+<p>Vi har flera gånger sett att proteiner som inte går att rädda skickas till nedbrytning. Det är den andra halvan av cellens kvalitetskontroll. Alla proteiner ska inte leva för evigt. Felveckade och skadade proteiner måste bort, och många fullt fungerande proteiner ska bara finnas en kort tid, till exempel de som styr cellens delning. Varje dag tillverkar och bryter en vuxen människa ned flera hundra gram protein. Aminosyrorna återanvänds till nya proteiner.</p>
+<p>I eukaryota celler sköts det mesta av nedbrytningen i cytosolen och cellkärnan av en stor proteinmaskin, <strong>proteasomen</strong> (<a href="#fig-l13-proteasom" class="quarto-xref">Figur&nbsp;<span>13.10</span></a>). Dess kärna är en cylinder av fyra ringar med sju kedjor i varje, alltså 28 kedjor. Inuti cylindern sitter de klippande delarna, väl gömda så att de inte kan angripa cellens övriga proteiner. I båda ändarna kan ett lock sättas på, uppbyggt av ett tjugotal proteiner. Locket känner igen de proteiner som ska brytas ned, och dess ATPaser vecklar upp dem och matar in dem i cylindern, på samma sätt som Hsp100-ringarna gör. Ut kommer korta bitar av några få till drygt tjugo aminosyror.</p>
+<p>Kärnan brukar kallas <strong>20S</strong> och locket <strong>19S</strong>, och hela maskinen <strong>26S-proteasomen</strong>. S står för <em>svedberg</em>, en enhet för hur snabbt en partikel sjunker när den centrifugeras, uppkallad efter den svenske kemisten The Svedberg. Värdet beror både på partikelns storlek och dess form, och därför går det inte att lägga ihop: 20 och 19 blir här 26.</p>
+<div id="fig-l13-proteasom" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-proteasom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/proteasom-goodsell.jpg" class="img-fluid figure-img" style="width:35.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-proteasom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.10: Den mänskliga 26S-proteasomen. I mitten ligger cylindern med de klippande delarna gömda inuti (rött och gult). I båda ändarna sitter ett lock: de lila delarna är ATP-drivna motorer som vecklar upp proteinerna och matar in dem, och de blå delarna känner igen proteiner som är märkta med ubikvitin. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<section id="sec-l13-ubikvitin" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l13-ubikvitin">Ubikvitin: dödskyssen</h3>
+<p>Hur vet proteasomen vilka proteiner den ska bryta ned? De märks ut i förväg med ett litet protein på 76 aminosyror, <strong>ubikvitin</strong>. Namnet kommer av latinets <em>ubique</em>, “överallt”, eftersom proteinet finns i alla eukaryota celler. Det har förändrats mycket lite under evolutionen: det är <em>konserverat</em>. Det är ett tecken på att proteinet är mycket viktigt, eftersom nästan varje förändring har varit skadlig och sorterats bort. Ubikvitin finns däremot inte hos bakterier, som bryter ned sina proteiner med Clp-proteaser och liknande maskiner.</p>
+<p>Märkningen sker i tre steg, av tre sorters enzymer (<a href="#fig-l13-ubikvitin" class="quarto-xref">Figur&nbsp;<span>13.11</span></a>):</p>
+<ol type="1">
+<li>Ett <strong>E1</strong>-enzym aktiverar ubikvitin. Det kräver energi i form av ATP.</li>
+<li>Ubikvitinet förs över till ett <strong>E2</strong>-enzym.</li>
+<li>Ett <strong>E3</strong>-enzym känner igen det protein som ska brytas ned och ser till att E2 fäster ubikvitinet vid det. Bindningen sker mellan ubikvitinets sista aminosyra och aminosyran lysin i målproteinet.</li>
+</ol>
+<p>Steget upprepas, så att det bildas en kedja av ubikvitin på målproteinet. Kedjan är en signal som proteasomens lock känner igen. Den brukar kallas <strong>dödskyssen</strong> (eng. <em>kiss of death</em>): ett protein som har fått en ubikvitinkedja är dömt. I proteasomen lossnar ubikvitinet, så att det kan användas igen, och proteinet tuggas sönder.</p>
+<p>Vem bestämmer då vilka proteiner som ska märkas? Det finns bara några få E1-enzymer men många hundra olika E3-enzymer hos människan. Det är E3 som står för urvalet, och därför kan nedbrytningen styras mycket noga.</p>
+<div id="fig-l13-ubikvitin" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-ubikvitin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/ubikvitin.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-ubikvitin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.11: Märkning med ubikvitin. E1 aktiverar ubikvitin med hjälp av ATP och lämnar det till E2. E3 känner igen ett protein som ska bort, och en kedja av ubikvitin fästs vid det. Proteasomen känner igen kedjan, vecklar upp proteinet och klipper sönder det i korta bitar. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Upptäckten av hur ubikvitin styr nedbrytningen av proteiner belönades med Nobelpriset i kemi 2004. Det delades av Aaron Ciechanover och Avram Hershko från Israel och Irwin Rose från USA, som gjorde de avgörande försöken tillsammans kring 1980.</p>
+</section>
+<section id="sec-l13-dysfunktion" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l13-dysfunktion">När nedbrytningen inte fungerar</h3>
+<p>Eftersom proteasomen styr hur länge många viktiga proteiner finns i cellen, får det allvarliga följder när den inte fungerar som den ska:</p>
+<ul>
+<li><strong>Celldelningen.</strong> Cellens delning styrs av proteiner som heter cykliner, som byggs upp och bryts ned i en bestämd takt. Fel i nedbrytningen kan ge felaktig fördelning av kromosomerna mellan dottercellerna.</li>
+<li><strong>Cancer.</strong> Proteinet p53, som brukar kallas “genomets väktare”, stoppar celler med skadat DNA från att dela sig. Mängden p53 regleras av proteasomen. Bryts p53 ned för snabbt förlorar cellen en viktig broms.</li>
+<li><strong>Cystisk fibros.</strong> Sjukdomen beror på mutationer i en kanal för kloridjoner i cellmembranet. Vid den vanligaste mutationen kan kanalen i princip fungera, men den veckar sig långsammare än normalt. Cellens kvalitetskontroll i ER underkänner den, och den skickas till proteasomen och bryts ned innan den når membranet. Sedan några år finns läkemedel, så kallade korrektorer, som hjälper den muterade kanalen att vecka sig så att fler exemplar når cellmembranet. För många patienter har de förbättrat livet avsevärt.</li>
+<li><strong>Läkemedel.</strong> Ett läkemedel som hämmar proteasomen, bortezomib (Velcade), används mot blodcancersjukdomen multipelt myelom. Cancercellerna i den sjukdomen tillverkar enorma mängder antikroppsprotein och är därför särskilt beroende av att kunna göra sig av med felveckade proteiner.</li>
+</ul>
+</section>
+<section id="sec-l13-immun" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l13-immun">Proteasomen och immunförsvaret</h3>
+<p>Proteasomen har också en viktig roll i immunförsvaret: den hjälper cellen att visa att den är infekterad. När ett virus (eller vissa bakterier) har tagit sig in i en cell tillverkar cellen virusproteiner. Proteasomen bryter då ned en del av dem, precis som cellens egna proteiner. Några av de korta bitarna förs in i ER, där chaperoner, bland andra ER:s Hsp70 (BiP), hjälper till att fästa dem vid särskilda proteiner som kallas <strong>MHC</strong> (eng. <em>major histocompatibility complex</em>).</p>
+<p>MHC-proteinerna bär bitarna ut till cellens yta och visar upp dem, som en flagga. Immunförsvarets mördarceller (en sorts T-celler) patrullerar kroppen och känner igen bitar som inte hör hemma där. De dödar den infekterade cellen innan viruset hinner föröka sig vidare (<a href="#fig-l13-antigen" class="quarto-xref">Figur&nbsp;<span>13.12</span></a>).</p>
+<div id="fig-l13-antigen" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l13-antigen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L13/antigen.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l13-antigen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;13.12: Hur cellen visar upp bitar av virusproteiner. Proteasomen klipper sönder ett virusprotein (1–2). Bitarna förs in i ER (3), där de med hjälp av chaperoner läggs i MHC-proteiner (4). MHC bär biten till cellens yta (5). En mördarcell känner igen biten som främmande och dödar den infekterade cellen (6). Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="sec-l13-livshistoria" class="level2" data-number="13.10">
+<h2 data-number="13.10" class="anchored" data-anchor-id="sec-l13-livshistoria"><span class="header-section-number">13.10</span> Proteinernas livshistoria</h2>
+<p>Tillsammans med <a href="12-proteintrafik.html" class="quarto-xref"><span>Kapitel 12</span></a> ger det här kapitlet en bild av ett proteins hela liv i cellen. Kedjan tillverkas i ribosomen och tas om hand redan när den kommer ut. Hsp70 skyddar dess vattenskygga partier, och vissa kedjor får vecka sig i GroEL:s eller TRiC:s skyddade rum. Proteiner som ska till en organell hålls oveckade tills de har trätts genom membranet, och Hsp70 på insidan hjälper till att dra in dem. Hsp90 ger vissa proteiner sin slutliga form. Om proteinet senare skadas av värme eller stress fångas det upp av små värmechockproteiner och får en ny chans med hjälp av Hsp70 och Hsp100. Och när det har gjort sitt, eller inte går att rädda, märks det med ubikvitin och bryts ned i proteasomen. Aminosyrorna används sedan till nya proteiner.</p>
+<p>Allt det här sker samtidigt, i trängsel och i miljontals exemplar, i var och en av kroppens ungefär 37 000 miljarder celler.</p>
+</section>
+<section id="sec-l13-sammanfattning" class="level2" data-number="13.11">
+<h2 data-number="13.11" class="anchored" data-anchor-id="sec-l13-sammanfattning"><span class="header-section-number">13.11</span> Sammanfattning</h2>
+<ul>
+<li>Cellen är mycket tätt packad med proteiner. Oveckade kedjor fungerar inte, klumpar lätt ihop sig och bryts lätt ned, och de behöver därför skydd.</li>
+<li>Molekylära chaperoner, “förkläden”, är proteiner som hjälper andra proteiner att vecka sig, foga ihop sig och ta sig genom membran, utan att fastna i fel sällskap. De binder och släpper, och de blir aldrig en del av det färdiga proteinet.</li>
+<li>Många chaperoner är värmechockproteiner (Hsp), som cellen tillverkar mer av vid feber och annan stress. Siffran i namnet anger proteinets vikt i kilodalton. De flesta använder ATP för att ändra form.</li>
+<li>Hsp70 griper tag i korta vattenskygga partier i oveckade kedjor, med hjälp av Hsp40 och GrpE. Den hjälper också till att få in proteiner i mitokondrierna.</li>
+<li>Chaperoninet GroEL är ett dubbelt ringformat rum med lock (GroES), där en kedja kan vecka sig i skydd. Hsp90 är en klämma som hjälper klientproteiner, som steroidhormonreceptorer och kinaser, med den sista mognaden, och är ett mål för cancerläkemedel.</li>
+<li>Hsp100 (Clp-proteiner) vecklar upp proteiner och löser upp klumpar, antingen för att rädda proteinet eller för att mata in det i ett proteas. Små värmechockproteiner, som α-kristallin i ögats lins, håller fast skadade proteiner utan att använda ATP.</li>
+<li>Proteiner som ska brytas ned märks med en kedja av ubikvitin av enzymerna E1, E2 och E3, och bryts ned i proteasomen. Systemet är viktigt för celldelning, immunförsvar och kan bli fel vid sjukdomar som cancer och cystisk fibros.</li>
+</ul>
+</section>
+<section id="sec-l13-nyckelbegrepp" class="level2" data-number="13.12">
+<h2 data-number="13.12" class="anchored" data-anchor-id="sec-l13-nyckelbegrepp"><span class="header-section-number">13.12</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>molekylär chaperon</strong> – Protein som hjälper andra proteiner att vecka sig, foga ihop sig eller ta sig genom membran, utan att självt bli en del av det färdiga proteinet. På svenska ibland “molekylärt förkläde”.</li>
+<li><strong>proteas</strong> – Enzym som klipper sönder proteiner. Oveckade kedjor klipps lättare än veckade proteiner.</li>
+<li><strong>aggregat</strong> – Klump av proteinkedjor som har fastnat i varandra, ofta med sina vattenskygga delar, i stället för att vecka sig var för sig.</li>
+<li><strong>disulfidbrygga</strong> – Stark bindning mellan svavelatomerna i två cysteiner. Håller ihop många proteiner, till exempel keratinet i hår.</li>
+<li><strong>värmechockprotein (Hsp)</strong> – Protein som cellen tillverkar mer av vid värme och annan stress. Många är chaperoner. Siffran i namnet, som i Hsp70, anger ungefärlig vikt i kilodalton.</li>
+<li><strong>ATPas</strong> – Enzym som binder och spjälkar ATP. De flesta chaperoner är ATPaser och använder energin för att ändra sin egen form.</li>
+<li><strong>Hsp70</strong> – Chaperon som griper tag i korta vattenskygga partier hos oveckade kedjor och släpper dem igen. Arbetar med Hsp40 och GrpE och hjälper även till vid import till mitokondrier.</li>
+<li><strong>kochaperon</strong> – Hjälpprotein (eng. co-chaperone) som samarbetar med en chaperon, till exempel Hsp40 och GrpE som styr när Hsp70 griper och släpper.</li>
+<li><strong>chaperonin</strong> – Chaperon som bildar ett hålrum där en proteinkedja kan vecka sig i skydd, till exempel GroEL i bakterier och TRiC i våra celler.</li>
+<li><strong>GroEL och GroES</strong> – Bakteriens chaperonin: GroEL är två staplade ringar med sju kedjor i varje, och GroES är det lock som stänger hålrummet.</li>
+<li><strong>Hsp90</strong> – Vanlig chaperon som bildar en klämma av två kedjor och hjälper klientproteiner, som steroidhormonreceptorer och kinaser, med den sista mognaden.</li>
+<li><strong>klientprotein</strong> – Protein som är beroende av en viss chaperon, särskilt Hsp90, för att få sin slutliga, fungerande form.</li>
+<li><strong>Hsp100 (Clp-proteiner)</strong> – Ringformade ATPaser som drar proteinkedjor genom en kanal, så att proteiner vecklas upp och klumpar löses upp, ofta inför nedbrytning.</li>
+<li><strong>små värmechockproteiner</strong> – Chaperoner som inte använder ATP utan bildar stora klot som håller fast skadade proteiner tills andra chaperoner tar över. Hit hör α-kristallin i ögats lins.</li>
+<li><strong>α-kristallin</strong> – Litet värmechockprotein i ögats lins som hindrar linsproteinerna från att klumpa ihop sig. När skyddet sviktar kan grå starr uppstå.</li>
+<li><strong>grå starr (katarakt)</strong> – Grumling av ögats lins, ofta på äldre dagar, som beror på att linsens proteiner klumpar ihop sig.</li>
+<li><strong>proteasom</strong> – Stor proteinmaskin i eukaryota celler som bryter ned proteiner märkta med ubikvitin. Består av en cylinder (20S) med de klippande delarna inuti och lock (19S) i ändarna.</li>
+<li><strong>ubikvitin</strong> – Litet protein på 76 aminosyror som fästs i kedjor på proteiner som ska brytas ned, en “dödskyss” som proteasomen känner igen.</li>
+<li><strong>E1, E2 och E3</strong> – De tre sorters enzymer som aktiverar ubikvitin (E1), bär det vidare (E2) och fäster det vid rätt målprotein (E3).</li>
+<li><strong>svedberg (S)</strong> – Enhet för hur snabbt en partikel sjunker vid centrifugering. Beror på både storlek och form, så värdena kan inte adderas.</li>
+<li><strong>MHC</strong> – Proteiner som visar upp korta proteinbitar på cellens yta, så att immunförsvarets T-celler kan upptäcka infekterade celler.</li>
+</ul>
+</section>
+<section id="sec-l13-testa" class="level2" data-number="13.13">
+<h2 data-number="13.13" class="anchored" data-anchor-id="sec-l13-testa"><span class="header-section-number">13.13</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L13"></div>
+<script>
+renderQuiz("quiz-L13", [
+ {
+  "question": "Varför kallas chaperoner för molekylära förkläden?",
+  "choices": [
+   "De hindrar proteiner från olämpliga kontakter med andra molekyler tills de har hittat rätt form och rätt partner",
+   "De bestämmer vilken form ett protein ska få",
+   "De följer med proteinet hela livet och blir en del av dess färdiga form",
+   "De skyddar cellen utifrån, som ett förkläde skyddar kläderna"
+  ],
+  "correctIndex": 0,
+  "explanation": "Ett förkläde var en person som följde med en ung flicka för att hindra olämpliga bekantskaper. Chaperonerna hindrar på samma sätt felaktiga kontakter, men formen bestäms av kedjan själv."
+ },
+ {
+  "question": "Vad händer med en chaperon när proteinet den hjälpt är färdigveckat?",
+  "choices": [
+   "Den släpper proteinet; den blir aldrig en del av det färdiga proteinet",
+   "Den stannar kvar som en del av proteinet",
+   "Den bryts ned tillsammans med proteinet",
+   "Den omvandlas till ett nytt protein"
+  ],
+  "correctIndex": 0,
+  "explanation": "Chaperoner binder och släpper, ofta många gånger. De assisterar veckningen men ingår inte i den slutliga strukturen."
+ },
+ {
+  "question": "Varför tillverkar cellen mer värmechockproteiner när vi har feber?",
+  "choices": [
+   "Vid högre temperatur vecklas fler proteiner upp och riskerar att klumpa ihop sig, och då behövs mer hjälp",
+   "Värmechockproteinerna sänker kroppstemperaturen",
+   "De bryter ned bakterier och virus direkt",
+   "Värmen gör att alla gener avläses snabbare"
+  ],
+  "correctIndex": 0,
+  "explanation": "Värme förskjuter proteinerna mot oveckat tillstånd. Mer chaperoner hjälper till att hålla dem lösta och vecka dem rätt."
+ },
+ {
+  "question": "Vad betyder siffran i namnet Hsp70?",
+  "choices": [
+   "Att proteinet väger ungefär 70 kilodalton",
+   "Att det tål 70 grader",
+   "Att det består av 70 aminosyror",
+   "Att det var det sjuttionde värmechockproteinet som upptäcktes"
+  ],
+  "correctIndex": 0,
+  "explanation": "Siffran anger ungefär vikten i kilodalton. Hsp70 består av drygt 600 aminosyror."
+ },
+ {
+  "question": "Vilken sorts ställen på en proteinkedja griper Hsp70 tag i?",
+  "choices": [
+   "Korta partier med vattenskygga aminosyror, omgivna av positivt laddade aminosyror",
+   "Bara proteinets allra första aminosyra",
+   "Partier med många negativt laddade aminosyror på ytan av färdiga proteiner",
+   "Disulfidbryggor"
+  ],
+  "correctIndex": 0,
+  "explanation": "Försöken med överlappande korta bitar visade att Hsp70 binder till en vattenskygg kärna med positiva laddningar runt. I färdiga proteiner är sådana partier gömda, så Hsp70 binder främst till oveckade kedjor."
+ },
+ {
+  "question": "Vad händer när Hsp70 spjälkar sitt ATP till ADP?",
+  "choices": [
+   "Locket över skåran stängs, och kedjan hålls hårt",
+   "Kedjan klipps sönder",
+   "Hsp70 släpper kedjan direkt",
+   "Kedjan veckas av ATP-energin"
+  ],
+  "correctIndex": 0,
+  "explanation": "Med ATP är greppet öppet; när ATP spjälkas ändrar Hsp70 form och locket fälls ned. När ADP byts mot nytt ATP släpps kedjan."
+ },
+ {
+  "question": "Hur hjälper chaperoninet GroEL en proteinkedja att vecka sig?",
+  "choices": [
+   "Kedjan stängs in i ett hålrum under ett lock, där den kan vecka sig utan att fastna i andra proteiner",
+   "GroEL viker kedjan i rätt form enligt en egen ritning",
+   "GroEL binder kedjan på sin utsida och håller den där för alltid",
+   "GroEL klipper bort de vattenskygga aminosyrorna"
+  ],
+  "correctIndex": 0,
+  "explanation": "GroEL består av två ringar med hålrum. När locket GroES sätts på blir insidan vattenälskande och kedjan veckar sig i skydd. Är den inte färdig när den släpps får den börja om."
+ },
+ {
+  "question": "Varför har man försökt använda hämmare av Hsp90 mot cancer?",
+  "choices": [
+   "Cancerceller är särskilt beroende av Hsp90 för att hålla sina överaktiva och instabila tillväxtproteiner fungerande",
+   "Hsp90 finns bara i cancerceller",
+   "Hsp90 bryter ned cellgifter",
+   "Hämmarna gör att Hsp90 angriper cancercellernas DNA"
+  ],
+  "correctIndex": 0,
+  "explanation": "Många av cancercellernas drivande proteiner, till exempel kinaser, är klienter till Hsp90. Hämmare som geldanamycin blockerar ATP-fickan så att klientproteinerna inte kan mogna."
+ },
+ {
+  "question": "Vad skiljer de små värmechockproteinerna från de andra chaperonfamiljerna?",
+  "choices": [
+   "De använder inte ATP; de håller fast skadade proteiner tills andra chaperoner tar över",
+   "De är de enda som finns i bakterier",
+   "De bryter själva ned proteiner",
+   "De finns bara i ögat"
+  ],
+  "correctIndex": 0,
+  "explanation": "Små värmechockproteiner bildar stora klot som fångar upp proteiner som håller på att veckla upp sig. Utan ATP kan de inte vecka om dem, utan lämnar dem vidare till Hsp70 och Hsp100."
+ },
+ {
+  "question": "Vilken roll har ubikvitin i cellen?",
+  "choices": [
+   "Det fästs i en kedja på proteiner som ska brytas ned, så att proteasomen känner igen dem",
+   "Det klipper sönder proteiner",
+   "Det hjälper proteiner att vecka sig i ett hålrum",
+   "Det transporterar proteiner in i mitokondrierna"
+  ],
+  "correctIndex": 0,
+  "explanation": "Enzymerna E1, E2 och E3 fäster ubikvitin vid proteiner som ska bort. Kedjan är en dödskyss som proteasomens lock känner igen."
+ },
+ {
+  "question": "Varför sitter proteasomens klippande delar inuti en sluten cylinder?",
+  "choices": [
+   "Så att de inte angriper cellens övriga proteiner; bara utvalda, oveckade kedjor matas in",
+   "För att skydda dem från ATP",
+   "För att cylindern ska kunna röra sig genom membran",
+   "Det är en tillfällighet utan betydelse"
+  ],
+  "correctIndex": 0,
+  "explanation": "Proteasomen är en kraftfull kvarn. Genom att gömma de klippande delarna inuti och låta locket välja ut märkta proteiner skyddas resten av cellen."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>13.1</strong> Förklara varför en nytillverkad proteinkedja riskerar att klumpa ihop sig i cellen, trots att Anfinsens försök visade att proteiner kan vecka sig själva.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Anfinsen arbetade med ett enda renat protein i en utspädd lösning, där kedjan inte hade några grannar att fastna i. I cellen är det mycket trångt, 300–400 milligram protein per milliliter. En ny kedja kommer dessutom ut ur ribosomen bit för bit och kan inte vecka sig färdigt förrän hela kedjan finns. Under tiden ligger dess vattenskygga partier öppna, och de kan fastna i vattenskygga partier hos andra kedjor. Då bildas aggregat. Chaperonerna skyddar kedjan under den känsliga tiden.</p>
+</div>
+</div>
+</div>
+<p><strong>13.2</strong> Jämför hur Hsp70 och GroEL hjälper proteiner. Vad har de gemensamt och vad skiljer dem åt?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Båda binder till vattenskygga partier hos oveckade kedjor, båda använder ATP för att ändra sin egen form, och båda binder och släpper kedjan, ofta i flera rundor. Ingen av dem bestämmer formen. Hsp70 är ett enda protein som griper tag i korta partier av kedjan och skyddar dem, medan kedjan veckar sig när den är fri. GroEL är en stor dubbel ring som stänger in hela kedjan i ett hålrum under ett lock, så att den kan vecka sig helt isolerad från andra proteiner. GroEL tar hand om kedjor som inte klarar sig med Hsp70:s hjälp.</p>
+</div>
+</div>
+</div>
+<p><strong>13.3</strong> En cell har ett protein som veckat sig fel och börjat klumpa ihop sig. Vilka möjligheter har cellen att hantera det?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Små värmechockproteiner kan fånga upp proteiner som håller på att veckla upp sig, så att de inte klumpar ihop sig med varandra. Hsp100, till exempel ClpB, kan tillsammans med Hsp70 lösa upp klumpar genom att dra ut kedjorna en i taget, och kedjorna får då en ny chans att vecka sig rätt med hjälp av Hsp70 eller ett chaperonin. Går proteinet inte att rädda kan det brytas ned: i bakterier av Clp-proteaser, i våra celler framför allt av proteasomen efter märkning med ubikvitin. Ofta är det bättre att bryta ned och tillverka nytt än att låta klumpar ligga kvar.</p>
+</div>
+</div>
+</div>
+<p><strong>13.4</strong> Varför är det en fördel att det är E3-enzymet, och inte proteasomen själv, som väljer ut vilka proteiner som ska brytas ned?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Proteasomen är en kvarn som bryter ned allt som matas in i den. Om den själv skulle välja skulle den behöva känna igen tusentals olika proteiner. I stället finns hundratals olika E3-enzymer, som vart och ett känner igen vissa proteiner, till exempel cykliner vid en viss tid i celldelningen eller felveckade proteiner. E3 märker dem med ubikvitin, och proteasomen behöver bara känna igen ubikvitinkedjan. På så sätt kan nedbrytningen styras mycket noga och anpassas efter vad cellen behöver.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l13-las-mer" class="level2" data-number="13.14">
+<h2 data-number="13.14" class="anchored" data-anchor-id="sec-l13-las-mer"><span class="header-section-number">13.14</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Chaperoner">Chaperoner</a> och <a href="https://sv.wikipedia.org/wiki/Proteasom">Proteasom</a> på svenska Wikipedia, och den mer utförliga <a href="https://en.wikipedia.org/wiki/Chaperone_(protein)">Chaperone (protein)</a> på engelska Wikipedia.</li>
+<li><a href="https://en.wikipedia.org/wiki/Heat_shock_protein">Heat shock protein</a> på engelska Wikipedia, med en översikt över familjerna.</li>
+<li><a href="https://pdb101.rcsb.org/motm/32">Chaperones</a> och <a href="https://pdb101.rcsb.org/motm/166">Proteasome</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), med bilder av David S. Goodsell.</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2004/summary/">Nobelpriset i kemi 2004</a>, för upptäckten av hur ubikvitin styr nedbrytningen av proteiner (på engelska).</li>
+<li><a href="https://en.wikipedia.org/wiki/The_Inner_Life_of_the_Cell">The Inner Life of the Cell</a>, en animerad film gjord för Harvard University, som bland annat visar proteiner som byggs, veckas och transporteras i cellen (se även <a href="07-biomembran.html#sec-l07-filmen" class="quarto-xref"><span>Avsnitt 7.9</span></a>). Wikipedia-artikeln länkar till filmen.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/12-proteintrafik.html" class="pagination-link" aria-label="Proteintrafik i cellen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/14-proteinveckning.html" class="pagination-link" aria-label="Proteiners veckning">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

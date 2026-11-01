@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>1&nbsp; Levande celler, nukleinsyror och proteiner – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/02-molekyler-och-reaktioner.html" rel="next">
+<link href="../schema.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-levande-celler.html">Grunderna</a></li><li class="breadcrumb-item"><a href="../chapters/01-levande-celler.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l01-ursprung" id="toc-sec-l01-ursprung" class="nav-link active" data-scroll-target="#sec-l01-ursprung"><span class="header-section-number">1.1</span> Från väte till människor</a>
+  <ul class="collapse">
+  <li><a href="#sec-l01-atomer" id="toc-sec-l01-atomer" class="nav-link" data-scroll-target="#sec-l01-atomer">Atomer och molekyler</a></li>
+  <li><a href="#sec-l01-stjarnor" id="toc-sec-l01-stjarnor" class="nav-link" data-scroll-target="#sec-l01-stjarnor">Tunga grundämnen bildas i stjärnor</a></li>
+  <li><a href="#sec-l01-rymden" id="toc-sec-l01-rymden" class="nav-link" data-scroll-target="#sec-l01-rymden">Organiska molekyler finns redan i rymden</a></li>
+  </ul></li>
+  <li><a href="#sec-l01-unga-jorden" id="toc-sec-l01-unga-jorden" class="nav-link" data-scroll-target="#sec-l01-unga-jorden"><span class="header-section-number">1.2</span> Livet på den unga jorden</a>
+  <ul class="collapse">
+  <li><a href="#sec-l01-miller" id="toc-sec-l01-miller" class="nav-link" data-scroll-target="#sec-l01-miller">Millers experiment</a></li>
+  </ul></li>
+  <li><a href="#sec-l01-celler" id="toc-sec-l01-celler" class="nav-link" data-scroll-target="#sec-l01-celler"><span class="header-section-number">1.3</span> Allt levande består av celler</a></li>
+  <li><a href="#sec-l01-dogmen" id="toc-sec-l01-dogmen" class="nav-link" data-scroll-target="#sec-l01-dogmen"><span class="header-section-number">1.4</span> Tre molekyler och tre processer</a>
+  <ul class="collapse">
+  <li><a href="#sec-l01-tre-molekyler" id="toc-sec-l01-tre-molekyler" class="nav-link" data-scroll-target="#sec-l01-tre-molekyler">DNA, RNA och protein</a></li>
+  <li><a href="#sec-l01-centrala-dogmen" id="toc-sec-l01-centrala-dogmen" class="nav-link" data-scroll-target="#sec-l01-centrala-dogmen">Den centrala dogmen</a></li>
+  <li><a href="#sec-l01-kedjor" id="toc-sec-l01-kedjor" class="nav-link" data-scroll-target="#sec-l01-kedjor">Tre kedjemolekyler</a></li>
+  </ul></li>
+  <li><a href="#sec-l01-dna" id="toc-sec-l01-dna" class="nav-link" data-scroll-target="#sec-l01-dna"><span class="header-section-number">1.5</span> DNA: en dubbelspiral</a>
+  <ul class="collapse">
+  <li><a href="#sec-l01-baspar" id="toc-sec-l01-baspar" class="nav-link" data-scroll-target="#sec-l01-baspar">En spiraltrappa av baspar</a></li>
+  <li><a href="#sec-l01-basparning" id="toc-sec-l01-basparning" class="nav-link" data-scroll-target="#sec-l01-basparning">Basparningen är hemligheten</a></li>
+  </ul></li>
+  <li><a href="#sec-l01-replikation" id="toc-sec-l01-replikation" class="nav-link" data-scroll-target="#sec-l01-replikation"><span class="header-section-number">1.6</span> Replikation: DNA kopieras</a></li>
+  <li><a href="#sec-l01-information" id="toc-sec-l01-information" class="nav-link" data-scroll-target="#sec-l01-information"><span class="header-section-number">1.7</span> Information i en följd av bokstäver</a>
+  <ul class="collapse">
+  <li><a href="#sec-l01-gener" id="toc-sec-l01-gener" class="nav-link" data-scroll-target="#sec-l01-gener">Ritningar och styrsignaler</a></li>
+  </ul></li>
+  <li><a href="#sec-l01-transkription" id="toc-sec-l01-transkription" class="nav-link" data-scroll-target="#sec-l01-transkription"><span class="header-section-number">1.8</span> Transkription: från DNA till RNA</a></li>
+  <li><a href="#sec-l01-translation" id="toc-sec-l01-translation" class="nav-link" data-scroll-target="#sec-l01-translation"><span class="header-section-number">1.9</span> Translation: från RNA till protein</a>
+  <ul class="collapse">
+  <li><a href="#sec-l01-trna" id="toc-sec-l01-trna" class="nav-link" data-scroll-target="#sec-l01-trna">Ribosomen, tRNA och kodon</a></li>
+  <li><a href="#sec-l01-start-stopp" id="toc-sec-l01-start-stopp" class="nav-link" data-scroll-target="#sec-l01-start-stopp">Start och stopp</a></li>
+  <li><a href="#sec-l01-koden" id="toc-sec-l01-koden" class="nav-link" data-scroll-target="#sec-l01-koden">Den genetiska koden</a></li>
+  <li><a href="#sec-l01-ribosom" id="toc-sec-l01-ribosom" class="nav-link" data-scroll-target="#sec-l01-ribosom">Ribosomen: en molekylär maskin</a></li>
+  </ul></li>
+  <li><a href="#sec-l01-proteiner" id="toc-sec-l01-proteiner" class="nav-link" data-scroll-target="#sec-l01-proteiner"><span class="header-section-number">1.10</span> Proteiner: cellens maskiner</a>
+  <ul class="collapse">
+  <li><a href="#sec-l01-proteinsorter" id="toc-sec-l01-proteinsorter" class="nav-link" data-scroll-target="#sec-l01-proteinsorter">Fyra sorters proteiner</a></li>
+  <li><a href="#sec-l01-aminosyror" id="toc-sec-l01-aminosyror" class="nav-link" data-scroll-target="#sec-l01-aminosyror">Aminosyror: lika och olika</a></li>
+  <li><a href="#sec-l01-veckning" id="toc-sec-l01-veckning" class="nav-link" data-scroll-target="#sec-l01-veckning">Helixar och flak</a></li>
+  </ul></li>
+  <li><a href="#sec-l01-sammanfattning" id="toc-sec-l01-sammanfattning" class="nav-link" data-scroll-target="#sec-l01-sammanfattning"><span class="header-section-number">1.11</span> Sammanfattning</a></li>
+  <li><a href="#sec-l01-nyckelbegrepp" id="toc-sec-l01-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l01-nyckelbegrepp"><span class="header-section-number">1.12</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l01-testa" id="toc-sec-l01-testa" class="nav-link" data-scroll-target="#sec-l01-testa"><span class="header-section-number">1.13</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l01-las-mer" id="toc-sec-l01-las-mer" class="nav-link" data-scroll-target="#sec-l01-las-mer"><span class="header-section-number">1.14</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/01-levande-celler.html">Grunderna</a></li><li class="breadcrumb-item"><a href="../chapters/01-levande-celler.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l01" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 1, <em>Levande celler, nukleinsyror och proteiner</em>, av Gunnar von Heijne (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>berätta i grova drag hur livets byggstenar kan ha bildats innan det fanns liv på jorden, och vad Millers experiment visade,</li>
+<li>förklara hur informationen i cellen går från DNA via RNA till protein, och vad replikation, transkription och translation är,</li>
+<li>beskriva hur DNA är uppbyggt och förklara hur basparningen gör det möjligt att kopiera DNA,</li>
+<li>förklara hur ribosomen med hjälp av tRNA och den genetiska koden översätter en följd av baser till en följd av aminosyror,</li>
+<li>beskriva ett protein som en kedja av aminosyror som veckar sig till en bestämd form.</li>
+</ul>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><em>Väte är en lätt, luktfri gas som, om den får tillräckligt med tid, förvandlas till människor.</em></p>
+</blockquote>
+<p>Så skrev den brittisk-amerikanske kosmologen Edward Harrison 1995. Det låter som ett skämt, men det är en ganska exakt sammanfattning av vad vi vet om universums och livets historia. Allt levande, också vi själva, består av atomer som en gång bildades i stjärnor. Under miljarder år har de satts ihop till allt större och mer komplicerade molekyler, och till sist till levande celler.</p>
+<p>Det här kapitlet handlar om de molekyler som gör en cell levande. Det finns tre slag som är viktigare än alla andra: <strong>DNA</strong>, <strong>RNA</strong> och <strong>proteiner</strong>. Och det finns tre processer som binder ihop dem: <strong>replikation</strong>, när DNA kopieras, <strong>transkription</strong>, när en bit av DNA skrivs av till RNA, och <strong>translation</strong>, när RNA översätts till protein. Detta är grunden för allt som händer i en cell, och därmed för resten av boken.</p>
+<section id="sec-l01-ursprung" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-l01-ursprung"><span class="header-section-number">1.1</span> Från väte till människor</h2>
+<p>Innan vi går in i cellen ska vi följa Harrisons mening från början. Var kommer de atomer ifrån som livet är byggt av, och hur kan de första byggstenarna till livets molekyler ha bildats, långt innan det fanns något levande? För att svara behöver vi först några ord om atomer och molekyler.</p>
+<section id="sec-l01-atomer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-atomer">Atomer och molekyler</h3>
+<p>Allt omkring oss är uppbyggt av <strong>atomer</strong>. En atom består av en liten kärna, med positiv laddning, omgiven av ett moln av negativt laddade elektroner. Det finns drygt hundra sorters atomer, och varje sort kallas ett <strong>grundämne</strong>: väte, kol, kväve, syre, järn och så vidare. Grundämnena betecknas med en eller två bokstäver, till exempel H för väte, C för kol, N för kväve och O för syre.</p>
+<p>Atomer kan sitta ihop med varandra genom <strong>kemiska bindningar</strong>. En grupp av atomer som hålls ihop av sådana bindningar kallas en <strong>molekyl</strong>. En vattenmolekyl består till exempel av två väteatomer och en syreatom, och skrivs därför H<sub>2</sub>O.</p>
+<p>Molekylerna i levande varelser är byggda kring kolatomer. En kolatom kan binda till upp till fyra andra atomer, och därför kan kolatomer bilda långa kedjor och ringar. Sådana kolbaserade molekyler kallas <strong>organiska molekyler</strong>. Livets molekyler består nästan bara av sex grundämnen: kol, väte, syre, kväve, fosfor och svavel.</p>
+</section>
+<section id="sec-l01-stjarnor" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-stjarnor">Tunga grundämnen bildas i stjärnor</h3>
+<p>Av livets sex grundämnen fanns bara ett från början. När universum var ungt fanns nästan bara väte och lite helium. Resten har bildats i stjärnor. Gasmolnen drog så småningom ihop sig till galaxer och stjärnor. Inne i stjärnorna smälte väteatomernas kärnor samman till helium, och senare till tyngre grundämnen. När de första stjärnorna dog exploderade många av dem som <strong>supernovor</strong>, och då slungades tyngre grundämnen ut i rymden. Där blev de en del av nya gasmoln, som bildade nya stjärnor, som i sin tur bildade ännu tyngre grundämnen. Universum består fortfarande mest av väte, men efter många sådana omgångar fanns tillräckligt mycket kol, kväve och syre för att liv skulle kunna uppstå.</p>
+</section>
+<section id="sec-l01-rymden" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-rymden">Organiska molekyler finns redan i rymden</h3>
+<p>När grundämnena väl fanns kunde de börja sättas ihop till större molekyler. Det steget kräver inte en planet: det kan börja redan ute i rymden.</p>
+<p>Rymden mellan stjärnorna är nämligen inte tom. I de stora moln av gas och stoft där nya stjärnor bildas finns små stoftkorn av tyngre grundämnen, och där finns vatten, som kan frysa fast på kornen som is. I isen kan små molekyler som ammoniak, metanol, kolmonoxid och koldioxid finnas lösta. När isen träffas av ultraviolett ljus från en närliggande stjärna får molekylerna extra energi och kan börja reagera med varandra och bilda större molekyler.</p>
+<p>I laboratorieförsök som efterliknar sådana iskorn har man fått fram bland annat sockret <strong>ribos</strong>, en molekyl med fem kolatomer som ingår i RNA, som vi ska se. Ribos har också hittats i meteoriter. Livets byggstenar är alltså inte unika för jorden, och de kan bildas helt utan hjälp av levande organismer.</p>
+</section>
+</section>
+<section id="sec-l01-unga-jorden" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec-l01-unga-jorden"><span class="header-section-number">1.2</span> Livet på den unga jorden</h2>
+<p>På jorden kunde samma slags kemi gå ännu längre. Det här avsnittet handlar om hur förhållandena på den unga jorden kan ha gett upphov till livets byggstenar, och om ett berömt experiment som visade att det går.</p>
+<p>Jorden bildades för ungefär 4,5 miljarder år sedan, när stoft och större stenar i solsystemet drogs samman av tyngdkraften. Den unga jorden var en ogästvänlig plats. Det fanns ingen fri syrgas i luften. Syret fanns i stället bundet i vatten och koldioxid, och kanske fanns också enkla ämnen som ammoniak, väte och metan (se fördjupningen nedan). Men det fanns gott om energi: jorden var het, vulkaner fick utbrott, blixtar slog ned och solen strålade.</p>
+<p>Med så mycket energi kunde de enkla molekylerna reagera med varandra och bilda mer komplicerade ämnen, som socker och <strong>aminosyror</strong>, de byggstenar som proteiner består av. Det är samma slags byggstenar som vi i dag hittar i allt levande. Och livet tycks ha kommit igång tidigt: spår av liv i de äldsta bergarterna tyder på att det fanns redan för omkring 3,7 miljarder år sedan, ganska snart efter att jorden hade svalnat.</p>
+<section id="sec-l01-miller" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-miller">Millers experiment</h3>
+<p>Kan livets byggstenar verkligen bildas av sig själva? År 1952 gjorde den amerikanske kemistudenten Stanley Miller, som arbetade hos Harold Urey i Chicago, ett försök som blivit klassiskt (<a href="#fig-l01-miller" class="quarto-xref">Figur&nbsp;<span>1.1</span></a>). Han tänkte sig att den tidiga jordens atmosfär bestod av vattenånga, metan, ammoniak och vätgas. Därför blandade han dessa gaser i en glaskolv och lät elektriska gnistor slå igenom blandningen, som konstgjorda blixtar.</p>
+<p>Apparaten var byggd som ett kretslopp. Gaserna kyldes så att vattenångan blev flytande och tog med sig de molekyler som hade bildats. Vattnet rann till en annan kolv, där det värmdes upp och förångades igen, och ångan fördes tillbaka till gnistorna. Så fortsatte det i ungefär en vecka.</p>
+<p>När Miller sedan analyserade vätskan hittade han flera aminosyror. Det var ett mycket direkt bevis för att livets byggstenar kan bildas under enkla förhållanden, utan hjälp av något levande. Senare försök av samma slag har också gett socker och de baser, ytterligare en sorts byggstenar, som ingår i DNA och RNA. Experimentet blev starten för ett helt forskningsfält, <strong>prebiotisk kemi</strong>: läran om hur kemin såg ut innan det fanns liv.</p>
+<div id="fig-l01-miller" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-miller-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/miller-urey.svg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-miller-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.1: Millers experiment. En blandning av gaser som skulle efterlikna den tidiga jordens atmosfär utsattes för elektriska gnistor i den stora kolven. Vattnet till höger värmdes och höll ångan i rörelse runt apparaten, och i det kondenserade vattnet samlades de organiska ämnen som bildats. I uppsamlingsröret står vattnet lika högt som i kolven, så att det som rinner till svämmar över tillbaka till kolven. Bild: YassineMrabet, Wikimedia Commons, CC BY-SA 3.0, översatt till svenska.
+</figcaption>
+</figure>
+</div>
+<p>Millers försök visar hur byggstenarna kan ha bildats. Men steget från en soppa av byggstenar till en levande cell är långt, och ingen vet riktigt hur det gick till. Den första förutsättningen var att det uppstod någon molekyl som kunde göra kopior av sig själv. En kopia blev två, två blev fyra och så vidare. Kopiorna blev inte alltid perfekta, och ibland fick en kopia nya egenskaper som gjorde att den kopierades ännu bättre. Sådana kopior blev med tiden fler än de andra. Då hade den tidiga kemin fått det som driver all evolution: ärftlighet (kopiorna liknar originalet), variation (de är inte helt lika) och urval (de som kopieras bäst blir flest). Hur detta ledde vidare till de första cellerna är fortfarande en av naturvetenskapens stora öppna frågor.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: såg den tidiga atmosfären ut som Miller trodde?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Millers försök byggde på ett antagande om hur den tidiga atmosfären såg ut. I dag tror många geologer att den tidiga jordens atmosfär innehöll mer koldioxid och kvävgas och mindre metan och ammoniak än Miller antog. I en sådan blandning bildas färre aminosyror. Men Miller gjorde också försök där gaserna sprutades in i gnistkolven som ånga, ungefär som gaserna från ett vulkanutbrott. När forskare 2008 analyserade hans sparade prover från de försöken med moderna metoder hittade de betydligt fler sorters aminosyror än vad Miller själv hade kunnat påvisa. Kring vulkaner kan förhållandena alltså ha varit gynnsamma, även om atmosfären i stort var annorlunda.</p>
+<p>Vilken var då den första molekylen som kunde kopiera sig själv? En populär idé är den så kallade <strong>RNA-världen</strong>. RNA kan, som vi ska se, både bära information och i vissa fall sätta fart på kemiska reaktioner. Kanske var de första självkopierande molekylerna av RNA, och DNA och proteiner kom senare.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-l01-celler" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sec-l01-celler"><span class="header-section-number">1.3</span> Allt levande består av celler</h2>
+<p>Hur de första cellerna uppstod vet vi alltså inte. Men resultatet känner vi: alla organismer som lever i dag är uppbyggda av en eller flera <strong>celler</strong>. En cell är en liten avgränsad behållare, omgiven av ett tunt membran, som kan ta upp näring, växa och dela sig. Cellerna finns i två huvudtyper, som beskrivs närmare i <a href="02-molekyler-och-reaktioner.html#sec-l02-celler" class="quarto-xref"><span>Avsnitt 2.2</span></a>:</p>
+<ul>
+<li><strong>Prokaryota celler</strong>, till exempel bakterier, är små och saknar cellkärna. Deras DNA ligger fritt i cellens inre. Det var den första sortens cell som uppstod. Bakterier ser enkla ut, men den som tittar närmare på deras molekyler finner att de är allt annat än enkla.</li>
+<li><strong>Eukaryota celler</strong>, som bygger upp djur, växter och svampar, är större och har sitt DNA inneslutet i en <strong>cellkärna</strong>. De har också andra avgränsade utrymmen, till exempel mitokondrierna, där cellen får sin energi.</li>
+</ul>
+<p>Eukaryota celler har en gång utvecklats ur prokaryota och har fått en mer komplicerad inre organisation. Det har gjort att de kan bli större och, framför allt, slå sig samman till flercelliga organismer med många olika specialiserade celltyper.</p>
+<p>Ändå är det mest slående hur lika de två celltyperna är på molekylär nivå. De grundläggande molekylära processerna är i stort sett desamma i en bakterie och i en människa. Det är dessa processer, det “molekylära livet” inuti cellerna och på deras yta, som den här boken handlar om.</p>
+</section>
+<section id="sec-l01-dogmen" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-l01-dogmen"><span class="header-section-number">1.4</span> Tre molekyler och tre processer</h2>
+<p>Vad är det då som händer inuti cellerna? I inledningen nämnde vi de tre molekylslag och de tre processer som allt bygger på. Det här avsnittet ger en översikt: vad molekylerna heter, vilka uppgifter de har och hur informationen flödar mellan dem. Resten av kapitlet går sedan igenom dem en i taget.</p>
+<section id="sec-l01-tre-molekyler" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-tre-molekyler">DNA, RNA och protein</h3>
+<p>Namnet <strong>DNA</strong> är en förkortning av det engelska <em>deoxyribonucleic acid</em>, på svenska <em>deoxiribonukleinsyra</em>. Namnet säger något om molekylen. <em>Ribo</em> syftar på sockret ribos, som vi mötte i rymden, och <em>deoxi</em> betyder “utan syre”: sockret i DNA är en ribos som saknar en av sina syreatomer. <em>Nukleinsyra</em> kommer av att ämnet först hittades i cellkärnan (latin <em>nucleus</em>) och är en svag syra. <strong>RNA</strong>, <em>ribonukleinsyra</em>, är en mycket närbesläktad molekyl, där sockret är vanlig ribos. Tillsammans kallas DNA och RNA för <strong>nukleinsyror</strong>. Den syreatom som skiljer deras socker åt har, som vi ska se, stora följder. (Det finns också en skillnad i en av baserna, som vi återkommer till.)</p>
+<p>De tre molekylslagen har helt olika uppgifter:</p>
+<ul>
+<li><strong>DNA lagrar informationen.</strong> Arvsmassan, alla de instruktioner som behövs för att bygga upp och driva en cell, finns nedskriven i DNA. DNA är cellens hårddisk.</li>
+<li><strong>Proteinerna utför arbetet.</strong> De sätter fart på kemiska reaktioner, de bygger upp och bryter ned molekyler, de transporterar ämnen och de ger cellen dess form. Proteinerna är cellens maskiner.</li>
+<li><strong>RNA för informationen vidare.</strong> För att instruktionerna i DNA ska kunna användas för att bygga proteiner behövs en mellanhand. Den mellanhanden är RNA.</li>
+</ul>
+<p>En cell kan alltså liknas vid en liten kemisk fabrik, eller vid en dator: en del innehåller instruktionerna, och den delen styr maskiner som utför jobbet. När allt detta är på plats kan cellen sköta sin ämnesomsättning, växa och dela sig, och så småningom kan celler gå samman till hela organismer. Och all den information som behövs för att bygga en organism finns inskriven i den artens DNA.</p>
+</section>
+<section id="sec-l01-centrala-dogmen" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-centrala-dogmen">Den centrala dogmen</h3>
+<p>Informationen i cellen flödar normalt i en bestämd riktning (<a href="#fig-l01-dogmen" class="quarto-xref">Figur&nbsp;<span>1.2</span></a>):</p>
+<ol type="1">
+<li><strong>Replikation</strong> (DNA → DNA). DNA används som mall för att göra en ny, likadan DNA-molekyl. Det sker innan en cell delar sig, så att båda de nya cellerna får en egen kopia av arvsmassan.</li>
+<li><strong>Transkription</strong> (DNA → RNA). En bit av DNA används som mall för att bygga en RNA-molekyl med samma information. Ordet betyder “avskrift”.</li>
+<li><strong>Translation</strong> (RNA → protein). RNA-molekylen används som instruktion för att foga ihop ett protein. Ordet betyder “översättning”, och det är just vad det är: en översättning från nukleinsyrornas språk till proteinernas.</li>
+</ol>
+<div id="fig-l01-dogmen" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-dogmen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/centrala-dogmen.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-dogmen-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.2: Den centrala dogmen. Informationen i DNA kopieras vid replikationen, skrivs av till RNA vid transkriptionen och översätts till protein vid translationen. Den streckade pilen visar att RNA i vissa fall kan skrivas tillbaka till DNA, vilket är ovanligt. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Den här principen formulerades av den brittiske fysikern och molekylärbiologen Francis Crick i slutet av 1950-talet och kallas sedan dess <strong>den centrala dogmen</strong> (<em>molekylärbiologins centrala dogm</em>). Crick menade framför allt att informationen aldrig går tillbaka från protein till DNA eller RNA. Däremot kan RNA ibland skrivas tillbaka till DNA: vissa virus, till exempel HIV, har ett enzym som gör det. Det kallas <strong>omvänd transkription</strong> och är ovanligt. Det bryter inte mot dogmen, eftersom informationen då går mellan två nukleinsyror och inte tillbaka från ett protein.</p>
+<p>Det normala flödet går alltså från DNA via RNA till protein. På så sätt styr DNA indirekt vilka proteiner som tillverkas, och proteinerna styr i sin tur ämnesomsättningen och allt annat som händer i cellen.</p>
+</section>
+<section id="sec-l01-kedjor" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-kedjor">Tre kedjemolekyler</h3>
+<p>DNA, RNA och proteiner har en sak gemensamt: de är alla långa <strong>kedjor</strong> av mindre byggstenar som är hopkopplade en efter en, som pärlor på ett band. Men kedjorna beter sig mycket olika.</p>
+<ul>
+<li><strong>DNA</strong> består i cellerna nästan alltid av två kedjor, som kallas <strong>strängar</strong>, tvinnade om varandra i en <strong>dubbelspiral</strong> (eller dubbelhelix). Var man än tar DNA ifrån, och vilken bit av DNA man än tittar på, ser det likadant ut. DNA är regelbundet och enkelt byggt.</li>
+<li><strong>RNA</strong> består för det mesta av en enda kedja. Kedjan kan vika sig så att en del av den binder till en annan del och bildar korta spiralformade partier. Varje sorts RNA-molekyl får på så sätt sin egen form. RNA ligger någonstans mittemellan: det har en del av DNA:s regelbundenhet, men också en del av proteinernas variation.</li>
+<li><strong>Proteiner</strong> byggs också av en enda kedja i taget (även om flera kedjor ibland går ihop till ett större protein), men byggstenarna är 20 olika <strong>aminosyror</strong>. Beroende på vilka aminosyror kedjan består av, och i vilken ordning, kan den vecka ihop sig till nästan vilken form som helst. Det är därför proteinerna är så användbara: de kan bli enzymer, pumpar, motorer, byggmaterial och mycket annat. I dag kan forskare till och med konstruera kedjor som veckar sig till former som inte finns i naturen, något vi återkommer till i <a href="05-syntetisk-biokemi.html" class="quarto-xref"><span>Kapitel 5</span></a> och <a href="16-ai-och-proteiner.html" class="quarto-xref"><span>Kapitel 16</span></a>.</li>
+</ul>
+</section>
+</section>
+<section id="sec-l01-dna" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="sec-l01-dna"><span class="header-section-number">1.5</span> DNA: en dubbelspiral</h2>
+<p>Dubbelspiralen har blivit en symbol för hela biologin. Den finns som skulptur, i reklam och på bokomslag: så fort något ska handla om livets hemligheter dyker den upp. Men vad är det egentligen den visar? Svaret är en molekyl vars byggnad på en gång förklarar hur arvsmassan lagras och hur den kan kopieras.</p>
+<section id="sec-l01-baspar" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-baspar">En spiraltrappa av baspar</h3>
+<p>DNA kan liknas vid en spiraltrappa. De två ledstängerna är de två strängarna, och trappstegen är par av byggstenar, ett från varje sträng, som håller ihop i mitten.</p>
+<p>Varje byggsten, en <strong>nukleotid</strong>, består av tre delar (<a href="#fig-l01-dna" class="quarto-xref">Figur&nbsp;<span>1.3</span></a>):</p>
+<ul>
+<li>en <strong>sockermolekyl</strong>, deoxiribos,</li>
+<li>en <strong>fosfatgrupp</strong>, en fosforatom omgiven av syreatomer, och</li>
+<li>en <strong>kvävebas</strong>, oftast bara kallad <strong>bas</strong>, som är en platt ring av kol- och kväveatomer.</li>
+</ul>
+<p>Socker och fosfat växlar längs strängen: socker, fosfat, socker, fosfat. De bildar strängens ryggrad, ledstången i trappan, och de ser alltid likadana ut. Det som varierar är basen, som sticker ut från varje socker in mot mitten av spiralen. Det finns bara fyra baser i DNA: <strong>adenin</strong> (A), <strong>guanin</strong> (G), <strong>cytosin</strong> (C) och <strong>tymin</strong> (T). Adenin och guanin är lite större, med två ringar, medan cytosin och tymin bara har en ring.</p>
+<p>De två strängarna löper åt motsatta håll, som två körfält på en väg. För att hålla reda på riktningen kallas strängarnas ändar <strong>5′-änden</strong> och <strong>3′-änden</strong> (uttalas “fem prim” och “tre prim”), efter numreringen av kolatomerna i sockret. Det får betydelse när DNA kopieras och läses.</p>
+<div id="fig-l01-dna" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-dna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/dna-kemisk-struktur.svg" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-dna-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.3: DNA:s kemiska uppbyggnad. Till vänster och höger löper de två strängarnas ryggrader av socker (orange femhörningar) och fosfat (gult P). Baserna möts i mitten: adenin med tymin och guanin med cytosin. De prickade linjerna är vätebindningar; mellan G och C finns tre, mellan A och T två. Lägg märke till att de två strängarna löper åt motsatta håll, vilket markeras med 5′ och 3′ i ändarna. Bild: Madprime, Wikimedia Commons, CC BY-SA 3.0, översatt till svenska.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l01-basparning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-basparning">Basparningen är hemligheten</h3>
+<p>Baserna i de två strängarna parar ihop sig på ett mycket bestämt sätt:</p>
+<ul>
+<li><strong>A passar bara ihop med T,</strong> och</li>
+<li><strong>G passar bara ihop med C.</strong></li>
+</ul>
+<p>I varje par möts alltså en stor bas med två ringar och en liten bas med en ring. Därför är alla trappsteg lika långa, och spiralen blir jämn.</p>
+<p>Men det är inte bara storleken som avgör. Baserna hålls ihop av <strong>vätebindningar</strong>: en väteatom som sitter på den ena basen dras till en syre- eller kväveatom på den andra. Samma slags bindningar håller ihop vattenmolekylerna i is. Vätebindningar är svaga var för sig, men det blir många av dem längs en lång DNA-molekyl. Atomerna på A och T sitter på precis rätt ställen för att bilda två vätebindningar med varandra, och atomerna på G och C för att bilda tre. Försöker man para ihop till exempel A med C passar baserna inte lika bra: bindningarna blir färre och svagare, och paret får inte rätt form i spiralen. Sådana felpar uppstår ibland, och de är en orsak till fel när DNA kopieras.</p>
+<p>Följden är viktig. De två strängarna i en DNA-molekyl är inte identiska, men de passar ihop som en form och dess avgjutning. Man säger att de är <strong>komplementära</strong>. Står det ATGC på den ena strängen så måste det stå TACG mitt emot på den andra. Känner man ordningen av baserna på den ena strängen, DNA:ts <strong>sekvens</strong>, så vet man därför också sekvensen på den andra. Det är därför man nästan alltid bara skriver ut den ena strängens sekvens: den andra följer automatiskt. Vilken av de två man väljer att skriva är en överenskommelse.</p>
+<p>Det var James Watson och Francis Crick som 1953 kom fram till att DNA är en dubbelspiral av två strängar som hålls ihop av baspar, bland annat med hjälp av Rosalind Franklins röntgenbilder av DNA. De noterade genast att basparningen antydde hur arvsmassan kan kopieras, något som dittills hade varit en gåta (mer om upptäckten i <a href="11-omik.html#sec-l11-dubbelspiralen" class="quarto-xref"><span>Avsnitt 11.2.2</span></a>).</p>
+</section>
+</section>
+<section id="sec-l01-replikation" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="sec-l01-replikation"><span class="header-section-number">1.6</span> Replikation: DNA kopieras</h2>
+<p>Innan en cell delar sig måste hela dess DNA kopieras, så att varje dottercell får en egen fullständig uppsättning. Basparningen gör det möjligt (<a href="#fig-l01-replikation" class="quarto-xref">Figur&nbsp;<span>1.4</span></a>). De två strängarna dras isär, och var och en av dem används som <strong>mall</strong> för att bygga en ny sträng. Där det står ett A på mallen sätts ett T in i den nya strängen, där det står ett G sätts ett C in, och så vidare. Resultatet blir två DNA-molekyler som är exakt likadana som den ursprungliga. Var och en består av en gammal och en ny sträng.</p>
+<div id="fig-l01-replikation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-replikation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/replikation.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-replikation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.4: Basparning och replikation. De två strängarna i den ursprungliga DNA-molekylen (blå) dras isär, och mot var och en byggs en ny sträng (orange) enligt regeln att A passar med T och G med C. Resultatet blir två identiska kopior, var och en med en gammal och en ny sträng. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>I cellen sköts arbetet av stora proteinmaskiner, <strong>enzymer</strong>, som är proteiner som sätter fart på kemiska reaktioner (mer om dem i <a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a>). Ett enzym sätter sig på DNA-spiralen och öppnar den, som ett blixtlås som dras upp. Efter det följer ett annat enzym, <strong>DNA-polymeras</strong>, som plockar upp byggstenar en efter en ur cellvätskan, där de finns färdiga, och kopplar ihop dem till en ny sträng enligt basparningsreglerna. Eftersom de två strängarna i spiralen löper åt motsatta håll blir detaljerna en aning krångliga, men principen är enkel: varje sträng är mall för sin nya partner. Exakt hur maskineriet fungerar mekaniskt är fortfarande ett livligt forskningsområde.</p>
+</section>
+<section id="sec-l01-information" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="sec-l01-information"><span class="header-section-number">1.7</span> Information i en följd av bokstäver</h2>
+<p>All information som behövs för att bygga upp och driva en cell finns alltså lagrad i ordningen av baser längs DNA-molekylen. Det är samma princip som när man förr lagrade data på magnetband, som en lång följd av ettor och nollor. Eller som i ett skriftspråk, där innehållet ligger i ordningen av bokstäverna. DNA har ett alfabet med bara fyra bokstäver, A, C, G och T, men eftersom molekylen är så lång räcker det långt.</p>
+<p>Hur långa är då molekylerna? En mänsklig cell innehåller ungefär 3 miljarder baspar DNA i varje uppsättning av arvsmassan, uppdelade på 23 <strong>kromosomer</strong>. Varje kromosom är en enda, mycket lång DNA-molekyl, i genomsnitt drygt 100 miljoner baspar lång. De flesta av kroppens celler har två uppsättningar, en från mamman och en från pappan, alltså 23 par kromosomer.</p>
+<p>Om man drog ut allt DNA i en enda cell till en rak tråd skulle den bli ungefär två meter lång, men den ryms ändå i en cellkärna som är några tusendels millimeter stor. Biologer brukar säga att allt DNA i en människa skulle räcka till månen och tillbaka. Det är snarare en underdrift: lagt i en enda tråd skulle det räcka till solen och tillbaka många gånger om.</p>
+<p>DNA är alltså en utmärkt informationsbärare. Det tar mycket liten plats och är kemiskt stabilt: baserna är väl skyddade inne i dubbelspiralen, och de skador som ändå uppstår kan cellen laga. Men stabiliteten har ett pris. En molekyl där så lite händer kan inte heller utföra något arbete: DNA kan till exempel inte fungera som ett enzym och sätta fart på kemiska reaktioner. Det kan inte göra särskilt mycket mer än att lagra information. Det är som ett datorminne utan en processor.</p>
+<section id="sec-l01-gener" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-gener">Ritningar och styrsignaler</h3>
+<p>Den information som DNA lagrar är av två slag. Det första är <strong>ritningar till proteiner</strong>. Ta hemoglobin, proteinet i de röda blodkropparna som transporterar syre från lungorna ut i kroppen. Hemoglobin består av fyra kedjor av aminosyror, var och en med omkring 140 aminosyror. För att det ska bli hemoglobin måste aminosyrorna i varje kedja sitta i exakt rätt ordning. Hur vet cellen vilken ordningen är? På ett bestämt ställe på en av våra kromosomer finns en bit DNA vars sekvens anger just den ordningen. En sådan bit av DNA, som innehåller ritningen till ett protein, kallas en <strong>gen</strong>. Människan har ungefär 20 000 sådana gener, utspridda på kromosomerna.</p>
+<p>Det andra är <strong>styrsignaler</strong>, som talar om när en gen ska användas och hur mycket. Att slå på en gen betyder att cellen börjar skriva av den och tillverka det protein som den är ritning till; hur avskriften går till ser vi i nästa avsnitt. DNA innehåller alltså inte bara ritningarna, utan också programmet för när cellen ska växa, dela sig eller utföra olika uppgifter.</p>
+<p>Ett exempel är vad som händer om man reser upp på hög höjd, där luften innehåller mindre syre. Kroppen märker syrebristen. I njuren sätter sig då ett protein, HIF, på DNA intill genen för hormonet erytropoetin (EPO), som en person med en flagga som vinkar: “kom hit, här ska det kopieras”. EPO får benmärgen att bilda fler röda blodkroppar, och i dem slås generna för hemoglobin på. (För upptäckten av hur celler känner av syrebrist fick William Kaelin, Peter Ratcliffe och Gregg Semenza Nobelpriset i fysiologi eller medicin 2019.)</p>
+<p>Proteiner som HIF, som sätter sig på DNA och slår på eller av gener, kallas <strong>transkriptionsfaktorer</strong>. Hela tiden slås olika gener på och av på det här sättet, och det är ett av skälen till att en levercell och en muskelcell kan vara så olika fast de har samma DNA. Hur ett protein letar upp rätt ställe på DNA för att slå på en gen ser vi i <a href="06-enskilda-molekyler.html#sec-l06-genreglering" class="quarto-xref"><span>Avsnitt 6.9.1</span></a>, och hur man kan läsa och ändra gener med genteknik är ämnet för <a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a>.</p>
+</section>
+</section>
+<section id="sec-l01-transkription" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="sec-l01-transkription"><span class="header-section-number">1.8</span> Transkription: från DNA till RNA</h2>
+<p>Det första steget i att använda en gen är <strong>transkription</strong>. Ett enzym som heter <strong>RNA-polymeras</strong> sätter sig på DNA där genen börjar, öppnar dubbelspiralen och använder den ena strängen som mall för att bygga en RNA-kedja, med hjälp av samma basparningsregler som vid replikationen. Den nya RNA-kedjan lossnar sedan från DNA, och DNA-spiralen sluter sig igen. Man får en kopia av genen, men i form av RNA (<a href="#fig-l01-transkription" class="quarto-xref">Figur&nbsp;<span>1.5</span></a>).</p>
+<div id="fig-l01-transkription" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-transkription-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/transkription.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-transkription-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.5: Transkription. RNA-polymeras (grönt) har öppnat DNA-spiralen på en kort sträcka. Den nedre strängen används som mall, och mitt emot varje bas sätts en passande RNA-byggsten in (lila). Lägg märke till att RNA har U där DNA har T. Enzymet flyttar sig åt höger, nya byggstenar fogas till RNA-kedjans ände, och bakom enzymet lossnar RNA-kedjan och DNA sluter sig igen. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>RNA skiljer sig från DNA på två sätt:</p>
+<ul>
+<li><strong>Sockret</strong> i RNA är ribos, som har en syreatom (i form av en OH-grupp) mer än sockret i DNA. Den extra OH-gruppen gör RNA mer kemiskt reaktivt och mindre stabilt än DNA.</li>
+<li><strong>Basen tymin</strong> (T) är i RNA ersatt av en mycket lik bas, <strong>uracil</strong> (U). Uracil saknar en liten grupp med en kolatom och tre väteatomer som tymin har, men parar ihop sig med A på precis samma sätt.</li>
+</ul>
+<p>Dessutom är RNA för det mesta enkelsträngat, eftersom bara den ena DNA-strängen skrivs av. RNA-kedjan kan i stället vika ihop sig med sig själv och få sin egen form.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: varför har DNA tymin och RNA uracil?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Basen cytosin kan ibland spontant förlora en grupp atomer och då förvandlas till uracil. Om uracil var en normal del av DNA skulle cellen inte kunna skilja en sådan skada från en riktig bas. Eftersom DNA i stället använder tymin vet cellen att varje uracil i DNA är ett fel, och särskilda enzymer kan leta upp och laga det. För DNA, som ska bevara informationen under hela livet och föras vidare till nästa generation, är det värt besväret. RNA-kopior lever bara en kort tid och behöver inte samma skydd.</p>
+<p>Av samma skäl är det en fördel att DNA saknar den extra OH-gruppen. Den gör RNA-kedjan lättare att bryta sönder. Det passar ett budskap som bara behövs en kort stund, men inte ett arkiv.</p>
+</div>
+</div>
+</div>
+<p>Den RNA-kopia som bär ritningen till ett protein kallas <strong>budbärar-RNA</strong> (eng. <em>messenger RNA</em>), förkortat <strong>mRNA</strong>. Namnet säger vad det gör: det är en brevbärare som hämtar budskapet från DNA och bär det till den plats där proteinet ska tillverkas. I eukaryota celler sker transkriptionen inne i cellkärnan, och mRNA förs sedan ut i cellvätskan utanför. I bakterier, som saknar cellkärna, kan proteintillverkningen börja medan mRNA fortfarande håller på att skrivas av.</p>
+<p>Det finns också andra sorters RNA, med andra uppgifter. Två av dem, tRNA och ribosomalt RNA, ska vi möta strax. Kemiskt är de av samma slag som mRNA; det är uppgifterna som skiljer.</p>
+</section>
+<section id="sec-l01-translation" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="sec-l01-translation"><span class="header-section-number">1.9</span> Translation: från RNA till protein</h2>
+<p>Nu kommer vi till det som kan kallas livets kärna: hur en följd av baser i mRNA översätts till en följd av aminosyror i ett protein.</p>
+<section id="sec-l01-trna" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-trna">Ribosomen, tRNA och kodon</h3>
+<p>Översättningen sker i en stor molekylär maskin som heter <strong>ribosom</strong>. mRNA-molekylen binder till ribosomen, som läser av den tre baser i taget. Varje sådan grupp om tre baser kallas ett <strong>kodon</strong> och motsvarar en aminosyra.</p>
+<p>Men baser och aminosyror passar inte ihop direkt. Det behövs en mellanhand, och det är en annan sorts RNA, <strong>transfer-RNA</strong> eller <strong>tRNA</strong> (<a href="#fig-l01-translation" class="quarto-xref">Figur&nbsp;<span>1.6</span></a>). En tRNA-molekyl är en kort RNA-kedja som veckat ihop sig till en bestämd form. I ena änden bär den en aminosyra. I den andra änden har den tre baser som kallas <strong>antikodon</strong>. Varje sorts tRNA bär alltid samma sorts aminosyra och har alltid samma antikodon. Det tRNA som bär aminosyran fenylalanin har till exempel antikodonet AAG. Enligt basparningsreglerna, där A i RNA parar med U, passar det ihop med kodonet UUC på mRNA. (Antikodonet är här skrivet i samma riktning som det mRNA det ligger mot; i läroböcker skrivs det ofta baklänges, GAA.)</p>
+<div id="fig-l01-translation" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-translation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/translation.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-translation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.6: Translation. Ribosomen (grönt) läser mRNA tre baser, ett kodon, i taget. Ett tRNA vars antikodon passar ihop med kodonet sätter sig på plats och har med sig rätt aminosyra. Här sitter tRNA för lysin (Lys) och asparaginsyra (Asp) på ribosomen, och aminosyrorna ska just kopplas ihop. Proteinkedjan växer en aminosyra i taget, och nästa tRNA, med fenylalanin (Phe), är på väg in. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Ribosomen har två huvudplatser för tRNA bredvid varandra, och en tredje där det tomma tRNA:t lämnar. Så här går det till:</p>
+<ol type="1">
+<li>Ribosomen håller fram ett kodon på mRNA och väntar tills ett tRNA med ett antikodon som passar har letat sig dit.</li>
+<li>Bredvid sitter redan ett tRNA som håller i den proteinkedja som har byggts hittills.</li>
+<li>Ribosomen kopplar ihop kedjan med den nya aminosyran. Nu sitter hela kedjan på det nya tRNA:t, som har blivit en aminosyra längre.</li>
+<li>Det tomma tRNA:t lämnar ribosomen, och ribosomen flyttar sig tre baser längre fram på mRNA. Ett nytt kodon blir fritt, och allt börjar om.</li>
+</ol>
+<p>På så sätt bestämmer ordningen av kodon på mRNA i vilken ordning tRNA kommer in, och därmed i vilken ordning aminosyrorna kopplas ihop. Det är ett stort maskineri för att sätta ihop små aminosyror i rätt ordning, men det fungerar.</p>
+<p>Det tomma tRNA:t går inte förlorat. Ett särskilt enzym laddar det med en ny aminosyra av samma sort, och det kan användas igen.</p>
+</section>
+<section id="sec-l01-start-stopp" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-start-stopp">Start och stopp</h3>
+<p>Proteinet måste börja och sluta på rätt ställe. Ribosomen letar sig fram längs mRNA tills den hittar kodonet AUG, <strong>startkodonet</strong>. Där börjar den, och den första aminosyran blir alltid metionin. Sedan läser den kodon för kodon tills den når ett av de tre <strong>stoppkodonen</strong>, UAA, UAG eller UGA. Till dem finns inget tRNA. I stället binder ett protein som känner igen stoppkodonet och får ribosomen att släppa den färdiga proteinkedjan.</p>
+<p>När proteinet väl har börjat byggas går det fort. En bakterie kan koppla ihop 10–20 aminosyror per sekund, och i våra celler går det något långsammare. Ett typiskt protein med 300–400 aminosyror tar alltså från en halv minut till drygt en minut att bygga. Men en bakterie har tiotusentals ribosomer och en av våra celler miljontals, som arbetar samtidigt, och flera ribosomer kan läsa samma mRNA efter varandra.</p>
+</section>
+<section id="sec-l01-koden" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-koden">Den genetiska koden</h3>
+<p>Tabellen över vilka kodon som motsvarar vilka aminosyror kallas <strong>den genetiska koden</strong> (<a href="#fig-l01-koden" class="quarto-xref">Figur&nbsp;<span>1.7</span></a>). Att just kodonet UUC hör ihop med fenylalanin är inget man kunde ha räknat ut i förväg. Sambandet mellan de 64 möjliga kombinationerna av tre baser och de 20 aminosyrorna fick tas fram genom experiment, och det skedde under 1960-talet. Bland dem som löste gåtan fanns Marshall Nirenberg och Har Gobind Khorana, som tillsammans med Robert Holley fick Nobelpriset i fysiologi eller medicin 1968.</p>
+<div id="fig-l01-koden" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-koden-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/genetiska-koden.svg" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-koden-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.7: Den genetiska koden. Ett kodon läses inifrån och ut: den första basen står i den innersta ringen, den andra i nästa och den tredje i den yttersta. Ytterst står aminosyran, med en förkortning på tre bokstäver. Kodonet UUC ger till exempel fenylalanin (Phe), och AAA och AAG ger båda lysin (Lys). Triangeln markerar startkodonet AUG och fyrkanterna de tre stoppkodonen. Bild: Mouagip, Wikimedia Commons, allmän egendom.
+</figcaption>
+</figure>
+</div>
+<p>Eftersom det finns 64 kodon men bara 20 aminosyror motsvaras de flesta aminosyror av flera kodon. Fenylalanin har till exempel två, UUU och UUC, och lysin har AAA och AAG. Ofta är det bara den tredje basen som skiljer.</p>
+<p>Den genetiska koden är i stort sett densamma i allt levande, från de enklaste bakterierna till människan. Det gäller hela maskineriet som vi har beskrivit i det här kapitlet. Enzymerna kan vara mer eller mindre komplicerade, men principerna och molekylerna är desamma. Det är ett starkt tecken på att allt liv på jorden har ett gemensamt ursprung.</p>
+<p>Koden är också ett ovärderligt verktyg för forskare. Ofta känner man bara DNA-sekvensen för en gen. Med hjälp av den genetiska koden kan man då genast räkna ut vilken aminosyrasekvens proteinet har, utan att någonsin ha sett själva proteinet.</p>
+</section>
+<section id="sec-l01-ribosom" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-ribosom">Ribosomen: en molekylär maskin</h3>
+<p>Ribosomen är en av cellens största och viktigaste maskiner (<a href="#fig-l01-ribosom" class="quarto-xref">Figur&nbsp;<span>1.8</span></a>). Den består av två delar, en <strong>liten subenhet</strong> och en <strong>stor subenhet</strong>, som sluter sig om mRNA:t. Båda är byggda av långa RNA-kedjor, så kallat ribosomalt RNA, och dussintals proteiner. Den lilla subenheten ser till att rätt tRNA paras ihop med rätt kodon. I den stora kopplas aminosyrorna ihop, och den växande proteinkedjan letar sig ut genom en tunnel i den stora subenheten.</p>
+<p>Det märkliga är att det är RNA, inte protein, som sköter själva hopkopplingen. Det stämmer med idén om en RNA-värld, som vi mötte i fördjupningen om Millers försök. Ribosomen är alltså ett minne från en tid då RNA kanske hade fler uppgifter än i dag. För att ha kartlagt ribosomens struktur atom för atom fick Venkatraman Ramakrishnan, Thomas Steitz och Ada Yonath Nobelpriset i kemi 2009.</p>
+<div id="fig-l01-ribosom" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-ribosom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/ribosom-goodsell.jpg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-ribosom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.8: Ribosomens två subenheter, sedda var för sig: den lilla till vänster och den stora till höger. Det ribosomala RNA:t är orange och gult, och proteinerna, som sitter utspridda på ytan, är blå. Den gröna fläcken i den stora subenheten är den del av RNA:t där aminosyrorna kopplas ihop. När ribosomen arbetar sluter sig subenheterna om mRNA:t. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Ribosomen innehåller hundratusentals atomer, men den är ändå mycket liten: omkring 20–30 nanometer i diameter. En <strong>nanometer</strong> är en miljarddels meter, eller en miljondels millimeter. För att få en känsla för skalan kan man tänka sig att man förstorar en ribosom till en stor badbolls storlek. Om man sedan förstorar badbollen lika många gånger blir den ungefär 12 000 kilometer i diameter, ungefär lika stor som jorden. Så små är livets molekyler.</p>
+<p>Därför går de inte att se i ett vanligt ljusmikroskop. Om man får dem att lysa kan man möjligen se dem som suddiga prickar, men för att se dem i detalj krävs helt andra tekniker, som vi återkommer till i <a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>.</p>
+</section>
+</section>
+<section id="sec-l01-proteiner" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="sec-l01-proteiner"><span class="header-section-number">1.10</span> Proteiner: cellens maskiner</h2>
+<p>När ribosomen är färdig har den tillverkat en lång kedja av aminosyror. Vad händer sedan med den? Kedjan veckar ihop sig till en bestämd tredimensionell form, och det är formen som avgör vad proteinet kan göra. Ett <strong>protein</strong> är alltså en kedja av aminosyror som har veckat ihop sig till en bestämd form.</p>
+<p>Här går vi igenom grunderna: vilka sorters proteiner det finns, hur aminosyrorna skiljer sig från varandra och vilka former kedjan oftast veckar sig i. I <a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a> ser vi hur aminosyrorna kopplas ihop och varför ordningen avgör formen, och om hur proteiner veckar sig handlar <a href="14-proteinveckning.html" class="quarto-xref"><span>Kapitel 14</span></a>.</p>
+<section id="sec-l01-proteinsorter" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-proteinsorter">Fyra sorters proteiner</h3>
+<p>Proteiner brukar delas in i fyra huvudgrupper:</p>
+<ul>
+<li><strong>Globulära proteiner</strong> är kompakta, ungefär klotformade molekyler som ofta är lösta i cellvätskan. Hit hör de flesta enzymer. Ett vanligt globulärt protein är omkring 5 nanometer stort, och hemoglobin ungefär 7 nanometer.</li>
+<li><strong>Fibrösa proteiner</strong> bildar långa trådar och fungerar som byggmaterial, i till exempel muskler, hår och naglar. Keratin, som bygger upp håret, består av proteinkedjor som är tvinnade till rep, som i sin tur är tvinnade till buntar.</li>
+<li><strong>Membranproteiner</strong> sitter inbäddade i cellernas membran. Där fungerar de som kanaler och pumpar som släpper in och ut ämnen, eller som receptorer som tar emot signaler utifrån (<a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>).</li>
+<li><strong>Oordnade proteiner</strong> saknar en fast form, eller har långa partier utan fast form. Många av dem binder till och aktiverar andra proteiner.</li>
+</ul>
+</section>
+<section id="sec-l01-aminosyror" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-aminosyror">Aminosyror: lika och olika</h3>
+<p>Alla aminosyror har en gemensam del, som bildar proteinkedjans <strong>ryggrad</strong> (eng. <em>backbone</em>). Det som skiljer de 20 aminosyrorna åt är en <strong>sidogrupp</strong> som sticker ut från ryggraden (<a href="#fig-l01-kedja" class="quarto-xref">Figur&nbsp;<span>1.10</span></a>). I den enklaste aminosyran, glycin, är sidogruppen bara en väteatom; i andra är den en stor ring eller en lång kedja.</p>
+<p>Sidogrupperna brukar delas in efter hur de trivs i vatten:</p>
+<ul>
+<li><strong>Opolära</strong> eller <strong>vattenskygga</strong> (<strong>hydrofoba</strong>) sidogrupper består mest av kol och väte, ungefär som fett, och undviker vatten.</li>
+<li><strong>Polära</strong> eller <strong>vattenälskande</strong> (<strong>hydrofila</strong>) sidogrupper har atomer som syre och kväve, med en ojämnt fördelad elektrisk laddning, och kan bilda vätebindningar med vatten.</li>
+<li><strong>Laddade</strong> sidogrupper har en positiv eller negativ elektrisk laddning och trivs också bra i vatten.</li>
+</ul>
+<p>Alla tjugo, sorterade på det här sättet, visas i <a href="#fig-l01-aminosyror" class="quarto-xref">Figur&nbsp;<span>1.9</span></a>.</p>
+<div id="fig-l01-aminosyror" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-aminosyror-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/aminosyror.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-aminosyror-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.9: De tjugo aminosyrorna, sorterade efter sidogruppens egenskaper. Den del som är gemensam för alla, med NH<sub>2</sub>-gruppen och den sura gruppen (COOH), sitter till höger i de flesta av molekylerna; det som skiljer dem åt är resten, sidogruppen. De opolära (gult) består nästan bara av kol och väte. De polära (grönt) har syre- eller kväveatomer som kan bilda vätebindningar med vatten, och de laddade har en positiv (blått) eller negativ (rött) laddning. Inom parentes står den förkortning på tre bokstäver som används i bland annat den genetiska koden. Glycin har bara en väteatom som sidogrupp och räknas därför till de opolära. Bild: Sponk och isk, Wikimedia Commons, CC0, översatt till svenska.
+</figcaption>
+</figure>
+</div>
+<p>När ribosomen kopplar ihop två aminosyror bildas en <strong>peptidbindning</strong> mellan ryggradsdelarna, och samtidigt frigörs en vattenmolekyl. En kort kedja av aminosyror kallas en <strong>peptid</strong>, och en lång en <strong>polypeptid</strong> eller helt enkelt ett protein.</p>
+<div id="fig-l01-kedja" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-kedja-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/proteinkedja.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-kedja-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.10: En proteinkedja i förenklad form. Aminosyrorna (grå rutor) är kopplade till varandra med peptidbindningar och bildar en ryggrad som ser likadan ut genom hela kedjan. Från varje aminosyra sticker en sidogrupp ut. Sidogrupperna kan vara opolära, polära eller laddade, och det är deras ordning som avgör hur kedjan veckar sig. Egen figur.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l01-veckning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l01-veckning">Helixar och flak</h3>
+<p>En utsträckt proteinkedja är lång och slak. Men i ett färdigt protein veckar den sig, och vissa mönster återkommer i nästan alla proteiner. Två av dem är särskilt vanliga:</p>
+<ul>
+<li>I en <strong>alfahelix</strong> (α-helix) vrider sig kedjan som en spiral, ungefär som en telefonsladd. Sidogrupperna sticker ut runt om.</li>
+<li>I ett <strong>betaflak</strong> (β-flak) ligger flera raka delar av kedjan bredvid varandra, som ett veckat papper.</li>
+</ul>
+<p>Båda hålls ihop av vätebindningar mellan ryggradens atomer, samma slags bindningar som håller ihop baserna i DNA (<a href="#fig-l01-helix" class="quarto-xref">Figur&nbsp;<span>1.11</span></a>).</p>
+<p>Ett vanligt protein innehåller ofta både helixar och flak, packade mot varandra till en kompakt helhet. De vattenskygga sidogrupperna, som undviker vatten, hamnar inåt, och de vattenälskande utåt mot vattnet. Att kedjan bara av sig själv, utifrån ordningen av aminosyror, hittar rätt form är en av biokemins mest fascinerande frågor.</p>
+<div id="fig-l01-helix" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l01-helix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L01/alfahelix-betaflak.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l01-helix-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;1.11: Ett betaflak (till vänster) och en alfahelix (till höger), överst ritade på det förenklade sätt som forskare brukar använda, med pilar för de raka delarna av kedjan och ett spiralband för helixen. Nederst visas samma kedjor med ryggradens atomer utritade (kväve blått, syre rött). De streckade linjerna är vätebindningar. I flaket går de mellan kedjor som ligger bredvid varandra, i helixen mellan ett varv och nästa. Bild: Thomas Shafee, Wikimedia Commons, CC BY-SA 4.0, med svenska etiketter.
+</figcaption>
+</figure>
+</div>
+<p>Därmed är cirkeln sluten. DNA bär ritningen, RNA för den vidare, ribosomen översätter den till en kedja av aminosyror, och kedjan veckar sig till ett protein som kan utföra sitt arbete i cellen. I nästa kapitel ser vi vad cellen gör med alla dessa proteiner: hur den bygger upp och bryter ned molekyler och hur den får sin energi (<a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>).</p>
+</section>
+</section>
+<section id="sec-l01-sammanfattning" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="sec-l01-sammanfattning"><span class="header-section-number">1.11</span> Sammanfattning</h2>
+<ul>
+<li>Livets byggstenar består av grundämnen som har bildats i stjärnor. Organiska molekyler som socker och aminosyror kan bildas utan hjälp av levande organismer, både i rymden och, som Millers experiment visade, under förhållanden som liknar den tidiga jordens.</li>
+<li>Allt levande består av celler. Prokaryota och eukaryota celler ser olika ut, men de grundläggande molekylära processerna är desamma.</li>
+<li>DNA lagrar informationen, proteinerna utför arbetet och RNA för informationen vidare. Informationen flödar från DNA via RNA till protein (den centrala dogmen).</li>
+<li>DNA är en dubbelspiral av två komplementära strängar. Baserna parar ihop sig med vätebindningar, A med T och G med C, och därför kan varje sträng användas som mall för att kopiera den andra (replikation).</li>
+<li>En gen är en bit av DNA som innehåller ritningen till ett protein. Människan har ungefär 20 000 gener. DNA innehåller också styrsignaler som avgör när generna ska användas.</li>
+<li>Vid transkriptionen skrivs en gen av till mRNA. RNA har sockret ribos i stället för deoxiribos och basen uracil i stället för tymin.</li>
+<li>Vid translationen läser ribosomen mRNA tre baser (ett kodon) i taget. tRNA med passande antikodon för dit rätt aminosyra. Den genetiska koden, som är i stort sett densamma i allt levande, anger vilket kodon som motsvarar vilken aminosyra.</li>
+<li>Ett protein är en kedja av aminosyror med en gemensam ryggrad och olika sidogrupper. Kedjan veckar sig, bland annat till alfahelixar och betaflak, och formen avgör vad proteinet kan göra.</li>
+</ul>
+</section>
+<section id="sec-l01-nyckelbegrepp" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="sec-l01-nyckelbegrepp"><span class="header-section-number">1.12</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>atom</strong> – Den minsta delen av ett grundämne: en liten, positivt laddad kärna omgiven av negativt laddade elektroner.</li>
+<li><strong>molekyl</strong> – En grupp atomer som hålls ihop av kemiska bindningar, till exempel en vattenmolekyl (H2O).</li>
+<li><strong>cell</strong> – Livets minsta enhet: en liten behållare omgiven av ett membran, som kan ta upp näring, växa och dela sig. Allt levande består av en eller flera celler.</li>
+<li><strong>cellkärna</strong> – Det avgränsade utrymme i eukaryota celler där DNA:t finns. Bakterier saknar cellkärna.</li>
+<li><strong>nanometer</strong> – En miljarddels meter (en miljondels millimeter). En ribosom är 20–30 nanometer, ett vanligt protein omkring 5 nanometer.</li>
+<li><strong>prebiotisk kemi</strong> – Läran om hur livets byggstenar kan ha bildats och reagerat innan det fanns liv på jorden.</li>
+<li><strong>DNA</strong> – Deoxiribonukleinsyra. Den molekyl som bär arvsmassan: två komplementära strängar av nukleotider tvinnade till en dubbelspiral.</li>
+<li><strong>RNA</strong> – Ribonukleinsyra. Nära släkt med DNA men oftast enkelsträngad, med sockret ribos och basen uracil i stället för tymin. För bland annat informationen från DNA till ribosomerna.</li>
+<li><strong>nukleotid</strong> – Byggsten i DNA och RNA, bestående av ett socker, en fosfatgrupp och en kvävebas.</li>
+<li><strong>kvävebas</strong> – Den del av en nukleotid som bär informationen. DNA har baserna adenin (A), guanin (G), cytosin (C) och tymin (T); i RNA ersätts tymin av uracil (U).</li>
+<li><strong>basparning</strong> – Regeln att A alltid parar ihop sig med T (eller U i RNA) och G med C, med hjälp av vätebindningar.</li>
+<li><strong>komplementär</strong> – Om två DNA-strängar: de passar ihop bas för bas enligt basparningsreglerna, så att sekvensen på den ena bestämmer den andra.</li>
+<li><strong>vätebindning</strong> – En svag bindning där en väteatom på en molekyl dras till en syre- eller kväveatom på en annan. Håller ihop baspar i DNA och formen hos proteiner.</li>
+<li><strong>centrala dogmen, den</strong> – Principen att informationen i cellen flödar från DNA via RNA till protein, och aldrig tillbaka från protein till DNA eller RNA. Att RNA ibland skrivs tillbaka till DNA (omvänd transkription) är ovanligt men bryter inte mot den.</li>
+<li><strong>replikation</strong> – Kopiering av DNA. Strängarna dras isär och var och en används som mall för en ny sträng.</li>
+<li><strong>transkription</strong> – Avskrift av en gen från DNA till RNA, utförd av enzymet RNA-polymeras.</li>
+<li><strong>RNA-polymeras</strong> – Det enzym som läser av en gen och bygger en RNA-kopia av den (transkription).</li>
+<li><strong>transkriptionsfaktor</strong> – Protein som sätter sig på DNA nära en gen och slår på (eller av) avskriften av den. Så styr cellen vilka gener som används.</li>
+<li><strong>translation</strong> – Översättning av mRNA till protein på ribosomen.</li>
+<li><strong>gen</strong> – En bit av DNA som innehåller ritningen till ett protein (eller till en RNA-molekyl). Människan har omkring 20 000 proteinkodande gener.</li>
+<li><strong>kromosom</strong> – En mycket lång DNA-molekyl med många gener. Människan har 23 kromosompar.</li>
+<li><strong>mRNA</strong> – Budbärar-RNA (eng. messenger RNA): en RNA-kopia av en gen som bär ritningen till ett protein till ribosomen.</li>
+<li><strong>tRNA</strong> – Transfer-RNA: en liten RNA-molekyl som bär en bestämd aminosyra och med sitt antikodon känner igen rätt kodon på mRNA.</li>
+<li><strong>ribosom</strong> – Stor molekylär maskin av RNA och proteiner, 20–30 nanometer stor, som tillverkar proteiner genom att läsa av mRNA.</li>
+<li><strong>kodon</strong> – En grupp om tre baser på mRNA som motsvarar en aminosyra eller en startsignal eller stoppsignal.</li>
+<li><strong>antikodon</strong> – De tre baser på ett tRNA som parar ihop sig med ett kodon på mRNA.</li>
+<li><strong>genetiska koden</strong> – Tabellen över vilka kodon som motsvarar vilka aminosyror. I stort sett densamma i allt levande.</li>
+<li><strong>protein</strong> – En kedja av aminosyror som har veckat ihop sig till en bestämd form. Proteinerna är cellens maskiner: enzymer, pumpar, kanaler, motorer och byggmaterial.</li>
+<li><strong>peptid</strong> – En kort kedja av aminosyror, från ett par stycken upp till några tiotal. Gränsen mot protein är inte skarp.</li>
+<li><strong>sidogrupp</strong> – Den del av en aminosyra som sticker ut från proteinkedjans ryggrad och som skiljer de 20 aminosyrorna åt. Kan vara opolär (vattenskygg), polär eller laddad.</li>
+<li><strong>hydrofob</strong> – Vattenskygg. Hydrofoba molekyler och sidogrupper består mest av kol och väte, som fett, och undviker vatten. I ett protein samlas de i det inre.</li>
+<li><strong>hydrofil</strong> – Vattenälskande. Hydrofila molekyler och sidogrupper är polära eller laddade och trivs bland vattenmolekylerna, till exempel på ett proteins yta.</li>
+<li><strong>polär</strong> – Om en molekyl eller molekyldel med ojämnt fördelad laddning, som vatten. Polära ämnen kan bilda vätebindningar och trivs bland vattenmolekyler.</li>
+<li><strong>oordnat protein</strong> – Protein, eller del av ett protein, som saknar en fast tredimensionell form. Binder ofta tillfälligt till andra proteiner och för samman dem.</li>
+<li><strong>aminosyra</strong> – Proteinernas byggsten. Det finns 20 vanliga aminosyror, med samma ryggrad men olika sidogrupper.</li>
+<li><strong>peptidbindning</strong> – Bindningen mellan två aminosyror i en proteinkedja. När den bildas frigörs en vattenmolekyl.</li>
+<li><strong>alfahelix</strong> – En vanlig form i proteiner (α-helix) där kedjan vrider sig som en spiral, hållen ihop av vätebindningar i ryggraden. Tillsammans med betaflaket det vanligaste mönstret i proteiner.</li>
+<li><strong>betaflak</strong> – Vanligt mönster i proteiner (β-flak) där utsträckta delar av kedjan ligger sida vid sida och hålls ihop av vätebindningar. Ritas ofta som breda pilar.</li>
+</ul>
+</section>
+<section id="sec-l01-testa" class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="sec-l01-testa"><span class="header-section-number">1.13</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L01"></div>
+<script>
+renderQuiz("quiz-L01", [
+ {
+  "question": "Vad visade Millers experiment från 1952?",
+  "choices": [
+   "Att aminosyror kan bildas av enkla gaser och energi, utan hjälp av levande organismer",
+   "Att liv kan uppstå i en glaskolv på en vecka",
+   "Att den tidiga jordens atmosfär innehöll mycket syrgas",
+   "Att DNA är en dubbelspiral"
+  ],
+  "correctIndex": 0,
+  "explanation": "Miller lät elektriska gnistor slå igenom en gasblandning och fann aminosyror i vätskan. Det visade att livets byggstenar kan bildas utan liv, men inte att liv i sig uppstod."
+ },
+ {
+  "question": "Vilken av följande beskrivningar av de tre molekylslagen stämmer bäst?",
+  "choices": [
+   "DNA lagrar informationen, RNA för den vidare och proteinerna utför arbetet",
+   "Proteinerna lagrar informationen, DNA utför arbetet och RNA är byggmaterial",
+   "DNA och RNA utför arbetet, proteinerna lagrar energi",
+   "RNA lagrar informationen och DNA för den vidare till proteinerna"
+  ],
+  "correctIndex": 0,
+  "explanation": "Arvsmassan finns i DNA, budskapet förs vidare av RNA, och proteinerna är cellens maskiner."
+ },
+ {
+  "question": "Vad kallas processen när en bit av DNA skrivs av till RNA?",
+  "choices": [
+   "Transkription",
+   "Translation",
+   "Replikation",
+   "Mutation"
+  ],
+  "correctIndex": 0,
+  "explanation": "Transkription betyder avskrift. Translation är översättningen från RNA till protein, och replikation är kopieringen av DNA."
+ },
+ {
+  "question": "Den ena strängen i en DNA-molekyl har sekvensen AAGC. Vad står mitt emot på den andra strängen?",
+  "choices": [
+   "TTCG",
+   "AAGC",
+   "CCTA",
+   "GGAT"
+  ],
+  "correctIndex": 0,
+  "explanation": "A parar alltid med T och G med C. Därför är strängarna komplementära, och sekvensen på den ena bestämmer den andra."
+ },
+ {
+  "question": "Varför kan en DNA-molekyl kopieras så exakt?",
+  "choices": [
+   "Varje sträng fungerar som mall, och basparningsreglerna bestämmer vilken bas som ska sättas in mitt emot",
+   "Cellen har en reservkopia av allt DNA i ribosomerna",
+   "De två strängarna är identiska, så det spelar ingen roll vilken som kopieras",
+   "Proteinerna minns hur DNA:t såg ut"
+  ],
+  "correctIndex": 0,
+  "explanation": "När strängarna dras isär bygger DNA-polymeras en ny sträng mot var och en, och basparningen (A–T, G–C) avgör vilken byggsten som passar."
+ },
+ {
+  "question": "Vad håller ihop baserna i ett baspar i DNA?",
+  "choices": [
+   "Vätebindningar mellan atomer på de två baserna",
+   "Fosfatgrupper som binder baserna till varandra",
+   "Att de två baserna är exakt likadana",
+   "Magnetiska krafter mellan kväveatomerna"
+  ],
+  "correctIndex": 0,
+  "explanation": "Väteatomer på den ena basen binder till syre- eller kväveatomer på den andra. A och T bildar två sådana bindningar, G och C tre."
+ },
+ {
+  "question": "Vilka två saker skiljer RNA från DNA kemiskt?",
+  "choices": [
+   "RNA har sockret ribos med en extra OH-grupp, och basen uracil i stället för tymin",
+   "RNA har aminosyror i stället för baser",
+   "RNA saknar socker och fosfat",
+   "RNA har sex olika baser i stället för fyra"
+  ],
+  "correctIndex": 0,
+  "explanation": "Sockret i RNA har en syreatom mer, och tymin (T) är ersatt av uracil (U), som parar med A på samma sätt."
+ },
+ {
+  "question": "Vad gör ett tRNA vid translationen?",
+  "choices": [
+   "Det för en bestämd aminosyra till ribosomen och känner igen rätt kodon på mRNA med sitt antikodon",
+   "Det skriver av DNA till RNA",
+   "Det klipper sönder färdiga proteiner",
+   "Det för mRNA ut ur cellkärnan"
+  ],
+  "correctIndex": 0,
+  "explanation": "Varje tRNA bär alltid samma aminosyra och har ett antikodon som parar med ett visst kodon. Så kopplar tRNA ihop nukleinsyrornas språk med proteinernas."
+ },
+ {
+  "question": "Det finns 64 kodon men bara 20 aminosyror. Vad innebär det?",
+  "choices": [
+   "De flesta aminosyror motsvaras av flera olika kodon",
+   "44 av kodonen används aldrig",
+   "Varje kodon kan ge olika aminosyror vid olika tillfällen",
+   "Proteiner kan bara innehålla 20 aminosyror var"
+  ],
+  "correctIndex": 0,
+  "explanation": "Koden har inbyggd redundans: till exempel ger både UUU och UUC fenylalanin. Tre kodon är stoppsignaler."
+ },
+ {
+  "question": "Vad händer när ribosomen når kodonet UAA?",
+  "choices": [
+   "Den slutar bygga, och den färdiga proteinkedjan släpps",
+   "Den börjar bygga ett nytt protein",
+   "Den sätter in aminosyran metionin",
+   "Den hoppar tillbaka till början av mRNA:t"
+  ],
+  "correctIndex": 0,
+  "explanation": "UAA är ett av tre stoppkodon. Inget tRNA passar, utan ett protein som känner igen stoppkodonet får ribosomen att släppa kedjan."
+ },
+ {
+  "question": "Vad är det som skiljer de 20 aminosyrorna åt?",
+  "choices": [
+   "Sidogruppen; ryggraden är densamma för alla",
+   "Ryggraden; sidogruppen är densamma för alla",
+   "Antalet peptidbindningar de kan bilda",
+   "Om de innehåller kol eller inte"
+  ],
+  "correctIndex": 0,
+  "explanation": "Alla aminosyror har samma ryggradsdel. Sidogrupperna varierar och kan vara opolära, polära eller laddade."
+ },
+ {
+  "question": "Den genetiska koden är i stort sett densamma i bakterier och i människor. Vad tyder det på?",
+  "choices": [
+   "Att allt liv på jorden har ett gemensamt ursprung",
+   "Att människor har fått sina gener från bakterier i maten",
+   "Att koden är den enda kemiskt möjliga",
+   "Att bakterier och människor har samma proteiner"
+  ],
+  "correctIndex": 0,
+  "explanation": "Att samma kodtabell och samma maskineri används i allt levande är ett starkt tecken på att alla organismer härstammar från samma tidiga celler."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>1.1</strong> Följ informationen från en gen till ett färdigt protein. Använd begreppen transkription, mRNA, ribosom, kodon, tRNA och translation.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Genen är en bit av DNA vars bassekvens anger ordningen av aminosyrorna i ett protein. Vid transkriptionen öppnar RNA-polymeras DNA-spiralen och bygger en RNA-kopia av genen med hjälp av basparning. Kopian, mRNA, förs (i eukaryota celler) ut ur cellkärnan till en ribosom. Vid translationen läser ribosomen mRNA tre baser, ett kodon, i taget. Ett tRNA vars antikodon passar kodonet har med sig rätt aminosyra, och ribosomen kopplar ihop aminosyrorna i den ordning som kodonen anger. Vid ett stoppkodon släpps den färdiga kedjan, som veckar sig till ett protein.</p>
+</div>
+</div>
+</div>
+<p><strong>1.2</strong> Watson och Crick skrev att DNA-strukturen genast antydde hur arvsmassan kan kopieras. Förklara varför.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I dubbelspiralen parar baserna alltid ihop sig på samma sätt: A med T och G med C. De två strängarna är därför komplementära, och sekvensen på den ena bestämmer sekvensen på den andra. Om man drar isär strängarna kan var och en användas som mall för en ny sträng, där varje bas får sin partner enligt basparningsreglerna. Då får man två DNA-molekyler som är exakt likadana som den ursprungliga, var och en med en gammal och en ny sträng.</p>
+</div>
+</div>
+</div>
+<p><strong>1.3</strong> DNA beskrivs ofta som cellens hårddisk och proteinerna som dess maskiner. Hur långt räcker jämförelsen, och var haltar den?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Jämförelsen fångar att DNA lagrar information i en följd av symboler, ungefär som ettor och nollor på en hårddisk, och att DNA i sig inte gör något arbete, medan proteinerna utför reaktioner och bygger upp cellen. Den haltar på flera punkter. Informationen i DNA används inte direkt utan måste först skrivas av till RNA. DNA innehåller också styrsignaler som avgör när generna ska användas, och de styrs i sin tur av proteiner, så “hårdvaran” och “programmet” påverkar varandra. Och proteinerna är inte färdiga maskiner som byggs efter ritningen i ett steg: de är kedjor som av sig själva veckar ihop sig till sin form.</p>
+</div>
+</div>
+</div>
+<p><strong>1.4</strong> En forskare känner bara DNA-sekvensen för en gen. Hur kan hon ta reda på hur proteinet ser ut, och vad kan hon inte veta utan vidare?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Med hjälp av den genetiska koden kan hon översätta sekvensen tre baser i taget till aminosyror, med början vid startkodonet och slut vid första stoppkodonet. Då vet hon proteinets aminosyrasekvens, utan att någonsin ha sett proteinet. Det hon inte direkt kan läsa av är hur kedjan veckar sig till en tredimensionell form, och därmed exakt hur proteinet fungerar, och inte heller när och hur mycket av proteinet cellen tillverkar, eftersom det styrs av andra signaler.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l01-las-mer" class="level2" data-number="1.14">
+<h2 data-number="1.14" class="anchored" data-anchor-id="sec-l01-las-mer"><span class="header-section-number">1.14</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Deoxiribonukleinsyra">Deoxiribonukleinsyra</a> och <a href="https://sv.wikipedia.org/wiki/Genetiska_koden">Genetiska koden</a> på svenska Wikipedia.</li>
+<li><a href="https://en.wikipedia.org/wiki/Miller%E2%80%93Urey_experiment">Miller–Urey experiment</a> på engelska Wikipedia, om experimentet och vad senare försök har visat.</li>
+<li><a href="https://pdb101.rcsb.org/motm/10">Ribosomal Subunits</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), med bilder av David S. Goodsell.</li>
+<li><a href="https://www.nobelprize.org/prizes/medicine/1962/summary/">Nobelpriset i fysiologi eller medicin 1962</a>, för upptäckten av DNA:s struktur (på engelska).</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2009/summary/">Nobelpriset i kemi 2009</a>, för kartläggningen av ribosomens struktur och funktion (på engelska).</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../schema.html" class="pagination-link" aria-label="Kursschema VT 2027">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Kursschema VT 2027</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/02-molekyler-och-reaktioner.html" class="pagination-link" aria-label="Livets molekyler och reaktioner">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

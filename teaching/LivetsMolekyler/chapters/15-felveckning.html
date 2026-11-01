@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>15&nbsp; Proteiners felveckning – Alzheimer och ALS – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/16-ai-och-proteiner.html" rel="next">
+<link href="../chapters/14-proteinveckning.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/14-proteinveckning.html">Veckning, sjukdom och framtid</a></li><li class="breadcrumb-item"><a href="../chapters/15-felveckning.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l15-samma" id="toc-sec-l15-samma" class="nav-link active" data-scroll-target="#sec-l15-samma"><span class="header-section-number">15.1</span> Många sjukdomar, samma grundorsak</a></li>
+  <li><a href="#sec-l15-felveckning" id="toc-sec-l15-felveckning" class="nav-link" data-scroll-target="#sec-l15-felveckning"><span class="header-section-number">15.2</span> Veckning och felveckning</a>
+  <ul class="collapse">
+  <li><a href="#sec-l15-amyloid" id="toc-sec-l15-amyloid" class="nav-link" data-scroll-target="#sec-l15-amyloid">Amyloid: ett protein som blivit kristall</a></li>
+  </ul></li>
+  <li><a href="#sec-l15-tillvaxt" id="toc-sec-l15-tillvaxt" class="nav-link" data-scroll-target="#sec-l15-tillvaxt"><span class="header-section-number">15.3</span> Hur fibrer växer</a></li>
+  <li><a href="#sec-l15-alzheimer" id="toc-sec-l15-alzheimer" class="nav-link" data-scroll-target="#sec-l15-alzheimer"><span class="header-section-number">15.4</span> Alzheimers sjukdom</a></li>
+  <li><a href="#sec-l15-parkinson" id="toc-sec-l15-parkinson" class="nav-link" data-scroll-target="#sec-l15-parkinson"><span class="header-section-number">15.5</span> Parkinsons sjukdom</a></li>
+  <li><a href="#sec-l15-prioner" id="toc-sec-l15-prioner" class="nav-link" data-scroll-target="#sec-l15-prioner"><span class="header-section-number">15.6</span> Prioner: smittsamma proteiner</a>
+  <ul class="collapse">
+  <li><a href="#sec-l15-kuru" id="toc-sec-l15-kuru" class="nav-link" data-scroll-target="#sec-l15-kuru">Kuru: skakningssjukan på Nya Guinea</a></li>
+  <li><a href="#sec-l15-smittamne" id="toc-sec-l15-smittamne" class="nav-link" data-scroll-target="#sec-l15-smittamne">Smitta utan arvsmassa</a></li>
+  <li><a href="#sec-l15-mallen" id="toc-sec-l15-mallen" class="nav-link" data-scroll-target="#sec-l15-mallen">Ett protein som är sin egen mall</a></li>
+  <li><a href="#sec-l15-bse" id="toc-sec-l15-bse" class="nav-link" data-scroll-target="#sec-l15-bse">Galna ko-sjukan</a></li>
+  <li><a href="#sec-l15-smitta" id="toc-sec-l15-smitta" class="nav-link" data-scroll-target="#sec-l15-smitta">Kan andra amyloider sprida sig?</a></li>
+  </ul></li>
+  <li><a href="#sec-l15-skelleftea" id="toc-sec-l15-skelleftea" class="nav-link" data-scroll-target="#sec-l15-skelleftea"><span class="header-section-number">15.7</span> Skelleftesjukan</a></li>
+  <li><a href="#sec-l15-als" id="toc-sec-l15-als" class="nav-link" data-scroll-target="#sec-l15-als"><span class="header-section-number">15.8</span> ALS och SOD1</a>
+  <ul class="collapse">
+  <li><a href="#sec-l15-sod1-mutationer" id="toc-sec-l15-sod1-mutationer" class="nav-link" data-scroll-target="#sec-l15-sod1-mutationer">Vad gör mutationerna?</a></li>
+  </ul></li>
+  <li><a href="#sec-l15-moss" id="toc-sec-l15-moss" class="nav-link" data-scroll-target="#sec-l15-moss"><span class="header-section-number">15.9</span> Vad ALS-mössen har lärt oss</a></li>
+  <li><a href="#sec-l15-alder" id="toc-sec-l15-alder" class="nav-link" data-scroll-target="#sec-l15-alder"><span class="header-section-number">15.10</span> Varför insjuknar man först vid 50?</a></li>
+  <li><a href="#sec-l15-sammanfattning" id="toc-sec-l15-sammanfattning" class="nav-link" data-scroll-target="#sec-l15-sammanfattning"><span class="header-section-number">15.11</span> Sammanfattning</a></li>
+  <li><a href="#sec-l15-nyckelbegrepp" id="toc-sec-l15-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l15-nyckelbegrepp"><span class="header-section-number">15.12</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l15-testa" id="toc-sec-l15-testa" class="nav-link" data-scroll-target="#sec-l15-testa"><span class="header-section-number">15.13</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l15-las-mer" id="toc-sec-l15-las-mer" class="nav-link" data-scroll-target="#sec-l15-las-mer"><span class="header-section-number">15.14</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/14-proteinveckning.html">Veckning, sjukdom och framtid</a></li><li class="breadcrumb-item"><a href="../chapters/15-felveckning.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l15" class="quarto-section-identifier"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsningarna 14 och 15, <em>Proteiners veckning</em> och <em>Proteiners felveckning</em>, av Mikael Oliveberg (VT 2026). Det här kapitlet handlar om sjukdomar där proteiner veckas fel och klumpar ihop sig. Hur proteiner normalt veckas beskrivs i <a href="14-proteinveckning.html" class="quarto-xref"><span>Kapitel 14</span></a>.</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>förklara vad felveckning och amyloida fibrer är, och varför veckning och felveckning är två sidor av samma fenomen,</li>
+<li>ge exempel på sjukdomar som orsakas av felveckade proteiner och vilka proteiner det gäller,</li>
+<li>förklara hur fibrer kan växa exponentiellt och sprida sig, och vad som är speciellt med prioner,</li>
+<li>beskriva vad forskningen om proteinet SOD1 har visat om hur ALS uppstår och fortskrider,</li>
+<li>förklara varför dessa sjukdomar ofta debuterar först sent i livet.</li>
+</ul>
+</div>
+</div>
+<p>Alzheimers sjukdom, Parkinsons sjukdom och ALS är mycket olika sjukdomar. Den första tar bort minnet, den andra gör rörelserna stela och darriga, och den tredje försvagar musklerna tills den drabbade inte längre kan röra sig. Många har mött dem i sin närhet. Många minns också nyhetsankaret Ulla-Carin Lindquist, som berättade öppet om sitt liv med ALS innan hon dog 2004.</p>
+<p>Ändå har sjukdomarna något gemensamt på molekylär nivå. I alla tre hittar man, när man undersöker nervvävnaden i mikroskop, klumpar och fibrer av proteiner som inte borde finnas där. Det gäller också flera andra sjukdomar, bland annat galna ko-sjukan och den ärftliga Skelleftesjukan i norra Sverige. Proteinerna är olika i varje sjukdom, men mekanismen liknar varandra: ett protein veckar sig fel och klumpar ihop sig.</p>
+<p>Därför kan kunskap om en av sjukdomarna hjälpa till att förstå de andra. Redan 2006 skrev Mikael Oliveberg i Forskning &amp; Framsteg att ALS kan ge kunskap om Alzheimer och Parkinson: olika sjukdomar, men samma orsak, felveckade proteiner. Det är också tanken bakom det här kapitlet, som handlar om vad som händer när proteinveckningen går fel, och vad forskningen, särskilt om ALS, har lärt oss om hur sjukdomarna uppstår och sprider sig. Mycket är känt, men mycket är fortfarande oklart. Det finns behandlingar som kan bromsa några av sjukdomarna, men ännu inga som botar dem.</p>
+<section id="sec-l15-samma" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="sec-l15-samma"><span class="header-section-number">15.1</span> Många sjukdomar, samma grundorsak</h2>
+<p>Tabellen nedan visar några av sjukdomarna och vilket protein som klumpar ihop sig i var och en av dem (<a href="#tbl-l15-sjukdomar" class="quarto-xref">Tabell&nbsp;<span>15.1</span></a>).</p>
+<div id="tbl-l15-sjukdomar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-l15-sjukdomar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabell&nbsp;15.1: Några sjukdomar där proteiner veckas fel och klumpar ihop sig.
+</figcaption>
+<div aria-describedby="tbl-l15-sjukdomar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sjukdom</th>
+<th>Protein som klumpar ihop sig</th>
+<th>Var</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Alzheimers sjukdom</td>
+<td>amyloid-beta (Aβ) och tau</td>
+<td>hjärnan</td>
+</tr>
+<tr class="even">
+<td>Parkinsons sjukdom</td>
+<td>α-synuklein (alfa-synuklein)</td>
+<td>hjärnan</td>
+</tr>
+<tr class="odd">
+<td>ALS</td>
+<td>bland annat SOD1</td>
+<td>ryggmärgen och hjärnan</td>
+</tr>
+<tr class="even">
+<td>Prionsjukdomar, t.ex. Creutzfeldt-Jakobs sjukdom</td>
+<td>prionprotein (PrP)</td>
+<td>hjärnan</td>
+</tr>
+<tr class="odd">
+<td>Skelleftesjukan</td>
+<td>transtyretin (TTR)</td>
+<td>nerver, hjärta och andra organ</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Gemensamt för sjukdomarna är att ett protein som normalt är lösligt omvandlas till olösliga klumpar. Ofta består klumparna av långa, tunna <strong>fibrer</strong> som kallas <strong>amyloid</strong>. Ordet betyder “stärkelselik” och kommer från 1800-talet, då man trodde att avlagringarna bestod av stärkelse. Stora ansamlingar av amyloid i vävnaden kallas <strong>plack</strong>.</p>
+<p>För de flesta av sjukdomarna gäller att de inte smittar mellan människor i vardagen. Prionsjukdomarna är ett undantag, men även de är mycket sällsynta och sprids bara på speciella sätt, som vi ska se.</p>
+</section>
+<section id="sec-l15-felveckning" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="sec-l15-felveckning"><span class="header-section-number">15.2</span> Veckning och felveckning</h2>
+<p>Som vi såg i <a href="14-proteinveckning.html" class="quarto-xref"><span>Kapitel 14</span></a> viker en proteinkedja ihop sig så att de vattenskygga aminosyrorna hamnar i en kärna i mitten. Men proteinet är bara nätt och jämnt stabilt. Hela tiden är en liten andel av molekylerna oveckade, och i de oveckade kedjorna ligger de vattenskygga delarna öppna. Då kan de fastna i andra kedjor i stället för att vecka sig rätt. Det kallas <strong>felveckning</strong> (<a href="#fig-l15-felveckning" class="quarto-xref">Figur&nbsp;<span>15.1</span></a>).</p>
+<div id="fig-l15-felveckning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-felveckning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/veckning-felveckning.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-felveckning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.1: Veckning och felveckning. En nytillverkad kedja veckar sig normalt till ett fungerande protein, och de flesta molekyler är veckade hela tiden. Men oveckade kedjor kan också klumpa ihop sig och bilda fibrer. Cellens skyddssystem fångar upp de flesta felveckade kedjor innan de hinner göra skada. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>I friska celler är felveckning inget ovanligt. Cellen har ett helt skyddssystem som tar hand om felveckade proteiner: <strong>chaperoner</strong> som hjälper kedjor att vecka sig rätt eller vecklar upp dem igen (se <a href="13-chaperoner.html" class="quarto-xref"><span>Kapitel 13</span></a>), och system som märker ut och bryter ned felveckade proteiner. Sjukdom uppstår när felveckningen blir mer än skyddssystemen klarar av.</p>
+<section id="sec-l15-amyloid" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l15-amyloid">Amyloid: ett protein som blivit kristall</h3>
+<p>När felveckade kedjor klumpar ihop sig bildar de ofta amyloida fibrer, och de har en mycket regelbunden byggnad. Varje proteinkedja sträcks ut till ett eller flera platta band, och banden från många kedjor läggs ovanpå varandra, som sidorna i en lång bunt papper. Varje kedja hålls fast vid kedjan ovanför och under sig av vätebindningar. Så bildas ett jättelikt flak som kan bli tusentals kedjor långt. Två sådana flak ligger tätt mot varandra, och deras vattenskygga aminosyror passar in i varandra som blixtlåsets tänder (<a href="#fig-l15-app" class="quarto-xref">Figur&nbsp;<span>15.5</span></a>).</p>
+<p>Det är samma krafter som vid normal veckning, “fett dras till fett och vätebindningarna matchas”, men nu mellan olika kedjor i stället för inom en och samma. En fiber liknar på det sättet en kristall, som växer genom att nya byggstenar läggs till i ändarna, ungefär som när iskristaller växer på en fönsterruta.</p>
+<p>Fibrerna är mycket stabila och mekaniskt starka, och svåra för cellen att bryta ned. De kan också bildas av många olika proteiner som inte har något med varandra att göra. Förmågan att bilda amyloid verkar alltså vara en egenskap som nästan alla proteinkedjor har, men som de normalt skyddas från genom att vara veckade.</p>
+</section>
+</section>
+<section id="sec-l15-tillvaxt" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="sec-l15-tillvaxt"><span class="header-section-number">15.3</span> Hur fibrer växer</h2>
+<p>Fibrer bildas inte i jämn takt. Först händer ingenting, sedan går det allt fortare. Hur det går till förklarar mycket av hur sjukdomarna fortskrider i kroppen.</p>
+<p>Förloppet kan man följa i provrör. Man använder ett färgämne som lyser upp när det binder till amyloida fibrer, och kan på så sätt följa hur mängden fibrer ökar med tiden. Med ALS-proteinet SOD1 (<a href="14-proteinveckning.html#sec-l14-sod1" class="quarto-xref"><span>Avsnitt 14.3</span></a>) händer först ingenting alls, ibland i många timmar. Sedan tar fiberbildningen fart, ökar snabbt och planar ut när det mesta av proteinet har blivit fibrer (<a href="#fig-l15-tillvaxt" class="quarto-xref">Figur&nbsp;<span>15.2</span></a>).</p>
+<p>Försöken visar också att det är de oveckade SOD1-kedjorna som bildar fibrerna. Ju mindre stabilt proteinet är, desto större är andelen oveckade kedjor och desto lättare bildas fibrer.</p>
+<div id="fig-l15-tillvaxt" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-tillvaxt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/fibrilltillvaxt.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-tillvaxt-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.2: Fibrer bildas efter en fördröjning (blå kurva). Den första lilla fiberbiten är svår att bilda, men när den väl finns växer fibrerna snabbt. Om man tillsätter färdiga fiberbitar, “frön”, försvinner fördröjningen (röd streckad kurva). Till höger: när en fiber bryts får varje bit två nya ändar som kan växa. Därför växer mängden fibrer exponentiellt. Egen figur, principskiss efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Varför fördröjningen? Det är svårt att bilda den allra första lilla fiberbiten, en <strong>kärna</strong> (inte att förväxla med den vattenskygga kärnan inne i ett veckat protein), eftersom några oveckade kedjor måste råka hitta varandra i precis rätt läge. Men när en kärna väl finns kan nya kedjor lätt läggas till i dess ändar. Om man tillsätter en liten mängd färdiga fibrer, så kallade <strong>frön</strong>, behöver ingen ny kärna bildas, och fördröjningen försvinner. Det kallas <strong>ympning</strong> (eng. <em>seeding</em>).</p>
+<p>Men varför går det sedan så fort? Ledtråden är ett överraskande fynd: SOD1 bildar i provröret bara fibrer om lösningen skakas. Utan skakning händer nästan ingenting. Förklaringen är att fibrerna växer snabbast när de bryts sönder. Varje gång en fiber går av, så kallad <strong>fragmentering</strong>, bildas två nya ändar som båda kan växa. Fler ändar ger fler växande fibrer, som i sin tur bryts av, och så vidare. Mängden ökar då <strong>exponentiellt</strong>, som ränta på ränta. Som vi ska se verkar samma sak hända i kroppen.</p>
+</section>
+<section id="sec-l15-alzheimer" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="sec-l15-alzheimer"><span class="header-section-number">15.4</span> Alzheimers sjukdom</h2>
+<p>Den mest kända av sjukdomarna är Alzheimers sjukdom, i dag den vanligaste orsaken till demens. Vid den finns proteinklumpar av två slag, både mellan och inuti nervcellerna.</p>
+<p>Den tyske läkaren Alois Alzheimer beskrev 1906 en kvinna, Auguste Deter, som i femtioårsåldern hade fått allt svårare med minnet och blivit förvirrad (<a href="#fig-l15-alzheimer-deter" class="quarto-xref">Figur&nbsp;<span>15.3</span></a>). När hon dog undersökte han hennes hjärna i mikroskop och fann två sorters avvikelser: plack mellan nervcellerna och trassliga trådar, <strong>nystan</strong>, inuti nervcellerna (<a href="#fig-l15-histologi" class="quarto-xref">Figur&nbsp;<span>15.4</span></a>).</p>
+<div id="fig-l15-alzheimer-deter" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-alzheimer-deter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figs/L15/alois-alzheimer.jpg" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Alois Alzheimer (1864–1915).</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figs/L15/auguste-deter.jpg" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Auguste Deter, fotograferad 1902.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-alzheimer-deter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.3: Läkaren och patienten som gav sjukdomen dess namn. Bilder: okända fotografer, Wikimedia Commons, allmän egendom.
+</figcaption>
+</figure>
+</div>
+<div id="fig-l15-histologi" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-histologi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/alzheimer-histologi.jpg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-histologi-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.4: Hjärnvävnad från en person med Alzheimers sjukdom, sedd i mikroskop. Uppe till höger visar pilarna ett amyloidplack, en ansamling av proteinfibrer mellan nervcellerna. Nere till vänster pekar pilarna på ett nystan av proteinet tau inuti en nervcell. Bilderna överst till vänster visar var i hjärnan (hippocampus) proverna är tagna. Bild: Mikael Häggström och brainmaps.org, Wikimedia Commons, CC BY 3.0.
+</figcaption>
+</figure>
+</div>
+<p>Placken består framför allt av ett litet protein, <strong>amyloid-beta</strong>, ofta förkortat <strong>Aβ</strong>. Det är en bit av ett större protein, <strong>APP</strong>, som sitter i nervcellernas membran och som normalt har uppgifter i nervcellernas tillväxt och reparation (<a href="#fig-l15-app" class="quarto-xref">Figur&nbsp;<span>15.5</span></a>). Enzymer i membranet klipper APP i bitar. Den del som blir Aβ, omkring 40 aminosyror lång, sitter delvis inne i membranets vattenskygga mitt. När den klipps loss blir den därför ett vattenskyggt fragment som inte hör hemma i vatten. Precis som de oveckade kedjorna ovan söker fragmenten varandra. De klibbar ihop till fibrer som samlas mellan nervcellerna.</p>
+<div id="fig-l15-app" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-app-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figs/L15/app-goodsell.jpg" class="img-fluid figure-img" style="width:45.0%"></p>
+<figcaption>Proteinet APP sitter i nervcellens membran (grått band). Enzymer klipper ut den bit (grön) som blir amyloid-beta.</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figs/L15/amyloid-beta-fiber-goodsell.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>En amyloid-beta-fiber från en patient med Alzheimers sjukdom. Tusentals små Aβ-kedjor ligger staplade på varandra.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-app-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.5: Från protein i membranet till fiber. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Varför det bildas för mycket Aβ, eller för lite av det bryts ned, hos de flesta som får sjukdomen vet man inte säkert. Hos en liten grupp familjer finns ärftliga former av Alzheimers sjukdom, som ofta debuterar tidigt. De beror på mutationer i APP eller i delar av enzymerna som klipper APP, och de ökar bildningen av Aβ eller av särskilt klibbiga varianter av det. Hos de allra flesta drabbade är den största riskfaktorn i stället hög ålder.</p>
+<p>Det andra kännetecknet, nystanen, består av proteinet <strong>tau</strong>, som normalt hjälper till att stabilisera nervcellernas inre skelett. Hur Aβ och tau samverkar när sjukdomen utvecklas är ett aktivt forskningsområde.</p>
+<p>Under de senaste åren har läkemedel i form av antikroppar som binder till Aβ och hjälper kroppen att röja undan placken godkänts i flera länder, bland annat inom EU. De kan bromsa sjukdomsförloppet något hos personer i ett tidigt skede, men de botar inte sjukdomen, och de kan ha allvarliga biverkningar. I Sverige har NT-rådet, som ger regionerna råd om nya läkemedel, hittills avrått från att använda dem i vården, eftersom nyttan bedöms som liten i förhållande till risker och kostnad. Att de alls har effekt stödjer ändå tanken att proteinklumparna har en central roll.</p>
+</section>
+<section id="sec-l15-parkinson" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="sec-l15-parkinson"><span class="header-section-number">15.5</span> Parkinsons sjukdom</h2>
+<p>Parkinsons sjukdom följer samma mönster, men med ett annat protein. Vid sjukdomen dör nervceller i ett litet område djupt inne i hjärnan, som tillverkar signalämnet dopamin och som behövs för att styra rörelser. I de skadade nervcellerna finns runda klumpar, <strong>Lewykroppar</strong>, som till stor del består av proteinet <strong>α-synuklein</strong> (<a href="#fig-l15-lewy" class="quarto-xref">Figur&nbsp;<span>15.6</span></a>). Det är ett litet protein som normalt saknar fast form och som finns vid nervcellernas kontaktpunkter. Precis som Aβ kan det bilda amyloida fibrer.</p>
+<p>Kopplingen till sjukdomen stärks av de ärftliga fallen: några ärftliga former av Parkinsons sjukdom beror på mutationer i α-synuklein eller på att cellen tillverkar för mycket av det.</p>
+<div id="fig-l15-lewy" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-lewy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/lewykropp.jpg" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-lewy-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.6: En Lewykropp i en nervcell från en person med Parkinsons sjukdom, sedd i mikroskop. Vävnaden är infärgad så att α-synuklein blir brunt. Den runda, mörkbruna klumpen mitt i den stora nervcellen är Lewykroppen. De små blå fläckarna är cellkärnor i omgivande celler. Bild: Marvin 101, Wikimedia Commons, CC BY-SA 3.0.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l15-prioner" class="level2" data-number="15.6">
+<h2 data-number="15.6" class="anchored" data-anchor-id="sec-l15-prioner"><span class="header-section-number">15.6</span> Prioner: smittsamma proteiner</h2>
+<p>Den mest uppseendeväckande gruppen av proteinsjukdomar är <strong>prionsjukdomarna</strong>, eftersom de kan smitta. Vägen till att förstå dem är en av medicinens märkligaste upptäcktshistorier. Den började med sjuka får och med ett litet folk i Nya Guineas högland.</p>
+<section id="sec-l15-kuru" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l15-kuru">Kuru: skakningssjukan på Nya Guinea</h3>
+<p>Hos får har man sedan 1700-talet känt till sjukdomen <strong>scrapie</strong>, där djuren blir ostadiga, kliar sig mot staket och träd och till sist dör. Ingen visste vad som orsakade den.</p>
+<p>I början av 1950-talet kom australiska patrullofficerare i kontakt med folket <strong>fore</strong> i östra delen av Nya Guineas högland (<a href="#fig-l15-kurukarta" class="quarto-xref">Figur&nbsp;<span>15.7</span></a>). De rapporterade om en sjukdom som folket själva kallade <strong>kuru</strong>, av ett ord som betyder att skaka eller darra. Den som drabbades fick först svårt att gå och började darra. Efter några månader kunde den sjuke varken stå eller sitta utan hjälp (<a href="#fig-l15-kurubarn" class="quarto-xref">Figur&nbsp;<span>15.8</span></a>), och inom ungefär ett år var han eller hon död. Omkring 1957 dog ungefär 200 människor om året i kuru, i ett litet folk där kuru var den vanligaste dödsorsaken bland kvinnorna. Sammanlagt har omkring 2 700 människor dött i sjukdomen.</p>
+<div id="fig-l15-kurukarta" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-kurukarta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/kuru-karta.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-kurukarta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.7: Fore-folkets område (rött) i östra delen av Nya Guineas högland. Den förstorade rutan visar folkgrupperna kring orten Okapa; kuru var vanligast hos de södra fore. Engelska beteckningar. Bild: Collinge m.fl., <em>Philosophical Transactions of the Royal Society B</em> (2008), Wikimedia Commons, CC BY-SA 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Läkaren Vincent Zigas, som arbetade i området, och den amerikanske läkaren och forskaren Carleton Gajdusek (<a href="#fig-l15-forskare" class="quarto-xref">Figur&nbsp;<span>15.9</span></a>) beskrev sjukdomen för den medicinska världen 1957. De trodde först att den var ärftlig, eftersom den drabbade vissa släkter mer än andra. Men något stämde inte: kuru drabbade nästan bara kvinnor och barn, och sällan vuxna män.</p>
+<div id="fig-l15-kurubarn" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-kurubarn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/kuru-barn.png" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-kurubarn-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.8: Ett barn från fore-folket med långt framskriden kuru, som inte längre kan stå utan stöd. Bild: Paweł P. Liberski, <em>Pathogens</em> (2013), Wikimedia Commons, CC BY 3.0.
+</figcaption>
+</figure>
+</div>
+<p>Förklaringen kom från antropologer, bland andra Shirley Lindenbaum och Robert Glasse, som studerade fore-folkets seder. När någon dog åt de anhöriga upp den döda vid begravningen, som ett sätt att visa respekt och kärlek. Kvinnorna och barnen fick hjärnan och de inre organen, medan männen oftare åt muskler. Det var alltså hjärnan som förde sjukdomen vidare. Australiska myndigheter och missionärer förbjöd seden, och omkring 1960 hade den i stort sett upphört. Efter det insjuknade inga barn som var födda senare, och kuru blev ovanligare år för år.</p>
+<p>Ändå dröjde det länge innan sjukdomen försvann helt. Tiden från smitta till sjukdom var i genomsnitt omkring 14 år, men kunde vara mer än 50 år. Den sista kända personen med kuru dog 2009. Hos fore-folket har man dessutom hittat en ovanlig variant av prionproteinet, där en enda aminosyra är utbytt (glycin mot valin i position 127), och den skyddar mot sjukdomen. Varianten har troligen blivit vanligare just för att dess bärare överlevde epidemin, ett exempel på naturligt urval hos människor i vår egen tid.</p>
+</section>
+<section id="sec-l15-smittamne" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l15-smittamne">Smitta utan arvsmassa</h3>
+<p>År 1959 såg den amerikanske veterinären William Hadlow en utställning i London om kuru, med bilder av hjärnor från personer som dött i sjukdomen. Han kände genast igen dem: hjärnorna var fulla av små hål, precis som hjärnorna hos får med scrapie. I ett brev till tidskriften <em>The Lancet</em> föreslog han att kuru kanske kunde föras över till försöksdjur, på samma sätt som scrapie.</p>
+<p>Gajdusek och hans medarbetare Joe Gibbs och Michael Alpers sprutade in hjärnvävnad från personer som dött i kuru i hjärnan på schimpanser. Efter ungefär två år blev de första schimpanserna sjuka, med samma symtom och samma hål i hjärnan. Resultatet publicerades 1966. Kuru var alltså en smittsam sjukdom, men smittämnet verkade mycket långsamt. Gajdusek kallade det ett “långsamt virus”, och han fick Nobelpriset i fysiologi eller medicin 1976.</p>
+<p>Men vad var det som smittade? Smittämnet var gåtfullt. År 1967 visade den brittiska strålningsbiologen Tikvah Alper att smittämnet i scrapie tålde så kraftig strålning, både ultraviolett och joniserande, att allt DNA och RNA borde ha förstörts. Samma år föreslog matematikern John Griffith att smittämnet kanske var ett protein som på något sätt kunde få andra proteiner att anta sin egen form. Idén verkade bryta mot den centrala dogmen (<a href="01-levande-celler.html#sec-l01-centrala-dogmen" class="quarto-xref"><span>Avsnitt 1.4.2</span></a>), som säger att informationen går från DNA via RNA till protein, och få tog den på allvar.</p>
+<p>Den amerikanske forskaren Stanley Prusiner (<a href="#fig-l15-forskare" class="quarto-xref">Figur&nbsp;<span>15.9</span></a>) renade fram smittämnet ur hjärnor från hamstrar med scrapie och fann att det bestod av protein. År 1982 föreslog han att smittämnet bestod enbart av protein och kallade det <strong>prion</strong>, av engelskans <em>proteinaceous infectious particle</em>. Idén mötte stort motstånd men fick till slut allmänt stöd, och Prusiner fick Nobelpriset i fysiologi eller medicin 1997.</p>
+<div id="fig-l15-forskare" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-forskare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row quarto-layout-valign-bottom">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figs/L15/gajdusek.jpg" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Carleton Gajdusek (1923–2008).</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figs/L15/prusiner.jpg" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Stanley Prusiner (född 1942), fotograferad 2024.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-forskare-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.9: Två Nobelpristagare i prionernas historia: Gajdusek visade att kuru smittar, och Prusiner att smittämnet är ett protein. Bilder: okänd fotograf, National Library of Medicine, allmän egendom (Gajdusek), och Christopher Michel, Wikimedia Commons, CC BY 4.0 (Prusiner).
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l15-mallen" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l15-mallen">Ett protein som är sin egen mall</h3>
+<p>Prionproteinet, <strong>PrP</strong>, finns normalt på ytan av våra nervceller (<a href="#fig-l15-prp" class="quarto-xref">Figur&nbsp;<span>15.10</span></a>). Det sjukdomsframkallande prionet består av exakt samma kedja, men veckad på ett annat sätt och hopklumpad till fibrer. Det farliga är att prionet kan fungera som mall: när ett normalt PrP-protein stöter på fiberns ände kan det tvingas in i samma felveckade form och bli en del av fibern (<a href="#fig-l15-mall" class="quarto-xref">Figur&nbsp;<span>15.11</span></a>). Fibern växer, bryts av, och bitarna blir nya mallar, precis som fibrerna i provröret. På det sättet kan en liten mängd prioner till slut omvandla stora mängder normalt protein.</p>
+<div id="fig-l15-prp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-prp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/prionprotein-goodsell.jpg" class="img-fluid figure-img" style="width:45.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-prp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.10: Prionproteinet PrP i sin normala form. Flexibla delar, som inte syns i de uppmätta strukturerna, är ritade som prickar. Proteinet är förankrat i nervcellens yta. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<div id="fig-l15-mall" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-mall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/prion-mall.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-mall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.11: Prionprincipen. Ett felveckat protein i änden av en fiber fungerar som mall. Normala proteinmolekyler som stöter på änden tvingas in i samma felveckade form och fogas till fibern. När fibern bryts blir bitarna nya mallar. Egen figur.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l15-bse" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l15-bse">Galna ko-sjukan</h3>
+<p>Smitta är bara ett av tre sätt som prionsjukdomar kan uppstå på. De kan också uppstå av sig själva och genom ärftliga mutationer i PrP. Den vanligaste prionsjukdomen hos människa, <strong>Creutzfeldt-Jakobs sjukdom</strong>, uppstår för det mesta av sig själv, utan känd orsak. Den är mycket sällsynt och drabbar ungefär en till två personer per miljon invånare och år. Ärftliga former är ännu ovanligare. En av dem, <em>dödlig familjär sömnlöshet</em>, ger svåra sömnstörningar innan andra symtom uppträder.</p>
+<p>Smitta blev uppmärksammad på 1980- och 90-talen, då <strong>galna ko-sjukan</strong> (BSE) bröt ut bland nötkreatur i Storbritannien (<a href="#fig-l15-bse" class="quarto-xref">Figur&nbsp;<span>15.12</span></a>). Den spreds genom djurfoder som innehöll kött- och benmjöl från slaktade djur. Några år senare började unga människor insjukna i en ny variant av Creutzfeldt-Jakobs sjukdom. Den visade sig komma från att de ätit kött från smittade kor. Sammanlagt har drygt 200 människor i världen fått den nya varianten. Efter förbud mot att utfodra idisslare med kött- och benmjöl och hårda kontroller av slakten har både BSE och den nya varianten blivit mycket sällsynta.</p>
+<div id="fig-l15-bse" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-bse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/bse-ko.jpg" class="img-fluid figure-img" style="width:55.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-bse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.12: En ko med galna ko-sjukan. Sjukdomen bryter ned nervsystemet: djuren blir oroliga, får svårt att hålla balansen och att resa sig, och dör till slut. Bild: Art Davis, USDA APHIS, allmän egendom.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l15-smitta" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l15-smitta">Kan andra amyloider sprida sig?</h3>
+<p>Om prioner kan sprida sig genom att fungera som mallar, kan då andra amyloida fibrer göra samma sak? I djurförsök har man sett att färdiga fibrer, under vissa förhållanden, kan fungera som frön även i en levande kropp. Det finns en form av amyloidsjukdom hos möss, där ett protein i blodet bildar fibrer i bland annat mjälte och lever. Hos möss som var mottagliga för den sjukdomen kom fibrerna snabbare om mössen fick fibrer från andra källor, till och med fibrer från silke eller från gåslever, som innehåller amyloid. Det betyder inte att någon blir sjuk av att äta gåslever.</p>
+<p>Den viktigaste frågan gäller i stället vad som händer <em>inom</em> kroppen. Allt fler försök i djur och celler tyder på att felveckade proteiner vid Alzheimers sjukdom, Parkinsons sjukdom och ALS kan sprida sig från nervcell till nervcell på ett sätt som liknar prioner. Det skulle förklara varför sjukdomarna ofta börjar på ett ställe och sedan breder ut sig gradvis i nervsystemet. Hur stor roll spridningen spelar hos människor är ännu inte klarlagt. Däremot finns det inga tecken på att sjukdomarna smittar mellan människor genom vanlig kontakt.</p>
+</section>
+</section>
+<section id="sec-l15-skelleftea" class="level2" data-number="15.7">
+<h2 data-number="15.7" class="anchored" data-anchor-id="sec-l15-skelleftea"><span class="header-section-number">15.7</span> Skelleftesjukan</h2>
+<p>En svensk sjukdom visar särskilt tydligt att det är det felveckade proteinet som orsakar sjukdomen, och att kunskap om proteinets stabilitet kan bli medicin.</p>
+<p><strong>Skelleftesjukan</strong>, eller ärftlig transtyretinamyloidos, är en ärftlig sjukdom som är ovanligt vanlig i Västerbotten och Norrbotten, särskilt kring Skellefteå och Piteå. Den förekommer också i bland annat Portugal och Japan. Sjukdomen börjar ofta med domningar och värk i händer och fötter, och sedan drabbas bland annat mage, tarmar och hjärta.</p>
+<p>Det protein som felveckas är <strong>transtyretin</strong> (TTR), som tillverkas i levern och transporterar sköldkörtelhormon och A-vitamin i blodet. Normalt sitter fyra TTR-kedjor ihop till en stabil enhet. Vid Skelleftesjukan gör en mutation att enheten lättare faller isär. De lösa kedjorna kan då veckla upp sig och bilda amyloida fibrer, som lagras in i nerver och organ. Sjukdomen ärvs dominant: den som har en förälder med mutationen har 50 procents risk att ärva den. Långtifrån alla som bär på mutationen blir dock sjuka, och varför det är så är inte känt.</p>
+<p>Eftersom TTR tillverkas i levern började man på 1990-talet behandla sjukdomen med levertransplantation. Idén till behandlingen ska enligt Forskning &amp; Framsteg ha kommit från en patient. Den nya levern tillverkar normalt TTR, och hos många patienter stannade sjukdomen av eller bromsades. Bilder tagna före och efter transplantationen visade att avlagringarna i kroppen kunde minska kraftigt när det muterade proteinet inte längre tillverkades. Proteinklumpar är alltså inte nödvändigtvis permanenta. Det var också ett tidigt bevis för att det är proteinet själv som orsakar sjukdomen.</p>
+<p>I dag finns också läkemedel. Ett av dem binder till TTR och gör fyrkedjeenheten stabilare, så att den inte faller isär (<a href="#fig-l15-ttr" class="quarto-xref">Figur&nbsp;<span>15.13</span></a>). Det är ett tydligt exempel på hur kunskap om ett proteins stabilitet kan bli medicin. Andra läkemedel minskar leverns tillverkning av TTR.</p>
+<div id="fig-l15-ttr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-ttr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/transtyretin-tafamidis.jpg" class="img-fluid figure-img" style="width:45.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-ttr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.13: Transtyretin (TTR) är byggt av fyra likadana kedjor (fyra färger). I mitten, där kedjorna möts, sitter två molekyler av läkemedlet tafamidis (små pinnmodeller). De håller ihop enheten så att den inte faller isär i lösa kedjor som kan bilda fibrer. Bild efter strukturen PDB 6E6Z (Saelices m.fl.), Wikimedia Commons, allmän egendom.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l15-als" class="level2" data-number="15.8">
+<h2 data-number="15.8" class="anchored" data-anchor-id="sec-l15-als"><span class="header-section-number">15.8</span> ALS och SOD1</h2>
+<p>Resten av kapitlet handlar främst om ALS. Forskningen om proteinet SOD1 har gett en ovanligt detaljerad bild av hur en felveckningssjukdom uppstår och fortskrider.</p>
+<p><strong>ALS</strong>, amyotrofisk lateralskleros, är en sjukdom där de nervceller som styr musklerna, <strong>motorneuronen</strong>, dör. Motorneuronen finns i hjärnan och ryggmärgen och sänder signaler ut till kroppens muskler. När de dör förtvinar musklerna, och den drabbade får allt svårare att gå, använda händerna, tala, svälja och till sist andas. Sinnena finns kvar, och tankeförmågan är ofta opåverkad, men en del drabbas också av förändringar i tänkande och beteende. Sjukdomen är ovanlig och debuterar oftast i 50- till 70-årsåldern. Förloppet varierar mycket mellan olika personer, men för många är det bara några år från de första symtomen till döden. En del lever betydligt längre.</p>
+<p>Sjukdomen beskrevs av franska läkare redan vid mitten av 1800-talet. En av dem, François-Amilcar Aran, skrev 1848 om en sjukdom i nervsystemet där “muskulaturen förtvinar lite i taget och kan försvinna helt”. Den franske neurologen Jean-Martin Charcot beskrev sjukdomen noggrant från 1869 och gav den på 1870-talet dess namn.</p>
+<p>Sjukdomen kan se olika ut. Hos en del börjar den i armarna, hos andra i benen eller i musklerna som styr tal och sväljning. Det har gett upphov till en mängd namn, som “slappa armar-syndromet”.</p>
+<p>Omkring en av tio med ALS har en ärftlig form. 1993 upptäckte man att en del av de ärftliga fallen beror på mutationer i genen för <strong>SOD1</strong>, det enzym som oskadliggör syreradikaler och som vi lärde känna i <a href="14-proteinveckning.html#sec-l14-sod1" class="quarto-xref"><span>Avsnitt 14.3</span></a>. I dag är mer än 200 olika ALS-mutationer i SOD1 kända, och de finns utspridda över hela proteinet. I Sverige och Finland är en särskild mutation, där aminosyra nummer 90 har bytts ut, relativt vanlig. Den brukar kallas D90A.</p>
+<section id="sec-l15-sod1-mutationer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l15-sod1-mutationer">Vad gör mutationerna?</h3>
+<p>Länge trodde man att mutationerna skadade SOD1:s förmåga att ta hand om syreradikaler. Men så är det inte. Många muterade varianter fungerar bra som enzym, och möss som helt saknar SOD1 får inte ALS. Problemet är i stället att de muterade proteinerna lättare veckar sig fel och klumpar ihop sig. I ryggmärgen hos ALS-patienter med SOD1-mutation hittar man klumpar av SOD1 inuti motorneuronen.</p>
+<p>Flera faktorer påverkar hur lätt SOD1 klumpar ihop sig:</p>
+<ul>
+<li><strong>Stabiliteten.</strong> Många mutationer gör proteinet mindre stabilt, så att en större andel av molekylerna är oveckade (<a href="14-proteinveckning.html#sec-l14-stabilitet" class="quarto-xref"><span>Avsnitt 14.2.1</span></a>).</li>
+<li><strong>Metallerna.</strong> Koppar- och zinkjonerna gör det färdiga proteinet mycket stabilt. Mutationer som försämrar metallbindningen gör det skörare.</li>
+<li><strong>Klibbiga delar av kedjan.</strong> Vissa delar av SOD1-kedjan har särskilt lätt att bilda fibrer när de ligger fria.</li>
+<li><strong>Laddningen.</strong> Som vi såg i <a href="14-proteinveckning.html#sec-l14-ytan" class="quarto-xref"><span>Avsnitt 14.5</span></a> minskar många ALS-mutationer proteinets negativa laddning, så att molekylerna stöter bort varandra mindre.</li>
+</ul>
+<p>Den kunskapen har redan lett till behandling. Sedan några år finns ett läkemedel för just den form av ALS som beror på SOD1-mutationer. Det består av en kort, konstgjord nukleinsyrebit som minskar nervcellernas tillverkning av SOD1. Hos en del patienter kan det bromsa förloppet. Att minska mängden av det felveckningsbenägna proteinet är alltså en framkomlig väg, men det är ingen bot.</p>
+</section>
+</section>
+<section id="sec-l15-moss" class="level2" data-number="15.9">
+<h2 data-number="15.9" class="anchored" data-anchor-id="sec-l15-moss"><span class="header-section-number">15.9</span> Vad ALS-mössen har lärt oss</h2>
+<p>Mycket av det vi vet om hur ALS fortskrider kommer från försök med <strong>transgena</strong> möss, möss som fått en mänsklig SOD1-gen med en ALS-mutation. Mössen utvecklar en sjukdom som liknar ALS, och genom att jämföra möss med olika mutationer har svenska forskargrupper, bland andra Mikael Olivebergs, kunnat besvara flera viktiga frågor.</p>
+<p><strong>Mängden oveckat protein avgör.</strong> Hur länge en mus lever beror på hur mycket <em>oveckat</em> SOD1 som finns i dess nervvävnad. Den mängden beror i sin tur på två saker: hur instabil mutationen gör proteinet och hur mycket SOD1 musen tillverkar. När man räknade ut mängden oveckat SOD1 för varje musstam och jämförde med hur länge mössen levde, låg punkterna nästan på en rät linje. Ju mer oveckat protein, desto kortare liv. Även möss som fick stora mängder vanligt, omuterat mänskligt SOD1 hamnade på samma linje. Det är alltså mängden oveckat protein som avgör, inte mutationen i sig. Den svenska mutationen D90A hörde till dem som gav längst livslängd.</p>
+<p><strong>Aggregaten växer exponentiellt.</strong> Proteinklumparna kallas ofta <strong>aggregat</strong>. Med antikroppar som bara känner igen felveckat SOD1 kan man se aggregaten i vävnaden och mäta hur mycket det finns. Mängden ökar exponentiellt under musens hela liv, från de första veckorna till det sista sjukdomsstadiet, precis som fibrerna i provröret när de bryts och bildar nya frön.</p>
+<p><strong>Det finns två sorters aggregat.</strong> En överraskning var att SOD1-aggregaten i mössen förekommer i två olika former, som forskarna kallar typ A och typ B. I de två formerna är det olika delar av SOD1-kedjan som bildar fiberns stomme. Strukturer bestämda med kryoelektronmikroskopi (kryo-EM, se <a href="06-enskilda-molekyler.html" class="quarto-xref"><span>Kapitel 6</span></a>) har senare bekräftat att SOD1 kan bilda fibrer med olika byggnad.</p>
+<p><strong>Formen avgör förloppet.</strong> Möss med aggregat av typ A blir sjuka snabbare än möss med typ B. Förklaringen verkar vara att typ A är sprödare. När aggregaten utsätts för påfrestningar går typ A lättare sönder, och varje bit blir ett nytt frö som kan växa och sprida sig (<a href="#fig-l15-stammar" class="quarto-xref">Figur&nbsp;<span>15.14</span></a>).</p>
+<div id="fig-l15-stammar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-stammar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/als-stammar.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-stammar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.14: De två sorternas SOD1-aggregat i ALS-möss. Typ A är spröd och går lätt sönder i många små bitar, som alla blir nya frön. Det ger ett snabbt förlopp. Typ B är segare, bildar färre frön och ger ett långsammare förlopp. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p><strong>Aggregaten kan föra sjukdomen vidare.</strong> När små mängder aggregat från sjuka möss eller från avlidna ALS-patienter sprutades in i ryggmärgen på möss, startade de en ALS-liknande sjukdom. Aggregat av typ A gav nya aggregat av typ A, och typ B gav typ B. Aggregaten förde alltså sin form vidare, precis som prioner. Det liknar hur prionsjukdomar hos djur finns i olika “stammar” med olika förlopp. Fibrer som tillverkats i provrör gav däremot upphov till en helt ny form. Det visar att miljön i kroppen påverkar vilken form aggregaten får, och att det som bildas i ett provrör inte alltid är detsamma som det som bildas i en levande organism.</p>
+<p>Försöken handlar om möss och om sjukdomen i ryggmärgen, där forskarna har sprutat in aggregat direkt. De betyder inte att ALS smittar mellan människor, och det finns inget som tyder på det. Men de visar att de felveckade proteinerna kan sprida sig inom nervsystemet på ett prionliknande sätt.</p>
+</section>
+<section id="sec-l15-alder" class="level2" data-number="15.10">
+<h2 data-number="15.10" class="anchored" data-anchor-id="sec-l15-alder"><span class="header-section-number">15.10</span> Varför insjuknar man först vid 50?</h2>
+<p>En gåta återstår. Den som ärvt en SOD1-mutation har haft det muterade proteinet i sina celler sedan födseln. Ändå blir de flesta sjuka först i femtio- eller sextioårsåldern, och en del blir det aldrig. Samma sak gäller Skelleftesjukan och de ärftliga formerna av Alzheimers sjukdom. Varför tar det så lång tid?</p>
+<p>En förklaring är att sjukdomen beror på en balans mellan två faktorer (<a href="#fig-l15-alder" class="quarto-xref">Figur&nbsp;<span>15.15</span></a>). Den ena är hur mycket felveckat protein som bildas. Den andra är cellens förmåga att kompensera: chaperoner, nedbrytning och borttransport av felveckade proteiner. Så länge skyddet räcker märks ingenting. Men med åldern försämras cellernas kvalitetskontroll. Samtidigt växer aggregaten långsamt men exponentiellt. Till slut tippar balansen, och nervcellerna börjar dö.</p>
+<div id="fig-l15-alder" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l15-alder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L15/balans-alder.svg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l15-alder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;15.15: Principskiss över varför proteinsjukdomar ofta debuterar sent i livet. Cellens förmåga att ta hand om felveckade proteiner (grön) avtar med åldern, medan mängden felveckat protein (röd) ökar. När kurvorna möts tippar balansen och sjukdomen bryter ut. Skissen visar principen, inte uppmätta värden. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Det exponentiella förloppet förklarar också varför sjukdomen kan pågå länge utan symtom och sedan tycks gå fort. Med ränta på ränta är beloppet länge litet, för att sedan växa snabbt. Det gör det viktigt att förstå de tidiga stegen. Om man kan stabilisera proteinet, minska tillverkningen av det eller hindra fibrerna från att brytas och spridas, kan man kanske skjuta upp sjukdomen. Läkemedlen mot Skelleftesjukan och mot SOD1-formen av ALS visar att sådana vägar redan fungerar delvis. AI-verktyg som kan förutsäga proteiners form (<a href="16-ai-och-proteiner.html" class="quarto-xref"><span>Kapitel 16</span></a>) är ett nytt hjälpmedel i jakten på fler.</p>
+</section>
+<section id="sec-l15-sammanfattning" class="level2" data-number="15.11">
+<h2 data-number="15.11" class="anchored" data-anchor-id="sec-l15-sammanfattning"><span class="header-section-number">15.11</span> Sammanfattning</h2>
+<ul>
+<li>Vid Alzheimers sjukdom, Parkinsons sjukdom, ALS, prionsjukdomar och Skelleftesjukan veckas ett protein fel och klumpar ihop sig, ofta till långa amyloida fibrer.</li>
+<li>Veckning och felveckning drivs av samma krafter. Oveckade kedjor med öppna vattenskygga delar kan fastna i varandra i stället för att vecka sig rätt. Cellens skyddssystem tar hand om det mesta.</li>
+<li>Fibrer bildas efter en fördröjning men växer sedan exponentiellt, eftersom varje gång en fiber bryts bildas två nya växande ändar. Färdiga fibrer kan fungera som frön.</li>
+<li>Prioner är felveckade proteiner som omvandlar normala proteiner till sin egen form och kan smitta, till exempel via mat (galna ko-sjukan) eller rituella måltider (kuru).</li>
+<li>Vid ALS med SOD1-mutation avgör mängden oveckat SOD1 hur snabbt sjukdomen går. Aggregaten finns i olika former, och de spröda formerna sprider sig snabbast.</li>
+<li>Sjukdomarna debuterar ofta sent eftersom cellens skydd avtar med åldern medan aggregaten långsamt växer.</li>
+<li>Kunskap om proteinernas stabilitet har lett till behandlingar som stabiliserar proteinet eller minskar tillverkningen av det. De kan bromsa några av sjukdomarna, men ingen av dem botar.</li>
+</ul>
+</section>
+<section id="sec-l15-nyckelbegrepp" class="level2" data-number="15.12">
+<h2 data-number="15.12" class="anchored" data-anchor-id="sec-l15-nyckelbegrepp"><span class="header-section-number">15.12</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>felveckning</strong> – När en proteinkedja viker sig fel och i stället för att bli ett fungerande protein klumpar ihop sig med andra kedjor.</li>
+<li><strong>amyloid</strong> – Långa, tunna och mycket stabila proteinfibrer, där tusentals kedjor ligger staplade som platta band. Finns vid bland annat Alzheimers sjukdom och prionsjukdomar.</li>
+<li><strong>plack</strong> – En stor ansamling av amyloida fibrer i vävnaden, till exempel mellan nervcellerna vid Alzheimers sjukdom.</li>
+<li><strong>ympning</strong> – När färdiga fiberbitar, frön, tillsätts och får nya fibrer att växa utan fördröjning (eng. seeding).</li>
+<li><strong>fragmentering</strong> – När fibrer bryts av. Varje bit får nya ändar som kan växa, vilket gör att mängden fibrer ökar exponentiellt.</li>
+<li><strong>amyloid-beta (Aβ)</strong> – En bit av proteinet APP, omkring 40 aminosyror lång, som klipps ut från nervcellernas membran och bildar placken vid Alzheimers sjukdom.</li>
+<li><strong>tau</strong> – Ett protein som normalt stabiliserar nervcellernas inre skelett, men som vid Alzheimers sjukdom bildar nystan inuti nervcellerna.</li>
+<li><strong>α-synuklein</strong> – Ett litet protein i nervcellerna som klumpar ihop sig i Lewykroppar vid Parkinsons sjukdom.</li>
+<li><strong>prion</strong> – Ett felveckat protein som kan omvandla normala exemplar av samma protein till sin egen form och därmed föröka sig och smitta.</li>
+<li><strong>PrP</strong> – Prionproteinet, som normalt sitter på nervcellernas yta. Den felveckade, sjukdomsframkallande formen kallas prion.</li>
+<li><strong>Creutzfeldt-Jakobs sjukdom</strong> – Den vanligaste prionsjukdomen hos människa. Mycket sällsynt; den uppstår oftast utan känd orsak.</li>
+<li><strong>transtyretin (TTR)</strong> – Ett protein från levern som transporterar sköldkörtelhormon och A-vitamin i blodet. En mutation i TTR orsakar Skelleftesjukan.</li>
+<li><strong>ALS</strong> – Amyotrofisk lateralskleros, en sjukdom där de nervceller som styr musklerna (motorneuronen) dör, så att musklerna försvagas och förtvinar.</li>
+<li><strong>motorneuron</strong> – En nervcell i hjärnan eller ryggmärgen som skickar signaler till kroppens muskler.</li>
+<li><strong>stam (av aggregat)</strong> – En bestämd form av proteinaggregat som förs vidare när aggregatet sprider sig. Olika stammar kan ge olika snabba sjukdomsförlopp.</li>
+<li><strong>transgen mus</strong> – En mus som fått en främmande gen, till exempel mänskligt SOD1 med en ALS-mutation, för att forskare ska kunna studera en sjukdom.</li>
+</ul>
+</section>
+<section id="sec-l15-testa" class="level2" data-number="15.13">
+<h2 data-number="15.13" class="anchored" data-anchor-id="sec-l15-testa"><span class="header-section-number">15.13</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L15"></div>
+<script>
+renderQuiz("quiz-L15", [
+ {
+  "question": "Vad har Alzheimers sjukdom, Parkinsons sjukdom och ALS gemensamt på molekylär nivå?",
+  "choices": [
+   "Ett protein veckas fel och klumpar ihop sig i nervsystemet",
+   "De orsakas alla av samma virus",
+   "De beror alla på brist på ett vitamin",
+   "De orsakas alla av samma protein"
+  ],
+  "correctIndex": 0,
+  "explanation": "Proteinerna är olika (Aβ, α-synuklein, SOD1 med flera), men mekanismen liknar varandra: felveckning och klumpning."
+ },
+ {
+  "question": "Varför kan veckning och felveckning sägas vara två sidor av samma fenomen?",
+  "choices": [
+   "Båda drivs av att vattenskygga delar dras till varandra och vätebindningar matchas, inom en kedja eller mellan kedjor",
+   "Båda sker bara i döda celler",
+   "Båda kräver ett särskilt enzym",
+   "Felveckning är bara veckning som går långsammare"
+  ],
+  "correctIndex": 0,
+  "explanation": "Samma krafter verkar. I veckning håller de ihop en kedja, i felveckning håller de ihop flera kedjor."
+ },
+ {
+  "question": "Varför försvinner fördröjningen när man tillsätter färdiga fiberbitar (frön)?",
+  "choices": [
+   "Det svåraste steget, att bilda den första kärnan, behöver inte längre ske",
+   "Fröna bryter ned de normala proteinerna",
+   "Fröna gör lösningen varmare",
+   "Fröna innehåller DNA som styr fiberbildningen"
+  ],
+  "correctIndex": 0,
+  "explanation": "Nya kedjor kan direkt läggas till i ändarna på fröna, så den långsamma kärnbildningen hoppas över."
+ },
+ {
+  "question": "Varför växer mängden fibrer exponentiellt när fibrerna bryts sönder?",
+  "choices": [
+   "Varje brott ger två nya ändar som båda kan växa, så antalet växande fibrer ökar hela tiden",
+   "Fibrerna blir mindre stabila och löses upp",
+   "Brotten gör proteinet stabilare",
+   "Fibrerna slutar växa när de bryts"
+  ],
+  "correctIndex": 0,
+  "explanation": "Fler ändar ger fler växande fibrer, som i sin tur bryts. Det blir som ränta på ränta."
+ },
+ {
+  "question": "Hur bildas amyloid-beta vid Alzheimers sjukdom?",
+  "choices": [
+   "Enzymer klipper ut biten ur det större membranproteinet APP",
+   "Det tillverkas direkt av ribosomen som ett eget protein",
+   "Det kommer från maten",
+   "Det är en del av DNA"
+  ],
+  "correctIndex": 0,
+  "explanation": "Aβ är en bit av APP som delvis sitter i membranet. När den klipps loss blir den ett fett fragment som klibbar ihop till fibrer."
+ },
+ {
+  "question": "Vad gör ett prion annorlunda än andra felveckade proteiner?",
+  "choices": [
+   "Det kan tvinga normala exemplar av samma protein in i den felveckade formen och kan smitta",
+   "Det innehåller egen arvsmassa i form av DNA",
+   "Det är ett virus",
+   "Det är aldrig farligt"
+  ],
+  "correctIndex": 0,
+  "explanation": "Prionet fungerar som mall och omvandlar normalt PrP. Det saknar arvsmassa, vilket var en stor överraskning."
+ },
+ {
+  "question": "Hur spreds galna ko-sjukan mellan korna?",
+  "choices": [
+   "Genom djurfoder med kött- och benmjöl från slaktade djur",
+   "Genom luften i ladugården",
+   "Genom mygg",
+   "Genom dricksvattnet"
+  ],
+  "correctIndex": 0,
+  "explanation": "Fodret innehöll prioner från smittade djur. Förbud mot sådant foder har gjort sjukdomen mycket sällsynt."
+ },
+ {
+  "question": "Varför hjälpte levertransplantation patienter med Skelleftesjukan?",
+  "choices": [
+   "Transtyretin tillverkas i levern, och den nya levern tillverkar normalt protein",
+   "Levern bryter ned amyloid i hjärnan",
+   "Den nya levern tillverkar mer SOD1",
+   "Transplantationen tar bort alla nerver som är skadade"
+  ],
+  "correctIndex": 0,
+  "explanation": "Det felveckningsbenägna proteinet kommer från levern. Med en ny lever slutar kroppen tillverka det muterade TTR."
+ },
+ {
+  "question": "Vad visade försöken med ALS-möss om sambandet mellan SOD1 och sjukdomens förlopp?",
+  "choices": [
+   "Ju mer oveckat SOD1 i nervvävnaden, desto kortare liv",
+   "Möss utan SOD1 får svårast ALS",
+   "Förloppet beror bara på hur väl enzymet tar hand om syreradikaler",
+   "Det finns inget samband mellan SOD1 och sjukdomen"
+  ],
+  "correctIndex": 0,
+  "explanation": "Mängden oveckat SOD1 beror på mutationens stabilitet och mängden protein, och den förutsade mössens livslängd mycket väl."
+ },
+ {
+  "question": "Varför ger aggregat av typ A ett snabbare förlopp än typ B i ALS-mössen?",
+  "choices": [
+   "Typ A är sprödare och går lättare sönder, så det bildas fler frön som sprider sig",
+   "Typ A består av ett annat protein än SOD1",
+   "Typ A bryts ned snabbare av cellen",
+   "Typ A finns bara i levern"
+  ],
+  "correctIndex": 0,
+  "explanation": "Fler bitar ger fler växande ändar och snabbare spridning."
+ },
+ {
+  "question": "Varför insjuknar många med ärftliga proteinsjukdomar först i medelåldern, trots att det muterade proteinet funnits sedan födseln?",
+  "choices": [
+   "Cellens förmåga att ta hand om felveckade proteiner avtar med åldern, medan aggregaten långsamt växer",
+   "Mutationen uppstår först vid 50 års ålder",
+   "Proteinet tillverkas inte förrän i vuxen ålder",
+   "Kroppen slutar helt tillverka chaperoner vid 50"
+  ],
+  "correctIndex": 0,
+  "explanation": "Det är en balans. När skyddet försvagas och aggregaten vuxit tillräckligt tippar balansen."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>15.1</strong> Förklara med egna ord hur en liten mängd prioner kan omvandla stora mängder normalt protein.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Prionet är en felveckad form av proteinet PrP, hopklumpad till fibrer. När ett normalt PrP-protein stöter på änden av en sådan fiber kan det tvingas in i samma felveckade form och fogas till fibern. Fibern växer alltså genom att använda normalt protein som byggmaterial. När fibern bryts får varje bit nya ändar som kan växa, och bitarna kan sprida sig vidare. Antalet växande fibrer ökar därför exponentiellt, och med tiden kan en liten startmängd omvandla stora mängder protein.</p>
+</div>
+</div>
+</div>
+<p><strong>15.2</strong> Läkemedlet mot Skelleftesjukan binder till transtyretin och gör det stabilare. Varför kan det hjälpa? Koppla till begreppet stabilitet.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ett protein pendlar mellan veckat och oveckat tillstånd, och det är de oveckade eller isärfallna kedjorna som kan bilda fibrer. Vid Skelleftesjukan gör mutationen att TTR:s fyrkedjeenhet lättare faller isär. Om läkemedlet håller ihop enheten blir färre kedjor fria, och färre kan veckla upp sig och klumpa ihop sig. Det är samma princip som i ALS-mössen, där mängden oveckat protein avgjorde förloppet.</p>
+</div>
+</div>
+</div>
+<p><strong>15.3</strong> Vilka faktorer påverkar hur lätt SOD1 klumpar ihop sig, och hur hänger de ihop med ALS-mutationerna?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Stabiliteten avgör hur stor andel av molekylerna som är oveckade, och många ALS-mutationer gör proteinet mindre stabilt. Koppar- och zinkjonerna stabiliserar proteinet, så mutationer som försämrar metallbindningen gör det skörare. Vissa delar av kedjan är särskilt klibbiga när de ligger fria. Dessutom minskar många mutationer proteinets negativa laddning, så att molekylerna stöter bort varandra mindre. Även hur mycket SOD1 som tillverkas spelar in.</p>
+</div>
+</div>
+</div>
+<p><strong>15.4</strong> Försöken med ALS-möss visar att aggregat kan föras vidare genom injektion. Betyder det att ALS smittar? Resonera.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Nej, inte mellan människor i vanlig mening. I försöken sprutades aggregat direkt in i ryggmärgen på möss, ofta möss som redan var mottagliga. Det finns inga tecken på att ALS sprids mellan människor. Det försöken visar är att felveckade proteiner kan fungera som frön och föra sin form vidare, på ett sätt som liknar prioner. Det är troligen så sjukdomen sprider sig inom nervsystemet hos den som är sjuk, från cell till cell, och det förklarar varför den börjar på ett ställe och sedan breder ut sig.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l15-las-mer" class="level2" data-number="15.14">
+<h2 data-number="15.14" class="anchored" data-anchor-id="sec-l15-las-mer"><span class="header-section-number">15.14</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Amyotrofisk_lateralskleros">Amyotrofisk lateralskleros</a>, <a href="https://sv.wikipedia.org/wiki/Alzheimers_sjukdom">Alzheimers sjukdom</a>, <a href="https://sv.wikipedia.org/wiki/Parkinsons_sjukdom">Parkinsons sjukdom</a> och <a href="https://sv.wikipedia.org/wiki/Prion">Prion</a> på svenska Wikipedia.</li>
+<li><a href="https://en.wikipedia.org/wiki/Kuru_(disease)">Kuru</a> på engelska Wikipedia, med sjukdomens historia och källor. Collinge m.fl., “Kuru in the 21st century – an acquired human prion disease with very long incubation periods”, <em>The Lancet</em> 367:2068 (2006), om de sista fallen.</li>
+<li><a href="https://sv.wikipedia.org/wiki/Skelleftesjukan">Skelleftesjukan</a> (ärftlig transtyretinamyloidos) på svenska Wikipedia.</li>
+<li><a href="https://pdb101.rcsb.org/motm/189">Amyloids</a> och <a href="https://pdb101.rcsb.org/motm/101">Prions</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), med bilder av David S. Goodsell.</li>
+<li><a href="https://www.nobelprize.org/prizes/medicine/1997/summary/">Nobelpriset i fysiologi eller medicin 1997</a>, till Stanley Prusiner för upptäckten av prioner (på engelska).</li>
+<li><a href="https://en.wikipedia.org/wiki/Amyloid">Amyloid</a> på engelska Wikipedia, om hur amyloida fibrer är uppbyggda.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/14-proteinveckning.html" class="pagination-link" aria-label="Proteiners veckning">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/16-ai-och-proteiner.html" class="pagination-link" aria-label="Vad kan AI lära oss om proteiner?">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 480" width="940" height="480">
+<defs><marker id="ah3b6ea8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6ea8"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="230" y="29.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">Litet protein</text>
+<ellipse cx="230" cy="215" rx="150" ry="105" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<ellipse cx="230" cy="100" rx="120" ry="45" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2"/>
+<path d="M30,120 L430,120" stroke="#7a4f9a" stroke-width="4" fill="none"/>
+<text x="34" y="140.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#7a4f9a">mRNA</text>
+<path d="M221,150 L221,320 L239,320 L239,150 Z" fill="white" stroke="#3b6ea8" stroke-width="1.5"/>
+<polyline points="230.0,150.0 234.8,156.0 232.6,162.0 226.6,168.0 225.6,174.0 231.1,180.0 235.0,186.0 231.6,192.0 225.9,198.0 226.2,204.0 232.1,210.0 234.9,216.0 230.5,222.0 225.4,228.0 227.0,234.0 233.0,240.0 234.6,246.0 229.5,252.0 225.1,258.0 227.9,264.0 233.8,270.0 234.1,276.0 228.4,282.0 225.0,288.0 228.9,294.0 234.4,300.0" fill="none" stroke="#b5443b" stroke-width="3"/>
+<circle cx="230" cy="322" r="20" fill="#f4d4d0" stroke="#b5443b" stroke-width="2.5"/>
+<text x="230" y="325.9" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" fill="#222222">veckat</text>
+<path d="M400,150 L400,320" stroke="#222222" stroke-width="1.5"/>
+<path d="M393,150 L407,150 M393,320 L407,320" stroke="#222222" stroke-width="1.5"/>
+<text x="412" y="188.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#222222">tunneln:</text>
+<text x="412" y="204.0" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#222222">ca 10 nm,</text>
+<text x="412" y="219.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#222222">30–40</text>
+<text x="412" y="235.2" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#222222">amino-</text>
+<text x="412" y="250.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#222222">syror</text>
+<text x="230" y="396.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">Ett litet protein kan vecka sig redan</text>
+<text x="230" y="413.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">i tunnelns mynning, inne i ribosomen.</text>
+<text x="230" y="452.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">Hit når inga chaperoner.</text>
+<text x="700" y="29.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">Större protein</text>
+<ellipse cx="700" cy="215" rx="150" ry="105" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<ellipse cx="700" cy="100" rx="120" ry="45" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2"/>
+<path d="M500,120 L900,120" stroke="#7a4f9a" stroke-width="4" fill="none"/>
+<text x="504" y="140.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#7a4f9a">mRNA</text>
+<path d="M691,150 L691,320 L709,320 L709,150 Z" fill="white" stroke="#3b6ea8" stroke-width="1.5"/>
+<polyline points="700.0,150.0 704.8,156.0 702.6,162.0 696.6,168.0 695.6,174.0 701.1,180.0 705.0,186.0 701.6,192.0 695.9,198.0 696.2,204.0 702.1,210.0 704.9,216.0 700.5,222.0 695.4,228.0 697.0,234.0 703.0,240.0 704.6,246.0 699.5,252.0 695.1,258.0 697.9,264.0 703.8,270.0 704.1,276.0 698.4,282.0 695.0,288.0 698.9,294.0 704.4,300.0 703.4,306.0 697.4,312.0 695.2,318.0" fill="none" stroke="#b5443b" stroke-width="3"/>
+<path d="M700,318 Q710,345 740,350" stroke="#b5443b" stroke-width="3" fill="none"/>
+<ellipse cx="785" cy="350" rx="45" ry="30" fill="#f4d4d0" stroke="#b5443b" stroke-width="2.5"/>
+<text x="785" y="347.0" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#222222">början</text>
+<text x="785" y="361.4" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#222222">veckad</text>
+<text x="836" y="354.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#b5443b">N-änden</text>
+<text x="760" y="189.0" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#3b6ea8">här kopplas</text>
+<text x="760" y="204.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#3b6ea8">nya amino-</text>
+<text x="760" y="220.2" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#3b6ea8">syror på</text>
+<path d="M756,185 L714,154" fill="none" stroke="#3b6ea8" stroke-width="2" marker-end="url(#ah3b6ea8)"/>
+<text x="700" y="408.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">Början av kedjan kommer ut först och kan</text>
+<text x="700" y="425.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">vecka sig innan slutet är tillverkat.</text>
+</svg>
