@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 580" width="960" height="580">
+<defs><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="480" y="28.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">En signalpeptid för det endoplasmatiska nätverket</text>
+<rect x="120" y="90" width="90" height="34" rx="3" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="210" y="90" width="230" height="34" rx="3" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="440" y="90" width="90" height="34" rx="3" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<path d="M530,107 L820,107" fill="none" stroke="#222222" stroke-width="4" stroke-linecap="round"/>
+<text x="165" y="113.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#3b6ea8">+ +</text>
+<text x="325" y="112.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">vattenskygg (hydrofob)</text>
+<text x="485" y="112.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">polär</text>
+<text x="165" y="148.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#3b6ea8">positivt laddad</text>
+<text x="325" y="148.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#d9822b">ca 7–15 aminosyror</text>
+<text x="485" y="148.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#4a8c4a">små aminosyror</text>
+<text x="680" y="93.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">det färdiga proteinet</text>
+<path d="M532,60 L532,87" fill="none" stroke="#b5443b" stroke-width="2.5" marker-end="url(#ahb5443b)"/>
+<text x="532" y="54.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#b5443b">klipps här</text>
+<text x="90" y="112.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">N</text>
+<rect x="15" y="170" width="225" height="395" rx="8" fill="#fbfbfb" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="127.5" y="194.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">1. SRP känner igen</text>
+<text x="127.5" y="212.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">signalpeptiden</text>
+<rect x="15" y="430" width="225" height="34" rx="0" fill="#e3d7c3" stroke="#a08a68" stroke-width="1.5"/>
+<text x="23" y="422.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">cellvätska</text>
+<text x="23" y="494.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">ER:s insida</text>
+<rect x="97.5" y="426" width="22" height="42" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<rect x="135.5" y="426" width="22" height="42" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<path d="M25,270 L230,270" fill="none" stroke="#b5443b" stroke-width="2" stroke-linecap="round"/>
+<ellipse cx="107.5" cy="276.6" rx="23.400000000000002" ry="13.5" fill="#c9c9c9" stroke="#777" stroke-width="1.5"/>
+<ellipse cx="107.5" cy="300" rx="30.6" ry="18.0" fill="#b5b5b5" stroke="#777" stroke-width="1.5"/>
+<path d="M117.5,316 q12,25 4,46" fill="none" stroke="#d9822b" stroke-width="4" stroke-linecap="round"/>
+<ellipse cx="151.5" cy="350" rx="26" ry="16" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="2"/>
+<text x="151.5" y="354.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#4a8c4a">SRP</text>
+<text x="35" y="262.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#b5443b">mRNA</text>
+<rect x="167.5" y="408" width="20" height="20" rx="4" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="177.5" y="401.9" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" fill="#4a8c4a">receptor</text>
+<rect x="255" y="170" width="225" height="395" rx="8" fill="#fbfbfb" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="367.5" y="194.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">2. SRP binder till sin</text>
+<text x="367.5" y="212.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">receptor på ER</text>
+<rect x="255" y="430" width="225" height="34" rx="0" fill="#e3d7c3" stroke="#a08a68" stroke-width="1.5"/>
+<text x="263" y="422.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">cellvätska</text>
+<text x="263" y="494.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">ER:s insida</text>
+<rect x="337.5" y="426" width="22" height="42" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<rect x="375.5" y="426" width="22" height="42" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<path d="M265,374 L470,374" fill="none" stroke="#b5443b" stroke-width="2" stroke-linecap="round"/>
+<ellipse cx="367.5" cy="380.6" rx="23.400000000000002" ry="13.5" fill="#c9c9c9" stroke="#777" stroke-width="1.5"/>
+<ellipse cx="367.5" cy="404" rx="30.6" ry="18.0" fill="#b5b5b5" stroke="#777" stroke-width="1.5"/>
+<ellipse cx="419.5" cy="398" rx="24" ry="15" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="2"/>
+<text x="419.5" y="402.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#4a8c4a">SRP</text>
+<rect x="407.5" y="408" width="20" height="20" rx="4" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<path d="M367.5,422 L367.5,440" fill="none" stroke="#d9822b" stroke-width="4" stroke-linecap="round"/>
+<text x="367.5" y="264.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" font-style="italic" fill="#4a8c4a">GTP används</text>
+<rect x="495" y="170" width="225" height="395" rx="8" fill="#fbfbfb" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="607.5" y="194.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">3. Kedjan förs in</text>
+<text x="607.5" y="212.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">genom translokonet</text>
+<rect x="495" y="430" width="225" height="34" rx="0" fill="#e3d7c3" stroke="#a08a68" stroke-width="1.5"/>
+<text x="503" y="422.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">cellvätska</text>
+<text x="503" y="494.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">ER:s insida</text>
+<rect x="567.5" y="426" width="22" height="42" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<rect x="625.5" y="426" width="22" height="42" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<path d="M505,374 L710,374" fill="none" stroke="#b5443b" stroke-width="2" stroke-linecap="round"/>
+<ellipse cx="607.5" cy="380.6" rx="23.400000000000002" ry="13.5" fill="#c9c9c9" stroke="#777" stroke-width="1.5"/>
+<ellipse cx="607.5" cy="404" rx="30.6" ry="18.0" fill="#b5b5b5" stroke="#777" stroke-width="1.5"/>
+<path d="M607.5,422 L607.5,458" fill="none" stroke="#d9822b" stroke-width="4" stroke-linecap="round"/>
+<path d="M607.5,458 L609.5,470" fill="none" stroke="#d9822b" stroke-width="4" stroke-linecap="round"/>
+<path d="M607.5,422 M605.5,470 q-25,25 -5,45 q22,18 -2,40" fill="none" stroke="#3b6ea8" stroke-width="3" stroke-linecap="round"/>
+<text x="655.5" y="284.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" font-style="italic" fill="#4a8c4a">SRP släpper</text>
+<rect x="735" y="170" width="225" height="395" rx="8" fill="#fbfbfb" stroke="#eeeeee" stroke-width="1.5"/>
+<text x="847.5" y="194.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">4. Signalpeptidas klipper</text>
+<text x="847.5" y="212.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">bort signalpeptiden</text>
+<rect x="735" y="430" width="225" height="34" rx="0" fill="#e3d7c3" stroke="#a08a68" stroke-width="1.5"/>
+<text x="743" y="422.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">cellvätska</text>
+<text x="743" y="494.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">ER:s insida</text>
+<rect x="807.5" y="426" width="22" height="42" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<rect x="865.5" y="426" width="22" height="42" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<path d="M745,374 L950,374" fill="none" stroke="#b5443b" stroke-width="2" stroke-linecap="round"/>
+<ellipse cx="847.5" cy="380.6" rx="23.400000000000002" ry="13.5" fill="#c9c9c9" stroke="#777" stroke-width="1.5"/>
+<ellipse cx="847.5" cy="404" rx="30.6" ry="18.0" fill="#b5b5b5" stroke="#777" stroke-width="1.5"/>
+<path d="M831.5,432 L831.5,460" fill="none" stroke="#d9822b" stroke-width="4" stroke-linecap="round"/>
+<path d="M847.5,422 L847.5,470" fill="none" stroke="#3b6ea8" stroke-width="3" stroke-linecap="round"/>
+<path d="M847.5,470 q-30,10 -18,35 q20,22 30,0 q12,-22 -12,-35" fill="none" stroke="#3b6ea8" stroke-width="3"/>
+<text x="743" y="534.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#d9822b">bortklippt signalpeptid</text>
+<text x="743" y="549.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#d9822b">(bryts sedan ned)</text>
+<text x="869.5" y="501.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#3b6ea8">proteinet</text>
+<text x="869.5" y="517.3" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#3b6ea8">veckas</text>
+</svg>

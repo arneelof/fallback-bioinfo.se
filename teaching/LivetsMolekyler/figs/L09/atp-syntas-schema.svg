@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" width="860" height="600">
+<defs><marker id="ah4a8c4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a8c4a"/></marker><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker><marker id="ahd9822b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="40" y="380" width="780" height="70" rx="0" fill="#f6efc9" stroke="none" stroke-width="1.5"/>
+<circle cx="46" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="46" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="60" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="60" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="74" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="74" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="88" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="88" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="102" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="102" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="116" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="116" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="130" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="130" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="144" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="144" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="158" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="158" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="172" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="172" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="186" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="186" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="200" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="200" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="214" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="214" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="228" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="228" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="242" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="242" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="256" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="256" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="270" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="270" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="284" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="284" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="298" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="298" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="312" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="312" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="326" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="326" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="340" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="340" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="354" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="354" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="368" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="368" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="382" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="382" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="396" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="396" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="410" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="410" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="424" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="424" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="438" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="438" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="452" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="452" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="466" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="466" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="480" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="480" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="494" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="494" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="508" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="508" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="522" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="522" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="536" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="536" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="550" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="550" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="564" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="564" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="578" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="578" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="592" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="592" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="606" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="606" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="620" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="620" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="634" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="634" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="648" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="648" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="662" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="662" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="676" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="676" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="690" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="690" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="704" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="704" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="718" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="718" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="732" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="732" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="746" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="746" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="760" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="760" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="774" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="774" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="788" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="788" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="802" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="802" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="816" cy="384" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="816" cy="446" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<text x="60" y="365.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#666666">Mitokondriens insida (negativ sida)</text>
+<text x="60" y="565.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#666666">Utsidan (positiv sida, många protoner)</text>
+<rect x="330" y="378" width="18" height="74" rx="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="352" y="378" width="18" height="74" rx="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="374" y="378" width="18" height="74" rx="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="396" y="378" width="18" height="74" rx="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="418" y="378" width="18" height="74" rx="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="440" y="378" width="18" height="74" rx="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="462" y="378" width="18" height="74" rx="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="484" y="378" width="18" height="74" rx="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<rect x="410" y="250" width="24" height="130" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<ellipse cx="360" cy="175" rx="42" ry="82" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<ellipse cx="422" cy="175" rx="42" ry="82" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<ellipse cx="484" cy="175" rx="42" ry="82" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<ellipse cx="391" cy="160" rx="30" ry="72" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<ellipse cx="453" cy="160" rx="30" ry="72" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<rect x="512" y="376" width="50" height="80" rx="8" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="540" y="120" width="20" height="260" rx="8" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="470" y="90" width="90" height="26" rx="8" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<path d="M560,560 L545,462" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<path d="M470,392 Q469.2,356.0 440,335" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<text x="585" y="581.0" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#b5443b">H+ in</text>
+<text x="470" y="317.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#b5443b">H+ ut</text>
+<path d="M330,468 Q417.5,450.5 505,468" fill="none" stroke="#d9822b" stroke-width="3" marker-end="url(#ahd9822b)"/>
+<text x="420" y="510.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#d9822b">rotorn snurrar</text>
+<path d="M250,160 L305,160" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="190" y="165.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">ADP + fosfat</text>
+<path d="M300,205 L240,230" fill="none" stroke="#4a8c4a" stroke-width="2.5" marker-end="url(#ah4a8c4a)"/>
+<text x="215" y="251.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#4a8c4a">ATP</text>
+<text x="690" y="156.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#7a4f9a">Huvud: tre fabriker</text>
+<text x="690" y="175.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#7a4f9a">där ATP bildas</text>
+<path d="M615,160 L485,165" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#ah666666)"/>
+<text x="690" y="276.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#b5443b">Stator: håller</text>
+<text x="690" y="295.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#b5443b">huvudet stilla</text>
+<path d="M620,280 L562,280" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#ah666666)"/>
+<text x="700" y="496.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">a-delen: protonernas</text>
+<text x="700" y="514.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">väg in och ut</text>
+<path d="M640,485 L566,440" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#ah666666)"/>
+<text x="185" y="287.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#4a8c4a">Axel: roterar med</text>
+<text x="185" y="305.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#4a8c4a">ringen och vrider</text>
+<text x="185" y="323.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#4a8c4a">inuti huvudet</text>
+<path d="M270,300 L405,300" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#ah666666)"/>
+<text x="160" y="411.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#d9822b">Ring av c-delar</text>
+<text x="160" y="429.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#d9822b">(rotor)</text>
+<path d="M230,415 L325,415" fill="none" stroke="#666666" stroke-width="1.5" marker-end="url(#ah666666)"/>
+<text x="430" y="29.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#222222">ATP-syntas</text>
+</svg>

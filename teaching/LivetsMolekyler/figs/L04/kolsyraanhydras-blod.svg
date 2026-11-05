@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="900" height="430">
+<defs><marker id="ah3b6ea8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6ea8"/></marker><marker id="ah4a8c4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a8c4a"/></marker><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="230" y="28.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">I vävnaderna</text>
+<text x="680" y="28.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">I lungorna</text>
+<ellipse cx="230" cy="220" rx="150" ry="110" fill="#f4d4d0" stroke="#b5443b" stroke-width="2"/>
+<text x="230" y="316.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#b5443b">röd blodkropp</text>
+<text x="230" y="154.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#3b6ea8">kolsyraanhydras</text>
+<rect x="105" y="168" width="250" height="58" rx="6" fill="white" stroke="#3b6ea8" stroke-width="1.5"/>
+<ellipse cx="680" cy="220" rx="150" ry="110" fill="#f4d4d0" stroke="#b5443b" stroke-width="2"/>
+<text x="680" y="316.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#b5443b">röd blodkropp</text>
+<text x="680" y="154.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#3b6ea8">kolsyraanhydras</text>
+<rect x="555" y="168" width="250" height="58" rx="6" fill="white" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="230" y="193.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">koldioxid + vatten →</text>
+<text x="230" y="211.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">bikarbonat + vätejon</text>
+<text x="680" y="193.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">bikarbonat + vätejon →</text>
+<text x="680" y="211.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">koldioxid + vatten</text>
+<text x="230" y="259.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">vätejonerna gör att hemoglobinet</text>
+<text x="230" y="279.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">släpper sitt syre</text>
+<text x="680" y="259.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">hemoglobinet tar</text>
+<text x="680" y="279.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">upp nytt syre</text>
+<text x="60" y="59.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">koldioxid från</text>
+<text x="60" y="79.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">förbränningen</text>
+<path d="M75,90 L140,172" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<path d="M140,300 L75,370" fill="none" stroke="#4a8c4a" stroke-width="2.5" marker-end="url(#ah4a8c4a)"/>
+<text x="80" y="396.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#4a8c4a">syre till vävnaden</text>
+<path d="M357,197 L553,197" fill="none" stroke="#3b6ea8" stroke-width="3" marker-end="url(#ah3b6ea8)"/>
+<text x="455" y="125.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">bikarbonat förs med</text>
+<text x="455" y="145.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">blodet till lungorna</text>
+<path d="M770,172 L830,90" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="820" y="74.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">koldioxid andas ut</text>
+<path d="M830,370 L770,300" fill="none" stroke="#4a8c4a" stroke-width="2.5" marker-end="url(#ah4a8c4a)"/>
+<text x="820" y="396.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#4a8c4a">syre från luften</text>
+<text x="450" y="426.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">Samma enzym skyndar på reaktionen åt båda hållen.</text>
+</svg>
