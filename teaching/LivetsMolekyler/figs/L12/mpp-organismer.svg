@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 450" width="960" height="450">
+<defs></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="480" y="30.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">Saxen MPP sitter på olika ställen hos olika organismer</text>
+<text x="165" y="67.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Växter</text>
+<text x="165" y="82.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#666666">(spenat, potatis, vete)</text>
+<rect x="20" y="130" width="290" height="40" rx="0" fill="#e3d7c3" stroke="#a08a68" stroke-width="1.5"/>
+<text x="26" y="107.0" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">mellanmembran-</text>
+<text x="26" y="121.4" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">utrymmet</text>
+<text x="265" y="147.0" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#6d5a3d">inre</text>
+<text x="265" y="161.4" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#6d5a3d">membranet</text>
+<text x="26" y="424.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#666666">matrix</text>
+<rect x="140" y="100" width="70" height="120" rx="10" fill="#f8e1c8" stroke="#d9822b" stroke-width="2"/>
+<text x="175" y="139.0" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#222222">kom-</text>
+<text x="175" y="154.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#222222">plex</text>
+<text x="175" y="170.2" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#222222">III</text>
+<ellipse cx="153" cy="250" rx="24" ry="30" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<ellipse cx="197" cy="250" rx="24" ry="30" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2"/>
+<text x="175" y="254.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">MPP</text>
+<text x="175" y="316.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#3b6ea8">MPP är en del</text>
+<text x="175" y="332.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#3b6ea8">av komplex III</text>
+<text x="480" y="67.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Svampen Neurospora</text>
+<rect x="335" y="130" width="290" height="40" rx="0" fill="#e3d7c3" stroke="#a08a68" stroke-width="1.5"/>
+<text x="341" y="107.0" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">mellanmembran-</text>
+<text x="341" y="121.4" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">utrymmet</text>
+<text x="580" y="147.0" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#6d5a3d">inre</text>
+<text x="580" y="161.4" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#6d5a3d">membranet</text>
+<text x="341" y="424.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#666666">matrix</text>
+<rect x="455" y="100" width="70" height="120" rx="10" fill="#f8e1c8" stroke="#d9822b" stroke-width="2"/>
+<text x="490" y="139.0" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#222222">kom-</text>
+<text x="490" y="154.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#222222">plex</text>
+<text x="490" y="170.2" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#222222">III</text>
+<ellipse cx="468" cy="250" rx="24" ry="30" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<ellipse cx="512" cy="250" rx="24" ry="30" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2"/>
+<text x="490" y="254.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">MPP</text>
+<ellipse cx="468" cy="355" rx="24" ry="30" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<ellipse cx="512" cy="355" rx="24" ry="30" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2"/>
+<text x="490" y="359.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">MPP</text>
+<text x="580" y="351.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#3b6ea8">löst i</text>
+<text x="580" y="367.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#3b6ea8">matrix</text>
+<text x="795" y="67.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Bakjäst, råtta, ko</text>
+<rect x="650" y="130" width="290" height="40" rx="0" fill="#e3d7c3" stroke="#a08a68" stroke-width="1.5"/>
+<text x="656" y="107.0" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">mellanmembran-</text>
+<text x="656" y="121.4" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="normal" fill="#666666">utrymmet</text>
+<text x="895" y="147.0" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#6d5a3d">inre</text>
+<text x="895" y="161.4" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#6d5a3d">membranet</text>
+<text x="656" y="424.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#666666">matrix</text>
+<rect x="770" y="100" width="70" height="120" rx="10" fill="#f8e1c8" stroke="#d9822b" stroke-width="2"/>
+<text x="805" y="139.0" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#222222">kom-</text>
+<text x="805" y="154.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#222222">plex</text>
+<text x="805" y="170.2" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#222222">III</text>
+<ellipse cx="783" cy="250" rx="24" ry="30" fill="#eeeeee" stroke="#666666" stroke-width="2"/>
+<ellipse cx="827" cy="250" rx="24" ry="30" fill="#eeeeee" stroke="#666666" stroke-width="2"/>
+<text x="805" y="293.0" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#666666">liknande proteiner,</text>
+<text x="805" y="307.4" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#666666">som inte klipper</text>
+<ellipse cx="783" cy="355" rx="24" ry="30" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<ellipse cx="827" cy="355" rx="24" ry="30" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2"/>
+<text x="805" y="359.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">MPP</text>
+<text x="895" y="351.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#3b6ea8">löst i</text>
+<text x="895" y="367.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#3b6ea8">matrix</text>
+</svg>

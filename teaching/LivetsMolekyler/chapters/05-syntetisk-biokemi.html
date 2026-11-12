@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>5&nbsp; Syntetisk biokemi – drömmen om att bygga nya proteiner – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/06-enskilda-molekyler.html" rel="next">
+<link href="../chapters/04-enzymer.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/04-enzymer.html">Proteiner i arbete</a></li><li class="breadcrumb-item"><a href="../chapters/05-syntetisk-biokemi.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l05-verktyg" id="toc-sec-l05-verktyg" class="nav-link active" data-scroll-target="#sec-l05-verktyg"><span class="header-section-number">5.1</span> Verktygslådan</a></li>
+  <li><a href="#sec-l05-tillverka" id="toc-sec-l05-tillverka" class="nav-link" data-scroll-target="#sec-l05-tillverka"><span class="header-section-number">5.2</span> Att tillverka ett enzym</a></li>
+  <li><a href="#sec-l05-mata" id="toc-sec-l05-mata" class="nav-link" data-scroll-target="#sec-l05-mata"><span class="header-section-number">5.3</span> Att mäta hur enzymet arbetar</a></li>
+  <li><a href="#sec-l05-mutagenes" id="toc-sec-l05-mutagenes" class="nav-link" data-scroll-target="#sec-l05-mutagenes"><span class="header-section-number">5.4</span> Att byta ut en byggsten</a></li>
+  <li><a href="#sec-l05-struktur" id="toc-sec-l05-struktur" class="nav-link" data-scroll-target="#sec-l05-struktur"><span class="header-section-number">5.5</span> Att se atomerna</a>
+  <ul class="collapse">
+  <li><a href="#sec-l05-rontgen" id="toc-sec-l05-rontgen" class="nav-link" data-scroll-target="#sec-l05-rontgen">Röntgenkristallografi</a></li>
+  <li><a href="#sec-l05-kryoem" id="toc-sec-l05-kryoem" class="nav-link" data-scroll-target="#sec-l05-kryoem">Kryoelektronmikroskopi</a></li>
+  <li><a href="#sec-l05-film" id="toc-sec-l05-film" class="nav-link" data-scroll-target="#sec-l05-film">Från fotografi till film</a></li>
+  </ul></li>
+  <li><a href="#sec-l05-simulering" id="toc-sec-l05-simulering" class="nav-link" data-scroll-target="#sec-l05-simulering"><span class="header-section-number">5.6</span> Experiment i datorn</a></li>
+  <li><a href="#sec-l05-komplex-i" id="toc-sec-l05-komplex-i" class="nav-link" data-scroll-target="#sec-l05-komplex-i"><span class="header-section-number">5.7</span> Ett gigantiskt enzym: komplex I</a>
+  <ul class="collapse">
+  <li><a href="#sec-l05-energi" id="toc-sec-l05-energi" class="nav-link" data-scroll-target="#sec-l05-energi">Livets energiflöde</a></li>
+  <li><a href="#sec-l05-kraftverk" id="toc-sec-l05-kraftverk" class="nav-link" data-scroll-target="#sec-l05-kraftverk">Ett elektriskt kraftverk</a></li>
+  <li><a href="#sec-l05-sjukdom" id="toc-sec-l05-sjukdom" class="nav-link" data-scroll-target="#sec-l05-sjukdom">När komplex I går sönder</a></li>
+  <li><a href="#sec-l05-superkomplex" id="toc-sec-l05-superkomplex" class="nav-link" data-scroll-target="#sec-l05-superkomplex">Superkomplex och tuberkulos</a></li>
+  </ul></li>
+  <li><a href="#sec-l05-design" id="toc-sec-l05-design" class="nav-link" data-scroll-target="#sec-l05-design"><span class="header-section-number">5.8</span> Konsten att bygga nya enzymer</a>
+  <ul class="collapse">
+  <li><a href="#sec-l05-behovs" id="toc-sec-l05-behovs" class="nav-link" data-scroll-target="#sec-l05-behovs">Vad behövs?</a></li>
+  <li><a href="#sec-l05-svart" id="toc-sec-l05-svart" class="nav-link" data-scroll-target="#sec-l05-svart">Varför är det så svårt?</a></li>
+  <li><a href="#sec-l05-vagar" id="toc-sec-l05-vagar" class="nav-link" data-scroll-target="#sec-l05-vagar">Två vägar: förnuft och evolution</a></li>
+  <li><a href="#sec-l05-ai" id="toc-sec-l05-ai" class="nav-link" data-scroll-target="#sec-l05-ai">Artificiell intelligens</a></li>
+  </ul></li>
+  <li><a href="#sec-l05-sammanfattning" id="toc-sec-l05-sammanfattning" class="nav-link" data-scroll-target="#sec-l05-sammanfattning"><span class="header-section-number">5.9</span> Sammanfattning</a></li>
+  <li><a href="#sec-l05-nyckelbegrepp" id="toc-sec-l05-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l05-nyckelbegrepp"><span class="header-section-number">5.10</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l05-testa" id="toc-sec-l05-testa" class="nav-link" data-scroll-target="#sec-l05-testa"><span class="header-section-number">5.11</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l05-las-mer" id="toc-sec-l05-las-mer" class="nav-link" data-scroll-target="#sec-l05-las-mer"><span class="header-section-number">5.12</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/04-enzymer.html">Proteiner i arbete</a></li><li class="breadcrumb-item"><a href="../chapters/05-syntetisk-biokemi.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l05" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 5, <em>Syntetisk biokemi – drömmen om att bygga nya proteiner</em>, av Ville Kaila (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>beskriva hur forskare tillverkar och renar ett enzym med hjälp av bakterier, och hur man mäter dess aktivitet,</li>
+<li>förklara hur riktad mutagenes kan visa vilka aminosyror som är viktiga,</li>
+<li>i grova drag beskriva hur röntgenkristallografi och kryoelektronmikroskopi ger en bild av ett enzym, och vad datorsimuleringar tillför,</li>
+<li>ge ett exempel på hur metoderna används för att studera ett stort enzym, komplex I i mitokondrierna, och hur fel i enzymet kan ge sjukdom,</li>
+<li>förklara varför det är så svårt att bygga nya enzymer, och hur riktad evolution och artificiell intelligens hjälper till.</li>
+</ul>
+</div>
+</div>
+<p>Tänk dig att du kommer från en annan planet och för första gången ser en bil. Du kan mäta vad som går in och vad som kommer ut: bensin och luft in, koldioxid och vatten ut. Du kan ta ett fotografi av bilen. Men du vet ändå inte hur den fungerar. För det måste du titta in under motorhuven, helst medan motorn går, och se hur kolvarna rör sig och hur kraften förs vidare till hjulen. Och även då är det inte säkert att du kan bygga en egen bil. Kanske måste du först plocka isär den, byta ut delar och se vad som händer.</p>
+<p>Det är ungefär den situation biokemister befinner sig i när de studerar enzymer. I <a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a> såg vi vad enzymer är och de grundläggande principerna för hur de fungerar: de binder sitt substrat i ett aktivt centrum och sänker energibarriären genom att stabilisera övergångstillståndet. Men hur gör ett visst enzym, atom för atom? Enzymer är mycket små, och reaktionerna går på tusendels eller miljondels sekunder. I det här kapitlet ser vi hur forskare ändå tar reda på det, med en kombination av många metoder. Sedan tittar vi på ett av naturens mest komplicerade enzymer, och till sist på drömmen om att bygga helt nya enzymer.</p>
+<section id="sec-l05-verktyg" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-l05-verktyg"><span class="header-section-number">5.1</span> Verktygslådan</h2>
+<p>För att förstå hur ett enzym fungerar räcker det sällan med en enda metod. Forskarna kombinerar flera:</p>
+<ul>
+<li><strong>Tillverka och rena enzymet</strong>, så att det kan studeras utan störningar från resten av cellen.</li>
+<li><strong>Mäta aktiviteten</strong>, ofta genom att följa en färgförändring.</li>
+<li><strong>Ändra byggstenarna</strong> med riktad mutagenes och se hur aktiviteten påverkas.</li>
+<li><strong>Bestämma strukturen</strong>, alltså var varje atom sitter, med röntgenkristallografi eller kryoelektronmikroskopi.</li>
+<li><strong>Spektroskopi</strong> av olika slag. Man kan till exempel placera proteinet i ett starkt magnetfält, som i en magnetkamera på sjukhuset, och få information om hur delar av det rör sig. Det kallas NMR-spektroskopi (efter engelskans <em>nuclear magnetic resonance</em>, kärnmagnetisk resonans). Andra metoder mäter hur bindningarna i proteinet vibrerar.</li>
+<li><strong>Datorsimuleringar</strong>, där man räknar ut hur atomerna rör sig och hur reaktionen går till, med fysikens lagar.</li>
+</ul>
+<p>Vi går igenom de viktigaste i tur och ordning, och börjar med det första steget: att över huvud taget få fram enzymet.</p>
+</section>
+<section id="sec-l05-tillverka" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="sec-l05-tillverka"><span class="header-section-number">5.2</span> Att tillverka ett enzym</h2>
+<p>En cell är tätt packad med proteiner och andra molekyler (se bilden av en bakterie i <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>). Om man vill veta vad just ett enzym gör är det svårt att studera det mitt i trängseln. Biokemister föredrar därför ofta att plocka ut enzymet och studera det rent, i ett provrör. Man talar om experiment <strong>in vivo</strong>, i levande celler, och <strong>in vitro</strong>, “i glas”, alltså i provröret. Provröret är en förenkling, och enzymet kanske inte beter sig exakt som i cellen. Men experimentet blir kontrollerat: man vet precis vad som finns i röret.</p>
+<p>Först måste man ha tillräckligt med enzym. Ofta gör man om sina bakterier till fabriker (<a href="#fig-l05-produktion" class="quarto-xref">Figur&nbsp;<span>5.1</span></a>). Man utgår från enzymets aminosyrasekvens och översätter den baklänges till en DNA-sekvens, enligt den genetiska koden (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>). DNA:t tillverkas syntetiskt och klistras in i en <strong>plasmid</strong>, en liten ring av DNA som bakterier naturligt använder för att dela gener med varandra. Teknikerna för att klippa och klistra DNA beskrivs närmare i <a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a>.</p>
+<p>Plasmiden förs sedan in i bakterier, men alla bakterier tar inte upp den. Hur får man bort dem som saknar den? Här utnyttjar forskarna att det är med plasmider som bakterier sprider resistens mot antibiotika. Plasmiden får också en gen för antibiotikaresistens. När man sedan odlar bakterierna i närvaro av antibiotikum överlever bara de bakterier som har tagit upp plasmiden, och alla dessa tillverkar vårt enzym.</p>
+<div id="fig-l05-produktion" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l05-produktion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L05/proteinproduktion.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l05-produktion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;5.1: Så tillverkas ett enzym i bakterier. Genen klistras in i en plasmid, som förs in i bakterier. Antibiotikum ser till att bara bakterier med plasmiden växer. Bakterierna tillverkar enzymet, som sedan renas fram. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Bakterierna odlas i stora kärl, ibland i tiotals liter odlingsvätska. Sedan samlas cellerna, slås sönder, och enzymet renas fram i flera steg. Man använder bland annat centrifuger och <strong>kromatografi</strong>, där proteinerna får passera genom kolonner fyllda med material som sorterar dem efter storlek eller efter hur de binder. Ofta har man i förväg försett enzymet med en liten “etikett” av några aminosyror som fastnar i en viss kolonn, så att enzymet lätt kan fiskas ut. Till slut har man ett mycket rent enzym.</p>
+<p>Det låter enkelt, men det är ofta veckors arbete, och det kan ta år innan man får bakterierna att tillverka ett besvärligt protein i fungerande form. Vissa proteiner kan inte tillverkas i bakterier alls, utan kräver mer komplicerade celler, som jäst- eller insektsceller.</p>
+</section>
+<section id="sec-l05-mata" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="sec-l05-mata"><span class="header-section-number">5.3</span> Att mäta hur enzymet arbetar</h2>
+<p>När man har rent enzym och rent substrat kan man mäta de tal som beskrevs i <a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a>: hur snabbt enzymet arbetar när det är mättat (k<sub>cat</sub>) och hur mycket substrat som behövs för halva maxhastigheten (K<sub>M</sub>). Då behöver man ett sätt att se hur snabbt substratet försvinner eller hur snabbt produkterna bildas.</p>
+<p>Det vanligaste sättet är att följa en <strong>färgförändring</strong>. Ibland har substratet eller produkten själv en färg. Ibland tillsätter man ett färgämne, till exempel en pH-indikator som i försöket med kolsyraanhydras i <a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a>, där lösningen slog om till gult eller orange när vätejonerna bildades.</p>
+<p>Färgen mäts med en <strong>spektrofotometer</strong>. Det är i princip en lampa, ett prisma eller ett gitter som delar upp ljuset i dess färger, och en detektor. Man skickar ljus av en viss färg genom provet och mäter hur mycket som tas upp. Ju mer av det färgade ämnet som finns, desto mer ljus tas upp, och därför kan man räkna ut hur mängden ändras med tiden. En enkel spektrofotometer är inte särskilt komplicerad, men om man vill mäta på tusendels sekunder blir apparaten betydligt dyrare.</p>
+<p>Ibland behövs inget färgämne alls, eftersom enzymet självt skiftar färg. Många kofaktorer har nämligen en färg som ändras när enzymet arbetar. Det bästa exemplet är hemgruppen. Hemoglobin med syre bundet har en annan färg än hemoglobin utan syre, eller med kolmonoxid bundet. Det kan man se med blotta ögat: syrerikt blod från artärerna är klarrött, medan syrefattigt blod från venerna är mörkare rött. Med en spektrofotometer kan man följa sådana färgskiftningar i ett enzym medan det arbetar.</p>
+<p>Alla enzymer går inte att mäta i ett provrör med vatten. Enzymer som pumpar joner genom ett membran är svårare, eftersom de bara fungerar normalt i ett membran. Ville Kailas grupp, som studerar sådana enzymer, använder därför konstgjorda celler: små blåsor av membran, där enzymet sitter i väggen. Man tillsätter ett färgämne som känner av surhet eller elektrisk spänning över membranet. När man ger enzymet sitt substrat ser man på färgen hur snabbt det pumpar. Ett annat sätt är en <strong>nanodisk</strong>, en liten bit membran som hålls ihop av ett proteinband runt kanten, ungefär som ett gummiband runt en pannkaka. Då sitter enzymet i en membranliknande miljö men kan ändå studeras som en molekyl i lösning.</p>
+</section>
+<section id="sec-l05-mutagenes" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="sec-l05-mutagenes"><span class="header-section-number">5.4</span> Att byta ut en byggsten</h2>
+<p>När man kan tillverka enzymet och mäta hur det arbetar kan man börja ändra på det. Nästa fråga är nämligen vilka av enzymets hundratals aminosyror som är viktiga för reaktionen. Ett kraftfullt sätt att ta reda på det är <strong>riktad mutagenes</strong>: man ändrar DNA-sekvensen så att en enda utvald aminosyra byts ut mot en annan, tillverkar det ändrade enzymet, en <strong>mutant</strong>, och jämför dess aktivitet med det ursprungliga enzymet, som kallas <strong>vildtyp</strong>.</p>
+<p>Men vilken aminosyra ska man byta ut? Det finns ofta flera hundra att välja bland, och att pröva alla vore orimligt. Två saker hjälper.</p>
+<p>Den första är <strong>strukturen</strong>. Om man vet hur enzymet ser ut kan man se vilka aminosyror som sitter nära substratet. Ett exempel gäller komplex I, ett enzym i mitokondrierna som Ville Kaila studerar och som vi strax återkommer till. Dess substrat heter <strong>ubikinon</strong> (koenzym Q10). Det är samma ämne som kosmetikaföretag tillsätter i hudkrämer, eftersom det lätt tar upp elektroner. I mitokondrierna är det just det som är dess uppgift: att bära elektroner. I strukturen ser man att en tyrosin, aminosyra nummer 108 i en av enzymets delar, sitter alldeles intill ubikinonen och verkar bilda en vätebindning till den.</p>
+<p>Den andra är <strong>evolutionen</strong>. Alla levande varelser är släkt, och många proteiner finns i liknande form hos människor, kor, jäst och bakterier. Under evolutionens gång förändras aminosyrorna hela tiden genom mutationer. Men en aminosyra som är nödvändig för funktionen kan inte bytas ut utan att organismen får problem, och den blir därför kvar. Den är <strong>konserverad</strong>. När man ställer upp sekvensen för samma protein från människa, ko, jäst och flera bakterier bredvid varandra är tyrosin 108 densamma i alla. Det är ett starkt tecken på att den är viktig, även om man inte vet hur proteinet ser ut.</p>
+<p>Experimentet blev att byta tyrosinen mot <strong>fenylalanin</strong>. De två aminosyrorna är nästan identiska, men fenylalanin saknar tyrosinens OH-grupp (en syreatom med en väteatom), och kan därför inte bilda någon vätebindning. Eftersom det är den enda skillnaden, bör en ändrad aktivitet bero på att vätebindningen saknas. Resultatet: det ändrade enzymet hade bara omkring 15 procent av den ursprungliga aktiviteten (<a href="#fig-l05-tyrosin" class="quarto-xref">Figur&nbsp;<span>5.2</span></a>). Vätebindningen var alltså viktig.</p>
+<p>Försöket gjordes omkring 2010, innan man kände till enzymets struktur i detalj. Valet av tyrosinen byggde då på den andra ledtråden, sekvensjämförelser, alltså analys av stora mängder data.</p>
+<div id="fig-l05-tyrosin" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l05-tyrosin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L05/tyrosin-mutant.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l05-tyrosin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;5.2: Ett experiment med riktad mutagenes i komplex I. Till vänster tyrosin, med en OH-grupp (röd) som bildar en vätebindning till ubikinon. I mutanten har tyrosinen bytts mot fenylalanin, som ser likadan ut men saknar OH-gruppen och därför inte kan bilda vätebindningen. Staplarna till höger visar resultatet: mutanten har bara omkring 15 procent av vildtypens aktivitet. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l05-struktur" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="sec-l05-struktur"><span class="header-section-number">5.5</span> Att se atomerna</h2>
+<p>För att verkligen förstå ett enzym vill man veta var varje atom sitter. Men hur tar man en bild av något så litet?</p>
+<p>Med vanligt ljus går det inte. Man kan inte se detaljer som är mindre än ungefär halva våglängden hos det ljus man använder, och synligt ljus har våglängder mellan ungefär 400 och 700 nanometer (miljondels millimeter). En bindning mellan två kolatomer är bara ungefär 1,5 ångström lång, alltså 0,15 nanometer. För att se atomer måste man använda strålning med en våglängd på omkring en ångström eller kortare: <strong>röntgenstrålning</strong> eller snabba <strong>elektroner</strong>. Hur de två metoderna fungerar förklaras närmare i <a href="06-enskilda-molekyler.html#sec-l06-struktur" class="quarto-xref"><span>Avsnitt 6.10</span></a>. Här räcker huvuddragen.</p>
+<section id="sec-l05-rontgen" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-rontgen">Röntgenkristallografi</h3>
+<p>Vid <strong>röntgenkristallografi</strong> måste proteinet först bilda en <strong>kristall</strong>, där miljarder molekyler ligger exakt likadant ordnade. Röntgenstrålar som går genom kristallen ger ett mönster av prickar, och ur mönstret kan man räkna fram var atomerna sitter (<a href="06-enskilda-molekyler.html#sec-l06-rontgen" class="quarto-xref"><span>Avsnitt 6.10.1</span></a>). Det svåra är kristallerna. Man prövar hundratals olika lösningar och förhållanden, och det kan ta år. Membranproteiner, som sitter i cellens fettrika membran men också sticker ut i vattnet, är särskilt besvärliga.</p>
+<p>Metoden har en lång historia. De första proteinstrukturerna, myoglobin i slutet av 1950-talet och hemoglobin strax därefter, bestämdes av <strong>Max Perutz</strong> och <strong>John Kendrew</strong> i Cambridge. De fick Nobelpriset i kemi 1962. Datorer fanns knappt, och mycket av beräkningarna gjordes för hand, liksom de fysiska modellerna av molekylerna. I dag kan studenter på en masterkurs bestämma strukturen av enzymet lysozym på en eftermiddag.</p>
+</section>
+<section id="sec-l05-kryoem" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-kryoem">Kryoelektronmikroskopi</h3>
+<p>Den metod som blivit allt viktigare de senaste åren, inte minst för stora enzymer som det i <a href="#sec-l05-komplex-i" class="quarto-xref"><span>Avsnitt 5.7</span></a>, är <strong>kryoelektronmikroskopi (kryo-EM)</strong>. Här behövs inga kristaller. En droppe proteinlösning fryses blixtsnabbt, så att vattnet stelnar som glas och proteinerna fryses fast i alla möjliga riktningar. Sedan tar man med elektroner tusentals bilder, med sammanlagt hundratusentals enskilda proteinmolekyler. Varje molekyl syns som en suddig tvådimensionell skugga, och samma molekyl ger olika skuggor beroende på från vilket håll man ser den. Datorprogram sorterar skuggorna efter riktning och räknar fram en tredimensionell karta (<a href="06-enskilda-molekyler.html#sec-l06-kryoem" class="quarto-xref"><span>Avsnitt 6.10.2</span></a>, <a href="06-enskilda-molekyler.html#fig-l06-kryoem" class="quarto-xref">Figur&nbsp;<span>6.13</span></a>). Det fungerar bara om molekylerna har lagt sig i många olika riktningar.</p>
+<p>Innan skuggorna kan sorteras måste alla proteinpartiklar hittas i bilderna. Det görs i dag med maskininlärning: man lär datorn att känna igen dem, lite som när en webbsida ber en klicka på alla bilder med trafikljus.</p>
+<p>Bättre detektorer och smartare beräkningar har gjort att man i dag ofta kan se enskilda atomer. <strong>Jacques Dubochet</strong>, <strong>Joachim Frank</strong> och <strong>Richard Henderson</strong> fick Nobelpriset i kemi 2017 för metoden, som passar särskilt bra för stora proteiner och proteinkomplex. Ett av Sveriges kryoelektronmikroskop finns på SciLifeLab i Solna.</p>
+</section>
+<section id="sec-l05-film" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-film">Från fotografi till film</h3>
+<p>En struktur är en stillbild. Men ett enzym rör sig när det arbetar. På 1870-talet diskuterade man om en galopperande häst någon gång har alla fyra hovarna i luften samtidigt. Det gick inte att se med blotta ögat, och en vanlig kamera med lång exponeringstid gav bara en suddig bild. Fotografen <strong>Eadweard Muybridge</strong> löste frågan 1878 med en rad kameror som utlöstes en efter en när hästen sprang förbi (<a href="#fig-l05-hast" class="quarto-xref">Figur&nbsp;<span>5.3</span></a>). Bildserien visade att hästen faktiskt svävar fritt en kort stund.</p>
+<div id="fig-l05-hast" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l05-hast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L05/muybridge-hast.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l05-hast-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;5.3: Eadweard Muybridges bildserie <em>The Horse in Motion</em> från 1878. Först med en serie bilder tagna i snabb följd gick det att se hur hästen rör benen. På samma sätt skulle forskare vilja ha en bildserie av ett enzym medan det arbetar. Bild: Eadweard Muybridge, Wikimedia Commons, allmän egendom.
+</figcaption>
+</figure>
+</div>
+<p>För enzymer skulle man vilja ha just en sådan bildserie, och helst också veta hur energin ändras från bild till bild, så att man kan rita upp energiprofilen för hela reaktionen, med övergångstillståndet. Det är mycket svårt att få fram med experiment. Övergångstillståndet finns bara under en ytterst kort stund, och det går inte att frysa fast. En ny teknik är att värma det frysta kryo-EM-provet blixtsnabbt med en laser, så att isen smälter för ett ögonblick och proteinerna hinner röra sig, kanske till och med påbörja en reaktion, innan de fryser igen. Då kan man jämföra strukturer från olika ögonblick. Men en fullständig film av reaktionen ger inte heller det. Här kommer datorerna in.</p>
+</section>
+</section>
+<section id="sec-l05-simulering" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="sec-l05-simulering"><span class="header-section-number">5.6</span> Experiment i datorn</h2>
+<p>Vid sidan av experiment <em>in vivo</em> och <em>in vitro</em> talar man i dag också om experiment <strong><em>in silico</em></strong>, i kisel, alltså i datorn. I datorn kan man följa varje atom i enzymet medan det arbetar, och på så sätt få den film som experimenten inte kan ge.</p>
+<p>Grundidén är inte svårare än gymnasiefysik. Om man vet hur tung en atom är och vilka krafter som verkar på den, kan man med <strong>Newtons lagar</strong> räkna ut hur den kommer att röra sig, precis som man räknar ut en rakets bana. Man utgår från en uppmätt struktur, räknar ut alla krafter på alla atomer, flyttar varje atom en liten bit, och upprepar sedan detta många miljoner gånger. Det kallas <strong>molekyldynamik</strong>. Resultatet blir en film av hur proteinet, vattnet runt omkring och membranet rör sig. Man kan i dag simulera system med flera miljoner atomer.</p>
+<p>Newtons lagar räcker dock inte när kemiska bindningar bryts och bildas. Då måste man räkna på hur elektronerna beter sig, och det kräver <strong>kvantmekanik</strong>. Sådana beräkningar är mycket tyngre, och därför gör man dem bara för det aktiva centret, medan resten av proteinet beskrivs med de enklare lagarna. En sådan kombination kallas en <strong>flerskalemodell</strong>. Ur beräkningarna kan man få fram energiprofilen för reaktionen, och hur övergångstillståndet ser ut. Det är på det sättet man har räknat fram hur reaktionen i kolsyraanhydras i <a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a> går till.</p>
+<p>Nobelpriset i kemi 2013 gick till <strong>Martin Karplus</strong>, <strong>Michael Levitt</strong> och <strong>Arieh Warshel</strong> “för utvecklingen av flerskalemodeller för komplexa kemiska system”. Historien bakom är en kedja av möten. Levitt tog med sig strukturdata från Perutz laboratorium i Cambridge till Israel, där Warshel arbetade, och de gjorde några av de första datorberäkningarna på proteiner. Warshel reste sedan till Harvard och Karplus, som i sin tur hade studerat hos Linus Pauling. Alla tre fick priset, även om de inte alltid var överens om vem som hade haft vilken idé.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: små steg och stora datorer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I en molekyldynamiksimulering måste tidsstegen vara mycket korta, ungefär en miljondels miljarddels sekund (en femtosekund), eftersom de lättaste atomerna vibrerar så snabbt. För att simulera en enda mikrosekund av ett proteins liv krävs därför en miljard steg, och i varje steg ska krafterna på miljontals atomer räknas ut. Det kräver <strong>superdatorer</strong>, med tusentals processorer som arbetar samtidigt. En av dem som använts för sådana beräkningar är MareNostrum i Barcelona, som står i ett före detta kapell. I Stockholm fanns superdatorn Beskow på KTH, vars skåp var dekorerade med Elsa Beskows illustrationer; dess efterföljare heter Dardel.</p>
+<p>Beräkningarna jämförs sedan med experiment, till exempel uppmätta reaktionshastigheter. Sambandet mellan barriärens höjd och hastigheten är det som Arrhenius upptäckte (<a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a>). I framtiden kanske <strong>kvantdatorer</strong>, som utnyttjar kvantfysikens egna lagar för att räkna, kan göra sådana beräkningar mycket snabbare. Men det är ännu en förhoppning.</p>
+</div>
+</div>
+</div>
+<p>Simuleringarna står inte på egen hand. Det viktiga är att alla metoderna i kapitlet förstärker varandra (<a href="#fig-l05-metoder" class="quarto-xref">Figur&nbsp;<span>5.4</span></a>). Strukturen visar var atomerna sitter. Simuleringarna föreslår hur reaktionen går till och vilka aminosyror som borde vara viktiga. Mutagenesen och aktivitetsmätningarna prövar förslagen. Sedan bestämmer man kanske strukturen av mutanten för att se om den ser ut som man trodde. När förutsägelserna inte stämmer är det ofta mest intressant, för då har man upptäckt något nytt.</p>
+<p>Därför arbetar kemister, fysiker, biologer och datavetare sida vid sida i samma forskargrupp: en del tar fram strukturer och gör mätningar, andra gör beräkningar, och alla behövs hela tiden.</p>
+<div id="fig-l05-metoder" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l05-metoder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L05/metodcykel.svg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l05-metoder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;5.4: Metoderna kompletterar varandra. Strukturen visar var atomerna sitter, beräkningarna föreslår hur reaktionen går till, mutagenesen prövar förslagen och mätningarna visar resultatet, som leder till nya frågor. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l05-komplex-i" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="sec-l05-komplex-i"><span class="header-section-number">5.7</span> Ett gigantiskt enzym: komplex I</h2>
+<p>Nu ska vi se hur verktygen används på ett verkligt exempel: komplex I, ett av de största enzymerna i våra celler och det enzym som Ville Kailas grupp studerar. För att förstå varför det är så intressant behöver vi först se vilken uppgift det har.</p>
+<section id="sec-l05-energi" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-energi">Livets energiflöde</h3>
+<p>Allt liv behöver energi från omgivningen, antingen som ljus eller som kemisk energi i maten. Den energin omvandlas av stora enzymer som sitter i biologiska membran. Det märkliga är att de alla fungerar genom att flytta de minsta partiklar som finns i kemin: <strong>elektroner</strong> och <strong>protoner</strong> (vätejoner).</p>
+<p>I <strong>fotosyntesen</strong> fångar växter in ljusenergi och använder den för att spjälka vatten till protoner, elektroner och syre. Elektronerna används sedan för att bygga om koldioxid till socker och annan biomassa. Vid <strong>cellandningen</strong> gör vi det omvända. När vi äter tar cellerna loss elektronerna från maten och för dem till syre, som tillsammans med protoner bildar vatten igen. På så sätt sluter sig kretsloppet.</p>
+<p>Om man förde elektronerna till syret i ett enda steg skulle all energi bli värme, ungefär som när man eldar i en bastu. Cellen för i stället elektronerna vidare i många små steg genom andningskedjan i mitokondriernas inre membran (<a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>). I varje steg används lite energi för att pumpa protoner över membranet. Membranet laddas som ett batteri, med en spänning på omkring 0,15–0,2 volt. Det låter lite, men membranet är bara några nanometer tjockt, så det elektriska fältet över det är enormt. Protonerna strömmar sedan tillbaka genom ATP-syntas, som tillverkar ATP (<a href="09-molekylara-maskiner.html" class="quarto-xref"><span>Kapitel 9</span></a>).</p>
+<p>Under de senaste årtiondena har man bestämt strukturen av alla de stora enzymerna i andningskedjan och fotosyntesen. Vi vet alltså hur de ser ut. Den stora frågan är hur strukturen ger upphov till funktionen: hur flödet av elektroner och protoner styrs, så att energin tas tillvara och inte går förlorad.</p>
+</section>
+<section id="sec-l05-kraftverk" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-kraftverk">Ett elektriskt kraftverk</h3>
+<p><strong>Komplex I</strong> är det första enzymet i andningskedjan, och ett av de största och mest komplicerade enzymer som finns. Hos människan består det av 45 proteinkedjor. Det har formen av ett stort L (<a href="#fig-l05-komplex-i" class="quarto-xref">Figur&nbsp;<span>5.5</span></a>). Den ena armen sticker ut från membranet, den andra ligger i membranet.</p>
+<div id="fig-l05-komplex-i" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l05-komplex-i-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L05/komplex-i-goodsell.jpg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l05-komplex-i-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;5.5: Komplex I från mitokondrier. Den liggande armen sitter i membranet (grått band) och innehåller protonpumparna. Den uppstående armen tar emot elektroner från NADH, och de små orange kulorna är de järn-svavelkluster som leder elektronerna ned mot membranet. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>I spetsen av den uppstående armen tar enzymet emot elektroner från NADH, den elektronbärare som bildas när maten bryts ned (<a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a>). Elektronerna leds sedan ungefär 100 ångström ned genom armen, längs en rad av små kluster av järn och svavel, som fungerar som en elektrisk ledning. Längst ned, nära membranet, lämnas de till ubikinon. När ubikinonen tar emot elektronerna sätts protonpumparna i den liggande armen igång, och fyra protoner pumpas över membranet. Den längst bort liggande pumpen sitter omkring 200 ångström från platsen där ubikinonen tar emot elektronerna. Hur kan en kemisk reaktion på ett ställe få en pump så långt bort att arbeta? Det är en av de stora olösta frågorna, och den som Ville Kaila och hans medarbetare försöker besvara (<a href="#fig-l05-vag" class="quarto-xref">Figur&nbsp;<span>5.6</span></a>).</p>
+<div id="fig-l05-vag" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l05-vag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L05/komplex-i-vag.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l05-vag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;5.6: Komplex I i genomskärning, schematiskt. Elektroner från NADH leds ungefär 100 ångström ned genom den uppstående armen, längs en rad järn-svavelkluster (orange kulor), till ubikinon (Q) nära membranet. Därifrån måste en signal föras genom den liggande armen i membranet, till fyra protonpumpar som var och en för en proton (H<sup>+</sup>) över membranet. Den lila pilen visar hypotesen att signalen går som en elektrisk våg, se fördjupningsrutan nedan. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Komplex I är dessutom mycket effektivt och kan gå baklänges: om skillnaden i protoner över membranet (protongradienten) är tillräckligt stor kan enzymet använda den för att driva elektronerna åt andra hållet. Och mutationer i aminosyror långt från det aktiva centret kan störa hela maskineriet. Det tyder på att delarna är kopplade till varandra över långa avstånd.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: en elektrisk våg genom membranet
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>En hypotes som Kailas grupp har föreslagit är att signalen förs vidare genom membranarmen som en elektrisk våg. Man kan jämföra med “Newtons vagga”, leksaken med en rad hängande stålkulor. När man släpper kulan i ena änden står de mellersta kvar, men kulan i andra änden flyger iväg. Energin förs genom raden utan att kulorna i mitten flyttar sig nämnvärt.</p>
+<p>I komplex I skulle det motsvaras av att ubikinonens laddning sätter igång en serie små förflyttningar av protoner och laddade aminosyror längs membranarmen, från den ena pumpen till nästa. När vågen nått änden pumpas protonerna ut, i omvänd ordning. Hypotesen bygger på simuleringar och har prövats med riktad mutagenes, men exakt hur enzymet fungerar är ännu inte klarlagt.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l05-sjukdom" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-sjukdom">När komplex I går sönder</h3>
+<p>Fel i komplex I är den vanligaste orsaken till <strong>mitokondriella sjukdomar</strong>, sjukdomar där cellernas energiförsörjning inte fungerar. De drabbar framför allt organ som gör av med mycket energi, som hjärnan, musklerna, hjärtat och ögonen. Mutationer i komplex I har kopplats till bland annat hjärtmuskelsjukdom och en ärftlig form av synförlust.</p>
+<p>Generna för komplex I finns på två ställen. Mitokondrierna var en gång fritt levande bakterier och har kvar en liten rest av sin egen arvsmassa, ett eget litet DNA som vi bara ärver från vår mamma (mer om det i <a href="12-proteintrafik.html#sec-l12-organell-dna" class="quarto-xref"><span>Avsnitt 12.2.1</span></a>). Sju av komplex I:s proteinkedjor tillverkas från det DNA:t, resten från generna i cellkärnan.</p>
+<p>Med metoderna i kapitlet kan man undersöka varför en viss mutation gör enzymet sjukt. Ett exempel som forskarna har studerat tillsammans med kolleger i Freiburg gäller <strong>Leighs syndrom</strong>, en svår och ofta dödlig sjukdom i hjärnans och nervsystemets ämnesomsättning, som oftast börjar redan hos små barn. Hos vissa patienter är en enda aminosyra utbytt, en fenylalanin mot en leucin, i den yttersta delen av komplex I:s membranarm, långt från det ställe där ubikinonen binder. När forskarna gjorde samma ändring i motsvarande enzym från en bakterie sjönk aktiviteten till ungefär en åttondel (13 procent). Mutationen sitter alltså inte där reaktionen sker, utan på ett ställe som enligt simuleringarna är viktigt för att föra signalen vidare genom membranarmen. Det visar hur förståelse av mekanismen på atomnivå kan förklara varför en sjukdom uppstår.</p>
+</section>
+<section id="sec-l05-superkomplex" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-superkomplex">Superkomplex och tuberkulos</h3>
+<p>Andningskedjans enzymer arbetar inte alltid var för sig. Ofta sitter flera av dem ihop i större enheter, så kallade <strong>superkomplex</strong>, vars funktion man ännu inte helt förstår. I ett projekt vid institutionen bestämde man med kryo-EM strukturen av ett superkomplex av komplex III och IV från bakterien <em>Mycobacterium smegmatis</em>, en ofarlig släkting till tuberkulosbakterien. I strukturen kunde man se både fettmolekyler och mer än 600 vattenmolekyler.</p>
+<p>Varför studera en släkting till tuberkulosbakterien? Tanken är att om man vet hur tuberkulosbakteriens andningskedja ser ut kan man hitta sätt att hämma den, och tuberkulos dödar fortfarande mycket många människor i världen.</p>
+<p>Ett exempel är <strong>lansoprazol</strong>, ett läkemedel som redan används mot halsbränna och magsår. I bakterien omvandlas det till en närbesläktad molekyl som till formen liknar ubikinon, utan att vara det. Strukturen visade att den binder i superkomplexet på den plats där ubikinonen annars binder, och därmed stoppar enzymet. Det är samma princip som för de hämmare vi mötte i <a href="04-enzymer.html#sec-l04-hammare" class="quarto-xref"><span>Avsnitt 4.5</span></a>: en molekyl som liknar substratet men inte kan omvandlas. Det är inget nytt läkemedel mot tuberkulos, men det visar hur kunskap om ett enzyms struktur kan ge idéer till nya behandlingar.</p>
+</section>
+</section>
+<section id="sec-l05-design" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="sec-l05-design"><span class="header-section-number">5.8</span> Konsten att bygga nya enzymer</h2>
+<blockquote class="blockquote">
+<p>“What I cannot create, I do not understand.” (Det jag inte kan skapa förstår jag inte.) – Richard Feynman</p>
+</blockquote>
+<p>Orden skrev den amerikanske fysikern Richard Feynman på sin svarta tavla. Han menade att han inte riktigt förstod en formel förrän han själv kunde härleda den från början.</p>
+<p>Tanken passar bra på enzymer. Om vi verkligen förstår hur ett enzym fungerar, borde vi kunna ändra det, eller bygga ett helt nytt. Att försöka bygga är därför både ett sätt att pröva sin förståelse och ett mål i sig. Nya enzymer skulle kunna utföra reaktioner som naturen inte har något enzym för, till exempel att bryta ned plast eller miljögifter. De skulle också kunna tillverka läkemedel i ett enda steg i stället för genom kemiska synteser som ibland kräver mer än hundra steg. Att bygga nya proteiner kallas <strong>proteindesign</strong>.</p>
+<section id="sec-l05-behovs" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-behovs">Vad behövs?</h3>
+<p>Ett nytt enzym kräver fyra saker. För det första behövs en <strong>stomme</strong> (eng. <em>scaffold</em>), ett protein som håller ihop alltihop. Man kan låna en stomme från naturen. En populär sådan är <strong>TIM-tunnan</strong> (eng. <em>TIM barrel</em>), uppkallad efter enzymet triosfosfatisomeras. Den består av åtta raka kedjedelar som bildar en tunna, omgiven av alfahelixar, och i ena änden av tunnan finns en lämplig plats för ett aktivt centrum. Naturen själv har använt den formen för många olika enzymer. Man kan också hitta på en helt ny stomme, ett <strong>de novo</strong>-protein (“från början”). Kailas grupp har till exempel byggt ett enkelt protein av fyra alfahelixar som tvinnar sig runt varandra, med ett litet centrum av laddade aminosyror i mitten.</p>
+<p>För det andra behövs ett <strong>aktivt centrum</strong>: rätt aminosyror och kofaktorer måste placeras på exakt rätt ställen, med en noggrannhet på bråkdelar av en ångström, ungefär som när vi på papperet byggde kolsyraanhydras i <a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a>. För det tredje måste man kunna förutsäga hur reaktionen kommer att gå till, och för det fjärde behöver man sätt att pröva och förbättra det man har byggt.</p>
+</section>
+<section id="sec-l05-svart" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-svart">Varför är det så svårt?</h3>
+<p>Varje krav ovan är svårt att uppfylla, men tre svårigheter är störst.</p>
+<p><strong>Formen.</strong> Man bestämmer aminosyrornas ordning, men det är formen som avgör funktionen. Den amerikanske biokemisten <strong>Christian Anfinsen</strong> visade på 1950- och 60-talen att all information om ett proteins form finns i aminosyrasekvensen: ett protein som förlorat sin form kan vecka sig tillbaka av sig självt (<a href="14-proteinveckning.html#sec-l14-anfinsen" class="quarto-xref"><span>Avsnitt 14.1.1</span></a>). Den som bygger ett nytt enzym måste alltså kunna förutsäga vilken form en ny sekvens får. Men att förutsäga formen utifrån sekvensen har varit ett av biologins svåraste problem.</p>
+<p><strong>Antalet möjligheter.</strong> Som vi såg i <a href="03-gener-och-genteknik.html#sec-l03-veckning" class="quarto-xref"><span>Avsnitt 3.1.3</span></a> är antalet möjliga aminosyrasekvenser ofattbart stort, långt fler än det finns atomer i hela det kända universum. Även en dator som prövade en miljard varianter per sekund skulle inte komma någonvart på hela universums ålder. Man kan alltså inte pröva sig fram blint; man behöver smarta metoder.</p>
+<p><strong>Kemin.</strong> Vi vet att enzymet ska stabilisera övergångstillståndet, men för att kunna bygga ett enzym som gör det måste man veta hur övergångstillståndet ser ut. Eftersom det inte går att fånga i ett experiment är beräkningar nästan det enda sättet.</p>
+</section>
+<section id="sec-l05-vagar" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-vagar">Två vägar: förnuft och evolution</h3>
+<p>Det finns i huvudsak två vägar runt svårigheterna: att förstå sig fram, eller att låta urvalet göra jobbet.</p>
+<p>Den ena vägen är <strong>rationell design</strong>. Man gör noggranna beräkningar av hur reaktionen går till, använder dem för att välja ut vilka aminosyror som ska ändras, tillverkar en lång rad mutanter och mäter deras aktivitet. Sedan bestämmer man strukturen av de bästa för att se om de ser ut som beräkningarna förutsade. På det sättet har man lyckats ändra enzymet från mögelsvampen i <a href="04-enzymer.html" class="quarto-xref"><span>Kapitel 4</span></a> så att det kunde ta emot ett substrat som det ursprungliga enzymet inte klarade. Men sådana försök lyckas sällan, och de kräver en modell som verkligen kan förutsäga hur enzymet fungerar.</p>
+<p>Den andra vägen är att låta naturens egen metod göra jobbet: <strong>riktad evolution</strong> (<a href="#fig-l05-evolution" class="quarto-xref">Figur&nbsp;<span>5.7</span></a>). Man börjar med ett enzym som utför den önskade reaktionen, om än dåligt. Genen kopieras så att det med avsikt uppstår slumpmässiga fel, och man får ett helt bibliotek av något olika varianter. Varianterna tillverkas i bakterier och testas. Den som fungerar bäst väljs ut, och dess gen blir utgångspunkt för nästa omgång. Det liknar hur människan under tusentals år har avlat fram hundraser eller grödor: man behöver inte förstå varför en variant är bättre, bara kunna välja ut den. Efter ett antal omgångar kan enzymet ha fått en helt ny förmåga.</p>
+<div id="fig-l05-evolution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l05-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L05/evolutionscykel.svg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l05-evolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;5.7: Riktad evolution. I varje omgång skapas många varianter av ett enzym med slumpmässiga mutationer. De testas, den bästa väljs ut, och den blir utgångspunkt för nästa omgång. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Svårigheten är att man måste kunna testa eller sortera fram de bästa varianterna bland väldigt många. Ett elegant sätt är att ordna det så att bakterierna bara överlever om de har ett enzym som fungerar. Dessutom måste man ha något att börja med: ett enzym som redan har åtminstone lite av den förmåga man är ute efter.</p>
+<p>Den amerikanska kemisten <strong>Frances Arnold</strong> (<a href="#fig-l05-arnold" class="quarto-xref">Figur&nbsp;<span>5.8</span></a>) fick Nobelpriset i kemi 2018 för att ha visat hur kraftfull riktad evolution är för att ta fram nya enzymer. Metoden används i dag i industrin, till exempel för att ta fram enzymer som tillverkar läkemedel (<a href="#fig-l05-sitagliptin" class="quarto-xref">Figur&nbsp;<span>5.9</span></a>).</p>
+<div id="fig-l05-arnold" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l05-arnold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L05/frances-arnold.jpg" class="img-fluid figure-img" style="width:35.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l05-arnold-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;5.8: Frances Arnold vid California Institute of Technology 2021. Hon fick Nobelpriset i kemi 2018 för riktad evolution av enzymer. Bild: Christopher Michel, Wikimedia Commons, CC BY-SA 4.0.
+</figcaption>
+</figure>
+</div>
+<div id="fig-l05-sitagliptin" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l05-sitagliptin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L05/riktad-evolution-goodsell.jpg" class="img-fluid figure-img" style="width:65.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l05-sitagliptin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;5.9: Ett enzym som tagits fram med riktad evolution för att tillverka ett ämne som behövs i ett läkemedel mot diabetes (sitagliptin). Kulorna visar de aminosyror som ändrades; färgerna anger i vilken omgång ändringarna valdes ut. Enzymet ersatte en kemisk metod som krävde högt tryck och den sällsynta metallen rodium. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l05-ai" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l05-ai">Artificiell intelligens</h3>
+<p>Det senaste årtiondet har ett nytt verktyg förändrat fältet. Artificiell intelligens, datorprogram som lär sig av tidigare exempel, finns redan i mobiltelefoner som förstår tal och i bilar som kan styra själva. I proteinforskningen har den framför allt hjälpt till med det första av de tre problemen ovan: att förutsäga formen.</p>
+<p>Det största genombrottet kom 2020, när programmet <strong>AlphaFold</strong> från företaget DeepMind, som ägs av Google, visade att det kunde förutsäga de flesta proteiners form nästan lika bra som experimenten. Att genombrottet kom från ett företag och inte från en universitetsgrupp var en överraskning för många forskare. Programmet hade tränats på de omkring 200 000 proteinstrukturer som forskare bestämt med experiment sedan slutet av 1950-talet. Hur AlphaFold fungerar, och Nobelpriset i kemi 2024, finns beskrivet i <a href="16-ai-och-proteiner.html#sec-l16-alphafold2" class="quarto-xref"><span>Avsnitt 16.7</span></a>.</p>
+<p>AlphaFold har snabbt blivit ett vardagsverktyg. I dag kan vem som helst skriva in en aminosyrasekvens och på några minuter få en tredimensionell modell, och strukturerna för nästan alla kända proteiner har redan förutsagts och kan laddas ned, så att ingen behöver göra de energikrävande beräkningarna igen. Sådana modeller används till exempel som utgångspunkt när man tolkar kartor från kryo-EM. Kailas grupp har också med maskininlärning designat en förminskad version av ett av de proteiner gruppen studerar.</p>
+<p>Men AI har sina gränser. AlphaFold räknar fram den mest sannolika slutformen, men det visar inte hur proteinkedjan faktiskt veckar sig i cellen, och den frågan är fortfarande inte helt löst. Modellerna har dessutom tränats på stillbilder och säger inget om hur proteinet rör sig, och ofta inte heller var kofaktorerna sitter. För enzymer, som är beroende av rörelser och av metalljoner och andra hjälpmolekyler, är det en stor begränsning. Ett protein med en viss sekvens har oftast en bestämd form, men många proteiner växlar mellan flera former när de arbetar, som en transportör som öppnar sig än åt ena hållet, än åt det andra. Att få datorerna att också förutsäga rörelserna är nästa stora steg, och där behövs de fysikaliska simuleringarna.</p>
+<p>Drömmen är att kunna gå hela vägen: att börja med en reaktion man vill utföra, rita upp det övergångstillstånd som ska stabiliseras, låta datorn föreslå ett protein som gör det, och få det att fungera i provröret redan första gången. Dit är det fortfarande långt. Men verktygen har aldrig varit bättre, och varje försök lär oss mer om hur naturens egna enzymer fungerar.</p>
+</section>
+</section>
+<section id="sec-l05-sammanfattning" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="sec-l05-sammanfattning"><span class="header-section-number">5.9</span> Sammanfattning</h2>
+<ul>
+<li>För att studera ett enzym tillverkar man det ofta i bakterier, med hjälp av en plasmid, och renar fram det så att det kan undersökas <em>in vitro</em>.</li>
+<li>Enzymets aktivitet mäts ofta som en färgförändring i en spektrofotometer. Med <strong>riktad mutagenes</strong> byter man ut en aminosyra i taget för att se vilka som är viktiga. Konserverade aminosyror och strukturen visar var man ska leta.</li>
+<li><strong>Röntgenkristallografi</strong> och <strong>kryoelektronmikroskopi</strong> ger tredimensionella bilder av enzymer där man kan se enskilda atomer.</li>
+<li><strong>Datorsimuleringar</strong> med Newtons lagar och kvantmekanik visar hur atomerna rör sig och hur reaktionen går till. Bäst förståelse får man när struktur, beräkningar, mutagenes och mätningar kombineras.</li>
+<li><strong>Komplex I</strong> i andningskedjan för elektroner från NADH till ubikinon och använder energin till att pumpa protoner långt bort i membranet. Hur det går till är inte klarlagt. Fel i komplex I är den vanligaste orsaken till mitokondriella sjukdomar.</li>
+<li>Att bygga nya enzymer är svårt: man måste förutsäga formen, välja bland ett ofattbart antal möjliga sekvenser och förstå reaktionens övergångstillstånd.</li>
+<li><strong>Riktad evolution</strong> efterliknar naturens urval i laboratoriet, och <strong>AI-program</strong> som AlphaFold kan förutsäga proteiners form, men inte hur de veckar sig eller hur de rör sig.</li>
+</ul>
+</section>
+<section id="sec-l05-nyckelbegrepp" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="sec-l05-nyckelbegrepp"><span class="header-section-number">5.10</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>in vivo</strong> – Experiment i levande celler eller organismer (latin för ‘i det levande’).</li>
+<li><strong>in vitro</strong> – Experiment i provrör, utanför levande celler (latin för ‘i glas’).</li>
+<li><strong>in silico</strong> – Experiment som görs som beräkningar i en dator.</li>
+<li><strong>kromatografi</strong> – Metod för att skilja molekyler åt genom att låta dem passera genom en kolonn med ett material som sorterar dem, till exempel efter storlek.</li>
+<li><strong>spektrofotometer</strong> – Instrument som mäter hur mycket ljus av olika färger ett prov tar upp. Används för att följa hur mängden av ett färgat ämne ändras.</li>
+<li><strong>vildtyp</strong> – Det ursprungliga, oförändrade proteinet eller den ursprungliga organismen, som mutanter jämförs med.</li>
+<li><strong>konserverad aminosyra</strong> – En aminosyra som är densamma i ett protein hos många olika arter, eftersom den inte kan bytas ut utan att funktionen skadas. Att den är konserverad tyder alltså på att den är viktig.</li>
+<li><strong>röntgenkristallografi</strong> – Metod för att bestämma ett proteins struktur genom att belysa en kristall av proteinet med röntgenstrålar och räkna ut atomernas lägen ur spridningsmönstret.</li>
+<li><strong>kryoelektronmikroskopi</strong> – Metod där proteiner fryses blixtsnabbt och fotograferas med elektroner. Ur tusentals bilder med sammanlagt hundratusentals molekyler räknas en tredimensionell struktur fram. Förkortas kryo-EM.</li>
+<li><strong>molekyldynamik</strong> – Datorsimulering där man med Newtons lagar räknar ut hur alla atomer i en molekyl rör sig, steg för steg.</li>
+<li><strong>flerskalemodell</strong> – Datormodell där den viktigaste delen, till exempel ett aktivt centrum, beräknas med kvantmekanik och resten med enklare fysik.</li>
+<li><strong>komplex I</strong> – Det första och största enzymet i andningskedjan. Det för elektroner från NADH till ubikinon och använder energin till att pumpa protoner över membranet.</li>
+<li><strong>ubikinon</strong> – En liten fettlöslig molekyl som bär elektroner i mitokondriernas membran, även kallad koenzym Q10 eller bara Q10. Säljs som Q10 i hudkrämer.</li>
+<li><strong>superkomplex</strong> – En större enhet där flera av andningskedjans enzymer sitter ihop.</li>
+<li><strong>mitokondriell sjukdom</strong> – Sjukdom där mitokondriernas energiomvandling inte fungerar, ofta på grund av mutationer i andningskedjans enzymer. Drabbar främst energikrävande organ som hjärnan och musklerna.</li>
+<li><strong>proteindesign</strong> – Att konstruera proteiner med nya egenskaper, eller helt nya proteiner, med hjälp av beräkningar och experiment.</li>
+<li><strong>de novo-protein</strong> – Ett protein som konstruerats helt från början och inte finns i naturen.</li>
+<li><strong>TIM-tunna</strong> – En vanlig proteinform där åtta raka kedjedelar bildar en tunna omgiven av helixar. Används ofta som stomme vid enzymdesign.</li>
+<li><strong>riktad evolution</strong> – Metod där man upprepade gånger skapar slumpvisa varianter av ett enzym och väljer ut de bästa, för att stegvis få fram nya eller bättre egenskaper.</li>
+<li><strong>nanodisk</strong> – En liten bit membran som hålls ihop av ett proteinband runt kanten. Används för att studera membranproteiner i en membranliknande miljö.</li>
+</ul>
+</section>
+<section id="sec-l05-testa" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="sec-l05-testa"><span class="header-section-number">5.11</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L05"></div>
+<script>
+renderQuiz("quiz-L05", [
+ {
+  "question": "Varför tillsätter man en gen för antibiotikaresistens i plasmiden när man vill få bakterier att tillverka ett enzym?",
+  "choices": [
+   "Så att bara de bakterier som har tagit upp plasmiden, och därmed genen för enzymet, överlever när man odlar dem med antibiotikum",
+   "För att enzymet ska bli motståndskraftigt mot antibiotika",
+   "För att bakterierna ska växa snabbare",
+   "För att döda de bakterier som tillverkar för mycket enzym"
+  ],
+  "correctIndex": 0,
+  "explanation": "Antibiotikumet fungerar som ett filter: alla bakterier utan plasmiden dör, och de som växer bär alla genen för enzymet."
+ },
+ {
+  "question": "Hur mäter man ofta hur snabbt ett enzym arbetar?",
+  "choices": [
+   "Man följer en färgförändring med en spektrofotometer, eftersom mängden ljus som tas upp beror på mängden färgat ämne",
+   "Man väger provet före och efter reaktionen",
+   "Man räknar enzymmolekylerna i ett ljusmikroskop",
+   "Man mäter hur varmt provet blir"
+  ],
+  "correctIndex": 0,
+  "explanation": "Om substratet, produkten eller en tillsatt indikator har färg kan man följa hur färgen ändras med tiden, och därmed hur snabbt reaktionen går."
+ },
+ {
+  "question": "En aminosyra är densamma i ett protein hos människa, ko, jäst och flera bakterier. Vad tyder det på?",
+  "choices": [
+   "Att aminosyran är viktig för funktionen, eftersom organismer där den ändrats har fått problem och inte förts vidare",
+   "Att aminosyran aldrig kan muteras",
+   "Att alla dessa arter fick proteinet samtidigt, nyligen",
+   "Att aminosyran inte har någon betydelse"
+  ],
+  "correctIndex": 0,
+  "explanation": "Mutationer sker hela tiden, men en aminosyra som är nödvändig bevaras genom evolutionen. Att den är konserverad är ett tecken på att den är viktig."
+ },
+ {
+  "question": "När forskarna bytte tyrosin 108 i komplex I mot fenylalanin sjönk aktiviteten till omkring 15 procent. Vad visade det?",
+  "choices": [
+   "Att tyrosinens OH-grupp, som kan bilda en vätebindning, är viktig för enzymets funktion",
+   "Att fenylalanin är giftigt för enzymet",
+   "Att enzymet inte behöver någon av sina aminosyror",
+   "Att tyrosin och fenylalanin har helt olika form"
+  ],
+  "correctIndex": 0,
+  "explanation": "De två aminosyrorna är nästan likadana, men fenylalanin saknar OH-gruppen och kan inte bilda vätebindningen. Den lägre aktiviteten visar att vätebindningen behövs."
+ },
+ {
+  "question": "Varför kan man inte se enskilda atomer i ett vanligt ljusmikroskop?",
+  "choices": [
+   "Synligt ljus har en våglängd som är tusentals gånger större än en atom, och man kan inte se detaljer som är mindre än ungefär halva våglängden",
+   "Atomer är genomskinliga för allt slags strålning",
+   "Ljusmikroskop förstorar för mycket",
+   "Atomer rör sig för snabbt för att synas"
+  ],
+  "correctIndex": 0,
+  "explanation": "Synligt ljus har våglängder på 400–700 nanometer, medan en atom är omkring en tiondels nanometer. För att se atomer krävs röntgenstrålar eller elektroner med våglängder kring en ångström."
+ },
+ {
+  "question": "Vad är den stora skillnaden mellan röntgenkristallografi och kryoelektronmikroskopi?",
+  "choices": [
+   "Kryoelektronmikroskopi kräver inga kristaller; proteinerna fryses och fotograferas en och en med elektroner",
+   "Kryoelektronmikroskopi använder synligt ljus",
+   "Röntgenkristallografi kan bara användas på levande celler",
+   "Bara röntgenkristallografi kan visa enskilda atomer"
+  ],
+  "correctIndex": 0,
+  "explanation": "Vid kristallografi måste proteinet först bilda en kristall, vilket kan vara mycket svårt. Vid kryo-EM fryses proteinlösningen, och tusentals bilder med sammanlagt hundratusentals enskilda molekyler kombineras till en tredimensionell karta."
+ },
+ {
+  "question": "Varför använder man kvantmekanik och inte bara Newtons lagar för att simulera själva reaktionen i ett enzym?",
+  "choices": [
+   "När kemiska bindningar bryts och bildas måste man räkna på elektronerna, och det kräver kvantmekanik",
+   "Newtons lagar gäller inte för proteiner över huvud taget",
+   "Kvantmekanik är snabbare att räkna med",
+   "Kvantmekaniken behövs bara för att räkna ut vattnets rörelser"
+  ],
+  "correctIndex": 0,
+  "explanation": "Molekyldynamik med Newtons lagar beskriver bra hur atomerna rör sig, men inte hur bindningar ändras. Därför räknar man kvantmekaniskt på det aktiva centret och enklare på resten."
+ },
+ {
+  "question": "Vad gör komplex I i andningskedjan?",
+  "choices": [
+   "Det för elektroner från NADH till ubikinon och använder energin till att pumpa protoner över mitokondriens membran",
+   "Det tillverkar ATP av ADP och fosfat",
+   "Det för elektroner till syre som bildar vatten",
+   "Det transporterar socker in i mitokondrien"
+  ],
+  "correctIndex": 0,
+  "explanation": "Komplex I är andningskedjans första enzym. Elektronerna leds genom en kedja av järn-svavelkluster till ubikinon, och det sätter igång protonpumparna i membranarmen."
+ },
+ {
+  "question": "Varför går det inte att hitta ett nytt enzym genom att helt enkelt pröva alla möjliga aminosyrasekvenser?",
+  "choices": [
+   "Antalet möjligheter är ofattbart stort: för ett protein med 200 aminosyror ungefär 10 upphöjt till 260",
+   "Det finns bara ett fåtal möjliga sekvenser, och alla är redan prövade",
+   "Bakterier kan inte tillverka proteiner med påhittade sekvenser",
+   "Alla sekvenser ger samma form"
+  ],
+  "correctIndex": 0,
+  "explanation": "Med 20 möjliga aminosyror på var och en av 200 platser blir antalet kombinationer långt större än antalet atomer i universum. Man behöver smartare metoder, som riktad evolution och beräkningar."
+ },
+ {
+  "question": "Vad är grundidén i riktad evolution?",
+  "choices": [
+   "Man skapar många slumpmässiga varianter av ett enzym, väljer ut den bästa och upprepar, så att enzymet förbättras steg för steg",
+   "Man räknar ut den perfekta sekvensen i en dator och tillverkar den direkt",
+   "Man väntar på att naturen ska ta fram ett nytt enzym på egen hand",
+   "Man byter ut alla aminosyror samtidigt mot nya"
+  ],
+  "correctIndex": 0,
+  "explanation": "Riktad evolution efterliknar naturligt urval, eller djuravel, i laboratoriet. Man behöver inte förstå varför en variant är bättre, bara kunna välja ut den."
+ },
+ {
+  "question": "Vad är en viktig begränsning hos AI-program som AlphaFold när man vill bygga enzymer?",
+  "choices": [
+   "De har tränats på stillbilder och säger inget om hur proteinet rör sig, och ofta inte var kofaktorerna sitter",
+   "De kan bara förutsäga strukturen av mycket små proteiner",
+   "Deras förutsägelser är nästan alltid helt fel",
+   "De kan bara användas av företaget som utvecklade dem"
+  ],
+  "correctIndex": 0,
+  "explanation": "Enzymer är beroende av rörelser och ofta av metalljoner och andra kofaktorer. Det fångas inte av modeller som tränats på statiska strukturer."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>5.1</strong> Beskriv hur forskare kombinerar olika metoder för att ta reda på hur ett enzym fungerar. Varför räcker det inte med en enda metod?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>En struktur från röntgenkristallografi eller kryo-EM visar var atomerna sitter, men är en stillbild och visar inte hur reaktionen går till. Datorsimuleringar kan visa hur atomerna rör sig och, med kvantmekanik, hur bindningar bryts och bildas, och föreslå vilka aminosyror som är viktiga. Riktad mutagenes prövar förslagen: man byter ut en aminosyra och mäter aktiviteten, ofta som en färgförändring. Sedan kan man bestämma strukturen av mutanten för att se om den ser ut som väntat. Varje metod ger bara en del av bilden, ungefär som att man inte förstår en bil bara genom att fotografera den eller mäta avgaserna.</p>
+</div>
+</div>
+</div>
+<p><strong>5.2</strong> Förklara varför en mutation långt från det aktiva centret i komplex I ändå kan ge en allvarlig sjukdom.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I komplex I sker reaktionen med ubikinon på ett ställe, men protonpumparna sitter längs hela membranarmen, upp till omkring 200 ångström bort. Delarna måste därför vara kopplade till varandra, så att signalen förs vidare genom enzymet, kanske som en elektrisk våg. En mutation som stör kopplingen kan få hela maskineriet att fungera sämre, även om den sitter långt från det aktiva centret. Ett exempel är en mutation som ger Leighs syndrom, där en enda utbytt aminosyra i membranarmens yttersta del sänkte aktiviteten till ungefär en åttondel. Hjärnan och andra organ som gör av med mycket energi drabbas då hårt.</p>
+</div>
+</div>
+</div>
+<p><strong>5.3</strong> Jämför rationell design och riktad evolution som sätt att ta fram ett nytt enzym. Vad är styrkan och svagheten hos var och en?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Vid rationell design använder man kunskap om enzymets struktur och beräkningar av reaktionen för att välja ut vilka aminosyror som ska ändras. Styrkan är att man lär sig varför enzymet fungerar som det gör, men det kräver en modell som verkligen kan förutsäga reaktionen, och det lyckas sällan. Vid riktad evolution skapar man många slumpvisa varianter och väljer ut den bästa i flera omgångar. Man behöver inte förstå mekanismen, och metoden har gett enzymer som används i industrin. Men man måste ha ett startenzym med lite av den önskade förmågan och ett sätt att testa eller sortera mycket stora antal varianter. I praktiken kombineras ofta de två vägarna.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l05-las-mer" class="level2" data-number="5.12">
+<h2 data-number="5.12" class="anchored" data-anchor-id="sec-l05-las-mer"><span class="header-section-number">5.12</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Kryoelektronmikroskopi">Kryoelektronmikroskopi</a> och <a href="https://sv.wikipedia.org/wiki/R%C3%B6ntgenkristallografi">Röntgenkristallografi</a> på svenska Wikipedia.</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2017/popular-information/">Nobelpriset i kemi 2017</a>, populärvetenskaplig beskrivning av kryoelektronmikroskopi (på engelska).</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2018/popular-information/">Nobelpriset i kemi 2018</a>, om Frances Arnolds riktade evolution av enzymer (på engelska).</li>
+<li><a href="https://pdb101.rcsb.org/motm/144">Complex I</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), med bilder av David S. Goodsell.</li>
+<li><a href="https://colab.research.google.com/github/sokrypton/ColabFold/blob/main/AlphaFold2.ipynb">ColabFold</a>, en fri webbversion av AlphaFold där man själv kan klistra in en aminosyrasekvens och få en modell (på engelska).</li>
+<li><a href="https://www.youtube.com/watch?v=LNPzttDhGTo">Kaila Lab</a>, en kort film på svenska om Ville Kailas forskning om energiomvandlande enzymer.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/04-enzymer.html" class="pagination-link" aria-label="Enzymer – cellens katalytiska maskineri">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/06-enskilda-molekyler.html" class="pagination-link" aria-label="Att se enskilda molekyler">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" width="860" height="380">
+<defs><marker id="ah222222" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="430" y="32.6" font-family="Helvetica, Arial, sans-serif" font-size="19" text-anchor="middle" font-weight="bold" fill="#222222">Varför insjuknar man sent i livet? (principskiss)</text>
+<line x1="90" y1="310" x2="90" y2="60" stroke="#222222" stroke-width="2"/>
+<path d="M90,310 L740,310" fill="none" stroke="#222222" stroke-width="2" marker-end="url(#ah222222)"/>
+<text x="710" y="343.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="end" font-weight="normal" fill="#222222">ålder</text>
+<path d="M90.0,100.0 L102.4,100.0 L114.8,100.2 L127.2,100.4 L139.6,100.7 L152.0,101.2 L164.4,101.7 L176.8,102.3 L189.2,103.0 L201.6,103.7 L214.0,104.6 L226.4,105.6 L238.8,106.7 L251.2,107.8 L263.6,109.1 L276.0,110.4 L288.4,111.8 L300.8,113.4 L313.2,115.0 L325.6,116.7 L338.0,118.5 L350.4,120.4 L362.8,122.4 L375.2,124.4 L387.6,126.6 L400.0,128.9 L412.4,131.2 L424.8,133.7 L437.2,136.2 L449.6,138.9 L462.0,141.6 L474.4,144.4 L486.8,147.3 L499.2,150.3 L511.6,153.4 L524.0,156.6 L536.4,159.9 L548.8,163.2 L561.2,166.7 L573.6,170.3 L586.0,173.9 L598.4,177.7 L610.8,181.5 L623.2,185.4 L635.6,189.4 L648.0,193.6 L660.4,197.8 L672.8,202.1 L685.2,206.4 L697.6,210.9 L710.0,215.5" fill="none" stroke="#4a8c4a" stroke-width="3.5"/>
+<path d="M90.0,270.0 L102.4,269.7 L114.8,269.3 L127.2,268.7 L139.6,268.0 L152.0,267.2 L164.4,266.3 L176.8,265.3 L189.2,264.2 L201.6,263.1 L214.0,262.0 L226.4,260.7 L238.8,259.4 L251.2,258.1 L263.6,256.7 L276.0,255.2 L288.4,253.7 L300.8,252.2 L313.2,250.6 L325.6,248.9 L338.0,247.2 L350.4,245.5 L362.8,243.7 L375.2,241.9 L387.6,240.1 L400.0,238.2 L412.4,236.3 L424.8,234.3 L437.2,232.3 L449.6,230.2 L462.0,228.2 L474.4,226.1 L486.8,223.9 L499.2,221.7 L511.6,219.5 L524.0,217.3 L536.4,215.0 L548.8,212.7 L561.2,210.4 L573.6,208.0 L586.0,205.6 L598.4,203.2 L610.8,200.7 L623.2,198.2 L635.6,195.7 L648.0,193.2 L660.4,190.6 L672.8,188.0 L685.2,185.3 L697.6,182.7 L710.0,180.0" fill="none" stroke="#b5443b" stroke-width="3.5"/>
+<text x="100" y="85.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#4a8c4a">cellens förmåga att ta hand om felveckade proteiner</text>
+<text x="100" y="290.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#b5443b">mängd felveckat protein som bildas</text>
+<text x="720" y="165.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#222222">balansen</text>
+<text x="720" y="183.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#222222">tippar:</text>
+<text x="720" y="201.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#b5443b">sjukdom</text>
+<text x="430" y="364.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">Skissen visar principen, inte uppmätta värden.</text>
+</svg>

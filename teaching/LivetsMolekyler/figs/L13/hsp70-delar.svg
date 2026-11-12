@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 420" width="940" height="420">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="470" y="29.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#222222">Hsp70 består av två delar</text>
+<text x="235" y="67.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#3b6ea8">ATP bundet: locket står öppet</text>
+<ellipse cx="140" cy="230" rx="90" ry="72" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2.5"/>
+<text x="140" y="205.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#3b6ea8">ATP-delen</text>
+<circle cx="140" cy="245" r="16" fill="#f4d4d0" stroke="#b5443b" stroke-width="2"/>
+<text x="140" y="248.8" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="bold" fill="#222222">ATP</text>
+<path d="M229,236 L255,250" stroke="#666666" stroke-width="6" stroke-linecap="round"/>
+<rect x="253" y="236" width="140" height="68" rx="14" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="2.5"/>
+<rect x="293" y="234" width="64" height="18" rx="4" fill="white" stroke="none" stroke-width="1.5"/>
+<text x="323" y="292.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#4a8c4a">griper</text>
+<g transform="rotate(-50 275 226)"><rect x="275" y="214" width="120" height="24" rx="11" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2.5"/></g>
+<text x="327" y="132.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#7a4f9a">locket</text>
+<path d="M301.0,196.0 L309.0,200.7 L317.0,201.8 L325.0,198.6 L333.0,193.3 L341.0,190.1 L349.0,191.4" fill="none" stroke="#666666" stroke-width="2"/>
+<circle cx="301" cy="196.0" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="309" cy="200.7" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="317" cy="201.8" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="325" cy="198.6" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="333" cy="193.3" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="341" cy="190.1" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="349" cy="191.4" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<path d="M375,206 L375,186" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+<path d="M387,186 L387,206" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+<text x="235" y="355.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Kedjan glider lätt in, men släpper också lätt.</text>
+<text x="705" y="67.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#3b6ea8">ATP spjälkat till ADP: locket stängs</text>
+<ellipse cx="610" cy="230" rx="90" ry="72" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2.5"/>
+<text x="610" y="205.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#3b6ea8">ATP-delen</text>
+<circle cx="610" cy="245" r="16" fill="#eeeeee" stroke="#666666" stroke-width="2"/>
+<text x="610" y="248.8" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="bold" fill="#222222">ADP</text>
+<path d="M699,236 L725,250" stroke="#666666" stroke-width="6" stroke-linecap="round"/>
+<rect x="723" y="236" width="140" height="68" rx="14" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="2.5"/>
+<rect x="763" y="234" width="64" height="18" rx="4" fill="white" stroke="none" stroke-width="1.5"/>
+<text x="793" y="292.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#4a8c4a">griper</text>
+<path d="M769.0,242.0 L777.0,244.3 L785.0,244.9 L793.0,243.3 L801.0,240.7 L809.0,239.1 L817.0,239.7" fill="none" stroke="#666666" stroke-width="2"/>
+<circle cx="769" cy="242.0" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="777" cy="244.3" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="785" cy="244.9" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="793" cy="243.3" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="801" cy="240.7" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="809" cy="239.1" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="817" cy="239.7" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<rect x="735" y="204" width="140" height="24" rx="11" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2.5"/>
+<text x="805" y="192.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#7a4f9a">locket</text>
+<text x="705" y="355.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Kedjan sitter fast, som en pinne i en knuten hand.</text>
+<path d="M452,230 L498,230" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<text x="470" y="404.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">Kedjans vattenskygga bitar (orange) ligger i skåran under locket.</text>
+</svg>

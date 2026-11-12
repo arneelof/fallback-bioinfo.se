@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="450" y="31.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#222222">Hsp70 griper och släpper</text>
+<path d="M80.0,120.0 L88.0,127.8 L96.0,129.7 L104.0,124.3 L112.0,115.6 L120.0,110.2 L128.0,112.3 L136.0,120.2 L144.0,127.9 L152.0,129.7 L160.0,124.1" fill="none" stroke="#666666" stroke-width="2"/>
+<circle cx="80" cy="120.0" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="88" cy="127.8" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="96" cy="129.7" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="104" cy="124.3" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="112" cy="115.6" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="120" cy="110.2" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="128" cy="112.3" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="136" cy="120.2" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="144" cy="127.9" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="152" cy="129.7" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="160" cy="124.1" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<rect x="95.0" y="150.0" width="70" height="30" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="130" y="169.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#222222">Hsp40</text>
+<text x="150" y="211.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">1. Hsp40 hittar en</text>
+<text x="150" y="228.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">oveckad kedja</text>
+<rect x="580" y="106" width="56" height="48" rx="12" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2"/>
+<text x="608" y="134.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#7a4f9a">ATP</text>
+<rect x="642" y="126" width="50" height="28" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<path d="M646,122 L660,82" fill="none" stroke="#3b6ea8" stroke-width="5"/>
+<path d="M690.0,118.4 L698.0,119.5 L706.0,113.3 L714.0,104.7 L722.0,100.1 L730.0,102.9 L738.0,111.2 L746.0,118.5" fill="none" stroke="#666666" stroke-width="2"/>
+<circle cx="690" cy="118.4" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="698" cy="119.5" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="706" cy="113.3" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="714" cy="104.7" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="722" cy="100.1" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="730" cy="102.9" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="738" cy="111.2" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="746" cy="118.5" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<text x="640" y="211.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">2. Hsp70 med ATP: öppet grepp,</text>
+<text x="640" y="228.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">kedjan binder in löst</text>
+<rect x="580" y="356" width="56" height="48" rx="12" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2"/>
+<text x="608" y="384.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#7a4f9a">ADP</text>
+<rect x="642" y="376" width="50" height="28" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<path d="M644,372 Q670,354 694,372" fill="none" stroke="#3b6ea8" stroke-width="5"/>
+<path d="M650.0,377.0 L656.0,378.6 L662.0,378.9 L668.0,377.9 L674.0,376.1 L680.0,375.0" fill="none" stroke="#666666" stroke-width="2"/>
+<circle cx="650" cy="377.0" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="656" cy="378.6" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="662" cy="378.9" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="668" cy="377.9" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="674" cy="376.1" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="680" cy="375.0" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<text x="640" y="456.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">3. ATP spjälkas (Hsp40 hjälper):</text>
+<text x="640" y="473.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">locket stängs, kedjan hålls hårt</text>
+<rect x="90" y="356" width="56" height="48" rx="12" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="2"/>
+<text x="118" y="384.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="bold" fill="#7a4f9a">ATP</text>
+<rect x="152" y="376" width="50" height="28" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<path d="M156,372 L170,332" fill="none" stroke="#3b6ea8" stroke-width="5"/>
+<circle cx="260" cy="360" r="18" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<circle cx="260" cy="360" r="9.0" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="160" y="456.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">4. GrpE byter ADP mot nytt ATP:</text>
+<text x="160" y="473.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">locket öppnas, kedjan släpps</text>
+<path d="M240,130 L520,130" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<path d="M640,260 L640,320" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<path d="M520,380 L300,380" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<path d="M150,330 L150,255" fill="none" stroke="#666666" stroke-width="2.5" stroke-dasharray="7,5" marker-end="url(#ah666666)"/>
+<text x="255" y="286.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">inte färdigveckad?</text>
+<text x="255" y="302.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">ny runda</text>
+<text x="450" y="534.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">Kedjan veckar sig medan den är fri. Hsp70 blir aldrig en del av det färdiga proteinet.</text>
+</svg>
