@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 560" width="920" height="560">
+<defs><marker id="ah3b6ea8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6ea8"/></marker><marker id="ah4a8c4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a8c4a"/></marker><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="460" y="25.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#222222">Cellens kvalitetskontroll av proteiner</text>
+<rect x="35.0" y="72.0" width="150" height="56" rx="6" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="110" y="96.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">ribosomen</text>
+<text x="110" y="114.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">(ny kedja)</text>
+<rect x="250.0" y="72.0" width="160" height="56" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="330" y="96.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">Hsp70</text>
+<text x="330" y="114.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">(med Hsp40)</text>
+<rect x="480.0" y="72.0" width="170" height="56" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="565" y="96.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">chaperonin</text>
+<text x="565" y="114.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">(GroEL, TRiC)</text>
+<rect x="715.0" y="72.0" width="170" height="56" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="800" y="96.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">färdigt,</text>
+<text x="800" y="114.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">fungerande protein</text>
+<rect x="715.0" y="202.0" width="170" height="56" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="800" y="226.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">Hsp90</text>
+<text x="800" y="244.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">(slutlig mognad)</text>
+<path d="M186,100 L248,100" fill="none" stroke="#4a8c4a" stroke-width="2.5" marker-end="url(#ah4a8c4a)"/>
+<path d="M411,100 L478,100" fill="none" stroke="#4a8c4a" stroke-width="2.5" marker-end="url(#ah4a8c4a)"/>
+<path d="M651,100 L713,100" fill="none" stroke="#4a8c4a" stroke-width="2.5" marker-end="url(#ah4a8c4a)"/>
+<path d="M330,72 Q560.0,58.2 790,72" fill="none" stroke="#4a8c4a" stroke-width="2.5" marker-end="url(#ah4a8c4a)"/>
+<text x="560" y="45.5" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" font-style="italic" fill="#4a8c4a">de flesta proteiner veckas med hjälp av Hsp70 eller utan hjälp</text>
+<path d="M782,130 L782,200" fill="none" stroke="#3b6ea8" stroke-width="2" marker-end="url(#ah3b6ea8)"/>
+<path d="M818,200 L818,130" fill="none" stroke="#3b6ea8" stroke-width="2" marker-end="url(#ah3b6ea8)"/>
+<path d="M725,128 L605,330" fill="none" stroke="#b5443b" stroke-width="2.5" stroke-dasharray="7,5" marker-end="url(#ahb5443b)"/>
+<text x="700" y="296.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#b5443b">värme, stress,</text>
+<text x="700" y="313.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#b5443b">mutationer</text>
+<rect x="480.0" y="332.0" width="170" height="56" rx="6" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<text x="565" y="356.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">skadat,</text>
+<text x="565" y="374.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">oveckat protein</text>
+<rect x="250.0" y="332.0" width="160" height="56" rx="6" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<text x="330" y="356.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">aggregat</text>
+<text x="330" y="374.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">(klumpar)</text>
+<path d="M479,360 L412,360" fill="none" stroke="#b5443b" stroke-width="2.5" marker-end="url(#ahb5443b)"/>
+<rect x="480.0" y="462.0" width="170" height="56" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="565" y="486.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">små Hsp</text>
+<text x="565" y="504.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">(håller fast)</text>
+<path d="M565,389 L565,460" fill="none" stroke="#3b6ea8" stroke-width="2" marker-end="url(#ah3b6ea8)"/>
+<rect x="250.0" y="462.0" width="160" height="56" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="330" y="486.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">Hsp100 + Hsp70</text>
+<text x="330" y="504.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">(löser upp)</text>
+<path d="M330,389 L330,460" fill="none" stroke="#3b6ea8" stroke-width="2" marker-end="url(#ah3b6ea8)"/>
+<path d="M479,490 L412,490" fill="none" stroke="#3b6ea8" stroke-width="2" marker-end="url(#ah3b6ea8)"/>
+<path d="M250,470 Q185.0,290.0 290,130" fill="none" stroke="#4a8c4a" stroke-width="2.5" stroke-dasharray="7,5" marker-end="url(#ah4a8c4a)"/>
+<text x="150" y="296.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#4a8c4a">nytt försök</text>
+<text x="150" y="313.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#4a8c4a">att vecka</text>
+<rect x="35.0" y="395.0" width="150" height="70" rx="6" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="110" y="418.1" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">nedbrytning</text>
+<text x="110" y="434.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">(proteasom,</text>
+<text x="110" y="451.7" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">Clp-proteas)</text>
+<path d="M249,375 L187,410" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+<path d="M249,495 L187,460" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+</svg>

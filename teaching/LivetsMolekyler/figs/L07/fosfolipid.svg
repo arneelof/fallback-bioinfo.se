@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" width="900" height="430">
+<defs></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="130" y="31.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">En fosfolipid</text>
+<polyline points="126.0,111.0 126.0,261.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="134.0,111.0 134.0,178.5 141.0,204.0 141.0,261.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="130" cy="95" r="16" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<text x="160" y="66.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#c0702a">huvud: polärt,</text>
+<text x="160" y="83.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#c0702a">trivs i vatten</text>
+<text x="160" y="184.7" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#666666">två svansar av</text>
+<text x="160" y="201.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#666666">kol och väte:</text>
+<text x="160" y="218.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#666666">opolära, skyr</text>
+<text x="160" y="235.1" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#666666">vatten</text>
+<text x="130" y="278.9" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">Böjen i den ena svansen</text>
+<text x="130" y="294.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">kommer från en</text>
+<text x="130" y="310.2" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">omättad fettsyra.</text>
+<text x="330" y="31.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">Kolesterol</text>
+<rect x="313.1" y="110.6" width="33.800000000000004" height="88.4" rx="3" fill="#cfe6c3" stroke="#4a8c4a" stroke-width="1.5"/>
+<line x1="330" y1="199.0" x2="330" y2="230.2" stroke="#4a8c4a" stroke-width="2.5"/>
+<circle cx="330" cy="95" r="11.700000000000001" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<text x="352" y="78.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#b5443b">liten polär</text>
+<text x="352" y="95.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#b5443b">grupp</text>
+<text x="352" y="181.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#4a8c4a">stel</text>
+<text x="352" y="198.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#4a8c4a">ringstruktur</text>
+<text x="675.0" y="31.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">Ett lipiddubbelskikt</text>
+<rect x="470" y="45" width="410" height="70" rx="0" fill="#e3f0fb" stroke="none" stroke-width="1.5"/>
+<rect x="470" y="300" width="410" height="70" rx="0" fill="#e3f0fb" stroke="none" stroke-width="1.5"/>
+<text x="675.0" y="75.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#3b6ea8">vatten</text>
+<text x="675.0" y="355.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#3b6ea8">vatten</text>
+<polyline points="480.0,133.0 480.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="488.0,133.0 488.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="484" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="480.0,282.0 480.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="488.0,282.0 488.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="484" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="502.0,133.0 502.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="510.0,133.0 510.0,164.5 517.0,176.4 517.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="506" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="502.0,282.0 502.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="510.0,282.0 510.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="506" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="524.0,133.0 524.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="532.0,133.0 532.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="528" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="524.0,282.0 524.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="532.0,282.0 532.0,250.5 539.0,238.6 539.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="528" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="546.0,133.0 546.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="554.0,133.0 554.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="550" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="546.0,282.0 546.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="554.0,282.0 554.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="550" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="568.0,133.0 568.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="576.0,133.0 576.0,164.5 583.0,176.4 583.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="572" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="568.0,282.0 568.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="576.0,282.0 576.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="572" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<rect x="584.25" y="134.0" width="19.5" height="51.0" rx="3" fill="#cfe6c3" stroke="#4a8c4a" stroke-width="1.5"/>
+<line x1="594" y1="185.0" x2="594" y2="203.0" stroke="#4a8c4a" stroke-width="2.5"/>
+<circle cx="594" cy="125" r="6.75" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<rect x="588.25" y="230.0" width="19.5" height="51.0" rx="3" fill="#cfe6c3" stroke="#4a8c4a" stroke-width="1.5"/>
+<line x1="598" y1="230.0" x2="598" y2="212.0" stroke="#4a8c4a" stroke-width="2.5"/>
+<circle cx="598" cy="290" r="6.75" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<polyline points="612.0,133.0 612.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="620.0,133.0 620.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="616" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="612.0,282.0 612.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="620.0,282.0 620.0,250.5 627.0,238.6 627.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="616" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="634.0,133.0 634.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="642.0,133.0 642.0,164.5 649.0,176.4 649.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="638" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="634.0,282.0 634.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="642.0,282.0 642.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="638" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="656.0,133.0 656.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="664.0,133.0 664.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="660" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="656.0,282.0 656.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="664.0,282.0 664.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="660" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="678.0,133.0 678.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="686.0,133.0 686.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="682" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="678.0,282.0 678.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="686.0,282.0 686.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="682" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="700.0,133.0 700.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="708.0,133.0 708.0,164.5 715.0,176.4 715.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="704" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="700.0,282.0 700.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="708.0,282.0 708.0,250.5 715.0,238.6 715.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="704" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="722.0,133.0 722.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="730.0,133.0 730.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="726" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="722.0,282.0 722.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="730.0,282.0 730.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="726" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="744.0,133.0 744.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="752.0,133.0 752.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="748" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="744.0,282.0 744.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="752.0,282.0 752.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="748" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<rect x="760.25" y="134.0" width="19.5" height="51.0" rx="3" fill="#cfe6c3" stroke="#4a8c4a" stroke-width="1.5"/>
+<line x1="770" y1="185.0" x2="770" y2="203.0" stroke="#4a8c4a" stroke-width="2.5"/>
+<circle cx="770" cy="125" r="6.75" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<rect x="764.25" y="230.0" width="19.5" height="51.0" rx="3" fill="#cfe6c3" stroke="#4a8c4a" stroke-width="1.5"/>
+<line x1="774" y1="230.0" x2="774" y2="212.0" stroke="#4a8c4a" stroke-width="2.5"/>
+<circle cx="774" cy="290" r="6.75" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<polyline points="788.0,133.0 788.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="796.0,133.0 796.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="792" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="788.0,282.0 788.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="796.0,282.0 796.0,250.5 803.0,238.6 803.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="792" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="810.0,133.0 810.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="818.0,133.0 818.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="814" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="810.0,282.0 810.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="818.0,282.0 818.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="814" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="832.0,133.0 832.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="840.0,133.0 840.0,164.5 847.0,176.4 847.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="836" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="832.0,282.0 832.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="840.0,282.0 840.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="836" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="854.0,133.0 854.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="862.0,133.0 862.0,203.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="858" cy="125" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<polyline points="854.0,282.0 854.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<polyline points="862.0,282.0 862.0,212.0" fill="none" stroke="#8a8a8a" stroke-width="3" stroke-linecap="round"/>
+<circle cx="858" cy="290" r="8" fill="#f2b36b" stroke="#c0702a" stroke-width="1.5"/>
+<text x="675.0" y="399.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">Svansarna möts i mitten, där inget vatten finns.</text>
+<text x="675.0" y="421.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">Hela membranet är bara ungefär 5 nanometer tjockt.</text>
+</svg>

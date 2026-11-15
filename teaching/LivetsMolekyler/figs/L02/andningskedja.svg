@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 445" width="900" height="445">
+<defs><marker id="ah3b6ea8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6ea8"/></marker><marker id="ah7a4f9a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a4f9a"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="20" y="40" width="860" height="145" rx="0" fill="#f6f9fd" stroke="none" stroke-width="1.5"/>
+<rect x="20" y="245" width="860" height="185" rx="0" fill="#fdfaf3" stroke="none" stroke-width="1.5"/>
+<rect x="20" y="185" width="860" height="60" rx="0" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<line x1="20" y1="185" x2="880" y2="185" stroke="#666666" stroke-width="2"/>
+<line x1="20" y1="245" x2="880" y2="245" stroke="#666666" stroke-width="2"/>
+<text x="30" y="65.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#3b6ea8">Utsidan av det inre membranet: många protoner</text>
+<text x="30" y="420.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#d9822b">Mitokondriens insida: färre protoner</text>
+<text x="870" y="211.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="end" font-weight="normal" fill="#666666">inre</text>
+<text x="870" y="227.4" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="end" font-weight="normal" fill="#666666">membranet</text>
+<text x="60" y="155.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="67" y="147.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<text x="215" y="157.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="222" y="149.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<text x="345" y="157.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="352" y="149.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<text x="480" y="105.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="487" y="97.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<text x="545" y="155.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="552" y="147.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<text x="600" y="100.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="607" y="92.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<text x="760" y="97.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="767" y="89.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<text x="300" y="97.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="307" y="89.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<text x="60" y="100.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="67" y="92.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<text x="560" y="325.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="567" y="317.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<text x="840" y="405.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H</text>
+<text x="847" y="397.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="start" font-weight="bold" fill="#b5443b">+</text>
+<rect x="90" y="155" width="80" height="120" rx="14" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<path d="M148,290 L148,135" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<rect x="230" y="155" width="80" height="120" rx="14" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<path d="M288,290 L288,135" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<rect x="370" y="155" width="80" height="120" rx="14" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<path d="M428,290 L428,135" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<text x="270" y="113.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#d9822b">andningskedjan pumpar ut protoner</text>
+<text x="80" y="335.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">NADH</text>
+<path d="M95,312 L118,255" fill="none" stroke="#7a4f9a" stroke-width="2.5" marker-end="url(#ah7a4f9a)"/>
+<path d="M122,227.0 L258,227.0" fill="none" stroke="#7a4f9a" stroke-width="2.5" marker-end="url(#ah7a4f9a)"/>
+<path d="M262,227.0 L398,227.0" fill="none" stroke="#7a4f9a" stroke-width="2.5" marker-end="url(#ah7a4f9a)"/>
+<path d="M398,255 L370,312" fill="none" stroke="#7a4f9a" stroke-width="2.5" marker-end="url(#ah7a4f9a)"/>
+<text x="370" y="340.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">syre → vatten</text>
+<text x="200" y="369.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#7a4f9a">elektroner (lila pilar)</text>
+<rect x="635" y="175" width="90" height="80" rx="10" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="670" y="255" width="20" height="40" rx="3" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<ellipse cx="680" cy="340" rx="70" ry="48" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<text x="680" y="345.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#3b6ea8">ATP-syntas</text>
+<path d="M658,130 L658,275" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<text x="740" y="143.1" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#b5443b">protonerna strömmar</text>
+<text x="740" y="159.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#b5443b">tillbaka och driver</text>
+<text x="740" y="176.7" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#b5443b">motorn runt</text>
+<path d="M640,199 Q681.0,178.5 722,199" fill="none" stroke="#3b6ea8" stroke-width="2" marker-end="url(#ah3b6ea8)"/>
+<text x="765" y="336.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#222222">ADP + fosfat</text>
+<text x="765" y="354.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#222222">→ ATP</text>
+</svg>

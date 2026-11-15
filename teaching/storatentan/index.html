@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Arne Elofsson">
+<meta name="dcterms.date" content="2026-10-27">
+
+<title>Stora Tentan in Bioinformatics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapters/01-sequence-searching.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">About this guide</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Stora Tentan in Bioinformatics</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Stora-Tentan-in-Bioinformatics.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">About this guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/01-sequence-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sequence searching</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/02-databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Databases</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/03-evolution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/04-phylogeny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Phylogeny</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/05-genomics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Genomics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/06-genomes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Genomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/07-expression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Expression analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/08-proteomics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Proteomics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/09-protein-structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Protein structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/10-protein-function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Protein function</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/11-protein-interactions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Protein–protein interactions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/12-machine-learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Machine learning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/13-imaging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Image analysis and models of cells</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/appendix-a-recommended.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Recommended reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/appendix-b-further.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further papers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/textbooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Textbooks and general resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/appendix-d-explanations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Further explanations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/appendix-e-wikipedia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Wikipedia index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/appendix-f-problems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Cross-topic problems and case studies</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#about-this-guide" id="toc-about-this-guide" class="nav-link active" data-scroll-target="#about-this-guide">About this guide</a>
+  <ul class="collapse">
+  <li><a href="#what-the-exam-is" id="toc-what-the-exam-is" class="nav-link" data-scroll-target="#what-the-exam-is">What the exam is</a></li>
+  <li><a href="#topics" id="toc-topics" class="nav-link" data-scroll-target="#topics">Topics</a></li>
+  <li><a href="#how-each-chapter-is-organised" id="toc-how-each-chapter-is-organised" class="nav-link" data-scroll-target="#how-each-chapter-is-organised">How each chapter is organised</a></li>
+  <li><a href="#earlier-reading-lists" id="toc-earlier-reading-lists" class="nav-link" data-scroll-target="#earlier-reading-lists">Earlier reading lists</a></li>
+  <li><a href="#sec-companion" id="toc-sec-companion" class="nav-link" data-scroll-target="#sec-companion">Courses and companion textbook</a></li>
+  <li><a href="#sec-programming" id="toc-sec-programming" class="nav-link" data-scroll-target="#sec-programming">Programming and reproducible research</a>
+  <ul class="collapse">
+  <li><a href="#what-you-should-know" id="toc-what-you-should-know" class="nav-link" data-scroll-target="#what-you-should-know">What you should know</a></li>
+  <li><a href="#common-file-formats" id="toc-common-file-formats" class="nav-link" data-scroll-target="#common-file-formats">Common file formats</a></li>
+  <li><a href="#a-provenance-checklist" id="toc-a-provenance-checklist" class="nav-link" data-scroll-target="#a-provenance-checklist">A provenance checklist</a></li>
+  <li><a href="#reading" id="toc-reading" class="nav-link" data-scroll-target="#reading">Reading</a></li>
+  </ul></li>
+  <li><a href="#sec-uncertainty" id="toc-sec-uncertainty" class="nav-link" data-scroll-target="#sec-uncertainty">Uncertainty: many numbers, different meanings</a></li>
+  <li><a href="#sec-information" id="toc-sec-information" class="nav-link" data-scroll-target="#sec-information">Information theory in brief</a></li>
+  <li><a href="#licence" id="toc-licence" class="nav-link" data-scroll-target="#licence">Licence</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Stora Tentan in Bioinformatics</h1>
+<p class="subtitle lead">Reading guide for the oral PhD exam at DBB, Stockholm University</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Arne Elofsson </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 27, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="about-this-guide" class="level1 unnumbered">
+<h1 class="unnumbered">About this guide</h1>
+<div class="callout callout-style-default callout-warning callout-titled" title="Disclaimer">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Disclaimer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This book is <strong>not complete</strong>. It is a study aid, meant to help you organise your preparation for the exam. We do not guarantee that it covers everything you need to know to pass Stora Tentan, and the exam is not limited to what is written here. Use it as a map of the field and a starting point for your own reading, together with the papers, textbooks and lectures it points to, and discussions with other students and your supervisor.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled" title="Version 0.7.1 (October 2026)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Version 0.7.1 (October 2026)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is an early version of the book. Version 0.7.1 adds citations for many named methods, updates the sections on superfolds and on orphan genes, de novo genes and small proteins, and marks claims that still lack a source with <em>(citation needed)</em>. Version 0.7 was a full editorial revision: the language, terminology and notation were made consistent across the book, sections were reordered where the argument flows better, explanations were added where the review problems assumed them, and citations were checked against the papers they cite. Version 0.6.1 listed the classical papers in bioinformatics under <a href="chapters/textbooks.html" class="quarto-xref"><span>Appendix C — Textbooks and general resources</span></a>. Version 0.6 filled gaps found by a comparison with two classic textbooks (Pevsner; Zvelebil &amp; Baum): new sections on human genetics (linkage disequilibrium, GWAS, fine-mapping, polygenic scores, diagnosing rare disease), regulatory and epigenomic sequencing, whole-genome alignment and conservation scores, pseudogenes, new genes and small proteins, and the experimental determination of function, a short introduction to information theory, and new subsections in most chapters. Version 0.5 integrated Matteo Tadiello’s companion textbook (review problems, figures and new text), and version 0.4 added a chapter on image analysis and models of cells (<a href="chapters/13-imaging.html" class="quarto-xref"><span>13&nbsp; Image analysis and models of cells</span></a>), which is not part of the 2025 exam description. The chapters and reading lists are open for comments from teachers and students: use the <a href="https://bioinfo.se/internal/storatentan-suggest/">suggestion form</a> (SU login).</p>
+</div>
+</div>
+<p>This book collects reading material for <strong>Stora Tentan</strong>, the 15 hp oral exam in bioinformatics for PhD students at the Department of Biochemistry and Biophysics (DBB), Stockholm University. It is built on the current exam description (2025) and on the more detailed reading lists used in earlier years. It is not a course book: everything in it is chosen to help PhD students at DBB prepare for this exam.</p>
+<p>This introduction first describes the exam and how the book is organised. It then covers three topics that cut across all chapters: programming and reproducible research (<a href="#sec-programming">Programming and reproducible research</a>), the many numbers used to express confidence in a result (<a href="#sec-uncertainty">Uncertainty</a>), and the basic quantities of information theory (<a href="#sec-information">Information theory in brief</a>).</p>
+<section id="what-the-exam-is" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-exam-is">What the exam is</h2>
+<p>Stora Tentan should show that a student awarded a PhD from DBB has a good basic knowledge of bioinformatics, <em>wider than their own thesis area</em>. The exam assumes the knowledge needed to pass the department’s advanced-level courses in bioinformatics and comparative genomics. Above all, it tests the ability to explain how bioinformatics methods are used to answer fundamental biological questions. Students are also expected to follow seminars and dissertations at DBB and SciLifeLab and to be aware of current international research.</p>
+<ul>
+<li>Two examiners, about two hours.</li>
+<li>No single required textbook. Zvelebil &amp; Baum <span class="citation" data-cites="zvelebil2008">(<a href="chapters/01-sequence-searching.html#ref-zvelebil2008" role="doc-biblioref">Zvelebil and Baum 2008</a>)</span> or Pevsner <span class="citation" data-cites="pevsner2015">(<a href="chapters/01-sequence-searching.html#ref-pevsner2015" role="doc-biblioref">Pevsner 2015</a>)</span> cover most areas, but they are not up to date. You need to bring your knowledge up to the current state of the art; the proceedings of the last few ISMB and ECCB meetings are a good start.</li>
+<li>The exam is <strong>not</strong> about knowing every detail. You should be able to discuss and reason about methods: how they work (algorithms), their advantages and limitations, and when to use them.</li>
+<li>Fundamental knowledge of the algorithms and limitations of established methods for <strong>sequence searching, protein structure prediction, phylogeny and function annotation</strong> is required.</li>
+<li>Every exam is unique. Depending on how the first topic goes, other topics may be covered in more or less depth, or not at all.</li>
+</ul>
+<p>Experience shows that discussing the exam with other PhD students is a very efficient way to prepare, and that online lectures often explain things better than textbooks.</p>
+</section>
+<section id="topics" class="level2">
+<h2 class="anchored" data-anchor-id="topics">Topics</h2>
+<p>The book follows the topics of the exam description, from sequences through genomes and expression to protein structure, function and interactions, and ends with machine learning and imaging, which draw on all the others.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Topic</th>
+<th>What is covered</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="./chapters/01-sequence-searching.html">Sequence searching</a></td>
+<td>Homology, alignment algorithms and substitution matrices, BLAST and its statistics, alignment-free comparison, MSA, profiles and profile HMMs, RNA, whole-genome alignment, domains, protein language models, benchmarks</td>
+</tr>
+<tr class="even">
+<td><a href="./chapters/02-databases.html">Databases</a></td>
+<td>Primary and derived databases, their hierarchy and relations; sequence, genome, structure, function, interaction, expression and medical data</td>
+</tr>
+<tr class="odd">
+<td><a href="./chapters/03-evolution.html">Evolution</a></td>
+<td>Origin of life, mutation, selection and drift, neutral theory, homology and orthology, gene duplication, protein evolution, detecting selection, genome evolution</td>
+</tr>
+<tr class="even">
+<td><a href="./chapters/04-phylogeny.html">Phylogeny</a></td>
+<td>Distance, parsimony, likelihood and Bayesian methods; substitution models; support; phylogenomics; the tree of life</td>
+</tr>
+<tr class="odd">
+<td><a href="./chapters/05-genomics.html">Genomics</a></td>
+<td>Sequencing technologies, assembly, read mapping and variant calling, epigenomic sequencing, gene prediction, metagenomics, human genetics</td>
+</tr>
+<tr class="even">
+<td><a href="./chapters/06-genomes.html">Genomes</a></td>
+<td>Prokaryotic and eukaryotic genome organisation, viral and organelle genomes, synteny, pangenomes, repeats, new genes and pseudogenes, non-coding RNA</td>
+</tr>
+<tr class="odd">
+<td><a href="./chapters/07-expression.html">Expression analysis</a></td>
+<td>Microarrays, RNA-seq, normalisation, differential expression and multiple testing, interpretation, single-cell and spatial methods</td>
+</tr>
+<tr class="even">
+<td><a href="./chapters/08-proteomics.html">Proteomics</a></td>
+<td>Mass spectrometry, peptide identification, FDR and protein inference, quantification, modifications, proteomics without MS</td>
+</tr>
+<tr class="odd">
+<td><a href="./chapters/09-protein-structure.html">Protein structure</a></td>
+<td>CASP, experimental methods, folding, structure comparison, structure prediction and AlphaFold, membrane proteins, dynamics and docking, design</td>
+</tr>
+<tr class="even">
+<td><a href="./chapters/10-protein-function.html">Protein function</a></td>
+<td>Definitions (GO, EC), experimental determination, prediction by homology and other evidence, localisation, variant effects, benchmarking</td>
+</tr>
+<tr class="odd">
+<td><a href="./chapters/11-protein-interactions.html">Protein–protein interactions</a></td>
+<td>Experimental and computational methods, networks, pathway and network enrichment, regulatory networks, prediction of complexes</td>
+</tr>
+<tr class="even">
+<td><a href="./chapters/12-machine-learning.html">Machine learning</a></td>
+<td>Evaluation and overfitting, HMMs and classical methods, deep learning, generative and foundation models, AI in research practice, integrating data</td>
+</tr>
+<tr class="odd">
+<td><a href="./chapters/13-imaging.html">Image analysis and models of cells</a></td>
+<td>Bioimage analysis, segmentation and classification, Cell Painting, protein localisation, pathology, cell atlases, virtual and whole-cell models (not in the 2025 exam description)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="how-each-chapter-is-organised" class="level2">
+<h2 class="anchored" data-anchor-id="how-each-chapter-is-organised">How each chapter is organised</h2>
+<p>The thirteen topic chapters share the same structure:</p>
+<ol type="1">
+<li><strong>Overview</strong>: what the chapter covers and how it connects to the others.</li>
+<li><strong>Sections</strong>: a full text on each part of the topic, written mainly from Wikipedia and other open sources (credited at the end of each section), with references to the key papers. Background that every student is expected to know is included where it is needed: statistics in <a href="chapters/07-expression.html" class="quarto-xref"><span>7&nbsp; Expression analysis</span></a>, nucleic acids and cells in <a href="chapters/06-genomes.html" class="quarto-xref"><span>6&nbsp; Genomes</span></a>, amino acids, energetics and enzymes in <a href="chapters/09-protein-structure.html" class="quarto-xref"><span>9&nbsp; Protein structure</span></a>, and AI in research practice in <a href="chapters/12-machine-learning.html" class="quarto-xref"><span>12&nbsp; Machine learning</span></a>.</li>
+<li><strong>Key concepts</strong>: a checklist of things you should be able to explain.</li>
+<li><strong>Recommended reading</strong>: about six papers to read in full, mostly from the reading lists of earlier years, each with a one-line note on why it matters.</li>
+<li><strong>Background reading (open access)</strong>: overviews to get started, mostly Wikipedia articles and tutorials, each with a short description.</li>
+<li><strong>Student recommendations</strong>: papers, online lectures, tutorials and exam experiences recommended by students. Students can send suggestions, including corrections and exam questions, through the <a href="https://bioinfo.se/internal/storatentan-suggest/">suggestion form</a> (SU login); the teachers review them and add the good ones in the next version.</li>
+<li><strong>Review problems</strong>: problems that test understanding rather than recall, each with extensions, a solution outline and common errors (click to show them in the HTML version). They are adapted from the companion textbook by Matteo Tadiello (<a href="#sec-companion">Courses and companion textbook</a>).</li>
+</ol>
+<p>The papers and other material are collected in appendices, so that the chapters stay readable:</p>
+<ul>
+<li><strong>Appendix A, Recommended reading</strong> (A.1–A.13, one section per chapter): the recommended papers with titles, abstracts, DOI and library links. In the PDF version the open-access papers follow in full.</li>
+<li><strong>Appendix B, Further papers</strong> (B.1–B.13): for each chapter, a longer list of papers grouped by theme, with titles, DOI links and abstracts (click <em>Abstract</em> in the HTML version). Papers marked ★ were mandatory in earlier reading lists.</li>
+<li><strong>Appendix C, Textbooks and general resources</strong> (<a href="chapters/textbooks.html" class="quarto-xref"><span>Appendix C — Textbooks and general resources</span></a>): textbooks, ways to keep up to date, and the classical papers of the field.</li>
+<li><strong>Appendix D, Further explanations</strong> (D.1–D.13): for each section of a chapter, one to three open-access reviews, tutorials or textbook chapters that explain the topic in more detail than the book does, each with a short comment. In the PDF version one or two of them per chapter follow in full. Each section of the chapters points to its part of Appendix D.</li>
+<li><strong>Appendix E, Wikipedia index</strong> (E.1–E.13): the main Wikipedia articles for each section, with a one-line description. They are a quick way to look up a term, not a source to cite.</li>
+<li><strong>Appendix F, Cross-topic problems and case studies</strong> (<a href="chapters/appendix-f-problems.html" class="quarto-xref"><span>Appendix F — Cross-topic problems and case studies</span></a>): problems that combine several chapters, as questions in the oral exam often do, and two longer case studies.</li>
+</ul>
+<p>Full references are collected in <a href="./references.html">References</a>; hover over a citation to see it.</p>
+</section>
+<section id="earlier-reading-lists" class="level2">
+<h2 class="anchored" data-anchor-id="earlier-reading-lists">Earlier reading lists</h2>
+<p>The reading lists from earlier years contained a list of mandatory articles and a much longer list of background papers. These have been distributed over the topic chapters: the mandatory articles are among the recommended reading, and the others are in Appendix B. A 2021 variant of the exam was instead based on Pevsner’s textbook <span class="citation" data-cites="pevsner2015">(<a href="chapters/01-sequence-searching.html#ref-pevsner2015" role="doc-biblioref">Pevsner 2015</a>)</span> together with the review by <span class="citation" data-cites="sapoval2022">Sapoval et al. (<a href="chapters/01-sequence-searching.html#ref-sapoval2022" role="doc-biblioref">2022</a>)</span>; both remain good starting points.</p>
+</section>
+<section id="sec-companion" class="level2">
+<h2 class="anchored" data-anchor-id="sec-companion">Courses and companion textbook</h2>
+<p>Much of the material in this book is covered by two PhD courses in bioinformatics: KB8029, given by Arne Elofsson, and KB8030, given by Erik Sonnhammer. The course book for KB8029 is at <a href="https://course.bioinfo.se" class="uri">https://course.bioinfo.se</a>. The suggested textbook for KB8030 is Zvelebil &amp; Baum, <em>Understanding Bioinformatics</em> <span class="citation" data-cites="zvelebil2008">(<a href="chapters/01-sequence-searching.html#ref-zvelebil2008" role="doc-biblioref">Zvelebil and Baum 2008</a>)</span>.</p>
+<p>Matteo Tadiello, a student of Arne Elofsson, has written a companion textbook, <em>Modern Bioinformatics: From Foundations to Frontiers</em> (&lt;https://bioinfo.se/teaching/modern-bioinformatics/&gt;). It covers the same topics as a general textbook, in more depth and with more mathematics, and is a good next step after the summaries in this book. The review problems at the end of each chapter, the cross-topic problems and case studies in appendix F, many of the figures, and new text in most chapters are adapted from his book with his permission (CC BY 4.0). This includes the sections on orthology databases, gene order and synteny, viral genomes, pathway and network enrichment, and integrating data; every adapted part is credited where it appears.</p>
+</section>
+<section id="sec-programming" class="level2">
+<h2 class="anchored" data-anchor-id="sec-programming">Programming and reproducible research</h2>
+<p>Programming and reproducibility are <strong>general professional background</strong>, not a separate exam topic. You will not be asked to write code, and the topic chapters do not return to these practices in detail. You are, however, expected to know how computational research is done and to be able to discuss the tools and practices you use. Examiners may ask how you would implement or scale an algorithm, or how someone else could reproduce one of your results.</p>
+<section id="what-you-should-know" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="what-you-should-know">What you should know</h3>
+<ul>
+<li><strong>Languages and their roles.</strong> Python and R for analysis, statistics and visualisation; the Unix shell for handling files and running programs; compiled languages (C, C++, Rust) for performance-critical tools such as aligners. Know why most heavy bioinformatics tools are written in compiled languages, while analyses are written in scripting languages.</li>
+<li><strong>Algorithms and complexity.</strong> Big-O notation, and why an <span class="math inline">\(O(n^2)\)</span> algorithm becomes unusable on a million sequences while an <span class="math inline">\(O(n \log n)\)</span> one does not. Basic data structures (arrays, hash tables, trees, graphs) and the algorithmic ideas that recur in this book: dynamic programming (<a href="chapters/01-sequence-searching.html#sec-ch01-dp" class="quarto-xref"><span>Dynamic programming and sequence alignment</span></a>), hashing and indexing (<a href="chapters/01-sequence-searching.html#sec-ch01-heuristic" class="quarto-xref"><span>Heuristic search methods</span></a>), and graph algorithms (<a href="chapters/05-genomics.html#sec-ch05-assembly" class="quarto-xref"><span>Genome assembly</span></a>).</li>
+<li><strong>Computing environments.</strong> Working on a Unix system and on a computer cluster with a job scheduler such as Slurm; when to use GPUs (mainly for deep learning); cloud computing and its cost.</li>
+<li><strong>Version control.</strong> Using git for code and analyses, and platforms such as GitHub or GitLab for collaboration <span class="citation" data-cites="perezriverol2016">(<a href="chapters/01-sequence-searching.html#ref-perezriverol2016" role="doc-biblioref">Perez-Riverol et al. 2016</a>)</span>.</li>
+<li><strong>Reproducibility.</strong> Recording software versions and parameters; managing software environments (conda, containers such as Docker or Apptainer); using workflow managers such as Snakemake or Nextflow <span class="citation" data-cites="koster2012 ditommaso2017">(<a href="chapters/01-sequence-searching.html#ref-koster2012" role="doc-biblioref">Köster and Rahmann 2012</a>; <a href="chapters/01-sequence-searching.html#ref-ditommaso2017" role="doc-biblioref">Di Tommaso et al. 2017</a>)</span>; documenting analyses, for example in notebooks or Quarto/R Markdown documents. <span class="citation" data-cites="sandve2013">Sandve et al. (<a href="chapters/01-sequence-searching.html#ref-sandve2013" role="doc-biblioref">2013</a>)</span> and <span class="citation" data-cites="wilson2017">Wilson et al. (<a href="chapters/01-sequence-searching.html#ref-wilson2017" role="doc-biblioref">2017</a>)</span> give short, practical rules.</li>
+<li><strong>Reproducible is not the same as correct.</strong> An analysis is <em>reproducible</em> if the same data and code give the same result, <em>replicable</em> if new data give the same conclusion, and <em>robust</em> if the conclusion survives other reasonable analysis choices. A perfectly reproducible analysis can still be wrong, for example because of data leakage or confounding (<a href="chapters/12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Basics</span></a>). Containers record the software, but not the input data, the reference files or the sources of randomness, which must be recorded separately.</li>
+<li><strong>Data management.</strong> The FAIR principles (findable, accessible, interoperable, reusable) <span class="citation" data-cites="wilkinson2016">(<a href="chapters/01-sequence-searching.html#ref-wilkinson2016" role="doc-biblioref">Wilkinson et al. 2016</a>)</span>; depositing data in public repositories (<a href="chapters/02-databases.html" class="quarto-xref"><span>2&nbsp; Databases</span></a>); standard file formats (<a href="#tbl-formats" class="quarto-xref">Table&nbsp;<span>1</span></a>); handling sensitive human data in line with the GDPR and ethical approvals.</li>
+<li><strong>Testing and correctness.</strong> Checking code on small examples with known answers, and being sceptical of results that look too good. Many published errors come from simple bugs such as off-by-one errors, swapped sample labels, or spreadsheets that convert gene names to dates <span class="citation" data-cites="ziemann2016">(<a href="chapters/01-sequence-searching.html#ref-ziemann2016" role="doc-biblioref">Ziemann et al. 2016</a>)</span>.</li>
+</ul>
+</section>
+<section id="common-file-formats" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="common-file-formats">Common file formats</h3>
+<p>Most bioinformatics data are exchanged in a small number of community formats. You should know what each contains and what it is used for.</p>
+<div id="tbl-formats" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-formats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Common bioinformatics file formats.
+</figcaption>
+<div aria-describedby="tbl-formats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 69%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Format</th>
+<th>What it contains</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FASTA</td>
+<td>Sequences (nucleotide or protein), each with a header line starting with <code>&gt;</code>; no quality information</td>
+</tr>
+<tr class="even">
+<td>FASTQ</td>
+<td>Sequencing reads with a quality score for every base (Phred scale, encoded as characters), four lines per read</td>
+</tr>
+<tr class="odd">
+<td>SAM / BAM / CRAM</td>
+<td>Reads aligned to a reference: position, mapping quality, flags and a CIGAR string describing the alignment. SAM is text, BAM its compressed binary form, and CRAM a smaller, reference-based compression</td>
+</tr>
+<tr class="even">
+<td>VCF (and binary BCF)</td>
+<td>Variants: position, reference and alternative alleles, quality, filters, and the genotype of each sample</td>
+</tr>
+<tr class="odd">
+<td>BED</td>
+<td>Genomic intervals (chromosome, start, end, and optionally name, score and strand), for example peaks or target regions</td>
+</tr>
+<tr class="even">
+<td>GFF3 / GTF</td>
+<td>Genome annotation: genes, transcripts, exons and coding sequences, with parent–child relations in an attribute column. GTF is an older variant, used by Ensembl and GENCODE</td>
+</tr>
+<tr class="odd">
+<td>PDB / mmCIF</td>
+<td>Atomic coordinates of macromolecular structures. The legacy fixed-column PDB format cannot hold very large structures; PDBx/mmCIF is the archive standard</td>
+</tr>
+<tr class="even">
+<td>HDF5, AnnData (<code>.h5ad</code>)</td>
+<td>HDF5 is a hierarchical binary container for large arrays. AnnData, built on it, stores a single-cell count matrix together with cell and gene annotations and embeddings</td>
+</tr>
+<tr class="odd">
+<td>OME-Zarr</td>
+<td>Chunked, cloud-friendly storage of large multidimensional images, for example from microscopy and spatial omics, with standard metadata</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Coordinates differ between formats. BED (and BAM internally) counts from 0 with half-open intervals, whereas SAM, VCF and GFF count from 1 with closed intervals. Conversions between them are a classic source of off-by-one errors (<a href="chapters/02-databases.html#sec-ch02-genomes" class="quarto-xref"><span>Genome databases and browsers</span></a>).</p>
+</section>
+<section id="a-provenance-checklist" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="a-provenance-checklist">A provenance checklist</h3>
+<p>A computational result can only be reproduced if everything that produced it is recorded. For any analysis, you should be able to state:</p>
+<ul>
+<li>the <strong>data</strong>: accession numbers, and the <strong>release or date of every database</strong> used (a UniProt or Pfam release changes search results; see <a href="chapters/02-databases.html" class="quarto-xref"><span>2&nbsp; Databases</span></a>);</li>
+<li>the <strong>reference genome and annotation versions</strong>, for example GRCh38 with a specific GENCODE release, or the T2T or pangenome reference (<a href="chapters/05-genomics.html" class="quarto-xref"><span>5&nbsp; Genomics</span></a>);</li>
+<li>the <strong>software versions and all parameters</strong>, including thresholds and defaults that were left unchanged;</li>
+<li><strong>random seeds</strong>, for anything stochastic: MCMC, clustering, UMAP, training of machine-learning models, structure prediction with several seeds;</li>
+<li>the <strong>computing environment</strong>: a conda environment file or a container image;</li>
+<li>the <strong>models</strong>: the versions or weights of trained models, and for AI tools the tool, model version, date and prompts (<a href="chapters/12-machine-learning.html#sec-ch12-ai" class="quarto-xref"><span>AI in research practice</span></a>);</li>
+<li>the <strong>workflow</strong>: the scripts or workflow-manager pipeline that link these steps, under version control;</li>
+<li>where the <strong>code and data are deposited</strong>, so that others can rerun the analysis.</li>
+</ul>
+</section>
+<section id="reading" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="reading">Reading</h3>
+<ul>
+<li><span class="citation" data-cites="sandve2013">Sandve et al. (<a href="chapters/01-sequence-searching.html#ref-sandve2013" role="doc-biblioref">2013</a>)</span> — ten simple rules for reproducible computational research.</li>
+<li><span class="citation" data-cites="wilson2017">Wilson et al. (<a href="chapters/01-sequence-searching.html#ref-wilson2017" role="doc-biblioref">2017</a>)</span> — good enough practices in scientific computing.</li>
+<li><a href="https://software-carpentry.org/lessons/">Software Carpentry lessons</a>, for example <a href="https://swcarpentry.github.io/shell-novice/">the Unix shell</a>, version control with git, and programming in Python or R.</li>
+</ul>
+</section>
+</section>
+<section id="sec-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="sec-uncertainty">Uncertainty: many numbers, different meanings</h2>
+<p>Almost every method in this book reports a number that expresses confidence in a result. These numbers answer different questions, and confusing them is a frequent source of mistakes in oral exams. <a href="#tbl-uncertainty" class="quarto-xref">Table&nbsp;<span>2</span></a> summarises the most important ones.</p>
+<div id="tbl-uncertainty" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-uncertainty-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Measures of confidence used in this book.
+</figcaption>
+<div aria-describedby="tbl-uncertainty-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 37%">
+<col style="width: 32%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Measure</th>
+<th>What it is</th>
+<th>Common misreading</th>
+<th>See</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>E-value</td>
+<td>Expected number of hits with at least this score by chance, for one query against this database</td>
+<td>A probability (it can exceed 1), or a fixed property of the hit (it grows with database size)</td>
+<td><a href="chapters/01-sequence-searching.html#sec-ch01-heuristic" class="quarto-xref"><span>Heuristic search methods</span></a></td>
+</tr>
+<tr class="even">
+<td>p-value</td>
+<td>Probability of data at least as extreme as observed, <em>if</em> the null hypothesis is true</td>
+<td>The probability that the null hypothesis is true</td>
+<td><a href="chapters/07-expression.html#sec-ch07-stats-background" class="quarto-xref"><span>Statistical background</span></a></td>
+</tr>
+<tr class="odd">
+<td>FDR</td>
+<td>Expected <em>proportion</em> of false positives among the results called significant</td>
+<td>The probability that one particular hit is false</td>
+<td><a href="chapters/07-expression.html#sec-ch07-statistics" class="quarto-xref"><span>Testing and statistics</span></a></td>
+</tr>
+<tr class="even">
+<td>q-value</td>
+<td>For one result, the smallest FDR threshold at which it would be called significant</td>
+<td>The FDR of that single result</td>
+<td><a href="chapters/07-expression.html#sec-ch07-statistics" class="quarto-xref"><span>Testing and statistics</span></a></td>
+</tr>
+<tr class="odd">
+<td>Local FDR, posterior error probability</td>
+<td>Probability that one particular result is false, under the model</td>
+<td>Model-free; it is only as good as the model</td>
+<td><a href="chapters/08-proteomics.html#sec-ch08-statistics" class="quarto-xref"><span>Statistics and error control</span></a></td>
+</tr>
+<tr class="even">
+<td>Bootstrap support</td>
+<td>Percentage of resampled data sets in which a clade is recovered</td>
+<td>The probability that the clade is true</td>
+<td><a href="chapters/04-phylogeny.html#sec-ch04-support" class="quarto-xref"><span>Statistical support</span></a></td>
+</tr>
+<tr class="odd">
+<td>Posterior probability (Bayesian)</td>
+<td>Probability of a clade or parameter given the data, the model and the priors</td>
+<td>Independent of the model; it can be close to 1 for wrong clades if the model is wrong</td>
+<td><a href="chapters/04-phylogeny.html#sec-ch04-support" class="quarto-xref"><span>Statistical support</span></a></td>
+</tr>
+<tr class="even">
+<td>pLDDT, PAE, ipTM</td>
+<td>AlphaFold’s predicted error of local structure, relative positions and interfaces</td>
+<td>Measured accuracy; confident predictions can still be wrong</td>
+<td><a href="chapters/09-protein-structure.html#sec-ch09-prediction" class="quarto-xref"><span>Protein structure prediction</span></a></td>
+</tr>
+<tr class="odd">
+<td>Classifier score</td>
+<td>A model’s output for one example</td>
+<td>A probability: it is one only if the model is calibrated, and it depends on how common positives are</td>
+<td><a href="chapters/12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Basics</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>All of them are conditional on assumptions: the null model, the substitution model, the training data. A small number is not evidence by itself, only together with the assumptions behind it.</p>
+</section>
+<section id="sec-information" class="level2">
+<h2 class="anchored" data-anchor-id="sec-information">Information theory in brief</h2>
+<p>Several quantities in this book come from information theory, founded by Shannon <span class="citation" data-cites="shannon1948">(<a href="chapters/01-sequence-searching.html#ref-shannon1948" role="doc-biblioref">Shannon 1948</a>)</span>: the information content of a sequence logo, the relative entropy of a substitution matrix, mutual information between alignment columns, and the cross-entropy loss used to train neural networks. With logarithms to base 2 they are measured in <strong>bits</strong>; with natural logarithms, as in most machine learning, in <strong>nats</strong>.</p>
+<p><strong>Entropy</strong> measures the uncertainty of a distribution <span class="math inline">\(p\)</span> over symbols <span class="math inline">\(a\)</span>, that is, the average surprise <span class="math inline">\(-\log_2 p_a\)</span> of an observation: <span class="math display">\[
+H(p) = -\sum_a p_a \log_2 p_a .
+\]</span> It is, roughly, the average number of well-chosen yes/no questions needed to identify a symbol. A uniform distribution over the four nucleotides has 2 bits, over the 20 amino acids <span class="math inline">\(\log_2 20 \approx 4.3\)</span> bits, and a fully conserved alignment column has 0 bits. The surprise of a single event, <span class="math inline">\(-\log_2 P(t)\)</span>, is also called its information content. It is used to give rare, specific GO terms more weight than general ones when function prediction is evaluated (<a href="chapters/10-protein-function.html#sec-ch10-benchmarking" class="quarto-xref"><span>Benchmarking function prediction</span></a>).</p>
+<p><strong>Relative entropy</strong>, or the <strong>Kullback–Leibler divergence</strong> <span class="citation" data-cites="kullback1951">(<a href="chapters/01-sequence-searching.html#ref-kullback1951" role="doc-biblioref">Kullback and Leibler 1951</a>)</span>, measures how different a distribution <span class="math inline">\(p\)</span> is from a reference <span class="math inline">\(q\)</span>: <span class="math display">\[
+D(p \,\|\, q) = \sum_a p_a \log_2 \frac{p_a}{q_a} .
+\]</span> It is the average log-odds score <span class="math inline">\(\log_2 (p_a/q_a)\)</span> when the data really come from <span class="math inline">\(p\)</span>. It is never negative, and zero only if <span class="math inline">\(p = q\)</span>, but it is not symmetric, so it is not a true distance. It appears twice in <a href="chapters/01-sequence-searching.html" class="quarto-xref"><span>1&nbsp; Sequence searching</span></a>. The relative entropy of a substitution matrix is the average score per aligned pair in true alignments, about 0.7 bits for BLOSUM62; it tells how long an alignment must be to stand out from chance (<a href="chapters/01-sequence-searching.html#sec-ch01-dp" class="quarto-xref"><span>Dynamic programming and sequence alignment</span></a>). The information content of a motif position is the relative entropy of the column with respect to the background, and is the height of a stack in a sequence logo (<a href="chapters/01-sequence-searching.html#sec-ch01-profiles" class="quarto-xref"><span>Profiles and multiple sequence alignments</span></a>).</p>
+<p><strong>Mutual information</strong> measures how much knowing one variable reduces the uncertainty about another. It is the relative entropy between the joint distribution and the product of the marginals: <span class="math display">\[
+I(X;Y) = \sum_{x,y} p(x,y) \log_2 \frac{p(x,y)}{p(x)\,p(y)} .
+\]</span> It is zero only if <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, and unlike correlation it also detects non-linear dependence. The relative entropy of a substitution matrix is itself the mutual information between the two residues of a true aligned pair. Between two columns of an alignment, mutual information reveals covariation: base pairs in RNA (<a href="chapters/01-sequence-searching.html#sec-ch01-rna" class="quarto-xref"><span>RNA homology search</span></a>) and residue contacts in proteins (<a href="chapters/03-evolution.html#sec-ch03-protein" class="quarto-xref"><span>Protein evolution</span></a>, <a href="chapters/09-protein-structure.html#sec-ch09-prediction" class="quarto-xref"><span>Protein structure prediction</span></a>). In proteins, global models are needed to separate direct from indirect couplings. Mutual information is also used to infer gene regulatory networks from expression data (<a href="chapters/11-protein-interactions.html#sec-ch11-experimental" class="quarto-xref"><span>Experimental methods</span></a>).</p>
+<p><strong>Cross-entropy</strong> compares the true distribution <span class="math inline">\(p\)</span> with a model’s predicted distribution <span class="math inline">\(q\)</span>: <span class="math display">\[
+H(p, q) = -\sum_a p_a \log q_a = H(p) + D(p \,\|\, q) .
+\]</span> For a classifier, <span class="math inline">\(p\)</span> puts all its weight on the true class <span class="math inline">\(y\)</span>, and the loss for one example is <span class="math inline">\(-\log q_y\)</span>, the negative log-likelihood of the correct answer. Minimising the average cross-entropy loss is therefore maximum likelihood. Since <span class="math inline">\(H(p)\)</span> is fixed by the data, it also minimises the divergence of the model from the data (<a href="chapters/12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Basics</span></a>).</p>
+<p><strong>Perplexity</strong> is the exponential of the cross-entropy, <span class="math inline">\(2^{H}\)</span> in bits or <span class="math inline">\(e^{H}\)</span> in nats. It is the effective number of equally likely choices the model has at each position: a uniform guess over the amino acids gives 20, and a perfect prediction gives 1. It is the usual measure of how well a protein language model predicts sequences (<a href="chapters/01-sequence-searching.html#sec-ch01-plm" class="quarto-xref"><span>Protein language models</span></a>).</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Sources">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Sources
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Written for this book. For background, see the Wikipedia articles <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">Entropy (information theory)</a>, <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">Kullback–Leibler divergence</a>, <a href="https://en.wikipedia.org/wiki/Mutual_information">Mutual information</a>, <a href="https://en.wikipedia.org/wiki/Cross-entropy">Cross-entropy</a> and <a href="https://en.wikipedia.org/wiki/Perplexity">Perplexity</a>.</p>
+</div>
+</div>
+</section>
+<section id="licence" class="level2">
+<h2 class="anchored" data-anchor-id="licence">Licence</h2>
+<p>This book is licensed under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International licence (CC BY-SA 4.0)</a>. Parts of the text are adapted from Wikipedia and other openly licensed sources, which are credited in each section, and from the companion textbook by Matteo Tadiello (<a href="#sec-companion">Courses and companion textbook</a>). Included papers keep their own licences, and only openly licensed papers are reproduced in full. A private edition of the book (rendered with <code>quarto render --profile private</code>) also contains copyrighted papers; it is for students at DBB only and must not be distributed.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-ditommaso2017" class="csl-entry" role="listitem">
+Di Tommaso, Paolo, Maria Chatzou, Evan W Floden, Pablo Prieto Barja, Emilio Palumbo, and Cedric Notredame. 2017. <span>“Nextflow Enables Reproducible Computational Workflows.”</span> <em>Nature Biotechnology</em> 35 (4): 316–19. <a href="https://doi.org/10.1038/nbt.3820">https://doi.org/10.1038/nbt.3820</a>.
+</div>
+<div id="ref-koster2012" class="csl-entry" role="listitem">
+Köster, Johannes, and Sven Rahmann. 2012. <span>“Snakemake—a Scalable Bioinformatics Workflow Engine.”</span> <em>Bioinformatics</em> 28 (19): 2520–22. <a href="https://doi.org/10.1093/bioinformatics/bts480">https://doi.org/10.1093/bioinformatics/bts480</a>.
+</div>
+<div id="ref-kullback1951" class="csl-entry" role="listitem">
+Kullback, S., and R. A. Leibler. 1951. <span>“On Information and Sufficiency.”</span> <em>The Annals of Mathematical Statistics</em> 22 (1): 79–86. <a href="https://doi.org/10.1214/aoms/1177729694">https://doi.org/10.1214/aoms/1177729694</a>.
+</div>
+<div id="ref-perezriverol2016" class="csl-entry" role="listitem">
+Perez-Riverol, Yasset, Laurent Gatto, Rui Wang, et al. 2016. <span>“Ten Simple Rules for Taking Advantage of Git and GitHub.”</span> <em>PLOS Computational Biology</em> 12 (7): e1004947. <a href="https://doi.org/10.1371/journal.pcbi.1004947">https://doi.org/10.1371/journal.pcbi.1004947</a>.
+</div>
+<div id="ref-pevsner2015" class="csl-entry" role="listitem">
+Pevsner, Jonathan. 2015. <em>Bioinformatics and Functional Genomics</em>. 3rd ed. Wiley-Blackwell.
+</div>
+<div id="ref-sandve2013" class="csl-entry" role="listitem">
+Sandve, Geir Kjetil, Anton Nekrutenko, James Taylor, and Eivind Hovig. 2013. <span>“Ten Simple Rules for Reproducible Computational Research.”</span> <em>PLoS Computational Biology</em> 9 (10): e1003285. <a href="https://doi.org/10.1371/journal.pcbi.1003285">https://doi.org/10.1371/journal.pcbi.1003285</a>.
+</div>
+<div id="ref-sapoval2022" class="csl-entry" role="listitem">
+Sapoval, Nicolae, Amirali Aghazadeh, Michael G. Nute, et al. 2022. <span>“Current Progress and Open Challenges for Applying Deep Learning Across the Biosciences.”</span> <em>Nature Communications</em> 13 (1). <a href="https://doi.org/10.1038/s41467-022-29268-7">https://doi.org/10.1038/s41467-022-29268-7</a>.
+</div>
+<div id="ref-shannon1948" class="csl-entry" role="listitem">
+Shannon, C. E. 1948. <span>“A Mathematical Theory of Communication.”</span> <em>Bell System Technical Journal</em> 27 (3): 379–423. <a href="https://doi.org/10.1002/j.1538-7305.1948.tb01338.x">https://doi.org/10.1002/j.1538-7305.1948.tb01338.x</a>.
+</div>
+<div id="ref-wilkinson2016" class="csl-entry" role="listitem">
+Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, et al. 2016. <span>“The FAIR Guiding Principles for Scientific Data Management and Stewardship.”</span> <em>Scientific Data</em> 3 (1). <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>.
+</div>
+<div id="ref-wilson2017" class="csl-entry" role="listitem">
+Wilson, Greg, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal. 2017. <span>“Good Enough Practices in Scientific Computing.”</span> <em>PLOS Computational Biology</em> 13 (6): e1005510. <a href="https://doi.org/10.1371/journal.pcbi.1005510">https://doi.org/10.1371/journal.pcbi.1005510</a>.
+</div>
+<div id="ref-ziemann2016" class="csl-entry" role="listitem">
+Ziemann, Mark, Yotam Eren, and Assam El-Osta. 2016. <span>“Gene Name Errors Are Widespread in the Scientific Literature.”</span> <em>Genome Biology</em> 17 (1). <a href="https://doi.org/10.1186/s13059-016-1044-7">https://doi.org/10.1186/s13059-016-1044-7</a>.
+</div>
+<div id="ref-zvelebil2008" class="csl-entry" role="listitem">
+Zvelebil, Marketa, and Jeremy O. Baum. 2008. <em>Understanding Bioinformatics</em>. Garland Science.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapters/01-sequence-searching.html" class="pagination-link" aria-label="Sequence searching">
+        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sequence searching</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

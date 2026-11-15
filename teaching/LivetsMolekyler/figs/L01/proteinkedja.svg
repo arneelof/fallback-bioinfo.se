@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 300" width="880" height="300">
+<defs></defs>
+<rect width="100%" height="100%" fill="white"/>
+<line x1="95" y1="150" x2="193" y2="150" stroke="#666666" stroke-width="6"/>
+<line x1="193" y1="150" x2="291" y2="150" stroke="#666666" stroke-width="6"/>
+<line x1="291" y1="150" x2="389" y2="150" stroke="#666666" stroke-width="6"/>
+<line x1="389" y1="150" x2="487" y2="150" stroke="#666666" stroke-width="6"/>
+<line x1="487" y1="150" x2="585" y2="150" stroke="#666666" stroke-width="6"/>
+<line x1="585" y1="150" x2="683" y2="150" stroke="#666666" stroke-width="6"/>
+<line x1="683" y1="150" x2="781" y2="150" stroke="#666666" stroke-width="6"/>
+<line x1="95" y1="150" x2="95" y2="88" stroke="#666666" stroke-width="3"/>
+<circle cx="95" cy="88" r="22" fill="#f8e1c8" stroke="#d9822b" stroke-width="2"/>
+<rect x="79" y="138" width="32" height="24" rx="4" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<line x1="193" y1="150" x2="193" y2="212" stroke="#666666" stroke-width="3"/>
+<circle cx="193" cy="212" r="22" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<rect x="177" y="138" width="32" height="24" rx="4" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<line x1="291" y1="150" x2="291" y2="88" stroke="#666666" stroke-width="3"/>
+<circle cx="291" cy="88" r="22" fill="#f8e1c8" stroke="#d9822b" stroke-width="2"/>
+<rect x="275" y="138" width="32" height="24" rx="4" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<line x1="389" y1="150" x2="389" y2="212" stroke="#666666" stroke-width="3"/>
+<circle cx="389" cy="212" r="22" fill="#f4d4d0" stroke="#b5443b" stroke-width="2"/>
+<rect x="373" y="138" width="32" height="24" rx="4" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<line x1="487" y1="150" x2="487" y2="88" stroke="#666666" stroke-width="3"/>
+<circle cx="487" cy="88" r="22" fill="#f8e1c8" stroke="#d9822b" stroke-width="2"/>
+<rect x="471" y="138" width="32" height="24" rx="4" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<line x1="585" y1="150" x2="585" y2="212" stroke="#666666" stroke-width="3"/>
+<circle cx="585" cy="212" r="22" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<rect x="569" y="138" width="32" height="24" rx="4" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<line x1="683" y1="150" x2="683" y2="88" stroke="#666666" stroke-width="3"/>
+<circle cx="683" cy="88" r="22" fill="#f4d4d0" stroke="#b5443b" stroke-width="2"/>
+<rect x="667" y="138" width="32" height="24" rx="4" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<line x1="781" y1="150" x2="781" y2="212" stroke="#666666" stroke-width="3"/>
+<circle cx="781" cy="212" r="22" fill="#f8e1c8" stroke="#d9822b" stroke-width="2"/>
+<rect x="765" y="138" width="32" height="24" rx="4" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="45" y="154.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="end" font-weight="normal" fill="#666666">början</text>
+<text x="831" y="154.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#666666">slut</text>
+<text x="440" y="27.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">Ryggraden (grå) är densamma för alla aminosyror;</text>
+<text x="440" y="49.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">sidogrupperna (färgade cirklar) skiljer dem åt.</text>
+<circle cx="230" cy="270" r="12" fill="#f8e1c8" stroke="#d9822b" stroke-width="2"/>
+<text x="250" y="275.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#222222">opolär</text>
+<circle cx="400" cy="270" r="12" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<text x="420" y="275.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#222222">polär</text>
+<circle cx="570" cy="270" r="12" fill="#f4d4d0" stroke="#b5443b" stroke-width="2"/>
+<text x="590" y="275.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#222222">laddad</text>
+</svg>

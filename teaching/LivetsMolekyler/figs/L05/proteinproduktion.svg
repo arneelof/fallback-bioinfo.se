@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="25.0" y="42.5" width="250" height="105" rx="6" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="150" y="91.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">1. Genen för enzymet</text>
+<text x="150" y="110.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">klistras in i en plasmid</text>
+<rect x="325.0" y="42.5" width="250" height="105" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="450" y="91.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">2. Plasmiden förs in</text>
+<text x="450" y="110.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">i bakterier</text>
+<rect x="625.0" y="42.5" width="250" height="105" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="750" y="81.4" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">3. Odling med antibiotikum:</text>
+<text x="750" y="100.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">bara bakterier med</text>
+<text x="750" y="119.8" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">plasmiden överlever</text>
+<rect x="625.0" y="217.5" width="250" height="105" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="750" y="266.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">4. Bakterierna tillverkar</text>
+<text x="750" y="285.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">stora mängder enzym</text>
+<rect x="325.0" y="217.5" width="250" height="105" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="450" y="266.0" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">5. Cellerna slås sönder,</text>
+<text x="450" y="285.2" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">enzymet renas fram</text>
+<rect x="25.0" y="217.5" width="250" height="105" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="150" y="256.4" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">6. Rent enzym:</text>
+<text x="150" y="275.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">mätningar och</text>
+<text x="150" y="294.8" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">strukturbestämning</text>
+<path d="M278,95 L318,95" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M578,95 L618,95" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M750,150 L750,212" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M622,270 L582,270" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M322,270 L282,270" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+</svg>

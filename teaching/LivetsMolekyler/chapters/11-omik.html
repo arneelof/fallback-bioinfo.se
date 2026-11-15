@@ -1,0 +1,1805 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>11&nbsp; Omik-världen – en totalbild – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/12-proteintrafik.html" rel="next">
+<link href="../chapters/10-signalering.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/11-omik.html">Cellen som helhet</a></li><li class="breadcrumb-item"><a href="../chapters/11-omik.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l11-omik" id="toc-sec-l11-omik" class="nav-link active" data-scroll-target="#sec-l11-omik"><span class="header-section-number">11.1</span> Vad betyder omik?</a>
+  <ul class="collapse">
+  <li><a href="#sec-l11-siffror" id="toc-sec-l11-siffror" class="nav-link" data-scroll-target="#sec-l11-siffror">Två siffror att komma ihåg</a></li>
+  </ul></li>
+  <li><a href="#sec-l11-historia" id="toc-sec-l11-historia" class="nav-link" data-scroll-target="#sec-l11-historia"><span class="header-section-number">11.2</span> Från ett bakterieförsök till en dubbelspiral</a>
+  <ul class="collapse">
+  <li><a href="#sec-l11-avery" id="toc-sec-l11-avery" class="nav-link" data-scroll-target="#sec-l11-avery">Avery: arvet sitter i DNA</a></li>
+  <li><a href="#sec-l11-dubbelspiralen" id="toc-sec-l11-dubbelspiralen" class="nav-link" data-scroll-target="#sec-l11-dubbelspiralen">Watson, Crick och Franklin</a></li>
+  <li><a href="#sec-l11-sanger" id="toc-sec-l11-sanger" class="nav-link" data-scroll-target="#sec-l11-sanger">Sanger och de mödosamma åren</a></li>
+  </ul></li>
+  <li><a href="#sec-l11-forsta-genomet" id="toc-sec-l11-forsta-genomet" class="nav-link" data-scroll-target="#sec-l11-forsta-genomet"><span class="header-section-number">11.3</span> Det första genomet: en liten bakterie</a></li>
+  <li><a href="#sec-l11-manniskans-genom" id="toc-sec-l11-manniskans-genom" class="nav-link" data-scroll-target="#sec-l11-manniskans-genom"><span class="header-section-number">11.4</span> Människans genom</a>
+  <ul class="collapse">
+  <li><a href="#sec-l11-hgp" id="toc-sec-l11-hgp" class="nav-link" data-scroll-target="#sec-l11-hgp">En kapplöpning mellan två projekt</a></li>
+  <li><a href="#sec-l11-pussel" id="toc-sec-l11-pussel" class="nav-link" data-scroll-target="#sec-l11-pussel">Hur lägger man ett pussel med tre miljarder bitar?</a></li>
+  <li><a href="#sec-l11-gener" id="toc-sec-l11-gener" class="nav-link" data-scroll-target="#sec-l11-gener">Bara 20 000 gener</a></li>
+  <li><a href="#sec-l11-personliga" id="toc-sec-l11-personliga" class="nav-link" data-scroll-target="#sec-l11-personliga">De första personliga genomen</a></li>
+  </ul></li>
+  <li><a href="#sec-l11-sekvensering-idag" id="toc-sec-l11-sekvensering-idag" class="nav-link" data-scroll-target="#sec-l11-sekvensering-idag"><span class="header-section-number">11.5</span> Sekvensering i dag</a>
+  <ul class="collapse">
+  <li><a href="#sec-l11-scilifelab" id="toc-sec-l11-scilifelab" class="nav-link" data-scroll-target="#sec-l11-scilifelab">En fabrik för DNA-läsning</a></li>
+  <li><a href="#sec-l11-data" id="toc-sec-l11-data" class="nav-link" data-scroll-target="#sec-l11-data">Läsfel och mängder av data</a></li>
+  <li><a href="#sec-l11-nanopor" id="toc-sec-l11-nanopor" class="nav-link" data-scroll-target="#sec-l11-nanopor">Nanoporer: att läsa DNA med elektrisk ström</a></li>
+  <li><a href="#sec-l11-kostnad" id="toc-sec-l11-kostnad" class="nav-link" data-scroll-target="#sec-l11-kostnad">Från 100 miljoner dollar till några hundra</a></li>
+  <li><a href="#sec-l11-explosion" id="toc-sec-l11-explosion" class="nav-link" data-scroll-target="#sec-l11-explosion">Sekvensexplosionen</a></li>
+  </ul></li>
+  <li><a href="#sec-l11-medicin" id="toc-sec-l11-medicin" class="nav-link" data-scroll-target="#sec-l11-medicin"><span class="header-section-number">11.6</span> Vad kan ett genom berätta om dig?</a></li>
+  <li><a href="#sec-l11-alla-genom" id="toc-sec-l11-alla-genom" class="nav-link" data-scroll-target="#sec-l11-alla-genom"><span class="header-section-number">11.7</span> Livets alla genom</a>
+  <ul class="collapse">
+  <li><a href="#sec-l11-forntida" id="toc-sec-l11-forntida" class="nav-link" data-scroll-target="#sec-l11-forntida">DNA från det förflutna</a></li>
+  </ul></li>
+  <li><a href="#sec-l11-metagenomik" id="toc-sec-l11-metagenomik" class="nav-link" data-scroll-target="#sec-l11-metagenomik"><span class="header-section-number">11.8</span> Metagenomik: alla organismer på en gång</a>
+  <ul class="collapse">
+  <li><a href="#sec-l11-mikrobiom" id="toc-sec-l11-mikrobiom" class="nav-link" data-scroll-target="#sec-l11-mikrobiom">Människans mikrobiom</a></li>
+  </ul></li>
+  <li><a href="#sec-l11-encell" id="toc-sec-l11-encell" class="nav-link" data-scroll-target="#sec-l11-encell"><span class="header-section-number">11.9</span> RNA i enskilda celler</a>
+  <ul class="collapse">
+  <li><a href="#sec-l11-spatiell" id="toc-sec-l11-spatiell" class="nav-link" data-scroll-target="#sec-l11-spatiell">Var i vävnaden?</a></li>
+  </ul></li>
+  <li><a href="#sec-l11-innehall" id="toc-sec-l11-innehall" class="nav-link" data-scroll-target="#sec-l11-innehall"><span class="header-section-number">11.10</span> Vad står det i genomet?</a>
+  <ul class="collapse">
+  <li><a href="#sec-l11-duplikationer" id="toc-sec-l11-duplikationer" class="nav-link" data-scroll-target="#sec-l11-duplikationer">Gener som flyttat</a></li>
+  <li><a href="#sec-l11-genomkarta" id="toc-sec-l11-genomkarta" class="nav-link" data-scroll-target="#sec-l11-genomkarta">Att bläddra i genomet</a></li>
+  </ul></li>
+  <li><a href="#sec-l11-proteinatlas" id="toc-sec-l11-proteinatlas" class="nav-link" data-scroll-target="#sec-l11-proteinatlas"><span class="header-section-number">11.11</span> Proteomet: Human Protein Atlas</a></li>
+  <li><a href="#sec-l11-sammanfattning" id="toc-sec-l11-sammanfattning" class="nav-link" data-scroll-target="#sec-l11-sammanfattning"><span class="header-section-number">11.12</span> Sammanfattning</a></li>
+  <li><a href="#sec-l11-nyckelbegrepp" id="toc-sec-l11-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l11-nyckelbegrepp"><span class="header-section-number">11.13</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l11-testa" id="toc-sec-l11-testa" class="nav-link" data-scroll-target="#sec-l11-testa"><span class="header-section-number">11.14</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l11-las-mer" id="toc-sec-l11-las-mer" class="nav-link" data-scroll-target="#sec-l11-las-mer"><span class="header-section-number">11.15</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/11-omik.html">Cellen som helhet</a></li><li class="breadcrumb-item"><a href="../chapters/11-omik.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l11" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 11, <em>Omik-världen</em>, av Gunnar von Heijne (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>förklara vad som menas med genom, transkriptom, proteom och metabolom, och vad ordet <em>omik</em> står för,</li>
+<li>beskriva hur människans genom kartlades och varför det i dag går så mycket snabbare och billigare att läsa en människas DNA,</li>
+<li>redogöra för vad människans genom innehåller, och varför bara en liten del av det kodar för proteiner,</li>
+<li>ge exempel på vad genomforskningen används till: i sjukvården, för att studera mikroorganismer i naturen och i tarmen, och för att kartlägga kroppens olika celltyper,</li>
+<li>beskriva hur Human Protein Atlas visar var i kroppen våra proteiner finns.</li>
+</ul>
+</div>
+</div>
+<p>I början av 1980-talet kunde en doktorand ägna stora delar av sitt avhandlingsarbete åt att klona, rena fram och läsa ut ordningen av baserna i en enda gen, kanske tusen baser. I dag står det maskiner i Solna, strax norr om Stockholm, som läser omkring 20 miljoner baser i sekunden. På en timme hinner de läsa lika mycket DNA som det finns i ett tjugotal mänskliga arvsmassor. Och för några tusen kronor kan vem som helst få hela sin arvsmassa uppläst.</p>
+<p>Den utvecklingen har förändrat biologin. Förr studerade forskarna en gen eller ett protein i taget. I dag kan man kartlägga <em>alla</em> gener i en organism, <em>alla</em> RNA-molekyler i en enskild cell eller <em>alla</em> bakterier i ett prov från tarmen. Det här kapitlet handlar om den storskaliga biologin: hur den växte fram, vad den har lärt oss om vårt eget DNA, och vad den kan användas till.</p>
+<section id="sec-l11-omik" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="sec-l11-omik"><span class="header-section-number">11.1</span> Vad betyder omik?</h2>
+<p>Ordet <strong>genom</strong> mötte vi redan i <a href="02-molekyler-och-reaktioner.html#sec-l02-genom" class="quarto-xref"><span>Avsnitt 2.4.2</span></a>: det är allt DNA i en cell, hela arvsmassan. Att studera hela genom, och inte bara enstaka gener, kallas <strong>genomik</strong> eller genomforskning. Det var det första av en rad liknande ord. Ändelsen <em>-omik</em> har sedan spridit sig till andra fält, och i dag talar man om <strong>omik</strong> som ett samlingsnamn (<a href="#fig-l11-omik" class="quarto-xref">Figur&nbsp;<span>11.1</span></a>):</p>
+<ul>
+<li><strong>Transkriptomik</strong> handlar om allt RNA i en cell, cellens <strong>transkriptom</strong>. Det visar vilka gener som används just nu.</li>
+<li><strong>Proteomik</strong> handlar om alla proteiner i en cell eller ett organ, cellens <strong>proteom</strong>.</li>
+<li><strong>Metabolomik</strong> handlar om alla de tusentals små molekyler som deltar i ämnesomsättningen, cellens <strong>metabolom</strong> (<a href="02-molekyler-och-reaktioner.html#sec-l02-kartan" class="quarto-xref"><span>Avsnitt 2.12</span></a>).</li>
+</ul>
+<p>Gemensamt för alla omik-fält är att man försöker mäta så mycket som möjligt av en viss sorts molekyl på en gång, i en cell, ett organ eller en hel organism, vid ett visst tillfälle. Det kräver kraftfulla mätmetoder, stora databaser och mycket datorkraft.</p>
+<div id="fig-l11-omik" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-omik-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/omik.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-omik-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.1: De fyra stora omik-fälten. Informationen flödar från DNA via RNA till proteiner, som i sin tur styr cellens ämnesomsättning. Under varje nivå anges den viktigaste mätmetoden. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Det finns en viktig skillnad mellan nivåerna. Genomet är i stort sett detsamma i alla kroppens celler och förändras inte under livet. Transkriptom, proteom och metabolom är däremot olika i en levercell och en nervcell, och de förändras från timme till timme, beroende på vad vi har ätit, om vi sover eller om vi är sjuka.</p>
+<section id="sec-l11-siffror" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-siffror">Två siffror att komma ihåg</h3>
+<p>Två siffror sammanfattar människans genom, och de återkommer genom hela kapitlet:</p>
+<ul>
+<li><strong>3 miljarder baspar.</strong> Så långt är DNA:t i en uppsättning av människans kromosomer, om man räknar alla 22 vanliga kromosomer och könskromosomerna. (Varje cell har två uppsättningar, en från varje förälder, se <a href="03-gener-och-genteknik.html#sec-l03-genomstorlek" class="quarto-xref"><span>Avsnitt 3.2.3</span></a>.)</li>
+<li><strong>Ungefär 20 000 gener.</strong> Med det menas här gener som kodar för proteiner. Våra celler är med andra ord programmerade att kunna tillverka ungefär 20 000 olika proteiner.</li>
+</ul>
+<p>Den andra siffran är inte helt exakt, eftersom den beror på vad man räknar som “ett protein”. Som vi såg i <a href="03-gener-och-genteknik.html#sec-l03-eukaryota" class="quarto-xref"><span>Avsnitt 3.2.2</span></a> är våra gener uppdelade i bitar, exoner, som kan klistras ihop på olika sätt. En och samma gen kan därför ge upphov till flera närbesläktade proteiner. Räknar man med alla sådana varianter blir proteinerna betydligt fler. Men räknar man en grundmodell per gen hamnar man på omkring 20 000.</p>
+</section>
+</section>
+<section id="sec-l11-historia" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="sec-l11-historia"><span class="header-section-number">11.2</span> Från ett bakterieförsök till en dubbelspiral</h2>
+<p>Hur kom vi hit? Genomforskningen vilar på två upptäckter från mitten av 1900-talet: att arvet bärs av DNA, och hur DNA är byggt. Först när de var gjorda fanns det en anledning att försöka läsa DNA, och en idé om hur informationen var lagrad.</p>
+<section id="sec-l11-avery" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-avery">Avery: arvet sitter i DNA</h3>
+<p>Redan på 1940-talet kände man till DNA. Man visste att det var en stor molekyl byggd av fyra sorters baser, A, C, G och T. Men de flesta forskare trodde att arvsanlagen satt i proteinerna. Hur skulle något så komplicerat som ärftlighet kunna skrivas med bara fyra bokstäver, när proteinerna hade tjugo olika byggstenar?</p>
+<p>Den amerikanske bakteriologen Oswald Avery vid Rockefellerinstitutet i New York visade att det var tvärtom. Han arbetade med <strong>pneumokocker</strong>, bakterier som kan orsaka lunginflammation. Det fanns ofarliga stammar och nära besläktade stammar som gjorde möss sjuka, och man hade upptäckt att ofarliga bakterier kunde omvandlas till farliga om de blandades med döda farliga bakterier. Det betydde att något ärftligt ämne fördes över från de döda bakterierna till de levande. Men vilket?</p>
+<p>Avery och hans medarbetare renade fram olika ämnen ur de farliga bakterierna och prövade dem ett i taget. Det räckte med rent DNA för att göra de ofarliga bakterierna farliga, och förändringen ärvdes vidare till nästa generation. Proteiner behövdes inte. Resultatet publicerades 1944, och slutsatsen var försiktigt formulerad: DNA verkade vara själva den omvandlande principen.</p>
+</section>
+<section id="sec-l11-dubbelspiralen" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-dubbelspiralen">Watson, Crick och Franklin</h3>
+<p>Efter Avery började många intressera sig för DNA. Bara nio år senare, i april 1953, kom en kort artikel i tidskriften <em>Nature</em> som kanske är 1900-talets viktigaste inom biologin. James Watson och Francis Crick i Cambridge föreslog där att DNA är en dubbelspiral, där A alltid parar med T och G med C. Vi gick igenom själva strukturen i <a href="01-levande-celler.html#sec-l01-basparning" class="quarto-xref"><span>Avsnitt 1.5.2</span></a>.</p>
+<p>Watson och Crick gjorde inga egna experiment. De byggde modeller av kulor och pinnar, som de modeller av molekyler många minns från skolan, och försökte få dem att stämma med vad andra hade mätt. Man visste att det fanns lika mycket A som T och lika mycket G som C i DNA, men inte varför.</p>
+<p>Avgörande blev en röntgenbild av DNA som Rosalind Franklin (<a href="#fig-l11-franklin" class="quarto-xref">Figur&nbsp;<span>11.2</span></a>) hade tagit vid King’s College i London. Bilden var ännu inte publicerad, men Watson fick se den när han besökte laboratoriet i London i början av 1953. Det var Franklins kollega Maurice Wilkins som visade den, utan att hon visste om det. Bilden räckte inte för att räkna ut strukturen, men den visade att molekylen var en regelbunden spiral och gav några viktiga mått. En eftermiddag upptäckte Watson att paret G–C och paret A–T har exakt samma form och storlek när de hålls ihop av vätebindningar. Då föll bitarna på plats. Om A alltid parar med T och G med C måste det finnas lika mycket av A som av T, och lika mycket G som C.</p>
+<p>De hade bråttom. Den berömde amerikanske kemisten Linus Pauling hade just föreslagit en helt annan struktur för DNA, med tre strängar. Watson och Crick såg direkt att den var fel. Men Pauling var så berömd och så säker på sin sak att det skulle dröja några veckor innan någon vågade säga till honom att han hade fel. Det gav dem ett kort försprång, och de skrev ihop sin artikel på några dagar. På ett berömt fotografi från de dagarna står de båda vid sin modell, och Crick pekar på den med en räknesticka.</p>
+<p>Artikeln är bara en sida lång och innehåller en berömd underdrift: <em>“It has not escaped our notice that the specific pairing we have postulated immediately suggests a possible copying mechanism for the genetic material.”</em></p>
+<p>Rosalind Franklin publicerade sin röntgenbild i samma nummer av <em>Nature</em>. Hon var en mycket noggrann experimentalist som inte ville påstå mer än hon kunde visa, och hennes artikel är tekniskt hållen. Hon nöjde sig med att konstatera att hennes resultat inte var oförenliga med Watsons och Cricks modell. Det kan läsas som en stilla kritik mot två forskare som inte hade gjort några egna experiment men ändå drog stora slutsatser.</p>
+<p>Hennes insats uppmärksammades länge för lite. Watson skrev senare en populär bok om upptäckten, <em>The Double Helix</em> (1968), där han tonade ned hennes insats och beskrev henne nedlåtande. Hon dog i cancer 1958, bara 37 år gammal, och fanns därför inte med när Watson, Crick och Maurice Wilkins fick Nobelpriset 1962. Historien om upptäckten har blivit ett ofta citerat exempel på hur kvinnliga forskares insatser har förbisetts.</p>
+<div id="fig-l11-franklin" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-franklin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/rosalind-franklin.jpg" class="img-fluid figure-img" style="width:45.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-franklin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.2: Rosalind Franklin vid mikroskopet 1955, två år efter att hennes röntgenbild av DNA hade publicerats. Bild: MRC Laboratory of Molecular Biology, Wikimedia Commons, CC BY-SA 4.0.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l11-sanger" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-sanger">Sanger och de mödosamma åren</h3>
+<p>Under de följande två årtiondena klarlades hur DNA kopieras till mRNA och hur mRNA styr tillverkningen av proteiner (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>). Men det dröjde till mitten av 1970-talet innan man kunde läsa ordningen av baserna i DNA, med Frederick Sangers metod (<a href="03-gener-och-genteknik.html#sec-l03-sekvensering" class="quarto-xref"><span>Avsnitt 3.6</span></a>). Metoden var arbetskrävande. En bra dag kunde en forskare läsa omkring hundra baser, så det tog veckor eller månader att få fram sekvensen för en enda gen. Ändå blev det snabbt klart hur mycket man lärde sig av en DNA-sekvens, och efterhand började man automatisera delar av arbetet. Då tog det fart.</p>
+</section>
+</section>
+<section id="sec-l11-forsta-genomet" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="sec-l11-forsta-genomet"><span class="header-section-number">11.3</span> Det första genomet: en liten bakterie</h2>
+<p>År 1995, ungefär 40 år efter upptäckten av dubbelspiralen, lästes för första gången hela arvsmassan hos en levande organism. Det var bakterien <em>Haemophilus influenzae</em>, som kan orsaka bland annat öroninflammation och lunginflammation. (Namnet kommer av att man först felaktigt trodde att den orsakade influensa.) Dess arvsmassa är en enda ringformad DNA-molekyl på ungefär 1,8 miljoner baspar.</p>
+<p>Bakom projektet stod den amerikanske forskaren och entreprenören <strong>Craig Venter</strong>. Hans idé var att använda de första halvautomatiska sekvenseringsmaskinerna i stor skala. Han ställde upp omkring 200 maskiner i en lokal, anställde ett femtiotal studenter som förberedde proverna och lät maskinerna gå dygnet runt. Arvsmassan hackades sönder i små bitar som lästes var för sig, och sedan pusslade datorprogram ihop bitarna till en hel sekvens. Venter sökte pengar för projektet från de amerikanska nationella hälsoinstituten, NIH, men bedömarna trodde inte att metoden skulle fungera. När avslaget kom var bakteriens genom redan i stort sett färdigt, finansierat med privata pengar.</p>
+<p>För första gången kunde man se allt det DNA som behövs för att bygga en enkel bakterie: 1 743 gener, de flesta för proteiner. Det var en överraskning hur lite man visste. Bara en mindre del av proteinerna hade någon studerat tidigare, och för omkring fyra av tio gener hade man ingen aning om vad proteinerna gjorde. Så är det fortfarande när man läser arvsmassan hos en organism som inte är nära släkt med någon man redan känner: många gener är nya, och vad de gör måste undersökas en i taget.</p>
+</section>
+<section id="sec-l11-manniskans-genom" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="sec-l11-manniskans-genom"><span class="header-section-number">11.4</span> Människans genom</h2>
+<p>Bakteriens genom var ett genombrott, men det stora målet var vårt eget. Människans genom är mer än tusen gånger större än bakteriens. Det här avsnittet handlar om hur det lästes, hur bitarna fogades ihop och vad man hittade.</p>
+<section id="sec-l11-hgp" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-hgp">En kapplöpning mellan två projekt</h3>
+<p>Redan 1990 hade ett stort internationellt projekt startat för att läsa hela människans arvsmassa, <strong>Human Genome Project</strong>. Det finansierades med offentliga medel, framför allt från USA, och leddes under de avgörande åren av Francis Collins. Projektet räknade med att bli klart omkring 2005.</p>
+<p>Men 1998 meddelade Craig Venter att han med sitt nystartade företag Celera skulle läsa människans genom snabbare, med privata pengar och samma metod som han använt för bakterien. Många befarade att företaget skulle ta patent på stora delar av människans arvsmassa, så att den blev privat egendom. Det offentliga projektet växlade därför upp, och de två grupperna gick i mål ungefär samtidigt. I juni 2000 presenterade de ett första utkast tillsammans med president Bill Clinton i Vita huset (<a href="#fig-l11-vita-huset" class="quarto-xref">Figur&nbsp;<span>11.3</span></a>).</p>
+<p>De stora vetenskapliga artiklarna kom i februari 2001: det offentliga projektets i <em>Nature</em> och Celeras i <em>Science</em>. Sekvenserna var inte helt fullständiga, men den stora bilden var klar. Och informationen blev allmänt tillgänglig. Celera sålde under några år licenser till läkemedelsföretag som ville söka i företagets sekvens, men när de offentliga data blev tillräckligt många slutade företagen betala.</p>
+<div id="fig-l11-vita-huset" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-vita-huset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/vita-huset-2000.jpg" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-vita-huset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.3: Juni 2000: Craig Venter (till vänster), president Bill Clinton och Francis Collins (till höger) tillkännager i Vita huset att ett första utkast till människans genom är klart. Bild: National Human Genome Research Institute, allmän egendom.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l11-pussel" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-pussel">Hur lägger man ett pussel med tre miljarder bitar?</h3>
+<p>Ingen metod kan läsa en hel kromosom från ena änden till den andra. Man måste därför klippa DNA:t i bitar, läsa bitarna och sedan lägga pussel.</p>
+<p>I det offentliga projektet gick det till ungefär så här. DNA från mänskliga celler klipptes i bitar som var och en klistrades in i en bakterie, med den teknik för <strong>kloning</strong> som beskrevs i <a href="03-gener-och-genteknik.html#sec-l03-kloning" class="quarto-xref"><span>Avsnitt 3.4.2</span></a>. Man fick tusentals bakteriestammar, var och en med sin bit mänskligt DNA, och frysarna fylldes av dem. Varje stam odlades upp, så att man fick tillräckligt mycket av biten, och bitarna lästes i korta avsnitt om några hundra till tusen baser.</p>
+<p>Sedan tog datorerna över. Om slutet på ett avsnitt har exakt samma sekvens som början på ett annat, till exempel 150 baser i rad, så kommer de förmodligen från grannställen på kromosomen. Genom att leta efter sådana överlappningar kunde man foga ihop avsnitten till allt längre sammanhängande sekvenser (<a href="#fig-l11-pussel" class="quarto-xref">Figur&nbsp;<span>11.4</span></a>, till vänster). Resultatet kallas en <strong>referenssekvens</strong>: en sorts facit för hur människans genom ser ut, kromosom för kromosom.</p>
+<div id="fig-l11-pussel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-pussel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/pussel.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-pussel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.4: Två sätt att läsa ett genom. Till vänster: första gången finns inget facit. Korta avsnitt läses i slumpvis ordning, och datorn letar efter avsnitt som överlappar och fogar ihop dem. Till höger: när referenssekvensen väl finns räcker det att läsa en ny persons DNA i korta bitar och lägga varje bit på sin plats. Skillnaderna mot referensen (rött) är det intressanta. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>När referenssekvensen väl fanns blev allt mycket enklare. Ska man läsa en ny människas genom behöver man inte längre klona bitarna i bakterier eller lägga pusslet från början. DNA:t klipps i bitar som läses direkt, och varje bit läggs på det ställe i referenssekvensen där den passar (<a href="#fig-l11-pussel" class="quarto-xref">Figur&nbsp;<span>11.4</span></a>, till höger). Den nya personens DNA skiljer sig bara i enstaka baser från referensen, så det är lätt att se var varje bit hör hemma, och just skillnaderna är det man är intresserad av.</p>
+<p>Själva referenssekvensen hade dock luckor, och arbetet med att fylla dem fortsatte i många år efter 2001. Det svåraste var områden där samma korta sekvens upprepas hundratals gånger i rad. Läser man bara korta bitar går det inte att avgöra om sekvensen upprepas 480 eller 500 gånger, eller hur bitarna ska läggas. Först 2022 publicerades en sekvens utan luckor för alla de vanliga kromosomerna, med hjälp av nya metoder som kan läsa mycket långa bitar. Den innehåller drygt 3,05 miljarder baspar och, fortfarande, omkring 20 000 proteinkodande gener.</p>
+</section>
+<section id="sec-l11-gener" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-gener">Bara 20 000 gener</h3>
+<p>En av de stora överraskningarna 2001 var hur få gener vi har. Innan sekvensen var klar hade många gissat på 50 000 till 100 000, kanske fler. Det blev omkring 20 000, och den siffran står sig fortfarande. En liten rundmask, som består av omkring tusen celler, har ungefär lika många gener som vi (<a href="#tbl-l11-gener" class="quarto-xref">Tabell&nbsp;<span>11.1</span></a>).</p>
+<div id="tbl-l11-gener" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-l11-gener-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabell&nbsp;11.1: Genomets storlek och antalet gener hos några organismer som har studerats mycket. Antalet gener säger lite om hur komplicerad en organism är.
+</figcaption>
+<div aria-describedby="tbl-l11-gener-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Organism</th>
+<th>Genomets storlek (baspar)</th>
+<th>Antal proteinkodande gener (ungefär)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><em>Haemophilus influenzae</em> (bakterie)</td>
+<td>1,8 miljoner</td>
+<td>1 700</td>
+</tr>
+<tr class="even">
+<td><em>E. coli</em> (tarmbakterie)</td>
+<td>4,6 miljoner</td>
+<td>4 300</td>
+</tr>
+<tr class="odd">
+<td>bakjäst</td>
+<td>12 miljoner</td>
+<td>6 000</td>
+</tr>
+<tr class="even">
+<td>bananfluga</td>
+<td>140 miljoner</td>
+<td>14 000</td>
+</tr>
+<tr class="odd">
+<td>rundmasken <em>C. elegans</em></td>
+<td>100 miljoner</td>
+<td>20 000</td>
+</tr>
+<tr class="even">
+<td>backtrav (en liten växt)</td>
+<td>135 miljoner</td>
+<td>27 000</td>
+</tr>
+<tr class="odd">
+<td>mus</td>
+<td>2,7 miljarder</td>
+<td>22 000</td>
+</tr>
+<tr class="even">
+<td>människa</td>
+<td>3,1 miljarder</td>
+<td>20 000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Det som gör oss mer komplicerade än en mask är alltså inte i första hand fler gener. Det är snarare hur generna används: när och var de slås på och av, hur deras RNA klipps och klistras till olika varianter, och hur proteinerna samverkar.</p>
+</section>
+<section id="sec-l11-personliga" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-personliga">De första personliga genomen</h3>
+<p>Referenssekvenserna från 2001 byggde på DNA från flera anonyma personer. Den första människa som fick hela sin arvsmassa publicerad under eget namn var, föga förvånande, Craig Venter själv, 2007. Artikeln inleds med att konstatera att DNA-givaren gett sitt fulla samtycke till att hela hans arvsmassa görs offentlig.</p>
+<p>Ungefär samtidigt lästes James Watsons genom. Han bad att få slippa veta vilken variant han hade av en gen, <em>APOE</em>, där en viss variant ger ökad risk för Alzheimers sjukdom, som funnits i hans släkt. Den delen utelämnades när sekvensen publicerades. Exemplet visar en fråga som blir allt viktigare: vår arvsmassa säger något inte bara om oss själva utan också om våra föräldrar, syskon och barn, och alla vill inte veta allt.</p>
+</section>
+</section>
+<section id="sec-l11-sekvensering-idag" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="sec-l11-sekvensering-idag"><span class="header-section-number">11.5</span> Sekvensering i dag</h2>
+<p>Sedan 2001 har tekniken för att läsa DNA förändrats i grunden. Det här avsnittet beskriver hur det går till i dag, vilka problem som återstår och varför det har blivit så billigt.</p>
+<section id="sec-l11-scilifelab" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-scilifelab">En fabrik för DNA-läsning</h3>
+<p>I dag läses DNA i stor skala i anläggningar som närmast liknar fabriker. En av dem finns i Solna. Den som åker Solnavägen ut från Stockholm passerar Nya Karolinska sjukhuset och strax därefter några runda byggnader som påminner om hattaskar. Där ligger <strong>SciLifeLab</strong>, ett nationellt centrum för livsvetenskaplig forskning som drivs gemensamt av Karolinska institutet, KTH, Stockholms universitet och Uppsala universitet. Där finns bland annat en stor anläggning för DNA-sekvensering, med de senaste generationernas maskiner. Tillsammans läser de omkring 20 miljoner baspar i sekunden, vilket i rå läskapacitet motsvarar ett tjugotal mänskliga genom i timmen. Det lilla bakteriegenomet från 1995, som tog lång tid att få fram, läses där på en tiondels sekund. Ännu större anläggningar finns i andra länder.</p>
+<p>Kapaciteten kommer till nytta när det brådskar. När covid-19-pandemin bröt ut 2020 var SciLifeLab tidigt med att sekvensera virusets arvsmassa från svenska patientprover, för att följa hur nya varianter spred sig.</p>
+</section>
+<section id="sec-l11-data" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-data">Läsfel och mängder av data</h3>
+<p>Ingen sekvenseringsmetod är felfri. Man kommer runt det genom att läsa varje ställe i genomet många gånger, från olika överlappande bitar. Om nio av tio läsningar säger G och en säger A, så var det troligen ett läsfel i den tionde. Det är en anledning till att det behövs så stor läskapacitet: för ett tillförlitligt mänskligt genom läser man i regel varje bas tiotals gånger.</p>
+<p>All denna läsning ger enorma datamängder. Maskinerna mäter ofta inte bokstäver direkt, utan tar bilder av miljontals färgade prickar eller mäter elektriska signaler. Rådata tar så stor plats att det inte går att spara. Den översätts till sekvens direkt i maskinen och kastas sedan. Behöver man gå tillbaka får man sekvensera om provet.</p>
+</section>
+<section id="sec-l11-nanopor" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-nanopor">Nanoporer: att läsa DNA med elektrisk ström</h3>
+<p>De stora maskinerna bygger på olika sorters kemi. En annan metod, som snarast bygger på fysik, är <strong>nanoporsekvensering</strong> (<a href="#fig-l11-nanopor" class="quarto-xref">Figur&nbsp;<span>11.5</span></a>). Ett tunt membran är fyllt av tusentals små porer, hål i form av proteiner, så smala att bara en enda DNA-sträng får plats. Över membranet läggs en elektrisk spänning, så att joner strömmar genom porerna. Ett motorprotein sätter sig på DNA-molekylen, delar dubbelspiralen och matar ena strängen genom poren, bas för bas. De baser som just befinner sig i poren, några stycken åt gången, hindrar jonerna lite olika mycket, och därför varierar strömmen. Ur strömmens mönster kan en dator räkna ut sekvensen.</p>
+<div id="fig-l11-nanopor" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-nanopor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/nanopor.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-nanopor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.5: Nanoporsekvensering. Ett motorprotein matar en DNA-sträng genom en por i ett membran. Jonströmmen genom poren ändras beroende på vilka baser som just passerar, och ur mönstret räknar datorn ut sekvensen. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Det märkliga med metoden är hur långa bitar den kan läsa: omkring 100 000 baser i ett svep, från ena änden av molekylen till den andra, med omkring 99 procents träffsäkerhet per läsning. Långa bitar är en stor fördel när man läser arvsmassan hos en organism som ingen läst förut, eftersom pusslet då blir mycket lättare att lägga. En annan fördel är storleken: den minsta apparaten är inte större än en mobiltelefon och kopplas till en vanlig bärbar dator, så man kan ta med sig den ut i fält.</p>
+</section>
+<section id="sec-l11-kostnad" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-kostnad">Från 100 miljoner dollar till några hundra</h3>
+<p>Det första mänskliga genomet kostade storleksordningen 100 miljoner dollar att läsa, räknat bara på själva sekvenseringen. Sedan har kostnaden rasat (<a href="#fig-l11-kostnad" class="quarto-xref">Figur&nbsp;<span>11.6</span></a>). Fram till 2007 sjönk den ungefär i samma takt som datorer har blivit billigare, enligt den så kallade Moores lag. Omkring 2008 kom nya sekvenseringsmetoder, och då föll kostnaden dramatiskt. I dag kostar själva läsningen av ett mänskligt genom några hundra dollar, även om analys och annat kommer till.</p>
+<div id="fig-l11-kostnad" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-kostnad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/kostnad.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-kostnad-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.6: Kostnaden för att läsa ett mänskligt genom 2001–2022. Lägg märke till att den lodräta skalan är logaritmisk: varje steg uppåt betyder tio gånger dyrare. Kostnaden har sjunkit ungefär 200 000 gånger, och det stora raset kom när nya metoder ersatte Sangers metod omkring 2008. Egen figur, data från National Human Genome Research Institute (genome.gov).
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l11-explosion" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-explosion">Sekvensexplosionen</h3>
+<p>Följden är att mängden lästa DNA-sekvenser har exploderat. Allt samlas i några stora offentliga databaser, i USA, Europa och Japan, som utbyter data så att de innehåller i stort sett samma sak. Vem som helst kan söka i dem gratis via internet. I slutet av mars 2026 innehöll den europeiska databasen omkring 45 000 miljarder baspar, från människor, djur, växter, bakterier och virus, och mängden ökar snabbare och snabbare.</p>
+<p>Ur DNA-sekvenserna kan en dator leta upp de bitar som kodar för proteiner och översätta dem med den genetiska koden. På det sättet känner man i dag till omkring 200 miljoner proteinsekvenser. Bara en liten del av dessa proteiner har någon människa någonsin sett i ett provrör. Ändå vet vi hur de är byggda, och med de AI-metoder som beskrivs i <a href="16-ai-och-proteiner.html" class="quarto-xref"><span>Kapitel 16</span></a> kan man i dag till och med förutsäga hur de flesta av dem veckar sig.</p>
+</section>
+</section>
+<section id="sec-l11-medicin" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="sec-l11-medicin"><span class="header-section-number">11.6</span> Vad kan ett genom berätta om dig?</h2>
+<p>När det blev billigt att läsa en människas genom blev det också möjligt att använda det i sjukvården. Det som är intressant är skillnaderna mellan människor.</p>
+<p>Två människor skiljer sig åt i ungefär en bas på tusen. Det låter lite, men i tre miljarder baspar blir det några miljoner skillnader. De allra flesta gör ingenting, men en del påverkar hur våra proteiner fungerar och därmed vår hälsa. (Jämför vi oss med schimpansen skiljer sig ungefär en bas på hundra.)</p>
+<p>Hur används genomet i vården? Några exempel:</p>
+<ul>
+<li><strong>Cancer.</strong> En tumör uppstår när cellernas DNA har förändrats, och olika tumörer har olika förändringar. Genom att läsa delar av tumörens DNA, eller hela, kan läkarna i allt fler fall avgöra vilken behandling som har bäst chans att fungera.</li>
+<li><strong>Sällsynta ärftliga sjukdomar.</strong> För ett barn med en oklar sjukdom kan en läsning av hela arvsmassan hitta den förändrade gen som orsakar den. Det ger familjen ett svar, och ibland en behandling.</li>
+<li><strong>Ärftlig risk.</strong> Vissa förändringar i generna <em>BRCA1</em> och <em>BRCA2</em> ger kraftigt ökad risk för bröst- och äggstockscancer. Den som vet att hon bär en sådan förändring kan gå på tätare kontroller eller välja förebyggande behandling.</li>
+</ul>
+<p>Målet kallas ibland <strong>precisionsmedicin</strong> eller personanpassad medicin: att behandlingen inte bara ska bestämmas av ålder och vikt, utan av vad som är rätt för just den personen. För vissa sjukdomar fungerar det redan i dag, för många andra inte än. De flesta vanliga sjukdomar, som hjärt-kärlsjukdom och typ 2-diabetes, påverkas av många gener med små effekter var för sig, och av levnadsvanor. För dem ger genomet sannolikheter, inte säkra besked. Förhoppningarna är stora, och en del av dem är ännu mer löfte än verklighet.</p>
+<p>Skillnaderna mellan människor används också utanför vården, i rättsväsendet. Ett fåtal kända avsnitt i arvsmassan där människor skiljer sig mycket åt räcker för att med stor säkerhet avgöra om ett spår på en brottsplats kommer från en viss person.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Att fundera på: vill du veta?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Kommersiella företag erbjuder i dag analyser av ditt DNA för att berätta om din släktbakgrund och vissa sjukdomsrisker. Vad skulle du vilja veta om dina gener, och vad skulle du hellre slippa veta? Tänk också på att dina syskon och barn delar hälften av sina gener med dig. Har de rätt att inte veta det som ditt DNA avslöjar om dem?</p>
+</div>
+</div>
+</section>
+<section id="sec-l11-alla-genom" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="sec-l11-alla-genom"><span class="header-section-number">11.7</span> Livets alla genom</h2>
+<p>Människan är långt ifrån den enda organism vars genom har lästs. Först kom de så kallade <strong>modellorganismerna</strong>, arter som forskarna av olika skäl studerat särskilt mycket: vissa bakterier, bakjäst och bananflugan. Sedan följde arter som säger något om oss själva, som schimpansen och musen.</p>
+<p>I dag är det inget märkvärdigt att läsa ett genom. En vanlig forskargrupp har råd med det, och så fort en organism är intressant läses dess arvsmassa. Enligt en internationell förteckning över genomprojekt finns det i dag projekt för omkring en halv miljon bakterier, 60 000 eukaryoter (svampar, växter och djur) och 5 500 arkéer, mikroorganismer som ofta lever i extrema miljöer som heta källor.</p>
+<section id="sec-l11-forntida" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-forntida">DNA från det förflutna</h3>
+<p>Man kan också läsa DNA från organismer som dog för länge sedan, och på så sätt studera arter och människor från det förflutna. Ett tidigt exempel var Ötzi, ismannen som hittades 1991 i en glaciär i Alperna på gränsen mellan Österrike och Italien, där han legat i drygt 5 000 år.</p>
+<p>Pionjären inom fältet är den svenske forskaren <strong>Svante Pääbo</strong>, verksam i Leipzig. Han utvecklade metoder för att läsa DNA ur fossila ben och lyckades 2010 presentera neandertalmänniskans genom. Det visade bland annat att våra förfäder fick barn med neandertalare, och att de flesta människor utanför Afrika bär på en liten andel neandertal-DNA. Pääbo fick Nobelpriset i fysiologi eller medicin 2022. Vid Centrum för paleogenetik i Stockholm har Love Dalén och hans kollegor läst DNA från mammutar som levde för mer än en miljon år sedan och som grävts fram ur den sibiriska permafrosten.</p>
+<p>Att läsa så gammalt DNA är en konst i sig. DNA bryts ned med tiden, så det som finns kvar är korta bitar och små mängder. Dessutom är gamla ben fulla av DNA från bakterier och svampar som växt in i dem, och från de människor som hanterat fynden. Arbetet görs i särskilt rena laboratorier, och datorer får sortera bort alla främmande sekvenser.</p>
+</section>
+</section>
+<section id="sec-l11-metagenomik" class="level2" data-number="11.8">
+<h2 data-number="11.8" class="anchored" data-anchor-id="sec-l11-metagenomik"><span class="header-section-number">11.8</span> Metagenomik: alla organismer på en gång</h2>
+<p>Hittills har det handlat om att läsa genomet hos en art i taget. Den billiga sekvenseringen har också öppnat ett helt nytt fält, <strong>metagenomik</strong>, där man läser många arters DNA samtidigt. Då bryr man sig inte om att odla fram en viss organism. Man tar ett prov direkt ur naturen, till exempel en flaska vatten från Östersjöns botten, lite jord eller en topsning från väggarna i tunnelbanan, och läser allt DNA som finns i provet på en gång. Sedan jämför datorer bitarna med kända sekvenser och lägger pussel med resten, så att man får veta vilka organismer som fanns där och hur mycket det fanns av var och en. Ibland kan man till och med pussla ihop hela genom för organismer som ingen tidigare känt till.</p>
+<p>Det visade sig att mikroorganismerna är långt fler och mer varierade än man trott. Ett gram jord kan innehålla hundratals miljoner bakterier eller fler, och de allra flesta mikroorganismer i naturen, kanske mer än 99 procent, har aldrig gått att odla i ett laboratorium. Med metagenomik kan man ändå kartlägga dem. Det har betydelse för miljöforskning och jordbruk, och för medicinen.</p>
+<section id="sec-l11-mikrobiom" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-mikrobiom">Människans mikrobiom</h3>
+<p>Metagenomik har också använts på oss själva. Man har kartlagt de mikroorganismer vi bär på, på huden, i munnen och framför allt i tarmen. De kallas tillsammans vårt <strong>mikrobiom</strong>. I tarmen finns lika många bakterieceller som det finns celler i resten av kroppen, eller fler (länge sades det att de var tio gånger fler, men nyare beräkningar landar på ungefär lika många). Bakterierna i tarmen har tillsammans omkring hundra gånger fler olika gener än vi själva.</p>
+<p>Man har sett att sammansättningen av tarmfloran skiljer sig mellan friska och sjuka, till exempel vid typ 2-diabetes och inflammatoriska tarmsjukdomar. Om förändringarna är orsak till sjukdomen eller en följd av den är ofta oklart och måste undersökas vidare. Men tarmfloran är en stor, nästan okänd värld som vi bär med oss hela tiden.</p>
+</section>
+</section>
+<section id="sec-l11-encell" class="level2" data-number="11.9">
+<h2 data-number="11.9" class="anchored" data-anchor-id="sec-l11-encell"><span class="header-section-number">11.9</span> RNA i enskilda celler</h2>
+<p>Från bakterierna i tarmen går vi nu tillbaka till kroppens egna celler, och från DNA till RNA: till cellernas transkriptom.</p>
+<p>Alla celler i en människa har i princip samma DNA. Att läsa DNA:t i en enskild cell säger därför inte så mycket. Men vilka gener som används skiljer sig mycket mellan celler, och det kan man se på cellens RNA. En ögonblicksbild av alla RNA-molekyler i en cell, dess transkriptom, visar vilka proteiner cellen tillverkar just nu och vilka styrsystem som är påslagna.</p>
+<p>Med <strong>encellssekvensering</strong> går det i dag att göra en sådan ögonblicksbild för tusentals enskilda celler. Man tar ett litet vävnadsprov, en biopsi, och löser upp det så att cellerna skiljs från varandra. Varje cell öppnas för sig, och dess RNA tas till vara.</p>
+<p>Sedan görs RNA:t om till DNA, så att alla de välutvecklade metoderna för att läsa DNA kan användas. Det sker med ett enzym som gör det omvända mot den vanliga transkriptionen: det gör en DNA-kopia av RNA:t. Enzymet kallas <strong>omvänt transkriptas</strong> och kommer ursprungligen från virus. Eftersom en enda cell innehåller så lite RNA mångfaldigas DNA-kopiorna först med PCR (<a href="03-gener-och-genteknik.html#sec-l03-pcr" class="quarto-xref"><span>Avsnitt 3.7</span></a>). Till sist läses alltihop, och man får en förteckning över vilka RNA-molekyler som fanns i cellen och ungefär hur mycket av var och en.</p>
+<p>Resultaten har varit överraskande. Med mikroskop har man kunnat skilja på ett par hundra celltyper i kroppen. Med encellssekvensering har det visat sig att det finns många fler: celler som ser likadana ut i mikroskopet kan ha helt olika RNA-innehåll och alltså göra olika saker. Metoden används för att följa hur celler i ett foster successivt blir olika, för att se hur celler förändras vid sjukdomar som diabetes, och för att förstå vilka sorters celler en tumör består av.</p>
+<section id="sec-l11-spatiell" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-spatiell">Var i vävnaden?</h3>
+<p>När cellerna skiljs åt förlorar man en viktig upplysning: var i vävnaden de satt. Det problemet löser <strong>rumslig RNA-sekvensering</strong>, ofta kallad spatiell (<a href="#fig-l11-spatiell" class="quarto-xref">Figur&nbsp;<span>11.7</span></a>). Ett tunt snitt av vävnaden, till exempel från en hjärna, läggs på en glasskiva som är täckt av tusentals små fläckar. Varje fläck har en egen “streckkod”, en kort DNA-sekvens som hängs på allt RNA som fångas just där. När cellerna löses upp fångas deras RNA av fläckarna under dem. Efter sekvenseringen vet man inte bara vilka RNA-molekyler som fanns, utan också var de kom ifrån. Man kan då rita en karta över vävnaden där områden med olika RNA-innehåll, alltså olika celltyper, får olika färg. Lägger man många sådana snitt på varandra får man en tredimensionell bild.</p>
+<div id="fig-l11-spatiell" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-spatiell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/spatiell.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-spatiell-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.7: Rumslig RNA-sekvensering. Ett tunt snitt av vävnad (1) läggs på en glasskiva med streckkodade fläckar (2), som fångar RNA från cellerna ovanför. Efter sekvenseringen vet man vilket RNA som kom från vilken fläck, och kan rita en karta där fläckar med liknande RNA-innehåll, alltså samma slags celler, får samma färg (3). Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Tekniken utvecklades till stor del i Stockholm, av forskare vid KTH och SciLifeLab, och finns i dag som kommersiella instrument som används av forskare i hela världen.</p>
+</section>
+</section>
+<section id="sec-l11-innehall" class="level2" data-number="11.10">
+<h2 data-number="11.10" class="anchored" data-anchor-id="sec-l11-innehall"><span class="header-section-number">11.10</span> Vad står det i genomet?</h2>
+<p>Vi återvänder nu till människans genom och frågar vad det egentligen innehåller. Svaret är förvånande: bara en eller ett par procent av människans DNA kodar för proteiner (<a href="#fig-l11-innehall" class="quarto-xref">Figur&nbsp;<span>11.8</span></a>). Ungefär en fjärdedel består av andra delar av generna, framför allt introner, de bitar som klipps bort ur RNA:t (<a href="03-gener-och-genteknik.html#sec-l03-eukaryota" class="quarto-xref"><span>Avsnitt 3.2.2</span></a>). Därtill kommer generna för de RNA-molekyler som aldrig blir protein, som tRNA och ribosomens RNA. Resten är till stor del upprepningar, av tre huvudsorter.</p>
+<div id="fig-l11-innehall" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-innehall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/genomets-innehall.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-innehall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.8: Ungefärlig sammansättning av människans genom. Bara en eller ett par procent kodar för proteiner. Nästan hälften är transposoner, rester av DNA-bitar som har kopierat sig själva runt i genomet. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Enkla upprepningar</strong> är korta sekvenser, kanske tio eller femtio baser långa, som upprepas gång på gång. Antalet upprepningar kan skilja sig mellan människor.</li>
+<li><strong>Transposoner</strong> utgör nästan hälften av vårt DNA. Ett transposon är en bit DNA som kan kopieras och sättas in någon annanstans i arvsmassan, antingen med hjälp av egna enzymer eller med enzymer från andra transposoner. Det är en sorts parasit i genomet. Att ett transposon flyttar sig händer sällan i en enskild människa, men under evolutionens gång har transposonerna hunnit sprida sig i miljontals kopior. De flesta av dem är i dag skadade och kan inte längre flytta sig.</li>
+<li><strong>Stora duplikationer</strong> är långa avsnitt som finns i nästan likadana kopior på flera ställen, ofta på olika kromosomer.</li>
+</ul>
+<p>Varför bär vi på så mycket DNA som inte verkar göra något? En del av förklaringen är att det kostar oss lite. En bakterie konkurrerar med andra bakterier om att dela sig snabbast, och varje extra baspar som måste kopieras före delningen är en belastning. Därför har bakterier smala, effektiva genom där nästan allt kodar för något. För en stor, långsamt förökande organism som människan spelar den extra kostnaden mindre roll, och onödigt DNA kan samlas utan att det gör någon skada. Så ser det ut hos de flesta djur och växter, inte bara hos oss.</p>
+<p>Tidigt kallades detta DNA för <strong>skräp-DNA</strong>, eftersom det inte hade någon uppenbar uppgift. Men är det verkligen skräp? Det mest direkta sättet att ta reda på det vore att ta bort allt sådant DNA och se vad som händer, och det går inte att göra med en människa. När forskare har tagit bort stora bitar hos möss har djuren ofta klarat sig utmärkt, men vissa delar har visat sig ha betydelse, till exempel för att styra när närliggande gener används, och en del kan vara viktiga för hur kromosomerna packas. Mycket vet vi fortfarande inte. Vi känner sekvensen, men vet inte alltid vad den betyder.</p>
+<section id="sec-l11-duplikationer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-duplikationer">Gener som flyttat</h3>
+<p>Genomet förändras inte bara genom att enstaka baser byts ut, så kallade punktmutationer. Under evolutionens gång har också stora bitar kopierats och flyttats mellan kromosomerna. När en gen har kopierats kan de två kopiorna så småningom utvecklas åt olika håll, så att man får två besläktade proteiner med lite olika uppgifter. Det är ett viktigt sätt för nya gener att uppstå.</p>
+<p>Jämför man människa och mus syns detta tydligt. Nästan alla våra gener har en motsvarighet hos musen, och sekvenserna är ofta mycket lika. Men generna är ordnade på ett annat sätt på kromosomerna. Musens kromosomer ser ut som ett lapptäcke av bitar från människans kromosomer, och tvärtom (<a href="#fig-l11-synteni" class="quarto-xref">Figur&nbsp;<span>11.9</span></a>). Inom varje bit ligger dock generna i samma ordning. Ett avsnitt på människans kromosom 9 finns till exempel på musens kromosom 2, med samma gener i samma ordning. Någon gång efter det att människans och musens förfäder gick skilda vägar, för omkring 80 miljoner år sedan, har biten flyttats som en helhet.</p>
+<div id="fig-l11-synteni" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-synteni-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/mus-manniska-synteni.jpg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-synteni-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.9: Människans kromosomer (till vänster) jämförda med musens (till höger). Varje muskromosom har fått en egen färg, och varje bit av en människokromosom är färgad efter vilken muskromosom samma gener finns på. Människans kromosomer blir därför randiga, ett lapptäcke av bitar från många av musens kromosomer. Vita partier saknar säker motsvarighet. Bild: Sinha och Meller, <em>BMC Bioinformatics</em> (2007), via Wikimedia Commons, CC BY 2.0 (engelska beteckningar).
+</figcaption>
+</figure>
+</div>
+<p>Hur gamla är då våra gener? Vid analysen av människans genom 2001 jämförde man våra proteiner med andra organismers. Ungefär en femtedel av dem har släktingar ända ner i bakterierna, och ungefär en tredjedel finns hos andra eukaryoter, som jäst och växter. Bara omkring en femtedel finns enbart hos ryggradsdjur. Mycket av det maskineri som håller våra celler vid liv är alltså ärvt från mycket avlägsna förfäder (<a href="#fig-l11-proteinalder" class="quarto-xref">Figur&nbsp;<span>11.10</span></a>).</p>
+<div id="fig-l11-proteinalder" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-proteinalder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/proteiners-alder.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-proteinalder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.10: Hur långt bakåt i evolutionen människans proteiner har släktingar, enligt analysen av människans genom 2001. Den översta stapeln är proteiner som har släktingar ända ner i bakterierna, den nedersta proteiner som bara finns hos ryggradsdjur. Egen figur, data från International Human Genome Sequencing Consortium (2001).
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: varför heter kromosomerna som de gör?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Kromosomerna syns i ett vanligt ljusmikroskop när cellen ska dela sig, och med vissa färgämnen får de ett mönster av ljusa och mörka band. Med hjälp av storlek och bandmönster kan man para ihop dem och ge dem nummer. Hos människan numrerades de i stort sett efter storlek, från den största, kromosom 1, till de minsta (av historiska skäl är kromosom 21 något mindre än 22). Att människan har 46 kromosomer, 23 par, visade Joe Hin Tjio och Albert Levan i Lund 1956. Musens kromosomer är numrerade på samma sätt, efter sitt eget utseende, så det finns inget samband mellan musens kromosom 13 och människans.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l11-genomkarta" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l11-genomkarta">Att bläddra i genomet</h3>
+<p>Jämförelser mellan arter kan man också göra själv. All denna information finns fritt tillgänglig på internet, i program där man kan “bläddra” i genomet som i en karta. Man kan börja med en hel kromosom, flera hundra miljoner baspar lång, och zooma in tills de enskilda bokstäverna syns, med motsvarande avsnitt från andra arter under. I ett litet avsnitt kan sekvensen vara exakt densamma hos människa, schimpans och gorilla. Hos rhesusapan står det kanske ett T där vi har ett C, hos lemuren saknas en bas, och hos hunden och katten finns ännu fler skillnader. Ju mer avlägset släkt en art är med oss, desto fler skillnader. Det är evolutionen, läst bokstav för bokstav.</p>
+</section>
+</section>
+<section id="sec-l11-proteinatlas" class="level2" data-number="11.11">
+<h2 data-number="11.11" class="anchored" data-anchor-id="sec-l11-proteinatlas"><span class="header-section-number">11.11</span> Proteomet: Human Protein Atlas</h2>
+<p>Genomet säger vilka proteiner vi <em>kan</em> tillverka. Men var i kroppen finns de? I vilka organ, vilka celltyper och var inne i cellen? Det är frågan bakom <strong>Human Protein Atlas</strong>, ett svenskt projekt som har kallats det största livsvetenskapliga projekt som någonsin genomförts i Sverige, med en budget på drygt en miljard kronor. Det startades 2003 av Mathias Uhlén vid KTH och pågår fortfarande, i dag till stor del vid SciLifeLab.</p>
+<p>Idén var att systematiskt ta fram <strong>antikroppar</strong> mot alla människans proteiner, protein för protein. En antikropp är ett protein från immunförsvaret som binder mycket specifikt till ett visst annat protein. Märker man antikroppen så att den syns, till exempel med ett färgämne eller en fluorescerande molekyl (<a href="06-enskilda-molekyler.html#sec-l06-fluorescens" class="quarto-xref"><span>Avsnitt 6.2</span></a>), och lägger den på ett tunt snitt av en vävnad, så lyser de celler som innehåller proteinet. På så sätt kan man se var varje protein finns och ungefär hur mycket det finns av det.</p>
+<p>I dag har projektet tagit fram omkring 27 800 antikroppar mot 17 400 av människans proteiner, ungefär 88 procent av alla. Bilderna finns fritt tillgängliga på webbplatsen proteinatlas.org, ordnade efter organ, celltyper, tumörer, blodceller och läget inne i cellen. Där finns till exempel snitt av hjärnor från människa, gris och mus. En forskare som stöter på ett okänt protein i hjärnan kan gå in, se i vilka delar av hjärnan och i vilka celler det finns, och zooma runt i bilderna (<a href="#fig-l11-proteinatlas" class="quarto-xref">Figur&nbsp;<span>11.11</span></a>).</p>
+<div id="fig-l11-proteinatlas" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l11-proteinatlas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L11/proteinatlas-lillhjarna.png" class="img-fluid figure-img" style="width:70.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l11-proteinatlas-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;11.11: En bild ur Human Protein Atlas: ett snitt av musens lillhjärna, färgat med en antikropp mot ett protein vars uppgift ännu är dåligt känd. Grönt visar var proteinet finns, här framför allt i lillhjärnans yttre lager. Blått visar cellernas kärnor. Den lilla bilden uppe till höger visar var i hjärnan snittet är taget. Bild: Sjöstedt m.fl., <em>Science</em> (2020), och Human Protein Atlas, via Wikimedia Commons, CC BY-SA 3.0.
+</figcaption>
+</figure>
+</div>
+<p>Human Protein Atlas är ett exempel på hur de molekylära livsvetenskaperna har förändrats de senaste årtiondena. Allt mer handlar om storskaliga studier, där man mäter allt på en gång och använder datorer för att hitta mönstren, med målet att förstå hur hela kroppen fungerar, ända ned på cell- och molekylnivå.</p>
+</section>
+<section id="sec-l11-sammanfattning" class="level2" data-number="11.12">
+<h2 data-number="11.12" class="anchored" data-anchor-id="sec-l11-sammanfattning"><span class="header-section-number">11.12</span> Sammanfattning</h2>
+<ul>
+<li><em>Omik</em> betyder att man studerar allt av ett visst slag på en gång: genomet (allt DNA), transkriptomet (allt RNA), proteomet (alla proteiner) eller metabolomet (alla små molekyler i ämnesomsättningen).</li>
+<li>Människans genom har omkring 3 miljarder baspar och omkring 20 000 proteinkodande gener, ungefär lika många som en liten rundmask.</li>
+<li>Avery visade 1944 att arvet bärs av DNA, och Watson och Crick föreslog 1953 dubbelspiralen, med stöd av Rosalind Franklins röntgenbild. Det första kompletta genomet, från en bakterie, kom 1995.</li>
+<li>Människans genom lästes av ett offentligt projekt och ett privat företag i kapp, och publicerades 2001. Det fungerar i dag som referens, så att en ny människas genom kan läsas snabbt genom att jämföras med det.</li>
+<li>Kostnaden för att läsa ett mänskligt genom har sjunkit från omkring 100 miljoner dollar till några hundra. Nya metoder, som nanoporsekvensering, kan läsa mycket långa DNA-bitar.</li>
+<li>Bara en eller ett par procent av vårt DNA kodar för proteiner. Nästan hälften består av transposoner, DNA-bitar som har kopierat sig själva runt i genomet.</li>
+<li>Med metagenomik läser man allt DNA i ett prov på en gång, till exempel för att kartlägga bakterierna i tarmen. Med encells- och rumslig RNA-sekvensering ser man vilka gener som används i varje enskild cell, och var i vävnaden.</li>
+<li>Human Protein Atlas, ett svenskt projekt, visar med hjälp av antikroppar var i kroppen nästan alla människans proteiner finns.</li>
+</ul>
+</section>
+<section id="sec-l11-nyckelbegrepp" class="level2" data-number="11.13">
+<h2 data-number="11.13" class="anchored" data-anchor-id="sec-l11-nyckelbegrepp"><span class="header-section-number">11.13</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>omik</strong> – Samlingsnamn för forskning där man mäter allt av en viss sorts molekyl på en gång i en cell, ett organ eller en organism, till exempel genomik och proteomik.</li>
+<li><strong>genomik</strong> – Studiet av hela genom, alltså en organisms hela arvsmassa, i stället för enstaka gener.</li>
+<li><strong>transkriptom</strong> – Alla RNA-molekyler i en cell vid ett visst tillfälle. Visar vilka gener som används just då.</li>
+<li><strong>proteom</strong> – Alla proteiner i en cell eller ett organ vid ett visst tillfälle. Skiljer sig mellan celltyper och ändras med tiden.</li>
+<li><strong>metabolom</strong> – Alla små molekyler som deltar i en cells ämnesomsättning.</li>
+<li><strong>DNA-sekvensering</strong> – Att bestämma ordningsföljden av baserna i en DNA-molekyl.</li>
+<li><strong>referenssekvens</strong> – En sammanfogad, så komplett som möjligt sekvens av en arts genom, som används som facit när andra individers DNA läses.</li>
+<li><strong>Human Genome Project</strong> – Det internationella, offentligt finansierade projekt som 1990–2003 läste människans genom. Ett första utkast publicerades 2001, samtidigt med företaget Celeras.</li>
+<li><strong>nanoporsekvensering</strong> – Metod där en DNA-sträng dras genom en mycket liten por i ett membran. Sekvensen avläses ur hur den elektriska jonströmmen genom poren förändras.</li>
+<li><strong>modellorganism</strong> – Art som forskarna studerar särskilt ingående för att lära sig om biologi i allmänhet, till exempel bakjäst, bananfluga och mus.</li>
+<li><strong>metagenomik</strong> – Att läsa allt DNA i ett prov på en gång, till exempel jord, havsvatten eller tarminnehåll, för att se vilka organismer som finns där.</li>
+<li><strong>mikrobiom</strong> – Alla mikroorganismer som lever på och i en människa, till exempel i tarmen, och deras gener.</li>
+<li><strong>encellssekvensering</strong> – Metod för att läsa RNA, och ibland DNA, från enskilda celler var för sig, så att man ser hur cellerna skiljer sig åt.</li>
+<li><strong>rumslig RNA-sekvensering</strong> – Metod (ofta kallad spatiell RNA-sekvensering) där RNA fångas från ett tunt vävnadssnitt på en yta med streckkodade fläckar, så att man vet var i vävnaden varje RNA kom ifrån.</li>
+<li><strong>omvänt transkriptas</strong> – Enzym, ursprungligen från virus, som gör en DNA-kopia av en RNA-molekyl.</li>
+<li><strong>transposon</strong> – En bit DNA som kan kopieras och sättas in på ett annat ställe i arvsmassan, med egna enzymer eller med enzymer från andra transposoner. Nästan hälften av människans DNA består av transposoner.</li>
+<li><strong>skräp-DNA</strong> – Äldre, omdiskuterat namn på de delar av arvsmassan som inte kodar för proteiner eller har någon känd uppgift.</li>
+<li><strong>duplikation</strong> – När en bit DNA har kopierats, så att den finns i två eller flera nästan likadana exemplar i arvsmassan.</li>
+<li><strong>precisionsmedicin</strong> – Vård där behandlingen anpassas efter den enskilda patientens egenskaper, till exempel generna eller tumörens DNA.</li>
+<li><strong>antikropp</strong> – Protein från immunförsvaret som binder mycket specifikt till en viss annan molekyl. Används i forskningen för att påvisa var ett protein finns.</li>
+<li><strong>Human Protein Atlas</strong> – Svenskt projekt, startat 2003 vid KTH, som med antikroppar kartlägger var i kroppens organ och celler människans proteiner finns.</li>
+</ul>
+</section>
+<section id="sec-l11-testa" class="level2" data-number="11.14">
+<h2 data-number="11.14" class="anchored" data-anchor-id="sec-l11-testa"><span class="header-section-number">11.14</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L11"></div>
+<script>
+renderQuiz("quiz-L11", [
+ {
+  "question": "Vad menas med en cells proteom?",
+  "choices": [
+   "Alla proteiner som finns i cellen vid ett visst tillfälle",
+   "Allt DNA i cellen",
+   "Alla gener som kodar för proteiner",
+   "Alla små molekyler i ämnesomsättningen"
+  ],
+  "correctIndex": 0,
+  "explanation": "Proteomet är cellens samlade proteiner. Det skiljer sig mellan celltyper och ändras med tiden, till skillnad från genomet."
+ },
+ {
+  "question": "Människan har ungefär 20 000 proteinkodande gener. Vad säger det om oss jämfört med andra organismer?",
+  "choices": [
+   "Antalet gener säger lite om hur komplicerad en organism är; en liten rundmask har ungefär lika många",
+   "Vi har betydligt fler gener än alla andra djur",
+   "Vi har färre gener än bakterier",
+   "Antalet gener är direkt proportionellt mot hjärnans storlek"
+  ],
+  "correctIndex": 0,
+  "explanation": "Rundmasken C. elegans har också omkring 20 000 gener. Vår komplexitet beror mer på hur generna regleras och används än på hur många de är."
+ },
+ {
+  "question": "Vad visade Oswald Avery och hans medarbetare i sitt försök med pneumokocker?",
+  "choices": [
+   "Att rent DNA kunde föra över en ärftlig egenskap från en bakterie till en annan",
+   "Att arvet bärs av proteiner",
+   "Att DNA är en dubbelspiral",
+   "Att bakterier saknar DNA"
+  ],
+  "correctIndex": 0,
+  "explanation": "Renat DNA från sjukdomsframkallande bakterier räckte för att göra ofarliga bakterier sjukdomsframkallande, och förändringen ärvdes. Proteiner behövdes inte."
+ },
+ {
+  "question": "Varför går det i dag mycket snabbare att läsa en ny människas genom än det gjorde första gången?",
+  "choices": [
+   "Man kan lägga de lästa bitarna på en färdig referenssekvens i stället för att lägga hela pusslet från början, och maskinerna är mycket snabbare",
+   "Människor har fått mindre DNA sedan 2001",
+   "Man läser bara generna och hoppar över resten",
+   "Man behöver inte längre klippa DNA:t i bitar"
+  ],
+  "correctIndex": 0,
+  "explanation": "Referenssekvensen fungerar som facit. Varje kort bit kan placeras där den passar, och det är skillnaderna mot referensen man letar efter."
+ },
+ {
+  "question": "Hur kommer man runt att sekvenseringsmaskinerna ibland läser fel?",
+  "choices": [
+   "Varje ställe i genomet läses många gånger från olika bitar, och man väljer det svar som de flesta läsningarna ger",
+   "Man läser bara DNA som redan finns i databaserna",
+   "Maskinerna läser aldrig fel",
+   "Man sparar alla rådata och tittar igenom dem för hand"
+  ],
+  "correctIndex": 0,
+  "explanation": "Om nio av tio läsningar säger G och en säger A, var den tionde troligen ett läsfel."
+ },
+ {
+  "question": "Vad mäter man vid nanoporsekvensering?",
+  "choices": [
+   "Hur en elektrisk jonström genom en liten por förändras när DNA-strängen passerar bas för bas",
+   "Ljus från självlysande byggstenar som sätts in i en ny DNA-sträng",
+   "Hur långt DNA-bitar vandrar i en gel",
+   "Hur tungt DNA:t är"
+  ],
+  "correctIndex": 0,
+  "explanation": "De baser som just sitter i poren, några stycken åt gången, hindrar jonerna olika mycket. En dator kan därför räkna ut sekvensen ur strömmens mönster."
+ },
+ {
+  "question": "Ungefär hur stor del av människans DNA kodar för proteiner?",
+  "choices": [
+   "En eller ett par procent",
+   "Omkring hälften",
+   "Omkring 90 procent",
+   "Allt DNA kodar för proteiner"
+  ],
+  "correctIndex": 0,
+  "explanation": "Bara en eller ett par procent kodar för proteiner. Resten är bland annat introner, transposoner och andra upprepningar."
+ },
+ {
+  "question": "Varför har bakterier så mycket mindre 'onödigt' DNA än människan?",
+  "choices": [
+   "Bakterier konkurrerar om att dela sig snabbast, och extra DNA som måste kopieras före varje delning är en belastning",
+   "Bakterier har inga enzymer som kan kopiera DNA",
+   "Bakteriernas DNA är så kort att det inte får plats något mer",
+   "Transposoner finns bara hos människan"
+  ],
+  "correctIndex": 0,
+  "explanation": "För en bakterie är snabb delning avgörande. För en stor, långsamt förökande organism som människan kostar det extra DNA:t relativt sett lite."
+ },
+ {
+  "question": "Vad är metagenomik?",
+  "choices": [
+   "Att läsa allt DNA i ett prov på en gång, till exempel jord eller tarminnehåll, utan att först odla fram enskilda organismer",
+   "Att läsa genomet hos utdöda arter",
+   "Att läsa samma genom många gånger för att undvika fel",
+   "Att studera alla små molekyler i ämnesomsättningen"
+  ],
+  "correctIndex": 0,
+  "explanation": "Metagenomik kartlägger alla organismer i ett prov samtidigt, även de många som inte går att odla i laboratoriet."
+ },
+ {
+  "question": "Varför läser man RNA, och inte DNA, när man vill veta vad som skiljer olika celler i kroppen åt?",
+  "choices": [
+   "Alla celler har i princip samma DNA, men vilka gener som används, och alltså vilket RNA som finns, skiljer sig",
+   "RNA är lättare att få tag i eftersom det är mycket stabilare än DNA",
+   "Bara vissa celler innehåller DNA",
+   "DNA går inte att läsa i enskilda celler"
+  ],
+  "correctIndex": 0,
+  "explanation": "Transkriptomet visar vilka gener som är påslagna just nu, och det är det som skiljer celltyperna åt."
+ },
+ {
+  "question": "Vad tillför rumslig RNA-sekvensering jämfört med vanlig encellssekvensering?",
+  "choices": [
+   "Man får också veta var i vävnaden varje RNA-molekyl kom ifrån",
+   "Man kan läsa DNA i stället för RNA",
+   "Man slipper använda PCR",
+   "Man kan se proteinernas tredimensionella form"
+  ],
+  "correctIndex": 0,
+  "explanation": "Streckkodade fläckar på glasskivan anger varifrån i vävnadssnittet RNA:t fångades, så att man kan rita en karta."
+ },
+ {
+  "question": "Hur tar Human Protein Atlas reda på var i kroppen ett protein finns?",
+  "choices": [
+   "Med märkta antikroppar som binder specifikt till proteinet och får cellerna som innehåller det att synas i vävnadssnitt",
+   "Genom att läsa DNA-sekvensen i varje organ",
+   "Genom att räkna ut proteinets form med datorer",
+   "Genom att väga organen"
+  ],
+  "correctIndex": 0,
+  "explanation": "Varje antikropp känner igen ett enda protein. Färgade snitt visar i vilka organ, celler och delar av cellen proteinet finns."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>11.1</strong> Förklara skillnaden mellan genom, transkriptom och proteom. Vilket av dem är detsamma i en levercell och en nervcell hos samma person, och varför?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Genomet är allt DNA i cellen, transkriptomet är allt RNA och proteomet är alla proteiner. Genomet är i stort sett detsamma i alla kroppens celler, eftersom alla celler har uppstått genom delning av en och samma befruktade äggcell och DNA:t kopieras vid varje delning. Transkriptom och proteom skiljer sig däremot, eftersom en levercell och en nervcell använder olika gener. Levercellen tillverkar de proteiner som behövs för leverns uppgifter och nervcellen andra. Transkriptom och proteom ändras också med tiden, till exempel efter en måltid.</p>
+</div>
+</div>
+</div>
+<p><strong>11.2</strong> Beskriv hur människans genom lästes första gången, och varför det är så mycket enklare att läsa en ny persons genom i dag.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Första gången klipptes DNA:t i bitar som klonades i bakterier, odlades upp och lästes i korta avsnitt. Datorer letade sedan efter avsnitt vars ändar överlappade, och fogade ihop dem till allt längre sekvenser, som ett pussel. Resultatet blev en referenssekvens. I dag kan en ny persons DNA klippas i bitar som läses direkt, utan kloning, och varje bit läggs på det ställe i referenssekvensen där den passar. Eftersom två människor bara skiljer sig i ungefär en bas på tusen är det lätt att hitta rätt plats, och det man letar efter är just skillnaderna. Dessutom är maskinerna i dag enormt mycket snabbare och billigare.</p>
+</div>
+</div>
+</div>
+<p><strong>11.3</strong> Nästan hälften av vårt DNA består av transposoner. Vad är ett transposon, och hur kan det komma sig att vi bär på så mycket av dem?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Ett transposon är en bit DNA som kan kopieras och sättas in på ett nytt ställe i arvsmassan, med hjälp av egna enzymer eller enzymer från andra transposoner. Det fungerar som en sorts parasit i genomet. Under evolutionens gång har transposonerna hunnit kopiera sig i miljontals exemplar, även om de flesta i dag är skadade och inte kan flytta sig. För en bakterie, som konkurrerar om att dela sig snabbt, vore det en stor belastning att kopiera så mycket extra DNA, och därför har bakterier smala genom. För en stor och långsamt förökande organism som människan är kostnaden liten, så onödigt DNA kan samlas utan att det gör någon skada. En del av det kan dessutom ha fått nya uppgifter.</p>
+</div>
+</div>
+</div>
+<p><strong>11.4</strong> Ge två exempel på hur kunskap om en persons genom kan användas i sjukvården, och förklara varför genomet ofta bara ger sannolikheter och inte säkra besked.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Vid cancer kan man läsa tumörens DNA och se vilka förändringar den har, och därigenom välja den behandling som har störst chans att fungera. Hos ett barn med en oklar, troligen ärftlig sjukdom kan man läsa hela arvsmassan och hitta den förändrade gen som orsakar sjukdomen. Man kan också hitta förändringar som ger ökad risk, som vissa förändringar i BRCA1 och BRCA2 som ökar risken för bröstcancer. De flesta vanliga sjukdomar påverkas dock av många gener med små effekter var för sig, och av levnadsvanor och miljö. Därför kan genomet bara säga att risken är högre eller lägre än genomsnittet, inte om man kommer att bli sjuk.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l11-las-mer" class="level2" data-number="11.15">
+<h2 data-number="11.15" class="anchored" data-anchor-id="sec-l11-las-mer"><span class="header-section-number">11.15</span> Läs mer</h2>
+<ul>
+<li><a href="https://sv.wikipedia.org/wiki/Genomik">Genomik</a>, <a href="https://sv.wikipedia.org/wiki/Metagenomik">Metagenomik</a> och <a href="https://sv.wikipedia.org/wiki/Transposon">Transposon</a> på svenska Wikipedia.</li>
+<li><a href="https://en.wikipedia.org/wiki/Human_Genome_Project">Human Genome Project</a> på engelska Wikipedia, med historien om kapplöpningen mellan det offentliga projektet och Celera.</li>
+<li><a href="https://www.proteinatlas.org">The Human Protein Atlas</a>, där du själv kan söka på ett protein och se var i kroppen det finns (på engelska).</li>
+<li><a href="https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data">DNA Sequencing Costs: Data</a> från amerikanska National Human Genome Research Institute, källan till kostnadsdiagrammet i kapitlet (på engelska).</li>
+<li><a href="https://www.nobelprize.org/prizes/medicine/2022/summary/">Nobelpriset i fysiologi eller medicin 2022</a> till Svante Pääbo, för upptäckterna om utdöda människoarters genom (på engelska).</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/10-signalering.html" class="pagination-link" aria-label="Cellers signalering">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/12-proteintrafik.html" class="pagination-link" aria-label="Proteintrafik i cellen">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

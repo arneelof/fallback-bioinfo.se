@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="20" y="76.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="start" font-weight="bold" fill="#222222">DNA</text>
+<rect x="70" y="52" width="70" height="36" rx="4" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="105" y="74.2" font-family="Helvetica, Arial, sans-serif" font-size="12" text-anchor="middle" font-weight="normal" fill="#222222">promotor</text>
+<rect x="150" y="52" width="110" height="36" rx="4" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="205.0" y="75.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 1</text>
+<line x1="260" y1="70" x2="330" y2="70" stroke="#666666" stroke-width="3"/>
+<text x="295.0" y="44.5" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">intron</text>
+<rect x="330" y="52" width="110" height="36" rx="4" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="385.0" y="75.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 2</text>
+<line x1="440" y1="70" x2="510" y2="70" stroke="#666666" stroke-width="3"/>
+<text x="475.0" y="44.5" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">intron</text>
+<rect x="510" y="52" width="110" height="36" rx="4" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="565.0" y="75.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 3</text>
+<line x1="620" y1="70" x2="690" y2="70" stroke="#666666" stroke-width="3"/>
+<text x="655.0" y="44.5" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">intron</text>
+<rect x="690" y="52" width="110" height="36" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="745.0" y="75.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 4</text>
+<path d="M440,98 L440,150" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="455" y="129.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#222222">transkription (kopiering till RNA)</text>
+<text x="20" y="191.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="start" font-weight="bold" fill="#222222">pre-mRNA</text>
+<rect x="150" y="167" width="110" height="36" rx="4" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="205.0" y="190.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 1</text>
+<line x1="260" y1="185" x2="330" y2="185" stroke="#666666" stroke-width="3"/>
+<text x="295.0" y="159.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">intron</text>
+<rect x="330" y="167" width="110" height="36" rx="4" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="385.0" y="190.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 2</text>
+<line x1="440" y1="185" x2="510" y2="185" stroke="#666666" stroke-width="3"/>
+<text x="475.0" y="159.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">intron</text>
+<rect x="510" y="167" width="110" height="36" rx="4" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="565.0" y="190.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 3</text>
+<line x1="620" y1="185" x2="690" y2="185" stroke="#666666" stroke-width="3"/>
+<text x="655.0" y="159.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">intron</text>
+<rect x="690" y="167" width="110" height="36" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="745.0" y="190.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 4</text>
+<path d="M380,213 L280,290" fill="none" stroke="#b5443b" stroke-width="2.5" marker-end="url(#ahb5443b)"/>
+<path d="M500,213 L650,290" fill="none" stroke="#b5443b" stroke-width="2.5" marker-end="url(#ahb5443b)"/>
+<text x="440" y="237.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">splitsning:</text>
+<text x="440" y="255.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">intronerna</text>
+<text x="440" y="273.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">klipps bort</text>
+<text x="20" y="291.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="start" font-weight="bold" fill="#222222">mRNA</text>
+<rect x="60" y="307" width="110" height="36" rx="4" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="115.0" y="330.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 1</text>
+<rect x="170" y="307" width="110" height="36" rx="4" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="225.0" y="330.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 2</text>
+<rect x="280" y="307" width="110" height="36" rx="4" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="335.0" y="330.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 3</text>
+<rect x="390" y="307" width="110" height="36" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="445.0" y="330.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 4</text>
+<rect x="550" y="307" width="110" height="36" rx="4" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="605.0" y="330.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 1</text>
+<rect x="660" y="307" width="110" height="36" rx="4" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="715.0" y="330.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 3</text>
+<rect x="770" y="307" width="110" height="36" rx="4" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="825.0" y="330.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">exon 4</text>
+<path d="M280,355 L280,405" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<path d="M715,355 L715,405" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="280" y="435.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#3b6ea8">protein, variant 1</text>
+<text x="715" y="435.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#3b6ea8">protein, variant 2</text>
+<text x="280" y="459.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">alla fyra exonerna</text>
+<text x="715" y="459.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">exon 2 hoppas över</text>
+</svg>

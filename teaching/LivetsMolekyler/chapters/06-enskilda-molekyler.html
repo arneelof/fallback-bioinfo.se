@@ -1,0 +1,1876 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="sv" xml:lang="sv"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="En kursbok för alla som är nyfikna på molekylerna som bygger upp och driver levande celler. Boken bygger på föreläsningarna i kursen Livets molekyler (KB1002) vid Institutionen för biokemi och biofysik, Stockholms universitet, våren 2026.">
+
+<title>6&nbsp; Att se enskilda molekyler – Livets molekyler</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/07-biomembran.html" rel="next">
+<link href="../chapters/05-syntetisk-biokemi.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-b85bc7c33db8c58e0ec93c3465666fed.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-556b561bbfdbff9a7d6f3eca8835e243.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Inget resultat",
+    "search-matching-documents-text": "matchande dokument",
+    "search-copy-link-title": "Kopiera länk för att söka",
+    "search-hide-matches-text": "Göm ytterligare resultat",
+    "search-more-match-text": "annat resultat i detta dokument",
+    "search-more-matches-text": "fler resultat i detta dokument",
+    "search-clear-button-title": "Rensa",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Avbryt",
+    "search-submit-button-title": "Verkställ",
+    "search-label": "Sök"
+  }
+}</script>
+<script>
+// Self-contained "Testa dig själv" quiz widget (copied from KB8029, Swedish labels).
+// No external dependencies, by design (see the Colab-button lesson in
+// this repo's history: an external asset that fails to load silently is
+// worse than a plain HTML/CSS/JS element that always works).
+//
+// Usage, from a qmd page:
+//
+//   ```{=html}
+//   <div id="some-unique-id"></div>
+//   <script>
+//   renderQuiz("some-unique-id", [
+//     {
+//       question: "What is 2 + 2?",
+//       choices: ["3", "4", "5"],
+//       correctIndex: 1,          // index in the list above; choices are shown shuffled
+//       explanation: "2 + 2 = 4."
+//     }
+//   ]);
+//   <\/script>
+//   ```
+
+function renderQuiz(containerId, questions) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  if (!document.getElementById("quiz-widget-style")) {
+    const style = document.createElement("style");
+    style.id = "quiz-widget-style";
+    style.textContent = `
+      .quiz-widget-q { border: 1px solid rgba(0,0,0,0.15); border-radius: 8px;
+        padding: 1em 1.2em; margin-bottom: 1.2em; }
+      .quiz-widget-q p.quiz-widget-qtext { font-weight: 600; margin-bottom: 0.75em; }
+      .quiz-widget-q pre { margin: 0.5em 0 1em 0; }
+      .quiz-widget-choice { display: block; margin: 0.4em 0; cursor: pointer; }
+      .quiz-widget-feedback { margin-top: 0.75em; padding: 0.6em 0.9em;
+        border-radius: 6px; display: none; }
+      .quiz-widget-feedback.correct { background: #d4edda; color: #155724; display: block; }
+      .quiz-widget-feedback.incorrect { background: #f8d7da; color: #721c24; display: block; }
+      .quiz-widget-check { margin-top: 0.6em; padding: 6px 16px; border: none;
+        border-radius: 6px; background: #0d6efd; color: white; cursor: pointer;
+        font-size: 0.9em; }
+      .quiz-widget-check:hover { background: #0b5ed7; }
+    `;
+    document.head.appendChild(style);
+  }
+
+  questions.forEach((q, qi) => {
+    const qDiv = document.createElement("div");
+    qDiv.className = "quiz-widget-q";
+    const qName = `${containerId}-q${qi}`;
+
+    // Show the choices in a fresh random order on every page load, so the
+    // correct answer is not always in the same place (in the source it is
+    // usually first). Each radio button keeps its original index as value,
+    // so correctIndex is checked unchanged.
+    const order = q.choices.map((_, ci) => ci);
+    for (let i = order.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [order[i], order[j]] = [order[j], order[i]];
+    }
+    const choicesHtml = order
+      .map(
+        (ci) => `
+        <label class="quiz-widget-choice">
+          <input type="radio" name="${qName}" value="${ci}"> ${q.choices[ci]}
+        </label>`
+      )
+      .join("");
+
+    qDiv.innerHTML = `
+      <p class="quiz-widget-qtext">${qi + 1}. ${q.question}</p>
+      ${choicesHtml}
+      <button class="quiz-widget-check" type="button">Rätta</button>
+      <div class="quiz-widget-feedback"></div>
+    `;
+    container.appendChild(qDiv);
+
+    const btn = qDiv.querySelector(".quiz-widget-check");
+    const feedback = qDiv.querySelector(".quiz-widget-feedback");
+    btn.addEventListener("click", () => {
+      const selected = qDiv.querySelector(`input[name="${qName}"]:checked`);
+      if (!selected) {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.textContent = "Välj ett svar först.";
+        return;
+      }
+      const idx = parseInt(selected.value, 10);
+      if (idx === q.correctIndex) {
+        feedback.className = "quiz-widget-feedback correct";
+        feedback.innerHTML = "&#10003; Rätt! " + (q.explanation || "");
+      } else {
+        feedback.className = "quiz-widget-feedback incorrect";
+        feedback.innerHTML = "&#10007; Inte riktigt. " + (q.explanation || "");
+      }
+    });
+  });
+}
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/04-enzymer.html">Proteiner i arbete</a></li><li class="breadcrumb-item"><a href="../chapters/06-enskilda-molekyler.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Skifta sidonavigering" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Sök" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Livets molekyler</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/" title="Förslag och synpunkter (SU-inloggning)" class="quarto-navigation-tool px-1" aria-label="Förslag och synpunkter (SU-inloggning)"><i class="bi bi-chat-left-text"></i></a>
+    <a href="../Livets-molekyler.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Skifta mörkt läge"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Sök"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Välkommen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schema.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursschema VT 2027</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Grunderna</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-levande-celler.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Levande celler, nukleinsyror och proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-molekyler-och-reaktioner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Livets molekyler och reaktioner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-gener-och-genteknik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Gener och genteknik</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Proteiner i arbete</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-enzymer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Enzymer – cellens katalytiska maskineri</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-syntetisk-biokemi.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-enskilda-molekyler.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Membran och energi</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-biomembran.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-membranproteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Membranproteiner</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-molekylara-maskiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Molekylära maskiner – nanovärlden</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-signalering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Cellers signalering</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Cellen som helhet</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-omik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Omik-världen – en totalbild</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-proteintrafik.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Proteintrafik i cellen</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-chaperoner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Molekylära förkläden</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Veckning, sjukdom och framtid</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/14-proteinveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Proteiners veckning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/15-felveckning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Proteiners felveckning – Alzheimer och ALS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/16-ai-och-proteiner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Vad kan AI lära oss om proteiner?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/17-idag-och-i-morgon.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Livets molekyler – idag och i morgon</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">Bilagor</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Skifta sektion">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../ordlista.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ordlista</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../svar.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Svar till flervalsfrågorna</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../vidare-lasning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Vidare läsning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bildkallor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Bildkällor</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Innehåll</h2>
+   
+  <ul>
+  <li><a href="#sec-l06-ljus" id="toc-sec-l06-ljus" class="nav-link active" data-scroll-target="#sec-l06-ljus"><span class="header-section-number">6.1</span> Ljus: vågor med olika längd</a></li>
+  <li><a href="#sec-l06-fluorescens" id="toc-sec-l06-fluorescens" class="nav-link" data-scroll-target="#sec-l06-fluorescens"><span class="header-section-number">6.2</span> Fluorescens: molekyler som lyser</a>
+  <ul class="collapse">
+  <li><a href="#sec-l06-energinivaer" id="toc-sec-l06-energinivaer" class="nav-link" data-scroll-target="#sec-l06-energinivaer">Varför blir ljuset rödare?</a></li>
+  <li><a href="#sec-l06-fluoroforer" id="toc-sec-l06-fluoroforer" class="nav-link" data-scroll-target="#sec-l06-fluoroforer">Vilka molekyler lyser?</a></li>
+  </ul></li>
+  <li><a href="#sec-l06-gfp" id="toc-sec-l06-gfp" class="nav-link" data-scroll-target="#sec-l06-gfp"><span class="header-section-number">6.3</span> GFP: ett protein som lyser</a>
+  <ul class="collapse">
+  <li><a href="#sec-l06-fusion" id="toc-sec-l06-fusion" class="nav-link" data-scroll-target="#sec-l06-fusion">Att märka ett protein med GFP</a></li>
+  <li><a href="#sec-l06-nobel2008" id="toc-sec-l06-nobel2008" class="nav-link" data-scroll-target="#sec-l06-nobel2008">Nobelpriset i kemi 2008</a></li>
+  </ul></li>
+  <li><a href="#sec-l06-enskilda" id="toc-sec-l06-enskilda" class="nav-link" data-scroll-target="#sec-l06-enskilda"><span class="header-section-number">6.4</span> Varför titta på en molekyl i taget?</a></li>
+  <li><a href="#sec-l06-mikroskop" id="toc-sec-l06-mikroskop" class="nav-link" data-scroll-target="#sec-l06-mikroskop"><span class="header-section-number">6.5</span> Fluorescensmikroskopet</a></li>
+  <li><a href="#sec-l06-diffraktion" id="toc-sec-l06-diffraktion" class="nav-link" data-scroll-target="#sec-l06-diffraktion"><span class="header-section-number">6.6</span> Diffraktionsgränsen: varför förstoring inte räcker</a></li>
+  <li><a href="#sec-l06-superupplosning" id="toc-sec-l06-superupplosning" class="nav-link" data-scroll-target="#sec-l06-superupplosning"><span class="header-section-number">6.7</span> Superupplöst mikroskopi: att lura gränsen</a>
+  <ul class="collapse">
+  <li><a href="#sec-l06-palm" id="toc-sec-l06-palm" class="nav-link" data-scroll-target="#sec-l06-palm">PALM och STORM: tänd några få i taget</a></li>
+  <li><a href="#sec-l06-sted" id="toc-sec-l06-sted" class="nav-link" data-scroll-target="#sec-l06-sted">STED: en munk av ljus</a></li>
+  <li><a href="#sec-l06-nobel2014" id="toc-sec-l06-nobel2014" class="nav-link" data-scroll-target="#sec-l06-nobel2014">Nobelpriset i kemi 2014</a></li>
+  </ul></li>
+  <li><a href="#sec-l06-dynamik" id="toc-sec-l06-dynamik" class="nav-link" data-scroll-target="#sec-l06-dynamik"><span class="header-section-number">6.8</span> Molekyler i rörelse</a>
+  <ul class="collapse">
+  <li><a href="#sec-l06-diffusion" id="toc-sec-l06-diffusion" class="nav-link" data-scroll-target="#sec-l06-diffusion">Molekylsoppan</a></li>
+  <li><a href="#sec-l06-trna" id="toc-sec-l06-trna" class="nav-link" data-scroll-target="#sec-l06-trna">tRNA som tar korta pauser</a></li>
+  </ul></li>
+  <li><a href="#sec-l06-lac" id="toc-sec-l06-lac" class="nav-link" data-scroll-target="#sec-l06-lac"><span class="header-section-number">6.9</span> Hur hittar ett protein rätt på DNA?</a>
+  <ul class="collapse">
+  <li><a href="#sec-l06-genreglering" id="toc-sec-l06-genreglering" class="nav-link" data-scroll-target="#sec-l06-genreglering">Gener som slås på och av</a></li>
+  <li><a href="#sec-l06-sokning" id="toc-sec-l06-sokning" class="nav-link" data-scroll-target="#sec-l06-sokning">En nål i en höstack</a></li>
+  <li><a href="#sec-l06-soktid" id="toc-sec-l06-soktid" class="nav-link" data-scroll-target="#sec-l06-soktid">Hur lång tid tar sökandet?</a></li>
+  </ul></li>
+  <li><a href="#sec-l06-struktur" id="toc-sec-l06-struktur" class="nav-link" data-scroll-target="#sec-l06-struktur"><span class="header-section-number">6.10</span> Kortare våglängd: att se atomerna</a>
+  <ul class="collapse">
+  <li><a href="#sec-l06-rontgen" id="toc-sec-l06-rontgen" class="nav-link" data-scroll-target="#sec-l06-rontgen">Röntgenkristallografi</a></li>
+  <li><a href="#sec-l06-kryoem" id="toc-sec-l06-kryoem" class="nav-link" data-scroll-target="#sec-l06-kryoem">Kryoelektronmikroskopi</a></li>
+  <li><a href="#sec-l06-nmr" id="toc-sec-l06-nmr" class="nav-link" data-scroll-target="#sec-l06-nmr">NMR: atomkärnor som små magneter</a></li>
+  <li><a href="#sec-l06-jamforelse" id="toc-sec-l06-jamforelse" class="nav-link" data-scroll-target="#sec-l06-jamforelse">Metoderna kompletterar varandra</a></li>
+  </ul></li>
+  <li><a href="#sec-l06-sammanfattning" id="toc-sec-l06-sammanfattning" class="nav-link" data-scroll-target="#sec-l06-sammanfattning"><span class="header-section-number">6.11</span> Sammanfattning</a></li>
+  <li><a href="#sec-l06-nyckelbegrepp" id="toc-sec-l06-nyckelbegrepp" class="nav-link" data-scroll-target="#sec-l06-nyckelbegrepp"><span class="header-section-number">6.12</span> Nyckelbegrepp</a></li>
+  <li><a href="#sec-l06-testa" id="toc-sec-l06-testa" class="nav-link" data-scroll-target="#sec-l06-testa"><span class="header-section-number">6.13</span> Testa dig själv</a>
+  <ul class="collapse">
+  <li><a href="#flervalsfrågor" id="toc-flervalsfrågor" class="nav-link" data-scroll-target="#flervalsfrågor">Flervalsfrågor</a></li>
+  <li><a href="#fundera-vidare" id="toc-fundera-vidare" class="nav-link" data-scroll-target="#fundera-vidare">Fundera vidare</a></li>
+  <li><a href="#hjälp-oss-att-förbättra-kapitlet" id="toc-hjälp-oss-att-förbättra-kapitlet" class="nav-link" data-scroll-target="#hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</a></li>
+  </ul></li>
+  <li><a href="#sec-l06-las-mer" id="toc-sec-l06-las-mer" class="nav-link" data-scroll-target="#sec-l06-las-mer"><span class="header-section-number">6.14</span> Läs mer</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/04-enzymer.html">Proteiner i arbete</a></li><li class="breadcrumb-item"><a href="../chapters/06-enskilda-molekyler.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-l06" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Att se enskilda molekyler</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="kalla callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Notera</span>Om kapitlet
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bygger på föreläsning 6, <em>Att se enskilda molekyler</em>, av Emil Marklund (VT 2026).</p>
+<p><strong>Efter kapitlet ska du kunna</strong></p>
+<ul>
+<li>förklara vad ljusets våglängd är, och hur den hänger ihop med ljusets färg och energi,</li>
+<li>beskriva vad fluorescens är och hur forskare använder fluorescerande molekyler, till exempel GFP, för att märka proteiner i levande celler,</li>
+<li>förklara varför ett vanligt ljusmikroskop inte kan visa detaljer som är mindre än ungefär 200 nanometer, hur mycket man än förstorar,</li>
+<li>beskriva hur superupplöst mikroskopi kringgår den gränsen,</li>
+<li>ge exempel på vad man kan lära sig genom att följa enskilda molekyler i en levande cell,</li>
+<li>jämföra ljusmikroskopi med röntgenkristallografi, kryoelektronmikroskopi och NMR, och säga vad varje metod kan visa.</li>
+</ul>
+</div>
+</div>
+<p>Med ett förstoringsglas kan man se fibrerna i ett papper eller fjällen på en fjärilsvinge. Med ett vanligt ljusmikroskop, av det slag som finns i skolans biologisal, kan man se celler och till och med bakterier. Det ligger nära till hands att tro att det bara är en fråga om att förstora tillräckligt mycket: med en ännu starkare lins borde man kunna se proteinerna inne i cellen, och till sist atomerna.</p>
+<p>Så är det inte. Hur bra linser man än bygger finns det en gräns för hur små detaljer ett ljusmikroskop kan visa, och den gränsen ligger långt ovanför storleken på ett protein. Som vi såg i <a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a> är en ribosom bara 20–30 nanometer stor, och ett vanligt protein ungefär 5 nanometer. Ändå kan forskare i dag följa enskilda proteiner när de rör sig inne i en levande cell, och se hur de binder till DNA och släpper igen.</p>
+<p>Det här kapitlet handlar om hur det går till. Vi börjar med ljuset självt, fortsätter med molekyler som lyser och med mikroskopet, och ser sedan hur forskare har lärt sig att lura den gräns som länge ansågs omöjlig att passera. Till sist ser vi på de metoder som visar molekylerna ända ned till de enskilda atomerna: röntgenkristallografi, kryoelektronmikroskopi och NMR.</p>
+<p>Emil Marklund, som kapitlet bygger på, är forskare vid Institutionen för biokemi och biofysik och vid SciLifeLab i Solna, och studerar bland annat hur proteiner hittar rätt ställe på DNA, ett exempel som vi återkommer till.</p>
+<section id="sec-l06-ljus" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="sec-l06-ljus"><span class="header-section-number">6.1</span> Ljus: vågor med olika längd</h2>
+<p>Både molekyler som lyser och gränsen för vad ett mikroskop kan visa hänger på ljusets egenskaper. Därför börjar vi med vad ljus är.</p>
+<p>Ljus är en form av <strong>elektromagnetisk strålning</strong>. Man kan tänka sig strålningen som en våg, ungefär som vågorna på en sjö. Avståndet mellan två vågtoppar kallas <strong>våglängden</strong>. För det ljus som våra ögon kan se, det <strong>synliga ljuset</strong>, är våglängden mellan ungefär 400 och 700 nanometer. En nanometer är en miljondels millimeter, så ljusvågorna är mycket korta: på en millimeter ryms omkring 2 000 vågor av grönt ljus.</p>
+<p>Våglängden bestämmer vilken färg vi ser. Det kortaste synliga ljuset, kring 400 nanometer, är violett. Sedan kommer blått, grönt, gult och orange, och det längsta synliga ljuset, kring 700 nanometer, är rött. Vitt ljus, som solljus, är en blandning av alla våglängder i det synliga området. I en regnbåge bryts solljuset i regndropparna så att de olika våglängderna skiljs åt och vi kan se färgerna var för sig.</p>
+<p>Det synliga ljuset är bara en liten del av all elektromagnetisk strålning. Strålning med längre våglängd än rött ljus kallas infraröd strålning, och den känner vi som värme. Ännu längre våglängd har mikrovågor och radiovågor. Åt andra hållet, med kortare våglängd än violett ljus, kommer ultraviolett strålning (UV), som ger solbränna, och sedan röntgenstrålning och gammastrålning (<a href="#fig-l06-spektrum" class="quarto-xref">Figur&nbsp;<span>6.1</span></a>).</p>
+<div id="fig-l06-spektrum" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-spektrum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/spektrum.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-spektrum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.1: Den elektromagnetiska strålningen, ordnad efter våglängd. Mellan två markeringar på skalan blir våglängden tusen gånger längre. Det synliga ljuset, förstorat nedanför, är bara en smal remsa mellan ultraviolett och infraröd strålning. Ju längre åt vänster, desto kortare våglängd och desto mer energi har varje foton. Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>En viktig regel är att <strong>ju kortare våglängd, desto mer energi</strong> bär strålningen. Ljus tas nämligen upp och sänds ut i små energipaket, som kallas <strong>fotoner</strong>, och ju kortare våglängden är, desto mer energi har varje paket. En foton av blått ljus har ungefär en och en halv gång så mycket energi som en foton av rött ljus. Därför kan UV-strålning skada huden medan rött ljus är ofarligt, och därför kan röntgenstrålning tränga igenom kroppen. Regeln kommer att visa sig viktig två gånger i kapitlet: när vi förklarar varför vissa molekyler lyser, och när vi ser hur man kan få syn på enskilda atomer.</p>
+</section>
+<section id="sec-l06-fluorescens" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="sec-l06-fluorescens"><span class="header-section-number">6.2</span> Fluorescens: molekyler som lyser</h2>
+<p>För att se en viss sorts molekyl i en cell måste man få just den att synas mot allt annat. Det vanligaste sättet är att få den att lysa. Vissa molekyler kan nämligen ta upp ljus av en färg och sända ut ljus av en annan.</p>
+<p>Ett enkelt försök visar hur det ser ut. Man tar två provrör med en klar vätska. I det ena finns bara vätskan, i det andra är en särskild sort färgämne upplöst. När man lyser med en grön laserpekare genom rören syns strålen som en grön linje i det första röret. I det andra röret lyser strålen i stället gul, sett från sidan. Ändå är ljuset som kommer ut på andra sidan röret fortfarande grönt. Det beror på att bara en del av laserljuset tas upp, och att molekylerna sänder ut sitt gula ljus åt alla håll, inte bara framåt.</p>
+<p>Det man ser i det andra röret kallas <strong>fluorescens</strong>. Molekylerna i vätskan tar upp det gröna ljuset och sänder sedan ut eget ljus, med lite längre våglängd: gult. En molekyl som kan göra så kallas en <strong>fluorofor</strong>. Man kan se den som en liten lampa som tänds av ljus av en färg och då lyser med en annan. Ljuset som skickas in kallas <strong>excitationsljus</strong>, och ljuset som molekylen sänder ut kallas <strong>emissionsljus</strong>.</p>
+<p>Fluorescens finns i vardagen. Överstrykningspennor lyser så starkt för att färgen fluorescerar, och många tvättmedel innehåller ämnen som tar upp osynligt UV-ljus och sänder ut blått ljus, så att vit tvätt ser extra vit ut. Under en UV-lampa på ett diskotek lyser vita skjortor därför blått.</p>
+<section id="sec-l06-energinivaer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-energinivaer">Varför blir ljuset rödare?</h3>
+<p>Att det utsända ljuset alltid har lite längre våglängd än det som togs upp går att förstå med energi (<a href="#fig-l06-fluorescens" class="quarto-xref">Figur&nbsp;<span>6.2</span></a>). En molekyl kan befinna sig i olika tillstånd med olika mycket energi. Normalt är den i sitt <strong>grundtillstånd</strong>, med lägsta möjliga energi. När den tar upp ljus lyfts den till ett <strong>exciterat tillstånd</strong> med högre energi, och det kallas att molekylen <strong>exciteras</strong>.</p>
+<p>I det exciterade tillståndet stannar molekylen bara en mycket kort stund, ungefär en miljarddels sekund. Under den tiden förlorar den lite av energin som värme, genom att atomerna i molekylen och i omgivningen sätts i vibration. Sedan faller den tillbaka till grundtillståndet och sänder ut resten av energin som ljus. Eftersom en del av energin redan har gått förlorad har det utsända ljuset mindre energi, och alltså längre våglängd, än det ljus som togs upp. Energin försvinner inte; den blir bara till värme i stället för ljus.</p>
+<div id="fig-l06-fluorescens" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-fluorescens-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/fluorescens.svg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-fluorescens-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.2: Fluorescens förklarad med energinivåer. Ljus med kort våglängd lyfter molekylen till ett exciterat tillstånd (1). En liten del av energin går förlorad som värme (2). När molekylen faller tillbaka sänds resten ut som ljus, med längre våglängd (3). Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Det är förenklat att säga att en fluorofor tar upp ett visst ljus och sänder ut ett annat. I verkligheten kan den exciteras av ett helt band av våglängder, och den sänder ut ljus i ett annat band, förskjutet mot längre våglängder. Man beskriver det med två kurvor, ett <strong>excitationsspektrum</strong> och ett <strong>emissionsspektrum</strong>. Det är skillnaden mellan dem som gör fluorescens så användbar: med färgfilter kan man stänga ute excitationsljuset och bara släppa igenom ljuset från fluoroforerna.</p>
+</section>
+<section id="sec-l06-fluoroforer" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-fluoroforer">Vilka molekyler lyser?</h3>
+<p>Långt ifrån alla molekyler fluorescerar; de flesta gör det inte. Det som krävs är att några av molekylens elektroner inte är bundna till en enda atom, utan kan röra sig fritt över en längre sträcka av molekylen, som ett moln. Det finns i molekyler där enkla och dubbla bindningar mellan kolatomer växlar i en lång kedja eller i ringar.</p>
+<p>Hur långt elektronmolnet sträcker sig bestämmer färgen. Två välkända fluoroforer i forskningen, Cy3 och Cy5, är byggda på samma sätt, men i Cy5 är kedjan i mitten två kolatomer längre. Cy3 exciteras av grönt ljus och lyser gulorange, medan Cy5, med sin längre kedja, exciteras av rött ljus och lyser djupröd. Ju längre elektronmoln, desto längre våglängd. Genom att ändra molekylerna kan kemister därför tillverka fluoroforer i nästan vilken färg som helst.</p>
+</section>
+</section>
+<section id="sec-l06-gfp" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="sec-l06-gfp"><span class="header-section-number">6.3</span> GFP: ett protein som lyser</h2>
+<p>Fluoroforerna ovan är små organiska molekyler som tillverkas av kemister. För att använda dem i biologin måste man fästa dem på den molekyl man vill studera, och få in dem i cellen. Det finns ett elegantare sätt: att låta cellen själv tillverka fluoroforen.</p>
+<p>I havet utanför Nordamerikas västkust lever en genomskinlig manet, <em>Aequorea victoria</em>, som lyser grönt i kanten av sin klocka. Ljuset kommer från ett protein som kallas <strong>grönt fluorescerande protein</strong>, eller <strong>GFP</strong> (eng. <em>green fluorescent protein</em>). GFP är byggt som en tunna av proteinkedjan, och inuti tunnan sitter själva fluoroforen (<a href="#fig-l06-gfp" class="quarto-xref">Figur&nbsp;<span>6.3</span></a>). Den bildas av tre av proteinets egna aminosyror, som i en kemisk reaktion helt av sig själva bildar en liten ring med rörliga elektroner, just det som behövs för fluorescens. Proteinet behöver alltså inga andra proteiner eller hjälpmolekyler, bara lite syre från omgivningen: när kedjan väl har veckat sig börjar det lysa.</p>
+<div id="fig-l06-gfp" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-gfp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/gfp-goodsell.jpg" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-gfp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.3: Grönt fluorescerande protein, GFP. Proteinkedjan bildar en tunna, och inuti den, i mitten av bilden, syns fluoroforen i starkare grönt. Den bildas av tre av proteinets egna aminosyror. Bild: David S. Goodsell, RCSB PDB, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: varför lyser maneten?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>I maneten fungerar GFP tillsammans med ett annat protein, <em>aequorin</em>. Aequorin sänder ut blått ljus genom en kemisk reaktion som startar när halten av kalciumjoner stiger. Energin förs direkt vidare till GFP, som i stället sänder ut grönt ljus. Det var aequorin som Osamu Shimomura egentligen letade efter när han i början av 1960-talet samlade in och krossade tusentals maneter. GFP hittade han på köpet.</p>
+</div>
+</div>
+</div>
+<section id="sec-l06-fusion" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-fusion">Att märka ett protein med GFP</h3>
+<p>Det som gör GFP så användbart är att det är ett protein, och alltså tillverkas efter en gen. Med de gentekniska metoder som beskrivs i <a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a> kan man ta genen för GFP och foga ihop den med genen för det protein man är intresserad av, så att de bildar en enda lång gen. När cellen läser av den sammanfogade genen tillverkar den ett protein som består av båda delarna: det egna proteinet med GFP fäst i ena änden, som en lampa på en cykelhjälm. Ett sådant sammanfogat protein kallas ett <strong>fusionsprotein</strong>.</p>
+<p>Lampan följer med proteinet vart det än går. Om man lyser på cellerna med blått ljus och tittar i ett mikroskop med rätt filter ser man precis var i cellen proteinet finns. I <a href="#fig-l06-hela" class="quarto-xref">Figur&nbsp;<span>6.4</span></a> har forskare fogat GFP till ett protein som hör hemma i mitokondrierna, och mitokondrierna syns då som ett nät av gröna trådar. Cellkärnan, där proteinet inte finns, är mörk.</p>
+<div id="fig-l06-hela" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-hela-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/hela-mtgfp.png" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-hela-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.4: Mänskliga celler (HeLa-celler) där ett protein som söker sig till mitokondrierna har märkts med GFP. Mitokondrierna syns som gröna trådar runt de två mörka cellkärnorna. Bild: Simon Troeder, Wikimedia Commons, CC BY 4.0.
+</figcaption>
+</figure>
+</div>
+<p>Metoden används i dag i nästan alla biologiska laboratorier. Med den kan man se var ett protein finns, när det tillverkas och hur det flyttar sig, i levande celler och till och med i hela djur.</p>
+</section>
+<section id="sec-l06-nobel2008" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-nobel2008">Nobelpriset i kemi 2008</h3>
+<p>Nobelpriset i kemi 2008 delades lika mellan tre forskare “för upptäckten och utvecklingen av det gröna fluorescerande proteinet, GFP”. <strong>Osamu Shimomura</strong> renade fram GFP ur maneter och visade att det lyser grönt. <strong>Martin Chalfie</strong> visade på 1990-talet att genen för GFP kan föras in i andra organismer, och att proteinet då lyser även där, utan någon hjälp från maneten. <strong>Roger Tsien</strong> tog reda på hur fluoroforen bildas och ändrade proteinet med genteknik, så att det lyser starkare och i andra färger: blått, cyan och gult. Med liknande proteiner från koraller finns i dag fluorescerande proteiner i nästan regnbågens alla färger. Med flera färger kan man märka flera proteiner i samma cell och se var de finns i förhållande till varandra.</p>
+<p>När priset presenterades berättade Gunnar von Heijne, som då satt i Nobelkommittén för kemi och som vi möter igen i <a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>, om Chalfies första försök. Chalfie hade fört in genen för GFP i bakterier, låtit dem växa över natten och på morgonen ställt odlingen på en UV-lampa. Den lyste grönt. Gunnar von Heijne beskrev det som en sådan upplevelse som en forskare bara får en gång i livet, som får hjärtat att slå tre gånger snabbare än vanligt. Han visade det också: han ställde ett rör med sådana bakterier på en UV-lampa, och odlingen lyste grönt, starkast i botten där bakterierna hade sjunkit ned.</p>
+</section>
+</section>
+<section id="sec-l06-enskilda" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="sec-l06-enskilda"><span class="header-section-number">6.4</span> Varför titta på en molekyl i taget?</h2>
+<p>Med fluorescerande märkning har vi ett sätt att få en viss sorts molekyl att lysa. Men varför vill man se en enda molekyl, och inte bara var molekylerna finns i stort?</p>
+<p>De flesta biokemiska experiment görs på enorma mängder molekyler samtidigt, till exempel i ett provrör med miljarder proteiner. Det man mäter är då ett <strong>medelvärde</strong> av alla molekylerna.</p>
+<p>Föreställ dig att du ska förstå en fotbollsmatch, men bara får veta var spelarnas medelposition är vid varje tidpunkt. Medelpositionen kommer att ligga någonstans nära mittcirkeln och röra sig lite fram och tillbaka. Du får aldrig veta att det finns en målvakt som står kvar vid sitt mål, att anfallarna springer framåt och att försvararna stannar bakom. Om du i stället kan följa varje spelare för sig ser du direkt att de har olika roller.</p>
+<p>Med molekyler är det likadant. I ett <strong>enmolekylexperiment</strong> (eng. <em>single-molecule experiment</em>) följer man molekylerna en och en. Då kan man se att vissa molekyler gör en sak och andra en annan, eller att samma molekyl ibland rör sig fritt och ibland sitter fast. Sådant försvinner i ett medelvärde. Men för att följa enskilda molekyler behövs ett mikroskop som kan visa dem.</p>
+</section>
+<section id="sec-l06-mikroskop" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="sec-l06-mikroskop"><span class="header-section-number">6.5</span> Fluorescensmikroskopet</h2>
+<p>Ett <strong>fluorescensmikroskop</strong> är byggt för att visa just det ljus som fluoroforerna sänder ut, och stänga ute allt annat ljus. Resultatet är en bild där bakgrunden är svart och bara de märkta molekylerna lyser. En enda fluorofor ger en liten ljusprick på kameran.</p>
+<p>Den vanligaste typen fungerar så här. Ljus från en lampa eller en laser passerar ett färgfilter som bara släpper igenom excitationsljuset, till exempel blått ljus för GFP. Ljuset träffar en särskild spegel som reflekterar blått ljus men släpper igenom grönt. Spegeln skickar det blå ljuset genom <strong>objektivet</strong>, mikroskopets lins närmast provet, och vidare in i provet. Där exciteras fluoroforerna och sänder ut grönt ljus åt alla håll. En del av det gröna ljuset fångas upp av samma objektiv, går rakt igenom spegeln och ett filter till, och når till sist en mycket känslig kamera. Excitationsljuset och det utsända ljuset går alltså genom samma objektiv, åt var sitt håll.</p>
+<p>Hur mycket mikroskopet förstorar beror på linsernas egenskaper, och med rätt linser verkar det som om man skulle kunna förstora hur mycket som helst. Om en ljusprick från en enda molekyl kan synas, borde man då inte kunna förstora tills man ser hur molekylen ser ut?</p>
+</section>
+<section id="sec-l06-diffraktion" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="sec-l06-diffraktion"><span class="header-section-number">6.6</span> Diffraktionsgränsen: varför förstoring inte räcker</h2>
+<p>Svaret är nej, och skälet är ljusets vågnatur. När vågor passerar en öppning eller en kant breder de ut sig åt sidorna. Man kan se det när havsvågor passerar in genom en smal hamninfart: innanför sprider de sig i halvcirklar. Fenomenet kallas <strong>diffraktion</strong>, och det gäller också ljus. Ett objektiv är, för ljuset, en öppning med en viss storlek, så även ljuset som passerar objektivet breder ut sig lite åt sidorna.</p>
+<p>Följden är att ljuset från en punkt aldrig kan samlas till en punkt igen. Även om ljuskällan är mycket mindre än en nanometer, som en enda fluorofor, blir bilden av den en suddig prick, ungefär lika stor som ljusets våglängd. För synligt ljus blir pricken omkring 400 nanometer i diameter. På fackspråk kallas pricken mikroskopets <strong>punktspridningsfunktion</strong>, eftersom den beskriver hur ljuset från en punkt sprids ut i bilden.</p>
+<p>Att förstora mer hjälper inte, för då förstorar man bara den suddiga pricken. Det är som att förstora ett digitalfoto med för få bildpunkter: bilden blir större, men inte skarpare. Ligger två fluoroforer närmare varandra än ungefär halva prickens bredd, cirka 200 nanometer, flyter deras prickar ihop till en enda, och man kan inte avgöra om det är en eller två. Förmågan att skilja åt två punkter som ligger nära varandra kallas mikroskopets <strong>upplösning</strong>. Upplösningen anges i nanometer, och ett litet tal betyder alltså hög upplösning.</p>
+<p>Gränsen kallas <strong>diffraktionsgränsen</strong>. Den beskrevs av den tyske fysikern Ernst Abbe redan 1873, och under mer än hundra år betraktades den som en naturlag som inget ljusmikroskop kunde ta sig förbi.</p>
+<p>Jämför man med storleken på livets molekyler blir problemet tydligt (<a href="#fig-l06-skala" class="quarto-xref">Figur&nbsp;<span>6.5</span></a>). En liten organisk molekyl, som ett socker, är under en nanometer stor och ett protein omkring 5 nanometer. Ett protein är alltså omkring fyrtio gånger mindre än det minsta ett vanligt ljusmikroskop kan skilja ut. Det är därför man kan se celler och bakterier i ett ljusmikroskop, men inte proteiner.</p>
+<div id="fig-l06-skala" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-skala-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/storleksskala.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-skala-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.5: Storlekar från atomer till celler, på en skala där varje steg är tio gånger större än det föregående. Under skalan visas hur små saker olika metoder kan skilja åt. Ett vanligt ljusmikroskop når ned till ungefär 200 nanometer, vilket räcker för celler och bakterier men inte för proteiner. Egen figur.
+</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: diffraktionsgränsen som formel
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Storleken på den suddiga pricken kan räknas ut. Prickens diameter <em>d</em> är ungefär</p>
+<p><span class="math display">\[d \approx 1{,}22 \cdot \frac{\lambda}{n \cdot \sin\theta}\]</span></p>
+<p>Här är λ (lambda) ljusets våglängd. Talet <em>n</em> kallas brytningsindex och anger hur mycket långsammare ljuset går i ämnet mellan provet och objektivet än i tomrum: det är 1 i luft och ungefär 1,5 i den olja som man ofta har mellan objektivet och provet. Vinkeln θ (theta) är halva den vinkel som objektivet samlar ljus från; ju större vinkel, desto mer ljus fångas. Eftersom sinus för en vinkel aldrig är större än 1, och brytningsindex sällan större än 1,5, blir hela nämnaren högst omkring 1,5. Pricken blir därför aldrig mycket mindre än våglängden, och för synligt ljus hamnar man kring 400 nanometer.</p>
+<p>Formeln visar också vilka vägar som finns för att få bättre upplösning: man kan välja kortare våglängd. Det är vad röntgenkristallografi och elektronmikroskopi gör, som vi ska se i slutet av kapitlet.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-l06-superupplosning" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="sec-l06-superupplosning"><span class="header-section-number">6.7</span> Superupplöst mikroskopi: att lura gränsen</h2>
+<p>Mot slutet av 1900-talet och i början av 2000-talet hittade flera forskare sätt att komma förbi diffraktionsgränsen. Metoderna kallas med ett samlingsnamn <strong>superupplöst mikroskopi</strong>. Idén bakom den första metoden vi ska se på är enkel.</p>
+<p>Diffraktionsgränsen säger att två prickar som ligger nära varandra flyter ihop. Den säger inte att man inte kan bestämma var <em>en</em> prick befinner sig. En ensam suddig prick har fortfarande en mittpunkt, och den mittpunkten kan man bestämma mycket noggrannare än prickens bredd, om man samlar in tillräckligt med ljus. Tänk dig ett ljus i ett fönster på långt håll i dimma. Ljuset ser ut som en stor, suddig gloria, men du kan ändå peka ut ganska exakt var ljuset står. Problemet uppstår bara när många ljus står tätt och deras glorior flyter ihop.</p>
+<p>Lösningen är därför att se till att <strong>bara några få fluoroforer lyser åt gången</strong>, så få att deras prickar inte överlappar. Man bestämmer mittpunkten för varje prick, släcker dem och tänder några andra. På det sättet blir upplösningen omkring 20 nanometer, tio gånger bättre än diffraktionsgränsen.</p>
+<section id="sec-l06-palm" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-palm">PALM och STORM: tänd några få i taget</h3>
+<p>Två metoder bygger på den här idén. De har krångliga engelska namn som förkortas <strong>PALM</strong> (<em>photoactivated localization microscopy</em>) och <strong>STORM</strong> (<em>stochastic optical reconstruction microscopy</em>). Principen är densamma (<a href="#fig-l06-palm" class="quarto-xref">Figur&nbsp;<span>6.6</span></a>):</p>
+<ol type="1">
+<li>Man använder särskilda fluoroforer som från början är avstängda, eller lyser i en annan färg, och som kan ställas om med ljus av en annan färg, ofta violett eller ultraviolett.</li>
+<li>Man lyser med en så svag dos av det ljuset att bara ett fåtal fluoroforer, utvalda helt slumpvis, slås på.</li>
+<li>De påslagna fluoroforerna exciteras och lyser. Kameran tar en bild, och en dator bestämmer mittpunkten för varje prick.</li>
+<li>Man fortsätter att lysa tills de påslagna fluoroforerna har blekts, det vill säga förstörts av ljuset, så att de slocknar för gott.</li>
+<li>Sedan slås en ny slumpvis grupp på, och allt upprepas, tusentals gånger.</li>
+</ol>
+<p>Till sist lägger man ihop alla uppmätta mittpunkter till en bild. Bilden är alltså en rekonstruktion: man ser aldrig alla molekyler lysa samtidigt, utan bygger upp bilden prick för prick av positioner som mätts en i taget. Skillnaden mellan metoderna är att PALM använder fluorescerande proteiner, släktingar till GFP, medan STORM använder små organiska fluoroforer.</p>
+<div id="fig-l06-palm" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-palm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/palm.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-palm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.6: Principen för PALM och STORM. Om alla fluoroforer lyser samtidigt flyter deras prickar ihop till en suddig klump (1). Om bara några få lyser åt gången kan mittpunkten i varje prick bestämmas noggrant (2). När tusentals sådana bilder läggs ihop framträder strukturen i detalj (3). Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Ett exempel gäller ett protein som heter Tar och sitter i cellmembranet hos bakterien <em>Escherichia coli</em>. Tar är en <strong>receptor</strong>, alltså ett protein som tar emot signaler utifrån, i det här fallet om det finns näring i närheten, så att bakterien kan simma åt rätt håll. I experimentet var Tar märkt med mEos, en släkting till GFP som lyser grönt från början men byter till rött när det belyses med violett ljus. Bara de omställda, röda molekylerna mättes, några få åt gången.</p>
+<p>I ett vanligt fluorescensmikroskop såg man bara att Tar samlas vid bakteriens ändar. Med PALM kunde man se att proteinerna ligger i kluster av olika storlek, och man kunde urskilja enskilda Tar-proteiner, även utanför ändarna (<a href="#fig-l06-tar" class="quarto-xref">Figur&nbsp;<span>6.7</span></a>).</p>
+<div id="fig-l06-tar" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-tar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/tar-palm.jpg" class="img-fluid figure-img" style="width:85.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-tar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.7: Tar-receptorn i en enda <em>E. coli</em>-bakterie (engelska beteckningar). Överst syns bakterien i vanligt ljusmikroskop (A) och med vanlig fluorescens (B), där Tar bara syns som två suddiga prickar i ändarna. C och D är PALM-bilder, och E är dem båda tillsammans: nu syns kluster av olika storlek över hela cellen. Rutorna nederst är förstoringar av enskilda proteiner (F), ett litet kluster (G) och ett stort kluster vid cellens ände (H). Skalstrecken är 1 mikrometer överst och 50 nanometer nederst. Bild: Greenfield m.fl., <em>PLoS Biology</em> (2009), allmän egendom (CC0).
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l06-sted" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-sted">STED: en munk av ljus</h3>
+<p>En annan väg till superupplösning är <strong>STED</strong> (<em>stimulated emission depletion</em>). Den bygger på en annan sorts mikroskop, ett <strong>konfokalmikroskop</strong>. Där lyser man inte på hela provet på en gång, utan fokuserar ljuset till en liten prick och flyttar pricken punkt för punkt över provet, ungefär som när man läser en sida rad för rad. Bilden byggs sedan upp av ljuset från alla punkterna. Pricken är dock fortfarande begränsad av diffraktionen, och upplösningen blir inte bättre än i ett vanligt mikroskop.</p>
+<p>I STED-mikroskopet lägger man till en andra ljusstråle, formad som en ring med ett hål i mitten, en “munk” (<a href="#fig-l06-sted" class="quarto-xref">Figur&nbsp;<span>6.8</span></a>). Den andra strålen har en färg som stänger av fluoroforerna, så att de inte kan lysa. Ringen lägger sig runt den vanliga excitationspricken och släcker alla fluoroforer utom de som ligger i det lilla hålet i mitten. Kvar blir en lysande prick som är mycket mindre än diffraktionsgränsen. Med STED kommer man ned till omkring 50 nanometer.</p>
+<div id="fig-l06-sted" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-sted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/sted.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-sted-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.8: Principen för STED. En vanlig excitationsprick (till vänster) kombineras med en ring av ljus som stänger av fluoroforerna (i mitten). Bara de fluoroforer som ligger i ringens hål kan lysa, och den lysande pricken blir mycket mindre (till höger). Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Skillnaden mot ett vanligt mikroskop syns tydligt i <a href="#fig-l06-stedbild" class="quarto-xref">Figur&nbsp;<span>6.9</span></a>. STED kräver dock mer avancerad optik än PALM och är svårare att bygga.</p>
+<p>En fördel med munken är att idén kan drivas vidare. I en nyare metod, <strong>MINFLUX</strong>, använder man i stället en munk av excitationsljus och letar efter det läge där fluoroforen ligger mitt i hålet och därför lyser minst. På så sätt har man kommit ned till ungefär en nanometer, i nivå med storleken på en liten molekyl. Både STED och MINFLUX finns på SciLifeLab i Solna.</p>
+<div id="fig-l06-stedbild" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-stedbild-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/sted-konfokal.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-stedbild-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.9: Samma cell avbildad med ett vanligt konfokalmikroskop (överst till vänster) och med STED (nederst till höger). Det som lyser är aktin, trådar av protein som stöttar cellen. Med STED ser man enskilda trådar där konfokalbilden bara visar suddiga stråk; rutorna till höger visar samma utsnitt med båda metoderna. Kurvorna överst till höger visar bredden på en tråd: omkring 200 nanometer med konfokalmikroskopet och 50 nanometer med STED. Bild: Howard Vindin, Wikimedia Commons, CC BY-SA 4.0.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="sec-l06-nobel2014" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-nobel2014">Nobelpriset i kemi 2014</h3>
+<p>Superupplöst mikroskopi belönades med Nobelpriset i kemi 2014, “för utveckling av superupplöst fluorescensmikroskopi”. Priset delades mellan <strong>Eric Betzig</strong>, som utvecklade PALM, <strong>Stefan Hell</strong>, som utvecklade STED, och <strong>William E. Moerner</strong>, som 1989 var först med att påvisa en enda molekyl med hjälp av ljus och därmed lade grunden för enmolekylexperimenten. Med deras metoder blev ljusmikroskopet ett verktyg för att studera molekyler, inte bara celler.</p>
+</section>
+</section>
+<section id="sec-l06-dynamik" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="sec-l06-dynamik"><span class="header-section-number">6.8</span> Molekyler i rörelse</h2>
+<p>Superupplöst mikroskopi kan visa var molekyler sitter. Men biologin står inte still. Molekylerna i en cell rör sig, binder till varandra och släpper, och det är ofta just förändringarna man vill förstå. Med fluorescensmikroskopi kan man följa enskilda molekyler över tid, i levande celler. Det kräver att fluoroforen sänder ut tillräckligt mycket ljus under den korta tid varje bild tas, och en kamera som är tillräckligt snabb. I dag kan man ta en bild ungefär varje tusendels sekund.</p>
+<section id="sec-l06-diffusion" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-diffusion">Molekylsoppan</h3>
+<p>För att förstå vad man ser behöver man veta hur molekyler rör sig i en cell. Som vi såg i <a href="02-molekyler-och-reaktioner.html" class="quarto-xref"><span>Kapitel 2</span></a> är cellen tätt packad med proteiner och andra molekyler, som hela tiden stöter i varandra. Värmen gör att alla molekyler rör sig, och varje molekyl får hela tiden knuffar från sina grannar i slumpvisa riktningar. Den rör sig därför i ett oregelbundet sicksackmönster, utan bestämt mål. Rörelsen kallas <strong>diffusion</strong> eller <em>brownsk rörelse</em>. Den kräver ingen energi från cellen; den drivs av värmen.</p>
+<p>En liten molekyl diffunderar snabbt, en stor långsamt. Ett protein som binder till något stort, till exempel en ribosom eller en DNA-molekyl, blir därför plötsligt nästan stillastående. Det kan man utnyttja.</p>
+</section>
+<section id="sec-l06-trna" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-trna">tRNA som tar korta pauser</h3>
+<p>Som vi såg i <a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a> är det tRNA-molekyler som för aminosyror till ribosomen när ett protein tillverkas. I ett experiment märkte forskare tRNA-molekyler med en fluorofor och följde dem en och en inne i levande <em>E. coli</em>-bakterier. Molekylernas vägar visade ett tydligt mönster: en stund rörde sig tRNA:t mycket snabbt, sedan stod det nästan stilla, och därefter rörde det sig snabbt igen.</p>
+<p>Tolkningen är att det snabba tRNA:t är fritt och diffunderar runt i cellen. När det kommer till en ribosom och lämnar av sin aminosyra sitter det fast i ett mycket större komplex, och rör sig därför långsamt. När det släpper från ribosomen blir det snabbt igen. Varje paus varar omkring en tiondels sekund. På det sättet kan man mäta hur proteintillverkningen går till, steg för steg, inne i en levande cell, något som aldrig hade gått att se i ett medelvärde från miljarder molekyler.</p>
+</section>
+</section>
+<section id="sec-l06-lac" class="level2" data-number="6.9">
+<h2 data-number="6.9" class="anchored" data-anchor-id="sec-l06-lac"><span class="header-section-number">6.9</span> Hur hittar ett protein rätt på DNA?</h2>
+<p>Det sista exemplet ligger nära Emil Marklunds egen forskning. Ett protein som styr en gen måste först hitta rätt ställe bland miljontals baspar DNA, och med enmolekylexperiment kan man se hur det går till. För att förstå varför proteinet behöver hitta just det stället börjar vi med hur gener slås på och av.</p>
+<section id="sec-l06-genreglering" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-genreglering">Gener som slås på och av</h3>
+<p>Alla gener används inte hela tiden. En bakterie som får en viss sorts socker att äta behöver tillverka de enzymer som bryter ned just det sockret, men det vore slöseri att göra dem när sockret saknas. Hos människan har alla celler samma DNA, men en immuncell använder andra gener än en nervcell. Gener slås på och av av <strong>transkriptionsfaktorer</strong>, proteiner som binder till DNA nära den gen de styr (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>). En transkriptionsfaktor som slår på en gen kallas en <strong>aktivator</strong>, och en som stänger av en gen kallas en <strong>repressor</strong>.</p>
+<p>Ett klassiskt exempel är <strong>lac-repressorn</strong> i <em>E. coli</em>. Den styr en grupp gener, ett operon (<a href="03-gener-och-genteknik.html" class="quarto-xref"><span>Kapitel 3</span></a>), med enzymer som behövs för att ta upp och bryta ned mjölksocker, laktos. När det inte finns någon laktos sitter repressorn på ett särskilt ställe på DNA:t, en kort bassekvens strax intill operonets början, som kallas <strong>operator</strong>. Där står den i vägen för RNA-polymeraset, enzymet som ska kopiera generna till mRNA, och generna förblir avstängda.</p>
+<p>När bakterien får laktos bildas en liten molekyl av laktosen som binder till repressorn. Repressorn ändrar då form och kan inte längre hålla fast vid DNA:t. Den släpper, RNA-polymeraset kommer åt, och enzymerna för att bryta ned laktos tillverkas. När laktosen är slut binder repressorn till DNA:t igen. I laboratoriet använder man ofta en konstgjord molekyl som liknar laktos, IPTG, som på samma sätt får repressorn att släppa. Den kallas en <strong>inducerare</strong>.</p>
+</section>
+<section id="sec-l06-sokning" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-sokning">En nål i en höstack</h3>
+<p>Lac-repressorn måste hitta sin operator, en sträcka på bara ett tjugotal baspar, bland de ungefär 5 miljoner baspar som finns i bakteriens DNA. Det är som att leta efter en viss mening i en bokhylla full av böcker. Hur gör den det?</p>
+<p>Repressorn har inget att navigera efter. Den diffunderar slumpvis runt i cellen tills den stöter på DNA. Men i stället för att släppa direkt om den hamnat fel, kan den <strong>glida längs DNA-molekylen</strong> en bit och känna efter om rätt bassekvens finns där. Sedan släpper den, diffunderar fritt en stund, landar på ett nytt ställe och glider igen (<a href="#fig-l06-sokning" class="quarto-xref">Figur&nbsp;<span>6.10</span></a>). Kombinationen av fritt sökande i tre dimensioner och glidande längs DNA:t i en dimension kallas <strong>faciliterad diffusion</strong> (underlättad diffusion).</p>
+<p>Idén har en lång historia. Redan 1970 märkte forskare att lac-repressorn hittar sin operator snabbare än ren diffusion borde tillåta. Förklaringen med glidning föreslogs under 1970-talet och blev en fullständig teori 1981, och många års studier har visat att det är så transkriptionsfaktorer söker.</p>
+<div id="fig-l06-sokning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-sokning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/sokning.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-sokning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.10: Faciliterad diffusion. Ett protein som ska hitta sitt bindningsställe på DNA växlar mellan att diffundera fritt i cellen (streckade pilar) och att glida en bit längs DNA-molekylen (heldragna pilar). Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Glidandet går att se direkt. I ett experiment i provrör fäste Emil Marklund och hans kolleger långa DNA-molekyler i ena änden och sträckte ut dem med ett flöde av vätska, som tång i en ström. Sedan tillsatte de lac-repressorer märkta med en fluorofor. I mikroskopet syntes hur enskilda repressorer landade på DNA:t och gled fram och tillbaka längs det.</p>
+</section>
+<section id="sec-l06-soktid" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-soktid">Hur lång tid tar sökandet?</h3>
+<p>Med några få mätvärden kan man göra en överslagsräkning av hur lång tid sökandet borde ta. Mätningar har visat att lac-repressorn varje gång den landar på DNA:t glider över ungefär 50 baspar, och att den då stannar på DNA:t i ungefär en tusendels sekund. Andra mätningar har visat att repressorn tillbringar det mesta av söktiden, omkring 90 procent, bunden till DNA:t och glidande längs det, så att tiden mellan landningarna kan försummas.</p>
+<p>I genomsnitt måste repressorn söka igenom ungefär hela DNA:t innan den hittar rätt. Den behöver alltså 5 miljoner delat med 50, det vill säga 100 000, landningar. Var och en tar en tusendels sekund, och hela sökandet tar därför ungefär 100 sekunder.</p>
+<p>Kan man mäta det direkt? Ja, i levande celler. Experimentet bygger på att en repressor bara syns som en prick i mikroskopet när den sitter still. En repressor som rör sig fritt hinner flytta sig under den tid bilden tas, och dess ljus sprids ut över hela cellen.</p>
+<p>I experimentet hade bakterierna en lac-repressor som var märkt med ett fluorescerande protein. Bakterierna fick först växa med induceraren IPTG, så att repressorerna inte kunde binda till DNA:t. Sedan byttes vätskan runt cellerna snabbt mot en utan IPTG. Repressorerna började söka, och så fort en av dem band till sin operator satt den stilla och syntes som en tydlig ljusprick.</p>
+<p>Genom att räkna hur många celler som hade fått en prick efter olika lång tid fick forskarna en kurva som steg snabbt i början och sedan planade ut. Kurvan visade att det i genomsnitt tog ungefär 80 sekunder innan en cell fick sin prick (<a href="#fig-l06-soktid" class="quarto-xref">Figur&nbsp;<span>6.11</span></a>); efter den tiden hade ungefär två tredjedelar av cellerna hittat rätt.</p>
+<p>I varje cell fanns dock ungefär fyra repressorer som sökte samtidigt, och fyra sökare hittar fram ungefär fyra gånger så fort som en. För en enda repressor blir söktiden därför omkring 4 × 80 = 320 sekunder, eller drygt fem minuter.</p>
+<div id="fig-l06-soktid" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-soktid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/soktid.svg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-soktid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.11: Hur andelen celler med en lysande prick växer med tiden efter att induceraren IPTG har tagits bort. Så länge repressorn söker sprids dess ljus ut över cellen; när den har hittat operatorn sitter den stilla och syns som en prick (till höger). Kurvan stiger snabbt i början och planar sedan ut. Efter 80 sekunder har ungefär två tredjedelar av cellerna fått sin prick. Kurvans form efter mätningarna, förenklad. Egen figur, efter föreläsningen.
+</figcaption>
+</figure>
+</div>
+<p>Det är samma storleksordning som överslagsräkningen gav. Att en enkel räkning med några få mätvärden och ett direkt experiment i levande celler stämmer så väl överens tyder på att man har förstått hur sökandet går till.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Fördjupning: hur räknar man fram söktiden ur kurvan?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Varje repressor letar slumpvis, och det går inte att säga när just den kommer att hitta rätt. Däremot är sannolikheten att den hittar rätt under nästa sekund hela tiden densamma. Då följer andelen celler som har hittat rätt en kurva som stiger snabbt i början och sedan planar ut mot ett slutvärde, ungefär som när ett kärl fylls genom en kran som stängs mer och mer. Hur snabbt kurvan planar ut anges med en hastighetskonstant, och ett delat med konstanten är den genomsnittliga tid det tar att hitta rätt. Genom att anpassa en sådan kurva till mätpunkterna fick forskarna fram de 80 sekunderna.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="sec-l06-struktur" class="level2" data-number="6.10">
+<h2 data-number="6.10" class="anchored" data-anchor-id="sec-l06-struktur"><span class="header-section-number">6.10</span> Kortare våglängd: att se atomerna</h2>
+<p>Superupplöst mikroskopi har kommit ned till några tiotal nanometer, och i bästa fall till en nanometer. Det räcker för att se var ett protein är och hur det rör sig, men inte för att se hur proteinet ser ut. För det behövs upplösning på atomnivå, omkring en tiondels nanometer. Det mått som brukar användas på den skalan är <strong>ångström</strong> (Å): en ångström är en tiondels nanometer, ungefär storleken på en atom. En bindning mellan två kolatomer är till exempel ungefär 1,5 ångström lång.</p>
+<p>Som vi såg i fördjupningsrutan om diffraktionsgränsen bestäms den suddiga prickens storlek framför allt av våglängden. Vill man se atomer måste man alltså använda strålning med mycket kortare våglängd än synligt ljus. Det gör de två metoder som har gett oss de flesta bilder av proteiner i den här boken, röntgenkristallografi och kryoelektronmikroskopi. En tredje metod, NMR, bygger på en helt annan princip.</p>
+<section id="sec-l06-rontgen" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-rontgen">Röntgenkristallografi</h3>
+<p>Röntgenstrålning har en våglängd på omkring en ångström, i samma storlek som atomerna. Röntgenstrålning kan dock inte fokuseras med linser som vanligt ljus, och en enda molekyl sprider alldeles för lite strålning för att man ska kunna mäta den. Därför måste man först få proteinet att bilda en <strong>kristall</strong>, där miljarder likadana molekyler ligger ordnade i ett regelbundet mönster, ungefär som natrium- och kloridjonerna i ett saltkorn. När röntgenstrålning skickas genom kristallen förstärker alla molekylerna varandra, och strålningen böjs av i bestämda riktningar. På en detektor bakom kristallen syns ett mönster av prickar, ett <strong>diffraktionsmönster</strong> (<a href="#fig-l06-kristall" class="quarto-xref">Figur&nbsp;<span>6.12</span></a>). Man vrider kristallen lite i taget och tar en ny bild för varje läge.</p>
+<div id="fig-l06-kristall" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-kristall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/kristall-diffraktion.jpg" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-kristall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.12: Till vänster en kristall av enzymet lysozym, fotograferad i mikroskop; den är bråkdelar av en millimeter stor. Till höger ett diffraktionsmönster från en lysozymkristall: varje svart prick är röntgenstrålning som böjts av i en bestämd riktning. Det vita strecket är skuggan av den hållare som fångar upp den raka strålen. Bild: Mathias Klode (kristallen, CC BY-SA 3.0) och Del45 (mönstret, allmän egendom), Wikimedia Commons.
+</figcaption>
+</figure>
+</div>
+<p>Ur mönstren kan man med omfattande beräkningar räkna fram en karta över hur elektronerna är fördelade i molekylen, och därmed var atomerna sitter. Forskaren bygger sedan in proteinkedjan i kartan, ungefär som när man lägger ett pussel, och får en tredimensionell modell av proteinet. Metoden kallas <strong>röntgenkristallografi</strong>. De flesta proteinstrukturer man känner har bestämts med den. Det var också röntgenbilder av DNA som visade vägen till dubbelspiralen (<a href="01-levande-celler.html" class="quarto-xref"><span>Kapitel 1</span></a>).</p>
+<p>Metoden prövades först, strax före första världskriget, på enkla kristaller som vanligt koksalt. Proteinerna kom mycket senare: de första proteinstrukturerna bestämdes i slutet av 1950-talet i Cambridge. John Kendrew löste 1958 strukturen av myoglobin, ett protein som lagrar syre i musklerna, och Max Perutz strukturen av hemoglobin strax därefter. De fick Nobelpriset i kemi 1962. Datorer fanns knappt, och mycket av beräkningarna gjordes för hand, liksom de fysiska modellerna av molekylerna.</p>
+<p>I dag går det betydligt fortare. Den bästa röntgenstrålningen kommer från en <strong>synkrotron</strong>, en ringformad anläggning där elektroner rusar runt med nästan ljusets hastighet. Varje gång magneter böjer av elektronernas bana sänder de ut intensiv röntgenstrålning. Sveriges synkrotron, MAX IV, invigdes i Lund 2016.</p>
+<p>Metoden har två begränsningar. Den första är kristallerna. Att få ett protein att kristallisera är fortfarande mer konst än vetenskap: ingen kan förutsäga vilken surhetsgrad, salthalt och andra villkor som behövs, så man prövar hundratals eller tusentals varianter, ofta med hjälp av robotar, och det kan ta år. Membranproteiner, som sitter i cellens fettlager, är särskilt besvärliga, eftersom de måste tas ut ur membranet (<a href="08-membranproteiner.html" class="quarto-xref"><span>Kapitel 8</span></a>).</p>
+<p>Den andra begränsningen är att provet är en kristall och inte en levande cell. En rimlig fråga är om proteinet ändrar form när det packas i en kristall. Ett protein som förstörts, till exempel genom upphettning, kristalliserar inte, eftersom det inte har någon bestämd form som kan ordnas i ett mönster. Att ett protein bildar en kristall tyder därför på att det har kvar sin ordnade form. Men det man ser i kristallen är en ögonblicksbild av proteinet i dess mest stabila form. I cellen rör sig proteiner hela tiden, och stora delar kan böja sig och vrida sig. Hur de rörelserna går till kan röntgenkristallografi inte visa.</p>
+</section>
+<section id="sec-l06-kryoem" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-kryoem">Kryoelektronmikroskopi</h3>
+<p>I ett <strong>elektronmikroskop</strong> använder man en stråle av elektroner i stället för ljus. Det kan låta konstigt att elektroner skulle ha en våglängd, men enligt kvantmekaniken uppför sig små partiklar ibland som vågor. Elektroner som accelererats till den hastighet de har i ett elektronmikroskop har en våglängd på bara några hundradels ångström, betydligt kortare än röntgenstrålningens.</p>
+<p>I <strong>kryoelektronmikroskopi</strong>, ofta förkortat <strong>kryo-EM</strong>, behövs inga kristaller. En liten droppe av proteinlösningen läggs på ett litet nät och fryses blixtsnabbt genom att doppas i flytande etan, som kylts med flytande kväve till omkring minus 180 grader. Vattnet hinner då inte bilda iskristaller utan stelnar som glas, och proteinerna fryses fast i alla möjliga riktningar. Provet hålls fryst hela vägen in i mikroskopet.</p>
+<p>Sedan tar mikroskopet tusentals bilder, ofta helt automatiskt under en helg. Tillsammans visar de tiotusentals till hundratusentals enskilda molekyler, sedda från olika håll. Varje molekyl syns bara som en brusig och otydlig skugga, eftersom man måste använda svag strålning: elektronerna skadar provet, och det är strålskadorna snarare än våglängden som begränsar upplösningen.</p>
+<p>Det är här datorn kommer in. Datorprogram sorterar skuggorna efter hur molekylerna ligger och lägger ihop dem till en tredimensionell karta, ungefär som när en datortomograf på sjukhuset bygger upp en bild av kroppen från många röntgenbilder i olika vinklar (<a href="#fig-l06-kryoem" class="quarto-xref">Figur&nbsp;<span>6.13</span></a>). Ett protein som har studerats på det sättet är GroEL, en tunnformad <strong>chaperon</strong> som hjälper andra proteiner att vecka sig (<a href="13-chaperoner.html" class="quarto-xref"><span>Kapitel 13</span></a>).</p>
+<div id="fig-l06-kryoem" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-l06-kryoem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figs/L06/kryoem.svg" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-l06-kryoem-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figur&nbsp;6.13: Principen för kryoelektronmikroskopi, med en påhittad molekyl. Proteinerna fryses fast i alla möjliga riktningar (1). Datorn letar upp molekylerna i bilderna, sorterar dem efter hur de ligger och lägger ihop bilder av molekyler som ligger likadant, så att bruset minskar (2). Ur de olika vyerna räknas en tredimensionell karta fram (3). Egen figur.
+</figcaption>
+</figure>
+</div>
+<p>Länge gav kryo-EM bara suddiga klumpar där man inte kunde se några atomer. Omkring 2013 kom mycket känsligare elektrondetektorer och bättre datorprogram, och sedan dess kan man ofta se hur proteinkedjan och sidogrupperna ligger, med en upplösning på 2–4 ångström. De allra bästa kryo-EM-bilderna, från 2020, når 1,2 ångström, lika bra som de bästa kristallstrukturerna.</p>
+<p>Metoden passar särskilt bra för stora proteinkomplex och för membranproteiner, som är svåra att kristallisera. <strong>Jacques Dubochet</strong>, <strong>Joachim Frank</strong> och <strong>Richard Henderson</strong> fick Nobelpriset i kemi 2017 för utvecklingen av kryo-EM. Sverige har flera kryoelektronmikroskop, bland annat vid SciLifeLab i Solna.</p>
+<p>Eftersom man ser enskilda molekyler kan man ibland upptäcka att proteinet förekommer i flera olika former i samma prov, och sortera fram en struktur för varje form. Men även här är provet fryst, och man kan inte följa hur en molekyl rör sig.</p>
+</section>
+<section id="sec-l06-nmr" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-nmr">NMR: atomkärnor som små magneter</h3>
+<p>Den tredje metoden, <strong>NMR</strong> (kärnmagnetisk resonans, eng. <em>nuclear magnetic resonance</em>), använder varken kristaller eller kort våglängd. Den bygger på samma princip som magnetkameran på sjukhuset. Proteinet ligger löst i vatten i ett mycket starkt magnetfält. Vissa atomkärnor, till exempel väteatomernas, beter sig då som små magneter och kan ta upp radiovågor. Den exakta frekvensen beror på vilka atomer som finns i närheten. Ur mätningarna kan man räkna ut vilka atomer som ligger nära varandra, och därmed proteinets form.</p>
+<p>Fördelen är att proteinet är i lösning, vid vanlig temperatur, och att man kan mäta hur olika delar av det rör sig. Nackdelen är att metoden bara fungerar bra för ganska små proteiner. Kurt Wüthrich fick Nobelpriset i kemi 2002 för att ha utvecklat NMR för att bestämma proteiners struktur.</p>
+</section>
+<section id="sec-l06-jamforelse" class="level3">
+<h3 class="anchored" data-anchor-id="sec-l06-jamforelse">Metoderna kompletterar varandra</h3>
+<div id="tbl-l06-metoder" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-l06-metoder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabell&nbsp;6.1: Fyra sätt att se livets molekyler. (1 Å = 0,1 nm.)
+</figcaption>
+<div aria-describedby="tbl-l06-metoder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Ljusmikroskopi</th>
+<th>Röntgenkristallografi</th>
+<th>Kryo-EM</th>
+<th>NMR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Provet</td>
+<td>levande celler</td>
+<td>kristall</td>
+<td>fryst lösning</td>
+<td>lösning</td>
+</tr>
+<tr class="even">
+<td>Bästa upplösning</td>
+<td>ca 200 nm (vanlig), 1–50 nm (superupplöst)</td>
+<td>ca 1–3 Å</td>
+<td>ca 1,2–4 Å (oftast 2–4 Å)</td>
+<td>atomnivå, men bara för små proteiner</td>
+</tr>
+<tr class="odd">
+<td>Enskilda molekyler</td>
+<td>ja</td>
+<td>nej</td>
+<td>ja</td>
+<td>nej</td>
+</tr>
+<tr class="even">
+<td>Rörelser</td>
+<td>ja, i levande celler</td>
+<td>nej</td>
+<td>nej</td>
+<td>ja, i provröret</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Ingen metod kan allt (<a href="#tbl-l06-metoder" class="quarto-xref">Tabell&nbsp;<span>6.1</span></a>). Röntgenkristallografi och kryo-EM visar proteinernas atomer, men bara i frysta ögonblicksbilder. NMR visar både form och rörelser, men bara för små proteiner i ett provrör. Fluorescensmikroskopi kan inte visa hur ett protein ser ut, men den kan visa var det finns och hur det rör sig, en molekyl i taget, i levande celler. Sedan 2020 kan man dessutom förutsäga många proteiners struktur med datorprogram som AlphaFold, tränade på de strukturer som metoderna ovan har gett (<a href="16-ai-och-proteiner.html" class="quarto-xref"><span>Kapitel 16</span></a>). Tillsammans ger metoderna en bild av både livets molekyler och vad de gör.</p>
+</section>
+</section>
+<section id="sec-l06-sammanfattning" class="level2" data-number="6.11">
+<h2 data-number="6.11" class="anchored" data-anchor-id="sec-l06-sammanfattning"><span class="header-section-number">6.11</span> Sammanfattning</h2>
+<ul>
+<li>Synligt ljus är elektromagnetisk strålning med en våglängd på 400–700 nanometer. Ljuset kommer i energipaket, fotoner; ju kortare våglängd, desto mer energi har varje foton.</li>
+<li>En fluorofor tar upp ljus av en viss våglängd och sänder ut ljus med lite längre våglängd. Skillnaden beror på att en del av energin blir värme.</li>
+<li>Proteiner kan märkas med fluoroforer. Det gröna fluorescerande proteinet GFP, från en manet, kan fogas till ett protein med genteknik, så att cellen själv tillverkar ett självlysande protein (Nobelpriset i kemi 2008).</li>
+<li>Ett ljusmikroskop kan inte skilja detaljer som ligger närmare varandra än ungefär 200 nanometer, hur mycket man än förstorar. Det beror på diffraktion och kallas diffraktionsgränsen. Proteiner är ungefär 5 nanometer.</li>
+<li>Superupplöst mikroskopi kringgår gränsen, till exempel genom att låta några få fluoroforer lysa åt gången och bestämma var mitten av varje prick är (PALM, STORM), eller genom att släcka allt utom en liten prick (STED). Upplösningen blir 20–50 nanometer (Nobelpriset i kemi 2014).</li>
+<li>Genom att följa enskilda molekyler i levande celler kan man se sådant som försvinner i ett medelvärde, till exempel hur tRNA pausar på ribosomen och hur lac-repressorn söker sitt bindningsställe på DNA genom att växla mellan fri diffusion och glidning längs DNA:t.</li>
+<li>Röntgenkristallografi och kryoelektronmikroskopi använder mycket kortare våglängder och kan visa var atomerna sitter, men bara i frysta ögonblicksbilder. Röntgenkristallografi kräver kristaller; kryo-EM lägger ihop bilder av tiotusentals frysta molekyler (Nobelpriset i kemi 2017). NMR visar form och rörelser, men bara för små proteiner i lösning.</li>
+</ul>
+</section>
+<section id="sec-l06-nyckelbegrepp" class="level2" data-number="6.12">
+<h2 data-number="6.12" class="anchored" data-anchor-id="sec-l06-nyckelbegrepp"><span class="header-section-number">6.12</span> Nyckelbegrepp</h2>
+<ul>
+<li><strong>elektromagnetisk strålning</strong> – Strålning som kan beskrivas som vågor, från radiovågor via synligt ljus till röntgen- och gammastrålning. Ju kortare våglängd, desto mer energi.</li>
+<li><strong>våglängd</strong> – Avståndet mellan två vågtoppar. För synligt ljus 400–700 nanometer; våglängden bestämmer vilken färg vi ser.</li>
+<li><strong>fluorescens</strong> – När en molekyl tar upp ljus och strax därefter sänder ut ljus med lite längre våglängd.</li>
+<li><strong>fluorofor</strong> – En molekyl, eller del av en molekyl, som kan fluorescera. Används för att märka de molekyler man vill se i mikroskopet.</li>
+<li><strong>excitation</strong> – När en molekyl tar upp energi, till exempel från ljus, och lyfts från sitt grundtillstånd till ett tillstånd med högre energi.</li>
+<li><strong>emission</strong> – När en exciterad molekyl faller tillbaka till grundtillståndet och sänder ut energin som ljus.</li>
+<li><strong>GFP</strong> – Grönt fluorescerande protein (eng. green fluorescent protein), från maneten Aequorea victoria. Kan fogas till andra proteiner med genteknik så att de lyser grönt.</li>
+<li><strong>fusionsprotein</strong> – Ett protein som tillverkats efter två sammanfogade gener och därför består av två proteiner i en kedja, till exempel ett protein med GFP fäst i ena änden.</li>
+<li><strong>enmolekylexperiment</strong> – Experiment där man följer molekylerna en och en i stället för att mäta ett medelvärde av miljarder molekyler (eng. single-molecule experiment).</li>
+<li><strong>fluorescensmikroskop</strong> – Mikroskop som belyser provet med excitationsljus och med filter bara släpper fram det ljus som fluoroforerna sänder ut.</li>
+<li><strong>diffraktion</strong> – Att vågor breder ut sig åt sidorna när de passerar en öppning eller en kant. Gör att bilden av en ljuspunkt blir en suddig prick.</li>
+<li><strong>upplösning</strong> – Förmågan att skilja två punkter som ligger nära varandra åt. Anges som ett avstånd; ett litet tal betyder hög upplösning.</li>
+<li><strong>diffraktionsgränsen</strong> – Gränsen för hur små detaljer ett vanligt ljusmikroskop kan skilja åt, ungefär 200 nanometer för synligt ljus. Beskrevs av Ernst Abbe 1873.</li>
+<li><strong>superupplöst mikroskopi</strong> – Ljusmikroskopi med bättre upplösning än diffraktionsgränsen, ner till 20–50 nanometer eller mindre. Exempel är PALM, STORM och STED.</li>
+<li><strong>PALM och STORM</strong> – Superupplösta metoder där bara några få slumpvis påslagna fluoroforer lyser åt gången, så att mitten av varje prick kan bestämmas noggrant.</li>
+<li><strong>STED</strong> – Superupplöst metod där en ring av ljus stänger av fluoroforerna runt en excitationsprick, så att bara en liten prick i mitten lyser.</li>
+<li><strong>diffusion</strong> – Molekylers slumpvisa rörelse, som drivs av värme. Små molekyler diffunderar snabbare än stora.</li>
+<li><strong>repressor</strong> – En transkriptionsfaktor som stänger av en gen, ofta genom att sitta i vägen för RNA-polymeraset.</li>
+<li><strong>lac-repressorn</strong> – Ett protein i bakterien E. coli som stänger av generna för nedbrytning av laktos så länge det inte finns någon laktos.</li>
+<li><strong>operator</strong> – Den korta bassekvens på DNA intill ett operon där en repressor binder.</li>
+<li><strong>inducerare</strong> – En liten molekyl som får en repressor att släppa från DNA, så att generna slås på. För lac-repressorn en molekyl som bildas av laktos, eller den konstgjorda IPTG.</li>
+<li><strong>faciliterad diffusion</strong> – Det sätt som transkriptionsfaktorer söker sitt bindningsställe: de växlar mellan fri diffusion i cellen och glidning längs DNA-molekylen.</li>
+<li><strong>foton</strong> – Ett litet energipaket av ljus. Ju kortare våglängd ljuset har, desto mer energi har varje foton.</li>
+<li><strong>röntgenkristallografi</strong> – Metod för att bestämma var atomerna sitter i ett protein. Man skickar röntgenstrålning genom en kristall av proteinet och räknar fram strukturen ur mönstret av prickar som uppstår.</li>
+<li><strong>synkrotron</strong> – Ringformad anläggning där elektroner rusar runt med nästan ljusets hastighet och sänder ut intensiv röntgenstrålning. Används bland annat för röntgenkristallografi; Sveriges synkrotron, MAX IV, finns i Lund.</li>
+<li><strong>kryoelektronmikroskopi</strong> – Metod där man fryser en proteinlösning blixtsnabbt och tar bilder med elektroner. Bilder av tiotusentals till hundratusentals enskilda molekyler läggs ihop till en tredimensionell bild. Förkortas kryo-EM.</li>
+<li><strong>NMR</strong> – Kärnmagnetisk resonans. Metod där proteinet ligger löst i ett starkt magnetfält och atomkärnorna tar upp radiovågor; ger form och rörelser för små proteiner.</li>
+<li><strong>ångström</strong> – Längdmått: en tiondels nanometer, ungefär storleken på en atom. Skrivs Å.</li>
+</ul>
+</section>
+<section id="sec-l06-testa" class="level2" data-number="6.13">
+<h2 data-number="6.13" class="anchored" data-anchor-id="sec-l06-testa"><span class="header-section-number">6.13</span> Testa dig själv</h2>
+<section id="flervalsfrågor" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="flervalsfrågor">Flervalsfrågor</h3>
+<p>Välj ett svar och tryck på <em>Rätta</em>. Svarsalternativen visas i ny ordning varje gång.</p>
+<div id="quiz-L06"></div>
+<script>
+renderQuiz("quiz-L06", [
+ {
+  "question": "Blått ljus och rött ljus är båda synligt ljus. Vad skiljer dem åt?",
+  "choices": [
+   "Blått ljus har kortare våglängd och mer energi än rött",
+   "Blått ljus har längre våglängd och mer energi än rött",
+   "Blått ljus är elektromagnetisk strålning, rött är det inte",
+   "Det är bara våra ögon som skiljer dem åt; fysikaliskt är de likadana"
+  ],
+  "correctIndex": 0,
+  "explanation": "Färgen bestäms av våglängden. Blått ljus har kortare våglängd (omkring 450 nm) än rött (omkring 700 nm), och kortare våglängd betyder mer energi."
+ },
+ {
+  "question": "En fluorofor lyses på med blått ljus. Vilken färg kan ljuset den sänder ut ha?",
+  "choices": [
+   "Grönt, eftersom det utsända ljuset har längre våglängd än det som togs upp",
+   "Violett, eftersom det utsända ljuset har kortare våglängd",
+   "Exakt samma blå färg, eftersom molekylen bara reflekterar ljuset",
+   "Ultraviolett, eftersom molekylen tillför energi"
+  ],
+  "correctIndex": 0,
+  "explanation": "En del av energin går förlorad som värme medan molekylen är exciterad. Det utsända ljuset har därför mindre energi och längre våglängd, alltså en färg längre mot det röda hållet."
+ },
+ {
+  "question": "Varför är GFP så användbart för att studera proteiner i levande celler?",
+  "choices": [
+   "Det är ett protein, så genen för det kan fogas till genen för ett annat protein och cellen tillverkar själv ett lysande protein",
+   "Det är en liten färgmolekyl som lätt tränger in genom cellmembranet",
+   "Det binder till alla proteiner i cellen och får dem att lysa",
+   "Det lyser utan att man behöver belysa det"
+  ],
+  "correctIndex": 0,
+  "explanation": "Eftersom GFP tillverkas efter en gen kan man med genteknik göra ett fusionsprotein, där GFP sitter fast på det protein man vill studera. Fluoroforen bildas av sig själv inne i GFP."
+ },
+ {
+  "question": "Vad är poängen med ett enmolekylexperiment jämfört med ett vanligt experiment på miljarder molekyler?",
+  "choices": [
+   "Man kan se skillnader mellan molekyler och förändringar över tid som försvinner i ett medelvärde",
+   "Det är billigare eftersom man bara behöver en molekyl",
+   "Det ger alltid bättre upplösning på atomnivå",
+   "Molekyler beter sig bara normalt när de är ensamma"
+  ],
+  "correctIndex": 0,
+  "explanation": "Som i fotbollsexemplet: medelpositionen avslöjar inte att spelarna har olika roller. Att följa molekylerna en och en visar till exempel att samma molekyl ibland rör sig fritt och ibland sitter fast."
+ },
+ {
+  "question": "Varför kan man inte se ett protein i detalj i ett vanligt ljusmikroskop, hur mycket man än förstorar?",
+  "choices": [
+   "Ljusets vågnatur gör att varje ljuspunkt blir en suddig prick som är ungefär lika stor som ljusets våglängd, mycket större än ett protein",
+   "Det går inte att slipa linser som förstorar tillräckligt mycket",
+   "Proteiner är genomskinliga och syns därför inte",
+   "Ljuset förstör proteinerna innan man hinner se dem"
+  ],
+  "correctIndex": 0,
+  "explanation": "Diffraktionen gör bilden av en punkt till en prick på omkring 400 nm. Förstorar man mer blir bara pricken större. Ett protein är omkring 5 nm."
+ },
+ {
+  "question": "Hur kan PALM och STORM ge bättre upplösning än diffraktionsgränsen?",
+  "choices": [
+   "Bara några få fluoroforer lyser åt gången, så att man kan bestämma mitten av varje prick noggrant och sedan lägga ihop alla positioner",
+   "De använder röntgenstrålning i stället för ljus",
+   "De förstorar bilden mycket mer än ett vanligt mikroskop",
+   "De fryser provet så att molekylerna står stilla"
+  ],
+  "correctIndex": 0,
+  "explanation": "Prickarna är fortfarande suddiga, men en ensam pricks mittpunkt kan bestämmas mycket noggrannare än prickens bredd. Problemet uppstår bara när prickar överlappar."
+ },
+ {
+  "question": "Vad gör den ringformade ljusstrålen, \"munken\", i ett STED-mikroskop?",
+  "choices": [
+   "Den stänger av fluoroforerna runt excitationspricken så att bara en liten prick i mitten lyser",
+   "Den exciterar fler fluoroforer så att bilden blir ljusare",
+   "Den värmer provet så att molekylerna rör sig snabbare",
+   "Den bleker alla fluoroforer i hela provet"
+  ],
+  "correctIndex": 0,
+  "explanation": "Excitationspricken är lika stor som vanligt, men ringen släcker allt utom hålet i mitten. Den lysande pricken blir därför mycket mindre än diffraktionsgränsen."
+ },
+ {
+  "question": "Ett fluorescensmärkt tRNA rör sig ibland snabbt och ibland nästan inte alls i en bakterie. Vad är den troligaste förklaringen?",
+  "choices": [
+   "När det rör sig långsamt sitter det på en ribosom, ett mycket större komplex som diffunderar långsamt",
+   "Bakterien slutar ibland att producera energi",
+   "Fluoroforen slocknar ibland och tänds igen",
+   "tRNA:t har en egen motor som slås av och på"
+  ],
+  "correctIndex": 0,
+  "explanation": "Små molekyler diffunderar snabbt och stora långsamt. Ett fritt tRNA rör sig snabbt; när det binder till ribosomen för att lämna sin aminosyra blir det nästan stillastående."
+ },
+ {
+  "question": "Hur stänger lac-repressorn av generna för nedbrytning av laktos?",
+  "choices": [
+   "Den binder till operatorn på DNA och står i vägen för RNA-polymeraset",
+   "Den bryter ned allt mRNA från generna",
+   "Den binder till laktos och bryter ned det",
+   "Den klipper bort generna ur DNA:t"
+  ],
+  "correctIndex": 0,
+  "explanation": "Utan laktos sitter repressorn på operatorn, så att RNA-polymeraset inte kommer åt att kopiera generna. Finns laktos binder en molekyl av den till repressorn, som då släpper."
+ },
+ {
+  "question": "Vad menas med faciliterad diffusion när en transkriptionsfaktor söker sitt bindningsställe?",
+  "choices": [
+   "Den växlar mellan att diffundera fritt i cellen och att glida en bit längs DNA:t",
+   "Den transporteras med hjälp av ATP direkt till rätt ställe",
+   "Den läser DNA:t från början till slut i en enda lång glidning",
+   "Den väntar på ett fast ställe tills DNA:t kommer förbi"
+  ],
+  "correctIndex": 0,
+  "explanation": "Sökandet kombinerar tre dimensioner (fritt i cellen) och en dimension (glidning längs DNA). Det går fortare än att bara landa på slumpvisa ställen."
+ },
+ {
+  "question": "I ett experiment hittade fyra lac-repressorer per cell sin operator på ungefär 80 sekunder. Varför räknar man med att en enda repressor skulle behöva ungefär 320 sekunder?",
+  "choices": [
+   "Fyra sökare som letar samtidigt hittar fram ungefär fyra gånger så fort som en",
+   "En ensam repressor glider fyra gånger långsammare",
+   "Det tar fyra gånger längre tid att binda när man är ensam",
+   "Mikroskopet behöver fyra gånger så lång tid för att se en molekyl"
+  ],
+  "correctIndex": 0,
+  "explanation": "Sökandet är slumpvis och repressorerna letar oberoende av varandra. Med fyra sökare kommer den första fram fyra gånger fortare, så söktiden för en blir 4 × 80 = 320 sekunder."
+ },
+ {
+  "question": "Vad kan fluorescensmikroskopi som varken röntgenkristallografi eller kryo-EM kan?",
+  "choices": [
+   "Följa hur enskilda molekyler rör sig i levande celler",
+   "Visa var de enskilda atomerna sitter i ett protein",
+   "Ge bättre upplösning än en ångström",
+   "Studera proteiner utan att märka dem"
+  ],
+  "correctIndex": 0,
+  "explanation": "Röntgenkristallografi och kryo-EM ger atomära detaljer, men i frysta ögonblicksbilder. Fluorescensmikroskopi har sämre upplösning men kan följa molekyler över tid i levande celler."
+ }
+]);
+</script>
+</section>
+<section id="fundera-vidare" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="fundera-vidare">Fundera vidare</h3>
+<p><strong>6.1</strong> Förklara med egna ord varför en fluorofor sänder ut ljus med längre våglängd än det ljus den tar upp. Använd begreppen grundtillstånd, exciterat tillstånd och energi.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>När fluoroforen tar upp ljus lyfts den från sitt grundtillstånd, med lägst energi, till ett exciterat tillstånd med högre energi. Där stannar den bara en mycket kort stund, och under tiden förlorar den lite energi som värme, genom vibrationer. När den sedan faller tillbaka till grundtillståndet sänder den ut resten av energin som ljus. Eftersom en del av energin redan har gått förlorad har det utsända ljuset mindre energi än det som togs upp. Mindre energi betyder längre våglängd, så blått ljus in kan till exempel ge grönt ljus ut.</p>
+</div>
+</div>
+</div>
+<p><strong>6.2</strong> En forskare vill veta var i cellen ett visst protein finns, och om det flyttar sig när cellen utsätts för stress. Beskriv hur hon kan använda GFP för att ta reda på det.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Hon kan med genteknik foga ihop genen för proteinet med genen för GFP, så att de bildar en gen för ett fusionsprotein. Den förs in i cellerna, som då själva tillverkar proteinet med GFP fäst i ena änden. I ett fluorescensmikroskop belyser hon cellerna med blått ljus och ser det gröna ljuset från GFP, och därmed var proteinet finns. Eftersom cellerna lever kan hon ta bilder före och efter att hon utsätter dem för stress, och se om det gröna ljuset flyttar sig, till exempel från cellens inre till cellkärnan.</p>
+</div>
+</div>
+</div>
+<p><strong>6.3</strong> Förklara skillnaden mellan förstoring och upplösning. Varför hjälper det inte att bygga ett mikroskop som förstorar tio gånger mer för att se ett protein?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Förstoring anger hur mycket större bilden är än föremålet. Upplösning anger hur nära varandra två punkter kan ligga och ändå synas som två. I ett ljusmikroskop blir bilden av en punkt alltid en suddig prick, på grund av diffraktion, och pricken är ungefär lika stor som ljusets våglängd, omkring 400 nm. Två saker som ligger närmare varandra än ungefär 200 nm flyter ihop. Förstorar man mer blir prickarna bara större, inte skarpare, precis som när man förstorar ett digitalfoto med för få bildpunkter. Ett protein på 5 nm är långt under gränsen.</p>
+</div>
+</div>
+</div>
+<p><strong>6.4</strong> Gör samma överslagsräkning som i kapitlet för en tänkt bakterie som har dubbelt så mycket DNA, 10 miljoner baspar, men där repressorn glider över 100 baspar varje gång den landar på DNA:t. Anta att varje landning fortfarande tar en tusendels sekund. Hur lång blir söktiden? Vad säger det om varför glidningen är viktig?</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Repressorn måste söka igenom ungefär 10 miljoner baspar, och varje landning täcker 100 baspar. Det blir 100 000 landningar. Eftersom varje landning tar en tusendels sekund blir söktiden ungefär 100 sekunder, lika lång som i kapitlets exempel trots att DNA:t är dubbelt så långt. Ju längre sträcka repressorn kan glida och undersöka varje gång den landar, desto färre landningar behövs. Utan glidning skulle den behöva landa på rätt ställe av ren slump, vilket skulle ta mycket längre tid.</p>
+</div>
+</div>
+</div>
+<p><strong>6.5</strong> Jämför fluorescensmikroskopi, röntgenkristallografi och kryoelektronmikroskopi. Vilken metod skulle du välja för att (a) se var atomerna sitter i ett enzym, och (b) se hur snabbt ett protein binder till DNA i en levande cell? Motivera.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tips</span>Förslag till svar
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>För (a) behövs upplösning på atomnivå, omkring en ångström. Det ger röntgenkristallografi, som använder röntgenstrålning med en våglängd i samma storlek som atomerna, eller kryo-EM, som använder elektroner med ännu kortare våglängd. Båda kräver ett fryst eller kristalliserat prov. Är enzymet litet kan man också använda NMR, som mäter på proteinet i lösning. För (b) behöver man följa molekyler över tid i levande celler, och det kan bara fluorescensmikroskopi. Man märker proteinet med en fluorofor och ser när det slutar röra sig fritt och blir en stillastående prick, vilket visar att det har bundit. Upplösningen är sämre, men det gör inget eftersom man inte behöver se proteinets form.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="hjälp-oss-att-förbättra-kapitlet" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="hjälp-oss-att-förbättra-kapitlet">Hjälp oss att förbättra kapitlet</h3>
+<p>Hittade du ett fel, eller något som var svårt att förstå? Skicka ett förslag i <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslagsformuläret</a> (kräver inloggning med SU-konto). Lärarna läser alla förslag inför nästa version av boken.</p>
+</section>
+</section>
+<section id="sec-l06-las-mer" class="level2" data-number="6.14">
+<h2 data-number="6.14" class="anchored" data-anchor-id="sec-l06-las-mer"><span class="header-section-number">6.14</span> Läs mer</h2>
+<ul>
+<li><a href="https://pdb101.rcsb.org/motm/42">Green Fluorescent Protein (GFP)</a>, <em>Molecule of the Month</em> på PDB-101 (på engelska), med bilder av David S. Goodsell.</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2008/summary/">Nobelpriset i kemi 2008</a> och <a href="https://www.nobelprize.org/prizes/chemistry/2014/summary/">Nobelpriset i kemi 2014</a> på nobelprize.org (på engelska), med populärvetenskapliga förklaringar av GFP och superupplöst mikroskopi.</li>
+<li><a href="https://sv.wikipedia.org/wiki/Fluorescens">Fluorescens</a> och <a href="https://sv.wikipedia.org/wiki/Grönt_fluorescerande_protein">Grönt fluorescerande protein</a> på svenska Wikipedia.</li>
+<li><a href="https://en.wikipedia.org/wiki/Super-resolution_microscopy">Super-resolution microscopy</a> och <a href="https://en.wikipedia.org/wiki/Diffraction-limited_system">Diffraction-limited system</a> på engelska Wikipedia.</li>
+<li><a href="https://www.nobelprize.org/prizes/chemistry/2017/summary/">Nobelpriset i kemi 2017</a> på nobelprize.org (på engelska), om kryoelektronmikroskopi, och <a href="https://sv.wikipedia.org/wiki/Röntgenkristallografi">Röntgenkristallografi</a> på svenska Wikipedia.</li>
+<li><a href="https://en.wikipedia.org/wiki/Lac_operon">Lac operon</a> på engelska Wikipedia, om hur lac-repressorn styr generna för nedbrytning av laktos.</li>
+<li>Elf, Li och Xie, “Probing transcription factor dynamics at the single-molecule level in a living cell”, <em>Science</em> 316:1191 (2007), <a href="https://doi.org/10.1126/science.1141967">doi:10.1126/science.1141967</a>: mätningen av hur lac-repressorn söker längs DNA:t (på engelska).</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Kopierat!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Kopierat!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bioinfo\.se\/teaching\/LivetsMolekyler\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/05-syntetisk-biokemi.html" class="pagination-link" aria-label="Syntetisk biokemi – drömmen om att bygga nya proteiner">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Syntetisk biokemi – drömmen om att bygga nya proteiner</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/07-biomembran.html" class="pagination-link" aria-label="Biomembran">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Biomembran</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Hittat ett fel eller något som är svårt att förstå? Skicka ett <a href="https://bioinfo.se/internal/LivetsMolekyler-forslag/">förslag</a> (SU-inloggning) eller skriv till <a href="mailto:arne@bioinfo.se?subject=Livets%20molekyler">arne@bioinfo.se</a>.</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

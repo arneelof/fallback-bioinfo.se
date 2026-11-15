@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix F — Cross-topic problems and case studies – Stora Tentan in Bioinformatics</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/appendix-e-wikipedia.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-fd84f0a954071ed41058c9d6dc5c83a9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/appendix-a-recommended.html">Appendices</a></li><li class="breadcrumb-item"><a href="../chapters/appendix-f-problems.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Cross-topic problems and case studies</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Stora Tentan in Bioinformatics</a> 
+        <div class="sidebar-tools-main">
+    <a href="../Stora-Tentan-in-Bioinformatics.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About this guide</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-sequence-searching.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Sequence searching</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Databases</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-evolution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-phylogeny.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Phylogeny</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-genomics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Genomics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-genomes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Genomes</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-expression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Expression analysis</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-proteomics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Proteomics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/09-protein-structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Protein structure</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/10-protein-function.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Protein function</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/11-protein-interactions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Protein–protein interactions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/12-machine-learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Machine learning</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/13-imaging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Image analysis and models of cells</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-a-recommended.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Recommended reading</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-b-further.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Further papers</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/textbooks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Textbooks and general resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-d-explanations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Further explanations</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-e-wikipedia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Wikipedia index</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/appendix-f-problems.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Cross-topic problems and case studies</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-appF-cross" id="toc-sec-appF-cross" class="nav-link active" data-scroll-target="#sec-appF-cross"><span class="header-section-number">F.1</span> Cross-topic problems</a></li>
+  <li><a href="#sec-appF-caseA" id="toc-sec-appF-caseA" class="nav-link" data-scroll-target="#sec-appF-caseA"><span class="header-section-number">F.2</span> Case study A: from sequence to mechanism</a>
+  <ul class="collapse">
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link" data-scroll-target="#the-problem"><span class="header-section-number">F.2.1</span> The problem</a></li>
+  <li><a href="#evaluation-criteria" id="toc-evaluation-criteria" class="nav-link" data-scroll-target="#evaluation-criteria"><span class="header-section-number">F.2.2</span> Evaluation criteria</a></li>
+  </ul></li>
+  <li><a href="#sec-appF-caseB" id="toc-sec-appF-caseB" class="nav-link" data-scroll-target="#sec-appF-caseB"><span class="header-section-number">F.3</span> Case study B: from cohort to biological claim</a>
+  <ul class="collapse">
+  <li><a href="#the-problem-1" id="toc-the-problem-1" class="nav-link" data-scroll-target="#the-problem-1"><span class="header-section-number">F.3.1</span> The problem</a></li>
+  <li><a href="#evaluation-criteria-1" id="toc-evaluation-criteria-1" class="nav-link" data-scroll-target="#evaluation-criteria-1"><span class="header-section-number">F.3.2</span> Evaluation criteria</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../chapters/appendix-a-recommended.html">Appendices</a></li><li class="breadcrumb-item"><a href="../chapters/appendix-f-problems.html"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Cross-topic problems and case studies</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-appF" class="quarto-section-identifier">Appendix F — Cross-topic problems and case studies</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-note callout-titled" title="Credit">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Credit
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The problems and case studies in this appendix are adapted from Matteo Tadiello, <em><a href="https://bioinfo.se/teaching/modern-bioinformatics/">Modern Bioinformatics: From Foundations to Frontiers</a></em> (CC BY 4.0), used with permission.</p>
+</div>
+</div>
+<p>The review problems at the end of each chapter test one topic at a time. In the oral exam, questions often move from one topic to another: from a sequence search to evolution, from structure to function, from an experiment to its statistics. The problems in this appendix combine several chapters and have no single correct answer. Use them to practise explaining a complete line of reasoning: what the biological question is, which data and methods would address it, what each result can and cannot show, and how the conclusion would be validated.</p>
+<section id="sec-appF-cross" class="level2" data-number="F.1">
+<h2 data-number="F.1" class="anchored" data-anchor-id="sec-appF-cross"><span class="header-section-number">F.1</span> Cross-topic problems</h2>
+<p>Each problem draws on at least three chapters; the most relevant are given in parentheses. For each problem, state the biological claim, describe how the data were generated, justify the computational method, state its assumptions, compare it with the alternatives, and propose a validation.</p>
+<ol type="1">
+<li>You discover a previously unannotated bacterial gene associated with antibiotic resistance. Design the sequence, structure, evolutionary, expression and experimental analyses needed before you can claim a function (<a href="01-sequence-searching.html" class="quarto-xref"><span>Chapter 1</span></a>, <a href="03-evolution.html" class="quarto-xref"><span>Chapter 3</span></a>, <a href="09-protein-structure.html" class="quarto-xref"><span>Chapter 9</span></a>, <a href="10-protein-function.html" class="quarto-xref"><span>Chapter 10</span></a>).</li>
+<li>A profile HMM and a structure search disagree about a remote homologue. Explain the possible causes and how you would decide between them (<a href="01-sequence-searching.html#sec-ch01-profiles" class="quarto-xref"><span>Section 1.6</span></a>, <a href="09-protein-structure.html#sec-ch09-comparison" class="quarto-xref"><span>Section 9.5</span></a>, <a href="03-evolution.html" class="quarto-xref"><span>Chapter 3</span></a>).</li>
+<li>A gene is differentially expressed, but the abundance of its protein is unchanged. Give technical and biological explanations, and design follow-up tests (<a href="07-expression.html" class="quarto-xref"><span>Chapter 7</span></a>, <a href="08-proteomics.html" class="quarto-xref"><span>Chapter 8</span></a>, <a href="07-expression.html#sec-ch07-interpretation" class="quarto-xref"><span>Section 7.5</span></a>).</li>
+<li>A pangenome graph improves the recall of variant calling. Explain how you would show that the gain is real, and not caused by overlap between training and benchmark data or by a truth set that favours the new reference (<a href="05-genomics.html#sec-ch05-mapping" class="quarto-xref"><span>Section 5.6</span></a>, <a href="06-genomes.html#sec-ch06-populations" class="quarto-xref"><span>Section 6.6</span></a>, <a href="12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Section 12.2</span></a>).</li>
+<li>A protein complex predicted with high confidence has no support from AP-MS. Reconcile the evidence and propose an orthogonal validation (<a href="09-protein-structure.html#sec-ch09-prediction" class="quarto-xref"><span>Section 9.8</span></a>, <a href="11-protein-interactions.html#sec-ch11-experimental" class="quarto-xref"><span>Section 11.2</span></a>, <a href="08-proteomics.html#sec-ch08-beyond" class="quarto-xref"><span>Section 8.5</span></a>).</li>
+<li>A gene family tree conflicts with the accepted species tree. Compare duplication and loss, incomplete lineage sorting, horizontal transfer, recombination and artefacts of tree inference as explanations (<a href="03-evolution.html#sec-ch03-genes" class="quarto-xref"><span>Section 3.5</span></a>, <a href="03-evolution.html#sec-ch03-genome" class="quarto-xref"><span>Section 3.7</span></a>, <a href="04-phylogeny.html#sec-ch04-phylogenomics" class="quarto-xref"><span>Section 4.4</span></a>).</li>
+<li>A classifier predicts disease from transcriptomes with an AUROC of 0.97 but fails on new patients. Consider data leakage, batch structure, differences in case mix between the training data and the new patients, calibration and distribution shift (<a href="12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Section 12.2</span></a>, <a href="07-expression.html#sec-ch07-statistics" class="quarto-xref"><span>Section 7.4</span></a>, <a href="07-expression.html#sec-ch07-rnaseq" class="quarto-xref"><span>Section 7.3</span></a>).</li>
+<li>In an RNA-seq study, three treated samples were processed on one day and three controls on another. Explain what can and cannot be recovered computationally (<a href="07-expression.html#sec-ch07-rnaseq" class="quarto-xref"><span>Section 7.3</span></a>, <a href="07-expression.html#sec-ch07-statistics" class="quarto-xref"><span>Section 7.4</span></a>, <a href="12-machine-learning.html#sec-ch12-basics" class="quarto-xref"><span>Section 12.2</span></a>).</li>
+<li>A protein has 35% sequence identity to a characterised enzyme. Build a hierarchy of evidence for transferring its catalytic function and substrate specificity (<a href="01-sequence-searching.html#sec-ch01-homology" class="quarto-xref"><span>Section 1.2</span></a>, <a href="03-evolution.html#sec-ch03-genes" class="quarto-xref"><span>Section 3.5</span></a>, <a href="10-protein-function.html#sec-ch10-prediction" class="quarto-xref"><span>Section 10.4</span></a>).</li>
+<li>Compare the meaning of an E-value, an adjusted p-value, a posterior probability, a bootstrap proportion, a predicted confidence score such as pLDDT, and a calibrated class probability (<a href="../index.html#sec-uncertainty">Uncertainty</a>).</li>
+<li>Design a database record that distinguishes raw evidence, inferred annotation, version, uncertainty and provenance (<a href="02-databases.html#sec-ch02-general" class="quarto-xref"><span>Section 2.2</span></a>, <a href="10-protein-function.html#sec-ch10-definitions" class="quarto-xref"><span>Section 10.2</span></a>, <a href="../index.html#sec-programming">Programming and reproducible research</a>).</li>
+<li>Explain how repeats affect read mapping, genome assembly, gene annotation, expression quantification and evolutionary inference (<a href="06-genomes.html#sec-ch06-repeats" class="quarto-xref"><span>Section 6.7</span></a>, <a href="05-genomics.html#sec-ch05-assembly" class="quarto-xref"><span>Section 5.3</span></a>, <a href="05-genomics.html#sec-ch05-mapping" class="quarto-xref"><span>Section 5.6</span></a>, <a href="07-expression.html#sec-ch07-rnaseq" class="quarto-xref"><span>Section 7.3</span></a>).</li>
+<li>A rare cell population appears only after the integration of several single-cell data sets. Explain how you would decide whether it is biology or an artefact of integration (<a href="07-expression.html#sec-ch07-singlecell" class="quarto-xref"><span>Section 7.6</span></a>, <a href="12-machine-learning.html#sec-ch12-integration" class="quarto-xref"><span>Section 12.7</span></a>).</li>
+<li>You need to identify the direct interaction partners of a membrane protein in living cells. Compare the experimental and computational options (<a href="11-protein-interactions.html#sec-ch11-experimental" class="quarto-xref"><span>Section 11.2</span></a>, <a href="11-protein-interactions.html#sec-ch11-prediction" class="quarto-xref"><span>Section 11.4</span></a>, <a href="09-protein-structure.html#sec-ch09-membrane" class="quarto-xref"><span>Section 9.10</span></a>).</li>
+<li>A foundation model produces embeddings that perform well on benchmarks. Explain which benchmarks would establish its biological usefulness without circularity (<a href="12-machine-learning.html#sec-ch12-foundation" class="quarto-xref"><span>Section 12.6</span></a>, <a href="01-sequence-searching.html#sec-ch01-benchmarks" class="quarto-xref"><span>Section 1.11</span></a>, <a href="10-protein-function.html#sec-ch10-benchmarking" class="quarto-xref"><span>Section 10.7</span></a>).</li>
+<li>Design a reproducible multi-omics study, from sampling to public deposition of the data, including negative controls and validation (<a href="../index.html#sec-programming">Programming and reproducible research</a>, <a href="02-databases.html" class="quarto-xref"><span>Chapter 2</span></a>, <a href="12-machine-learning.html#sec-ch12-integration" class="quarto-xref"><span>Section 12.7</span></a>).</li>
+</ol>
+</section>
+<section id="sec-appF-caseA" class="level2" data-number="F.2">
+<h2 data-number="F.2" class="anchored" data-anchor-id="sec-appF-caseA"><span class="header-section-number">F.2</span> Case study A: from sequence to mechanism</h2>
+<p>This case study follows a biological question from comparative genomics to molecular mechanism. The routes can be worked through in order, or used as separate sets of problems.</p>
+<section id="the-problem" class="level3" data-number="F.2.1">
+<h3 data-number="F.2.1" class="anchored" data-anchor-id="the-problem"><span class="header-section-number">F.2.1</span> The problem</h3>
+<p>A conserved protein of unknown function is found in several pathogenic bacteria but is absent from closely related non-pathogens. Design a strategy to determine its origin, molecular function, structure, interaction partners and contribution to pathogenicity.</p>
+<section id="route-1-databases-and-sequence-search" class="level4">
+<h4 class="anchored" data-anchor-id="route-1-databases-and-sequence-search">Route 1: databases and sequence search</h4>
+<ul>
+<li>Which databases do you query, and how do you record the identifiers and versions you used?</li>
+<li>When would you choose BLAST, a profile HMM, MMseqs2 or a structure search?</li>
+<li>How do E-values change with the size of the search space and with the number of queries?</li>
+<li>What would make an apparent homologue a false lead?</li>
+</ul>
+</section>
+<section id="route-2-evolution-and-phylogeny" class="level4">
+<h4 class="anchored" data-anchor-id="route-2-evolution-and-phylogeny">Route 2: evolution and phylogeny</h4>
+<ul>
+<li>How would you distinguish vertical inheritance, loss and horizontal transfer?</li>
+<li>Which problems with the alignment and the substitution model could distort the tree?</li>
+<li>How do you reconcile a gene tree with a species tree?</li>
+<li>What evidence would support selection without overinterpreting dN/dS?</li>
+</ul>
+</section>
+<section id="route-3-structure-and-function" class="level4">
+<h4 class="anchored" data-anchor-id="route-3-structure-and-function">Route 3: structure and function</h4>
+<ul>
+<li>What does a predicted fold with high confidence establish, and what does it not?</li>
+<li>How would you evaluate a putative active site or ligand-binding pocket?</li>
+<li>When is docking informative, and how would you validate it?</li>
+<li>How would disorder, oligomerisation or membrane localisation change the plan?</li>
+</ul>
+</section>
+<section id="route-4-expression-and-interactions" class="level4">
+<h4 class="anchored" data-anchor-id="route-4-expression-and-interactions">Route 4: expression and interactions</h4>
+<ul>
+<li>Design an expression experiment that compares relevant conditions, with biological replicates.</li>
+<li>Choose an interaction assay, and explain its typical false positives and false negatives.</li>
+<li>What would count as orthogonal evidence for a direct interaction?</li>
+</ul>
+</section>
+<section id="route-5-integration" class="level4">
+<h4 class="anchored" data-anchor-id="route-5-integration">Route 5: integration</h4>
+<ul>
+<li>Build the strongest defensible conclusion from mixed evidence.</li>
+<li>Identify which claims remain predictions rather than causal statements.</li>
+<li>Define the minimum experiments needed before proposing the protein as a drug target.</li>
+</ul>
+</section>
+</section>
+<section id="evaluation-criteria" class="level3" data-number="F.2.2">
+<h3 data-number="F.2.2" class="anchored" data-anchor-id="evaluation-criteria"><span class="header-section-number">F.2.2</span> Evaluation criteria</h3>
+<p>A good answer connects each biological claim to the evidence from the method that produced it, states the assumptions of each algorithm, distinguishes a method’s estimated confidence from correctness, and proposes independent validation. A list of tools without an explicit argument from evidence to conclusion is not enough.</p>
+</section>
+</section>
+<section id="sec-appF-caseB" class="level2" data-number="F.3">
+<h2 data-number="F.3" class="anchored" data-anchor-id="sec-appF-caseB"><span class="header-section-number">F.3</span> Case study B: from cohort to biological claim</h2>
+<p>This case study follows the analysis of a heterogeneous clinical cohort, from experimental design and data generation to prediction, causal interpretation and prospective validation.</p>
+<section id="the-problem-1" class="level3" data-number="F.3.1">
+<h3 data-number="F.3.1" class="anchored" data-anchor-id="the-problem-1"><span class="header-section-number">F.3.1</span> The problem</h3>
+<p>A cohort study collects genomes, bulk RNA-seq, single-cell RNA-seq and plasma proteomics from patients and controls at three hospitals. The goal is to discover a disease mechanism and a predictive biomarker. Design the analysis and justify each step of inference.</p>
+<section id="route-1-design-and-data-generation" class="level4">
+<h4 class="anchored" data-anchor-id="route-1-design-and-data-generation">Route 1: design and data generation</h4>
+<ul>
+<li>What replication and randomisation are required?</li>
+<li>Which variables must be balanced or recorded?</li>
+<li>How do the errors of sequencing and of mass spectrometry differ?</li>
+<li>Which quality controls detect sample swaps and contamination?</li>
+</ul>
+</section>
+<section id="route-2-genomic-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="route-2-genomic-analysis">Route 2: genomic analysis</h4>
+<ul>
+<li>Choose a reference (linear or pangenome), a read mapper and a strategy for variant calling.</li>
+<li>Explain reference bias, population structure, phasing and structural variants.</li>
+<li>How would you validate a candidate regulatory variant?</li>
+</ul>
+</section>
+<section id="route-3-expression-and-proteomics" class="level4">
+<h4 class="anchored" data-anchor-id="route-3-expression-and-proteomics">Route 3: expression and proteomics</h4>
+<ul>
+<li>Specify the design matrix and contrasts for the bulk RNA-seq data.</li>
+<li>Explain pseudoreplication in single-cell data, and which unit you would use for differential expression.</li>
+<li>Describe peptide–spectrum matching, FDR, protein inference and missing values.</li>
+<li>How would you interpret disagreement between RNA and protein levels?</li>
+</ul>
+</section>
+<section id="route-4-machine-learning" class="level4">
+<h4 class="anchored" data-anchor-id="route-4-machine-learning">Route 4: machine learning</h4>
+<ul>
+<li>Define the unit for splitting the data, and prevent leakage between patients and between hospitals.</li>
+<li>Choose metrics for a rare disease, and assess calibration.</li>
+<li>Compare L1 and L2 regularisation, tree-based methods and representation learning.</li>
+<li>How would you perform nested model selection and external validation?</li>
+</ul>
+</section>
+<section id="route-5-integration-and-causality" class="level4">
+<h4 class="anchored" data-anchor-id="route-5-integration-and-causality">Route 5: integration and causality</h4>
+<ul>
+<li>Compare early, intermediate and late multi-omics integration.</li>
+<li>Separate a predictive biomarker from a causal mechanism.</li>
+<li>Explain how hospital, ancestry, treatment and cell-type composition could confound the result.</li>
+<li>Specify an orthogonal experiment and a prospective validation study.</li>
+</ul>
+</section>
+</section>
+<section id="evaluation-criteria-1" class="level3" data-number="F.3.2">
+<h3 data-number="F.3.2" class="anchored" data-anchor-id="evaluation-criteria-1"><span class="header-section-number">F.3.2</span> Evaluation criteria</h3>
+<p>A good answer keeps track of the experimental unit, connects the way the data were generated to the statistical models, prevents leakage, controls for multiple testing, distinguishes prediction from causation, and specifies independent validation.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/appendix-e-wikipedia.html" class="pagination-link" aria-label="Wikipedia index">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Wikipedia index</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

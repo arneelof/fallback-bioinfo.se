@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="900" height="520">
+<defs><marker id="ah222222" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#222222"/></marker><marker id="ah4a8c4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a8c4a"/></marker><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="450" y="30.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">Att filma ett protein med röntgenlaser</text>
+<rect x="355" y="52" width="30" height="40" rx="4" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<line x1="370" y1="92" x2="370" y2="330" stroke="#cfe0f3" stroke-width="10"/>
+<rect x="368" y="104" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 107)"/>
+<rect x="364" y="126" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 129)"/>
+<rect x="366" y="148" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 151)"/>
+<rect x="368" y="170" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 173)"/>
+<rect x="364" y="192" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 195)"/>
+<rect x="366" y="214" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 217)"/>
+<rect x="368" y="236" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 239)"/>
+<rect x="364" y="258" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 261)"/>
+<rect x="366" y="280" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 283)"/>
+<rect x="368" y="302" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 305)"/>
+<rect x="364" y="324" width="7" height="7" fill="#3b6ea8" transform="rotate(30 370 327)"/>
+<text x="410" y="66.8" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#222222">en tunn stråle med små</text>
+<text x="410" y="82.3" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="start" font-weight="normal" fill="#222222">kristaller av fotosystem II</text>
+<rect x="40" y="150" width="120" height="36" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="100" y="172.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">vanlig laser</text>
+<path d="M162,168 L358,168" fill="none" stroke="#4a8c4a" stroke-width="4" marker-end="url(#ah4a8c4a)"/>
+<text x="260" y="154.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#4a8c4a">1. ljusblixt</text>
+<rect x="40" y="236" width="120" height="36" rx="6" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<text x="100" y="258.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">röntgenlaser</text>
+<path d="M162,254 L358,254" fill="none" stroke="#b5443b" stroke-width="4" stroke-dasharray="7,5" marker-end="url(#ahb5443b)"/>
+<text x="260" y="240.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#b5443b">2. röntgenpuls</text>
+<text x="260" y="294.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">några femtosekunder lång</text>
+<path d="M335,175 L335,247" stroke="#222222" stroke-width="1.5" marker-end="url(#ah222222)" fill="none"/>
+<text x="322" y="216.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="end" font-weight="normal" fill="#222222">fördröjning</text>
+<polygon points="378,254 700,140 700,368" fill="#f4d4d0" opacity="0.5"/>
+<rect x="700" y="135" width="30" height="238" rx="3" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<path d="M715,219 A4.2,35 0 0 1 712,289" fill="none" stroke="#b5443b" stroke-width="2"/>
+<path d="M715,184 A8.4,70 0 0 1 712,324" fill="none" stroke="#b5443b" stroke-width="2"/>
+<path d="M715,149 A12.6,105 0 0 1 712,359" fill="none" stroke="#b5443b" stroke-width="2"/>
+<text x="790" y="242.1" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">detektor:</text>
+<text x="790" y="258.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">spridnings-</text>
+<text x="790" y="275.7" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">mönster</text>
+<text x="450" y="382.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">Olika fördröjningar ger bilder av klustret i olika steg, som sätts ihop till en film</text>
+<rect x="140" y="400" width="110" height="90" rx="4" fill="white" stroke="#666666" stroke-width="2"/>
+<rect x="148" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="148" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="169" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="169" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="190" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="190" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="211" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="211" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="232" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="232" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<circle cx="180" cy="438" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="210" cy="438" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="180" cy="462" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="210" cy="462" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="195" cy="450" r="6" fill="#d9822b" stroke="none" stroke-width="1.5"/>
+<path d="M252,445 L268,445" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+<rect x="270" y="400" width="110" height="90" rx="4" fill="white" stroke="#666666" stroke-width="2"/>
+<rect x="278" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="278" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="299" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="299" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="320" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="320" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="341" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="341" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="362" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="362" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<circle cx="310" cy="438" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="340" cy="438" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="310" cy="462" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="340" cy="462" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="331" cy="447" r="6" fill="#d9822b" stroke="none" stroke-width="1.5"/>
+<path d="M382,445 L398,445" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+<rect x="400" y="400" width="110" height="90" rx="4" fill="white" stroke="#666666" stroke-width="2"/>
+<rect x="408" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="408" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="429" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="429" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="450" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="450" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="471" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="471" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="492" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="492" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<circle cx="440" cy="438" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="470" cy="438" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="440" cy="462" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="470" cy="462" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="467" cy="444" r="6" fill="#d9822b" stroke="none" stroke-width="1.5"/>
+<path d="M512,445 L528,445" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+<rect x="530" y="400" width="110" height="90" rx="4" fill="white" stroke="#666666" stroke-width="2"/>
+<rect x="538" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="538" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="559" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="559" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="580" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="580" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="601" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="601" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="622" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="622" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<circle cx="570" cy="438" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="600" cy="438" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="570" cy="462" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="600" cy="462" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="603" cy="441" r="6" fill="#d9822b" stroke="none" stroke-width="1.5"/>
+<path d="M642,445 L658,445" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+<rect x="660" y="400" width="110" height="90" rx="4" fill="white" stroke="#666666" stroke-width="2"/>
+<rect x="668" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="668" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="689" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="689" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="710" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="710" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="731" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="731" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="752" y="404" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<rect x="752" y="479" width="9" height="7" rx="1" fill="#eeeeee" stroke="none" stroke-width="1.5"/>
+<circle cx="700" cy="438" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="730" cy="438" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="700" cy="462" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="730" cy="462" r="7" fill="#7a4f9a" stroke="none" stroke-width="1.5"/>
+<circle cx="739" cy="438" r="6" fill="#d9822b" stroke="none" stroke-width="1.5"/>
+<text x="450" y="514.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">tid efter ljusblixten →</text>
+</svg>

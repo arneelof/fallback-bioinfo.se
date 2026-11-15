@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="900" height="360">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<defs><radialGradient id="gg"><stop offset="0" stop-color="#2e9e3a" stop-opacity="0.95"/><stop offset="0.45" stop-color="#2e9e3a" stop-opacity="0.55"/><stop offset="1" stop-color="#2e9e3a" stop-opacity="0"/></radialGradient></defs>
+<rect x="15" y="60" width="275" height="250" rx="6" fill="#111111" stroke="#666666" stroke-width="1.5"/>
+<text x="152" y="43.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">1. Alla lyser samtidigt</text>
+<circle cx="55.0" cy="265.0" r="26" fill="url(#gg)"/>
+<circle cx="62.9" cy="268.3" r="26" fill="url(#gg)"/>
+<circle cx="70.8" cy="271.5" r="26" fill="url(#gg)"/>
+<circle cx="78.8" cy="274.3" r="26" fill="url(#gg)"/>
+<circle cx="86.7" cy="276.7" r="26" fill="url(#gg)"/>
+<circle cx="94.6" cy="278.4" r="26" fill="url(#gg)"/>
+<circle cx="102.5" cy="279.5" r="26" fill="url(#gg)"/>
+<circle cx="110.4" cy="279.7" r="26" fill="url(#gg)"/>
+<circle cx="118.3" cy="279.0" r="26" fill="url(#gg)"/>
+<circle cx="126.2" cy="277.2" r="26" fill="url(#gg)"/>
+<circle cx="134.2" cy="274.3" r="26" fill="url(#gg)"/>
+<circle cx="142.1" cy="270.2" r="26" fill="url(#gg)"/>
+<circle cx="150.0" cy="265.0" r="26" fill="url(#gg)"/>
+<circle cx="157.9" cy="258.6" r="26" fill="url(#gg)"/>
+<circle cx="165.8" cy="250.9" r="26" fill="url(#gg)"/>
+<circle cx="173.8" cy="242.2" r="26" fill="url(#gg)"/>
+<circle cx="181.7" cy="232.3" r="26" fill="url(#gg)"/>
+<circle cx="189.6" cy="221.4" r="26" fill="url(#gg)"/>
+<circle cx="197.5" cy="209.5" r="26" fill="url(#gg)"/>
+<circle cx="205.4" cy="196.8" r="26" fill="url(#gg)"/>
+<circle cx="213.3" cy="183.3" r="26" fill="url(#gg)"/>
+<circle cx="221.2" cy="169.3" r="26" fill="url(#gg)"/>
+<circle cx="229.2" cy="154.8" r="26" fill="url(#gg)"/>
+<circle cx="237.1" cy="140.0" r="26" fill="url(#gg)"/>
+<circle cx="245.0" cy="125.0" r="26" fill="url(#gg)"/>
+<rect x="310" y="60" width="275" height="250" rx="6" fill="#111111" stroke="#666666" stroke-width="1.5"/>
+<text x="447" y="43.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">2. Några få åt gången</text>
+<circle cx="372.8" cy="274.0" r="26" fill="url(#gg)"/>
+<path d="M365.8,274.0 h14 M372.8,267.0 v14" stroke="white" stroke-width="2"/>
+<circle cx="454.5" cy="257.1" r="26" fill="url(#gg)"/>
+<path d="M447.5,257.1 h14 M454.5,250.1 v14" stroke="white" stroke-width="2"/>
+<circle cx="517.2" cy="167.6" r="26" fill="url(#gg)"/>
+<path d="M510.2,167.6 h14 M517.2,160.6 v14" stroke="white" stroke-width="2"/>
+<rect x="605" y="60" width="275" height="250" rx="6" fill="#111111" stroke="#666666" stroke-width="1.5"/>
+<text x="742" y="43.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">3. Alla positioner ihop</text>
+<circle cx="645.0" cy="265.0" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="652.9166666666666" cy="268.30350012207026" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="660.8333333333334" cy="271.4506664905098" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="668.75" cy="274.28784026555627" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="676.6666666666666" cy="276.66666666666663" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="684.5833333333334" cy="278.44663336394376" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="692.5" cy="279.49747468305833" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="700.4166666666666" cy="279.7014004870531" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="708.3333333333334" cy="278.95511159824406" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="716.25" cy="277.17156727579004" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="724.1666666666666" cy="274.2814745069014" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="732.0833333333334" cy="270.2344736295001" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="740.0" cy="265.0" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="747.9166666666666" cy="258.5678069628334" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="755.8333333333334" cy="250.9481411735681" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="763.75" cy="242.17156727579007" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="771.6666666666666" cy="232.28844493157737" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="779.5833333333334" cy="221.36806715371978" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="787.5" cy="209.49747468305833" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="795.4166666666666" cy="196.77996669727713" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="803.3333333333334" cy="183.33333333333331" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="811.25" cy="169.2878402655563" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="819.1666666666666" cy="154.78399982384315" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="827.0833333333334" cy="139.97016678873692" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<circle cx="835.0" cy="125.00000000000001" r="3.2" fill="#7be07f" stroke="none" stroke-width="1.5"/>
+<path d="M292,185 L308,185" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M587,185 L603,185" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<text x="152" y="336.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">En suddig klump: inga detaljer</text>
+<text x="447" y="336.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">Varje prick mäts ut, mitten markeras</text>
+<text x="742" y="336.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">Bilden byggs upp prick för prick</text>
+</svg>

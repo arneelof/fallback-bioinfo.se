@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" width="880" height="520">
+<defs><marker id="ah4a8c4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a8c4a"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="250" y="32.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">I vattnet</text>
+<text x="650" y="32.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">I kanalens filter (sett uppifrån)</text>
+<text x="30" y="157.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="start" font-weight="bold" fill="#7a4f9a">K+</text>
+<text x="30" y="397.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="start" font-weight="bold" fill="#3b6ea8">Na+</text>
+<circle cx="304.92035881783147" cy="189.4112772666936" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="289.4112772666936" cy="204.92035881783147" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="291.01219330881975" cy="191.01219330881975" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<circle cx="210.5887227333064" cy="204.92035881783147" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="195.07964118216853" cy="189.4112772666936" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="208.98780669118025" cy="191.01219330881975" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<circle cx="195.0796411821685" cy="110.58872273330641" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="210.58872273330638" cy="95.07964118216854" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="208.98780669118023" cy="108.98780669118025" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<circle cx="289.41127726669356" cy="95.07964118216852" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="304.92035881783147" cy="110.58872273330638" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="291.01219330881975" cy="108.98780669118023" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<circle cx="250" cy="150" r="30" fill="#e9e0f2" stroke="#7a4f9a" stroke-width="2"/>
+<text x="250" y="155.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#7a4f9a">K+</text>
+<circle cx="650" cy="150" r="82" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<line x1="691.0" y1="191.0" x2="706.6" y2="206.6" stroke="#666666" stroke-width="5"/>
+<circle cx="691.0121933088197" cy="191.01219330881975" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<line x1="609.0" y1="191.0" x2="593.4" y2="206.6" stroke="#666666" stroke-width="5"/>
+<circle cx="608.9878066911803" cy="191.01219330881975" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<line x1="609.0" y1="109.0" x2="593.4" y2="93.4" stroke="#666666" stroke-width="5"/>
+<circle cx="608.9878066911803" cy="108.98780669118025" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<line x1="691.0" y1="109.0" x2="706.6" y2="93.4" stroke="#666666" stroke-width="5"/>
+<circle cx="691.0121933088197" cy="108.98780669118023" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<circle cx="650" cy="150" r="30" fill="#e9e0f2" stroke="#7a4f9a" stroke-width="2"/>
+<text x="650" y="155.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#7a4f9a">K+</text>
+<circle cx="295.02086388121984" cy="419.511782330082" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="279.511782330082" cy="435.02086388121984" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="281.1126983722081" cy="421.1126983722081" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<circle cx="220.48821766991807" cy="435.02086388121984" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="204.9791361187802" cy="419.511782330082" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="218.8873016277919" cy="421.1126983722081" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<circle cx="204.9791361187802" cy="360.488217669918" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="220.48821766991807" cy="344.97913611878016" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="218.8873016277919" cy="358.8873016277919" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<circle cx="279.51178233008187" cy="344.97913611878016" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="295.0208638812198" cy="360.488217669918" r="6" fill="#ffffff" stroke="#666666" stroke-width="1"/>
+<circle cx="281.11269837220806" cy="358.8873016277919" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<circle cx="250" cy="390" r="20" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<text x="250" y="395.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#3b6ea8">Na+</text>
+<circle cx="650" cy="390" r="82" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<line x1="691.0" y1="431.0" x2="706.6" y2="446.6" stroke="#666666" stroke-width="5"/>
+<circle cx="691.0121933088197" cy="431.01219330881975" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<line x1="609.0" y1="431.0" x2="593.4" y2="446.6" stroke="#666666" stroke-width="5"/>
+<circle cx="608.9878066911803" cy="431.01219330881975" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<line x1="609.0" y1="349.0" x2="593.4" y2="333.4" stroke="#666666" stroke-width="5"/>
+<circle cx="608.9878066911803" cy="348.98780669118025" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<line x1="691.0" y1="349.0" x2="706.6" y2="333.4" stroke="#666666" stroke-width="5"/>
+<circle cx="691.0121933088197" cy="348.98780669118025" r="10" fill="#b5443b" stroke="none" stroke-width="1.5"/>
+<circle cx="650" cy="390" r="20" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<text x="650" y="395.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#3b6ea8">Na+</text>
+<path d="M330,150 L540,150" fill="none" stroke="#4a8c4a" stroke-width="3" marker-end="url(#ah4a8c4a)"/>
+<text x="435" y="133.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#4a8c4a">passar precis</text>
+<path d="M330,390 L540,390" fill="none" stroke="#b5443b" stroke-width="3" stroke-dasharray="7,5" marker-end="url(#ahb5443b)"/>
+<text x="435" y="364.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">för långt till</text>
+<text x="435" y="382.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">syreatomerna</text>
+<text x="440" y="266.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">Kaliumjonen byter vattnets syreatomer mot proteinets, som sitter på samma avstånd.</text>
+<text x="440" y="504.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">Den mindre natriumjonen når inte fram till alla fyra och stannar hellre kvar i vattnet.</text>
+</svg>

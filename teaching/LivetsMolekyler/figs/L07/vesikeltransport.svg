@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="450" y="29.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">Avknoppning: en blåsa snörs av från ett membran</text>
+<path d="M30,150 L270,150" fill="none" stroke="#c0702a" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M30,150 L270,150" fill="none" stroke="#f6e3c4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="130" cy="136" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="150" cy="132" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="170" cy="136" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<path d="M330,150 L405,150 C405,190 390,245 450,245 C510,245 495,190 495,150 L570,150" fill="none" stroke="#c0702a" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M330,150 L405,150 C405,190 390,245 450,245 C510,245 495,190 495,150 L570,150" fill="none" stroke="#f6e3c4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="432" cy="205" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="450" cy="220" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="468" cy="205" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<path d="M630,150 L870,150" fill="none" stroke="#c0702a" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M630,150 L870,150" fill="none" stroke="#f6e3c4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="750" cy="245" r="45" fill="#fbf3e4" stroke="none" stroke-width="1.5"/>
+<path d="M705,245 a45,45 0 1,0 90,0 a45,45 0 1,0 -90,0" fill="none" stroke="#c0702a" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M705,245 a45,45 0 1,0 90,0 a45,45 0 1,0 -90,0" fill="none" stroke="#f6e3c4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="734" cy="238" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="750" cy="254" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="766" cy="238" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<path d="M285,190 L315,190" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M585,190 L615,190" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<text x="150" y="88.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">1. Proteiner samlas</text>
+<text x="150" y="105.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">vid membranet</text>
+<text x="450" y="88.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">2. Membranet buktar</text>
+<text x="450" y="105.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">in och bildar en ficka</text>
+<text x="750" y="88.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">3. Blåsan knipsas av,</text>
+<text x="750" y="105.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">hålet sluts</text>
+<text x="450" y="340.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">Sammansmältning: en blåsa töms genom ett membran</text>
+<path d="M30,470 L270,470" fill="none" stroke="#c0702a" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M30,470 L270,470" fill="none" stroke="#f6e3c4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="150" cy="395" r="45" fill="#fbf3e4" stroke="none" stroke-width="1.5"/>
+<path d="M105,395 a45,45 0 1,0 90,0 a45,45 0 1,0 -90,0" fill="none" stroke="#c0702a" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M105,395 a45,45 0 1,0 90,0 a45,45 0 1,0 -90,0" fill="none" stroke="#f6e3c4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="134" cy="388" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="150" cy="404" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="166" cy="388" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<path d="M330,470 L420,470 C395,455 395,380 450,380 C505,380 505,455 480,470 L570,470" fill="none" stroke="#c0702a" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M330,470 L420,470 C395,455 395,380 450,380 C505,380 505,455 480,470 L570,470" fill="none" stroke="#f6e3c4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="434" cy="415" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="450" cy="440" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="466" cy="415" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<path d="M630,470 L690,470 C710,470 710,445 750,445 C790,445 790,470 810,470 L870,470" fill="none" stroke="#c0702a" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M630,470 L690,470 C710,470 710,445 750,445 C790,445 790,470 810,470 L870,470" fill="none" stroke="#f6e3c4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="720" cy="500" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="755" cy="515" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<circle cx="785" cy="495" r="5" fill="#3b6ea8" stroke="none" stroke-width="1.5"/>
+<path d="M285,430 L315,430" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<path d="M585,430 L615,430" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<text x="150" y="511.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">1. Blåsan förs fram</text>
+<text x="150" y="528.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">till membranet</text>
+<text x="450" y="511.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">2. Membranen smälter</text>
+<text x="450" y="528.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">ihop, en por öppnas</text>
+<text x="750" y="546.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">3. Innehållet släpps ut</text>
+<text x="750" y="563.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">på andra sidan</text>
+</svg>

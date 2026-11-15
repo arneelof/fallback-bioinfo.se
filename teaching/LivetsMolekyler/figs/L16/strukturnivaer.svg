@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 330" width="980" height="330">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="490" y="32.3" font-family="Helvetica, Arial, sans-serif" font-size="18" text-anchor="middle" font-weight="bold" fill="#222222">Proteinets fyra strukturnivåer</text>
+<text x="125" y="67.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Primärstruktur</text>
+<text x="125" y="286.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">ordningen mellan</text>
+<text x="125" y="303.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">aminosyrorna</text>
+<path d="M225,175 L265,175" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="370" y="67.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Sekundärstruktur</text>
+<text x="370" y="286.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">alfahelixar och</text>
+<text x="370" y="303.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">betaflak</text>
+<path d="M470,175 L510,175" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="615" y="67.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Tertiärstruktur</text>
+<text x="615" y="286.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">hela kedjans</text>
+<text x="615" y="303.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">form</text>
+<path d="M715,175 L755,175" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="860" y="67.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">Kvartärstruktur</text>
+<text x="860" y="286.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">flera kedjor</text>
+<text x="860" y="303.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">tillsammans</text>
+<circle cx="37" cy="167" r="11" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="37" y="170.8" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" fill="#222222">M</text>
+<circle cx="62" cy="183" r="11" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="62" y="186.8" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" fill="#222222">K</text>
+<circle cx="87" cy="167" r="11" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="87" y="170.8" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" fill="#222222">T</text>
+<circle cx="112" cy="183" r="11" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="112" y="186.8" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" fill="#222222">A</text>
+<circle cx="137" cy="167" r="11" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="137" y="170.8" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" fill="#222222">Y</text>
+<circle cx="162" cy="183" r="11" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="162" y="186.8" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" fill="#222222">I</text>
+<circle cx="187" cy="167" r="11" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="187" y="170.8" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" fill="#222222">A</text>
+<circle cx="212" cy="183" r="11" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="212" y="186.8" font-family="Helvetica, Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="normal" fill="#222222">K</text>
+<path d="M275,140 C279,110 293,110 289,140 S281,170 293,140 C297,110 311,110 307,140 S299,170 311,140 C315,110 329,110 325,140 S317,170 329,140 C333,110 347,110 343,140 S335,170 347,140 C351,110 365,110 361,140 S353,170 365,140 C369,110 383,110 379,140 S371,170 383,140" fill="none" stroke="#b5443b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="325" y="194.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#b5443b">helix</text>
+<polygon points="360,198 451,198 451,192 465,205 451,218 451,212 360,212" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<polygon points="465,224 374,224 374,218 360,231 374,244 374,238 465,238" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<polygon points="360,250 451,250 451,244 465,257 451,270 451,264 360,264" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="412" y="184.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#3b6ea8">flak</text>
+<ellipse cx="615" cy="175" rx="85" ry="70" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<rect x="545" y="120" width="20" height="70" rx="9" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="575" y="120" width="20" height="70" rx="9" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="605" y="120" width="20" height="70" rx="9" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<polygon points="630,129 676,129 676,123 687,135 676,147 676,141 630,141" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<polygon points="687,153 641,153 641,147 630,159 641,171 641,165 687,165" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<polygon points="630,177 676,177 676,171 687,183 676,195 676,189 630,189" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<path d="M555,190 C575,235 635,235 655,205" fill="none" stroke="#666666" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="825" cy="140" rx="38" ry="34" fill="#cfe0f3" stroke="#666666" stroke-width="1.5"/>
+<ellipse cx="895" cy="140" rx="38" ry="34" fill="#d6ecd2" stroke="#666666" stroke-width="1.5"/>
+<ellipse cx="825" cy="210" rx="38" ry="34" fill="#d6ecd2" stroke="#666666" stroke-width="1.5"/>
+<ellipse cx="895" cy="210" rx="38" ry="34" fill="#cfe0f3" stroke="#666666" stroke-width="1.5"/>
+</svg>

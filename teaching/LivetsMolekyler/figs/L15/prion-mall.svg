@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" width="860" height="300">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="430" y="32.6" font-family="Helvetica, Arial, sans-serif" font-size="19" text-anchor="middle" font-weight="bold" fill="#222222">Prionprincipen: felveckat protein som mall</text>
+<circle cx="70" cy="100" r="24" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<circle cx="70" cy="100" r="12.0" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="140" cy="170" r="24" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<circle cx="140" cy="170" r="12.0" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="70" cy="240" r="24" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<circle cx="70" cy="240" r="12.0" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="105" y="295.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">normalt protein</text>
+<path d="M170,170 L290,170" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<rect x="310" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="330" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="350" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="370" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="390" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="410" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<circle cx="452" cy="170" r="22" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<circle cx="452" cy="170" r="11.0" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="375" y="235.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">fiberns ände fungerar</text>
+<text x="375" y="255.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">som mall</text>
+<path d="M500,170 L590,170" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<rect x="610" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="630" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="650" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="670" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="690" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="710" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<rect x="730" y="150.0" width="18" height="40" rx="3" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<text x="700" y="235.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">fibern har vuxit med en enhet</text>
+<text x="700" y="255.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#b5443b">och kan bryta ut nya bitar</text>
+</svg>

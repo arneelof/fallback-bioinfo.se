@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 400" width="940" height="400">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="470" y="31.0" font-family="Helvetica, Arial, sans-serif" font-size="20" text-anchor="middle" font-weight="bold" fill="#222222">Chaperoninet GroEL: ett skyddat veckningsrum</text>
+<rect x="65.0" y="150" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="161.0" y="150" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="65.0" y="220" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="161.0" y="220" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<line x1="65.0" y1="218" x2="195.0" y2="218" stroke="#3b6ea8" stroke-width="3"/>
+<path d="M96.0,136.0 L104.0,140.7 L112.0,141.8 L120.0,138.6 L128.0,133.3 L136.0,130.1 L144.0,131.4 L152.0,136.1 L160.0,140.8" fill="none" stroke="#666666" stroke-width="2"/>
+<circle cx="96" cy="136.0" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="104" cy="140.7" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="112" cy="141.8" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="120" cy="138.6" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="128" cy="133.3" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="136" cy="130.1" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="144" cy="131.4" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="152" cy="136.1" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="160" cy="140.8" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<rect x="405.0" y="150" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="501.0" y="150" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="405.0" y="220" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="501.0" y="220" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<line x1="405.0" y1="218" x2="535.0" y2="218" stroke="#3b6ea8" stroke-width="3"/>
+<path d="M409.0,148 Q470,100 531.0,148 Z" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="2"/>
+<path d="M440.0,182.0 L448.0,188.3 L456.0,189.8 L464.0,185.4 L472.0,178.5 L480.0,174.2 L488.0,175.8 L496.0,182.1" fill="none" stroke="#666666" stroke-width="2"/>
+<circle cx="440" cy="182.0" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="448" cy="188.3" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="456" cy="189.8" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="464" cy="185.4" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="472" cy="178.5" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<circle cx="480" cy="174.2" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="488" cy="175.8" r="4.5" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.1"/>
+<circle cx="496" cy="182.1" r="4.5" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.1"/>
+<rect x="735.0" y="150" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="831.0" y="150" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="735.0" y="220" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<rect x="831.0" y="220" width="34" height="66" rx="8" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<line x1="735.0" y1="218" x2="865.0" y2="218" stroke="#3b6ea8" stroke-width="3"/>
+<circle cx="870" cy="105" r="18" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<circle cx="870" cy="105" r="9.0" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<path d="M210,180 L385,180" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="297" y="159.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#4a8c4a">+ ATP + GroES</text>
+<path d="M555,180 L715,180" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="635" y="159.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#222222">ATP spjälkas</text>
+<path d="M820,135 L852,118" fill="none" stroke="#666666" stroke-width="2" marker-end="url(#ah666666)"/>
+<text x="130" y="323.1" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">1. En oveckad kedja</text>
+<text x="130" y="339.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">fastnar på de vattenskygga</text>
+<text x="130" y="356.7" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">kanterna av den öppna ringen</text>
+<text x="470" y="323.1" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">2. Locket (GroES) sätts på.</text>
+<text x="470" y="339.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">Insidan blir vattenälskande, och</text>
+<text x="470" y="356.7" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">kedjan veckar sig i skydd</text>
+<text x="800" y="323.1" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">3. Locket släpper och</text>
+<text x="800" y="339.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">proteinet kommer ut. Är det inte</text>
+<text x="800" y="356.7" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">färdigt får det börja om</text>
+<text x="58" y="194.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="end" font-weight="normal" fill="#3b6ea8">GroEL</text>
+<text x="470" y="124.5" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#4a8c4a">GroES</text>
+</svg>

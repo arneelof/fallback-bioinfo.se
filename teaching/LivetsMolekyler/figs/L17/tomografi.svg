@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 400" width="940" height="400">
+<defs><marker id="ah3b6ea8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#3b6ea8"/></marker><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="170" y="29.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">1. Provet vickas</text>
+<path d="M170,48 L170,120" fill="none" stroke="#3b6ea8" stroke-width="3" marker-end="url(#ah3b6ea8)"/>
+<text x="186" y="74.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#3b6ea8">elektronstråle</text>
+<path d="M122.5,272.3 L217.5,107.7" stroke="#f8e1c8" stroke-width="3"/>
+<path d="M102.8,257.2 L237.2,122.8" stroke="#f8e1c8" stroke-width="3"/>
+<path d="M87.7,237.5 L252.3,142.5" stroke="#f8e1c8" stroke-width="3"/>
+<path d="M78.2,214.6 L261.8,165.4" stroke="#f8e1c8" stroke-width="3"/>
+<path d="M75.0,190.0 L265.0,190.0" stroke="#d9822b" stroke-width="5"/>
+<path d="M78.2,165.4 L261.8,214.6" stroke="#f8e1c8" stroke-width="3"/>
+<path d="M87.7,142.5 L252.3,237.5" stroke="#f8e1c8" stroke-width="3"/>
+<path d="M102.8,122.8 L237.2,257.2" stroke="#f8e1c8" stroke-width="3"/>
+<path d="M122.5,107.7 L217.5,272.3" stroke="#f8e1c8" stroke-width="3"/>
+<text x="170" y="308.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">fryst, tunn skiva av en cell,</text>
+<text x="170" y="325.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">vickas från −60° till +60°</text>
+<rect x="95" y="345" width="150" height="16" rx="3" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="170" y="384.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#666666">detektor: en bild per vinkel</text>
+<path d="M300,190 L380,190" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<text x="520" y="29.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">2. Många skuggbilder</text>
+<rect x="420" y="95" width="110" height="110" rx="3" fill="white" stroke="#666666" stroke-width="1.5"/>
+<circle cx="460" cy="145" r="9" fill="#eeeeee" stroke="#666666"/>
+<circle cx="495" cy="165" r="6" fill="#eeeeee" stroke="#666666"/>
+<rect x="438" y="113" width="110" height="110" rx="3" fill="white" stroke="#666666" stroke-width="1.5"/>
+<circle cx="478" cy="163" r="9" fill="#eeeeee" stroke="#666666"/>
+<circle cx="509" cy="183" r="6" fill="#eeeeee" stroke="#666666"/>
+<rect x="456" y="131" width="110" height="110" rx="3" fill="white" stroke="#666666" stroke-width="1.5"/>
+<circle cx="496" cy="181" r="9" fill="#eeeeee" stroke="#666666"/>
+<circle cx="523" cy="201" r="6" fill="#eeeeee" stroke="#666666"/>
+<rect x="474" y="149" width="110" height="110" rx="3" fill="white" stroke="#666666" stroke-width="1.5"/>
+<circle cx="514" cy="199" r="9" fill="#eeeeee" stroke="#666666"/>
+<circle cx="537" cy="219" r="6" fill="#eeeeee" stroke="#666666"/>
+<rect x="492" y="167" width="110" height="110" rx="3" fill="white" stroke="#666666" stroke-width="1.5"/>
+<circle cx="532" cy="217" r="9" fill="#eeeeee" stroke="#666666"/>
+<circle cx="551" cy="237" r="6" fill="#eeeeee" stroke="#666666"/>
+<text x="520" y="308.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">molekylerna förskjuts lite</text>
+<text x="520" y="325.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">olika mycket i varje bild</text>
+<path d="M640,190 L710,190" fill="none" stroke="#666666" stroke-width="3" marker-end="url(#ah666666)"/>
+<text x="810" y="29.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">3. Datorn räknar fram 3D</text>
+<path d="M745,125 L785,85 L905,85 L865,125 Z" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<path d="M865,125 L905,85 L905,205 L865,245 Z" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="2"/>
+<rect x="745" y="125" width="120" height="120" rx="0" fill="white" stroke="#3b6ea8" stroke-width="2"/>
+<path d="M755,165 Q805,145 855,170" stroke="#4a8c4a" stroke-width="4" fill="none"/>
+<path d="M755,185 Q805,165 855,190" stroke="#4a8c4a" stroke-width="4" fill="none"/>
+<circle cx="775" cy="215" r="7" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<circle cx="815" cy="225" r="7" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<circle cx="840" cy="213" r="7" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<circle cx="795" cy="140" r="7" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="810" y="308.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">tomogram: membran och stora</text>
+<text x="810" y="325.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">proteinkomplex på sina platser</text>
+</svg>

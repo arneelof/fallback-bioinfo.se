@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 360" width="940" height="360">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahd9822b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<circle cx="100" cy="130" r="58" fill="none" stroke="#3b6ea8" stroke-width="8"/>
+<line x1="100" y1="178" x2="100" y2="198" stroke="#b5443b" stroke-width="3"/>
+<text x="100" y="216.6" font-family="Helvetica, Arial, sans-serif" font-size="13" text-anchor="middle" font-weight="normal" fill="#b5443b">EcoRI-ställe</text>
+<text x="100" y="135.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">plasmid</text>
+<path d="M172,130 L232,130" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="202" y="112.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">klipp</text>
+<path d="M292.1,185.2 A58,58 0 1 1 327.9,185.2" fill="none" stroke="#3b6ea8" stroke-width="8" stroke-linecap="butt"/>
+<text x="310" y="126.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">öppnad</text>
+<text x="310" y="144.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">plasmid</text>
+<text x="110" y="335.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#222222">DNA kopierat från mRNA, klippt med samma enzym</text>
+<rect x="110" y="292" width="70" height="14" rx="2" fill="#666666" stroke="none" stroke-width="1.5"/>
+<rect x="190" y="292" width="55" height="14" rx="2" fill="#666666" stroke="none" stroke-width="1.5"/>
+<rect x="255" y="292" width="95" height="14" rx="2" fill="#d9822b" stroke="none" stroke-width="1.5"/>
+<rect x="360" y="292" width="60" height="14" rx="2" fill="#666666" stroke="none" stroke-width="1.5"/>
+<rect x="430" y="292" width="80" height="14" rx="2" fill="#666666" stroke="none" stroke-width="1.5"/>
+<text x="302" y="281.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#d9822b">genen</text>
+<path d="M302,262 L310,200" fill="none" stroke="#d9822b" stroke-width="2.5" marker-end="url(#ahd9822b)"/>
+<path d="M385,130 L455,130" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="420" y="104.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">klistra ihop</text>
+<text x="420" y="122.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">(ligas)</text>
+<path d="M505.5,182.6 A58,58 0 1 1 554.5,182.6" fill="none" stroke="#3b6ea8" stroke-width="8" stroke-linecap="butt"/>
+<path d="M554.5,182.6 A58,58 0 0 1 505.5,182.6" fill="none" stroke="#d9822b" stroke-width="10" stroke-linecap="butt"/>
+<text x="530" y="126.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">ny plasmid</text>
+<text x="530" y="144.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">med genen</text>
+<path d="M605,130 L680,130" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="642" y="112.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">in i</text>
+<text x="642" y="158.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#222222">bakterien</text>
+<rect x="700" y="70" width="210" height="120" rx="60" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<path d="M759.0,153.6 A26,26 0 1 1 781.0,153.6" fill="none" stroke="#3b6ea8" stroke-width="5" stroke-linecap="butt"/>
+<path d="M781.0,153.6 A26,26 0 0 1 759.0,153.6" fill="none" stroke="#d9822b" stroke-width="6" stroke-linecap="butt"/>
+<circle cx="830" cy="100" r="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="860" cy="118" r="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="835" cy="150" r="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="870" cy="160" r="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<circle cx="812" cy="128" r="7" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="805" y="230.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">Bakterien förökar sig och</text>
+<text x="805" y="250.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">tillverkar proteinet (orange)</text>
+</svg>

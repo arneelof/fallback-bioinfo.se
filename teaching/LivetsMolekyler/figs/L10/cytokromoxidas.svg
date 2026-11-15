@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" width="860" height="520">
+<defs><marker id="ah4a8c4a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a8c4a"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker><marker id="ahd9822b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#d9822b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="30" y="170" width="800" height="170" rx="0" fill="#f6efc9" stroke="none" stroke-width="1.5"/>
+<circle cx="36" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="36" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="50" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="50" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="64" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="64" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="78" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="78" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="92" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="92" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="106" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="106" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="120" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="120" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="134" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="134" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="148" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="148" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="162" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="162" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="176" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="176" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="190" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="190" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="204" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="204" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="218" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="218" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="232" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="232" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="246" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="246" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="260" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="260" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="274" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="274" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="288" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="288" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="302" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="302" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="316" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="316" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="330" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="330" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="344" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="344" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="358" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="358" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="372" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="372" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="386" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="386" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="400" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="400" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="414" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="414" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="428" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="428" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="442" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="442" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="456" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="456" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="470" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="470" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="484" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="484" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="498" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="498" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="512" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="512" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="526" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="526" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="540" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="540" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="554" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="554" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="568" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="568" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="582" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="582" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="596" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="596" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="610" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="610" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="624" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="624" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="638" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="638" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="652" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="652" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="666" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="666" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="680" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="680" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="694" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="694" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="708" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="708" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="722" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="722" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="736" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="736" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="750" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="750" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="764" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="764" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="778" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="778" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="792" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="792" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="806" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="806" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="820" cy="174" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<circle cx="820" cy="336" r="4" fill="#d8c27a" stroke="none" stroke-width="1.5"/>
+<text x="40" y="145.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#666666">Utsidan (positiv sida)</text>
+<text x="40" y="380.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="normal" fill="#666666">Insidan (negativ sida)</text>
+<rect x="260" y="110" width="360" height="290" rx="30" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="440" y="435.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#3b6ea8">cytokrom c-oxidas</text>
+<circle cx="160" cy="70" r="34" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="160" y="75.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#222222">cyt c</text>
+<circle cx="330" cy="140" r="9" fill="#4a8c4a" stroke="none" stroke-width="1.5"/>
+<circle cx="350" cy="140" r="9" fill="#4a8c4a" stroke="none" stroke-width="1.5"/>
+<text x="340" y="116.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#4a8c4a">koppar</text>
+<rect x="318" y="225" width="60" height="22" rx="4" fill="#f4c7c3" stroke="#b5443b" stroke-width="1.5"/>
+<text x="348" y="266.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#b5443b">hem</text>
+<rect x="450" y="245" width="60" height="22" rx="4" fill="#f4c7c3" stroke="#b5443b" stroke-width="1.5"/>
+<circle cx="535" cy="240" r="9" fill="#4a8c4a" stroke="none" stroke-width="1.5"/>
+<text x="395" y="296.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#b5443b">hem + koppar:</text>
+<text x="395" y="313.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#b5443b">här binder syret</text>
+<path d="M195,72 Q266.1,85.5 318,136" fill="none" stroke="#d9822b" stroke-width="3" marker-end="url(#ahd9822b)"/>
+<text x="255" y="74.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#d9822b">elektroner</text>
+<path d="M340,152 L345,220" fill="none" stroke="#d9822b" stroke-width="3" marker-end="url(#ahd9822b)"/>
+<path d="M380,236 L445,252" fill="none" stroke="#d9822b" stroke-width="3" marker-end="url(#ahd9822b)"/>
+<path d="M120,255 L440,256" fill="none" stroke="#4a8c4a" stroke-width="3" marker-end="url(#ah4a8c4a)"/>
+<text x="110" y="241.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="start" font-weight="bold" fill="#4a8c4a">O2 (syre)</text>
+<path d="M545,228 L640,192" fill="none" stroke="#4a8c4a" stroke-width="2.5" marker-end="url(#ah4a8c4a)"/>
+<text x="705" y="193.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#4a8c4a">2 H2O (vatten)</text>
+<path d="M480,480 L480,272" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<text x="480" y="504.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#b5443b">4 H+ till vattnet</text>
+<path d="M570,480 L570,40" fill="none" stroke="#b5443b" stroke-width="3" marker-end="url(#ahb5443b)"/>
+<text x="675" y="466.5" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#b5443b">4 H+ pumpas</text>
+<text x="675" y="483.3" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#b5443b">över membranet</text>
+<text x="640" y="45.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#b5443b">H+</text>
+<text x="440" y="27.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="middle" font-weight="bold" fill="#222222">För varje syremolekyl: 4 elektroner och 8 protoner</text>
+</svg>

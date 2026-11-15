@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<line x1="30" y1="120" x2="870" y2="120" stroke="#666666" stroke-width="6"/>
+<text x="865" y="157.9" font-family="Helvetica, Arial, sans-serif" font-size="17" text-anchor="end" font-weight="bold" fill="#222222">DNA</text>
+<rect x="90.0" y="100.0" width="120" height="40" rx="6" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="1.5"/>
+<text x="150" y="125.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">promotor</text>
+<rect x="225.0" y="100.0" width="150" height="40" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="300" y="125.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">gen A</text>
+<rect x="385.0" y="100.0" width="150" height="40" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="460" y="125.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">gen B</text>
+<rect x="545.0" y="100.0" width="150" height="40" rx="6" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="620" y="125.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">gen C</text>
+<rect x="715.0" y="100.0" width="110" height="40" rx="6" fill="#f4d4d0" stroke="#b5443b" stroke-width="1.5"/>
+<text x="770" y="125.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">terminator</text>
+<ellipse cx="150" cy="70" rx="72" ry="26" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="2"/>
+<text x="150" y="74.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="bold" fill="#4a8c4a">RNA-polymeras</text>
+<text x="150" y="26.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#4a8c4a">binder här (start)</text>
+<path d="M230,70 L700,70" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="465" y="57.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#666666">transkription</text>
+<text x="770" y="74.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#b5443b">stopp</text>
+<line x1="220" y1="230" x2="380" y2="230" stroke="#3b6ea8" stroke-width="8"/>
+<line x1="380" y1="230" x2="540" y2="230" stroke="#d9822b" stroke-width="8"/>
+<line x1="540" y1="230" x2="700" y2="230" stroke="#7a4f9a" stroke-width="8"/>
+<text x="210" y="235.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="end" font-weight="bold" fill="#7a4f9a">mRNA</text>
+<text x="465" y="266.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" font-style="italic" fill="#666666">ett enda mRNA för alla tre generna</text>
+<ellipse cx="270" cy="216" rx="26" ry="18" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="2"/>
+<path d="M300,280 L300,325" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<rect x="235.0" y="335.0" width="130" height="40" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="300" y="360.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">protein A</text>
+<ellipse cx="430" cy="216" rx="26" ry="18" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="2"/>
+<path d="M460,280 L460,325" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<rect x="395.0" y="335.0" width="130" height="40" rx="6" fill="#f8e1c8" stroke="#d9822b" stroke-width="1.5"/>
+<text x="460" y="360.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">protein B</text>
+<ellipse cx="590" cy="216" rx="26" ry="18" fill="#d6ecd2" stroke="#4a8c4a" stroke-width="2"/>
+<path d="M620,280 L620,325" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<rect x="555.0" y="335.0" width="130" height="40" rx="6" fill="#e6dcf0" stroke="#7a4f9a" stroke-width="1.5"/>
+<text x="620" y="360.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="normal" fill="#222222">protein C</text>
+<text x="712" y="220.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="start" font-weight="normal" fill="#4a8c4a">ribosomer</text>
+</svg>

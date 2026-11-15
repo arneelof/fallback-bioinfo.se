@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 230" width="860" height="230">
+<defs><marker id="ah666666" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#666666"/></marker><marker id="ahb5443b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b5443b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="16.0" y="125.0" width="108" height="50" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="70" y="155.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">treonin</text>
+<path d="M126,150 L156,150" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="142.0" y="133.2" font-family="Helvetica, Arial, sans-serif" font-size="15" text-anchor="middle" font-weight="bold" fill="#b5443b">E1</text>
+<rect x="160.0" y="125.0" width="108" height="50" rx="6" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="214" y="155.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">B</text>
+<path d="M270,150 L300,150" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="286.0" y="132.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">E2</text>
+<rect x="304.0" y="125.0" width="108" height="50" rx="6" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="358" y="155.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">C</text>
+<path d="M414,150 L444,150" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="430.0" y="132.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">E3</text>
+<rect x="448.0" y="125.0" width="108" height="50" rx="6" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="502" y="155.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">D</text>
+<path d="M558,150 L588,150" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="574.0" y="132.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">E4</text>
+<rect x="592.0" y="125.0" width="108" height="50" rx="6" fill="#eeeeee" stroke="#666666" stroke-width="1.5"/>
+<text x="646" y="155.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#222222">E</text>
+<path d="M702,150 L732,150" fill="none" stroke="#666666" stroke-width="2.5" marker-end="url(#ah666666)"/>
+<text x="718.0" y="132.9" font-family="Helvetica, Arial, sans-serif" font-size="14" text-anchor="middle" font-weight="normal" fill="#666666">E5</text>
+<rect x="736.0" y="125.0" width="108" height="50" rx="6" fill="#cfe0f3" stroke="#3b6ea8" stroke-width="1.5"/>
+<text x="790" y="155.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="bold" fill="#222222">isoleucin</text>
+<path d="M790,124 Q471.9,39.2 150,108" fill="none" stroke="#b5443b" stroke-width="3" stroke-dasharray="7,5" marker-end="url(#ahb5443b)"/>
+<text x="430" y="45.6" font-family="Helvetica, Arial, sans-serif" font-size="16" text-anchor="middle" font-weight="normal" fill="#b5443b">Slutprodukten isoleucin stänger av det första enzymet (E1)</text>
+</svg>
